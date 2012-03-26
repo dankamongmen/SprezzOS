@@ -1,0 +1,2813 @@
+# Debian GNU/Linux Installation Guide
+msgid ""
+msgstr ""
+"Project-Id-Version: d-i-manual\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-29 05:56+0000\n"
+"PO-Revision-Date: 2010-11-04 16:56+0800\n"
+"Last-Translator: Ji YongGang <jungleji@gmail.com>\n"
+"Language-Team: debian-chinese-gb <debian-chinese-gb@lists.debian.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#: hardware.xml:5
+#, no-c-format
+msgid "System Requirements"
+msgstr "系统需求"
+
+#. Tag: para
+#: hardware.xml:7
+#, no-c-format
+msgid ""
+"This section contains information about what hardware you need to get "
+"started with &debian;. You will also find links to further information about "
+"hardware supported by GNU and &arch-kernel;."
+msgstr ""
+"本章包括运行 &debian; 所需硬件的信息。您还能找到更多有关 GNU 和 &arch-"
+"kernel; 所支持硬件的信息的链接。"
+
+#. Tag: title
+#: hardware.xml:20
+#, no-c-format
+msgid "Supported Hardware"
+msgstr "支持的硬件"
+
+#. Tag: para
+#: hardware.xml:21
+#, no-c-format
+msgid ""
+"&debian; does not impose hardware requirements beyond the requirements of "
+"the Linux or kFreeBSD kernel and the GNU tool-sets. Therefore, any "
+"architecture or platform to which the Linux or kFreeBSD kernel, libc, "
+"<command>gcc</command>, etc. have been ported, and for which a &debian; port "
+"exists, can run &debian;. Please refer to the Ports pages at <ulink url="
+"\"&url-ports;\"></ulink> for more details on &arch-title; architecture "
+"systems which have been tested with &debian-gnu;."
+msgstr ""
+"&debian; 不会超出 Linux 内核与 GNU 工具集所支持的硬件范围之外。因此，任何被移"
+"植了 Linux 内核、libc、<command>gcc</command> 等，并拥有对应的 &debian; 移植"
+"版的硬件体系或平台都可以运行 &debian;。请参考移植页面 <ulink url=\"&url-"
+"ports;\"></ulink> 以了解更多已被 &debian-gnu; 测试过的 &arch-title; 体系。"
+
+#. Tag: para
+#: hardware.xml:32
+#, no-c-format
+msgid ""
+"Rather than attempting to describe all the different hardware configurations "
+"which are supported for &arch-title;, this section contains general "
+"information and pointers to where additional information can be found."
+msgstr ""
+"本章仅包含一些通用的信息，以及在何处可以获得更多信息的指导，而不是试图列出支"
+"持 &arch-title; 的所有不同硬件配置。"
+
+#. Tag: title
+#: hardware.xml:41
+#, no-c-format
+msgid "Supported Architectures"
+msgstr "支持的体系"
+
+#. Tag: para
+#: hardware.xml:42
+#, no-c-format
+msgid ""
+"&debian; GNU/Linux &release; supports eleven major architectures and several "
+"variations of each architecture known as <quote>flavors</quote>."
+msgstr ""
+"&debian; GNU/Linux &release; 支持十一种主要的体系和一些称为 <quote>flavors</"
+"quote> 的衍生品种。"
+
+#. Tag: entry
+#: hardware.xml:53 hardware.xml:179
+#, no-c-format
+msgid "Architecture"
+msgstr "体系"
+
+#. Tag: entry
+#: hardware.xml:53 hardware.xml:179
+#, no-c-format
+msgid "&debian; Designation"
+msgstr "&debian; 命名"
+
+#. Tag: entry
+#: hardware.xml:54
+#, no-c-format
+msgid "Subarchitecture"
+msgstr "子体系"
+
+#. Tag: entry
+#: hardware.xml:54
+#, no-c-format
+msgid "Flavor"
+msgstr "Flavor"
+
+#. Tag: entry
+#: hardware.xml:60 hardware.xml:185
+#, no-c-format
+msgid "Intel x86-based"
+msgstr "Intel x86-based"
+
+#. Tag: entry
+#: hardware.xml:61
+#, no-c-format
+msgid "i386"
+msgstr "i386"
+
+#. Tag: entry
+#: hardware.xml:67 hardware.xml:190
+#, no-c-format
+msgid "AMD64 &amp; Intel EM64T"
+msgstr "AMD64 &amp; Intel EM64T"
+
+#. Tag: entry
+#: hardware.xml:68
+#, no-c-format
+msgid "amd64"
+msgstr "amd64"
+
+#. Tag: entry
+#: hardware.xml:74
+#, no-c-format
+msgid "<entry>ARM</entry>"
+msgstr "<entry>ARM</entry>"
+
+#. Tag: entry
+#: hardware.xml:75
+#, no-c-format
+msgid "armel"
+msgstr "armel"
+
+#. Tag: entry
+#: hardware.xml:76
+#, no-c-format
+msgid "Intel IOP32x"
+msgstr "Intel IOP32x"
+
+#. Tag: entry
+#: hardware.xml:77
+#, no-c-format
+msgid "iop32x"
+msgstr "iop32x"
+
+#. Tag: entry
+#: hardware.xml:79
+#, no-c-format
+msgid "Intel IXP4xx"
+msgstr "Intel IXP4xx"
+
+#. Tag: entry
+#: hardware.xml:80
+#, no-c-format
+msgid "ixp4xx"
+msgstr "ixp4xx"
+
+#. Tag: entry
+#: hardware.xml:82
+#, no-c-format
+msgid "Marvell Kirkwood"
+msgstr "Marvell Kirkwood"
+
+#. Tag: entry
+#: hardware.xml:83
+#, no-c-format
+msgid "kirkwood"
+msgstr "kirkwood"
+
+#. Tag: entry
+#: hardware.xml:85
+#, no-c-format
+msgid "Marvell Orion"
+msgstr "Marvell Orion"
+
+#. Tag: entry
+#: hardware.xml:86
+#, no-c-format
+msgid "orion5x"
+msgstr "orion5x"
+
+#. Tag: entry
+#: hardware.xml:88
+#, no-c-format
+msgid "<entry>Versatile</entry>"
+msgstr "<entry>Versatile</entry>"
+
+#. Tag: entry
+#: hardware.xml:89
+#, no-c-format
+msgid "versatile"
+msgstr "versatile"
+
+#. Tag: entry
+#: hardware.xml:93
+#, no-c-format
+msgid "HP PA-RISC"
+msgstr "HP PA-RISC"
+
+#. Tag: entry
+#: hardware.xml:94
+#, no-c-format
+msgid "hppa"
+msgstr "hppa"
+
+#. Tag: entry
+#: hardware.xml:95
+#, no-c-format
+msgid "PA-RISC 1.1"
+msgstr "PA-RISC 1.1"
+
+#. Tag: entry
+#: hardware.xml:96
+#, no-c-format
+msgid "<entry>32</entry>"
+msgstr "<entry>32</entry>"
+
+#. Tag: entry
+#: hardware.xml:98
+#, no-c-format
+msgid "PA-RISC 2.0"
+msgstr "PA-RISC 2.0"
+
+#. Tag: entry
+#: hardware.xml:99
+#, no-c-format
+msgid "<entry>64</entry>"
+msgstr "<entry>64</entry>"
+
+#. Tag: entry
+#: hardware.xml:103
+#, no-c-format
+msgid "Intel IA-64"
+msgstr "Intel IA-64"
+
+#. Tag: entry
+#: hardware.xml:104
+#, no-c-format
+msgid "ia64"
+msgstr "ia64"
+
+#. Tag: entry
+#: hardware.xml:110
+#, no-c-format
+msgid "MIPS (big endian)"
+msgstr "MIPS (big endian)"
+
+#. Tag: entry
+#: hardware.xml:111
+#, no-c-format
+msgid "mips"
+msgstr "mips"
+
+#. Tag: entry
+#: hardware.xml:112
+#, no-c-format
+msgid "SGI IP22 (Indy/Indigo 2)"
+msgstr "SGI IP22 (Indy/Indigo 2)"
+
+#. Tag: entry
+#: hardware.xml:113
+#, no-c-format
+msgid "r4k-ip22"
+msgstr "r4k-ip22"
+
+#. Tag: entry
+#: hardware.xml:115
+#, no-c-format
+msgid "SGI IP32 (O2)"
+msgstr "SGI IP32 (O2)"
+
+#. Tag: entry
+#: hardware.xml:116
+#, no-c-format
+msgid "r5k-ip32"
+msgstr "r5k-ip32"
+
+#. Tag: entry
+#: hardware.xml:118 hardware.xml:131
+#, no-c-format
+msgid "MIPS Malta (32 bit)"
+msgstr "MIPS Malta (32 bit)"
+
+#. Tag: entry
+#: hardware.xml:119 hardware.xml:132
+#, no-c-format
+msgid "4kc-malta"
+msgstr "4kc-malta"
+
+#. Tag: entry
+#: hardware.xml:121 hardware.xml:134
+#, no-c-format
+msgid "MIPS Malta (64 bit)"
+msgstr "MIPS Malta (64 bit)"
+
+#. Tag: entry
+#: hardware.xml:122 hardware.xml:135
+#, no-c-format
+msgid "5kc-malta"
+msgstr "5kc-malta"
+
+#. Tag: entry
+#: hardware.xml:126
+#, no-c-format
+msgid "MIPS (little endian)"
+msgstr "MIPS (little endian)"
+
+#. Tag: entry
+#: hardware.xml:127
+#, no-c-format
+msgid "mipsel"
+msgstr "mipsel"
+
+#. Tag: entry
+#: hardware.xml:128
+#, no-c-format
+msgid "Cobalt"
+msgstr "Cobalt"
+
+#. Tag: entry
+#: hardware.xml:129
+#, no-c-format
+msgid "cobalt"
+msgstr "cobalt"
+
+#. Tag: entry
+#: hardware.xml:139
+#, no-c-format
+msgid "IBM/Motorola PowerPC"
+msgstr "IBM/Motorola PowerPC"
+
+#. Tag: entry
+#: hardware.xml:140
+#, no-c-format
+msgid "<entry>powerpc</entry>"
+msgstr "<entry>powerpc</entry>"
+
+#. Tag: entry
+#: hardware.xml:141
+#, no-c-format
+msgid "PowerMac"
+msgstr "PowerMac"
+
+#. Tag: entry
+#: hardware.xml:142
+#, no-c-format
+msgid "pmac"
+msgstr "pmac"
+
+#. Tag: entry
+#: hardware.xml:144
+#, no-c-format
+msgid "PReP"
+msgstr "PReP"
+
+#. Tag: entry
+#: hardware.xml:145
+#, no-c-format
+msgid "prep"
+msgstr "prep"
+
+#. Tag: entry
+#: hardware.xml:149
+#, no-c-format
+msgid "Sun SPARC"
+msgstr "Sun SPARC"
+
+#. Tag: entry
+#: hardware.xml:150
+#, no-c-format
+msgid "sparc"
+msgstr "sparc"
+
+#. Tag: entry
+#: hardware.xml:151
+#, no-c-format
+msgid "<entry>sun4u</entry>"
+msgstr "<entry>sun4u</entry>"
+
+#. Tag: entry
+#: hardware.xml:152
+#, no-c-format
+msgid "sparc64"
+msgstr "sparc64"
+
+#. Tag: entry
+#: hardware.xml:154
+#, no-c-format
+msgid "<entry>sun4v</entry>"
+msgstr "<entry>sun4v</entry>"
+
+#. Tag: entry
+#: hardware.xml:158
+#, no-c-format
+msgid "IBM S/390"
+msgstr "IBM S/390"
+
+#. Tag: entry
+#: hardware.xml:159
+#, no-c-format
+msgid "s390"
+msgstr "s390"
+
+#. Tag: entry
+#: hardware.xml:160
+#, no-c-format
+msgid "IPL from VM-reader and DASD"
+msgstr "来自 VM-reader 和 DASD 的 IPL"
+
+#. Tag: entry
+#: hardware.xml:161
+#, no-c-format
+msgid "generic"
+msgstr "generic"
+
+#. Tag: entry
+#: hardware.xml:163
+#, no-c-format
+msgid "IPL from tape"
+msgstr "来自 tape 的 IPL"
+
+#. Tag: entry
+#: hardware.xml:164
+#, no-c-format
+msgid "tape"
+msgstr "type"
+
+#. Tag: para
+#: hardware.xml:169
+#, no-c-format
+msgid "&debian; GNU/kFreeBSD &release; supports two architectures."
+msgstr "&debian; GNU/kFreeBSD &release; 支持两种架构。"
+
+#. Tag: entry
+#: hardware.xml:186
+#, no-c-format
+msgid "kfreebsd-i386"
+msgstr "kfreebsd-i386"
+
+#. Tag: entry
+#: hardware.xml:191
+#, no-c-format
+msgid "kfreebsd-amd64"
+msgstr "kfreebsd-amd64"
+
+#. Tag: para
+#: hardware.xml:196
+#, no-c-format
+msgid ""
+"This document covers installation for the <emphasis>&arch-title;</emphasis> "
+"architecture using the <emphasis>&arch-kernel;</emphasis> kernel. If you are "
+"looking for information on any of the other &debian;-supported architectures "
+"take a look at the <ulink url=\"http://www.debian.org/ports/\">&debian;-"
+"Ports</ulink> pages."
+msgstr ""
+"本文档主要讲述的是 <emphasis>&arch-title;</emphasis> 体系下的安装。如果您在寻"
+"找其他 &debian; 所支持的体系的信息，请访问 <ulink url=\"http://www.debian."
+"org/ports/\">&debian;-Ports</ulink> 网页。"
+
+#. Tag: para
+#: hardware.xml:206
+#, no-c-format
+msgid ""
+"The &arch-title; architecture only supports Intel Itanium processors and not "
+"the much more common 64-bit processors from the EM64T family (including e.g. "
+"the Pentium&nbsp;D and the Core2&nbsp;Duo). Those systems are supported by "
+"the <emphasis>amd64</emphasis> architecture or, if you prefer a 32-bit "
+"userland, the <emphasis>i386</emphasis> architecture."
+msgstr ""
+"&arch-title; 体系只支持 Intel Itanium 处理器，而不是常见的属于 EM64T 家族的 "
+"64 位处理器(包括像 Pentium&nbsp;D 和 Core2&nbsp;Duo)。它们是被 "
+"<emphasis>amd64</emphasis> 体系支持。如果您希望使用 32 位系统，可以选择 "
+"<emphasis>i386</emphasis> 体系。"
+
+#. Tag: para
+#: hardware.xml:216
+#, no-c-format
+msgid ""
+"This is the first official release of &debian-gnu; for the &arch-title; "
+"architecture. We feel that it has proven itself sufficiently to be released. "
+"However, because it has not had the exposure (and hence testing by users) "
+"that some other architectures have had, you may encounter a few bugs. Use "
+"our <ulink url=\"&url-bts;\">Bug Tracking System</ulink> to report any "
+"problems; make sure to mention the fact that the bug is on the &arch-title; "
+"platform using the <emphasis>&arch-kernel;</emphasis> kernel. It can be "
+"necessary to use the <ulink url=\"&url-list-subscribe;\">debian-&arch-"
+"listname; mailing list</ulink> as well."
+msgstr ""
+"此为第一个 &arch-title; 体系的 &debian-gnu; 正式发布版。我们认为它已经达到了"
+"可发布的质量要求。但是，由于它没有像其他体系那样得到足够的曝光(经过用户测"
+"试)，您可能会遇到一些 bug。请使用我们的 <ulink url=\"&url-bts;\">Bug 跟踪系统"
+"</ulink> 来报告问题，并注明该 bug 是在 &arch-title; 平台上使用 "
+"<emphasis>&arch-kernel;</emphasis> 内核产生的。当然，您也可以用 <ulink url="
+"\"&url-list-subscribe;\">debian-&arch-listname; 邮件列表</ulink> 来进行讨论。"
+
+# index.docbook:224, index.docbook:683, index.docbook:780, index.docbook:799, index.docbook:842, index.docbook:884, index.docbook:938, index.docbook:1085, index.docbook:1491
+#. Tag: title
+#: hardware.xml:239 hardware.xml:275 hardware.xml:381 hardware.xml:400
+#: hardware.xml:483 hardware.xml:541 hardware.xml:594
+#, no-c-format
+msgid "CPU, Main Boards, and Video Support"
+msgstr "CPU，主板和视频支持"
+
+#. Tag: para
+#: hardware.xml:240 hardware.xml:401
+#, no-c-format
+msgid ""
+"Complete information concerning supported peripherals can be found at <ulink "
+"url=\"&url-hardware-howto;\">Linux Hardware Compatibility HOWTO</ulink>. "
+"This section merely outlines the basics."
+msgstr ""
+"完整的周边设备支持情况信息可以在 <ulink url=\"&url-hardware-howto;\">Linux "
+"Hardware Compatibility HOWTO</ulink> 中找到。本节只是基本的概况。"
+
+# index.docbook:808, index.docbook:914
+#. Tag: title
+#: hardware.xml:248 hardware.xml:409 hardware.xml:518
+#, no-c-format
+msgid "<title>CPU</title>"
+msgstr "<title>CPU</title>"
+
+#. Tag: para
+#: hardware.xml:249
+#, no-c-format
+msgid "Both AMD64 and Intel EM64T processors are supported."
+msgstr "AMD64 和 Intel EM64T 处理器都获得支持。"
+
+#. Tag: para
+#: hardware.xml:277
+#, no-c-format
+msgid ""
+"Each distinct ARM architecture requires its own kernel. Because of this the "
+"standard &debian; distribution only supports installation on a number of the "
+"most common platforms. The &debian; userland however may be used by "
+"<emphasis>any</emphasis> ARM CPU."
+msgstr ""
+"每种 ARM 体系要求使用各自的内核，正因为如此，&debian; 标准发布版只支持安装到"
+"一些最常见的系统上。但 &debian; userland 仍然可以用在<emphasis>任何</"
+"emphasis> ARM CPU 上。"
+
+#. Tag: para
+#: hardware.xml:286
+#, no-c-format
+msgid ""
+"Most ARM CPUs may be run in either endian mode (big or little). However, the "
+"majority of current system implementation uses little-endian mode. &debian; "
+"currently only supports little-endian ARM systems."
+msgstr ""
+"大多数的 ARM CPU 可以运行在(big 或 little)任一 endian 模式下。但是当前绝大多"
+"少系统的实现都是使用 little-endian 模式。&debian; 现在也仅支持 little-endian "
+"ARM 系统。"
+
+#. Tag: para
+#: hardware.xml:294
+#, no-c-format
+msgid "The supported platforms are:"
+msgstr "获得支持的平台有："
+
+#. Tag: term
+#: hardware.xml:301
+#, no-c-format
+msgid "IOP32x"
+msgstr "IOP32x"
+
+#. Tag: para
+#: hardware.xml:302
+#, no-c-format
+msgid ""
+"Intel's I/O Processor (IOP) line is found in a number of products related to "
+"data storage and processing. &debian; currently supports the IOP32x "
+"platform, featuring the IOP 80219 and 32x chips commonly found in Network "
+"Attached Storage (NAS) devices. &debian; explicitly supports two such "
+"devices: the <ulink url=\"&url-arm-cyrius-glantank;\">GLAN Tank</ulink> from "
+"IO-Data and the <ulink url=\"&url-arm-cyrius-n2100;\">Thecus N2100</ulink>."
+msgstr ""
+"Intel I/O Processor (IOP) 产品线可以在一些数据存储和处理的产品中找到。"
+"&debian; 当前支持 IOP32x 平台，IOP 80219 和 32x 芯片通常在 Network Attached "
+"Storage (NAS) 设备上找到。&debian; 明确支持两种设备：IO-Data 的 <ulink url="
+"\"&url-arm-cyrius-glantank;\">GLAN Tank</ulink> 和 <ulink url=\"&url-arm-"
+"cyrius-n2100;\">Thecus N2100</ulink>。"
+
+#. Tag: term
+#: hardware.xml:315
+#, no-c-format
+msgid "IXP4xx"
+msgstr "IXP4xx"
+
+#. Tag: para
+#: hardware.xml:316
+#, no-c-format
+msgid ""
+"The IXP4xx platform is based on Intel's XScale ARM core. Currently, only one "
+"IXP4xx based system is supported, the Linksys NSLU2. The Linksys NSLU2 "
+"(Network Storage Link for USB 2.0 Disk Drives) is a small device which "
+"allows you to easily provide storage via the network. It comes with an "
+"Ethernet connection and two USB ports to which hard drives can be connected. "
+"There is an external site with <ulink url=\"&url-arm-cyrius-nslu2;"
+"\">installation instructions</ulink>."
+msgstr ""
+"IXP4xx 平台基于 Intel XScale ARM 核心。当前，只有一个基于 IXP4xx 的系统被支"
+"持，Linksys NSLU2。Linksys NSLU2 (Network Storage Link for USB 2.0 Disk "
+"Drives) 是一个通过网络提供易用存储的小型设备。它提供了一个以太网接口和两个 "
+"USB 端口来连接硬盘。这里有一个外部网站 <ulink url=\"&url-arm-cyrius-nslu2;"
+"\">installation instructions</ulink>。"
+
+#. Tag: term
+#: hardware.xml:330
+#, no-c-format
+msgid "Kirkwood"
+msgstr "Kirkwood"
+
+#. Tag: para
+#: hardware.xml:331
+#, no-c-format
+msgid ""
+"Kirkwood is a system on a chip (SoC) from Marvell that integrates an ARM "
+"CPU, Ethernet, SATA, USB, and other functionality in one chip. We currently "
+"support the following Kirkwood based devices: OpenRD (OpenRD-Base and OpenRD-"
+"Client), <ulink url=\"&url-arm-cyrius-sheevaplug;\">SheevaPlug</ulink> and "
+"<ulink url=\"&url-arm-cyrius-qnap-kirkwood;\">QNAP Turbo Station</ulink> "
+"(TS-110, TS-119, TS-210, TS-219 and TS-219P; the TS-410 and TS-419P are not "
+"yet supported)."
+msgstr ""
+"Kirkwood 是 Marvell 的 SoC (system on a chip) 产品，该芯片上集成了 ARM CPU、"
+"Ethernet、SATA、USB，以及一些其他的功能。当前我们能支持以下几种基于 Kirkwood "
+"的设备： OpenRD (OpenRD-Base 和 OpenRD-Client)、<ulink url=\"&url-arm-cyrius-"
+"sheevaplug;\">SheevaPlug</ulink> 和 <ulink url=\"&url-arm-cyrius-qnap-"
+"kirkwood;\">QNAP Turbo Station</ulink> (TS-110, TS-119, TS-210, TS-219 和 "
+"TS-219P; TS-410 和 TS-419P 仍然不被支持)。"
+
+#. Tag: term
+#: hardware.xml:346
+#, no-c-format
+msgid "Orion5x"
+msgstr "Orion5x"
+
+#. Tag: para
+#: hardware.xml:347
+#, no-c-format
+msgid ""
+"Orion is a system on a chip (SoC) from Marvell that integrates an ARM CPU, "
+"Ethernet, SATA, USB, and other functionality in one chip. There are many "
+"Network Attached Storage (NAS) devices on the market that are based on an "
+"Orion chip. We currently support the following Orion based devices: <ulink "
+"url=\"&url-arm-cyrius-kuroboxpro;\">Buffalo Kurobox</ulink>, <ulink url="
+"\"&url-arm-cyrius-mv2120;\">HP mv2120</ulink>, <ulink url=\"&url-arm-cyrius-"
+"qnap;\">QNAP Turbo Station</ulink> (TS-109, TS-209 and TS-409)."
+msgstr ""
+"Orion 是 Marvell 的 SoC (system on a chip) 产品，芯片上集成了 ARM CPU、以太"
+"网、SATA、USB，以及一些其他的功能。现在市场上有很多 NAS (Network Attached "
+"Storage) 设备基于 Orion 芯片。我们能支持以下几种基于 Orion 的设备： <ulink "
+"url=\"&url-arm-cyrius-kuroboxpro;\">Buffalo Kurobox</ulink>、<ulink url="
+"\"&url-arm-cyrius-mv2120;\">HP mv2120</ulink>、 <ulink url=\"&url-arm-cyrius-"
+"qnap;\">QNAP Turbo Station</ulink> (TS-109, TS-209 and TS-409)。"
+
+#. Tag: term
+#: hardware.xml:362
+#, no-c-format
+msgid "<term>Versatile</term>"
+msgstr "<term>Versatile</term>"
+
+#. Tag: para
+#: hardware.xml:363
+#, no-c-format
+msgid ""
+"The Versatile platform is emulated by QEMU and is therefore a nice way to "
+"test and run &debian; on ARM if you don't have the hardware."
+msgstr ""
+"Versatile 平台由 QEMU 模拟，如果您没有硬件设备，用它来测试运行在 ARM 上的 "
+"&debian; 是一个不错的方法。"
+
+#. Tag: para
+#: hardware.xml:382
+#, no-c-format
+msgid ""
+"There are two major support <emphasis>&architecture;</emphasis> flavors: PA-"
+"RISC 1.1 and PA-RISC 2.0. The PA-RISC 1.1 architecture is targeted at 32-bit "
+"processors whereas the 2.0 architecture is targeted to the 64-bit "
+"processors. Some systems are able to run either kernel. In both cases, the "
+"userland is 32-bit. There is the possibility of a 64-bit userland in the "
+"future."
+msgstr ""
+"有两个主要支持的 <emphasis>&architecture;</emphasis> 变种：PA-RISC 1.1 和 PA-"
+"RISC 2.0。PA-RISC 1.1 体系目标是 32 位处理器，而 2.0 体系目标是 64 位处理器。"
+"有一些系统可以运行任一种内核。两者的 userland 都是 32 位的。将来也许会有 64 "
+"位的 userland。"
+
+#. Tag: para
+#: hardware.xml:410
+#, no-c-format
+msgid ""
+"Nearly all x86-based (IA-32) processors still in use in personal computers "
+"are supported, including all varieties of Intel's \"Pentium\" series. This "
+"also includes 32-bit AMD and VIA (former Cyrix) processors, and processors "
+"like the Athlon XP and Intel P4 Xeon."
+msgstr ""
+"几乎所有个人计算机中基于 x86 (IA-32) 的处理器都支持，包括所有的 Intel "
+"\"Pentium\" 系列变种。还包括 32 位 AMD 和 VIA (前身是 Cyrix) 处理器，以及像 "
+"Athlon XP 和 Intel P4 Xeon 这些处理器。"
+
+#. Tag: para
+#: hardware.xml:417
+#, no-c-format
+msgid ""
+"However, &debian; GNU/Linux &releasename; will <emphasis>not</emphasis> run "
+"on 386 or earlier processors. Despite the architecture name \"i386\", "
+"support for actual 80386 processors (and their clones) was dropped with the "
+"Sarge (r3.1) release of &debian;<footnote> <para> We have long tried to "
+"avoid this, but in the end it was necessary due a unfortunate series of "
+"issues with the compiler and the kernel, starting with an bug in the C++ ABI "
+"provided by GCC. You should still be able to run &debian; GNU/Linux on "
+"actual 80386 processors if you compile your own kernel and compile all "
+"packages from source, but that is beyond the scope of this manual. </para> </"
+"footnote>. (No version of Linux has ever supported the 286 or earlier chips "
+"in the series.) All i486 and later processors are still supported<footnote> "
+"<para> Many &debian; packages will actually run slightly faster on modern "
+"computers as a positive side effect of dropping support for these old chips. "
+"The i486, introduced in 1989, has three opcodes (bswap, cmpxchg, and xadd) "
+"which the i386, introduced in 1986, did not have. Previously, these could "
+"not be easily used by most &debian; packages; now they can. </para> </"
+"footnote>."
+msgstr ""
+"然而，&debian; GNU/Linux &releasename; 将<emphasis>不能</emphasis>运行在 386 "
+"或更早的处理器上。尽管体系命名为 \"i386\"，&debian; 的 Sarge (r3.1) 版已经"
+"<emphasis>放弃</emphasis>对真正的 80386 处理器(以及它们的克隆)的支持"
+"<footnote> <para> 我们已经尽力避免，但由于编译器和内核的一系列因素，起因是 "
+"GCC 提供的 C++ ABI 的 bug，最终只能如此。如果您自己动手从源码编译内核和所有的"
+"软件包，仍然可以将 &debian; GNU/Linux 运行在真正的 80386 处理器上，这部分内容"
+"超出了本手册的范畴。</para> </footnote>。(Linux 从来没有任何版本支持 286 或更"
+"早的芯片。) 所有的 i486 和后续的处理器仍然支持<footnote> <para> 许多 "
+"&debian; 软件包在新的计算机上可以运行地稍微快一点，但另一方面却舍弃了对旧芯片"
+"的支持。1989 年发布的 i486 有三个 opcode (bswap、cmpxchg 和 xadd)，然而 1986 "
+"年发布的 i386 却没有。过去多数 &debian; 软件包不能使用它们，现在没有这个问题"
+"了。</para> </footnote>。"
+
+#. Tag: para
+#: hardware.xml:450
+#, no-c-format
+msgid ""
+"If your system has a 64-bit processor from the AMD64 or Intel EM64T "
+"families, you will probably want to use the installer for the amd64 "
+"architecture instead of the installer for the (32-bit) i386 architecture."
+msgstr ""
+"假如您的系统中有 64 位 AMD64、Intel EM64T 家族的处理器，那么您该用 amd64 架构"
+"的安装程序替代 (32位) i386 架构的安装程序。"
+
+#. Tag: title
+#: hardware.xml:459
+#, no-c-format
+msgid "I/O Bus"
+msgstr "I/O 总线"
+
+#. Tag: para
+#: hardware.xml:460
+#, no-c-format
+msgid ""
+"The system bus is the part of the motherboard which allows the CPU to "
+"communicate with peripherals such as storage devices. Your computer must use "
+"the ISA, EISA, PCI, PCIe, PCI-X, or VESA Local Bus (VLB, sometimes called "
+"the VL bus). Essentially all personal computers sold in recent years use one "
+"of these."
+msgstr ""
+"系统总线作为主板的一部分用于 CPU 和诸如存储设备之类的周边设备通讯。您的计算机"
+"必须使用 ISA、EISA、PCI、PCIe、PCI-X 或者 VESA Local Bus(VLB, 有时称为 VL 总"
+"线)。近年来出售的个人电脑都会使用里面的一种。"
+
+#. Tag: para
+#: hardware.xml:484
+#, no-c-format
+msgid ""
+"&debian; on &arch-title; supports the following platforms: <itemizedlist> "
+"<listitem><para> SGI IP22: this platform includes the SGI machines Indy, "
+"Indigo 2 and Challenge S. Since these machines are very similar, whenever "
+"this document refers to the SGI Indy, the Indigo 2 and Challenge S are meant "
+"as well. </para></listitem> <listitem><para> SGI IP32: this platform is "
+"generally known as SGI O2. </para></listitem> <listitem><para> MIPS Malta: "
+"this platform is emulated by QEMU and is therefore a nice way to test and "
+"run &debian; on MIPS if you don't have the hardware. </para></listitem> </"
+"itemizedlist> Complete information regarding supported mips/mipsel machines "
+"can be found at the <ulink url=\"&url-linux-mips;\">Linux-MIPS homepage</"
+"ulink>. In the following, only the systems supported by the &debian; "
+"installer will be covered. If you are looking for support for other "
+"subarchitectures, please contact the <ulink url=\"&url-list-subscribe;\"> "
+"debian-&arch-listname; mailing list</ulink>."
+msgstr ""
+"&arch-title; 上的 &debian; 支持以下平台：<itemizedlist> <listitem><para> SGI "
+"IP22： 该平台包括的 SGI 的 Indy、Indigo 2 和 Challenge S。由于这些机器非常近"
+"似，在本文档中所指的 SGI Indy 同样也代表 Indigo 2 与 Challenge S。</para></"
+"listitem> <listitem><para> SGI IP32：该平台常被称为 SGI O2。</para></"
+"listitem> <listitem><para> MIPS Malta：该平台由 QEMU 模拟，如果您没有硬件设"
+"备，这是用来测试 MIPS 上 &debian; 的好方法。</para></listitem> </"
+"itemizedlist> 关于支持 mips/mipsel 机器的完整信息见 <ulink url=\"&url-linux-"
+"mips;\">Linux-MIPS homepage</ulink>。以下只涉及 &debian; 安装程序所支持的系"
+"统。如果您在寻找其它子系统的支持，请联系 <ulink url=\"&url-list-subscribe;"
+"\"> debian-&arch-listname; mailing list</ulink>。"
+
+#. Tag: para
+#: hardware.xml:519
+#, no-c-format
+msgid ""
+"On SGI IP22, SGI Indy, Indigo 2 and Challenge S with R4000, R4400, R4600 and "
+"R5000 processors are supported by the &debian; installation system on big "
+"endian MIPS. On SGI IP32, currently only systems based on the R5000 are "
+"supported."
+msgstr ""
+"&debian; 安装系统支持 big endian MIPS 上的 SGI IP22、SGI Indy、Indigo 2 和具"
+"有 R4000、R4400、R4600 和 R5000 处理器的 Challenge S。对于 SGI IP32，当前只支"
+"持 R5000。"
+
+#. Tag: para
+#: hardware.xml:525
+#, no-c-format
+msgid ""
+"Some MIPS machines can be operated in both big and little endian mode. For "
+"little endian MIPS, please read the documentation for the mipsel "
+"architecture."
+msgstr ""
+"一些 MIPS 机器既可在 big 出可以在 little endian 模式下操作。对于 little "
+"endian MIPS，请阅读 mipsel 体系的相关文档。"
+
+#. Tag: para
+#: hardware.xml:542
+#, no-c-format
+msgid ""
+"&debian; on &arch-title; supports the following platforms: <itemizedlist> "
+"<listitem><para> Cobalt Microserver: only MIPS based Cobalt machines are "
+"covered here. This includes the Cobalt RaQ, Qube2 and RaQ2, and the Gateway "
+"Microserver. </para></listitem> <listitem><para> MIPS Malta: this platform "
+"is emulated by QEMU and is therefore a nice way to test and run &debian; on "
+"MIPS if you don't have the hardware. </para></listitem> </itemizedlist> "
+"Complete information regarding supported mips/mipsel machines can be found "
+"at the <ulink url=\"&url-linux-mips;\">Linux-MIPS homepage</ulink>. In the "
+"following, only the systems supported by the &debian; installer will be "
+"covered. If you are looking for support for other subarchitectures, please "
+"contact the <ulink url=\"&url-list-subscribe;\"> debian-&arch-listname; "
+"mailing list</ulink>."
+msgstr ""
+"&arch-title; 上的 &debian; 支持以下平台： <itemizedlist> <listitem><para> "
+"Cobalt Microserver：只适用基于 MIPS 的 Cobalt 机器。包括 Cobalt RaQ、Qube2 "
+"和 RaQ2，以及 Gateway Microserver。</para></listitem> <listitem><para> MIPS "
+"Malta：该平台由 QEMU 模拟，如果您没有硬件设备，使用它来测试运行在 MIPS 上的 "
+"&debian; 是个不错的方法。</para></listitem> </itemizedlist> 有关支持 mips/"
+"mipsel 机器的完整信息见 <ulink url=\"&url-linux-mips;\">Linux-MIPS homepage</"
+"ulink>。以下只涉及 &debian; 安装程序所支持的系统。如果您寻找其它子系统的支"
+"持，请联系 <ulink url=\"&url-list-subscribe;\"> debian-&arch-listname; "
+"mailing list</ulink>。"
+
+#. Tag: title
+#: hardware.xml:570
+#, no-c-format
+msgid "CPU/Machine types"
+msgstr "CPU/机器类型"
+
+#. Tag: para
+#: hardware.xml:572
+#, no-c-format
+msgid ""
+"All MIPS based Cobalt machines are supported with the exception of the Qube "
+"2700 (Qube 1)."
+msgstr "除了 Qube 2700 (Qube 1)，其他所有基于 MIPS 的 Cobalt 机器都获得支持。"
+
+#. Tag: title
+#: hardware.xml:580
+#, no-c-format
+msgid "Supported console options"
+msgstr "支持的控制台选项"
+
+#. Tag: para
+#: hardware.xml:581
+#, no-c-format
+msgid "Cobalt machines use 115200 bps."
+msgstr "使用 115200 bps 的 Cobalt 机器。"
+
+#. Tag: para
+#: hardware.xml:595
+#, no-c-format
+msgid ""
+"For &debian-gnu; &release; only the PMac (Power-Macintosh or PowerMac) and "
+"PreP subarchitectures are supported."
+msgstr ""
+"对于 &debian-gnu; &release; 来说，只有 PMac (Power-Macintosh 或 PowerMac) 和 "
+"PreP 子体系获得支持。"
+
+#. Tag: title
+#: hardware.xml:616
+#, no-c-format
+msgid "Kernel Flavours"
+msgstr "内核变种"
+
+#. Tag: para
+#: hardware.xml:618
+#, no-c-format
+msgid ""
+"There are two flavours of the powerpc kernel in &debian;, based on the CPU "
+"type:"
+msgstr "在 &debian; 中有两种基于 CPU 类型的 powerpc 内核："
+
+#. Tag: term
+#: hardware.xml:625
+#, no-c-format
+msgid "<term>powerpc</term>"
+msgstr "<term>powerpc</term>"
+
+#. Tag: para
+#: hardware.xml:626
+#, no-c-format
+msgid ""
+"Most systems use this kernel flavour, which supports the PowerPC 601, 603, "
+"604, 740, 750, and 7400 processors. All Apple PowerMac machines up to and "
+"including the one marketed as G4 use one of these processors."
+msgstr ""
+"绝大多数系统使用这种内核，它支持 PowerPC 601、603、604、740、750 与 7400 处理"
+"器。所有 Apple PowerMac 以后的系统包括 G4 都使用这其中的处理器。"
+
+#. Tag: term
+#: hardware.xml:636
+#, no-c-format
+msgid "power64"
+msgstr "power64"
+
+#. Tag: para
+#: hardware.xml:637
+#, no-c-format
+msgid "The power64 kernel flavour supports the following CPUs:"
+msgstr "power64 内核支持以下的 CPU："
+
+#. Tag: para
+#: hardware.xml:641
+#, no-c-format
+msgid ""
+"The POWER3 processor is used in older IBM 64-bit server systems: known "
+"models include the IntelliStation POWER Model 265, the pSeries 610 and 640, "
+"and the RS/6000 7044-170, 7043-260, and 7044-270."
+msgstr ""
+"POWER3 处理器用于早期的 IBM 64 位服务器系统： 已知的型号包括 IntelliStation "
+"POWER Model 265、pSeries 610 与 640，以及 RS/6000 7044-170、7043-260 和 "
+"7044-270。"
+
+#. Tag: para
+#: hardware.xml:647
+#, no-c-format
+msgid ""
+"The POWER4 processor is used in more recent IBM 64-bit server systems: known "
+"models include the pSeries 615, 630, 650, 655, 670, and 690."
+msgstr ""
+"POWER4 处理器用于最新的 IBM 64 位服务器系统： 已知的型号包括 pSeries 615、"
+"630、650、655、670 和 690。"
+
+#. Tag: para
+#: hardware.xml:652
+#, no-c-format
+msgid ""
+"Systems using the Apple G5 (PPC970FX processor) are also based on the POWER4 "
+"architecture, and use this kernel flavour."
+msgstr ""
+"采用 Apple G5 (PPC970FX 处理器) 的系统也是基于 POWER4 体系，并使用这种内核。"
+
+#. Tag: title
+#: hardware.xml:686
+#, no-c-format
+msgid "Power Macintosh (pmac) subarchitecture"
+msgstr "Power Macintosh (pmac) 子体系"
+
+#. Tag: para
+#: hardware.xml:688
+#, no-c-format
+msgid ""
+"Apple (and briefly a few other manufacturers &mdash; Power Computing, for "
+"example) made a series of Macintosh computers based on the PowerPC "
+"processor. For purposes of architecture support, they are categorized as "
+"NuBus (not supported by &debian;), OldWorld, and NewWorld."
+msgstr ""
+"Apple (以及其它一些制造商 &mdash; 比如 Power Computing) 生产了一系列基于 "
+"PowerPC 处理器 的 Macintosh 计算机。为体系支持的目的，它们被划分为 NuBus"
+"(&debian; 没有支持)、OldWorld PCI 和 NewWorld。"
+
+#. Tag: para
+#: hardware.xml:695
+#, no-c-format
+msgid ""
+"OldWorld systems are most Power Macintoshes with a floppy drive and a PCI "
+"bus. Most 603, 603e, 604, and 604e based Power Macintoshes are OldWorld "
+"machines. Those pre-iMac PowerPC models from Apple use a four digit naming "
+"scheme, except for the beige colored G3 systems, which are also OldWorld."
+msgstr ""
+"OldWorld 系统多数为带软驱和 PCI 总线的 Power Macintosh。大多数基于 603、"
+"603e、604 和 604e 的 Power Macintosh 是 OldWorld 机器。除了米色的 G3 系统，这"
+"些 Apple iMac PowerPC 前身使用 4 位数字命名方式，它们都是 OldWorld 的。"
+
+#. Tag: para
+#: hardware.xml:703
+#, no-c-format
+msgid ""
+"The so called NewWorld PowerMacs are any PowerMacs in translucent colored "
+"plastic cases and later models. That includes all iMacs, iBooks, G4 systems, "
+"blue colored G3 systems, and most PowerBooks manufactured in and after 1999. "
+"The NewWorld PowerMacs are also known for using the <quote>ROM in RAM</"
+"quote> system for MacOS, and were manufactured from mid-1998 onwards."
+msgstr ""
+"被称做 NewWorld PowerMacs 是那些有半透明塑料外壳的机器。包括所有的 iMacs、"
+"iBook、G4 系统、蓝色的 G3 系统、和大多数 1999 年及以后生产的 PowerBook。"
+"NewWorld PowerMacs 也是 1998 下半年以后制造，使用 <quote>ROM in RAM</quote> "
+"MacOS 的系统。"
+
+#. Tag: para
+#: hardware.xml:711
+#, no-c-format
+msgid ""
+"Specifications for Apple hardware are available at <ulink url=\"http://www."
+"info.apple.com/support/applespec.html\">AppleSpec</ulink>, and, for older "
+"hardware, <ulink url=\"http://www.info.apple.com/support/applespec.legacy/"
+"index.html\">AppleSpec Legacy</ulink>."
+msgstr ""
+"Apple 硬件的规格说明位于 <ulink url=\"http://www.info.apple.com/support/"
+"applespec.html\">AppleSpec</ulink>，另外，对于旧硬件，参见 <ulink url="
+"\"http://www.info.apple.com/support/applespec.legacy/index.html\">AppleSpec "
+"Legacy</ulink>。"
+
+# index.docbook:1240, index.docbook:1375, index.docbook:1419, index.docbook:1448
+#. Tag: entry
+#: hardware.xml:727 hardware.xml:862 hardware.xml:906 hardware.xml:935
+#, no-c-format
+msgid "Model Name/Number"
+msgstr "型号名称/编号"
+
+#. Tag: entry
+#: hardware.xml:728
+#, no-c-format
+msgid "Generation"
+msgstr "世代"
+
+#. Tag: entry
+#: hardware.xml:734
+#, no-c-format
+msgid "Apple"
+msgstr "Apple"
+
+#. Tag: entry
+#: hardware.xml:735
+#, no-c-format
+msgid "iMac Bondi Blue, 5 Flavors, Slot Loading"
+msgstr "iMac Bondi Blue, 5 Flavors, Slot Loading"
+
+# index.docbook:1249, index.docbook:1252, index.docbook:1255, index.docbook:1258, index.docbook:1261, index.docbook:1264, index.docbook:1267, index.docbook:1270, index.docbook:1273, index.docbook:1276, index.docbook:1279, index.docbook:1282, index.docbook:1285, index.docbook:1288, index.docbook:1291, index.docbook:1294
+#. Tag: entry
+#: hardware.xml:736 hardware.xml:739 hardware.xml:742 hardware.xml:745
+#: hardware.xml:748 hardware.xml:751 hardware.xml:754 hardware.xml:757
+#: hardware.xml:760 hardware.xml:763 hardware.xml:766 hardware.xml:769
+#: hardware.xml:772 hardware.xml:775 hardware.xml:778 hardware.xml:781
+#, no-c-format
+msgid "NewWorld"
+msgstr "NewWorld"
+
+#. Tag: entry
+#: hardware.xml:738
+#, no-c-format
+msgid "iMac Summer 2000, Early 2001"
+msgstr "iMac Summer 2000, Early 2001"
+
+#. Tag: entry
+#: hardware.xml:741
+#, no-c-format
+msgid "iMac G5"
+msgstr "iMac G5"
+
+#. Tag: entry
+#: hardware.xml:744
+#, no-c-format
+msgid "iBook, iBook SE, iBook Dual USB"
+msgstr "iBook, iBook SE, iBook Dual USB"
+
+#. Tag: entry
+#: hardware.xml:747
+#, no-c-format
+msgid "iBook2"
+msgstr "iBook2"
+
+#. Tag: entry
+#: hardware.xml:750
+#, no-c-format
+msgid "iBook G4"
+msgstr "iBook G4"
+
+#. Tag: entry
+#: hardware.xml:753
+#, no-c-format
+msgid "Power Macintosh Blue and White (B&amp;W) G3"
+msgstr "Power Macintosh Blue and White (B&amp;W) G3"
+
+#. Tag: entry
+#: hardware.xml:756
+#, no-c-format
+msgid "Power Macintosh G4 PCI, AGP, Cube"
+msgstr "Power Macintosh G4 PCI, AGP, Cube"
+
+#. Tag: entry
+#: hardware.xml:759
+#, no-c-format
+msgid "Power Macintosh G4 Gigabit Ethernet"
+msgstr "Power Macintosh G4 Gigabit Ethernet"
+
+#. Tag: entry
+#: hardware.xml:762
+#, no-c-format
+msgid "Power Macintosh G4 Digital Audio, Quicksilver"
+msgstr "Power Macintosh G4 Digital Audio, Quicksilver"
+
+#. Tag: entry
+#: hardware.xml:765
+#, no-c-format
+msgid "Power Macintosh G5"
+msgstr "Power Macintosh G5"
+
+#. Tag: entry
+#: hardware.xml:768
+#, no-c-format
+msgid "PowerBook G3 FireWire Pismo (2000)"
+msgstr "PowerBook G3 FireWire Pismo (2000)"
+
+#. Tag: entry
+#: hardware.xml:771
+#, no-c-format
+msgid "PowerBook G3 Lombard (1999)"
+msgstr "PowerBook G3 Lombard (1999)"
+
+#. Tag: entry
+#: hardware.xml:774
+#, no-c-format
+msgid "PowerBook G4 Titanium"
+msgstr "PowerBook G4 Titanium"
+
+#. Tag: entry
+#: hardware.xml:777
+#, no-c-format
+msgid "PowerBook G4 Aluminum"
+msgstr "PowerBook G4 Aluminum"
+
+#. Tag: entry
+#: hardware.xml:780
+#, no-c-format
+msgid "Xserve G5"
+msgstr "Xserve G5"
+
+#. Tag: entry
+#: hardware.xml:783
+#, no-c-format
+msgid "Performa 4400, 54xx, 5500"
+msgstr "Performa 4400, 54xx, 5500"
+
+# index.docbook:1297, index.docbook:1300, index.docbook:1303, index.docbook:1306, index.docbook:1309, index.docbook:1312, index.docbook:1315, index.docbook:1318, index.docbook:1321, index.docbook:1324, index.docbook:1327, index.docbook:1330, index.docbook:1336, index.docbook:1339, index.docbook:1345, index.docbook:1351, index.docbook:1357
+#. Tag: entry
+#: hardware.xml:784 hardware.xml:787 hardware.xml:790 hardware.xml:793
+#: hardware.xml:796 hardware.xml:799 hardware.xml:802 hardware.xml:805
+#: hardware.xml:808 hardware.xml:811 hardware.xml:814 hardware.xml:817
+#: hardware.xml:823 hardware.xml:826 hardware.xml:832 hardware.xml:838
+#: hardware.xml:844
+#, no-c-format
+msgid "OldWorld"
+msgstr "OldWorld"
+
+#. Tag: entry
+#: hardware.xml:786
+#, no-c-format
+msgid "Performa 6360, 6400, 6500"
+msgstr "Performa 6360, 6400, 6500"
+
+#. Tag: entry
+#: hardware.xml:789
+#, no-c-format
+msgid "Power Macintosh 4400, 5400"
+msgstr "Power Macintosh 4400, 5400"
+
+#. Tag: entry
+#: hardware.xml:792
+#, no-c-format
+msgid "Power Macintosh 7200, 7300, 7500, 7600"
+msgstr "Power Macintosh 7200, 7300, 7500, 7600"
+
+#. Tag: entry
+#: hardware.xml:795
+#, no-c-format
+msgid "Power Macintosh 8200, 8500, 8600"
+msgstr "Power Macintosh 8200, 8500, 8600"
+
+#. Tag: entry
+#: hardware.xml:798
+#, no-c-format
+msgid "Power Macintosh 9500, 9600"
+msgstr "Power Macintosh 9500, 9600"
+
+#. Tag: entry
+#: hardware.xml:801
+#, no-c-format
+msgid "Power Macintosh (Beige) G3 Minitower"
+msgstr "Power Macintosh (Beige) G3 Minitower"
+
+#. Tag: entry
+#: hardware.xml:804
+#, no-c-format
+msgid "Power Macintosh (Beige) Desktop, All-in-One"
+msgstr "Power Macintosh (Beige) Desktop, All-in-One"
+
+#. Tag: entry
+#: hardware.xml:807
+#, no-c-format
+msgid "PowerBook 2400, 3400, 3500"
+msgstr "PowerBook 2400, 3400, 3500"
+
+#. Tag: entry
+#: hardware.xml:810
+#, no-c-format
+msgid "PowerBook G3 Wallstreet (1998)"
+msgstr "PowerBook G3 Wallstreet (1998)"
+
+#. Tag: entry
+#: hardware.xml:813
+#, no-c-format
+msgid "Twentieth Anniversary Macintosh"
+msgstr "Twentieth Anniversary Macintosh"
+
+#. Tag: entry
+#: hardware.xml:816
+#, no-c-format
+msgid "Workgroup Server 7250, 7350, 8550, 9650, G3"
+msgstr "Workgroup Server 7250, 7350, 8550, 9650, G3"
+
+#. Tag: entry
+#: hardware.xml:821
+#, no-c-format
+msgid "Power Computing"
+msgstr "Power Computing"
+
+#. Tag: entry
+#: hardware.xml:822
+#, no-c-format
+msgid "PowerBase, PowerTower / Pro, PowerWave"
+msgstr "PowerBase, PowerTower / Pro, PowerWave"
+
+#. Tag: entry
+#: hardware.xml:825
+#, no-c-format
+msgid "PowerCenter / Pro, PowerCurve"
+msgstr "PowerCenter / Pro, PowerCurve"
+
+#. Tag: entry
+#: hardware.xml:830
+#, no-c-format
+msgid "UMAX"
+msgstr "UMAX"
+
+#. Tag: entry
+#: hardware.xml:831
+#, no-c-format
+msgid "C500, C600, J700, S900"
+msgstr "C500, C600, J700, S900"
+
+#. Tag: entry
+#: hardware.xml:836
+#, no-c-format
+msgid "<entry>APS</entry>"
+msgstr "<entry>APS</entry>"
+
+#. Tag: entry
+#: hardware.xml:837
+#, no-c-format
+msgid "APS Tech M*Power 604e/2000"
+msgstr "APS Tech M*Power 604e/2000"
+
+# index.docbook:1355, index.docbook:1381
+#. Tag: entry
+#: hardware.xml:842 hardware.xml:868
+#, no-c-format
+msgid "Motorola"
+msgstr "Motorola"
+
+#. Tag: entry
+#: hardware.xml:843
+#, no-c-format
+msgid "Starmax 3000, 4000, 5000, 5500"
+msgstr "Starmax 3000, 4000, 5000, 5500"
+
+#. Tag: title
+#: hardware.xml:852
+#, no-c-format
+msgid "PReP subarchitecture"
+msgstr "PReP 子体系"
+
+#. Tag: entry
+#: hardware.xml:869
+#, no-c-format
+msgid "Firepower, PowerStack Series E, PowerStack II"
+msgstr "Firepower, PowerStack Series E, PowerStack II"
+
+#. Tag: entry
+#: hardware.xml:871
+#, no-c-format
+msgid "MPC 7xx, 8xx"
+msgstr "MPC 7xx, 8xx"
+
+#. Tag: entry
+#: hardware.xml:873
+#, no-c-format
+msgid "MTX, MTX+"
+msgstr "MTX, MTX+"
+
+#. Tag: entry
+#: hardware.xml:875
+#, no-c-format
+msgid "MVME2300(SC)/24xx/26xx/27xx/36xx/46xx"
+msgstr "MVME2300(SC)/24xx/26xx/27xx/36xx/46xx"
+
+#. Tag: entry
+#: hardware.xml:877
+#, no-c-format
+msgid "MCP(N)750"
+msgstr "MCP(N)750"
+
+# index.docbook:1394, index.docbook:1425
+#. Tag: entry
+#: hardware.xml:881 hardware.xml:912
+#, no-c-format
+msgid "IBM RS/6000"
+msgstr "IBM RS/6000"
+
+#. Tag: entry
+#: hardware.xml:882
+#, no-c-format
+msgid "40P, 43P"
+msgstr "40P, 43P"
+
+#. Tag: entry
+#: hardware.xml:884
+#, no-c-format
+msgid "Power 830/850/860 (6070, 6050)"
+msgstr "Power 830/850/860 (6070, 6050)"
+
+#. Tag: entry
+#: hardware.xml:886
+#, no-c-format
+msgid "6030, 7025, 7043"
+msgstr "6030, 7025, 7043"
+
+#. Tag: entry
+#: hardware.xml:888
+#, no-c-format
+msgid "p640"
+msgstr "p640"
+
+#. Tag: title
+#: hardware.xml:896
+#, no-c-format
+msgid "CHRP subarchitecture (unsupported)"
+msgstr "CHRP 子体系 (不支持)"
+
+#. Tag: entry
+#: hardware.xml:913
+#, no-c-format
+msgid "B50, 43P-150, 44P"
+msgstr "B50, 43P-150, 44P"
+
+#. Tag: entry
+#: hardware.xml:916
+#, no-c-format
+msgid "Genesi"
+msgstr "Genesi"
+
+#. Tag: entry
+#: hardware.xml:917
+#, no-c-format
+msgid "Pegasos I, Pegasos II"
+msgstr "Pegasos I, Pegasos II"
+
+#. Tag: title
+#: hardware.xml:925
+#, no-c-format
+msgid "APUS subarchitecture (unsupported)"
+msgstr "APUS 子体系 (不支持)"
+
+#. Tag: entry
+#: hardware.xml:941
+#, no-c-format
+msgid "Amiga Power-UP Systems (APUS)"
+msgstr "Amiga Power-UP Systems (APUS)"
+
+#. Tag: entry
+#: hardware.xml:942
+#, no-c-format
+msgid "A1200, A3000, A4000"
+msgstr "A1200, A3000, A4000"
+
+#. Tag: title
+#: hardware.xml:950
+#, no-c-format
+msgid "Nubus PowerMac subarchitecture (unsupported)"
+msgstr "Nubus PowerMac 子体系 (不支持)"
+
+#. Tag: para
+#: hardware.xml:952
+#, no-c-format
+msgid ""
+"NuBus systems are not currently supported by &debian;/powerpc. The "
+"monolithic Linux/PPC kernel architecture does not have support for these "
+"machines; instead, one must use the MkLinux Mach microkernel, which &debian; "
+"does not yet support. These include the following: <itemizedlist> "
+"<listitem><para> Power Macintosh 6100, 7100, 8100 </para></listitem> "
+"<listitem><para> Performa 5200, 6200, 6300 </para></listitem> "
+"<listitem><para> Powerbook 1400, 2300, and 5300 </para></listitem> "
+"<listitem><para> Workgroup Server 6150, 8150, 9150 </para></listitem> </"
+"itemizedlist> A linux kernel for these machines and limited support is "
+"available at <ulink url=\"http://nubus-pmac.sourceforge.net/\"></ulink>."
+msgstr ""
+"NuBus 系统现在还不被 &debian;/powerpc 支持。单内核的 Linux/PPC 内核体系不支持"
+"这些机器；而必须使用 MkLinux Mach 微内核，而它未被 &debian; 支持。它们包括： "
+"<itemizedlist> <listitem><para> Power Macintosh 6100, 7100, 8100 </para></"
+"listitem> <listitem><para> Performa 5200, 6200, 6300 </para></listitem> "
+"<listitem><para> Powerbook 1400, 2300 和 5300 </para></listitem> "
+"<listitem><para> Workgroup Server 6150, 8150, 9150 </para></listitem> </"
+"itemizedlist> 对这些机器提供有限支持的 linux 内核位于 <ulink url=\"http://"
+"nubus-pmac.sourceforge.net/\"></ulink>"
+
+#. Tag: title
+#: hardware.xml:989
+#, no-c-format
+msgid "Non-PowerPC Macs"
+msgstr "Non-PowerPC Macs"
+
+#. Tag: para
+#: hardware.xml:991
+#, no-c-format
+msgid ""
+"Macintosh computers using the 680x0 series of processors are <emphasis>not</"
+"emphasis> in the PowerPC family but are instead m68k machines. Those models "
+"start with <quote>Mac II</quote> series, go on to the <quote>LC</quote> "
+"family, then the Centris series, and culminate in the Quadras and Performas. "
+"These models usually have a Roman numeral or 3-digit model number such as "
+"Mac IIcx, LCIII or Quadra 950."
+msgstr ""
+"使用 680x0 系列的 Macintosh 计算机不属于 PowerPC 家族，而是 m68k 机器。这些机"
+"器型号自 <quote>Mac II</quote> 开始，经历 <quote>LC</quote> 家族，然后是 "
+"Centris 系列，至 Quadras 与 Performas 达到顶峰。这些型号使用罗马数字或 3 位数"
+"字，像 Mac IIcx、LCIII 或 Quadra 950。"
+
+#. Tag: para
+#: hardware.xml:1000
+#, no-c-format
+msgid ""
+"This model range started with the Mac II (Mac II, IIx, IIcx, IIci, IIsi, "
+"IIvi, IIvx, IIfx), then the LC (LC, LCII, III, III+, 475, 520, 550, 575, "
+"580, 630), then the Mac TV, then the Centris (610, 650, 660AV), the Quadra "
+"(605, 610, 630, 650, 660AV, 700, 800, 840AV, 900, 950), and finally the "
+"Performa 200-640CD."
+msgstr ""
+"该型号范围始于 Mac II (Mac II, IIx, IIcx, IIci, IIsi, IIvi, IIvx, IIfx), 然后"
+"是 LC (LC, LCII, III, III+, 475, 520, 550, 575, 580, 630), 接着是 Mac TV, 还"
+"有 Centris (610, 650, 660AV), Quadra (605, 610, 630, 650, 660AV, 700, 800, "
+"840AV, 900, 950), 最后是 Performa 200-640CD。"
+
+#. Tag: para
+#: hardware.xml:1008
+#, no-c-format
+msgid ""
+"In laptops, it started with the Mac Portable, then the PowerBook 100-190cs "
+"and the PowerBook Duo 210-550c (excluding PowerBook 500 which is Nubus, "
+"please see the section above)."
+msgstr ""
+"便携机方面，它起始于 Mac Portable，然后是 PowerBook 100-190cs 和 PowerBook "
+"Duo 210-550c (不包含带有 Nubus 的 PowerBook 500，见前面说明。)"
+
+#. Tag: title
+#: hardware.xml:1024
+#, no-c-format
+msgid "S/390 and zSeries machine types"
+msgstr "S/390 与 zSeries 机器类型"
+
+#. Tag: para
+#: hardware.xml:1025
+#, no-c-format
+msgid ""
+"Since &debian; Squeeze, support for booting in ESA/390 mode was dropped. "
+"Your machine needs to support for at least the z/Architecture, Architecture "
+"Level Set 2. The userland is still compiled for ESA/390, though. All zSeries "
+"hardware is fully supported. &arch-title; support software is included from "
+"the kernel 2.6.32 development stream. The most current information about "
+"IBM's Linux support can be found at the <ulink url=\"http://www.ibm.com/"
+"developerworks/linux/linux390/development_technical.html\"> Linux on "
+"<trademark class=\"registered\">System z</trademark> page on developerWorks</"
+"ulink>."
+msgstr ""
+"&debian; Squeeze 已不再支持 ESA/390 模式的引导。您的机器至少要支持 z/"
+"Architecture、Architecture Level Set 2。不过 userland 仍然为 ESA/390 编译。所"
+"有的 zSeries 硬件完全获得支持。&arch-title; 支持的软件源自 2.6.32 内核开发"
+"流。有关 IBM 支持 Linux 的最新信息可以在 <ulink url=\"http://www.ibm.com/"
+"developerworks/linux/linux390/development_technical.html\"> Linux on "
+"<trademark class=\"registered\">System z</trademark> page on developerWorks</"
+"ulink> 找到。"
+
+# index.docbook:224, index.docbook:683, index.docbook:780, index.docbook:799, index.docbook:842, index.docbook:884, index.docbook:938, index.docbook:1085, index.docbook:1491
+#. Tag: title
+#: hardware.xml:1048
+#, no-c-format
+msgid "CPU and Main Boards Support"
+msgstr "CPU 和主板支持"
+
+#. Tag: para
+#: hardware.xml:1049
+#, no-c-format
+msgid ""
+"Sparc-based hardware is divided into a number of different subarchitectures, "
+"identified by one of the following names: sun4, sun4c, sun4d, sun4m, sun4u "
+"or sun4v. The following list describes what machines they include and what "
+"level of support may be expected for each of them."
+msgstr ""
+"基于 sparc 的硬件分成不同的子体系，标识为下列名称：sun4、sun4c、sun4d、"
+"sun4m、sun4u 或 sun4v。下面说明包括哪些机器，以及每个获得支持的级别。"
+
+#. Tag: term
+#: hardware.xml:1060
+#, no-c-format
+msgid "sun4, sun4c, sun4d, sun4m"
+msgstr "sun4, sun4c, sun4d, sun4m"
+
+#. Tag: para
+#: hardware.xml:1062
+#, no-c-format
+msgid ""
+"None of these 32-bit sparc subarchitectures (sparc32) is supported. For a "
+"complete list of machines belonging to these subarchitectures, please "
+"consult the <ulink url=\"http://en.wikipedia.org/wiki/SPARCstation"
+"\">Wikipedia SPARCstation page</ulink>."
+msgstr ""
+"这些 32 位 sparc 子体系不再获得支持。属于此子体系机器的完整列表，请查阅 "
+"<ulink url=\"http://en.wikipedia.org/wiki/SPARCstation\">Wikipedia "
+"SPARCstation page</ulink>。"
+
+#. Tag: para
+#: hardware.xml:1069
+#, no-c-format
+msgid ""
+"The last &debian; release to support sparc32 was Etch, but even then only "
+"for sun4m systems. Support for the other 32-bits subarchitectures had "
+"already been discontinued after earlier releases."
+msgstr ""
+"支持 sparc32 的最新 &debian; 发布版本是 Etch，但也仅针对 sun4m 系统。其它的 "
+"32 位子体系在上一版本后已经停止支持。"
+
+#. Tag: term
+#: hardware.xml:1079
+#, no-c-format
+msgid "<term>sun4u</term>"
+msgstr "<term>sun4u</term>"
+
+#. Tag: para
+#: hardware.xml:1081
+#, no-c-format
+msgid ""
+"This subarchitecture includes all 64-bit machines (sparc64) based on the "
+"UltraSparc processor and its clones. Most of the machines are well "
+"supported, even though for some you may experience problems booting from CD "
+"due to firmware or bootloader bugs (this problem may be worked around by "
+"using netbooting). Use the sparc64 or sparc64-smp kernel in UP and SMP "
+"configurations respectively."
+msgstr ""
+"该子体系包括所有的基于 UltraSparc 处理器的 64 位机器(sparc64)及其克隆。大多数"
+"机器支持得很好，即使如此，您也可能会遇到因固件或 bootloader bug 引起的 CD 引"
+"导问题(该问题可通过使用网络引导避开)。分别地使用 sparc64 或 sparc64-smp 内核"
+"到 UP 和 SMP 配置中。"
+
+#. Tag: term
+#: hardware.xml:1094
+#, no-c-format
+msgid "<term>sun4v</term>"
+msgstr "<term>sun4v</term>"
+
+#. Tag: para
+#: hardware.xml:1096
+#, no-c-format
+msgid ""
+"This is the newest addition to the Sparc family, which includes machines "
+"based on the Niagara multi-core CPUs. At the moment such CPUs are only "
+"available in T1000 and T2000 servers by Sun, and are well supported. Use the "
+"sparc64-smp kernel."
+msgstr ""
+"这是 Sparc 家族中的最新成员，它们包括基于 Niagara 多核 CPU 的机器。当前该 "
+"CPU 只存在于 Sun 的 T1000 和 T2000 服务器上，并能很好地支持。使用 sparc64-"
+"smp 内核。"
+
+#. Tag: para
+#: hardware.xml:1107
+#, no-c-format
+msgid ""
+"Note that Fujitsu's SPARC64 CPUs used in PRIMEPOWER family of servers are "
+"not supported due to lack of support in the Linux kernel."
+msgstr ""
+"注意，使用富士通 SPARC64 CPU 的 PRIMEPOWER 家族服务器因为缺乏 Linux 内核的支"
+"持而得不到支持。"
+
+#. Tag: title
+#: hardware.xml:1116
+#, no-c-format
+msgid "Laptops"
+msgstr "便携机"
+
+#. Tag: para
+#: hardware.xml:1117
+#, no-c-format
+msgid ""
+"Laptops are also supported and nowadays most laptops work out of the box. In "
+"case a laptop contains specialized or proprietary hardware, some specific "
+"functions may not be supported. To see if your particular laptop works well "
+"with GNU/Linux, see for example the <ulink url=\"&url-x86-laptop;\">Linux "
+"Laptop pages</ulink>."
+msgstr ""
+"便携机也受到支持，而且现今大多数便携机都支持。因为便携机通常使用特制或专有的"
+"硬件，因此有些特定的功能无法得到支持。要了解您的便携机是否能在 GNU/Linux 下正"
+"常工作，请参考 <ulink url=\"&url-x86-laptop;\">Linux 便携机页面</ulink>。"
+
+# index.docbook:1624, index.docbook:1649, index.docbook:1672
+#. Tag: title
+#: hardware.xml:1129 hardware.xml:1152 hardware.xml:1172 hardware.xml:1195
+#, no-c-format
+msgid "Multiple Processors"
+msgstr "多处理器"
+
+#. Tag: para
+#: hardware.xml:1130
+#, no-c-format
+msgid ""
+"Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</"
+"quote> or SMP &mdash; is available for this architecture. The standard "
+"&debian; &release; kernel image has been compiled with SMP support. The "
+"standard kernel is also usable on non-SMP systems, but has a slight overhead "
+"which will cause a small reduction in performance. For normal system use "
+"this will hardly be noticable."
+msgstr ""
+"多处理器支持 &mdash; 又称 <quote>symmetric multiprocessing</quote> 或 SMP "
+"&mdash; 在本体系架构下可以使用。标准的 &debian; &release; 内核映像在编译时已"
+"经加入了 SMP 功能。标准内核也可以在非 SMP 系统下使用，只不过多些系统开销降低"
+"了一些性能。在普通系统中使用时几乎不会察觉。"
+
+#. Tag: para
+#: hardware.xml:1139
+#, no-c-format
+msgid ""
+"In order to optimize the kernel for single CPU systems, you'll have to "
+"replace the standard &debian; kernel.<phrase arch=\"linux-any\"> You can "
+"find a discussion of how to do this in <xref linkend=\"kernel-baking\"/>. At "
+"this time (kernel version &kernelversion;) the way you disable SMP is to "
+"deselect <quote>&smp-config-option;</quote> in the <quote>&smp-config-"
+"section;</quote> section of the kernel config.</phrase>"
+msgstr ""
+"为了给单 CPU 系统优化内核，您需要替换标准的 &debian; 内核。<phrase arch="
+"\"linux-any\">您可以在<xref linkend=\"kernel-baking\"/> 找到相关的讨论。当前"
+"(内核版本 &kernelversion;)，禁止 SMP 选项的方法是在内核配置的 <quote>&smp-"
+"config-section;</quote> 中取消选择 <quote>&smp-config-option;</quote>。</"
+"phrase>"
+
+#. Tag: para
+#: hardware.xml:1154
+#, no-c-format
+msgid ""
+"Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</"
+"quote> or SMP &mdash; is available for this architecture. The standard "
+"&debian; &release; kernel image has been compiled with <firstterm>SMP-"
+"alternatives</firstterm> support. This means that the kernel will detect the "
+"number of processors (or processor cores) and will automatically deactivate "
+"SMP on uniprocessor systems."
+msgstr ""
+"多处理器支持 &mdash; 又称 <quote>symmetric multiprocessing</quote> 或 SMP "
+"&mdash; 在本体系架构下可以使用。标准的 &debian; &release; 内核映像在编译时已"
+"经加入了 <firstterm>SMP-alternatives</firstterm> 支持。也就是内核可以侦测处理"
+"器的数量(或者处理器核心数)，并在单处理器系统上自动关闭 SMP 的功能。"
+
+#. Tag: para
+#: hardware.xml:1163
+#, no-c-format
+msgid ""
+"The 486 flavour of the &debian; kernel image packages for &arch-title; is "
+"not compiled with SMP support."
+msgstr "&arch-title; 的 486 &debian; 内核映像软件包没有支持 SMP 。"
+
+#. Tag: para
+#: hardware.xml:1173
+#, no-c-format
+msgid ""
+"Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</"
+"quote> or SMP &mdash; is available for this architecture. However, the "
+"standard &debian; &release; kernel image does not support SMP. This should "
+"not prevent installation, since the standard, non-SMP kernel should boot on "
+"SMP systems; the kernel will simply use the first CPU."
+msgstr ""
+"多处理器支持 &mdash; 又称 <quote>symmetric multiprocessing</quote> 或 SMP "
+"&mdash; 在本体系架构下可以使用。但是，标准的 &debian; &release; 内核映像并不"
+"支持 SMP。这不会影响安装，因为非 SMP 的内核也能在 SMP 的系统下启动，只不过内"
+"核只使用第一个 CPU。"
+
+#. Tag: para
+#: hardware.xml:1182
+#, no-c-format
+msgid ""
+"In order to take advantage of multiple processors, you'll have to replace "
+"the standard &debian; kernel.<phrase arch=\"linux-any\"> You can find a "
+"discussion of how to do this in <xref linkend=\"kernel-baking\"/>. At this "
+"time (kernel version &kernelversion;) the way you enable SMP is to select "
+"<quote>&smp-config-option;</quote> in the <quote>&smp-config-section;</"
+"quote> section of the kernel config.</phrase>"
+msgstr ""
+"为了使用多 CPU 的优势，您必须替换标准的 &debian; 内核。<phrase arch=\"linux-"
+"any\">您可以在<xref linkend=\"kernel-baking\"/> 找到相关的讨论。当前(内核版"
+"本 &kernelversion;)启用 SMP 的方法是在内核配置的 <quote>&smp-config-section;"
+"</quote> 中选中 <quote>&smp-config-option;</quote>。</phrase>"
+
+#. Tag: para
+#: hardware.xml:1196
+#, no-c-format
+msgid ""
+"Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</"
+"quote> or SMP &mdash; is available for this architecture, and is supported "
+"by a precompiled &debian; kernel image. Depending on your install media, "
+"this SMP-capable kernel may or may not be installed by default. This should "
+"not prevent installation, since the standard, non-SMP kernel should boot on "
+"SMP systems; the kernel will simply use the first CPU."
+msgstr ""
+"多处理器支持 &mdash; 又称 <quote>symmetric multiprocessing</quote> 或 SMP "
+"&mdash; 在本体系架构下可以使用，并且有一个预编译的 &debian; 内核映象已经开启"
+"这项功能。支持 SMP 的内核默认是否被安装，取决于您的安装介质。这并不会影响安"
+"装，因为非 SMP 的内核也能在 SMP 的系统下启动，只不过内核只使用第一个 CPU。"
+
+#. Tag: para
+#: hardware.xml:1206
+#, no-c-format
+msgid ""
+"In order to take advantage of multiple processors, you should check to see "
+"if a kernel package that supports SMP is installed, and if not, choose an "
+"appropriate kernel package."
+msgstr ""
+"为了利用多处理器，您应该确认支持 SMP 的内核软件包是否被安装，如果没有，请选择"
+"一个合适的内核软件包。"
+
+#. Tag: para
+#: hardware.xml:1212
+#, no-c-format
+msgid ""
+"You can also build your own customized kernel to support SMP.<phrase arch="
+"\"linux-any\"> You can find a discussion of how to do this in <xref linkend="
+"\"kernel-baking\"/>. At this time (kernel version &kernelversion;) the way "
+"you enable SMP is to select <quote>&smp-config-option;</quote> in the "
+"<quote>&smp-config-section;</quote> section of the kernel config.</phrase>"
+msgstr ""
+"您可以自己定制内核来支持 SMP。<phrase arch=\"linux-any\">可以在 <xref "
+"linkend=\"kernel-baking\"/> 找到相关的讨论。当前(内核版本 &kernelversion;)启"
+"用 SMP 的方法是在内核配置的 <quote>&smp-config-section;</quote> 中选择 "
+"<quote>&smp-config-option;</quote>。</phrase>"
+
+#. Tag: title
+#: hardware.xml:1223
+#, no-c-format
+msgid "Graphics Card Support"
+msgstr "图形卡支持"
+
+#. Tag: para
+#: hardware.xml:1224
+#, no-c-format
+msgid ""
+"You should be using a VGA-compatible display interface for the console "
+"terminal. Nearly every modern display card is compatible with VGA. Ancient "
+"standards such CGA, MDA, or HGA should also work, assuming you do not "
+"require X11 support. Note that X11 is not used during the installation "
+"process described in this document unless the graphical installer was "
+"explicitly selected."
+msgstr ""
+"您应该给终端控制台使用 VGA 兼容的显示接口。几乎所有的新显卡都兼容 VGA。在不使"
+"用 X11 支持的情况下，您也可以用古老的 CGA、MDA 或 HGA 工作。注意，除非特意选"
+"择使用图形安装程序，本文所述的安装过程中并不会使用 X11 图形界面。"
+
+#. Tag: para
+#: hardware.xml:1233
+#, no-c-format
+msgid ""
+"&debian;'s support for graphical interfaces is determined by the underlying "
+"support found in X.Org's X11 system. Most AGP, PCI, PCIe, and PCI-X video "
+"cards work under X.Org. Details on supported graphics buses, cards, "
+"monitors, and pointing devices can be found at <ulink url=\"&url-xorg;\"></"
+"ulink>. &debian; &release; ships with X.Org version &x11ver;."
+msgstr ""
+"&debian; 对显卡的支持决定于 X.Org 的 X11 系统。大多数 AGP、PCI、PCIe 和 PCI-"
+"X 视频卡都能在 X.Org 下工作。更多的关于图形总线、显卡、显示器和指点设备的支持"
+"情况，见 <ulink url=\"&url-xorg;\"></ulink>。&debian; &release; 包含 X.Org "
+"&x11ver; 版。"
+
+#. Tag: para
+#: hardware.xml:1242
+#, no-c-format
+msgid "The X.Org X Window System is only supported on the SGI Indy and the O2."
+msgstr "X.Org 的 X 窗口系统仅支持 SGI Indy 和 O2。"
+
+#. Tag: para
+#: hardware.xml:1247
+#, no-c-format
+msgid ""
+"Most graphics options commonly found on Sparc-based machines are supported. "
+"X.org graphics drivers are available for sunbw2, suncg14, suncg3, suncg6, "
+"sunleo and suntcx framebuffers, Creator3D and Elite3D cards (sunffb driver), "
+"PGX24/PGX64 ATI-based video cards (ati driver), and PermediaII-based cards "
+"(glint driver). To use an Elite3D card with X.org you additionally need to "
+"install the <classname>afbinit</classname> package, and read the "
+"documentation included with it on how to activate the card."
+msgstr ""
+"多数基于 Sparc 机器的图形选项都能支持。X.org 图形驱动程序可用于 sunbw2、"
+"suncg14、suncg3、suncg6、sunleo 和 suntcx framebuffers、Creator3D 和 Elite3D "
+"卡(sunffb 驱动程序), PGX24/PGX64 基于 ATI 的视频卡 (ati 驱动程序)，和基于 "
+"PermediaII 的卡 (glint 驱动程序)。要在 X.org 中使用 Elite3D 卡，您需要额外安"
+"装 <classname>afbinit</classname> 软件包，并且阅读其中的文档了解如何激活该"
+"卡。"
+
+#. Tag: para
+#: hardware.xml:1257
+#, no-c-format
+msgid ""
+"It is not uncommon for a Sparc machine to have two graphics cards in a "
+"default configuration. In such a case there is a possibility that the Linux "
+"kernel will not direct its output to the card initially used by the "
+"firmware. The lack of output on the graphical console may then be mistaken "
+"for a hang (usually the last message seen on console is 'Booting Linux...'). "
+"One possible solution is to physically remove one of the video cards; "
+"another option is to disable one of the cards using a kernel boot parameter. "
+"Also, if graphical output is not required or desired, serial console may be "
+"used as an alternative. On some systems use of serial console can be "
+"activated automatically by disconnecting the keyboard before booting the "
+"system."
+msgstr ""
+"对 Sparc 机器来说，默认配置中有两块图形卡并非不常见。这种情况下，Linux 内核可"
+"能不将输出指向固件初始化的那块卡。缺少输出的图形控制端会由于这种错误而挂起(一"
+"般在控制台上最后显示的信息是 'Booting Linux...')。一种解决方法是物理地取下一"
+"块视频卡；另外一种方法是用内核引导参数禁止其中一块。同样，如果图形输出并不是"
+"必须或想要的，可以通过串口控制台替代。在某些系统上，引导系统前断开键盘连接将"
+"自动激活串口控制台。"
+
+#. Tag: title
+#: hardware.xml:1279
+#, no-c-format
+msgid "Network Connectivity Hardware"
+msgstr "网络连接硬件"
+
+#. Tag: para
+#: hardware.xml:1280
+#, no-c-format
+msgid ""
+"Almost any network interface card (NIC) supported by the &arch-kernel; "
+"kernel should also be supported by the installation system; modular drivers "
+"should normally be loaded automatically. <phrase arch=\"x86\">This includes "
+"most PCI and PCMCIA cards.</phrase> <phrase arch=\"i386\">Many older ISA "
+"cards are supported as well.</phrase>"
+msgstr ""
+"几乎所有被 &arch-kernel; 内核支持的网络接口卡(NIC)也全都被安装系统所支持；驱"
+"动模块通常会自动加载。<phrase arch=\"x86\">这包含大多数 PCI 和 PCMCIA 卡。</"
+"phrase> <phrase arch=\"i386\">许多旧的 ISA 卡也能支持。</phrase>"
+
+#. Tag: para
+#: hardware.xml:1289
+#, no-c-format
+msgid ""
+"This includes a lot of generic PCI cards (for systems that have PCI) and the "
+"following NICs from Sun:"
+msgstr "这包括一些通用 PCI 卡(对于支持 PCI 的系统)和来自 Sun 的网卡："
+
+#. Tag: para
+#: hardware.xml:1295
+#, no-c-format
+msgid "Sun LANCE"
+msgstr "Sun LANCE"
+
+#. Tag: para
+#: hardware.xml:1300
+#, no-c-format
+msgid "Sun Happy Meal"
+msgstr "Sun Happy Meal"
+
+#. Tag: para
+#: hardware.xml:1305
+#, no-c-format
+msgid "Sun BigMAC"
+msgstr "Sun BigMAC"
+
+#. Tag: para
+#: hardware.xml:1310
+#, no-c-format
+msgid "Sun QuadEthernet"
+msgstr "Sun QuadEthernet"
+
+#. Tag: para
+#: hardware.xml:1315
+#, no-c-format
+msgid "MyriCOM Gigabit Ethernet"
+msgstr "MyriCOM Gigabit Ethernet"
+
+#. Tag: para
+#: hardware.xml:1322
+#, no-c-format
+msgid "The list of supported network devices is:"
+msgstr "支持的网络设备有："
+
+#. Tag: para
+#: hardware.xml:1327
+#, no-c-format
+msgid "Channel to Channel (CTC) and ESCON connection (real or emulated)"
+msgstr "Channel to Channel (CTC) 和 ESCON connection (实际或模拟)"
+
+#. Tag: para
+#: hardware.xml:1332
+#, no-c-format
+msgid "OSA-2 Token Ring/Ethernet and OSA-Express Fast Ethernet (non-QDIO)"
+msgstr "OSA-2 Token Ring/Ethernet 和 OSA-Express Fast Ethernet (non-QDIO)"
+
+#. Tag: para
+#: hardware.xml:1337
+#, no-c-format
+msgid "OSA-Express in QDIO mode, HiperSockets and Guest-LANs"
+msgstr "QDIO 模式的 OSA-Express，HiperSockets 和 Guest-LANs"
+
+#. Tag: para
+#: hardware.xml:1346
+#, no-c-format
+msgid ""
+"On &arch-title;, most built-in Ethernet devices are supported and modules "
+"for additional PCI and USB devices are provided. The major exception is the "
+"IXP4xx platform (featuring devices such as the Linksys NSLU2) which needs a "
+"proprietary microcode for the operation of its built-in Ethernet device. "
+"Unofficial images for Linksys NSLU2 with this proprietary microcode can be "
+"obtained from the <ulink url=\"&url-slug-firmware;\">Slug-Firmware site</"
+"ulink>."
+msgstr ""
+"在 &arch-title; 上，多数内建的以太网设备都支持，并提供额外的 PCI 和 USB 设备"
+"模块。主要的例外是 IXP4xx 平台(典型的设备是 Linksys NSLU2)，它需要专用的 "
+"microcode 来操作内建的以太网设备。包含该专有 microcode 的 Linksys NSLU2 非正"
+"式映像可以从 <ulink url=\"&url-slug-firmware;\">Slug-Firmware site</ulink> 地"
+"址获得。"
+
+#. Tag: para
+#: hardware.xml:1356
+#, no-c-format
+msgid "ISDN is supported, but not during the installation."
+msgstr "ISDN 虽也获得支持，不过不能在安装阶段使用。"
+
+#. Tag: title
+#: hardware.xml:1363
+#, no-c-format
+msgid "Wireless Network Cards"
+msgstr "无线网卡"
+
+#. Tag: para
+#: hardware.xml:1364
+#, no-c-format
+msgid ""
+"Wireless networking is in general supported as well and a growing number of "
+"wireless adapters are supported by the official &arch-kernel; kernel, "
+"although many of them do require firmware to be loaded. If firmware is "
+"needed, the installer will prompt you to load firmware. See <xref linkend="
+"\"loading-firmware\"/> for detailed information on how to load firmware "
+"during the installation."
+msgstr ""
+"无线网络也能得到很好地支持。虽然大多数都需要加载固件，正式的 &arch-kernel; 内"
+"核能支持的无线网卡也越来越多。如果需要固件，安装程序会提示您加载。参阅 <xref "
+"linkend=\"loading-firmware\"/> 了解如何在安装过程中加载固件的更多信息。"
+
+#. Tag: para
+#: hardware.xml:1372
+#, no-c-format
+msgid ""
+"Wireless NICs that are not supported by the official &arch-kernel; kernel "
+"can generally be made to work under &debian-gnu;, but are not supported "
+"during the installation."
+msgstr ""
+"有些无线网卡不被正式的 &arch-kernel; 内核支持，虽然可以在 &debian-gnu; 下工"
+"作，但是却不能在安装过程中使用。"
+
+#. Tag: para
+#: hardware.xml:1377
+#, no-c-format
+msgid ""
+"Support for encrypted wireless during installation is currently limited to "
+"WEP. If your access point uses stronger encryption, it cannot be used during "
+"the installation process."
+msgstr ""
+"加密无线网络在安装过程中还有所限制，现在仅可以使用 WEP。如果您的 AP 采用了更"
+"健壮的加密方法，在安装时就无法使用。"
+
+#. Tag: para
+#: hardware.xml:1383
+#, no-c-format
+msgid ""
+"If there is a problem with wireless and there is no other NIC you can use "
+"during the installation, it is still possible to install &debian-gnu; using "
+"a full CD-ROM or DVD image. Select the option to not configure a network and "
+"install using only the packages available from the CD/DVD. You can then "
+"install the driver and firmware you need after the installation is completed "
+"(after the reboot) and configure your network manually."
+msgstr ""
+"如果您在安装过程中使用无线网络遇到问题，并且手头也没有其他的网卡可以使用，仍"
+"然可以使用完整的 CD-ROM 或 DVD 映像来安装 &debian-gnu;。选择不配置网络选项，"
+"然后只安装存在于 CD/DVD 上的软件包。在安装完成(重新启动之后)安装驱动程序和固"
+"件，并手动配置网络。"
+
+#. Tag: para
+#: hardware.xml:1393
+#, no-c-format
+msgid ""
+"In some cases the driver you need may not be available as a &debian; "
+"package. You will then have to look if there is source code available in the "
+"internet and compile the driver yourself. How to do this is outside the "
+"scope of this manual. <phrase arch=\"x86\">If no Linux driver is available, "
+"your last resort is to use the <classname>ndiswrapper</classname> package, "
+"which allows you to use a Windows driver.</phrase>"
+msgstr ""
+"有些情况下，您需要的驱动程序不包含在 &debian; 软件包里面。必须在互联网上寻找"
+"它们的源码，并自己动手编译驱动程序。该如何做已经超出了本手册的范围。<phrase "
+"arch=\"x86\">如果没有 Linux 驱动程序，最后的手段是用 <classname>ndiswrapper</"
+"classname> 软件包，它让您使用 Windows 的驱动程序。</phrase>"
+
+#. Tag: title
+#: hardware.xml:1407
+#, no-c-format
+msgid "Known Issues for &arch-title;"
+msgstr "&arch-title; 的一些已知问题"
+
+#. Tag: para
+#: hardware.xml:1408
+#, no-c-format
+msgid ""
+"There are a couple of issues with specific network cards that are worth "
+"mentioning here."
+msgstr "有些特定的网卡事项需要在此提及。"
+
+#. Tag: title
+#: hardware.xml:1415
+#, no-c-format
+msgid "Conflict between tulip and dfme drivers"
+msgstr "tulip 和 dfme 驱动程序之间的冲突"
+
+#. Tag: para
+#: hardware.xml:1417
+#, no-c-format
+msgid ""
+"There are various PCI network cards that have the same PCI identification, "
+"but are supported by related, but different drivers. Some cards work with "
+"the <literal>tulip</literal> driver, others with the <literal>dfme</literal> "
+"driver. Because they have the same identification, the kernel cannot "
+"distinguish between them and it is not certain which driver will be loaded. "
+"If this happens to be the wrong one, the NIC may not work, or work badly."
+msgstr ""
+"有些 PCI 网卡具有相同的 PCI 标识，但却由不同的驱动程序支持。有些网卡在 "
+"<literal>tulip</literal> 驱动程序下工作，其他的在 <literal>dfme</literal> 驱"
+"动程序下工作。因为它们具有相同的标识，内核不能辨别而无法加载合适的驱动程序。"
+"如果使用不正确的驱动程序，网卡可能不工作，或者工作不正常。"
+
+#. Tag: para
+#: hardware.xml:1427
+#, no-c-format
+msgid ""
+"This is a common problem on Netra systems with a Davicom (DEC-Tulip "
+"compatible) NIC. In that case the <literal>tulip</literal> driver is "
+"probably the correct one. You can prevent this issue by blacklisting the "
+"wrong driver module as described in <xref linkend=\"module-blacklist\"/>."
+msgstr ""
+"常见的问题出现在使用 Davicom (DEC-Tulip 兼容的) 网卡的 Netra 系统上。这种情况"
+"下，<literal>tulip</literal> 驱动程序可能是正确的。您可以参照 <xref linkend="
+"\"module-blacklist\"/> 将错误的驱动模块加入黑名单，以阻止这种情况发生。"
+
+#. Tag: para
+#: hardware.xml:1435
+#, no-c-format
+msgid ""
+"An alternative solution during the installation is to switch to a shell and "
+"unload the wrong driver module using <userinput>modprobe -r "
+"<replaceable>module</replaceable></userinput> (or both, if they are both "
+"loaded). After that you can load the correct module using "
+"<userinput>modprobe <replaceable>module</replaceable></userinput>. Note that "
+"the wrong module may then still be loaded when the system is rebooted."
+msgstr ""
+"另一种处理方法，是在安装过程中是切换到一个 shell，并使用 <userinput>modprobe "
+"-r <replaceable>module</replaceable></userinput> 卸载不正确的驱动程序模块(如"
+"果都加载了，或者两个都卸载)。之后，您可以通过 <userinput>modprobe "
+"<replaceable>module</replaceable></userinput> 加载正确的模块。注意，系统重启"
+"之后错误的模块可能还会加载。"
+
+#. Tag: title
+#: hardware.xml:1448
+#, no-c-format
+msgid "Sun B100 blade"
+msgstr "Sun B100 blade"
+
+#. Tag: para
+#: hardware.xml:1450
+#, no-c-format
+msgid ""
+"The <literal>cassini</literal> network driver does not work with Sun B100 "
+"blade systems."
+msgstr ""
+"<literal>cassini</literal> 网络驱动程序不能工作在 Sun B100 刀片系统上。"
+
+#. Tag: title
+#: hardware.xml:1465
+#, no-c-format
+msgid "Braille Displays"
+msgstr "盲文点触设备(Braille Display)"
+
+#. Tag: para
+#: hardware.xml:1466
+#, no-c-format
+msgid ""
+"Support for braille displays is determined by the underlying support found "
+"in <classname>brltty</classname>. Most displays work under "
+"<classname>brltty</classname>, connected via either a serial port, USB or "
+"bluetooth. Details on supported braille devices can be found on the <ulink "
+"url=\"&url-brltty;\"><classname>brltty</classname> website</ulink>. &debian-"
+"gnu; &release; ships with <classname>brltty</classname> version &brlttyver;."
+msgstr ""
+"对于盲文点触设备的支持取决于 <classname>brltty</classname> 的支持。大多数设备"
+"可以在 <classname>brltty</classname> 下面工作，它们通过串口、USB 或蓝牙连接。"
+"支持盲文设备的详细情况可以查阅 <ulink url=\"&url-brltty;"
+"\"><classname>brltty</classname> website</ulink>。&debian-gnu; &release; 使用"
+"的 <classname>brltty</classname> 版本是 &brlttyver; 。"
+
+#. Tag: title
+#: hardware.xml:1480
+#, no-c-format
+msgid "Hardware Speech Synthesis"
+msgstr "硬件语音合成(Hardware Speech Synthesis)"
+
+#. Tag: para
+#: hardware.xml:1481
+#, no-c-format
+msgid ""
+"Support for hardware speech synthesis devices is determined by the "
+"underlying support found in <classname>speakup</classname>. "
+"<classname>speakup</classname> only supports integrated boards and external "
+"devices connected to a serial port (no USB or serial-to-USB adapters are "
+"supported). Details on supported hardware speech synthesis devices can be "
+"found on the <ulink url=\"&url-speakup;\"><classname>speakup</classname> "
+"website</ulink>. &debian-gnu; &release; ships with <classname>speakup</"
+"classname> version &speakupver;."
+msgstr ""
+"对于硬件语音合成设备的支持取决于 <classname>speakup</classname> 的支持。"
+"<classname>speakup</classname> 只支持板卡集成和外部串口设备(支持非 USB 或 "
+"serial-to-USB 适配器)。支持硬件语音合成设备的详细情况可以查阅 <ulink url="
+"\"&url-speakup;\"><classname>speakup</classname> website</ulink>。&debian-"
+"gnu; &release; 使用的 <classname>speakup</classname> 版本是 &speakupver;。"
+
+#. Tag: title
+#: hardware.xml:1501
+#, no-c-format
+msgid "Peripherals and Other Hardware"
+msgstr "外围设备与其他硬件"
+
+#. Tag: para
+#: hardware.xml:1502
+#, no-c-format
+msgid ""
+"&arch-kernel; supports a large variety of hardware devices such as mice, "
+"printers, scanners, PCMCIA and USB devices. However, most of these devices "
+"are not required while installing the system."
+msgstr ""
+"&arch-kernel; 支持众多的硬件设备，比如：鼠标、打印机、扫描仪、PCMCIA 和 USB "
+"设备。然而，在安装系统的时候，并不需要其中的大部分设备。"
+
+#. Tag: para
+#: hardware.xml:1508
+#, no-c-format
+msgid ""
+"USB hardware generally works fine, only some USB keyboards may require "
+"additional configuration (see <xref linkend=\"hardware-issues\"/>)."
+msgstr ""
+"USB 硬件通常工作得很好，只有一些 USB 键盘需要额外的配置(参阅 <xref linkend="
+"\"hardware-issues\"/>)。"
+
+#. Tag: para
+#: hardware.xml:1514
+#, no-c-format
+msgid ""
+"Again, see the <ulink url=\"&url-hardware-howto;\">Linux Hardware "
+"Compatibility HOWTO</ulink> to determine whether your specific hardware is "
+"supported by Linux."
+msgstr ""
+"另外，请查考 <ulink url=\"&url-hardware-howto;\">Linux Hardware "
+"Compatibility HOWTO</ulink> 来判断您的硬件是否被 Linux 支持。"
+
+#. Tag: para
+#: hardware.xml:1520
+#, no-c-format
+msgid ""
+"Package installations from XPRAM and tape are not supported by this system. "
+"All packages that you want to install need to be available on a DASD or over "
+"the network using NFS, HTTP or FTP."
+msgstr ""
+"从 XPRAM 和磁带安装的软件包不受本系统支持。所有要安装的包必须位于 DASD 上或者"
+"通过 NFS、HTTP、FTP 从网络上取得。"
+
+#. Tag: para
+#: hardware.xml:1526
+#, no-c-format
+msgid ""
+"The Cobalt RaQ has no support for additional devices but the Qube has one "
+"PCI slot."
+msgstr "Cobalt RaQ 不支持外加设备，但 Qube 有一个 PCI 插槽。"
+
+#. Tag: title
+#: hardware.xml:1538
+#, no-c-format
+msgid "Devices Requiring Firmware"
+msgstr "需要固件的设备"
+
+#. Tag: para
+#: hardware.xml:1539
+#, no-c-format
+msgid ""
+"Besides the availability of a device driver, some hardware also requires so-"
+"called <firstterm>firmware</firstterm> or <firstterm>microcode</firstterm> "
+"to be loaded into the device before it can become operational. This is most "
+"common for network interface cards (especially wireless NICs), but for "
+"example some USB devices and even some hard disk controllers also require "
+"firmware."
+msgstr ""
+"除了需要设备驱动程序，有些硬件还要在使用之前加载 <firstterm>firmware</"
+"firstterm> 或 <firstterm>microcode</firstterm>。这对于网卡(特别是无线网卡)来"
+"说很常见，但有些 USB 设备甚至是硬盘控制器也需要加载固件(firmware)。"
+
+#. Tag: para
+#: hardware.xml:1547
+#, no-c-format
+msgid ""
+"In most cases firmware is non-free according to the criteria used by the "
+"&debian-gnu; project and thus cannot be included in the main distribution or "
+"in the installation system. If the device driver itself is included in the "
+"distribution and if &debian-gnu; legally can distribute the firmware, it "
+"will often be available as a separate package from the non-free section of "
+"the archive."
+msgstr ""
+"根据 &debian-gnu; 项目的标准，大多数情况下这些固件属于 non-free，不能被包含在"
+"主发行版或安装系统里面。如果设备驱动程序被包含到发行版里面，并且 &debian-"
+"gnu; 可以合法地发布固件，它通常被单独地放置在仓库的 non-free 区里面。"
+
+#. Tag: para
+#: hardware.xml:1556
+#, no-c-format
+msgid ""
+"However, this does not mean that such hardware cannot be used during an "
+"installation. Starting with &debian-gnu; 5.0, &d-i; supports loading "
+"firmware files or packages containing firmware from a removable medium, such "
+"as a floppy disk or USB stick. See <xref linkend=\"loading-firmware\"/> for "
+"detailed information on how to load firmware files or packages during the "
+"installation."
+msgstr ""
+"然而，这并不意味着该硬件不能在安装时使用。从 &debian-gnu; 5.0 开始，&d-i; 支"
+"持从可移动的介质，比如软盘或 USB 盘，加载固件或包含固件的软件包。参阅 <xref "
+"linkend=\"loading-firmware\"/> 了解如何在安装时加载固件文件或软件包的的详细信"
+"息。"
+
+#. Tag: title
+#: hardware.xml:1572
+#, no-c-format
+msgid "Purchasing Hardware Specifically for GNU/&arch-kernel;"
+msgstr "特别为 GNU/&arch-kernel; 采购硬件"
+
+#. Tag: para
+#: hardware.xml:1574
+#, no-c-format
+msgid ""
+"There are several vendors, who ship systems with &debian; or other "
+"distributions of GNU/Linux <ulink url=\"&url-pre-installed;\">pre-installed</"
+"ulink>. You might pay more for the privilege, but it does buy a level of "
+"peace of mind, since you can be sure that the hardware is well-supported by "
+"GNU/Linux."
+msgstr ""
+"现在有一些经销商，他们出售的系统是<ulink url=\"&url-pre-installed;\">预装</"
+"ulink> &debian; 或者是其他的 GNU/Linux。您或许会多花一些钱，但是买来一份安"
+"心，因为这些硬件都已经确保能被 GNU/Linux 很好地支持。"
+
+#. Tag: para
+#: hardware.xml:1582
+#, no-c-format
+msgid ""
+"If you do have to buy a machine with Windows bundled, carefully read the "
+"software license that comes with Windows; you may be able to reject the "
+"license and obtain a rebate from your vendor. Searching the Internet for "
+"<quote>windows refund</quote> may get you some useful information to help "
+"with that."
+msgstr ""
+"如果您不得不购买一台捆绑 Windows 系统的机器，请仔细阅读 Windows 附带的软件许"
+"可证，您也许可以拒绝该许可证，并从经销商那里获得一定的折扣。在互联网上用 "
+"<quote>windows refund</quote> 搜索可以查到一些有益的信息。"
+
+#. Tag: para
+#: hardware.xml:1590
+#, no-c-format
+msgid ""
+"Whether or not you are purchasing a system with &arch-kernel; bundled, or "
+"even a used system, it is still important to check that your hardware is "
+"supported by the &arch-kernel; kernel. Check if your hardware is listed in "
+"the references found above. Let your salesperson (if any) know that you're "
+"shopping for a &arch-kernel; system. Support &arch-kernel;-friendly hardware "
+"vendors."
+msgstr ""
+"无论是购买一个捆绑 &arch-kernel; 的系统，还是一个已经用过的系统，检查 &arch-"
+"kernel; 内核是否支持您的硬件仍然很重要。检查您的硬件是否列在上面的参考资料"
+"中。让推销员(或者其他)知道您是在为一个 &arch-kernel; 系统采购设备。请支持对 "
+"&arch-kernel; 友好的硬件销售商。"
+
+#. Tag: title
+#: hardware.xml:1601
+#, no-c-format
+msgid "Avoid Proprietary or Closed Hardware"
+msgstr "避免专有或封闭的硬件"
+
+#. Tag: para
+#: hardware.xml:1602
+#, no-c-format
+msgid ""
+"Some hardware manufacturers simply won't tell us how to write drivers for "
+"their hardware. Others won't allow us access to the documentation without a "
+"non-disclosure agreement that would prevent us from releasing the &arch-"
+"kernel; source code."
+msgstr ""
+"一些硬件制造商愚蠢地拒绝告诉我们如何给他们的硬件写驱动程序。其他的则要求签署"
+"不公开的契约才能接触文档，以阻止我们发布 &arch-kernel; 驱动程序源代码。"
+
+#. Tag: para
+#: hardware.xml:1609
+#, no-c-format
+msgid ""
+"Since we haven't been granted access to the documentation on these devices, "
+"they simply won't work under &arch-kernel;. You can help by asking the "
+"manufacturers of such hardware to release the documentation. If enough "
+"people ask, they will realize that the free software community is an "
+"important market."
+msgstr ""
+"因为我们没有被授权查看这些设备的文档，它们自然不会在 &arch-kernel; 下工作。您"
+"可以帮我们去告诉那些制造商，要求他们发布文档。如果有足够多的人要求，他们将认"
+"识到自由软件社区也是一个重要的市场。"
+
+#. Tag: title
+#: hardware.xml:1621
+#, no-c-format
+msgid "Windows-specific Hardware"
+msgstr "Windows 专用硬件"
+
+#. Tag: para
+#: hardware.xml:1622
+#, no-c-format
+msgid ""
+"A disturbing trend is the proliferation of Windows-specific modems and "
+"printers. In some cases these are specially designed to be operated by the "
+"Microsoft Windows operating system and bear the legend <quote>WinModem</"
+"quote> or <quote>Made especially for Windows-based computers</quote>. This "
+"is generally done by removing the embedded processors of the hardware and "
+"shifting the work they do over to a Windows driver that is run by your "
+"computer's main CPU. This strategy makes the hardware less expensive, but "
+"the savings are often <emphasis>not</emphasis> passed on to the user and "
+"this hardware may even be more expensive than equivalent devices that retain "
+"their embedded intelligence."
+msgstr ""
+"一个令人不安的趋势是 Windows 规格的调制解调器和打印机的增长。在某些情况下它们"
+"专为微软的 Windows 操作系统设计并且标有 <quote>WinModem</quote> 或 <quote>专"
+"为基于 Windows 的计算机制造</quote> 字样。这通常是省掉硬件的内嵌处理器，将它"
+"的工作交给 Windows 驱动程序并由您计算机中的 CPU 来完成。这样做是为了降低硬件"
+"成本，但是常常并<emphasis>不能</emphasis>为用户节省任何开销，并且可能还会比同"
+"等功能的保留内嵌处理器的设备昂贵。"
+
+#. Tag: para
+#: hardware.xml:1635
+#, no-c-format
+msgid ""
+"You should avoid Windows-specific hardware for two reasons. The first is "
+"that the manufacturers do not generally make the resources available to "
+"write a &arch-kernel; driver. Generally, the hardware and software interface "
+"to the device is proprietary, and documentation is not available without a "
+"non-disclosure agreement, if it is available at all. This precludes it being "
+"used for free software, since free software writers disclose the source code "
+"of their programs. The second reason is that when devices like these have "
+"had their embedded processors removed, the operating system must perform the "
+"work of the embedded processors, often at <emphasis>real-time</emphasis> "
+"priority, and thus the CPU is not available to run your programs while it is "
+"driving these devices. Since the typical Windows user does not multi-process "
+"as intensively as a &arch-kernel; user, the manufacturers hope that the "
+"Windows user simply won't notice the burden this hardware places on their "
+"CPU. However, any multi-processing operating system, even Windows 2000 or "
+"XP, suffers from degraded performance when peripheral manufacturers skimp on "
+"the embedded processing power of their hardware."
+msgstr ""
+"有两个原因让您应当避免使用 Windows 规格的硬件。首先，这些制造商一般不提供相应"
+"资料用于编写 &arch-kernel; 驱动程序。通常，这些设备的软硬件接口是专有的，即使"
+"相关资料存在，但不签署封闭的契约也无法得到它们。这就排除了被自由软件使用的可"
+"能，因为自由软件的开发者不会将它们的软件源码封闭起来。其次，这些设备是没有内"
+"嵌处理器的，操作系统必须承担本该由这些处理器完成的工作，并且经常是在"
+"<emphasis>实时</emphasis>优先级下，因此 CPU 在驱动这些设备时就无法运行您的程"
+"序。因为典型的 Windows 用户并不像 &arch-kernel; 用户那样对多任务有强烈要求，"
+"这些制造商希望 Windows 用户不会注意到 CPU 为他们硬件的开销。但是，任何多任务"
+"操作系统，甚至是 Windows 2000 或 XP，都要忍受这些制造商克扣内嵌处理器造成的性"
+"能下降。"
+
+#. Tag: para
+#: hardware.xml:1656
+#, no-c-format
+msgid ""
+"You can help improve this situation by encouraging these manufacturers to "
+"release the documentation and other resources necessary for us to program "
+"their hardware, but the best strategy is simply to avoid this sort of "
+"hardware<phrase arch=\"linux-any\"> until it is listed as working in the "
+"<ulink url=\"&url-hardware-howto;\">Linux Hardware Compatibility HOWTO</"
+"ulink></phrase>."
+msgstr ""
+"您可以帮助改变这种状况，要求制造商发布相应的文档和资料，让我们可以编写他们硬"
+"件的程序，但最好还是避免使用这些硬件<phrase arch=\"linux-any\">，直到它们被列"
+"入 <ulink url=\"&url-hardware-howto;\">Linux Hardware Compatibility HOWTO</"
+"ulink></phrase>。"
+
+#. Tag: title
+#: hardware.xml:1674
+#, no-c-format
+msgid "Installation Media"
+msgstr "安装介质"
+
+#. Tag: para
+#: hardware.xml:1676
+#, no-c-format
+msgid ""
+"This section will help you determine which different media types you can use "
+"to install &debian;. For example, if you have a floppy disk drive on your "
+"machine, it can be used to install &debian;. There is a whole chapter "
+"devoted to media, <xref linkend=\"install-methods\"/>, which lists the "
+"advantages and disadvantages of each media type. You may want to refer back "
+"to this page once you reach that section."
+msgstr ""
+"本章将助您选则安装 &debian; 所采用的介质。例如，您的电脑上有一个软驱，它就可"
+"以用来安装 &debian;。有一整章专门用于说明介质：<xref linkend=\"install-"
+"methods\"/>，里面列出了每种类型的优缺点。当您阅读那一章的时候，可能要返回参考"
+"本页。"
+
+#. Tag: title
+#: hardware.xml:1687
+#, no-c-format
+msgid "Floppies"
+msgstr "软盘"
+
+#. Tag: para
+#: hardware.xml:1688
+#, no-c-format
+msgid ""
+"In some cases, you'll have to do your first boot from floppy disks. "
+"Generally, all you will need is a high-density (1440 kilobytes) 3.5 inch "
+"floppy drive."
+msgstr ""
+"在某些条件下，不得不从软盘做首次启动。通常，您所需的只是一个 3.5 英寸高密"
+"(1440 千字节)软驱。"
+
+#. Tag: para
+#: hardware.xml:1694
+#, no-c-format
+msgid "For CHRP, floppy support is currently broken."
+msgstr "用于 CHRP 的软盘支持已经被停止。"
+
+#. Tag: title
+#: hardware.xml:1701
+#, no-c-format
+msgid "CD-ROM/DVD-ROM"
+msgstr "CD-ROM/DVD-ROM"
+
+#. Tag: para
+#: hardware.xml:1703
+#, no-c-format
+msgid ""
+"Whenever you see <quote>CD-ROM</quote> in this manual, it applies to both CD-"
+"ROMs and DVD-ROMs, because both technologies are really the same from the "
+"operating system's point of view, except for some very old nonstandard CD-"
+"ROM drives which are neither SCSI nor IDE/ATAPI."
+msgstr ""
+"每当在本手册中看到 <quote>CD-ROM</quote>，它泛指 CD-ROM 和 DVD-ROM。因为从操"
+"作系统的角度看，它们所用的技术是相同的。这里面除去那些既不属于 SCSI 也不属于 "
+"IDE/ATAPI 的老式的非标准 CD-ROM 驱动器。"
+
+#. Tag: para
+#: hardware.xml:1710
+#, no-c-format
+msgid ""
+"CD-ROM based installation is supported for some architectures. On machines "
+"which support bootable CD-ROMs, you should be able to do a completely "
+"<phrase arch=\"not-s390\">floppy-less</phrase> <phrase arch=\"s390\">tape-"
+"less</phrase> installation. Even if your system doesn't support booting from "
+"a CD-ROM, you can use the CD-ROM in conjunction with the other techniques to "
+"install your system, once you've booted up by other means; see <xref linkend="
+"\"boot-installer\"/>."
+msgstr ""
+"一些体系支持基于 CD-ROM 的安装。在支持 CD-ROM 启动的机器上，您可以完成"
+"<phrase arch=\"not-s390\">无软盘(floppy-less)</phrase> <phrase arch=\"s390\">"
+"无磁带(tape-less)</phrase>的安装。即使您的系统不支持从 CD-ROM 启动，您也可以"
+"结合其他技术在启动后，使用 CD-ROM 来安装系统，参阅 <xref linkend=\"boot-"
+"installer\"/>。"
+
+#. Tag: para
+#: hardware.xml:1722
+#, no-c-format
+msgid ""
+"SCSI, SATA and IDE/ATAPI CD-ROMs are supported. The <ulink url=\"&url-cd-"
+"howto;\">Linux CD-ROM HOWTO</ulink> contains in-depth information on using "
+"CD-ROMs with Linux."
+msgstr ""
+"SCSI、SATA 和 IDE/ATAPI CD-ROMs 都获得支持。<ulink url=\"&url-cd-howto;"
+"\">Linux CD-ROM HOWTO</ulink> 包含在 Linux 下使用 CD-ROM 的进一步信息。"
+
+#. Tag: para
+#: hardware.xml:1728
+#, no-c-format
+msgid ""
+"USB CD-ROM drives are also supported, as are FireWire devices that are "
+"supported by the ohci1394 and sbp2 drivers."
+msgstr ""
+"USB CD-ROM 也是被支持的。而 FireWire 设备则是通过 ohci1394 和 sbp2 驱动程序来"
+"获得支持。"
+
+#. Tag: para
+#: hardware.xml:1733
+#, no-c-format
+msgid "IDE/ATAPI CD-ROMs are supported on all ARM machines."
+msgstr "所有的 ARM 机器都支持 IDE/ATAPI CD-ROM。"
+
+#. Tag: para
+#: hardware.xml:1737
+#, no-c-format
+msgid ""
+"On SGI machines, booting from CD-ROM requires a SCSI CD-ROM drive capable of "
+"working with a logical blocksize of 512 bytes. Many of the SCSI CD-ROM "
+"drives sold on the PC market do not have this capability. If your CD-ROM "
+"drive has a jumper labeled <quote>Unix/PC</quote> or <quote>512/2048</"
+"quote>, place it in the <quote>Unix</quote> or <quote>512</quote> position. "
+"To start the install, simply choose the <quote>System installation</quote> "
+"entry in the firmware."
+msgstr ""
+"在 SGI 的机器上，从 CD-ROM 启动需要一台能使用 512 字节逻辑块的 SCSI CD-ROM 驱"
+"动器。很多面向 PC 市场的 SCSI CD-ROM 驱动器并不具有这个能力。如果您的 CD-ROM "
+"驱动器上有标注为 <quote>Unix/PC</quote> 或 <quote>512/2048</quote> 的跳线，请"
+"将其置于 <quote>Unix</quote> 或 <quote>512</quote> 的位置上。要开始安装，请从"
+"固件上选择 <quote>System installation</quote> 项。"
+
+#. Tag: title
+#: hardware.xml:1751
+#, no-c-format
+msgid "Hard Disk"
+msgstr "硬盘"
+
+#. Tag: para
+#: hardware.xml:1753
+#, no-c-format
+msgid ""
+"Booting the installation system directly from a hard disk is another option "
+"for many architectures. This will require some other operating system to "
+"load the installer onto the hard disk."
+msgstr ""
+"从硬盘启动安装系统是许多体系的另外一个选择。这将要求其他的操作系统从硬盘加载"
+"安装程序。"
+
+#. Tag: para
+#: hardware.xml:1759
+#, no-c-format
+msgid ""
+"Although the &arch-title; does not allow booting from SunOS (Solaris), you "
+"can install from a SunOS partition (UFS slices)."
+msgstr ""
+"虽然 &arch-title; 不允许从 SunOS(Solaris) 启动，但您可以从一个 SunOS 的分区 "
+"(UFS slices)进行安装。"
+
+#. Tag: title
+#: hardware.xml:1767
+#, no-c-format
+msgid "USB Memory Stick"
+msgstr "U 盘"
+
+#. Tag: para
+#: hardware.xml:1769
+#, no-c-format
+msgid ""
+"Many &debian; boxes need their floppy and/or CD-ROM drives only for setting "
+"up the system and for rescue purposes. If you operate some servers, you will "
+"probably already have thought about omitting those drives and using an USB "
+"memory stick for installing and (when necessary) for recovering the system. "
+"This is also useful for small systems which have no room for unnecessary "
+"drives."
+msgstr ""
+"许多 &debian; 机器只在设置系统和急救用途时才需要软盘和 CD-ROM 驱动器。如果使"
+"用过服务器，您也许已经想过怎么样省掉这些驱动器，而用 U 盘来安装和(在必需时)恢"
+"复系统。这对那些没有足够空间容纳不必要驱动器的小型系统非常有用。"
+
+#. Tag: title
+#: hardware.xml:1781
+#, no-c-format
+msgid "Network"
+msgstr "网络"
+
+#. Tag: para
+#: hardware.xml:1783
+#, no-c-format
+msgid ""
+"The network can be used during the installation to retrieve files needed for "
+"the installation. Whether the network is used or not depends on the "
+"installation method you choose and your answers to certain questions that "
+"will be asked during the installation. The installation system supports most "
+"types of network connections (including PPPoE, but not ISDN or PPP), via "
+"either HTTP or FTP. After the installation is completed, you can also "
+"configure your system to use ISDN and PPP."
+msgstr ""
+"安装过程中可以使用网络来获取安装所需要的文件。是否使用网络取决于您选择的安装"
+"方法和安装过程中回答的特定问题。安装系统支持大多数类型的网络连接(包括 PPPoE，"
+"但不含 ISDN 或 PPP)，使用 HTTP 或 FTP。安装完成之后，您还可以配置您的系统使"
+"用 ISDN 和 PPP。"
+
+#. Tag: para
+#: hardware.xml:1793
+#, no-c-format
+msgid ""
+"You can also <emphasis>boot</emphasis> the installation system over the "
+"network. <phrase arch=\"mips;mipsel\">This is the preferred installation "
+"technique for &arch-title;.</phrase>"
+msgstr ""
+"您还可以从网络<emphasis>引导(boot)</emphasis>系统。<phrase arch=\"mips;mipsel"
+"\">在 &arch-title; 下此为推荐的安装技术。</phrase>"
+
+#. Tag: para
+#: hardware.xml:1799
+#, no-c-format
+msgid ""
+"Diskless installation, using network booting from a local area network and "
+"NFS-mounting of all local filesystems, is another option."
+msgstr ""
+"无盘安装，使用网络从局域网启动，并用 NFS 挂载所有的本地文件系统，是另一种选"
+"择。"
+
+#. Tag: title
+#: hardware.xml:1807
+#, no-c-format
+msgid "Un*x or GNU system"
+msgstr "Un*x 或 GNU 系统"
+
+#. Tag: para
+#: hardware.xml:1809
+#, no-c-format
+msgid ""
+"If you are running another Unix-like system, you could use it to install "
+"&debian-gnu; without using the &d-i; described in the rest of this manual. "
+"This kind of install may be useful for users with otherwise unsupported "
+"hardware or on hosts which can't afford downtime. If you are interested in "
+"this technique, skip to the <xref linkend=\"linux-upgrade\"/>."
+msgstr ""
+"如果您正在运行其它的类 Unix 系统，也可以用它来安装 &debian-gnu; 而无须本手册"
+"剩余部分讲述的 &d-i; 使用方法。这类安装方法可能对那些因为硬件不支持或机器停产"
+"的用户有用。如果您对此技术感兴趣，请直接跳到 <xref linkend=\"linux-upgrade\"/"
+">。"
+
+#. Tag: title
+#: hardware.xml:1821
+#, no-c-format
+msgid "Supported Storage Systems"
+msgstr "受支持的存储系统"
+
+#. Tag: para
+#: hardware.xml:1823
+#, no-c-format
+msgid ""
+"The &debian; boot disks contain a kernel which is built to maximize the "
+"number of systems it runs on. Unfortunately, this makes for a larger kernel, "
+"which includes many drivers that won't be used for your machine<phrase arch="
+"\"linux-any\"> (see <xref linkend=\"kernel-baking\"/> to learn how to build "
+"your own kernel)</phrase>. Support for the widest possible range of devices "
+"is desirable in general, to ensure that &debian; can be installed on the "
+"widest array of hardware."
+msgstr ""
+"&debian; 启动盘包括一个用于最大可能数量系统的内核。不幸的是，这将产生一个大内"
+"核，其中包括许多您的机器并不需要的驱动程序<phrase arch=\"linux-any\">(参考"
+"<xref linkend=\"kernel-baking\"/>学习如何创建自己的内核)</phrase>。在通常情况"
+"下，支持最大范围内的设备是一种较合适的设计，这将使得 &debian; 可以在尽可能多"
+"的硬件上安装。"
+
+#. Tag: para
+#: hardware.xml:1833
+#, no-c-format
+msgid ""
+"Generally, the &debian; installation system includes support for floppies, "
+"IDE (also known as PATA) drives, IDE floppies, parallel port IDE devices, "
+"SATA and SCSI controllers and drives, USB, and FireWire. The supported file "
+"systems include FAT, Win-32 FAT extensions (VFAT) and NTFS."
+msgstr ""
+"通常，&debian; 安装系统支持软盘、IDE (也称为 PATA)驱动器、IDE 软盘、并口 IDE "
+"驱动器、SATA 和 SCSI 控制器和驱动器、USB 和 FireWire。支持的文件系统有 FAT、"
+"Win-32 FAT 扩展(VFAT) 和 NTFS。"
+
+#. Tag: para
+#: hardware.xml:1840
+#, no-c-format
+msgid ""
+"Disk interfaces that emulate the <quote>AT</quote> hard disk interface "
+"&mdash; often called MFM, RLL, IDE, or PATA &mdash; are supported. SATA and "
+"SCSI disk controllers from many different manufacturers are supported. See "
+"the <ulink url=\"&url-hardware-howto;\">Linux Hardware Compatibility HOWTO</"
+"ulink> for more details."
+msgstr ""
+"模拟 <quote>AT</quote> 硬盘接口的磁盘接口 &mdash; 称为 MFM、RLL、IDE 或 PATA "
+"&mdash; 可以得到支持。大部分厂商生产的 SATA 和 SCSI 磁盘控制器都能获得支持。"
+"请参阅 <ulink url=\"&url-hardware-howto;\">Linux Hardware Compatibility "
+"HOWTO</ulink> 以获得更详细信息。"
+
+#. Tag: para
+#: hardware.xml:1848
+#, no-c-format
+msgid ""
+"Any storage system supported by the Linux kernel is also supported by the "
+"boot system. The following SCSI drivers are supported in the default kernel: "
+"<itemizedlist> <listitem><para> Sparc ESP </para></listitem> "
+"<listitem><para> PTI Qlogic,ISP </para></listitem> <listitem><para> Adaptec "
+"AIC7xxx </para></listitem> <listitem><para> NCR and Symbios 53C8XX </para></"
+"listitem> </itemizedlist> IDE systems (such as the UltraSPARC 5) are also "
+"supported. See <ulink url=\"&url-sparc-linux-faq;\">Linux for SPARC "
+"Processors FAQ</ulink> for more information on SPARC hardware supported by "
+"the Linux kernel."
+msgstr ""
+"所有 Linux 内核支持的存储系统也都被启动系统所支持。下列 SCSI 驱动被默认内核支"
+"持： <itemizedlist> <listitem><para> Sparc ESP </para></listitem> "
+"<listitem><para> PTI Qlogic,ISP </para></listitem> <listitem><para> Adaptec "
+"AIC7xxx </para></listitem> <listitem><para> NCR 与 Symbios 53C8XX </para></"
+"listitem> </itemizedlist> IDE 系统(例如 UltraSPARC 5)是受支持的。请参考 "
+"<ulink url=\"&url-sparc-linux-faq;\">Linux for SPARC Processors FAQ</ulink> "
+"以了解更多关于 SPARC 硬件被 Linux 内核支持的情况。"
+
+#. Tag: para
+#: hardware.xml:1881
+#, no-c-format
+msgid ""
+"Any storage system supported by the Linux kernel is also supported by the "
+"boot system. Note that the current Linux kernel does not support floppies on "
+"CHRP systems at all."
+msgstr ""
+"所有 Linux 内核支持的存储系统也都被启动系统所支持。注意当前的 Linux 内核还不"
+"支持 CHRP 系统上的软盘。"
+
+#. Tag: para
+#: hardware.xml:1887
+#, no-c-format
+msgid ""
+"Any storage system supported by the Linux kernel is also supported by the "
+"boot system. Note that the current Linux kernel does not support the floppy "
+"drive."
+msgstr ""
+"所有 Linux 内核支持的存储系统也都被启动系统所支持。注意当前的 Linux 内核还不"
+"支持软驱。"
+
+#. Tag: para
+#: hardware.xml:1893
+#, no-c-format
+msgid ""
+"Any storage system supported by the Linux kernel is also supported by the "
+"boot system."
+msgstr "所有 Linux 内核支持的存储系统也都被启动系统所支持。"
+
+#. Tag: para
+#: hardware.xml:1898
+#, no-c-format
+msgid ""
+"Any storage system supported by the Linux kernel is also supported by the "
+"boot system. This means that FBA and ECKD DASDs are supported with the old "
+"Linux disk layout (ldl) and the new common S/390 disk layout (cdl)."
+msgstr ""
+"所有 Linux 内核支持的存储系统也都被启动系统所支持。这意味着 FBA 和 ECKD DASD "
+"可以被 旧的 Linux disk layout (ldl) 和新的 common S/390 disk layout (cdl)支"
+"持。"
+
+#. Tag: title
+#: hardware.xml:1915
+#, no-c-format
+msgid "Memory and Disk Space Requirements"
+msgstr "内存与磁盘空间的需求"
+
+#. Tag: para
+#: hardware.xml:1917
+#, no-c-format
+msgid ""
+"You must have at least &minimum-memory; of memory and &minimum-fs-size; of "
+"hard disk space to perform a normal installation. Note that these are fairly "
+"minimal numbers. For more realistic figures, see <xref linkend=\"minimum-"
+"hardware-reqts\"/>."
+msgstr ""
+"您必须至少有 &minimum-memory; 的内存和 &minimum-fs-size; 的硬盘空间来进行普通"
+"安装。注意这是最小的数字，要了解实际的情况，参阅 <xref linkend=\"minimum-"
+"hardware-reqts\"/>。"
+
+#. Tag: para
+#: hardware.xml:1924
+#, no-c-format
+msgid ""
+"Installation on systems with less memory<footnote condition=\"gtk\"> <para> "
+"Installation images that support the graphical installer require more memory "
+"than images that support only the textual installer and should not be used "
+"on systems with less than &minimum-memory; of memory. If there is a choice "
+"between booting the regular and the graphical installer, the former should "
+"be selected. </para> </footnote> or disk space available may be possible but "
+"is only advised for experienced users."
+msgstr ""
+"在较小的内存<footnote condition=\"gtk\"> <para> 支持图形界面的安装映象会比文"
+"本界面需要更多的内存，并且内存不应少于 &minimum-memory; 。如果可以在普通和图"
+"形界面两种方式之间选择，应选择普通方式。</para> </footnote>或磁盘空间上安装系"
+"统或许可行，但只针对有经验的用户。"

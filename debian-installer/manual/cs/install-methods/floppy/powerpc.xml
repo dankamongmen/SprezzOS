@@ -1,0 +1,118 @@
+<!-- $Id: powerpc.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="powerpc"><title>Zápis disket v MacOS</title>
+<para>
+
+Pro vytvoření disket z jejich obrazů existuje AppleScript
+<application>Make Debian Floppy</application>, který si můžete
+stáhnout z
+<ulink url="ftp://ftp2.sourceforge.net/pub/sourceforge/d/de/debian-imac/MakeDebianFloppy.sit"></ulink>.
+Použití je snadné. Jednoduše ho nechte na ploše a přetáhněte na něj
+jednotlivé obrazy disket.
+Aby program fungoval, musíte mít AppleScript nainstalovaný a povolený
+ve správci rozšíření (extensions manager).
+Před samotným zápisem na disketu budete ještě dotázáni, zda opravdu
+chcete disketu smazat.
+
+</para><para>
+
+Také můžete použít přímo program <application>Disk Copy</application>
+nebo freewarovou utilitu <application>suntar</application>.
+V následujících ukázkách používáme jako příklad obrazu soubor
+<filename>root.bin</filename>.
+
+</para>
+
+   <sect3>
+   <title>Zápis disket programem <application>Disk Copy</application></title>
+<para>
+
+Jestliže vyrábíte diskety ze souborů umístěných na oficiálních CD
+&debian;u, pak jsou hodnoty Type a Creator nastavené správně.
+Následující kroky musíte provést pouze pokud jste si stáhli obrazy
+z některého z debianích zrcadel.
+
+</para>
+<orderedlist>
+<listitem><para>
+
+Stáhněte si
+<ulink url="&url-powerpc-creator-changer;">Creator-Changer</ulink>
+a otevřete jím soubor <filename>root.bin</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Změňte <quote>Creator</quote> na hodnotu <userinput>ddsk</userinput>
+(Disk Copy), a <quote>Type</quote> na <userinput>DDim</userinput>
+(binární obraz diskety).  Pole jsou citlivá na malá/velká písmena.
+
+</para></listitem>
+<listitem><para>
+
+<emphasis>Důležité:</emphasis> ve Finderu si příkazem <userinput>Get
+Info</userinput> zobrazte informace o obrazu diskety a zatrhněte
+položku <userinput>File Locked</userinput>, aby MacOS nemohl odstranit
+zaváděcí bloky, kdybyste omylem obraz připojili.
+
+</para></listitem>
+    <listitem><para>
+
+Pokud ho ještě nemáte, z <ulink url="&url-powerpc-diskcopy;"></ulink>
+si stáhněte program <application>Disk Copy</application>.
+
+</para></listitem>
+<listitem><para>
+
+Spusťte <application>Disk Copy</application> a z menu
+<userinput>Utilities</userinput> vyberte položku <quote>Make a Floppy</quote>.
+V následujícím dialogu vyberte <emphasis>zamknutý</emphasis> obraz
+diskety. Budete požádáni o vložení diskety a potvrzení, že ji opravdu
+chcete smazat. Po skončení kopírování by se měla disketa vysunout.
+
+</para></listitem>
+</orderedlist>
+
+   </sect3>
+
+   <sect3>
+   <title>Zápis disket programem <application>suntar</application></title>
+<para>
+
+<orderedlist>
+<listitem><para>
+
+Z <ulink url="&url-powerpc-suntar;"></ulink> si stáhněte program
+<application>suntar</application>, spusťte ho a z menu
+<userinput>Special</userinput> vyberte položku
+<quote>Overwrite Sectors...</quote>.
+
+</para></listitem>
+<listitem><para>
+
+Na požádáni vložte disketu a stiskněte &enterkey; (začít na sektoru 0).
+
+</para></listitem>
+<listitem><para>
+
+V dialogovém okně pro načtení souboru vyberte soubor
+<filename>root.bin</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Po úspěšném zápisu diskety vyberte z menu <userinput>File</userinput>
+položku <quote>Eject</quote>. Pokud se při zápisu vyskytly chyby,
+disketu vyhoďte a zkuste to s jinou.
+
+</para></listitem>
+</orderedlist>
+
+Než disketu, kterou jste právě vytvořili, použijete, <emphasis>zapněte
+na ní ochranu proti zápisu</emphasis>! Kdybyste ji totiž omylem v
+MacOS připojili, ten by ji vesele zrušil.
+
+</para>
+   </sect3>
+  </sect2>

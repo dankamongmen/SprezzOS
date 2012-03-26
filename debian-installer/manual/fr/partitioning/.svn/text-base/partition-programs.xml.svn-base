@@ -1,0 +1,140 @@
+<!-- original version: 64916 -->
+
+ <sect1 id="partition-programs">
+ <title>Programmes de partitionnement</title>
+<para>
+
+De nombreux utilitaires de partitionnement ont été adaptés par
+les développeurs &debian; pour fonctionner sur différents types de disques
+et d'architectures matérielles.
+Voici les programmes qui sont disponibles sur votre architecture&nbsp;:
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term><command>partman</command></term>
+<listitem><para>
+
+C'est le partitionneur que recommande &debian;. Ce <quote>couteau suisse</quote>
+sait aussi redimensionner des partitions et monter des systèmes de fichiers
+<phrase arch="any-x86"> (<quote>formater</quote> en langage Windows)</phrase>
+sur des points de montage.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdisk.txt">
+<term><command>fdisk</command></term>
+<listitem><para>
+
+C'est le premier partitionneur de disque pour Linux... bon pour les gourous. 
+
+</para><para>
+
+Faites attention si vous avez des partitions FreeBSD sur votre machine. Les
+noyaux d'installation reconnaissent ces partitions, mais la façon
+dont <command>fdisk</command> les représente (ou pas) peut faire varier les 
+noms des périphériques. Lisez attentivement le
+<ulink url="&url-linux-freebsd;">Linux+FreeBSD HOWTO</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="cfdisk.txt">
+<term><command>cfdisk</command></term>
+<listitem><para>
+
+C'est un partitionneur simple à utiliser, fonctionnant en mode plein écran... 
+pour nous autres.
+
+</para><para>
+
+Remarquez que <command>cfdisk</command> ne reconnaît pas du tout
+les partitions FreeBSD et que les noms des périphériques peuvent 
+être différents.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="atari-fdisk.txt">
+<term><command>atari-fdisk</command></term>
+<listitem><para>
+
+Version de <command>fdisk</command> pour les machines Atari. 
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="amiga-fdisk.txt">
+<term><command>amiga-fdisk</command></term>
+<listitem><para>
+
+Version de <command>fdisk</command> pour les machines Amiga. 
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="mac-fdisk.txt">
+<term><command>mac-fdisk</command></term>
+<listitem><para>
+
+Version de <command>fdisk</command> pour Mac. 
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="pmac-fdisk.txt">
+<term><command>pmac-fdisk</command></term>
+<listitem><para>
+
+Version de <command>fdisk</command> pour les PowerMac, et les systèmes BVM et 
+Motorola VMEbus.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdasd.txt">
+<term><command>fdasd</command></term>
+<listitem><para>
+
+Version de <command>fdisk</command> pour les &arch-title;.
+Lisez la page de manuel de fdasd ou le chapitre 13 de 
+<ulink url="http://oss.software.ibm.com/developerworks/opensource/linux390/docu\/l390dd08.pdf">Pilotes de périphériques et commandes d'installation</ulink>.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+L'un de ces programmes sera lancé par défaut quand vous sélectionnerez&nbsp;:
+<guimenuitem>Partitionner un disque dur</guimenuitem>. Il est possible d'utiliser
+un autre partitionneur sur la console VT2 mais cela n'est pas recommandé.
+
+</para>
+<para arch="x86">
+N'oubliez pas de rendre amorçable votre partition racine. 
+</para>
+
+<para condition="mac-fdisk.txt">
+
+Un point important est que la partition d'échange (<emphasis>swap</emphasis>) 
+est identifiée par son nom sur les disques de type Mac&nbsp;: ce doit être <quote>swap</quote>. 
+Toutes les partitions Mac linux sont identifiées sous le même type de partition,
+Apple_UNIX_SRV2. Veuillez lire le manuel approprié.
+Nous vous suggérons aussi de lire le <ulink url="&url-mac-fdisk-tutorial;">
+guide d'initiation à mac-fdisk"></ulink>, qui décrit les étapes que vous devez
+suivre si vous voulez partager votre disque avec MacOS.
+
+</para>
+
+&partition-hppa.xml;
+&partition-x86.xml;
+&partition-ia64.xml;
+&partition-mips.xml;
+&partition-powerpc.xml;
+&partition-sparc.xml;
+
+ </sect1>

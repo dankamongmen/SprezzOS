@@ -1,0 +1,64 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61447 -->
+
+<!-- As tzsetup is invoked from inside clock-setup, this is not a
+     separate section -->
+
+<para>
+
+Depenent de la localització seleccionada anteriorment durant el procés
+d'instal·lació, pot ser que se us mostri una llista de zones horàries
+rellevants a aquesta localització. Si la vostra localització només en té
+una i esteu realitzant una instal·lació predeterminada,
+no se us preguntarà res i el sistema assumirà aquesta zona horària.
+
+</para><para>
+
+Al mode expert o quan instal·leu amb prioritat mitjana, tindreu l'opció
+addicional d'escollir el <quote>Temps Universal Coordinat</quote> (UTC)
+com a zona horària.
+
+</para><para>
+
+Si per algun motiu voleu establir una zona horària que <emphasis>no</emphasis>
+coincideixi amb la localització seleccionada, hi ha dues opcions.
+
+</para>
+
+<orderedlist>
+<listitem>
+
+<para>
+
+L'opció més fàcil és seleccionar simplement un fus horari diferent una vegada
+s'ha completat la instal·lació i s'ha arrencat el nou sistema. L'ordre per
+fer-ho és:
+
+<informalexample><screen>
+# dpkg-reconfigure tzdata
+</screen></informalexample>
+
+</para>
+
+</listitem><listitem>
+
+<para>
+
+Alternativament, la zona horària es pot establir al principi de la
+instal·lació passant el paràmetre
+<userinput>time/zone=<replaceable>valor</replaceable></userinput> quan
+arrenqueu el sistema d'instal·lació. El valor hauria de ser un fus horari
+vàlid, per exemple <userinput>Europe/London</userinput> o
+<userinput>UTC</userinput>.
+
+</para>
+
+</listitem>
+</orderedlist>
+
+<para>
+
+Per instal·lacions automatitzades, podeu establir el fus horari a qualsevol
+valor mitjançant una configuració prèvia.
+
+</para>

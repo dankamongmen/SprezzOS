@@ -1,0 +1,929 @@
+# Croatian messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Debian-installer 1st-stage master file HR\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-27 22:51+0000\n"
+"PO-Revision-Date: 2010-07-07 12:30+0200\n"
+"Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
+"Language-Team: Croatian <lokalizacija@linux.hr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:60001
+#, no-c-format
+msgid "ZFS pool %s, volume %s"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:62001
+#, no-c-format
+msgid "DASD %s (%s)"
+msgstr "DASD %s (%s)"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:63001
+#, no-c-format
+msgid "DASD %s (%s), partition #%s"
+msgstr "DASD %s (%s), particija br. %s"
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Setting to reserve a small part of the disk for use by BIOS-based bootloaders
+#. such as GRUB.
+#: ../partman-partitioning.templates:36001
+msgid "Reserved BIOS boot area"
+msgstr "Rezervirano BIOS boot područje"
+
+#. Type: text
+#. Description
+#. :sl5:
+#. short variant of 'Reserved BIOS boot area'
+#. Up to 10 character positions
+#: ../partman-partitioning.templates:37001
+msgid "biosgrub"
+msgstr "biosgrub"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:1001
+msgid ""
+"In order to start your new system, the firmware on your Itanium system loads "
+"the boot loader from its private EFI partition on the hard disk.  The boot "
+"loader then loads the operating system from that same partition.  An EFI "
+"partition has a FAT16 file system formatted on it and the bootable flag set. "
+"Most installations place the EFI partition on the first primary partition of "
+"the same hard disk that holds the root file system."
+msgstr ""
+"Kako bi pokrenuo vaš novi sustav, firmware vašeg Itanium računala učitava "
+"boot učitavač s njegove privatne EFI particije na tvrdome disku. Boot "
+"učitavač tada učitava operacijski sustav s te iste particije. EFI particija "
+"formatirana je kao FAT16 datotečni sustav i označena bootable zastavicom. "
+"Većina instalacija smješta EFI particiju na prvu primarnu particiju istoga "
+"tvrdog diska koji sadrži i korijenski datotečni sustav."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:2001 ../partman-efi.templates:4001
+msgid "EFI boot partition"
+msgstr "EFI boot particija"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:3001
+msgid "No EFI partition was found."
+msgstr "Nije pronađena EFI particija."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. short variant of 'EFI boot partition'
+#. Up to 10 character positions
+#: ../partman-efi.templates:5001
+msgid "EFIboot"
+msgstr "EFIboot"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:7001
+msgid "EFI-fat16"
+msgstr "EFI-fat16"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:1001
+msgid ""
+"No partitions were found in your system. You may need to partition your hard "
+"drives or load additional kernel modules."
+msgstr ""
+"Nisu pronađene particije na vašem sustavu. Možda trebate particionirati svoj "
+"tvrdi disk, ili učitati dodatne module za kernel."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:2001
+msgid "No file systems found"
+msgstr "Nema datotečnih sustava"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:2001
+msgid ""
+"No usable file systems were found. You may need to load additional kernel "
+"modules."
+msgstr ""
+"Nema uporabljivih datotečnih sustava. Možda trebate učitati dodatne module "
+"za kernel."
+
+#. Type: select
+#. Choices
+#. :sl5:
+#: ../partconf.templates:3001
+msgid "Abort"
+msgstr "Prekini"
+
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#: ../partconf.templates:4001
+msgid "Leave the file system intact"
+msgstr "Ne diraj datotečni sustav"
+
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#: ../partconf.templates:4001 ../partconf.templates:5001
+msgid "Create swap space"
+msgstr "Načini swap prostor"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:4002 ../partconf.templates:5002
+msgid "Action on ${PARTITION}:"
+msgstr "Uradi na ${PARTITION}:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:4002
+msgid ""
+"This partition seems to already have a file system (${FSTYPE}). You can "
+"choose to leave this file system intact, create a new file system, or create "
+"swap space."
+msgstr ""
+"Čini se da ova particija već ima datotečni sustav (${FSTYPE}). Možete "
+"odrediti da ostane netaknut, načiniti novi ili načniti swap prostor."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:5002
+msgid ""
+"This partition does not seem to have a file system. You can create a file "
+"system or swap space on it."
+msgstr ""
+"Čni se da ova particija nema datotečni sustav. Možete ga stvoriti, ili "
+"načiniti swap prostor."
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl5:
+#. "it" is a partition
+#: ../partconf.templates:6001
+msgid "Don't mount it"
+msgstr "Ne montiraj"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: string
+#. Description
+#. :sl5:
+#: ../partconf.templates:6002 ../partconf.templates:7001
+msgid "Mount point for ${PARTITION}:"
+msgstr "Točka montiranja za ${PARTITION}:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:6002
+msgid ""
+"When a partition is mounted, it is available to the users of the system. You "
+"always need a root (\"/\") partition, and it's often good to have a separate "
+"partition for /home."
+msgstr ""
+"Kad je particija montirana, dostupna je korisnicima na sustavu. Uvijek vam "
+"treba korijenska (\"/\") particija, a obično je dobro imati i posebnu "
+"particiju za /home direktorij."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../partconf.templates:7001
+msgid "Please enter where the partition should be mounted."
+msgstr "Molim odredite gdje particija treba biti montirana."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:8001
+msgid "Do you want to unmount the partitions so you can make changes?"
+msgstr "Želite li odmontirati particije, tako da možete načiniti promjene?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:8001
+msgid ""
+"Since the partitions have already been mounted, you cannot do any changes."
+msgstr "Kako su particije već montirane, ne možete ništa mjenjati."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "Failed to unmount partitions"
+msgstr "Odmontiranje particija nije uspjelo"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "An unexpected error occurred while unmounting the partitions."
+msgstr "Pojavila se neočekivana pogreška prilikom odmontiranja particija."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "The partition configuration process has been aborted."
+msgstr "Postupak podešavanja particija je prekinut."
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partconf.templates:10001
+#, no-c-format
+msgid "Create %s file system"
+msgstr "Načini %s datotečni sustav"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:11001
+msgid "No root partition (/)"
+msgstr "Nema korijenske particije (/)"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:11001
+msgid ""
+"You need a root partition. Please assign a partition to the root mount point "
+"before continuing."
+msgstr ""
+"Treba vam korijenska particija. Molim odredite particiju za korijensku točku "
+"montiranja prije negoli nastavite."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:12001
+msgid "Partition assigned to ${MOUNT}"
+msgstr "Particiju montirati na ${MOUNT}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:12001
+msgid "Mounting a partition on ${MOUNT} makes no sense. Please change this."
+msgstr "Nema smisla montirati particiju na ${MOUNT}. Molim, promijenite to."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:13001
+msgid "Several partitions assigned to ${MOUNT}"
+msgstr "Nekoliko particija treba montirati na ${MOUNT}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:13001
+msgid ""
+"You cannot assign several partitions to the same mount point. Please change "
+"all but one of them."
+msgstr ""
+"Više particija ne mogu imati istu točku montiranja. Molim ostavite samo "
+"jednu od njih."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid "Ready to create file systems and mount partitions?"
+msgstr "Spremni za stvaranje datotečnih sustava i montiranje particija?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid "File systems will be created and partitions mounted."
+msgstr "Bit će stvoreni datotečni sustavi, a particije montirane."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid ""
+"WARNING: This will destroy all data on the partitions you have assigned file "
+"systems to."
+msgstr ""
+"POZOR: to će uništiti sve podatke na particijama koje ste odredili za "
+"stvaranje datotečnih sustava!"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001
+msgid "Failed to create swap space on ${PARTITION}"
+msgstr "Stvaranje swap prostora na ${PARTITION} nije uspjelo"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001
+msgid "An error occurred when the swap space was created on ${PARTITION}."
+msgstr "Pojavila se pogreška pri stvaranju swap prostora na ${PARTITION}."
+
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001 ../partconf.templates:16001
+#: ../partconf.templates:17001 ../partconf.templates:18001
+msgid ""
+"Please check the error log on the third console or /var/log/messages for "
+"more information."
+msgstr ""
+"Molim pogledajte zabilješku o greškama na trećoj konzoli ili /var/log/"
+"messages za više obavijesti."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:16001
+msgid "Failed to activate the swap space on ${PARTITION}"
+msgstr "Aktiviranje swap prostora na ${PARTITION} nije uspjelo"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:16001
+msgid "An error occurred when the swap space on ${PARTITION} was activated."
+msgstr "Pojavila se pogreška pri aktiviranju swap prostora na ${PARTITION}."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:17001
+msgid "Failed to create ${FS} file system on ${PARTITION}"
+msgstr "Stvaranje ${FS} datotečnog sustava na ${PARTITION} nije uspjelo"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:17001
+msgid ""
+"An error occurred when the ${FS} file system was created on ${PARTITION}."
+msgstr ""
+"Pojavila se pogreška pri stvaranju ${FS} datotečnog sustava na ${PARTITION}."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:18001
+msgid "Failed to mount ${PARTITION} on ${MOUNT}"
+msgstr "Montiranje ${PARTITION} na ${MOUNT} nije uspjelo"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:18001
+msgid "An error occurred when ${PARTITION} was mounted on ${MOUNT}."
+msgstr "Pojavila se pogreška pri montiranju ${PARTITION} na ${MOUNT}."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../partconf.templates:19001
+msgid "Configure and mount partitions"
+msgstr "Podesi i montiraj particije"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002
+msgid "Disk to partition:"
+msgstr "Particionirati disk:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002
+msgid "Please choose one of the listed disks to create partitions on it."
+msgstr "Molim izaberite jedan od diskova s popisa, za particioniranje."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002 ../s390-dasd.templates:1002
+msgid "Select \"Finish\" at the bottom of the list when you are done."
+msgstr "Odaberite \"Završi\" na dnu popisa kad ste gotovi."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:2001
+msgid "No disk found"
+msgstr "Nijedan disk nije pronađen"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:2001
+msgid ""
+"Unable to find any disk in your system. Maybe some kernel modules need to be "
+"loaded."
+msgstr ""
+"Ne mogu pronaći niti jedan disk na vašem računalu. Možda trebate učitati "
+"odgovarajući modul za kernel."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:3001
+msgid "Partitioning error"
+msgstr "Pogreška u particioniranju"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:3001
+msgid "Failed to partition the disk ${DISC}."
+msgstr "Neuspjelo particioniranje diska ${DISC}."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Main menu item
+#: ../partitioner.templates:4001
+msgid "Partition a hard drive"
+msgstr "Particioniraj tvrdi disk"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "ctc: Channel to Channel (CTC) or ESCON connection"
+msgstr "ctc: Channel to Channel (CTC) ili ESCON veza"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "qeth: OSA-Express in QDIO mode / HiperSockets"
+msgstr "qeth: OSA-Express u QDIO načinu / HiperSockets"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "iucv: Inter-User Communication Vehicle - available for VM guests only"
+msgstr "iucv: Međukorisničko komunikacijsko sredstvo - samo za VM goste"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "virtio: KVM VirtIO"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:1002
+msgid "Network device type:"
+msgstr "Vrsta mrežnog uređaja:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:1002
+msgid ""
+"Please choose the type of your primary network interface that you will need "
+"for installing the Debian system (via NFS or HTTP). Only the listed devices "
+"are supported."
+msgstr ""
+"Molim odredite vrstu vašeg osnovnog mrežnog sučelja kojim ćete instalirati "
+"Debian (preko NFS ili HTTP). Podržani su samo uređaji na popisu."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:2001
+msgid "CTC read device:"
+msgstr "CTC read uređaj:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:2001 ../s390-netdevice.templates:3001
+msgid "The following device numbers might belong to CTC or ESCON connections."
+msgstr "Sljedeći brojevi uređaja mogu pripadati CTC ili ESCON vezama."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:3001
+msgid "CTC write device:"
+msgstr "CTC write uređaj:"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#. Type: boolean
+#. Description
+#. :sl5:
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:4001 ../s390-netdevice.templates:8001
+#: ../s390-netdevice.templates:13001
+msgid "Do you accept this configuration?"
+msgstr "Prihvaćate li ove postavke?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:4001
+msgid ""
+"The configured parameters are:\n"
+" read channel  = ${device_read}\n"
+" write channel = ${device_write}\n"
+" protocol      = ${protocol}"
+msgstr ""
+"Podešene odrednice su:\n"
+" čitaj kanal   = ${device_read}\n"
+" piši kanal    = ${device_write}\n"
+" protokol      = ${protocol}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:5001
+msgid "No CTC or ESCON connections"
+msgstr "Nema CTC ili ESCON veza"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:5001
+msgid "Please make sure that you have set them up correctly."
+msgstr "Molim budite sigurni da ste ih ispravno postavili."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:6001
+msgid "Protocol for this connection:"
+msgstr "Protokol za ovu vezu:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:7001
+msgid "Device:"
+msgstr "Uređaj:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:7001
+msgid "Please select the OSA-Express QDIO / HiperSockets device."
+msgstr "Molim izaberite OSA-Express QDIO / HiperSockets uređaj."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:8001
+msgid ""
+"The configured parameters are:\n"
+" channels = ${device0}, ${device1}, ${device2}\n"
+" port     = ${port}\n"
+" portname = ${portname}\n"
+" layer2   = ${layer2}"
+msgstr ""
+"Podešene odrednice su:\n"
+" kanali    = ${device0}, ${device1}, ${device2}\n"
+" port      = ${port}\n"
+" ime porta = ${portname}\n"
+" layer2    = ${layer2}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:9001
+msgid "No OSA-Express QDIO cards / HiperSockets"
+msgstr "Nema OSA-Express QDIO kartica / HiperSockets-a"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:9001
+msgid ""
+"No OSA-Express QDIO cards / HiperSockets were detected. If you are running "
+"VM please make sure that your card is attached to this guest."
+msgstr ""
+"Nisu pronađene OSA-Express QDIO kartice / HiperSockets. Ako izvršavate VM, "
+"molim budite sigurni da je vaša kartica spojena na ovoga gosta."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid "Portname:"
+msgstr "Ime porta:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid ""
+"Please enter the portname of your OSA-Express card. This name must be 1 to 8 "
+"characters long and must be equal on all systems accessing the same card."
+msgstr ""
+"Molim unesite ime porta vaše OSA-Express kartice. Ono mora biti 1 do 8 "
+"znakova dugo i jednako na svim sustavima koji imaju pristup istoj kartici."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid ""
+"Leave it empty if you want to use HiperSockets. This parameter is required "
+"for cards with microcode level 2.10 or later or when you want to share a "
+"card."
+msgstr ""
+"Ostavite prazno ako želite rabiti HiperSockets. Ova odrednica je zahtijevana "
+"za karice s mikrokodom razine 2.10 ili kasnijim, ili kada želite dijeliti "
+"karticu."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid "The name will automatically be converted to uppercase."
+msgstr "Ime će automatski biti ispisano velikim slovima."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:11001
+msgid "Port:"
+msgstr "Port:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:11001
+msgid "Please enter a relative port for this connection."
+msgstr "Molim unesite relativni port za ovu vezu."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:12001
+msgid "Use this device in layer2 mode?"
+msgstr "Koristiti ovaj uređaj u layer2 modu?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:12001
+msgid ""
+"By default OSA-Express cards use layer3 mode. In that mode LLC headers are "
+"removed from incoming IPv4 packets. Using the card in layer2 mode will make "
+"it keep the MAC addresses of IPv4 packets."
+msgstr ""
+"OSA-Express kartice pretpostavljeno koriste layer3 mod. U tom modu, LLC "
+"zaglavlja se brišu iz dolaznih IPv4 paketa. Korištenjem kartice u layer2 "
+"modu će omogućiti zadržavanje MAC adresa u IPv4 paketima."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:13001
+msgid ""
+"The configured parameter is:\n"
+" peer  = ${peer}"
+msgstr ""
+"Podešena odrednica je:\n"
+" peer  = ${peer}"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid "VM peer:"
+msgstr "VM peer:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid "Please enter the name of the VM peer you want to connect to."
+msgstr "Molim unesite ime VM peer-a s kojim se želite spojiti."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid ""
+"If you want to connect to multiple peers, separate the names by colons, e."
+"g.  tcpip:linux1."
+msgstr ""
+"Ako se želite spojiti s više peer-ova, odvojite imena dvotočkama, npr. tcpip:"
+"linux1."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid ""
+"The standard TCP/IP server name on VM is TCPIP; on VIF it's $TCPIP. Note: "
+"IUCV must be enabled in the VM user directory for this driver to work and it "
+"must be set up on both ends of the communication."
+msgstr ""
+"Uobičajeno ime TCP/IP poslužitelja na VM-u jest TCPIP; na VIF-u je $TCPIP."
+"Pozor: IUCV mora biti omogućen u VM korisničkom direktoriju i mora biti "
+"postavljen na oba kraja veze da bi taj pogonitelj radio."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../s390-netdevice.templates:15001
+msgid "Configure the network device"
+msgstr "Podesi mrežni uređaj"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:1002
+msgid "Available devices:"
+msgstr "Raspoloživi uređaji:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:1002
+msgid ""
+"The following direct access storage devices (DASD) are available. Please "
+"select each device you want to use one at a time."
+msgstr ""
+"Sljedeći uređaji za pohranu s izravnim pristupom (DASD) su na raspolaganju. "
+"Molim izaberite sve uređaje koje želite koristiti, jednog po jednog."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:2001
+msgid "Choose device:"
+msgstr "Izaberite uređaj:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:2001
+msgid ""
+"Please choose a device. You have to specify the complete device number, "
+"including leading zeros."
+msgstr ""
+"Molim izaberite uređaj. Morate odrediti potpun broj uređaja, uključujući "
+"prednje ništice."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:3001
+msgid "Invalid device"
+msgstr "Nevaljan uređaj"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:3001
+msgid "An invalid device number has been chosen."
+msgstr "Izabran je nevaljan broj uređaja."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid "Format the device?"
+msgstr "Formatiraj uređaj?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid ""
+"The installer is unable to detect if the device ${device} has already been "
+"formatted or not. Devices need to be formatted before you can create "
+"partitions."
+msgstr ""
+"Instaler ne može odrediti je li uređaj ${device} već formatiran ili ne. "
+"Uređaji moraju biti formatirani prije pravljenja particija."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid ""
+"If you are sure the device has already been correctly formatted, you don't "
+"need to do so again."
+msgstr ""
+"Ako ste sigurni da je uređaj već ispravno formatiran, ne morate to raditi "
+"ponovo."
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:5001
+msgid "Formatting ${device}..."
+msgstr "Formatiram ${device}..."
+
+#. Type: text
+#. Description
+#. Main menu item. Keep translations below 55 columns
+#. :sl5:
+#: ../s390-dasd.templates:6001
+msgid "Configure direct access storage devices (DASD)"
+msgstr "Podesi uređaje za pohranu s izravnim pristupom (DASD)"
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../zipl-installer.templates:1001
+msgid "Install the ZIPL boot loader on a hard disk"
+msgstr "Instaliraj ZIPL boot učitavač na tvrdi disk"

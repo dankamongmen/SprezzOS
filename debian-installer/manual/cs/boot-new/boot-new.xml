@@ -1,0 +1,216 @@
+<!-- $Id: boot-new.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+<chapter id="boot-new">
+ <title>Zavedení vašeho nového systému</title>
+
+ <sect1 id="base-boot">
+ <title>Okamžik pravdy</title>
+<para>
+
+Teď přichází chvíle <emphasis>zahoření</emphasis> systému.
+
+</para><para arch="any-x86">
+
+Jestliže jste provedli víceméně standardní instalaci, měli byste při
+zavádění systému jako první vidět nabídku zavaděče
+<classname>grub</classname><phrase arch="x86">, případně
+<classname>lilo</classname></phrase>. První položky nabídky patří novému
+systému &debian;. Jestliže máte na svém systému i jiné operační systémy
+(např. Windows), které byly během instalace rozpoznány, budou v
+nabídce uvedeny.
+
+</para><para>
+
+Pokud &debian; z disku nenaběhne, nepanikařte. Byla-li instalace
+úspěšná, je velká šance, že se jedná jen o relativně drobný
+problém. Ve většině případů je možné tyto problémy spravit bez
+opakování celé instalace. Jednou z možností je použít záchranný režim
+zabudovaný přímo do instalačního systému (viz část <xref
+linkend="rescue"/>).
+
+</para><para>
+
+Jestliže se systémem &debian; začínáte, může se vám hodit pomoc
+zkušenějších uživatelů. <phrase arch="x86">Pro online pomoc můžete
+zkusit IRC kanály #debian nebo #debian-boot v síti OFTC, nebo můžete
+kontaktovat poštovní konferenci <ulink
+url="&url-list-subscribe;">debian-user</ulink>.</phrase> <phrase
+arch="not-x86">Pro méně rozšířené architektury jako &arch-title; bude
+nejlepší zeptat se v poštovní konferenci <ulink
+url="&url-list-subscribe;">debian-&arch-listname;</ulink>.</phrase>
+Dále nám můžete poslat zprávu o instalaci (viz <xref
+linkend="submit-bug"/>). Svůj problém popište stručně a jasně a opište
+z obrazovky všechny hlášky, které by mohly ostatním pomoci v určení
+problému.
+
+</para><para arch="any-x86">
+
+Pokud na svém počítači máte operační systémy, které nebyly nalezeny,
+nebo nebyly rozpoznány správně, pošlete nám prosím zprávu o instalaci.
+
+</para>
+
+
+  <sect2 arch="powerpc">
+  <title><quote>OldWorld</quote> PowerMacy</title>
+<para>
+
+Pokud se při prvním startu po instalaci zastaví zavádění na výzvě
+<prompt>boot:</prompt>, zkuste napsat <userinput>Linux</userinput>
+a stisknout &enterkey;.  (Standardní konfigurace v souboru
+<filename>quik.conf</filename> se nazývá Linux. Všechny názvy
+definované v tomto souboru můžete zobrazit klávesou
+<keycap>Tab</keycap>.) Také můžete zkusit znovu zavést instalátor
+a ručně upravit soubor <filename>/target/etc/quik.conf</filename>
+(vytvořený krokem <quote>Nainstalovat quik na
+pevný disk</quote>). Chytré nápady pro práci
+s <command>quik</command>em jsou v <ulink
+url="&url-powerpc-quik-faq;"></ulink>.
+
+</para><para>
+
+Abyste se dostali zpět do MacOS bez resetování nvram, napište do
+promptu OpenFirmwaru <userinput>bye</userinput>. (Za předpokladu, že
+jste si MacOS ponechali).  Prompt OpenFirmwaru získáte podržením
+kláves <keycombo> <keycap>Command</keycap> <keycap>Option</keycap>
+<keycap>o</keycap> <keycap>f</keycap> </keycombo> během studeného
+startu počítače.  Pokud byste pro přechod do MacOS museli resetovat
+nvram k původním hodnotám, zmáčkněte během studeného startu počítače
+kombinaci <keycombo> <keycap>Command</keycap> <keycap>Option</keycap>
+<keycap>p</keycap> <keycap>r</keycap> </keycombo>.
+
+</para><para>
+
+Pokud chcete pro zavedení &debian;u použít <command>BootX</command>,
+vyberte si ve složce <filename>Linux Kernels</filename> oblíbené
+jádro, odvyberte volbu s ramdiskem a přidejte kořenové zařízení
+odpovídající vaší instalaci (například
+<userinput>/dev/hda8</userinput>).
+
+</para>
+  </sect2>
+
+  <sect2 arch="powerpc">
+  <title><quote>NewWorld</quote> PowerMacy</title>
+<para>
+
+Na počítačích G4 a iBook se můžete podržením <keycap>Option</keycap>
+klávesy dostat do grafické obrazovky s tlačítkem pro každý zaveditelný
+operační systém. &debian-gnu; bude mít ikonu s tučňákem.
+
+</para><para>
+
+Jestliže jste si nechali nainstalovaný MacOS, může se stát, že vám
+v OpenFirmwaru změní proměnnou <envar>boot-device</envar> (zařízení,
+ze kterého se zavádí systém).  V takovém případě resetujte
+OpenFirmware na standardní hodnoty, což provedete držením kláves
+<keycombo> <keycap>Command</keycap> <keycap>Option</keycap>
+<keycap>p</keycap> <keycap>r</keycap> </keycombo> během studeného
+startu.
+
+</para><para>
+
+Všechna návěští definovaná v souboru <filename>yaboot.conf</filename>
+můžete zobrazit, pokud ve výzvě <prompt>boot:</prompt> stisknete
+klávesu <keycap>Tab</keycap>.
+
+</para><para>
+
+Resetování OpenFirmwaru na počítačích G3 nebo G4 způsobí, že se
+implicitně bude spouštět &debian-gnu;. (Pokud jste správně rozdělili disk
+a první oblast je <quote>Apple_Bootstrap</quote>).
+Toto nemusí fungovat pokud máte &debian-gnu; na SCSI disku a MacOS na
+disku IDE. Potom musíte vstoupit do OpenFirmwaru a nastavit proměnnou
+<envar>boot-device</envar> sami (<command>ybin</command> to dělá
+automaticky).
+
+</para><para>
+
+Po prvním úspěšném zavedení &debian;u byste měli do souboru
+<filename>/etc/yaboot.conf</filename> přidat další parametry &mdash;
+jako třeba duální zavádění. Aby se změny přenesly do zaváděcí oblasti,
+musíte po každé změně tohoto souboru spustit program
+<command>ybin</command>.  Více informací najdete
+v <ulink url="&url-powerpc-yaboot-faq;">yaboot HOWTO</ulink>.
+
+</para>
+  </sect2>
+ </sect1>
+
+&mount-encrypted.xml;
+
+ <sect1 id="login">
+ <title>Přihlášení do systému</title>
+
+<para>
+
+Po zavedení &debian;u se setkáte s výzvou k přihlášení do systému
+(tzv. <firstterm>login prompt</firstterm>). Přihlaste se pod svým
+osobním účtem, který jste si vytvořili během instalace. Systém je
+připraven k používání.
+
+</para><para>
+
+Pokud jste začínající uživatel, asi si budete chtít prohlédnout
+dokumentaci dostupnou v systému. V současné době existuje několik
+dokumentačních systémů, ale pracuje se na jejich sjednocení.
+
+</para><para>
+
+Dokumentace vztahující se k instalovaným programům je v adresáři
+<filename>/usr/share/doc/</filename> v podadresáři se jménem programu
+(přesněji se jménem balíku). U rozsáhlejší dokumentace bývá tato
+zabalena v samostatném balíku, který je většinou potřeba doinstalovat
+zvlášť. Například příručku pro použití programu <command>apt</command>
+naleznete v balíku <classname>apt-doc</classname> nebo
+<classname>apt-howto</classname>.
+
+</para><para>
+
+<filename>/usr/share/doc/</filename> navíc obsahuje několik
+speciálních adresářů. Například linuxové návody <quote>jak na
+to</quote> (HOWTO) jsou v adresáři
+<filename>/usr/share/doc/HOWTO/en-txt/</filename>.
+Nainstalujete-li balík <classname>dhelp</classname>, získáte soubor
+<filename>/usr/share/doc/HTML/index.html</filename>, který obsahuje
+seznam veškeré instalované dokumentace.
+
+</para><para>
+
+Tyto dokumenty můžete jednoduše prohlížet pomocí textového
+prohlížeče. Zadejte:
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>cd /usr/share/doc/</userinput>
+<prompt>$</prompt> <userinput>w3m .</userinput>
+</screen></informalexample>
+
+Tečka za příkazem <command>w3m</command> říká, že má zobrazit obsah
+aktuálního adresáře.
+
+</para><para>
+
+Máte-li nainstalované desktopové grafické prostředí, můžete použít
+v něm obsažený grafický webový prohlížeč. Spusťte prohlížeč z nabídky
+aplikací a do řádku s adresou zadejte
+<userinput>/usr/share/doc/</userinput>.
+
+</para><para>
+
+Dokumentaci k příkazu můžete získat, když napíšete na příkazovém řádku
+<userinput>info <replaceable>prikaz</replaceable></userinput> nebo
+<userinput>man <replaceable>prikaz</replaceable></userinput>. Zkrácený
+návod k použití příkazu obvykle získáte, když za příkaz přidáte
+parametr <userinput>--help</userinput>. Jestliže je výstup delší než
+obrazovka, napište na konec příkazu ještě
+<userinput>| more</userinput> (výstup se pak zastaví po každé plné
+obrazovce). Všechny příkazy začínající určitým řetězcem zobrazíte tak,
+že napíšete řetězec a dvakrát stisknete klávesu <keycap>Tab</keycap>.
+Nápovědu k povelům shellu získáte příkazem
+<userinput>help</userinput>.
+
+</para>
+
+ </sect1>
+</chapter>

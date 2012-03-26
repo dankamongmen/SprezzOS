@@ -1,0 +1,372 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+   <sect3 id="apt-setup">
+   <!-- <title>Configuring apt</title> -->
+   <title>Configurazione di APT</title>
+<para>
+
+<!--
+One of the tools used to install packages on a &debian-gnu; system is
+a program called <command>apt-get</command>, from the
+<classname>apt</classname> package<footnote>
+-->
+
+Uno degli strumenti usati per installare i pacchetti su un sistema &debian-gnu;
+è un programma chiamato <command>apt-get</command>, contenuto nel pacchetto
+<classname>apt</classname><footnote>
+
+<para>
+
+<!--
+Note that the program which actually installs the packages is called
+<command>dpkg</command>.  However, this program is more of a low-level
+tool.  <command>apt-get</command> is a higher-level tool, which will
+invoke <command>dpkg</command> as appropriate. It knows how to retrieve
+packages from your CD, the network, or wherever. It is also able to
+automatically install other packages which are required to make the
+package you're trying to install work correctly.
+-->
+
+Notare che il programma che installa effettivamente i pacchetti si chiama
+<command>dpkg</command>. Comunque questo programma è qualcosa di più di
+uno strumento di basso livello. <command>apt-get</command> è uno strumento
+di livello più elevato che richiamerà <command>dpkg</command> nel modo più
+appropriato. È capace di recuperare i pacchetti da CD, dalla rete o da
+qualsiasi altra sorgente; inoltre è in grado di installare altri pacchetti
+che potrebbero essere necessari al corretto funzionamento del pacchetto
+che si sta tentando di installare.
+
+</para>
+
+<!--
+</footnote>.
+Other front-ends for package management, like <command>aptitude</command>
+and <command>synaptic</command>, are also in use.
+These front-ends are recommended for new users, since they integrate
+some additional features (package searching and status checks)
+in a nice user interface. In fact, <command>aptitude</command> is now the
+recommended utility for package management.
+-->
+
+</footnote>. Si possono usare anche altre interfacce per la gestione dei
+pacchetti come <command>aptitude</command> e <command>synaptic</command>.
+Queste interfacce sono quelle consigliate ai nuovi utenti poiché integrano
+alcune caratteristiche (ricerca dei pacchetti e verifica dello stato) in
+un'interfaccia utente gradevole. Infatti il programma di gestione dei
+pacchetti raccomandato è <command>aptitude</command>.
+
+</para><para>
+
+<!--
+<command>apt</command> must be configured so that it knows from where to
+retrieve packages. The results of this configuration are written to the
+file <filename>/etc/apt/sources.list</filename>. You can examine and edit
+this file to your liking after the installation is complete.
+-->
+
+<command>apt</command> deve essere configurato indicando la posizione da
+cui può recuperare i pacchetti. Il risultato di questa configurazione è
+scritto nel file <filename>/etc/apt/sources.list</filename> che è possibile
+esaminare e modificare a proprio piacimento una volta conclusa
+l'installazione.
+
+</para><para>
+
+<!--
+If you are installing at default priority, the installer will largely
+take care of the configuration automatically, based on the installation
+method you are using and possibly using choices made earlier in the
+installation. In most cases the installer will automatically add a security
+mirror and, if you are installing the stable distribution, a mirror for the
+<quote>volatile</quote> update service.
+-->
+
+Se l'installazione avviene alla priorità predefinita, l'installatore
+si occupa automaticamente della maggior parte della configurazione
+basandosi sul metodo d'installazione in uso e sulle scelte fatte nelle
+fasi iniziali dell'installazione. Nella maggior parte dei casi
+l'installatore aggiunge automaticamente un mirror per la sicurezza e,
+quando si installa la distribuzione stabile, un mirror per accedere al
+servizio d'aggiornamento <quote>volatile</quote>.
+
+</para><para>
+
+<!--
+If you are installing at a lower priority (e.g. in expert mode), you will
+be able to make more decisions yourself. You can choose whether or not to
+use the security and/or volatile update services, and you can choose to
+add packages from the <quote>contrib</quote> and <quote>non-free</quote>
+sections of the archive.
+-->
+
+Se l'installazione avviene a una priorità più bassa (cioè in modalità
+esperto), è possibile scegliere da soli cosa fare, se installare i
+servizi d'aggiornamento di sicurezza o volatile, oppure se aggiungere i
+pacchetti dalle sezioni <quote>contrib</quote> e <quote>non-free</quote>
+dell'archivio.
+
+</para>
+
+    <sect4 id="apt-setup-cdset">
+    <!-- <title>Installing from more than one CD or DVD</title> -->
+    <title>Installazione da più di un CD o DVD</title>
+<para>
+
+<!--
+If you are installing from a CD or a DVD that is part of a larger set,
+the installer will ask if you want to scan additional CDs or DVDs.
+If you have additional CDs or DVDs available, you probably want to do
+this so the installer can use the packages included on them.
+-->
+
+Si si installa da un CD o un DVD che fa parte di un set, l'installatore
+richiede se si vuole eseguire l'analisi di altri CD o DVD. Se si dispone
+di altri CD o DVD, è consigliabile effettuare l'analisi per permettere
+all'installatore di usare anche i pacchetti su questi supporti.
+
+</para><para>
+
+<!--
+If you do not have any additional CDs or DVDs, that is no problem: using
+them is not required. If you also do not use a network mirror (as explained
+in the next section), it can mean that not all packages belonging to the
+tasks you select in the next step of the installation can be installed.
+-->
+
+Se non si dispone di altri CD o DVD, non è un problema: non sono
+necessari. Se non si usa nemmeno un mirror in rete (come spiegato nella
+prossima sezione), può accadere che sia impossibile installare tutti i
+pacchetti che fanno parte dei task selezionabili nel prossimo passo
+dell'installazione.
+
+</para>
+<note><para>
+
+<!--
+Packages are included on CDs (and DVDs) in the order of their popularity.
+This means that for most uses only the first CDs in a set are needed and
+that only very few people actually use any of the packages included on the
+last CDs in a set.
+-->
+
+I pacchetti sono inseriti nei CD (e DVD) in base alla loro popolarità.
+Questo vuol dire che la maggior parte degli utenti usano solo i primi CD
+di un set e che attualmente solo poche persone usano i pacchetti presenti
+nell'ultimo CD del set.
+
+</para><para>
+
+<!--
+It also means that buying or downloading and burning a full CD set is just
+a waste of money as you'll never use most of them. In most cases you are
+better off getting only the first 3 to 8 CDs and installing any additional
+packages you may need from the Internet by using a mirror.
+The same goes for DVD sets: the first DVD, or maybe the first two DVDs
+will cover most needs.
+-->
+
+Questo vuol anche dire che comprare o scaricare e masterizzare un set di CD
+completo è solo uno spreco di soldi dato che la maggior parte di questi non
+verrà mai usata. Nella maggior parte dei casi è consigliabile recuperare
+solo i primi 3 degli 8 CD e installare qualsiasi ulteriore pacchetto da
+Internet tramite un mirror. La stessa cosa vale per il set di DVD: il primo
+DVD, o forse i primi 2 DVD, dovrebbero coprire la maggior parte delle
+necessità.
+
+</para><para>
+
+<!--
+A good rule of thumb is that for a regular desktop installation (using the
+GNOME desktop environment) only the first three CDs are needed. For the
+alternative desktop environments (KDE or Xfce), additional CDs are needed.
+The first DVD easily covers all three desktop environments.
+-->
+
+Una buona regola pratica è che per una normale installazione di un
+desktop (con l'ambiente desktop GNOME) sono necessari solo i primi 3 CD.
+Per gli ambienti desktop alternativi (KDE o Xfce), sono necessari anche
+altri CD. Il primo DVD è sufficiente per tutti e tre gli ambienti desktop.
+
+</para></note>
+<para>
+
+<!--
+If you do scan multiple CDs or DVDs, the installer will prompt you to
+exchange them when it needs packages from another CD/DVD than the one
+currently in the drive. Note that only CDs or DVDs that belong to the
+same set should be scanned. The order in which they are scanned does not
+really matter, but scanning them in ascending order will reduce the chance
+of mistakes.
+-->
+
+Se si analizzano più CD o DVD, l'installatore chiederà di cambiare disco
+quando avrà bisogno dei pacchetti presenti in un CD/DVD diverso da quello
+presente nel lettore. Notare che si possono analizzare solo CD e DVD
+appartenenti allo stesso set; l'ordine con cui sono analizzati non ha
+importanza, comunque se si procede in ordine crescente si riducono le
+possibilità di fare degli errori.
+
+</para>
+    </sect4>
+
+    <sect4 id="apt-setup-mirror">
+    <!-- <title>Using a network mirror</title> -->
+    <title>Uso di un mirror di rete</title>
+<para>
+
+<!--
+One question that will be asked during most installs is whether or not to
+use a network mirror as a source for packages. In most cases the default
+answer should be fine, but there are some exceptions.
+-->
+
+Una delle domande poste durante l'installazione riguarda se utilizzare oppure
+no un mirror di rete come sorgente per i pacchetti. Nella maggior parte
+dei casi la risposta predefinita è corretta, ma ci sono alcune eccezioni.
+
+</para><para>
+
+<!--
+If you are <emphasis>not</emphasis> installing from a full CD or DVD or
+using a full CD/DVD image, you really should use a network mirror as
+otherwise you will end up with only a very minimal system. However, if you
+have a limited Internet connection it is best <emphasis>not</emphasis>
+to select the <literal>desktop</literal> task in the next step of the
+installation.
+-->
+
+Se per l'installazione <emphasis>non</emphasis> si utilizza un CD, un DVD
+oppure l'immagine di un CD/DVD, si raccomanda di usare un mirror di rete
+altrimenti si conclude l'installazione con un sistema minimale. Tuttavia,
+se si dispone di una connessione a Internet limitata, è consigliabile
+<emphasis>non</emphasis> scegliere il task <literal>desktop</literal>
+nella prossima fase dell'installazione.
+
+</para><para>
+
+<!--
+If you are installing from a single full CD or using a full CD image, using
+a network mirror is not required, but is still strongly recommended because
+a single CD contains only a fairly limited number of packages.
+If you have a limited Internet connection it may still be best
+to <emphasis>not</emphasis> select a network mirror here, but to finish the
+installation using only what's available on the CD and selectively install
+additional packages after the installation (i.e. after you have rebooted into
+the new system).
+-->
+
+Se per l'installazione si utilizza un solo CD oppure l'immagine di un CD,
+non è necessario usare un mirror ma è caldamente raccomandato farlo poiché
+un solo CD contiene un numero abbastanza limitato di pacchetti. Però se
+si dispone di una connessione a Internet limitata è consigliabile scegliere
+di <emphasis>non</emphasis> usare un mirror, di completare l'installazione
+usando solo ciò che è disponibile sul CD e di installare altri pacchetti in
+seguito (cioè dopo aver riavviato il nuovo sistema).
+
+</para><para>
+
+<!--
+If you are installing from a DVD or using a DVD image, any packages needed
+during the installation should be present on the first DVD. The same is true
+if you have scanned multiple CDs as explained in the previous section. Use
+of a network mirror is optional.
+-->
+
+Se per l'installazione si utilizza un DVD oppure l'immagine di un DVD,
+tutti i pacchetti necessari durante l'installazione dovrebbero essere
+presenti nel primo DVD. La stessa cosa vale se durante l'installazione
+si esegue l'analisi dei CD come spiegato in precedenza. In questo caso
+l'uso di un mirror è opzionale.
+
+</para><para>
+
+<!--
+One advantage of adding a network mirror is that updates that have occurred
+since the CD/DVD set was created and have been included in a point release,
+will become available for installation, thus extending the life of your CD/DVD
+set without compromising the security or stability of the installed system.
+-->
+
+Un vantaggio dell'aggiunta di un mirror è che gli aggiornamenti rilasciati
+dopo la creazione del set di CD/DVD, e inclusi in uno dei rilasci minori,
+diventano disponibili per l'installazione, quindi si allunga la vita del
+proprio set di CD/DVD senza compromettere la sicurezza o la stabilità del
+sistema installato.
+
+</para><para>
+
+<!--
+In summary: selecting a network mirror is generally a good idea, except
+if you do not have a good Internet connection. If the current version of
+a package is available from CD/DVD, the installer will always use that.
+The amount of data that will be downloaded if you do select a mirror thus
+depends on
+-->
+
+In breve: la scelta di un mirror di rete è generalmente una buona idea,
+tranne quando non si dispone di una buona connessione a Internet. Se
+la versione attuale di un pacchetto è disponibile sul CD/DVD, l'installatore
+usa sempre questo supporto. L'ammontare dei dati da scaricare quando si
+seleziona un mirror dipende da
+
+<orderedlist>
+<listitem><para>
+
+<!--
+the tasks you select in the next step of the installation,
+-->
+
+quali task saranno scelti nel prossimo passo dell'installazione,
+
+</para></listitem>
+<listitem><para>
+
+<!--
+which packages are needed for those tasks,
+-->
+
+quali pacchetti fanno parte di quei task,
+
+</para></listitem>
+<listitem><para>
+
+<!--
+which of those packages are present on the CDs or DVDs you have scanned, and
+-->
+
+quali di questi pacchetti sono presenti sui CD o DVD analizzati e
+
+</para></listitem>
+<listitem><para>
+
+<!--
+whether any updated versions of packages included on the CDs or DVDs are
+available from a mirror (either a regular package mirror, or a mirror for
+security or volatile updates).
+-->
+
+se da un mirror (sia un normale mirror per i pacchetti che un mirror con
+gli aggiornamenti per la sicurezza o di volatile) sono disponibili versioni
+dei pacchetti aggiornate rispetto a quelle sui CD o DVD.
+
+</para></listitem>
+</orderedlist>
+
+</para><para>
+
+<!--
+Note that the last point means that, even if you choose not to use a network
+mirror, some packages may still be downloaded from the Internet if there is a
+security or volatile update available for them and those services have been
+configured.
+-->
+
+Notare che il significato dell'ultimo punto è che anche quando si sceglie
+di non usare un mirror di rete, alcuni pacchetti potrebbero essere comunque
+scaricati da Internet qualora siano disponibili aggiornamenti di sicurezza
+o da volatile e se questi servizi sono stati configurati.
+
+</para>
+    </sect4>
+   </sect3>

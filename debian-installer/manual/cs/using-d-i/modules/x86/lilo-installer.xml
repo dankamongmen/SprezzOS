@@ -1,0 +1,65 @@
+<!-- $Id: lilo-installer.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+  <sect3 arch="x86">
+  <title>Instalovat zavaděč <command>LILO</command> na pevný disk</title>
+<para>
+
+Druhý zavaděč na architektuře &architecture; se nazývá
+<quote>LILO</quote>. Je to komplexní program nabízející hodně
+možností, včetně zavádění DOSu, Windows a OS/2. Máte-li nějaké
+speciální požadavky, prostudujte si adresář
+<filename>/usr/share/doc/lilo/</filename> a nezapomeňte na zajímavý
+dokument <ulink url="&url-lilo-howto;">LILO mini-HOWTO</ulink>.
+
+</para><note><para>
+
+<command>LILO</command> vytvoří záznamy pro zavádění ostatních
+operačních systémů pouze pokud může jejich zavaděče
+<firstterm>zřetězit</firstterm> za sebe sama. To znamená, že pro
+operační systémy typu GNU/Linux nebo GNU/Hurd budete muset přidat
+příslušné záznamy po instalaci ručně.
+
+</para></note><para>
+
+Při instalaci <command>LILA</command> vám &d-i; vám nabídne tři
+možnosti, kam se má zavaděč naintalovat:
+
+<variablelist>
+<varlistentry>
+<term>Hlavní zaváděcí záznam</term><listitem><para>
+
+<command>LILO</command> bude mít kompletní kontrolu nad zaváděním
+a bude se starat i o zavádění ostatních operačních systémů.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>Nová oblast &debian;u</term><listitem><para>
+
+Tuto možnost vyberte, pokud chcete používat jiný zavaděč.
+<command>LILO</command> se nainstaluje na začátek oblasti pro &debian;
+a bude sloužit jako druhotný zavaděč.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>Jiná volba (Pokročilé)</term><listitem><para>
+
+Užitečné pro zkušené uživatele, kteří chtějí instalovat
+<command>LILO</command> někam úplně jinam. V tomto případě budete
+dotázáni na požadované umístění. Cíl instalace můžete zadat tradičním
+názvem zařízení jako <filename>/dev/hda</filename>
+nebo <filename>/dev/sda</filename>.
+
+</para></listitem></varlistentry>
+</variablelist>
+
+</para><para>
+
+Pokud něco uděláte špatně a nebudete moci zavést Windows 9x (nebo
+DOS), budete muset nastartovat ze zaváděcí diskety Windows 9x
+(resp. DOSu) a příkazem <userinput>fdisk /mbr</userinput> nainstalovat
+DOSový MBR (master boot record). To ale znamená, že budete muset
+najít nějakou jinou cestu, jak se dostat zpět do &debian;u!
+
+</para>
+  </sect3>

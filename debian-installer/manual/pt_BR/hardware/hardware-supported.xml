@@ -1,0 +1,413 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56439 -->
+<!-- updated 46426:56439 by Felipe Augusto van de Wiel (faw) 2008.11.11 -->
+
+ <sect1 id="hardware-supported">
+ <title>Hardwares Suportados</title>
+<para>
+
+O &debian; não impõe requerimentos de hardware especiais além dos requerimentos
+do kernel do Linux e conjunto de ferramentas da GNU. No entanto, qualquer
+arquitetura poderá rodar a &debian;, desde que o kernel do Linux, libc,
+<command>gcc</command>, etc. sejam portados, e que um porte do &debian; exista.
+Por favor, veja as páginas de portes da distribuição em
+<ulink url="&url-ports;"></ulink> para ver mas detalhes sobre os
+sistemas da arquitetura &arch-title; que foram testados com a &debian-gnu;.
+
+</para><para>
+
+Ao invés de tentar descrever todas as configurações de hardware
+diferentes que são suportadas por &arch-title;, esta seção contém
+informações gerais e ponteiros para onde informações adicionais
+poderão ser encontradas.
+
+</para>
+
+  <sect2><title>Arquiteturas Suportadas</title>
+<para>
+
+O &debian; GNU/Linux &release; suporta as onze maiores variações de arquiteturas
+e diversas variações de cada arquitetura conhecida como <quote>sabores</quote>.
+
+</para><para>
+
+<informaltable>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Arquitetura</entry><entry>Designação na &debian;</entry>
+  <entry>Sub-arquitetura</entry><entry>Sabor/Tipo</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Intel x86-based</entry>
+  <entry>i386</entry>
+  <entry></entry>
+  <entry></entry>
+</row>
+
+<row>
+  <entry>AMD64 &amp; Intel EM64T</entry>
+  <entry>amd64</entry>
+  <entry></entry>
+  <entry></entry>
+</row>
+
+<row>
+  <entry morerows="4">ARM</entry>
+  <entry>arm</entry>
+  <entry>Netwinder e CATS</entry>
+  <entry>netwinder</entry>
+</row><row>
+  <entry>armel</entry>
+  <entry>Versatile</entry>
+  <entry>versatile</entry>
+</row><row>
+  <entry morerows="2">arm e armel</entry>
+  <entry>Intel IOP32x</entry>
+  <entry>iop32x</entry>
+</row><row>
+  <entry>Intel IXP4xx</entry>
+  <entry>ixp4xx</entry>
+</row><row>
+  <entry>Marvell Orion</entry>
+  <entry>orion5x</entry>
+</row>
+
+<row>
+  <entry morerows="1">HP PA-RISC</entry>
+  <entry morerows="1">hppa</entry>
+  <entry>PA-RISC 1.1</entry>
+  <entry>32</entry>
+</row><row>
+  <entry>PA-RISC 2.0</entry>
+  <entry>64</entry>
+</row>
+
+<row>
+  <entry>Intel IA-64</entry>
+  <entry>ia64</entry>
+  <entry></entry>
+  <entry></entry>
+</row>
+
+<row>
+  <entry morerows="5">MIPS (big endian)</entry>
+  <entry morerows="5">mips</entry>
+  <entry>SGI IP22 (Indy/Indigo 2)</entry>
+  <entry>r4k-ip22</entry>
+</row><row>
+  <entry>SGI IP32 (O2)</entry>
+  <entry>r5k-ip32</entry>
+</row><row>
+  <entry>MIPS Malta (32 bit)</entry>
+  <entry>4kc-malta</entry>
+</row><row>
+  <entry>MIPS Malta (64 bit)</entry>
+  <entry>5kc-malta</entry>
+</row><row>
+  <entry>Broadcom BCM91250A (SWARM)</entry>
+  <entry>sb1-bcm91250a</entry>
+</row><row>
+  <entry>Broadcom BCM91480B (BigSur)</entry>
+  <entry>sb1a-bcm91480b</entry>
+</row>
+
+<row>
+  <entry morerows="4">MIPS (little endian)</entry>
+  <entry morerows="4">mipsel</entry>
+  <entry>Cobalt</entry>
+  <entry>cobalt</entry>
+</row><row>
+  <entry>MIPS Malta (32 bit)</entry>
+  <entry>4kc-malta</entry>
+</row><row>
+  <entry>MIPS Malta (64 bit)</entry>
+  <entry>5kc-malta</entry>
+</row><row>
+  <entry>Broadcom BCM91250A (SWARM)</entry>
+  <entry>sb1-bcm91250a</entry>
+</row><row>
+  <entry>Broadcom BCM91480B (BigSur)</entry>
+  <entry>sb1a-bcm91480b</entry>
+</row>
+
+<row>
+  <entry morerows="1">IBM/Motorola PowerPC</entry>
+  <entry morerows="1">powerpc</entry>
+  <entry>PowerMac</entry>
+  <entry>pmac</entry>
+</row><row>
+  <entry>PReP</entry>
+  <entry>prep</entry>
+</row>
+
+<row>
+  <entry morerows="1">Sun SPARC</entry>
+  <entry morerows="1">sparc</entry>
+  <entry>sun4u</entry>
+  <entry morerows="1">sparc64</entry>
+</row><row>
+  <entry>sun4v</entry>
+</row>
+
+<row>
+  <entry morerows="1">IBM S/390</entry>
+  <entry morerows="1">s390</entry>
+  <entry>IPL do VM-reader e DASD</entry>
+  <entry>generic</entry>
+</row><row>
+  <entry>IPL a partir de fita</entry>
+  <entry>fita</entry>
+</row>
+
+</tbody></tgroup></informaltable>
+
+</para><para>
+
+Este documento cobre a instalação para a arquitetura
+<emphasis>&arch-title;</emphasis>. Se estiver procurando por
+informações em algumas das outras plataformas suportadas pela
+&debian;, de uma olhada nas páginas
+<ulink url="http://www.debian.org/ports/">Portes do Debian</ulink>.
+
+</para><para condition="new-arch">
+
+Este é o primeiro lançamento oficial da &debian-gnu; para a
+arquitetura &arch-title;. Nós sentimos que ela provou por si só
+que poderia ser lançada. No entanto, como ela não foi tanto testada
+pelos usuários quanto foram por outras
+arquiteturas, você poderá encontrar pequenos bugs.
+Use o nosso <ulink url="&url-bts;">Sistema de Tratamento de Falhas</ulink>
+para reportar qualquer problema; tenha certeza de mencionar que a
+falha ocorreu na plataforma &arch-title;. Pode ser necessário
+usar as <ulink url="&url-list-subscribe;">listas de discussão da
+debian-&arch-listname;</ulink> também.
+
+</para>
+  </sect2>
+
+<!-- supported cpu docs -->
+&supported-amd64.xml;
+&supported-arm.xml;
+&supported-hppa.xml;
+&supported-i386.xml;
+&supported-ia64.xml;  <!-- FIXME: currently missing -->
+&supported-mips.xml;
+&supported-mipsel.xml;
+&supported-powerpc.xml;
+&supported-s390.xml;
+&supported-sparc.xml;
+
+  <sect2 arch="x86" id="laptops"><title>Notebooks</title>
+<para>
+
+Também há suporte para os notebooks e hoje em dia a maioria deles funciona
+sem a necessidade de maiores configurações. No caso de um notebook que
+contenha hardware proprietário ou especializado, pode ser que não haja
+suporte para algumas funções específicas. Para ver se seu notebook funciona
+bem com GNU/Linux, veja, por exemplo, as
+<ulink url="&url-x86-laptop;">Páginas de Notebooks Linux</ulink>.
+
+</para>
+   </sect2>
+
+  <sect2 condition="defaults-smp">
+  <title>Múltiplos Processadores</title>
+<para>
+
+O suporte a Multiprocessamento &mdash; também chamado de
+<quote>symmetric multiprocessing</quote> ou SMP &mdash; está disponível para
+esta arquitetura. O kernel padrão do &debian; &release; foi compilado com suporte
+a SMP. O kernel padrão também é usável em sistemas não-SMP, mas possui um
+pequeno custo que causará uma pequena redução no desempenho. Para o uso
+normal do sistema isto dificilmente será notado.
+
+</para><para>
+
+Para otimizar o kernel para sistemas com CPU simples, será necessário
+substituir o kernel padrão do &debian;. <phrase arch="linux-any">Você encontrará uma discussão
+de como fazer isso em <xref linkend="kernel-baking"/>. Atualmente
+(na versão do kernel &kernelversion;) o método de desativar SMP é
+desmarcar <quote>&smp-config-option;</quote> na seção
+<quote>&smp-config-section;</quote> da configuração do kernel.</phrase>
+
+</para>
+  </sect2>
+
+  <sect2 condition="smp-alternatives">
+<title>Múltiplos Processadores</title>
+
+<para>
+
+O suporte a múltiplos processadores &mdash; também chamado <quote>symmetric
+multiprocessing</quote> ou SMP &mdash; está disponível para esta arquitetura.
+O kernel padrão &debian; &release; foi compilado com suporte para
+<firstterm>SMP-alternatives</firstterm>. Isso significa que o kernel
+irá detectar o número de processadores (ou núcleos de processadores) e irá
+automaticamente desativar SMP em sistemas com apenas um processador.
+
+</para><para arch="i386">
+
+A versão 486 dos pacotes &debian; com imagem do kernel para &arch-title;
+não são compilados com suporte para SMP.
+
+</para>
+  </sect2>
+
+  <sect2 condition="supports-smp">
+  <title>Múltiplos Processadores</title>
+<para>
+
+O suporte a múltiplos processadores &mdash; também chamado <quote>symmetric
+multiprocessing</quote> ou SMP &mdash; está disponível para esta arquitetura.
+No entanto, o kernel padrão do &debian; &release; não suporta SMP.
+Isto não deve impedir a instalação, pois o kernel padrão não-SMP
+deve inicializar me sistemas SMP; o kernel simplesmente utilizará a
+primeira CPU.
+
+</para><para>
+
+Para obter vantagens do uso de múltiplos processadores, você terá que
+substituir o kernel padrão do &debian;. <phrase arch="linux-any">Você encontrará uma
+discussão de como fazer isso em <xref linkend="kernel-baking"/>.
+Atualmente (em kernels da versão &kernelversion;) a forma de ativar
+SMP é selecionar <quote>&smp-config-option;</quote> na seção
+<quote>&smp-config-section;</quote> da configuração do kernel.</phrase>
+
+</para>
+  </sect2>
+
+  <sect2 condition="supports-smp-sometimes">
+  <title>Múltiplos Processadores</title>
+<para>
+
+O suporte a multiprocessamento &mdash; também chamado de <quote>symmetric
+multiprocessing</quote> ou SMP &mdash; está disponível para esta arquitetura e
+é suportado por uma imagem de kernel pré-compilada para o &debian;. Dependendo
+de sua mídia de instalação, esta kernel com capacidades para SMP pode ou não
+ser instalado por padrão. Isto não atrapalhará a instalação, pois o kernel
+padrão sem suporte a SMP deverá inicializar em sistemas SMP também;
+o kernel usará a primeira CPU.
+
+</para><para>
+
+Para tirar vantagem do uso de múltiplos processadores, você deverá verificar
+e ver se um pacote do kernel que suporta SMP foi instalado, se não foi,
+selecione um pacote de kernel apropriado.
+
+</para><para>
+
+Você também pode construir seu próprio kernel personalizado para suportar SMP.
+<phrase arch="linux-any">Você pode encontrar uma discussão de como fazer isto em
+<xref linkend="kernel-baking"/>. Atualmente (no kernel da versão
+&kernelversion;) o método para ativar SMP é selecionar 
+<quote>&smp-config-option;</quote> na seção <quote>&smp-config-section;</quote>
+da configuração do kernel.</phrase>
+
+</para>
+  </sect2>
+
+  <sect2 id="gfx" arch="not-s390"><title>Suporte a placas de vídeo</title>
+<para arch="x86">
+
+Você deverá usar uma interface compatível com VGA para o terminal de
+console. Praticamente qualquer placa de vídeo moderna é compatível
+com o padrão VGA. Padrões anciões como o CGA, MDA ou HGA também deveriam
+funcionar, assumindo que você não precisa do suporte a X11. Note que o
+X11 não é usado durante o processo de instalação descrito neste documento.
+
+</para><para>
+
+O suporte do &debian; para as interfaces gráficas é determinado
+pelo suporte encontrado no sistema X11 do X.Org. A maioria das
+placas de vídeo AGP, PCI, PCIe e PCI-X funcionam sob o X.Org. Detalhes
+sobre os barramentos de vídeo para os quais há suporte, placas
+de vídeo, monitores e dispositivos de apontamento podem ser
+encontrados em <ulink url="&url-xorg;"></ulink>. O &debian; &release;
+vem com o X.Org versão &x11ver;.
+
+</para><para arch="mips">
+
+<!-- FIXME: mention explicit graphics chips and not system names -->
+Só há suporte para o X.Org X Window System na Indy SGI e O2. A
+placa de avaliação Broadcom BCM91250A tem slots que seguem o padrão PCI
+de 3.3v e oferecem suporte à emulação VGA ou framebuffer Linux em uma
+diversidade de placas de vídeo.
+Veja a <ulink url="&url-bcm91250a-hardware;">lista de compatibilidade</ulink>
+relacionada com a BCM91250A.
+
+</para><para arch="mipsel">
+
+As placas de avaliação Broadcom BCM91250A e BCM91480B tem slots que seguem
+o padrão PCI de 3.3v e oferecem suporte à emulação VGA ou framebuffer Linux
+em uma diversidade de placas de vídeo. Veja a <ulink
+url="&url-bcm91250a-hardware;">lista de compatibilidade</ulink>
+relacionada com placas de avaliação Broadcom.
+
+</para><para arch="sparc">
+
+Há suporte para a maioria das opções de gráficos comumente encontradas em
+máquinas baseadas em Sparc. Drivers gráficos X.org estão disponíveis para os
+<quote>framebuffers</quote> sunbw2, suncg14, suncg3, suncg6, sunleo e suntcx.
+As placas Creator3D e Elite3D (driver sunffb), placas de vídeo baseadas em
+ATI PGX24/PGX64 (driver ati), e placas baseadas em PermediaII (glint driver).
+Para usar uma Elite3D com X.org você adicionalmente precisa instalar o pacote
+<classname>afbinit</classname>, e ler a documentação incluída com ele sobre
+como ativar a placa.
+
+</para><para arch="sparc">
+
+Não é incomum para uma máquina Sparc ter duas placas gráficas em sua
+configuração padrão. Neste caso há a possibilidade do kernel Linux não
+direcionar sua saída para a placa inicialmente usada pelo firmware. A
+falta de saída no console gráfico pode então ser um erroneamente entendido
+como um congelamento (usualmente a última mensagem vista no terminal é
+'Booting Linux...'). Uma possível solução é fisicamente remover uma das
+placas de vídeo; outra opção é desabilitar uma das placas usando um parâmetro
+de inicialização do kernel. Além disso, se saída gráfica não é requerida ou
+desejada, o console serial pode ser usado como alternativa. Em alguns sistemas
+o uso do console serial pode ser ativado automaticamente desconectando o
+teclado antes de inicializar o sistema.
+
+</para>
+  </sect2>
+
+&network-cards.xml;
+&supported-peripherals.xml;
+
+ </sect1>
+
+ <sect1 arch="not-s390" id="hardware-firmware">
+ <title>Dispositivos que requerem firmware</title>
+<para>
+
+Apesar da disponibilidade um driver de dispositivo, alguns hardwares também
+requerem os famosos <firstterm>firmware</firstterm> ou
+<firstterm>microcódigos</firstterm> sejam carregado no dispositivo antes do
+mesmo tornar-se operacional. Isto é mais comum em placas de rede (especialmente
+placas de rede sem fio) mas, por exemplo, alguns dispositivos USB e até mesmo
+alguns controladores de disco rígido também requerem firmwares.
+
+</para><para>
+
+Na maioria dos casos o firmware não é livre (<quote>non-free</quote>) de
+acordo com o critério usado pelo Projeto &debian-gnu; e portanto não pode ser
+incluído na distribuição principal ou no sistema de instalação. Se o driver
+do dispositivo estiver incluído na distribuição e se o &debian-gnu; legalmente
+puder distribuir o firmware, ele estará disponível como um pacote separado
+a partir da seção non-free do repositório.
+
+</para><para>
+
+No entanto, isto não significa que tal hardware não possa ser usado durante
+a instalação. A partir do &debian-gnu; 5.0, o &d-i; dá suporte ao carregamento
+de arquivos de firmware ou pacotes contendo firmware a partir de mídias
+removíveis, tais como disquetes ou pendrives USB.
+Veja <xref linkend="loading-firmware"/> para informação mais detalhadas
+sobre como carregar arquivos ou pacotes de firmware durante a instalação.
+
+</para>
+ </sect1>

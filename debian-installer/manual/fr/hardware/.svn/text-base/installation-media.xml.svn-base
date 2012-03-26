@@ -1,0 +1,210 @@
+<!-- original version: 67007 -->
+
+ <sect1 id="installation-media">
+<title>Les supports d'installation</title>
+
+<para>
+Cette section précise les différents supports utilisables pour installer
+&debian;. Un chapitre entier est consacré aux supports, le 
+<xref linkend="install-methods"/>&nbsp;; il indique les avantages et les
+désavantages de chaque support. Quand vous aurez atteint ce chapitre,
+vous pourrez vous reporter à cette page.
+</para>
+
+<sect2 condition="supports-floppy-boot">
+<title>Les disquettes</title>
+
+<para>
+Dans certains cas, vous devrez effectuer votre premier amorçage depuis un 
+lecteur de disquettes. En général vous 
+avez besoin d'une disquette haute densité (1440 kilo-octets) de 3,5 pouces.
+</para>
+
+<para arch="powerpc">
+Pour CHRP, l'utilisation de disquette est actuellement impossible.
+</para>
+</sect2>
+
+<sect2 arch="not-s390"><title>CD-ROM/DVD-ROM</title>
+
+<note><para>
+Chaque fois que vous lirez <quote>cédérom</quote> dans ce manuel, cela 
+voudra dire aussi bien CD-ROM que DVD-ROM, car, du point de vue du système
+d'exploitation, les deux techniques sont les mêmes, mis à part quelques
+vieux lecteurs non standard, ni SCSI ni IDE/ATAPI.
+</para></note> 
+
+<para>
+L'installation à partir d'un cédérom est aussi possible avec certaines 
+architectures. Sur les ordinateurs qui acceptent de démarrer sur cédérom 
+(cédérom amorçable), vous devriez pouvoir faire une installation entièrement
+<phrase arch="not-s390">sans disquette</phrase>
+<phrase arch="s390">sans bande</phrase>.
+Même si votre système ne peut pas démarrer à
+partir d'un cédérom, vous pouvez utiliser le cédérom en même
+temps que les autres techniques pour installer votre
+système, une fois que vous avez démarré par d'autres
+moyens&nbsp;; voyez le <xref linkend="boot-installer"/>.
+</para>
+
+<para arch="x86">
+Les cédéroms de type SCSI, SATA et IDE/ATAPI sont reconnus. 
+Le <ulink url="&url-cd-howto;">HOWTO Linux CD-ROM</ulink> contient des
+informations détaillées sur l'utilisation des cédéroms avec Linux. 
+</para>
+
+<para arch="x86">
+Les lecteurs USB sont reconnus, comme le sont les périphériques FireWire
+reconnus par les pilotes ohci1394 et sbp2.
+</para>
+<para arch="arm">
+Les cédéroms IDE/ATAPI sont reconnus par toutes les architectures ARM.
+</para>
+
+<para arch="mips">
+Sur les machines SGI, amorcer depuis un cédérom demande un lecteur SCSI qui
+puisse fonctionner avec un bloc logique de 512 bytes. La plupart des lecteurs
+SCSI vendus sur le marché ne le peuvent pas. Si votre lecteur possède un 
+cavalier <quote>Unix/PC ou 512/2048</quote>, mettez-le en position <quote>Unix</quote> ou
+<quote>512</quote>.
+Pour commencer l'installation, choisissez l'entrée 
+<quote>System installation</quote> dans le microprogramme. 
+
+</para>
+
+</sect2>
+
+<sect2><title>Les disques durs</title>
+<para>
+L'installation à partir d'un disque local est possible sur beaucoup 
+d'architectures. Cela demande qu'un autre système d'exploitation charge
+l'installateur sur le disque dur.
+</para>
+
+<para arch="sparc">
+Malgré que &arch-title; ne permette pas de
+démarrer à partir de SunOS (Solaris), l'installation à
+partir d'une partition SunOS (par exemple, des tranches UFS)
+est tout à fait possible. 
+</para>
+  </sect2>
+
+<sect2 condition="bootable-usb"><title>Les clés USB</title>
+
+<para>
+Beaucoup de machines &debian; n'ont besoin d'un lecteur de disquettes ou 
+d'un lecteur de cédéroms que pour l'installation du système ou pour gérer
+des problèmes. Si vous administrez des serveurs, vous avez sans doute déjà
+pensé à vous débarrasser de ces lecteurs et à utiliser les clés USB. Elles
+sont aussi utiles pour les systèmes avec peu de place.
+</para>
+</sect2>
+
+<sect2><title>Le réseau</title>
+
+<para>
+Pendant l'installation, le téléchargement des fichiers nécessaires peut se faire
+par le réseau. Selon le type d'installation que vous avez choisi et les réponses
+que vous donnez à certaines questions, le réseau est utilisé ou non.
+Le système d'installation accepte la plupart des modes de connexion (PPPoE, par
+exemple, mais pas ISDN ou PPP), par HTTP ou FTP. Une fois l'installation terminée,
+vous pouvez configurer les modes ISDN ou PPP.
+</para>
+
+<para condition="supports-tftp">
+
+Vous pouvez aussi <emphasis>amorcer</emphasis> votre système sur le réseau.
+<phrase arch="mips">C'est la méthode d'installation préférée pour Mips.</phrase>
+</para>
+
+<para condition="supports-nfsroot">
+L'installation sans disque, en utilisant le démarrage par réseau et le 
+montage par NFS de tous les systèmes de fichiers locaux, est une autre possibilité.
+</para>
+
+</sect2>
+
+<sect2><title>Un*x ou système GNU</title>
+<para>
+Si vous utilisez un système de type Unix, vous pouvez installer &debian-gnu; sans
+utiliser l'installateur qui est décrit dans la suite de ce manuel. Cette manière de
+faire peut servir à des utilisateurs qui possèdent un matériel non reconnu
+ou qui sont sur des machines qui ne peuvent se permettre un temps d'arrêt.
+Si cette technique vous intéresse, reportez-vous à la <xref linkend="linux-upgrade"/>.
+  </para>
+   </sect2>
+
+<sect2><title>Systèmes de stockage reconnus</title>
+<para>
+Les disques de démarrage &debian; contiennent un noyau
+construit pour permettre de faire tourner un maximum de
+systèmes. Malheureusement, sa taille augmente en conséquence, avec beaucoup 
+de pilotes qui ne seront jamais utilisés 
+<phrase arch="linux-any">(voyez la <xref linkend="kernel-baking"/> pour apprendre à
+construire le vôtre)</phrase>. Cependant, le support du plus grand
+nombre de périphériques possible est voulu afin de
+s'assurer que l'on puisse installer &debian; sur le plus de
+machines possible.
+</para>
+
+<para arch="x86">
+En général, le système d'installation &debian; reconnaît les disquettes, les 
+disques IDE (PATA), les disquettes IDE, les périphériques IDE sur le port parallèle, 
+les contrôleurs et disques SATA et SCSI, les périphériques USB et FireWire. Les 
+systèmes de fichiers reconnus comprennent FAT, les extensions FAT Win-32 (VFAT) et NTFS.
+</para>
+
+<para arch="x86">
+Les interfaces disque qui émulent l'interface du disque
+dur «&nbsp;AT&nbsp;», qu'on appelle souvent MFM, RLL, IDE
+ou PATA, sont reconnues. 
+Les contrôleurs de disques SATA et SCSI provenant de différents constructeurs sont
+reconnus. Voyez le 
+<ulink url="&url-hardware-howto;">HOWTO sur la compatibilité des matériels avec Linux</ulink> 
+pour plus de précisions.
+</para>
+
+<para arch="sparc">
+Tout système de stockage reconnu par le noyau Linux est aussi
+reconnu par le système de démarrage. Les pilotes SCSI
+suivants sont reconnus dans le noyau par défaut&nbsp;:
+<itemizedlist>
+<listitem><para>Sparc ESP</para></listitem>
+<listitem><para>PTI Qlogic,ISP</para></listitem>
+<listitem><para>Adaptec AIC7xxx</para></listitem>
+<listitem><para>NCR and Symbios 53C8XX</para></listitem>
+</itemizedlist>
+
+Les systèmes IDE (tels que UltraSPARC 5) sont aussi
+reconnus. Voyez la <ulink url="&url-sparc-linux-faq;">FAQ Linux pour les processeurs SPARC</ulink> pour plus d'informations
+sur le matériel SPARC reconnu par le noyau Linux. 
+</para>
+
+<para arch="powerpc">
+Tout système de stockage reconnu par le noyau Linux est
+aussi reconnu par le système de démarrage. Il faut
+remarquer que le noyau Linux actuel n'accepte pas du
+tout les disquettes sur les systèmes CHRP.
+</para>
+
+<para arch="hppa">
+Tout système de stockage reconnu par le noyau Linux est
+aussi reconnu par le système de démarrage. Il faut
+remarquer que le noyau Linux actuel n'accepte pas les
+disquettes.
+</para>
+
+<para arch="mips">
+Tout système de stockage reconnu par le noyau Linux est
+aussi reconnu par le système de démarrage.
+</para>
+
+<para arch="s390">
+Tout système de stockage reconnu par le noyau Linux est
+aussi supporté par le système de démarrage. Cela signifie
+que les DASD FBA et ECKD sont reconnus pour les vieux
+formats de disque Linux (ldl) et le nouveau format de
+disque S/390 plus courant (cdl). 
+</para>
+  </sect2>
+ </sect1>

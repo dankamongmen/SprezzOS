@@ -1,0 +1,5263 @@
+# Thai translation of debian-installer.
+# Copyright (C) 2006-2012 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2006-2010.
+# Kiatkachorn Ratanatharathorn <kratanat@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-16 22:49+0000\n"
+"PO-Revision-Date: 2012-02-17 22:13-0500\n"
+"Last-Translator: Kiatkachorn Ratanatharathorn <kratanat@gmail.com>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../main-menu.templates:3001
+msgid "Installation step failed"
+msgstr "ขั้นตอนการติดตั้งล้มเหลว"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../main-menu.templates:3001
+msgid ""
+"An installation step failed. You can try to run the failing item again from "
+"the menu, or skip it and choose something else. The failing step is: ${ITEM}"
+msgstr ""
+"ขั้นตอนการติดตั้งล้มเหลว คุณอาจลองทำขั้นตอนที่มีปัญหาอีกครั้งได้จากเมนู "
+"หรืออาจจะข้ามขั้นตอนไปเลือกทำอย่างอื่นก็ได้ ขั้นตอนที่ล้มเหลวคือ: ${ITEM}"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../main-menu.templates:4001
+msgid "Choose an installation step:"
+msgstr "กรุณาเลือกขั้นตอนการติดตั้ง:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../main-menu.templates:4001
+msgid ""
+"This installation step depends on one or more other steps that have not yet "
+"been performed."
+msgstr "ขั้นตอนการติดตั้งนี้ จำเป็นต้องผ่านขั้นตอนอื่นมาก่อน ซึ่งยังไม่ได้ทำ"
+
+#. Type: note
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#. :sl2:
+#: ../di-utils-shell.templates:1001 ../di-utils.templates:5001
+msgid "Interactive shell"
+msgstr "เชลล์โต้ตอบ"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../di-utils-shell.templates:1001
+msgid "After this message, you will be running \"ash\", a Bourne-shell clone."
+msgstr "หลังจากข้อความนี้ คุณจะเข้าสู่ \"ash\" เชลล์เลียนแบบ Bourne shell ชนิดหนึ่ง"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../di-utils-shell.templates:1001
+msgid ""
+"The root file system is a RAM disk. The hard disk file systems are mounted "
+"on \"/target\". The editor available to you is nano. It's very small and "
+"easy to figure out. To get an idea of what Unix utilities are available to "
+"you, use the \"help\" command."
+msgstr ""
+"ระบบแฟ้มรากเป็นแรมดิสก์ ระบบแฟ้มในดิสก์จะถูกเมานท์ไว้ที่ \"/target\" "
+"โปรแกรมแก้ไขข้อความที่คุณจะใช้ได้คือ nano ซึ่งเป็นโปรแกรมเล็กๆ และใช้ง่าย "
+"หากต้องการทราบข้อมูลของเครื่องมือยูนิกซ์ที่มีให้ใช้ คุณสามารถใช้คำสั่ง \"help\" เพื่อดูได้"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../di-utils-shell.templates:1001
+msgid "Use the \"exit\" command to return to the installation menu."
+msgstr "ใช้คำสั่ง \"exit\" เพื่อกลับเข้าสู่เมนูติดตั้ง"
+
+#. Type: text
+#. Description
+#. Main menu item
+#. The translation should not exceed 55 columns except for languages
+#. that are only supported in the graphical version of the installer
+#. :sl2:
+#: ../di-utils-exit-installer.templates:1001
+msgid "Exit installer"
+msgstr "ออกจากโปรแกรมติดตั้ง"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../di-utils-reboot.templates:1001
+msgid "Are you sure you want to exit now?"
+msgstr "คุณแน่ใจหรือไม่ว่าจะออกจากโปรแกรม?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../di-utils-reboot.templates:1001
+msgid ""
+"If you have not finished the install, your system may be left in an unusable "
+"state."
+msgstr "ถ้าคุณยังไม่จบกระบวนการติดตั้ง ระบบของคุณอาจอยู่ในสถานะที่ใช้การไม่ได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../di-utils.templates:6001
+msgid "Terminal plugin not available"
+msgstr "ไม่มีปลั๊กอินรองรับเทอร์มินัล"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../di-utils.templates:6001
+msgid ""
+"This build of the debian-installer requires the terminal plugin in order to "
+"display a shell. Unfortunately, this plugin is currently unavailable."
+msgstr ""
+"โปรแกรมติดตั้งเดเบียนรุ่นนี้ ต้องการปลั๊กอินรองรับเทอร์มินัลจึงจะใช้เชลล์ได้ แต่ไม่พบปลั๊กอินดังกล่าว"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../di-utils.templates:6001
+msgid ""
+"It should be available after reaching the \"Loading additional components\" "
+"installation step."
+msgstr "ควรมีปลั๊กอินดังกล่าวตั้งแต่ถึงขั้นตอน \"กำลังโหลดองค์ประกอบเพิ่มเติม\" ของการติดตั้งแล้ว"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../di-utils.templates:7001
+msgid ""
+"Alternatively, you can open a shell by pressing Ctrl+Alt+F2. Use Alt+F5 to "
+"get back to the installer."
+msgstr ""
+"หรืออีกวิธีหนึ่ง คุณสามารถเปิดเชลล์ได้โดยกด Ctrl+Alt+F2 และกด Alt+F5 "
+"เพื่อย้อนกลับมาที่โปรแกรมติดตั้ง"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../anna.templates:1001 ../anna.templates:2001
+msgid "Installer components to load:"
+msgstr "องค์ประกอบการติดตั้งที่จะเรียกใช้:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../anna.templates:1001
+msgid ""
+"All components of the installer needed to complete the install will be "
+"loaded automatically and are not listed here. Some other (optional) "
+"installer components are shown below. They are probably not necessary, but "
+"may be interesting to some users."
+msgstr ""
+"องค์ประกอบทุกอย่างที่โปรแกรมติดตั้งต้องการใช้ จะถูกโหลดไว้หมดแล้ว และไม่แสดงในที่นี้ "
+"ข้างล่างนี้จะแสดงองค์ประกอบการติดตั้ง (เสริม) อื่นๆ ซึ่งอาจไม่จำเป็น เพียงแต่ผู้ใช้บางคนอาจจะสนใจ"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../anna.templates:1001 ../anna.templates:2001
+msgid ""
+"Note that if you select a component that requires others, those components "
+"will also be loaded."
+msgstr ""
+"สังเกตว่า ถ้าคุณเลือกองค์ประกอบที่ต้องใช้องค์ประกอบอื่นประกอบด้วย "
+"โปรแกรมติดตั้งก็จะเรียกใช้องค์ประกอบเหล่านั้นด้วยเช่นกัน"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../anna.templates:2001
+msgid ""
+"To save memory, only components that are certainly needed for an install are "
+"selected by default. The other installer components are not all necessary "
+"for a basic install, but you may need some of them, especially certain "
+"kernel modules, so look through the list carefully and select the components "
+"you need."
+msgstr ""
+"เพื่อประหยัดหน่วยความจำ โดยปกติจึงเลือกเฉพาะองค์ประกอบที่จำเป็นจริงๆ สำหรับการติดตั้งเท่านั้น "
+"องค์ประกอบการติดตั้งอื่นๆ ไม่ได้จำเป็นสำหรับการติดตั้งพื้นฐาน แต่ก็มีบางอย่างที่คุณอาจต้องใช้ "
+"โดยเฉพาะมอดูลบางมอดูลของเคอร์เนล ฉะนั้น กรุณาสำรวจรายการอย่างระมัดระวัง "
+"เพื่อเลือกองค์ประกอบที่คุณต้องการ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../anna.templates:7001
+msgid "Failed to load installer component"
+msgstr "โหลดองค์ประกอบการติดตั้งไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../anna.templates:7001
+msgid "Loading ${PACKAGE} failed for unknown reasons. Aborting."
+msgstr "โหลด ${PACKAGE} ไม่สำเร็จโดยไม่ทราบสาเหตุ ขอยกเลิก"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../anna.templates:8001
+msgid "Continue the install without loading kernel modules?"
+msgstr "จะติดตั้งต่อไปโดยไม่โหลดมอดูลของเคอร์เนลหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../anna.templates:8001
+msgid ""
+"No kernel modules were found. This probably is due to a mismatch between the "
+"kernel used by this version of the installer and the kernel version "
+"available in the archive."
+msgstr ""
+"ไม่พบมอดูลของเคอร์เนล อาจเป็นเพราะรุ่นของเคอร์เนลที่ใช้ในโปรแกรมติดตั้งนี้ "
+"ไม่ตรงกับรุ่นของเคอร์เนลที่มีในแหล่งแพกเกจ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../anna.templates:8001
+msgid ""
+"If you're installing from a mirror, you can work around this problem by "
+"choosing to install a different version of Debian. The install will probably "
+"fail to work if you continue without kernel modules."
+msgstr ""
+"ถ้าคุณกำลังติดตั้งจากแหล่งสำเนา คุณอาจแก้ปัญหานี้ชั่วคราวด้วยการเลือกติดตั้งเดเบียนรุ่นอื่น "
+"การติดตั้งอาจล้มเหลวถ้าคุณพยายามทำต่อโดยไม่มีมอดูลของเคอร์เนล"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:4001
+msgid "System locale:"
+msgstr "โลแคลระบบ:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:4001
+msgid "Select the default locale for the installed system."
+msgstr "เลือกโลแคลปริยายสำหรับระบบที่ติดตั้ง"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:32001
+msgid "Additional locales:"
+msgstr "โลแคลเพิ่มเติม:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:32001
+msgid ""
+"Based on your previous choices, the default locale currently selected for "
+"the installed system is '${LOCALE}'."
+msgstr "จากตัวเลือกล่าสุดของคุณ โลแคลปริยายที่เลือกสำหรับระบบที่ติดตั้งคือ '${LOCALE}'"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:32001
+msgid ""
+"If you wish to use a different default or to also have other locales "
+"available, you may choose additional locales to be installed. If you are "
+"unsure it is best to just use the selected default."
+msgstr ""
+"ถ้าคุณต้องการใช้ค่าปริยายค่าอื่น หรือต้องการติดตั้งโลแคลอื่นเพิ่มเติมด้วย "
+"คุณก็สามารถเลือกติดตั้งโลแคลเพิ่มเติมได้ ถ้าไม่แน่ใจ ก็ใช้ค่าปริยายที่เลือกไว้เป็นดีที่สุด"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:34001
+msgid "locale"
+msgstr "โลแคล"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:34001
+msgid ""
+"A locale determines character encoding and contains information on for "
+"example currency, date format and alphabetical sort order."
+msgstr ""
+"โลแคล จะกำหนดรหัสอักขระที่จะใช้ พร้อมด้วยข้อมูลอื่นๆ เช่น หน่วยสกุลเงิน รูปแบบวันที่ "
+"และการเรียงลำดับอักษรของข้อความ เป็นต้น"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../kbd-chooser.templates-in:2001
+msgid "Type of keyboard:"
+msgstr "ชนิดของแป้นพิมพ์:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../kbd-chooser.templates-in:2001
+msgid "Please choose the type of keyboard to configure."
+msgstr "กรุณาเลือกชนิดของแป้นพิมพ์ที่จะตั้งค่า"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#: ../kbd-chooser.templates-in:6001
+msgid "No keyboard to configure"
+msgstr "ไม่มีแป้นพิมพ์ให้ตั้งค่า"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#: ../kbd-chooser.templates-in:7001
+msgid "Do not configure keyboard; keep kernel keymap"
+msgstr "ไม่ต้องตั้งค่าแป้นพิมพ์; ใช้ keymap ของเคอร์เนล"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-at.templates:1001
+msgid "PC-style (AT or PS-2 connector) keyboard"
+msgstr "แป้นพิมพ์แบบ PC (หัวต่อแบบ AT หรือ PS-2)"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-atari.templates:1001
+msgid "Atari keyboard"
+msgstr "แป้นพิมพ์ Atari"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-amiga.templates:1001
+msgid "Amiga keyboard"
+msgstr "แป้นพิมพ์ Amiga"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-acorn.templates:1001
+msgid "Acorn keyboard"
+msgstr "แป้นพิมพ์ Acorn"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-mac.templates:1001
+msgid "Mac keyboard"
+msgstr "แป้นพิมพ์ Mac"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-sparc.templates:1001
+msgid "Sun keyboard"
+msgstr "แป้นพิมพ์ Sun"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-usb.templates:1001
+msgid "USB keyboard"
+msgstr "แป้นพิมพ์ USB"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-dec.templates:1001
+msgid "DEC keyboard"
+msgstr "แป้นพิมพ์ DEC"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-hil.templates:1001
+msgid "HP HIL keyboard"
+msgstr "แป้นพิมพ์ HP HIL"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:4001
+msgid "Keyboard model:"
+msgstr "รุ่นของแป้นพิมพ์:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:4001
+msgid "Please select the model of the keyboard of this machine."
+msgstr "กรุณาเลือกชนิดของแป้นพิมพ์ของเครื่องนี้"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:12001
+msgid "No temporary switch"
+msgstr "ไม่มีการสลับชั่วคราว"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:12001
+#: ../keyboard-configuration.templates:13001
+msgid "Both Logo keys"
+msgstr "ปุ่มโลโก้คู่"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:12002
+msgid "Method for temporarily toggling between national and Latin input:"
+msgstr "วิธีสลับภาษาแป้นพิมพ์ระหว่างภาษาท้องถิ่นกับอังกฤษแบบชั่วคราว:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:12002
+msgid ""
+"When the keyboard is in national mode and one wants to type only a few Latin "
+"letters, it might be more appropriate to switch temporarily to Latin mode. "
+"The keyboard remains in that mode as long as the chosen key is kept pressed. "
+"That key may also be used to input national letters when the keyboard is in "
+"Latin mode."
+msgstr ""
+"ขณะที่แป้นพิมพ์อยู่ในโหมดภาษาท้องถิ่น แต่คุณต้องการป้อนอักษรภาษาอังกฤษแค่ไม่กี่ตัว "
+"ก็อาจจะเหมาะที่จะสลับภาษาเป็นภาษาอังกฤษแค่ชั่วคราว "
+"โดยแป้นพิมพ์จะคงอยู่ในโหมดนั้นตราบใดที่ปุ่มที่เลือกยังกดอยู่ "
+"และปุ่มดังกล่าวยังอาจใช้ในการป้อนอักขระภาษาท้องถิ่นขณะที่แป้นพิมพ์อยู่ในโหมดภาษาอังกฤษได้ด้วย"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:12002
+msgid "You can disable this feature by choosing \"No temporary switch\"."
+msgstr "คุณสามารถปิดความสามารถนี้ได้ โดยเลือกตัวเลือก \"ไม่มีการสลับชั่วคราว\""
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:13001
+msgid "The default for the keyboard layout"
+msgstr "ค่าปริยายของผังแป้นพิมพ์"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:13001
+msgid "No AltGr key"
+msgstr "ไม่ใช้ปุ่ม AltGr"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:13001
+msgid "Keypad Enter key"
+msgstr "ปุ่ม Enter ในแป้นตัวเลข"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:13001
+msgid "Both Alt keys"
+msgstr "ปุ่ม Alt คู่"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:13002
+msgid "Key to function as AltGr:"
+msgstr "ปุ่มที่จะใช้เป็น AltGr:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:13002
+msgid ""
+"With some keyboard layouts, AltGr is a modifier key used to input some "
+"characters, primarily ones that are unusual for the language of the keyboard "
+"layout, such as foreign currency symbols and accented letters. These are "
+"often printed as an extra symbol on keys."
+msgstr ""
+"ในผังแป้นพิมพ์บางแบบ AltGr จะใช้เป็นปุ่มประกอบในการป้อนอักขระบางตัว "
+"ซึ่งมักเป็นอักขระแปลกปลอมสำหรับภาษาของผังแป้นพิมพ์ เช่นสัญลักษณ์หน่วยเงินตราต่างประเทศ "
+"และอักขระที่มีเครื่องหมายกำกับเสียง อักขระเหล่านี้มักจะแสดงไว้เป็นอักขระพิเศษบนปุ่ม"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:14001
+msgid "No compose key"
+msgstr "ไม่ใช้ปุ่มผสมอักขระ"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:14002
+msgid "Compose key:"
+msgstr "ปุ่มผสมอักขระ (Compose key):"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:14002
+msgid ""
+"The Compose key (known also as Multi_key) causes the computer to interpret "
+"the next few keystrokes as a combination in order to produce a character not "
+"found on the keyboard."
+msgstr ""
+"ปุ่มผสมอักขระ (Compose key หรือเรียกอีกชื่อหนึ่งว่า Multi_key) "
+"จะทำให้เครื่องตีความปุ่มกดสองสามครั้งถัดไปเป็นลำดับสำหรับผสมเป็นอักขระที่ไม่มีในแป้นพิมพ์"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:14002
+msgid ""
+"On the text console the Compose key does not work in Unicode mode. If not in "
+"Unicode mode, regardless of what you choose here, you can always also use "
+"the Control+period combination as a Compose key."
+msgstr ""
+"บนคอนโซลในโหมดอักขระ จะใช้ปุ่มผสมอักขระในโหมดยูนิโค้ดไม่ได้ แต่ถ้าไม่ได้อยู่ในโหมดยูนิโค้ด "
+"ไม่ว่าคุณจะเลือกปุ่มอะไรที่นี่ คุณจะยังคงสามารถใช้ปุ่ม Control+จุด เป็นปุ่มผสมอักขระได้เสมอ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:1001
+msgid "Load CD-ROM drivers from removable media?"
+msgstr "จะโหลดไดรเวอร์ซีดีรอมจากสื่อถอดเสียบหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:1001 ../cdrom-detect.templates:3001
+msgid "No common CD-ROM drive was detected."
+msgstr "ตรวจไม่พบไดรว์ซีดีรอมที่รู้จัก"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:1001
+msgid ""
+"You may need to load additional CD-ROM drivers from removable media, such as "
+"a driver floppy. If you have such media available now, insert it, and "
+"continue. Otherwise, you will be given the option to manually select CD-ROM "
+"modules."
+msgstr ""
+"คุณอาจจำเป็นต้องโหลดไดรเวอร์ซีดีรอมเพิ่มเติมจากสื่อถอดเสียบ เช่น แผ่นฟลอปปี้ที่เก็บไดรเวอร์ "
+"ถ้าคุณมีสื่อดังกล่าว กรุณาใส่เข้ามาแล้วดำเนินการต่อ หรือมิฉะนั้น "
+"คุณก็ยังมีทางเลือกให้เลือกมอดูลซีดีรอมด้วยตัวเอง"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:3001
+msgid "Manually select a CD-ROM module and device?"
+msgstr "จะเลือกมอดูลและอุปกรณ์ซีดีรอมด้วยตัวเองหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:3001
+msgid ""
+"Your CD-ROM drive may be an old Mitsumi or another non-IDE, non-SCSI CD-ROM "
+"drive. In that case you should choose which module to load and the device to "
+"use. If you don't know which module and device are needed, look for some "
+"documentation or try a network installation instead of a CD-ROM installation."
+msgstr ""
+"ไดรว์ซีดีรอมของคุณอาจเป็นไดรว์ Mitsumi เก่า หรือเป็นไดรว์ที่ไม่ใช่ IDE หรือ SCSI "
+"ซึ่งในกรณีดังกล่าว คุณควรเลือกมอดูลที่จะโหลด และอุปกรณ์ที่จะใช้เอง "
+"ถ้าคุณไม่ทราบว่าจะใช้มอดูลหรืออุปกรณ์ไหน กรุณาตรวจสอบเอกสารคู่มือ "
+"หรือลองใช้วิธีติดตั้งผ่านเครือข่ายแทนการติดตั้งด้วยซีดีรอม"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:4001
+msgid "Retry mounting the CD-ROM?"
+msgstr "จะพยายามเมานท์ซีดีรอมอีกครั้งหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:4001
+msgid ""
+"Your installation CD-ROM couldn't be mounted. This probably means that the "
+"CD-ROM was not in the drive. If so you can insert it and try again."
+msgstr ""
+"ไม่สามารถเมานท์แผ่นซีดีรอมติดตั้งได้ เป็นไปได้ว่าคุณไม่ได้ใส่แผ่นในไดรว์ ซึ่งถ้าใช่ "
+"คุณสามารถใส่แผ่นแล้วลองใหม่ได้"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:5001
+msgid "Module needed for accessing the CD-ROM:"
+msgstr "มอดูลที่ต้องใช้เพื่อจะใช้งานซีดีรอม:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:5001
+msgid ""
+"The automatic detection didn't find a CD-ROM drive. You can try to load a "
+"specific module if you have an unusual CD-ROM drive (that is neither IDE nor "
+"SCSI)."
+msgstr ""
+"การตรวจสอบอุปกรณ์อัตโนมัติหาไดรว์ซีดีรอมไม่พบ คุณสามารถพยายามโหลดมอดูลแบบเจาะจงก็ได้ "
+"ถ้าไดรว์ซีดีรอมของคุณไม่ใช่ไดรว์ที่ปกติ (กล่าวคือ ไม่ใช่ทั้ง IDE และ SCSI)"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:6001
+msgid "Device file for accessing the CD-ROM:"
+msgstr "แฟ้มอุปกรณ์สำหรับใช้งานซีดีรอม:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:6001
+msgid ""
+"In order to access your CD-ROM drive, please enter the device file that "
+"should be used. Non-standard CD-ROM drives use non-standard device files "
+"(such as /dev/mcdx)."
+msgstr ""
+"เพื่อจะให้ใช้งานไดรว์ซีดีรอมได้ กรุณาป้อนชื่อแฟ้มอุปกรณ์สำหรับไดรว์ที่จะใช้ "
+"ไดรว์ซีดีรอมที่ไม่มาตรฐานจะใช้แฟ้มอุปกรณ์ที่ไม่มาตรฐาน (เช่น /dev/mcdx)"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:6001
+msgid ""
+"You may switch to the shell on the second terminal (ALT+F2) to check the "
+"available devices in /dev with \"ls /dev\". You can return to this screen by "
+"pressing ALT+F1."
+msgstr ""
+"คุณอาจสลับไปที่เชลล์ในเทอร์มินัลที่สอง (ALT+F2) เพื่อตรวจสอบอุปกรณ์ที่มีใน /dev ด้วยคำสั่ง \"ls /"
+"dev\" ได้ และคุณสามารถกลับมาที่หน้าจอนี้ได้ โดยกด ALT+F1"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:12001
+msgid "CD-ROM detected"
+msgstr "ตรวจพบซีดีรอม"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:12001
+msgid ""
+"The CD-ROM autodetection was successful. A CD-ROM drive has been found and "
+"it currently contains the CD ${cdname}. The installation will now continue."
+msgstr ""
+"ตรวจสอบซีดีรอมโดยอัตโนมัติได้สำเร็จ พบไดรว์ซีดีรอมและมีแผ่นซีดี ${cdname} "
+"จะดำเนินการติดตั้งต่อไป"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:13001
+msgid "Incorrect CD-ROM detected"
+msgstr "ตรวจพบแผ่นซีดีรอมที่ไม่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:13001
+msgid "The CD-ROM drive contains a CD which cannot be used for installation."
+msgstr "ในไดรว์ซีดีรอมมีแผ่นซีดีที่ไม่สามารถใช้ติดตั้งได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:13001
+msgid "Please insert a suitable CD to continue with the installation."
+msgstr "กรุณาใส่แผ่นซีดีที่ถูกต้องเพื่อดำเนินการติดตั้งต่อ"
+
+#. Type: error
+#. Description
+#. Translators: DO NOT TRANSLATE "Release". This is the name of a file.
+#. :sl2:
+#: ../cdrom-detect.templates:14001
+msgid "Error reading Release file"
+msgstr "เกิดข้อผิดพลาดขณะอ่านแฟ้ม Release"
+
+#. Type: error
+#. Description
+#. Translators: DO NOT TRANSLATE "Release". This is the name of a file.
+#. :sl2:
+#: ../cdrom-detect.templates:14001
+msgid ""
+"The CD-ROM does not seem to contain a valid 'Release' file, or that file "
+"could not be read correctly."
+msgstr ""
+"ดูเหมือนในแผ่นซีดีจะไม่มีแฟ้ม 'Release' ที่ใช้การได้ หรือไม่สามารถอ่านแฟ้มดังกล่าวได้ครบถ้วน"
+
+#. Type: error
+#. Description
+#. Translators: DO NOT TRANSLATE "Release". This is the name of a file.
+#. :sl2:
+#: ../cdrom-detect.templates:14001
+msgid ""
+"You may try to repeat CD-ROM detection but, even if it does succeed the "
+"second time, you may experience problems later in the installation."
+msgstr ""
+"คุณอาจพยายามตรวจหาซีดีรอมอีกรอบ แต่ถึงแม้จะตรวจพบอีกเป็นครั้งที่สอง "
+"คุณก็อาจยังเจอปัญหาเดิมอีกในการติดตั้ง"
+
+#. Type: text
+#. Description
+#. Item in the main menu to select this package
+#. :sl2:
+#: ../cdrom-detect.templates:19001
+msgid "Detect and mount CD-ROM"
+msgstr "ตรวจหาและเมานท์ซีดีรอม"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../ethdetect.templates:1001
+msgid "no ethernet card"
+msgstr "ไม่มีการ์ดอีเทอร์เน็ต"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. "none of the above" should be understood as "none of the above choices"
+#: ../ethdetect.templates:1001 ../disk-detect.templates:3001
+msgid "none of the above"
+msgstr "ไม่ใช่ตัวเลือกข้างต้น"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../ethdetect.templates:1002
+msgid "Driver needed by your Ethernet card:"
+msgstr "ไดรเวอร์ที่การ์ดอีเทอร์เน็ตของคุณต้องการ:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../ethdetect.templates:1002
+msgid ""
+"No Ethernet card was detected. If you know the name of the driver needed by "
+"your Ethernet card, you can select it from the list."
+msgstr ""
+"ตรวจไม่พบการ์ดอีเทอร์เน็ต ถ้าคุณทราบชื่อไดรเวอร์สำหรับการ์ดอีเทอร์เน็ตของคุณ "
+"คุณสามารถเลือกได้จากรายการนี้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../ethdetect.templates:3001
+msgid "Ethernet card not found"
+msgstr "ไม่พบการ์ดอีเทอร์เน็ต"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../ethdetect.templates:3001
+msgid "No Ethernet card was found on the system."
+msgstr "ไม่พบการ์ดอีเทอร์เน็ตในระบบ"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../disk-detect.templates:3001
+msgid "continue with no disk drive"
+msgstr "ดำเนินการต่อโดยไม่มีดิสก์"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:3002
+msgid "Driver needed for your disk drive:"
+msgstr "ไดรเวอร์ที่ต้องการสำหรับดิสก์ไดรว์ของคุณ:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:3002
+msgid ""
+"No disk drive was detected. If you know the name of the driver needed by "
+"your disk drive, you can select it from the list."
+msgstr ""
+"ตรวจไม่พบดิสก์ไดรว์ ถ้าคุณทราบชื่อของไดรเวอร์สำหรับดิสก์ไดรว์ของคุณ "
+"คุณสามารถเลือกได้จากรายการนี้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:4001
+msgid "No partitionable media"
+msgstr "ไม่มีสื่อที่สามารถแบ่งพาร์ทิชันได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:4001
+msgid "No partitionable media were found."
+msgstr "ไม่พบสื่อที่สามารถแบ่งพาร์ทิชันได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:4001
+msgid "Please check that a hard disk is attached to this machine."
+msgstr "กรุณาตรวจสอบให้แน่ใจว่าได้ต่อฮาร์ดดิสก์เข้ากับเครื่อง"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:5001
+msgid "Modules to load:"
+msgstr "มอดูลที่จะโหลด:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:5001
+msgid ""
+"The following Linux kernel modules were detected as matching your hardware. "
+"If you know some are unnecessary, or cause problems, you can choose not to "
+"load them. If you're unsure, you should leave them all selected."
+msgstr ""
+"พบว่ามอดูลของเคอร์เนลต่อไปนี้ตรงกับฮาร์ดแวร์ของคุณ ถ้าคุณทราบว่าบางมอดูลไม่จำเป็น หรือมีปัญหา "
+"คุณอาจเลือกที่จะไม่โหลดก็ได้ หากคุณไม่แน่ใจ ขอแนะนำให้ทิ้งไว้เหมือนเดิม"
+
+#. Type: boolean
+#. Description
+#. FIXME: not in use and kept just while we're still in doubt it will
+#. be needed
+#. :sl2:
+#: ../hw-detect.templates:6001
+msgid "Start PC card services?"
+msgstr "เปิดบริการสำหรับ PC card หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. FIXME: not in use and kept just while we're still in doubt it will
+#. be needed
+#. :sl2:
+#: ../hw-detect.templates:6001
+msgid ""
+"Please choose whether PC card services should be started in order to allow "
+"the use of PCMCIA cards."
+msgstr "กรุณาเลือกว่าจะเปิดบริการ PC card เพื่อจะใช้การ์ด PCMCIA หรือไม่"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:7001
+msgid "PCMCIA resource range options:"
+msgstr "ตัวเลือกสำหรับช่วงทรัพยากรที่ PCMCIA ใช้:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:7001
+msgid ""
+"Some PCMCIA hardware needs special resource configuration options in order "
+"to work, and can cause the computer to freeze otherwise. For example, some "
+"Dell laptops need \"exclude port 0x800-0x8ff\" to be specified here. These "
+"options will be added to /etc/pcmcia/config.opts. See the installation "
+"manual or the PCMCIA HOWTO for more information."
+msgstr ""
+"ฮาร์ดแวร์ PCMCIA บางตัวต้องการตัวเลือกพิเศษสำหรับทรัพยากรที่ใช้ เพื่อให้ทำงานได้ "
+"มิฉะนั้นอาจทำให้เครื่องค้าง ตัวอย่างเช่น แล็ปท็อป Dell บางรุ่นต้องระบุ \"exclude port "
+"0x800-0x8ff\" ที่นี่ ตัวเลือกเหล่านี้ จะถูกเพิ่มลงใน /etc/pcmcia/config.opts  "
+"กรุณาอ่านคู่มือติดตั้ง หรือ PCMCIA HOWTO สำหรับข้อมูลเพิ่มเติม"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:7001
+msgid "For most hardware, you do not need to specify anything here."
+msgstr "สำหรับฮาร์ดแวร์ส่วนใหญ่ คุณไม่จำเป็นต้องกำหนดอะไรที่นี่เลย"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:9001
+msgid "Error while running '${CMD_LINE_PARAM}'"
+msgstr "เกิดข้อผิดพลาดขณะเรียกใช้งาน '${CMD_LINE_PARAM}'"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:10001
+msgid "Load missing drivers from removable media?"
+msgstr "โหลดไดรเวอร์ที่ขาดจากสื่อถอดเสียบหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:10001
+msgid ""
+"A driver for your hardware is not available. You may need to load drivers "
+"from removable media, such as a USB stick, or driver floppy."
+msgstr ""
+"ไม่มีไดรเวอร์สำหรับฮาร์ดแวรชิ้นหนึ่งของคุณ คุณอาจต้องโหลดไดรเวอร์จากสื่อถอดเสียบ เช่น "
+"แฟลชไดรว์ USB หรือแผ่นฟลอปปี้ที่เก็บไดรเวอร์ "
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:10001 ../hw-detect.templates:11001
+msgid "If you have such media available now, insert it, and continue."
+msgstr "ถ้าคุณมีสื่อดังกล่าว กรุณาใส่เข้ามา แล้วดำเนินการต่อไป"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:11001
+msgid "Load missing firmware from removable media?"
+msgstr "โหลดเฟิร์มแวร์ที่ขาดจากสื่อถอดเสียบหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:11001
+msgid ""
+"Some of your hardware needs non-free firmware files to operate. The firmware "
+"can be loaded from removable media, such as a USB stick or floppy."
+msgstr ""
+"อุปกรณ์ฮาร์ดแวร์บางชิ้นของคุณต้องการเฟิร์มแวร์ที่ไม่เสรีในการทำงาน "
+"ซึ่งสามารถโหลดเข้าเครื่องได้จากสื่อถอดเสียบ เช่น แฟลชไดรว์ USB หรือแผ่นฟลอปปี้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:11001
+msgid "The missing firmware files are: ${FILES}"
+msgstr "แฟ้มเฟิร์มแวร์ที่ขาดคือ: ${FILES}"
+
+#. Type: string
+#. Description
+#. :sl2:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
+msgid "Wireless ESSID for ${iface}:"
+msgstr "ESSID ของเครือข่ายไร้สายสำหรับ ${iface}:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:6001
+msgid ""
+"${iface} is a wireless network interface. Please enter the name (the ESSID) "
+"of the wireless network you would like ${iface} to use. If you would like to "
+"use any available network, leave this field blank."
+msgstr ""
+"${iface} เป็นอินเทอร์เฟซเครือข่ายไร้สาย กรุณาป้อนชื่อ (ESSID) ของเครือข่ายไร้สายที่จะให้ "
+"${iface} ใช้ ถ้าคุณต้องการใช้เครือข่ายใดก็ได้ที่มีอยู่ ก็ปล่อยช่องนี้ให้ว่างไว้"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:7001
+msgid "Attempting to find an available wireless network failed."
+msgstr "ไม่สามารถหาเครือข่ายไร้สายที่มีอยู่ได้"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:7001
+msgid ""
+"${iface} is a wireless network interface. Please enter the name (the ESSID) "
+"of the wireless network you would like ${iface} to use. To skip wireless "
+"configuration and continue, leave this field blank."
+msgstr ""
+"${iface} เป็นอินเทอร์เฟซเครือข่ายไร้สาย กรุณาป้อนชื่อ (ESSID) ของเครือข่ายไร้สายที่จะให้ "
+"${iface} ใช้ ถ้าคุณต้องการข้ามขั้นตอนการตั้งค่าเครือข่ายไร้สาย ก็ปล่อยช่องนี้ให้ว่างไว้"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:8002
+msgid "Wireless network type for ${iface}:"
+msgstr "ชนิดของเครือข่ายไร้สายสำหรับ ${iface}:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:8002
+msgid ""
+"Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
+"if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
+msgstr ""
+"เลือก WEP/เครือข่ายเปิด ถ้าเครือข่ายเป็นแบบเปิดหรือมีการรักษาความปลอดภัยด้วย WEP เลือก WPA/"
+"WPA2 ถ้าเครือข่ายรักษาความปลอดภัยด้วย WPA/WPA2 PSK (กุญแจที่แบ่งปันล่วงหน้า)"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid "WEP key for wireless device ${iface}:"
+msgstr "กุญแจ WEP สำหรับอุปกรณ์ไร้สาย ${iface}:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid ""
+"If applicable, please enter the WEP security key for the wireless device "
+"${iface}. There are two ways to do this:"
+msgstr ""
+"หากจำเป็นต้องใช้ กรุณาป้อนกุญแจนิรภัยแบบ WEP สำหรับอุปกรณ์ไร้สาย ${iface} "
+"มีวิธีป้อนกุญแจนี้ได้สองวิธี:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid ""
+"If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
+"or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
+msgstr ""
+"ถ้ากุญแจ WEP ของคุณอยู่ในรูป 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn' หรือ "
+"'nnnnnnnn' โดยที่ n เป็นตัวเลข ก็ป้อนเข้ามาในรูปแบบดังกล่าวได้เลย"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid ""
+"If your WEP key is in the format of a passphrase, prefix it with "
+"'s:' (without quotes)."
+msgstr ""
+"ถ้ากุญแจ WEP ของคุณอยู่ในรูปวลีรหัสผ่าน ก็นำหน้าวลีรหัสผ่านด้วย 's:' (โดยไม่ต้องมีอัญประกาศ)"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid ""
+"Of course, if there is no WEP key for your wireless network, leave this "
+"field blank."
+msgstr "และแน่นอน ถ้าเครือข่ายของคุณไม่ต้องใช้กุญแจ WEP ก็ปล่อยช่องนี้ให้ว่างไว้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:10001
+msgid "Invalid WEP key"
+msgstr "กุญแจ WEP ไม่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:10001
+msgid ""
+"The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
+"next screen carefully on how to enter your WEP key correctly, and try again."
+msgstr ""
+"กุญแจ WEP '${wepkey}' ไม่ถูกต้อง กรุณาอ่านคำอธิบายในหน้าจอถัดไปอย่างละเอียด "
+"เกี่ยวกับวิธีการป้อนกุญแจ WEP อย่างถูกต้อง แล้วลองอีกครั้ง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:11001
+msgid "Invalid passphrase"
+msgstr "วลีรหัสผ่านผิดพลาด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:11001
+msgid ""
+"The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
+"too short (less than 8 characters)."
+msgstr ""
+"วลีรหัสผ่าน WPA/WPA2 PSK ยาวเกินไป (เกิน 64 ตัวอักษร) หรือสั้นเกินไป (ต่ำกว่า 8 ตัวอักษร)"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:12001
+msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
+msgstr "วลีรหัสผ่าน WPA/WPA2 สำหรับอุปกรณ์ไร้สาย ${iface}:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:12001
+msgid ""
+"Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
+"passphrase defined for the wireless network you are trying to use."
+msgstr ""
+"ป้อนวลีรหัสผ่านสำหรับยืนยันตัวบุคคลแบบ WPA/WPA2 PSK "
+"ซึ่งเป็นวลีรหัสผ่านที่กำหนดไว้สำหรับเครือข่ายไร้สายที่คุณกำลังพยายามจะใช้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:13001
+msgid "Invalid ESSID"
+msgstr "ESSID ไม่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:13001
+msgid ""
+"The ESSID \"${essid}\" is invalid. ESSIDs may only be up to 32 characters, "
+"but may contain all kinds of characters."
+msgstr ""
+"ESSID \"${essid}\" ไม่ถูกต้อง  ESSID มีความยาวได้ไม่เกิน 32 อักขระ "
+"และสามารถมีอักขระชนิดใดก็ได้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:14001
+msgid "Attempting to exchange keys with the access point..."
+msgstr "กำลังพยายามแลกเปลี่ยนกุญแจกับ access point..."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:16001
+msgid "WPA/WPA2 connection succeeded"
+msgstr "เชื่อมต่อ WPA/WPA2 สำเร็จแล้ว"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:17001
+msgid "Failure of key exchange and association"
+msgstr "แลกเปลี่ยนกุญแจและเชื่อมโยงไม่สำเร็จ"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:17001
+msgid ""
+"The exchange of keys and association with the access point failed. Please "
+"check the WPA/WPA2 parameters you provided."
+msgstr ""
+"แลกเปลี่ยนกุญแจและเชื่อมโยงกับ access point ไม่สำเร็จ กรุณาตรวจสอบพารามิเตอร์ WPA/WPA2 "
+"ที่คุณป้อน"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:19001
+msgid "Invalid hostname"
+msgstr "ชื่อโฮสต์ไม่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:19001
+msgid "The name \"${hostname}\" is invalid."
+msgstr "ชื่อ \"${hostname}\" ไม่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:19001
+msgid ""
+"A valid hostname may contain only the numbers 0-9, upper and lowercase "
+"letters (A-Z and a-z), and the minus sign. It must be at most "
+"${maxhostnamelen} characters long, and may not begin or end with a minus "
+"sign."
+msgstr ""
+"ชื่อโฮสต์ที่ใช้ได้ ควรใช้เฉพาะตัวเลข 0-9, อักษรตัวพิมพ์ใหญ่และตัวพิมพ์เล็ก (A-Z และ a-z), "
+"และเครื่องหมายลบเท่านั้น ยาวได้ไม่เกิน ${maxhostnamelen} อักขระ "
+"และห้ามขึ้นต้นหรือลงท้ายด้วยเครื่องหมายลบ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:20001
+msgid "Error"
+msgstr "ผิดพลาด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:20001
+msgid ""
+"An error occurred and the network configuration process has been aborted. "
+"You may retry it from the installation main menu."
+msgstr ""
+"เกิดข้อผิดพลาด และการตั้งค่าเครือข่ายถูกยกเลิก คุณอาจลองใหม่ได้จากเมนูหลักของโปรแกรมติดตั้ง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:21001
+msgid "No network interfaces detected"
+msgstr "ไม่พบอินเทอร์เฟซเครือข่าย"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:21001
+msgid ""
+"No network interfaces were found. The installation system was unable to find "
+"a network device."
+msgstr "ไม่พบอินเทอร์เฟซเครือข่าย ระบบติดตั้งตรวจหาอุปกรณ์เครือข่ายไม่พบ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:21001
+msgid ""
+"You may need to load a specific module for your network card, if you have "
+"one. For this, go back to the network hardware detection step."
+msgstr ""
+"คุณอาจต้องโหลดมอดูลสำหรับการ์ดเครือข่ายของคุณแบบเจาะจงถ้ามี "
+"โดยย้อนกลับไปที่ขั้นตอนการตรวจหาฮาร์ดแวร์เครือข่าย"
+
+#. Type: note
+#. Description
+#. A "kill switch" is a physical switch found on some network cards that
+#. disables the card.
+#. :sl2:
+#: ../netcfg-common.templates:22001
+msgid "Kill switch enabled on ${iface}"
+msgstr "มีการเปิดใช้ kill switch ที่ ${iface}"
+
+#. Type: note
+#. Description
+#. A "kill switch" is a physical switch found on some network cards that
+#. disables the card.
+#. :sl2:
+#: ../netcfg-common.templates:22001
+msgid ""
+"${iface} appears to have been disabled by means of a physical \"kill switch"
+"\". If you intend to use this interface, please switch it on before "
+"continuing."
+msgstr ""
+"พบว่า ${iface} ถูกปิดใช้งานโดย \"kill switch\" ที่ตัวเครื่อง "
+"หากคุณต้องการจะใช้อินเทอร์เฟซนี้ กรุณาเปิดสวิตช์ดังกล่าวก่อนดำเนินการต่อไป"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. Note to translators : Please keep your translations of each choice
+#. below the 65 columns limit (which means 65 characters for most languages)
+#. Choices MUST be separated by commas
+#. You MUST use standard commas not special commas for your language
+#. You MUST NOT use commas inside choices
+#: ../netcfg-common.templates:23001
+msgid "Infrastructure (Managed) network"
+msgstr "เครือข่าย infrastructure (managed)"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. Note to translators : Please keep your translations of each choice
+#. below the 65 columns limit (which means 65 characters for most languages)
+#. Choices MUST be separated by commas
+#. You MUST use standard commas not special commas for your language
+#. You MUST NOT use commas inside choices
+#: ../netcfg-common.templates:23001
+msgid "Ad-hoc network (Peer to peer)"
+msgstr "เครือข่าย ad-hoc (peer to peer)"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:24001
+msgid "Wireless network configuration"
+msgstr "การตั้งค่าเครือข่ายไร้สาย"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:25001
+msgid "Searching for wireless access points..."
+msgstr "กำลังค้นหา access point ไร้สาย..."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:28001
+msgid "<none>"
+msgstr "<ไม่มี>"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:29001
+msgid "Wireless ethernet (802.11x)"
+msgstr "อีเทอร์เน็ตไร้สาย (802.11x)"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:30001
+msgid "wireless"
+msgstr "ไร้สาย"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:31001
+msgid "Ethernet"
+msgstr "อีเทอร์เน็ต"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:32001
+msgid "Token Ring"
+msgstr "โทเค็นริง"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:33001
+msgid "USB net"
+msgstr "USB net"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:35001
+msgid "Serial-line IP"
+msgstr "IP ผ่านสายอนุกรม"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:36001
+msgid "Parallel-port IP"
+msgstr "IP ผ่านพอร์ตขนาน"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:37001
+msgid "Point-to-Point Protocol"
+msgstr "Point-to-Point Protocol"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:38001
+msgid "IPv6-in-IPv4"
+msgstr "IPv6-in-IPv4"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:39001
+msgid "ISDN Point-to-Point Protocol"
+msgstr "ISDN Point-to-Point Protocol"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:40001
+msgid "Channel-to-channel"
+msgstr "Channel-to-channel"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:41001
+msgid "Real channel-to-channel"
+msgstr "Real channel-to-channel"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:43001
+msgid "Inter-user communication vehicle"
+msgstr "Inter-user communication vehicle"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:44001
+msgid "Unknown interface"
+msgstr "อินเทอร์เฟซไม่ทราบชนิด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:5001
+msgid "No DHCP client found"
+msgstr "ไม่มีไคลเอนต์ DHCP"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:5001
+msgid "No DHCP client was found. This package requires pump or dhcp-client."
+msgstr "ไม่พบไคลเอนต์ DHCP  แพกเกจนี้ต้องใช้ pump หรือ dhcp-client"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:5001
+msgid "The DHCP configuration process has been aborted."
+msgstr "ยกเลิกกระบวนการตั้งค่า DHCP"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:8001
+msgid "Continue without a default route?"
+msgstr "จะทำงานต่อโดยไม่มีเส้นทางเครือข่ายปริยายหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:8001
+msgid ""
+"The network autoconfiguration was successful. However, no default route was "
+"set: the system does not know how to communicate with hosts on the Internet. "
+"This will make it impossible to continue with the installation unless you "
+"have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
+"available on the local network."
+msgstr ""
+"ตั้งค่าเครือข่ายอัตโนมัติได้สำเร็จ แต่ไม่ปรากฏมีเส้นทางเครือข่ายปริยาย กล่าวคือ "
+"เครื่องของคุณจะไม่สามารถติดต่อกับเครื่องต่างๆ ในอินเทอร์เน็ตได้ "
+"ซึ่งจะทำให้ไม่สามารถทำงานต่อไปได้ นอกจากคุณจะมีแผ่นซีดีติดตั้งแผ่นแรก หรือมีซีดี 'Netinst' "
+"หรือมีแพกเกจทั้งหมดอยู่ในเครือข่ายท้องถิ่นแล้ว"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:8001
+msgid ""
+"If you are unsure, you should not continue without a default route: contact "
+"your local network administrator about this problem."
+msgstr ""
+"หากคุณไม่แน่ใจ คุณไม่ควรทำงานต่อโดยไม่มีเส้นทางเครือข่ายปริยาย "
+"กรุณาติตด่อผู้ดูแลเครือข่ายของคุณเพื่อรายงานปัญหานี้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:2001
+msgid "Malformed IP address"
+msgstr "หมายเลข IP ผิดรูปแบบ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:2001
+msgid ""
+"The IP address you provided is malformed. It should be in the form x.x.x.x "
+"where each 'x' is no larger than 255. Please try again."
+msgstr ""
+"หมายเลข IP ที่คุณป้อน มีรูปแบบไม่ถูกต้อง รูปแบบที่ถูกต้อง อยู่ในรูป x.x.x.x โดยที่ 'x' แต่ละตัว "
+"เป็นตัวเลขที่ไม่เกิน 255  กรุณาป้อนใหม่"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:3001
+msgid "Point-to-point address:"
+msgstr "หมายเลข point-to-point:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:3001
+msgid ""
+"The point-to-point address is used to determine the other endpoint of the "
+"point to point network.  Consult your network administrator if you do not "
+"know the value.  The point-to-point address should be entered as four "
+"numbers separated by periods."
+msgstr ""
+"หมายเลข point-to-point ใช้ระบุที่อยู่อีกฝั่งหนึ่งของเครือข่าย point to point  "
+"กรุณาสอบถามผู้ดูแลเครือข่ายของคุณหากคุณไม่ทราบค่านี้ หมายเลข point-to-point "
+"ควรอยู่ในรูปตัวเลขสี่ตัวคั่นด้วยเครื่องหมายจุด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:6001
+msgid "Unreachable gateway"
+msgstr "ติดต่อเกตเวย์ไม่ได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:6001
+msgid "The gateway address you entered is unreachable."
+msgstr "ที่อยู่เกตเวย์ที่คุณป้อนไม่สามารถติดต่อได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:6001
+msgid ""
+"You may have made an error entering your IP address, netmask and/or gateway."
+msgstr "คุณอาจป้อนค่าผิดในช่องหมายเลข IP ของคุณ หรือค่าเน็ตแมสก์ หรือหมายเลขเกตเวย์"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Debian version to install:"
+msgstr "รุ่นของเดเบียนที่จะติดตั้ง:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid ""
+"Debian comes in several flavors. Stable is well-tested and rarely changes. "
+"Unstable is untested and frequently changing. Testing is a middle ground, "
+"that receives many of the new versions from unstable if they are not too "
+"buggy."
+msgstr ""
+"เดเบียนมีหลายรูปแบบให้เลือก  stable เป็นรุ่นที่ผ่านการทดสอบมาเป็นอย่างดี "
+"และไม่ค่อยมีความเปลี่ยนแปลง  unstable ไม่ได้ผ่านการทดสอบ และมีความเปลี่ยนแปลงบ่อยๆ  ส่วน "
+"testing อยู่ตรงกลาง โดยจะรับแพกเกจรุ่นใหม่ๆ จาก unstable เข้ามา "
+"ถ้าแพกเกจเหล่านั้นไม่มีข้อผิดพลาดมากนัก"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Only flavors available on the selected mirror are listed."
+msgstr "จะแสดงรายชื่อเฉพาะรุ่นที่มีในแหล่งสำเนาที่เลือกเท่านั้น"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:7001
+msgid "Go back and try a different mirror?"
+msgstr "จะย้อนกลับไปเพื่อลองดูแหล่งสำเนาอื่นหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:7001
+msgid ""
+"The specified (default) Debian version (${RELEASE}) is not available from "
+"the selected mirror. It is possible to continue and select a different "
+"release for your installation, but normally you should go back and select a "
+"different mirror that does support the correct version."
+msgstr ""
+"รุ่น (ปริยาย) ที่ระบุของเดเบียน (${RELEASE}) ไม่มีในแหล่งสำเนาที่เลือก "
+"คุณอาจติดตั้งต่อไปโดยใช้รุ่นอื่นก็ได้ แต่โดยปกติแล้ว "
+"คุณควรย้อนกลับไปเพื่อเลือกแหล่งสำเนาอื่นที่รองรับรุ่นที่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid "Bad archive mirror"
+msgstr "แหล่งสำเนาแพกเกจใช้การไม่ได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"An error has been detected while trying to use the specified Debian archive "
+"mirror."
+msgstr "พบข้อผิดพลาดขณะพยายามใช้แหล่งสำเนาเดเบียนที่ระบุ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"Possible reasons for the error are: incorrect mirror specified; mirror is "
+"not available (possibly due to an unreliable network connection); mirror is "
+"broken (for example because an invalid Release file was found); mirror does "
+"not support the correct Debian version."
+msgstr ""
+"สาเหตุต่างๆ ที่เป็นไปได้คือ: ระบุแหล่งสำเนาไม่ถูกต้อง; แหล่งสำเนาไม่มีอยู่ "
+"(อาจเกิดจากการเชื่อมต่อเครือข่ายที่ไม่เสถียร); แหล่งสำเนาเสียหาย (เช่น พบแฟ้ม Release "
+"ที่ผิดพลาด); แหล่งสำเนาไม่รองรับรุ่นของเดเบียนที่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"Additional details may be available in /var/log/syslog or on virtual console "
+"4."
+msgstr "อาจมีรายละเอียดเพิ่มเติมอยู่ที่ /var/log/syslog หรือที่คอนโซลเสมือนที่ 4"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid "Please check the specified mirror or try a different one."
+msgstr "กรุณาตรวจสอบแหล่งสำเนาที่ระบุ หรือลองใช้แหล่งอื่น"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:10001
+msgid "oldstable"
+msgstr "oldstable"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:11001
+msgid "stable"
+msgstr "stable"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:12001
+msgid "testing"
+msgstr "testing"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:13001
+msgid "unstable"
+msgstr "unstable"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid "Debian archive mirror directory:"
+msgstr "ไดเรกทอรีของแหล่งสำเนาแพกเกจเดเบียน:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid ""
+"Please enter the directory in which the mirror of the Debian archive is "
+"located."
+msgstr "กรุณาป้อนไดเรกทอรีที่เก็บสำเนาของแพกเกจเดเบียน"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid "FTP proxy information (blank for none):"
+msgstr "ข้อมูลพร็อกซี FTP (ปล่อยว่างไว้ถ้าไม่มี):"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid ""
+"If you need to use a FTP proxy to access the outside world, enter the proxy "
+"information here. Otherwise, leave this blank."
+msgstr ""
+"หากคุณจำเป็นต้องใช้พร็อกซี FTP เพื่อติดต่อกับโลกภายนอก กรุณาป้อนข้อมูลพร็อกซีที่นี่ หากไม่ต้องใช้ "
+"ก็ปล่อยว่างไว้ได้"
+
+#. Type: select
+#. Default
+#. Translators, you should put here the ISO 3166 code of a country
+#. which you know hosts at least one Debian FTP mirror. Please check
+#. that the country really has a Debian FTP mirror before putting a
+#. random value here
+#.
+#. First check that the country you mention here is listed in
+#. http://svn.debian.org/wsvn/webwml/trunk/webwml/english/mirror/Mirrors.masterlist
+#.
+#. BE CAREFUL to use the TWO LETTER ISO-3166 CODE and not anything else
+#.
+#. You do not need to translate what's between the square brackets
+#. You should even NOT put square brackets in translations:
+#. msgid "US[ Default value for ftp]"
+#. msgstr "FR"
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.sel-in:2002
+msgid "US[ Default value for ftp]"
+msgstr "TH"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid "Protocol for file downloads:"
+msgstr "โพรโทคอลสำหรับดาวน์โหลดแฟ้ม:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid ""
+"Please select the protocol to be used for downloading files. If unsure, "
+"select \"http\"; it is less prone to problems involving firewalls."
+msgstr ""
+"กรุณาเลือกโพรโทคอลสำหรับดาวน์โหลดแฟ้ม หากไม่แน่ใจ คุณควรเลือก \"http\" "
+"เนื่องจากมีโอกาสที่จะมีปัญหากับไฟร์วอลล์น้อยกว่า"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. :sl2:
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#: ../net-retriever.templates:1001 ../apt-setup-udeb.templates:7001
+#: ../apt-mirror-setup.templates:4001
+msgid "Retry"
+msgstr "ลองใหม่"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. :sl2:
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#: ../net-retriever.templates:1001 ../apt-mirror-setup.templates:4001
+msgid "Change mirror"
+msgstr "เปลี่ยนแหล่งสำเนา"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#: ../net-retriever.templates:1002 ../apt-mirror-setup.templates:4002
+msgid "Downloading a file failed:"
+msgstr "ดาวน์โหลดแฟ้มไม่สำเร็จ:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../net-retriever.templates:1002
+msgid ""
+"The installer failed to download a file from the mirror. This may be a "
+"problem with your network, or with the mirror. You can choose to retry the "
+"download, select a different mirror, or cancel and choose another "
+"installation method."
+msgstr ""
+"โปรแกรมติดตั้งดาวน์โหลดแฟ้มจากแหล่งสำเนาไม่สำเร็จ อาจเกิดจากปัญหาในเครือข่ายของคุณ "
+"หรือเป็นปัญหาในตัวแหล่งสำเนาเอง คุณสามารถเลือกที่จะลองดาวน์โหลดใหม่ หรือเลือกแหล่งสำเนาอื่น "
+"หรือยกเลิกแล้วเลือกวิธีติดตั้งวิธีอื่น"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-retriever.templates:1001
+msgid "Failed to copy file from CD-ROM. Retry?"
+msgstr "คัดลอกแฟ้มจากซีดีรอมไม่สำเร็จ จะลองใหม่หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-retriever.templates:1001
+msgid ""
+"There was a problem reading data from the CD-ROM. Please make sure it is in "
+"the drive. If retrying does not work, you should check the integrity of your "
+"CD-ROM."
+msgstr ""
+"เกิดปัญหาขณะอ่านข้อมูลจากซีดีรอม กรุณาตรวจสอบว่าแผ่นซีดีอยู่ในไดรว์หรือไม่ ถ้าลองใหม่แล้วยังไม่ได้ "
+"คุณควรตรวจสอบความครบถ้วนของเนื้อหาซีดีรอมของคุณ"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../media-retriever.templates:1001
+msgid "Scanning removable media"
+msgstr "กำลังสำรวจข้อมูลในสื่อถอดเสียบ"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../media-retriever.templates:2001
+msgid "Cannot read removable media, or no drivers found."
+msgstr "ไม่สามารถอ่านสื่อถอดเสียบ หรือหาไดรเวอร์ไม่พบ"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../media-retriever.templates:2001
+msgid ""
+"There was a problem reading data from the removable media. Please make sure "
+"that the right media is present. If you continue to have trouble, your "
+"removable media might be bad."
+msgstr ""
+"เกิดปัญหาขณะอ่านข้อมูลจากสื่อถอดเสียบ กรุณาตรวจสอบว่าคุณใส่สื่อที่ถูกต้อง ถ้าลองใหม่แล้วยังไม่ได้ "
+"ก็หมายความว่าสื่ออาจจะเสีย"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-base.templates:5001
+msgid "Device in use"
+msgstr "อุปกรณ์กำลังใช้งานอยู่"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-base.templates:5001
+msgid ""
+"No modifications can be made to the device ${DEVICE} for the following "
+"reasons:"
+msgstr "ไม่สามารถเปลี่ยนแปลงอุปกรณ์ ${DEVICE} ได้ ด้วยเหตุผลต่อไปนี้:"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-base.templates:6001
+msgid "Partition in use"
+msgstr "พาร์ทิชันกำลังใช้งานอยู่"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. This should be translated as "partition *number* ${PARTITION}"
+#. In short, ${PARTITION} will indeed contain the partition
+#. NUMBER and not the partition NAME
+#: ../partman-base.templates:6001
+msgid ""
+"No modifications can be made to the partition #${PARTITION} of device "
+"${DEVICE} for the following reasons:"
+msgstr ""
+"ไม่สามารถเปลี่ยนแปลงพาร์ทิชันที่ ${PARTITION} ของอุปกรณ์ ${DEVICE} ได้ ด้วยเหตุผลต่อไปนี้:"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-base.templates:10001
+msgid "Continue with the installation?"
+msgstr "ดำเนินการติดตั้งต่อไปหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-base.templates:10001
+msgid ""
+"No partition table changes and no creation of file systems have been planned."
+msgstr "ไม่มีการเปลี่ยนแปลงตารางพาร์ทิชัน และไม่มีการสร้างระบบแฟ้ม"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-base.templates:10001
+msgid ""
+"If you plan on using already created file systems, be aware that existing "
+"files may prevent the successful installation of the base system."
+msgstr ""
+"หากคุณวางแผนจะใช้ระบบแฟ้มที่มีอยู่ก่อนแล้ว พึงระวังว่าแฟ้มเดิมที่มีอยู่ "
+"อาจขัดขวางไม่ให้การติดตั้งระบบพื้นฐานสำเร็จได้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:13001
+msgid "The following partitions are going to be formatted:"
+msgstr "พาร์ทิชันต่อไปนี้จะถูกฟอร์แมต:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. for example: "partition #6 of IDE0 master as ext3 journaling file system"
+#: ../partman-base.templates:14001
+msgid "partition #${PARTITION} of ${DEVICE} as ${TYPE}"
+msgstr "พาร์ทิชัน #${PARTITION} ของ ${DEVICE} เป็น ${TYPE}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. for devices which have no partitions
+#. for example: "LVM VG Debian, LV Root as ext3 journaling file system"
+#: ../partman-base.templates:15001
+msgid "${DEVICE} as ${TYPE}"
+msgstr "${DEVICE} เป็น ${TYPE}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:16001
+msgid "The partition tables of the following devices are changed:"
+msgstr "ตารางพาร์ทิชันของอุปกรณ์ต่อไปนี้จะถูกเปลี่ยนแปลง:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-base.templates:17001
+msgid "What to do with this device:"
+msgstr "ต้องการทำอะไรกับอุปกรณ์นี้:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-base.templates:18001
+msgid "How to use this free space:"
+msgstr "จะใช้พื้นที่ว่างนี้อย่างไร:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-base.templates:19001
+msgid "Partition settings:"
+msgstr "ค่าตั้งของพาร์ทิชัน:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-base.templates:19001
+msgid ""
+"You are editing partition #${PARTITION} of ${DEVICE}. ${OTHERINFO} "
+"${DESTROYED}"
+msgstr ""
+"คุณกำลังแก้ไขพาร์ทิชัน #${PARTITION} ของ ${DEVICE}  ${OTHERINFO} ${DESTROYED}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:20001
+msgid "This partition is formatted with the ${FILESYSTEM}."
+msgstr "พาร์ทิชันนี้ถูกฟอร์แมตเป็น ${FILESYSTEM}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:21001
+msgid "No existing file system was detected in this partition."
+msgstr "ตรวจไม่พบระบบแฟ้มเดิมในพาร์ทิชันนี้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:22001
+msgid "All data in it WILL BE DESTROYED!"
+msgstr "ข้อมูลทั้งหมดในพาร์ทิชัน *จะถูกทำลาย*!"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../partman-base.templates:23001
+msgid "The partition starts from ${FROMCHS} and ends at ${TOCHS}."
+msgstr "พาร์ทิชันนี้เริ่มต้นจาก ${FROMCHS} และสิ้นสุดที่ ${TOCHS}"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../partman-base.templates:24001
+msgid "The free space starts from ${FROMCHS} and ends at ${TOCHS}."
+msgstr "พื้นที่ว่างเริ่มต้นจาก ${FROMCHS} และสิ้นสุดที่ ${TOCHS}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:29001 ../partman-base.templates:33001
+msgid "Show Cylinder/Head/Sector information"
+msgstr "แสดงข้อมูล Cylinder/Head/Sector"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:30001
+msgid "Done setting up the partition"
+msgstr "สิ้นสุดการตั้งค่าพาร์ทิชัน"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:34001
+#, no-c-format
+msgid "Dump partition info in %s"
+msgstr "ดัมพ์ข้อมูลพาร์ทิชันใน %s"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-auto.templates:3001 ../partman-auto.templates:4001
+#: ../partman-auto-lvm.templates:4001
+msgid "Failed to partition the selected disk"
+msgstr "ไม่สามารถแบ่งพาร์ทิชันในดิสก์ที่เลือก"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-auto.templates:3001
+msgid ""
+"This probably happened because the selected disk or free space is too small "
+"to be automatically partitioned."
+msgstr "อาจเป็นเพราะดิสก์ที่เลือกหรือพื้นที่ว่างเล็กเกินกว่าจะแบ่งพาร์ทิชันโดยอัตโนมัติได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-auto.templates:4001
+msgid ""
+"This probably happened because there are too many (primary) partitions in "
+"the partition table."
+msgstr "อาจเป็นเพราะมีจำนวนพาร์ทิชัน (ที่เป็นไพรมารี) มากเกินไปในตารางพาร์ทิชัน"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-auto.templates:10001
+msgid "Unusable free space"
+msgstr "พื้นที่ว่างที่ใช้ไม่ได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-auto.templates:10001
+msgid ""
+"Partitioning failed because the chosen free space may not be used. There are "
+"probably too many (primary) partitions in the partition table."
+msgstr ""
+"แบ่งพาร์ทิชันไม่สำเร็จเพราะพื้นที่ว่างที่เลือกไม่สามารถใช้การได้ เป็นไปได้ว่ามีจำนวนพาร์ทิชัน "
+"(ที่เป็นไพรมารี) มากเกินไปในตารางพาร์ทิชัน"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. TRANSLATORS: This is a menu entry. Keep in under 55 columns/characters
+#: ../partman-auto.templates:22001
+msgid "Small-disk (< 1GB) partitioning scheme"
+msgstr "แนวทางการแบ่งพาร์ทิชันในดิสก์ขนาดเล็ก (< 1GB)"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:1001
+msgid "Go back to the menu?"
+msgstr "กลับไปยังเมนูหลักหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:1001
+msgid "No file system is specified for partition #${PARTITION} of ${DEVICE}."
+msgstr "ไม่ได้ระบุระบบแฟ้มสำหรับพาร์ทิชัน #${PARTITION} ของ ${DEVICE}"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:1001
+msgid ""
+"If you do not go back to the partitioning menu and assign a file system to "
+"this partition, it won't be used at all."
+msgstr ""
+"ถ้าคุณไม่กลับไปที่เมนูการแบ่งพาร์ทิชัน เพื่อกำหนดระบบแฟ้มให้กับพาร์ทิชันนี้ ก็จะไม่ใช้พาร์ทิชันนี้เลย"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:2001
+msgid "do not use the partition"
+msgstr "ไม่ใช้พาร์ทิชันนี้"
+
+#. Type: text
+#. Description
+#. up to 25 character positions
+#. :sl2:
+#: ../partman-basicmethods.templates:3001
+msgid "Format the partition:"
+msgstr "ฟอร์แมตพาร์ทิชัน:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:4001
+msgid "yes, format it"
+msgstr "ใช่ ฟอร์แมตเลย"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:5001
+msgid "no, keep existing data"
+msgstr "ไม่ต้อง รักษาข้อมูลเดิมไว้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:6001
+msgid "do not use"
+msgstr "ไม่ต้องใช้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:8001
+msgid "format the partition"
+msgstr "ฟอร์แมตพาร์ทิชัน"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:10001
+msgid "keep and use the existing data"
+msgstr "รักษาและใช้ข้อมูลเดิม"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:1001
+msgid "Resizing partition..."
+msgstr "กำลังเปลี่ยนขนาดพาร์ทิชัน..."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:2001
+msgid "Copying partition..."
+msgstr "กำลังคัดลอกพาร์ทิชัน..."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:4001
+#: ../partman-partitioning.templates:8001
+msgid "Write previous changes to disk and continue?"
+msgstr "จะเขียนการเปลี่ยนแปลงทั้งหมดลงดิสก์แล้วดำเนินการต่อหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:4001
+msgid ""
+"Before you can select a partition to copy, any previous changes have to be "
+"written to disk."
+msgstr ""
+"ก่อนที่คุณจะสามารถเลือกพาร์ทิชันเพื่อคัดลอกได้ "
+"คุณต้องเขียนการเปลี่ยนแปลงทั้งหมดก่อนหน้านี้ลงดิสก์เสียก่อน"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:4001
+#: ../partman-partitioning.templates:8001
+msgid "You cannot undo this operation."
+msgstr "คุณไม่สามารถเรียกคืนการกระทำนี้ได้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:4001
+msgid "Please note that the copy operation may take a long time."
+msgstr "โปรดสังเกตว่าการคัดลอกอาจใช้เวลานาน"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:5001
+msgid "Source partition:"
+msgstr "พาร์ทิชันต้นฉบับ:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:5001
+msgid "Please choose the partition which contains the data you want to copy."
+msgstr "กรุณาเลือกพาร์ทิชันที่มีข้อมูลที่คุณต้องการคัดลอก"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:6001
+msgid "Copy operation failure"
+msgstr "การคัดลอกไม่สำเร็จ"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-partitioning.templates:6001
+#: ../partman-partitioning.templates:13001 ../partman-md.templates:21001
+msgid "An error occurred while writing the changes to the storage devices."
+msgstr "เกิดข้อผิดพลาดขณะเขียนการเปลี่ยนแปลงต่างๆ ลงยังอุปกรณ์เก็บข้อมูล"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:6001
+msgid "The copy operation has been aborted."
+msgstr "การคัดลอกถูกยกเลิก"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:7001
+msgid "The resize operation is impossible"
+msgstr "ไม่สามารถเปลี่ยนขนาดได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:7001
+msgid "Because of an unknown reason it is impossible to resize this partition."
+msgstr "ไม่สามารถเปลี่ยนขนาดพาร์ทิชันนี้ได้โดยไม่ทราบสาเหตุ"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-partitioning.templates:7001 ../clock-setup.templates:9001
+#: ../bootstrap-base.templates:4001 ../bootstrap-base.templates:5001
+#: ../bootstrap-base.templates:6001 ../bootstrap-base.templates:7001
+#: ../bootstrap-base.templates:11001 ../bootstrap-base.templates:16001
+#: ../nobootloader.templates:2001 ../quik-installer.templates:11001
+#: ../quik-installer.templates:13001 ../quik-installer.templates:18001
+#: ../yaboot-installer.templates:11001 ../yaboot-installer.templates:13001
+#: ../yaboot-installer.templates:15001 ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:40001 ../partman-zfs.templates:44001
+#: ../lvmcfg-utils.templates:24001 ../lvmcfg-utils.templates:32001
+#: ../lvmcfg-utils.templates:37001 ../partman-lvm.templates:32001
+#: ../partman-lvm.templates:46001 ../partman-lvm.templates:53001
+#: ../partman-lvm.templates:57001 ../partman-lvm.templates:60001
+#: ../partman-auto-lvm.templates:7001 ../partman-auto-raid.templates:1001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "กรุณาตรวจสอบ /var/log/syslog หรือดูที่คอนโซลเสมือนที่ 4 เพื่อดูรายละเอียด"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:8001
+msgid ""
+"Before you can select a new partition size, any previous changes have to be "
+"written to disk."
+msgstr ""
+"ก่อนที่คุณจะสามารถเลือกขนาดใหม่ของพาร์ทิชันได้ "
+"คุณต้องเขียนการเปลี่ยนแปลงทั้งหมดก่อนหน้านี้ลงดิสก์เสียก่อน"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:8001
+msgid "Please note that the resize operation may take a long time."
+msgstr "โปรดสังเกตว่าการเปลี่ยนขนาดพาร์ทิชันอาจใช้เวลานาน"
+
+#. Type: string
+#. Description
+#. :sl2:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:9001
+#: ../partman-partitioning.templates:14001
+msgid "New partition size:"
+msgstr "ขนาดใหม่ของพาร์ทิชัน:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:9001
+msgid ""
+"The minimum size for this partition is ${MINSIZE} (or ${PERCENT}) and its "
+"maximum size is ${MAXSIZE}."
+msgstr ""
+"ขนาดที่เล็กที่สุดสำหรับพาร์ทิชันนี้คือ ${MINSIZE} หรือ ${PERCENT} และขนาดที่ใหญ่ที่สุดคือ "
+"${MAXSIZE}"
+
+#. Type: string
+#. Description
+#. :sl2:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:9001
+#: ../partman-partitioning.templates:14001
+#, no-c-format
+msgid ""
+"Hint: \"max\" can be used as a shortcut to specify the maximum size, or "
+"enter a percentage (e.g. \"20%\") to use that percentage of the maximum size."
+msgstr ""
+"คำแนะนำ: คุณสามารถใช้ \"max\" เป็นคำตอบถ้าต้องการใช้ขนาดที่ใหญ่ที่สุด "
+"หรือจะป้อนเป็นเปอร์เซ็นต์ (เช่น \"20%\") เพื่อกำหนดขนาดเป็นเปอร์เซ็นต์ของขนาดที่ใหญ่ที่สุดก็ได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:10001
+msgid "The size entered is invalid"
+msgstr "ขนาดที่คุณป้อนไม่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:10001
+msgid ""
+"The size you entered was not understood. Please enter a positive integer "
+"size followed by an optional unit of measure (e.g. \"200 GB\"). The default "
+"unit of measure is the megabyte."
+msgstr ""
+"ขนาดที่คุณป้อนเป็นค่าที่ไม่สามารถตีความได้ กรุณาป้อนขนาดเป็นจำนวนเต็มบวก "
+"และอาจจะตามด้วยหน่วยวัดด้วยก็ได้ (เช่น \"200 GB\") หน่วยปริยายหากละไว้จะเป็นเมกะไบต์"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:11001
+msgid "The size entered is too large"
+msgstr "ค่าที่คุณป้อนใหญ่เกินไป"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:11001
+msgid ""
+"The size you entered is larger than the maximum size of the partition. "
+"Please enter a smaller size to continue."
+msgstr ""
+"ขนาดที่คุณป้อนมีขนาดใหญ่เกินขนาดสูงสุดของพาร์ทิชัน กรุณาป้อนขนาดที่เล็กกว่านี้เพื่อจะดำเนินการต่อไป"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:12001
+msgid "The size entered is too small"
+msgstr "ค่าที่คุณป้อนเล็กเกินไป"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:12001
+msgid ""
+"The size you entered is smaller than the minimum size of the partition. "
+"Please enter a larger size to continue."
+msgstr ""
+"ขนาดที่คุณป้อนมีขนาดเล็กกว่าขนาดต่ำสุดของพาร์ทิชัน กรุณาป้อนขนาดที่ใหญ่กว่านี้เพื่อจะดำเนินการต่อไป"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:13001
+msgid "Resize operation failure"
+msgstr "เกิดข้อผิดพลาดขณะเปลี่ยนขนาด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:13001
+msgid "The resize operation has been aborted."
+msgstr "การเปลี่ยนขนาดถูกยกเลิก"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:14001
+msgid "The maximum size for this partition is ${MAXSIZE}."
+msgstr "ขนาดที่ใหญ่ที่สุดสำหรับพาร์ทิชันนี้คือ ${MAXSIZE}"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:15001
+msgid "Invalid size"
+msgstr "ขนาดไม่ถูกต้อง"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:18001
+msgid "Flags for the new partition:"
+msgstr "แฟล็กของพาร์ทิชันใหม่:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:19001
+msgid "Partition name:"
+msgstr "ชื่อพาร์ทิชัน:"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:20001
+#: ../partman-partitioning.templates:21001
+msgid "Continue with partitioning?"
+msgstr "จะแบ่งพาร์ทิชันต่อไปหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:20001
+msgid ""
+"This partitioner doesn't have information about the default type of the "
+"partition tables on your architecture.  Please send an e-mail message to "
+"debian-boot@lists.debian.org with information."
+msgstr ""
+"เครื่องมือแบ่งพาร์ทิชันนี้ไม่มีข้อมูลเกี่ยวกับชนิดปริยายของตารางพาร์ทิชันสำหรับสถาปัตยกรรมของเครื่องคุณ "
+"กรุณาส่งเมลถึง debian-boot@lists.debian.org เพื่อให้ข้อมูลกับเรา"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:20001
+msgid ""
+"Please note that if the type of the partition table is unsupported by "
+"libparted, then this partitioner will not work properly."
+msgstr ""
+"โปรดสังเกตว่า ถ้า libparted ไม่รองรับตารางพาร์ทิชันชนิดนี้ "
+"เครื่องมือแบ่งพาร์ทิชันนี้ก็จะไม่สามารถทำงานได้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:21001
+msgid ""
+"This partitioner is based on the library libparted which doesn't have "
+"support for the partition tables used on your architecture.  It is strongly "
+"recommended that you exit this partitioner."
+msgstr ""
+"เครื่องมือแบ่งพาร์ทิชันนี้ ทำงานโดยอาศัยไลบรารี libparted "
+"ซึ่งไม่รองรับตารางพาร์ทิชันที่ใช้ในสถาปัตยกรรมของเครื่องคุณ "
+"เราขอแนะนำให้คุณออกจากเครื่องมือแบ่งพาร์ทิชันนี้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:21001
+msgid ""
+"If you can, please help to add support for your partition table type to "
+"libparted."
+msgstr "หากเป็นไปได้ กรุณาช่วยเพิ่มการรองรับตารางพาร์ทิชันของคุณใน libparted ด้วย"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:22001
+msgid "Partition table type:"
+msgstr "ชนิดของตารางพาร์ทิชัน:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:22001
+msgid "Select the type of partition table to use."
+msgstr "เลือกชนิดของตารางพาร์ทิชันที่จะใช้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:23001
+msgid "Create new empty partition table on this device?"
+msgstr "จะสร้างตารางพาร์ทิชันเปล่าขึ้นใหม่ในอุปกรณ์นี้หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:23001
+msgid ""
+"You have selected an entire device to partition. If you proceed with "
+"creating a new partition table on the device, then all current partitions "
+"will be removed."
+msgstr ""
+"คุณได้เลือกอุปกรณ์ทั้งชิ้นเพื่อแบ่งพาร์ทิชัน ถ้าคุณทำต่อด้วยการสร้างตารางพาร์ทิชันใหม่ "
+"จะทำให้พาร์ทิชันเดิมทั้งหมดถูกลบทิ้ง"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:23001
+msgid "Note that you will be able to undo this operation later if you wish."
+msgstr "สังเกตว่าคุณจะสามารถเรียกคืนการกระทำนี้ได้ในภายหลังถ้าคุณต้องการ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:24001
+msgid "Write a new empty partition table?"
+msgstr "จะเขียนตารางพาร์ทิชันเปล่าตารางใหม่หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:24001
+msgid ""
+"Because of limitations in the current implementation of the Sun partition "
+"tables in libparted, the newly created partition table has to be written to "
+"the disk immediately."
+msgstr ""
+"เนื่องจากข้อจำกัดของการจัดการตารางพาร์ทิชันของ Sun ใน libparted "
+"ตารางพาร์ทิชันที่สร้างขึ้นใหม่จะต้องถูกเขียนลงดิสก์ทันที"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:24001
+msgid ""
+"You will NOT be able to undo this operation later and all existing data on "
+"the disk will be irreversibly removed."
+msgstr ""
+"คุณจะ *ไม่สามารถ* ยกเลิกการกระทำนี้ในภายหลังได้อีก "
+"และข้อมูลทั้งหมดที่อยู่ในดิสก์จะถูกลบออกอย่างไม่สามารถเรียกคืนได้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:24001
+msgid ""
+"Confirm whether you actually want to create a new partition table and write "
+"it to disk."
+msgstr "ดังนั้น กรุณายืนยันว่าคุณต้องการจะสร้างตารางพาร์ทิชันตารางใหม่โดยเขียนลงดิสก์จริงๆ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:25001
+msgid "Are you sure you want a bootable logical partition?"
+msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการสร้างพาร์ทิชันแบบลอจิคัลที่บูตได้?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:25001
+msgid ""
+"You are trying to set the bootable flag on a logical partition. The bootable "
+"flag is generally only useful on primary partitions, so setting it on "
+"logical partitions is normally discouraged. Some BIOS versions are known to "
+"fail to boot if there is no bootable primary partition."
+msgstr ""
+"คุณกำลังพยายามกำหนดแฟล็กบูตให้กับพาร์ทิชันแบบลอจิคัล โดยทั่วไปแล้ว "
+"แฟล็กบูตจะมีประโยชน์กับพาร์ทิชันแบบไพรมารีเท่านั้น จึงไม่ขอแนะนำให้กำหนดในพาร์ทิชันแบบลอจิคัล "
+"มีรายงานว่า BIOS บางรุ่นจะไม่สามารถบูตได้ถ้าไม่มีพาร์ทิชันแบบไพรมารีที่บูตได้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:25001
+msgid ""
+"However, if you are sure that your BIOS does not have this problem, or if "
+"you are using a custom boot manager that pays attention to bootable logical "
+"partitions, then setting this flag may make sense."
+msgstr ""
+"อย่างไรก็ดี ถ้าคุณมั่นใจว่า BIOS ของคุณไม่มีปัญหานี้ "
+"หรือถ้าคุณกำลังใช้โปรแกรมจัดการการบูตที่สามารถบูตจากพาร์ทิชันแบบลอจิคัลได้ ก็อาจกำหนดแฟล็กบูตนี้ได้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:26001
+msgid "Set the partition flags"
+msgstr "กำหนดแฟล็กสำหรับพาร์ทิชัน"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:27001
+msgid "Name:"
+msgstr "ชื่อ:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:28001
+msgid "Bootable flag:"
+msgstr "แฟล็กการบูต:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:29001
+msgid "on"
+msgstr "เปิด"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:30001
+msgid "off"
+msgstr "ปิด"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:31001
+msgid "Resize the partition (currently ${SIZE})"
+msgstr "เปลี่ยนขนาดพาร์ทิชัน (ปัจจุบันคือ ${SIZE})"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:32001
+msgid "Copy data from another partition"
+msgstr "คัดลอกข้อมูลจากพาร์ทิชันอื่น"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:33001
+msgid "Delete the partition"
+msgstr "ลบพาร์ทิชัน"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:34001
+msgid "Create a new partition"
+msgstr "สร้างพาร์ทิชันใหม่"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:35001
+msgid "Create a new empty partition table on this device"
+msgstr "สร้างตารางพาร์ทิชันเปล่าตารางใหม่ในอุปกรณ์นี้"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-basicfilesystems.templates:6001
+#: ../partman-basicfilesystems.templates:7001 ../partman-ext2r0.templates:2001
+msgid "Go back to the menu and correct errors?"
+msgstr "กลับไปยังเมนูเพื่อแก้ไขข้อผิดพลาดหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:6001
+msgid ""
+"The test of the file system with type ${TYPE} in partition #${PARTITION} of "
+"${DEVICE} found uncorrected errors."
+msgstr ""
+"การทดสอบระบบแฟ้มชนิด ${TYPE} ในพาร์ทิชัน #${PARTITION} ของ ${DEVICE} "
+"พบข้อผิดพลาดที่ยังไม่ได้รับการแก้ไข"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:6001
+#: ../partman-basicfilesystems.templates:7001
+msgid ""
+"If you do not go back to the partitioning menu and correct these errors, the "
+"partition will be used as is."
+msgstr ""
+"ถ้าคุณไม่กลับไปยังเมนูแบ่งพาร์ทิชันเพื่อแก้ไขข้อผิดพลาดเหล่านี้ "
+"ระบบจะใช้พาร์ทิชันดังกล่าวตามสภาพที่เป็นอยู่"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:7001
+msgid ""
+"The test of the swap space in partition #${PARTITION} of ${DEVICE} found "
+"uncorrected errors."
+msgstr ""
+"การทดสอบพื้นที่สลับในพาร์ทิชัน #${PARTITION} ของ ${DEVICE} พบข้อผิดพลาดที่ยังไม่ได้รับการแก้ไข"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-basicfilesystems.templates:8001
+#: ../partman-basicfilesystems.templates:11001 ../partman-ext3.templates:10001
+#: ../partman-ext2r0.templates:4001
+msgid "Do you want to return to the partitioning menu?"
+msgstr "คุณต้องการกลับไปยังเมนูแบ่งพาร์ทิชันหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:8001
+msgid ""
+"You have not selected any partitions for use as swap space. Enabling swap "
+"space is recommended so that the system can make better use of the available "
+"physical memory, and so that it behaves better when physical memory is "
+"scarce. You may experience installation problems if you do not have enough "
+"physical memory."
+msgstr ""
+"คุณยังไม่ได้เลือกพาร์ทิชันใดเพื่อใช้เป็นพื้นที่สลับเลย ขอแนะนำให้เปิดใช้พื้นที่สลับ "
+"เพื่อที่ระบบจะสามารถใช้หน่วยความจำจริงของเครื่องได้อย่างมีประสิทธิภาพ "
+"และเพื่อที่ระบบจะทำงานได้ดีขึ้นในสภาพที่หน่วยความจำเหลือน้อย "
+"คุณอาจพบปัญหาการติดตั้งถ้าคุณมีหน่วยความจำจริงไม่พอ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:8001
+msgid ""
+"If you do not go back to the partitioning menu and assign a swap partition, "
+"the installation will continue without swap space."
+msgstr ""
+"ถ้าคุณไม่กลับไปยังเมนูแบ่งพาร์ทิชันเพื่อกำหนดพาร์ทิชันสลับ การติดตั้งจะดำเนินต่อไปโดยไม่อาศัยพื้นที่สลับ"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-basicfilesystems.templates:9001 ../partman-ext2r0.templates:3001
+msgid "Failed to create a file system"
+msgstr "สร้างระบบแฟ้มไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:9001
+msgid ""
+"The ${TYPE} file system creation in partition #${PARTITION} of ${DEVICE} "
+"failed."
+msgstr "สร้างระบบแฟ้ม ${TYPE} ในพาร์ทิชัน #${PARTITION} ของ ${DEVICE} ไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:10001
+msgid "Failed to create a swap space"
+msgstr "สร้างพื้นที่สลับไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:10001
+msgid ""
+"The creation of swap space in partition #${PARTITION} of ${DEVICE} failed."
+msgstr "สร้างพื้นที่สลับในพาร์ทิชัน #${PARTITION} ของ ${DEVICE} ไม่สำเร็จ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:11001
+msgid ""
+"No mount point is assigned for the ${FILESYSTEM} file system in partition #"
+"${PARTITION} of ${DEVICE}."
+msgstr ""
+"ไม่มีการกำหนดตำแหน่งเมานท์สำหรับระบบแฟ้ม ${FILESYSTEM} ในพาร์ทิชัน #${PARTITION} ของ "
+"${DEVICE}"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-basicfilesystems.templates:11001
+#: ../partman-ext2r0.templates:4001
+msgid ""
+"If you do not go back to the partitioning menu and assign a mount point from "
+"there, this partition will not be used at all."
+msgstr "ถ้าคุณไม่กลับไปยังเมนูแบ่งพาร์ทิชันเพื่อกำหนดตำแหน่งเมานท์ ระบบจะไม่ใช้พาร์ทิชันนี้เลย"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:12001
+msgid "Invalid file system for this mount point"
+msgstr "ระบบแฟ้มไม่ถูกต้องสำหรับตำแหน่งเมานท์นี้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:12001
+msgid ""
+"The file system type ${FILESYSTEM} cannot be mounted on ${MOUNTPOINT}, "
+"because it is not a fully-functional Unix file system. Please choose a "
+"different file system, such as ${EXT2}."
+msgstr ""
+"ไม่สามารถเมานท์ระบบแฟ้ม ${FILESYSTEM} ที่ ${MOUNTPOINT} ได้ "
+"เนื่องจากไม่ใช่ระบบแฟ้มยูนิกซ์เต็มรูปแบบ กรุณาเลือกระบบแฟ้มอื่น เช่น ${EXT2}"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/ - the root file system"
+msgstr "/ - ระบบแฟ้มราก"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/boot - static files of the boot loader"
+msgstr "/boot - แหล่งแฟ้มตายตัวสำหรับบูตโหลดเดอร์"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/home - user home directories"
+msgstr "/home - แหล่งไดเรกทอรีส่วนตัวของผู้ใช้"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/tmp - temporary files"
+msgstr "/tmp - ที่เก็บแฟ้มชั่วคราว"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/usr - static data"
+msgstr "/usr - แหล่งข้อมูลตายตัว"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/var - variable data"
+msgstr "/var - แหล่งข้อมูลเปลี่ยนแปลง"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/srv - data for services provided by this system"
+msgstr "/srv - แหล่งข้อมูลสำหรับบริการของระบบ"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/opt - add-on application software packages"
+msgstr "/opt - แหล่งซอฟต์แวร์เพิ่มขยาย"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/usr/local - local hierarchy"
+msgstr "/usr/local - โครงสร้างระบบแฟ้มใช้เป็นการภายใน"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#. Type: select
+#. Choices
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. :sl4:
+#. what's to be entered is a mount point
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl5:
+#. What's to be "entered manually" is a mount point
+#: ../partman-basicfilesystems.templates:13001
+#: ../partman-basicfilesystems.templates:14001
+#: ../partman-ext2r0.templates:5001 ../partconf.templates:6001
+msgid "Enter manually"
+msgstr "ป้อนชื่อเอง"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#. Type: select
+#. Choices
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. :sl4:
+#. "it" is a partition
+#: ../partman-basicfilesystems.templates:13001
+#: ../partman-basicfilesystems.templates:14001
+#: ../partman-ext2r0.templates:5001
+msgid "Do not mount it"
+msgstr "ไม่ต้องเมานท์"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: string
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#: ../partman-basicfilesystems.templates:13002
+#: ../partman-basicfilesystems.templates:14002
+#: ../partman-basicfilesystems.templates:15001
+#: ../partman-ext2r0.templates:5002
+msgid "Mount point for this partition:"
+msgstr "ตำแหน่งเมานท์สำหรับพาร์ทิชันนี้:"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../partman-basicfilesystems.templates:14001
+msgid "/dos"
+msgstr "/dos"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../partman-basicfilesystems.templates:14001
+msgid "/windows"
+msgstr "/windows"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:16001
+msgid "Invalid mount point"
+msgstr "ตำแหน่งเมานท์ไม่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:16001
+msgid "The mount point you entered is invalid."
+msgstr "ตำแหน่งเมานท์ที่คุณป้อนไม่ถูกต้อง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:16001
+msgid "Mount points must start with \"/\". They cannot contain spaces."
+msgstr "ตำแหน่งเมานท์ต้องเริ่มต้นด้วย \"/\" และมีช่องว่างไม่ได้"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:17001
+msgid "Label for the file system in this partition:"
+msgstr "ป้ายชื่อสำหรับระบบแฟ้มในพาร์ทิชันนี้:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:18001
+msgid "Format the swap area:"
+msgstr "ฟอร์แมตพื้นที่สลับ:"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. In the following context: "Format the partition: yes"
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl3:
+#: ../partman-basicfilesystems.templates:19001
+#: ../partman-crypto.templates:21001
+msgid "yes"
+msgstr "ใช่"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. In the following context: "Format the partition: no"
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl3:
+#: ../partman-basicfilesystems.templates:20001
+#: ../partman-crypto.templates:20001
+msgid "no"
+msgstr "ไม่"
+
+#. Type: text
+#. Description
+#. label of file system
+#. :sl2:
+#: ../partman-basicfilesystems.templates:21001
+msgid "Label:"
+msgstr "ป้ายชื่อ:"
+
+#. Type: text
+#. Description
+#. for partman-basicfilesystems: in the following context: "Label: none"
+#. :sl2:
+#: ../partman-basicfilesystems.templates:22001
+msgid ""
+"none[ Do not translate what's inside the brackets and just put the "
+"translation for the word \"none\" in your language without any brackets. "
+"This \"none\" relates to \"Label:\" ]"
+msgstr "ไม่มี"
+
+#. Type: text
+#. Description
+#. Up to 24 character positions
+#. :sl2:
+#: ../partman-basicfilesystems.templates:23001
+msgid "Reserved blocks:"
+msgstr "บล็อคสงวน:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:24001
+msgid "Percentage of the file system blocks reserved for the super-user:"
+msgstr "เปอร์เซ็นต์ของบล็อคในระบบแฟ้มที่สงวนไว้สำหรับผู้ดูแลระบบ:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Up to 25 character positions
+#: ../partman-basicfilesystems.templates:25001
+msgid "Typical usage:"
+msgstr "การใช้งานปกติ:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. In the following context: "Typical usage: standard"
+#: ../partman-basicfilesystems.templates:26001
+msgid "standard"
+msgstr "มาตรฐาน"
+
+#. Type: text
+#. Description
+#. This is an item in the menu "Partition settings"
+#. :sl2:
+#: ../partman-basicfilesystems.templates:28001
+msgid "Mount point:"
+msgstr "ตำแหน่งเมานท์:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. In the following context: "Mount point: none"
+#: ../partman-basicfilesystems.templates:29001
+msgid ""
+"none[ Do not translate what's inside the brackets and just put the "
+"translation for the word \"none\" in your language without any brackets. "
+"This \"none\" relates to \"Mount point:\" ]"
+msgstr "ไม่มี"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:30001
+msgid "Ext2 file system"
+msgstr "ระบบแฟ้ม ext2"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:32001
+msgid "FAT16 file system"
+msgstr "ระบบแฟ้ม FAT16"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:34001
+msgid "FAT32 file system"
+msgstr "ระบบแฟ้ม FAT32"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#: ../partman-basicfilesystems.templates:36001
+#: ../partman-basicfilesystems.templates:38001
+msgid "swap area"
+msgstr "พื้นที่สลับ"
+
+#. Type: text
+#. Description
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:40001
+#: ../partman-basicfilesystems.templates:41001
+msgid "Mount options:"
+msgstr "ตัวเลือกการเมานท์:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:41001
+msgid "Mount options can tune the behavior of the file system."
+msgstr "ตัวเลือกการเมานท์สามารถใช้ปรับแต่งการทำงานของระบบแฟ้มได้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:42001
+msgid "noatime - do not update inode access times at each access"
+msgstr "noatime - ไม่ต้องปรับค่าเวลาเข้าใช้ inode ทุกครั้งที่เข้าใช้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:43001
+msgid "relatime - update inode access times relative to modify time"
+msgstr "relatime - ปรับค่าเวลาเข้าใช้ inode โดยเทียบกับเวลาที่แก้ไข"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:44001
+msgid "nodev - do not support character or block special devices"
+msgstr "nodev - ไม่ต้องรองรับอุปกรณ์อักขระหรืออุปกรณ์บล็อคแบบพิเศษ"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:45001
+msgid "nosuid - ignore set-user-identifier or set-group-identifier bits"
+msgstr "nosuid - ไม่ใช้บิต set-user-identifier หรือ set-group-identifier"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:46001
+msgid "noexec - do not allow execution of any binaries"
+msgstr "noexec - ไม่อนุญาตให้เรียกใช้โปรแกรมใดๆ"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:47001
+msgid "ro - mount the file system read-only"
+msgstr "ro - เมานท์ระบบแฟ้มแบบอ่านอย่างเดียว"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:48001
+msgid "sync - all input/output activities occur synchronously"
+msgstr "sync - การอ่าน/เขียนเกิดพร้อมกับการเปลี่ยนแปลงในดิสก์เสมอ"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:49001
+msgid "usrquota - user disk quota accounting enabled"
+msgstr "usrquota - เปิดใช้การกำหนดโควตาสำหรับบัญชีผู้ใช้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:50001
+msgid "grpquota - group disk quota accounting enabled"
+msgstr "grpquota - เปิดใช้การกำหนดโควตาสำหรับกลุ่มผู้ใช้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:51001
+msgid "user_xattr - support user extended attributes"
+msgstr "user_xattr - รองรับแอตทริบิวต์ส่วนขยายสำหรับผู้ใช้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:52001
+msgid "quiet - changing owner and permissions does not return errors"
+msgstr "quiet - การเปลี่ยนการอนุญาตสิทธิ์หรือเจ้าของไม่คืนค่าข้อผิดพลาด"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:53001
+msgid "notail - disable packing of files into the file system tree"
+msgstr "notail - ปิดการอัดแฟ้มเข้าไปในโครงสร้างระบบแฟ้ม"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-ext3.templates:2001
+msgid "Ext3 journaling file system"
+msgstr "ระบบแฟ้ม journaling ext3"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-ext3.templates:5001
+msgid "Ext4 journaling file system"
+msgstr "ระบบแฟ้ม journaling ext4"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl3:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-ext3.templates:7001 ../partman-ext3.templates:8001
+#: ../partman-ext2r0.templates:9001 ../partman-ext2r0.templates:10001
+#: ../partman-ext2r0.templates:11001 ../partman-ufs.templates:6001
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
+msgid "Go back to the menu and correct this problem?"
+msgstr "ย้อนกลับไปที่เมนูเพื่อแก้ไขปัญหานี้หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:7001
+msgid ""
+"Your boot partition has not been configured with the ext2 or ext3 file "
+"system. This is needed by your machine in order to boot. Please go back and "
+"use either the ext2 or ext3 file system."
+msgstr ""
+"พาร์ทิชันบูตของคุณไม่ได้กำหนดไว้ให้เป็นระบบแฟ้ม ext2 หรือ ext3 "
+"ซึ่งจำเป็นสำหรับการบูตเครื่องของคุณ กรุณาย้อนกลับไปกำหนดพาร์ทิชันบูตให้เป็นระบบแฟ้ม ext2 หรือ "
+"ext3"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:7001 ../partman-ext3.templates:8001
+msgid ""
+"If you do not go back to the partitioning menu and correct this error, the "
+"partition will be used as is. This means that you may not be able to boot "
+"from your hard disk."
+msgstr ""
+"ถ้าคุณไม่ย้อนกลับไปที่เมนูแบ่งพาร์ทิชันเพื่อแก้ไขข้อผิดพลาดนี้ ระบบจะใช้พาร์ทิชันตามสภาพที่มันเป็น "
+"ซึ่งอาจหมายถึงว่าคุณจะไม่สามารถบูตเครื่องจากฮาร์ดดิสก์ได้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:8001
+msgid ""
+"Your boot partition is not located on the first primary partition of your "
+"hard disk. This is needed by your machine in order to boot.  Please go back "
+"and use your first primary partition as a boot partition."
+msgstr ""
+"พาร์ทิชันบูตของคุณไม่ใช่พาร์ทิชันที่เป็นไพรมารีอันแรกของฮาร์ดดิสก์ ซึ่งจำเป็นสำหรับการบูตเครื่องของคุณ "
+"กรุณาย้อนกลับไปกำหนดพาร์ทิชันที่เป็นไพรมารีอันแรกให้เป็นพาร์ทิชันบูต"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:9001
+msgid "Return to the menu to set the bootable flag?"
+msgstr "จะย้อนกลับไปยังเมนูเพื่อกำหนดแฟล็กบูตหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:9001
+msgid ""
+"The boot partition has not been marked as a bootable partition, even though "
+"this is required by your machine in order to boot. You should go back and "
+"set the bootable flag for the boot partition."
+msgstr ""
+"พาร์ทิชันบูตของคุณยังไม่ได้ทำเครื่องหมายว่าเป็นพาร์ทิชันที่บูตได้ ซึ่งจำเป็นสำหรับการบูตเครื่องของคุณ "
+"คุณควรย้อนกลับไปกำหนดแฟล็กบูตสำหรับพาร์ทิชันบูต"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:9001
+msgid ""
+"If you don't correct this, the partition will be used as is and it is likely "
+"that the machine cannot boot from its hard disk."
+msgstr ""
+"ถ้าคุณไม่แก้ไข ระบบก็จะใช้พาร์ทิชันตามสภาพที่มันเป็น "
+"ซึ่งมีแนวโน้มว่าเครื่องของคุณจะไม่สามารถบูตจากฮาร์ดดิสก์ได้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:10001
+msgid ""
+"The partition ${PARTITION} assigned to ${MOUNTPOINT} starts at an offset of "
+"${OFFSET} bytes from the minimum alignment for this disk, which may lead to "
+"very poor performance."
+msgstr ""
+"พาร์ทิชัน ${PARTITION} ที่กำหนดเป็น ${MOUNTPOINT} เริ่มต้นที่ออฟเซ็ต ${OFFSET} "
+"ไบต์นับจากจุดจัดเรียงต่ำสุดของดิสก์ ซึ่งอาจทำให้ได้ประสิทธิภาพต่ำ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:10001
+msgid ""
+"Since you are formatting this partition, you should correct this problem now "
+"by realigning the partition, as it will be difficult to change later. To do "
+"this, go back to the main partitioning menu, delete the partition, and "
+"recreate it in the same position with the same settings. This will cause the "
+"partition to start at a point best suited for this disk."
+msgstr ""
+"เนื่องจากคุณกำลังจะฟอร์แมตพาร์ทิชันนี้ คุณควรถือโอกาสแก้ปัญหานี้ตอนนี้โดยจัดเรียงพาร์ทิชันใหม่ "
+"เพราะจะแก้ภายหลังได้ยาก วิธีการคือ ให้กลับไปที่เมนูหลักของการแบ่งพาร์ทิชัน แล้วลบพาร์ทิชันนี้ "
+"และสร้างพาร์ทิชันอีกครั้งที่ตำแหน่งเดิมด้วยค่าตั้งเดิม "
+"จะทำให้พาร์ทิชันตั้งต้นที่ตำแหน่งที่เหมาะสมที่สุดสำหรับดิสก์นี้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-btrfs.templates:2001
+msgid "btrfs journaling file system"
+msgstr "ระบบแฟ้ม journaling btrfs"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name (untranslatable in many languages)
+#: ../partman-reiserfs.templates:1001
+msgid "ReiserFS"
+msgstr "ReiserFS"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-reiserfs.templates:2001
+msgid "ReiserFS journaling file system"
+msgstr "ระบบแฟ้ม journaling ReiserFS"
+
+#. Type: text
+#. Description
+#. File system name
+#. :sl2:
+#: ../partman-jfs.templates:2001
+msgid "JFS journaling file system"
+msgstr "ระบบแฟ้ม journaling JFS"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:4001
+msgid "Use unrecommended JFS root file system?"
+msgstr "ใช้ระบบแฟ้มรากแบบ JFS (ซึ่งไม่แนะนำ) หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:4001
+msgid ""
+"Your root file system is a JFS file system. This can cause problems with the "
+"boot loader used by default by this installer."
+msgstr ""
+"ระบบแฟ้มรากของคุณเป็นระบบแฟ้ม JFS ซึ่งอาจมีปัญหากับบูตโหลดเดอร์ปริยายที่ใช้โดยโปรแกรมติดตั้งนี้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:4001
+msgid ""
+"You should use a small /boot partition with another file system, such as "
+"ext3."
+msgstr "คุณควรสร้างพาร์ทิชัน /boot เล็กๆ ในรูปของระบบแฟ้มอื่น เช่น ext3"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:5001
+msgid "Use unrecommended JFS /boot file system?"
+msgstr "ใช้ระบบแฟ้ม /boot แบบ JFS (ซึ่งไม่แนะนำ) หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:5001
+msgid ""
+"You have mounted a JFS file system as /boot. This is likely to cause "
+"problems with the boot loader used by default by this installer."
+msgstr ""
+"คุณได้เมานท์ระบบแฟ้มแบบ JFS เป็น /boot "
+"ซึ่งมีแนวโน้มจะเกิดปัญหากับบูตโหลดเดอร์ปริยายที่ใช้โดยโปรแกรมติดตั้งนี้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:5001
+msgid ""
+"You should use another file system, such as ext3, for the /boot partition."
+msgstr "คุณควรใช้ระบบแฟ้มอื่นกับพาร์ทิชัน /boot เช่น ext3"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-xfs.templates:2001
+msgid "XFS journaling file system"
+msgstr "ระบบแฟ้ม journaling XFS"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:4001
+msgid "Identical labels for two file systems"
+msgstr "ป้ายชื่อซ้ำกันในสองระบบแฟ้ม"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:4001
+msgid ""
+"Two file systems are assigned the same label (${LABEL}): ${PART1} and "
+"${PART2}. Since file system labels are usually used as unique identifiers, "
+"this is likely to cause reliability problems later."
+msgstr ""
+"ระบบแฟ้มสองระบบถูกกำหนดป้ายชื่อ ${LABEL} ซ้ำกัน คือ ${PART1} และ ${PART2} "
+"และเนื่องจากป้ายชื่อระบบแฟ้มจะใช้อ้างถึงระบบแฟ้มแบบไม่ซ้ำกัน "
+"การตั้งชื่อซ้ำกันจะทำให้เกิดปัญหาความรวนของระบบได้ในภายหลัง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:4001
+msgid "Please correct this by changing labels."
+msgstr "กรุณาแก้ไขด้วยการเปลี่ยนป้ายชื่อ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:5001
+msgid "Identical mount points for two file systems"
+msgstr "ตำแหน่งเมานท์ซ้ำกันในสองระบบแฟ้ม"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:5001
+msgid ""
+"Two file systems are assigned the same mount point (${MOUNTPOINT}): ${PART1} "
+"and ${PART2}."
+msgstr ""
+"ระบบแฟ้มสองระบบถูกกำหนดตำแหน่งเมานท์ ${MOUNTPOINT} ซ้ำกัน คือ ${PART1} และ ${PART2}"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:5001
+msgid "Please correct this by changing mount points."
+msgstr "กรุณาแก้ไขด้วยการเปลี่ยนตำแหน่งเมานท์"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:6001
+msgid "No root file system"
+msgstr "ไม่มีระบบแฟ้มราก"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:6001
+msgid "No root file system is defined."
+msgstr "ไม่ได้กำหนดระบบแฟ้มราก"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:6001 ../partman-target.templates:7001
+msgid "Please correct this from the partitioning menu."
+msgstr "กรุณาแก้ไขโดยสั่งที่เมนูแบ่งพาร์ทิชัน"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:7001
+msgid "Separate file system not allowed here"
+msgstr "แยกระบบแฟ้มนี้ออกไปต่างหากไม่ได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:7001
+msgid ""
+"You assigned a separate file system to ${MOUNTPOINT}, but in order for the "
+"system to start correctly this directory must be on the root file system."
+msgstr ""
+"คุณได้กำหนดระบบแฟ้มแยกต่างหากให้กับ ${MOUNTPOINT} แต่ในการเปิดระบบ "
+"จะต้องให้ไดเรกทอรีนี้อยู่ในระบบแฟ้มราก"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-target.templates:8001
+msgid "Do you want to resume partitioning?"
+msgstr "คุณต้องการย้อนไปแบ่งพาร์ทิชันใหม่หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-target.templates:8001
+msgid ""
+"The attempt to mount a file system with type ${TYPE} in ${DEVICE} at "
+"${MOUNTPOINT} failed."
+msgstr ""
+"พยายามเมานท์ระบบแฟ้มด้วยชนิด ${TYPE} กับ ${DEVICE} ที่ ${MOUNTPOINT} แล้วไม่สำเร็จ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-target.templates:8001
+msgid "You may resume partitioning from the partitioning menu."
+msgstr "คุณอาจย้อนกลับไปแบ่งพาร์ทิชันใหม่โดยสั่งจากเมนูแบ่งพาร์ทิชัน"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-target.templates:10001
+msgid "Use as:"
+msgstr "ใช้เป็น:"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:5001
+msgid "Set the clock using NTP?"
+msgstr "จะตั้งนาฬิกาโดยใช้ NTP หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:5001
+msgid ""
+"The Network Time Protocol (NTP) can be used to set the system's clock. The "
+"installation process works best with a correctly set clock."
+msgstr ""
+"Network Time Protocol (NTP) สามารถใช้ตั้งนาฬิการะบบได้ "
+"ซึ่งกระบวนการติดตั้งจะทำงานได้ดีที่สุดถ้าตั้งนาฬิกาอย่างถูกต้อง"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:6001
+msgid "NTP server to use:"
+msgstr "เซิร์ฟเวอร์ NTP ที่จะใช้:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:6001
+msgid ""
+"The default NTP server is almost always a good choice, but if you prefer to "
+"use another NTP server, you can enter it here."
+msgstr ""
+"เซิร์ฟเวอร์ NTP ปริยายเป็นตัวเลือกที่ดี แต่ถ้าคุณต้องการใช้เซิร์ฟเวอร์ NTP อื่น ก็สามารถกำหนดได้ที่นี่"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:9001
+msgid "Wait another 30 seconds for hwclock to set the clock?"
+msgstr "จะรออีก 30 วินาทีเพื่อให้ hwclock ตั้งนาฬิกาให้เสร็จหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:9001
+msgid ""
+"Setting the hardware clock is taking longer than expected. The 'hwclock' "
+"program used to set the clock may have problems talking to the hardware "
+"clock."
+msgstr ""
+"การตั้งนาฬิกาฮาร์ดแวร์ใช้เวลานานผิดปกติ โปรแกรม 'hwclock' "
+"ที่ใช้ตั้งนาฬิกาอาจมีปัญหาในการสื่อสารกับนาฬิกาฮาร์ดแวร์"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:9001
+msgid ""
+"If you choose to not wait for hwclock to finish setting the clock, this "
+"system's clock may not be set correctly."
+msgstr "ถ้าคุณไม่รอให้ hwclock ทำงานให้เสร็จ นาฬิการะบบก็อาจไม่ถูกตั้งให้ถูกต้อง"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../base-installer.templates:1001
+msgid "Proceed with installation to unclean target?"
+msgstr "จะดำเนินการติดตั้งบนพาร์ทิชันที่ไม่สะอาดหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../base-installer.templates:1001
+msgid ""
+"The target file system contains files from a past installation. These files "
+"could cause problems with the installation process, and if you proceed, some "
+"of the existing files may be overwritten."
+msgstr ""
+"ระบบแฟ้มเป้าหมายที่จะติดตั้งมีแฟ้มจากการติดตั้งครั้งก่อนอยู่ แฟ้มเหล่านี้อาจก่อปัญหากับกระบวนการติดตั้ง "
+"และถ้าคุณดำเนินการต่อไป แฟ้มที่มีอยู่บางส่วนอาจถูกเขียนทับ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../base-installer.templates:2001
+msgid "No file system mounted on /target"
+msgstr "ไม่ได้เมานท์ระบบแฟ้มไว้ที่ /target"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../base-installer.templates:2001
+msgid ""
+"Before the installation can proceed, a root file system must be mounted on /"
+"target. The partitioner and formatter should have done this for you."
+msgstr ""
+"ก่อนที่การติดตั้งจะดำเนินไปได้ ระบบแฟ้มรากจะต้องถูกเมานท์ไว้ที่ /target "
+"ซึ่งเครื่องมือแบ่งพาร์ทิชันและฟอร์แมตควรจะทำให้คุณไว้แล้ว"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../base-installer.templates:3001
+msgid "Not installing to unclean target"
+msgstr "จะไม่ติดตั้งในพาร์ทิชันที่ไม่สะอาด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../base-installer.templates:3001
+msgid ""
+"The installation to the target file system has been canceled. You should go "
+"back and erase or format the target file system before proceeding with the "
+"install."
+msgstr ""
+"การติดตั้งในระบบแฟ้มเป้าหมายถูกยกเลิก คุณควรย้อนกลับไปลบหรือฟอร์แมตระบบแฟ้มดังกล่าว "
+"ก่อนที่จะดำเนินการติดตั้งต่อไป"
+
+#. Type: error
+#. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#. :sl2:
+#: ../bootstrap-base.templates:2001
+msgid "Cannot install base system"
+msgstr "ไม่สามารถติดตั้งระบบพื้นฐาน"
+
+#. Type: error
+#. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#. :sl2:
+#: ../bootstrap-base.templates:2001
+msgid ""
+"The installer cannot figure out how to install the base system. No "
+"installable CD-ROM was found and no valid mirror was configured."
+msgstr ""
+"โปรแกรมติดตั้งไม่สามารถหาวิธีติดตั้งระบบพื้นฐานได้ เนื่องจากไม่พบซีดีรอมติดตั้ง "
+"และไม่ได้กำหนดแหล่งสำเนาแพกเกจที่จะใช้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a Release file name.
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a Release.gpg file name
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a gpg key ID
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../bootstrap-base.templates:3001 ../bootstrap-base.templates:7001
+#: ../bootstrap-base.templates:17001 ../bootstrap-base.templates:18001
+#: ../bootstrap-base.templates:19001 ../bootstrap-base.templates:20001
+#: ../bootstrap-base.templates:21001 ../bootstrap-base.templates:22001
+msgid "Debootstrap Error"
+msgstr "ข้อผิดพลาดของ debootstrap"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:3001
+msgid "Failed to determine the codename for the release."
+msgstr "ไม่สามารถกำหนดชื่อรหัสของรุ่นได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:4001
+msgid "Failed to install the base system"
+msgstr "ติดตั้งระบบพื้นฐานไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:4001
+msgid "The base system installation into /target/ failed."
+msgstr "ติดตั้งระบบพื้นฐานลงใน /target/ ไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:5001 ../bootstrap-base.templates:6001
+msgid "Base system installation error"
+msgstr "เกิดข้อผิดพลาดระหว่างติดตั้งระบบพื้นฐาน"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:5001
+msgid ""
+"The debootstrap program exited with an error (return value ${EXITCODE})."
+msgstr "โปรแกรม debootstrap จบการทำงานโดยมีข้อผิดพลาด (รหัสผิดพลาด ${EXITCODE})"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:6001
+msgid "The debootstrap program exited abnormally."
+msgstr "โปรแกรม debootstrap จบการทำงานแบบผิดปกติ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:7001
+msgid "The following error occurred:"
+msgstr "เกิดข้อผิดพลาดดังนี้:"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:11001
+msgid "Unable to install the selected kernel"
+msgstr "ไม่สามารถติดตั้งเคอร์เนลที่เลือก"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:11001
+msgid ""
+"An error was returned while trying to install the kernel into the target "
+"system."
+msgstr "เกิดข้อผิดพลาดขณะพยายามติดตั้งเคอร์เนลในระบบเป้าหมาย"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:11001
+msgid "Kernel package: '${KERNEL}'."
+msgstr "แพกเกจเคอร์เนล: '${KERNEL}'"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../bootstrap-base.templates:12001
+msgid ""
+"none[ Do not translate what's inside the brackets and just put the "
+"translation for the word \"none\" in your language without any brackets. "
+"This \"none\" means \"no kernel\" ]"
+msgstr "ไม่มี"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:12002
+msgid "Kernel to install:"
+msgstr "เคอร์เนลที่จะติดตั้ง:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:12002
+msgid ""
+"The list shows the available kernels. Please choose one of them in order to "
+"make the system bootable from the hard drive."
+msgstr ""
+"รายการนี้แสดงเคอร์เนลที่มี กรุณาเลือกเคอร์เนลที่จะติดตั้ง เพื่อให้ระบบของคุณบูตจากฮาร์ดดิสก์ได้"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:14001
+msgid "Continue without installing a kernel?"
+msgstr "จะดำเนินการต่อโดยไม่ติดตั้งเคอร์เนลหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:14001
+msgid "No installable kernel was found in the defined APT sources."
+msgstr "ไม่พบเคอร์เนลที่ติดตั้งได้จากแหล่ง APT ที่กำหนด"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:14001
+msgid ""
+"You may try to continue without a kernel, and manually install your own "
+"kernel later. This is only recommended for experts, otherwise you will "
+"likely end up with a machine that doesn't boot."
+msgstr ""
+"คุณอาจพยายามติดตั้งต่อโดยไม่มีเคอร์เนล แล้วติดตั้งเคอร์เนลเองในภายหลังก็ได้ แต่ทางเลือกดังกล่าว "
+"เหมาะสำหรับผู้เชี่ยวชาญเท่านั้น มิฉะนั้น คุณมีแนวโน้มที่จะได้ระบบที่บูตไม่ขึ้น"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:15001
+msgid "Cannot install kernel"
+msgstr "ไม่สามารถติดตั้งเคอร์เนล"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:15001
+msgid "The installer cannot find a suitable kernel package to install."
+msgstr "โปรแกรมติดตั้งหาแพกเกจเคอร์เนลที่เหมาะสมเพื่อใช้ติดตั้งไม่พบ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:16001
+msgid "Unable to install ${PACKAGE}"
+msgstr "ไม่สามารถติดตั้ง ${PACKAGE}"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:16001
+msgid ""
+"An error was returned while trying to install the ${PACKAGE} package onto "
+"the target system."
+msgstr "เกิดข้อผิดพลาดขณะพยายามติดตั้งแพกเกจ ${PACKAGE} ลงในระบบเป้าหมาย"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a Release file name.
+#: ../bootstrap-base.templates:17001
+msgid "Failed getting Release file ${SUBST0}."
+msgstr "อ่านแฟ้ม Release ${SUBST0} ไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a Release.gpg file name
+#: ../bootstrap-base.templates:18001
+msgid "Failed getting Release signature file ${SUBST0}."
+msgstr "อ่านแฟ้มลายเซ็นกำกับ Release ${SUBST0} ไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a gpg key ID
+#: ../bootstrap-base.templates:19001
+msgid "Release file signed by unknown key (key id ${SUBST0})"
+msgstr "แฟ้ม Release ถูกเซ็นกำกับโดยกุญแจที่ไม่รู้จัก (หมายเลขกุญแจ ${SUBST0})"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:20001
+msgid "Invalid Release file: no valid components."
+msgstr "แฟ้ม Release ไม่ถูกต้อง: ไม่มีองค์ประกอบที่ใช้ได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename
+#: ../bootstrap-base.templates:21001
+msgid "Invalid Release file: no entry for ${SUBST0}."
+msgstr "แฟ้ม Release ไม่ถูกต้อง: ไม่มีรายการสำหรับ ${SUBST0}"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../bootstrap-base.templates:22001
+msgid ""
+"Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
+"CD, depending on your installation method."
+msgstr ""
+"ไม่สามารถอ่าน ${SUBST0} ซึ่งอาจเกิดจากปัญหาของเครือข่าย หรือแผ่นซีดีเสีย ขึ้นอยู่กับวิธีติดตั้งของคุณ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../bootstrap-base.templates:22001
+msgid ""
+"If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
+"may help."
+msgstr "ถ้าคุณกำลังติดตั้งจาก CD-R หรือ CD-RW ล่ะก็ การเขียนซีดีที่ความเร็วต่ำลงอาจจะช่วยได้"
+
+#. Type: error
+#. Description
+#. Debootstrap is a program name: should not be translated
+#. :sl2:
+#: ../bootstrap-base.templates:57001
+msgid "Debootstrap warning"
+msgstr "คำเตือนจาก debootstrap"
+
+#. Type: error
+#. Description
+#. Debootstrap is a program name: should not be translated
+#. :sl2:
+#: ../bootstrap-base.templates:57001
+msgid "Warning: ${INFO}"
+msgstr "คำเตือน: ${INFO}"
+
+#. Type: text
+#. Description
+#. SUBST0 is an url
+#. :sl2:
+#: ../bootstrap-base.templates:58001
+msgid "Retrying failed download of ${SUBST0}"
+msgstr "กำลังพยายามดาวน์โหลดใหม่จาก ${SUBST0}"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#: ../apt-setup-udeb.templates:7001 ../apt-mirror-setup.templates:4001
+msgid "Ignore"
+msgstr "ละเลย"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-setup-udeb.templates:10001
+msgid "Cannot access repository"
+msgstr "ไม่สามารถเข้าถึงคลังแพกเกจสำหรับแก้ปัญหาระบบความปลอดภัย"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-setup-udeb.templates:10001
+msgid ""
+"The repository on ${HOST} couldn't be accessed, so its updates will not be "
+"made available to you at this time. You should investigate this later."
+msgstr ""
+"ไม่สามารถเข้าถึงคลังแพกเกจที่ ${HOST} ได้ คุณจึงไม่สามารถใช้แพกเกจปรับรุ่นจากที่นั่นได้ในขณะนี้ "
+"คุณควรกลับมาตรวจสอบเรื่องนี้ใหม่ในภายหลัง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-setup-udeb.templates:10001
+msgid ""
+"Commented out entries for ${HOST} have been added to the /etc/apt/sources."
+"list file."
+msgstr ""
+"โปรแกรมได้เพิ่มบรรทัดสำหรับ ${HOST} ในแฟ้ม /etc/apt/sources.list ไว้ให้แล้ว โดยใส่ "
+"comment ไว้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-cdrom-setup.templates:2001
+msgid "apt configuration problem"
+msgstr "เกิดปัญหาระหว่างตั้งค่า apt"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-cdrom-setup.templates:2001
+msgid ""
+"An attempt to configure apt to install additional packages from the CD "
+"failed."
+msgstr "ตั้งค่า apt เพื่อการติดตั้งแพกเกจเพิ่มเติมจากซีดีรอมไม่สำเร็จ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../apt-mirror-setup.templates:6001
+msgid "Continue without a network mirror?"
+msgstr "จะทำงานต่อโดยไม่มีแหล่งสำเนาในเครือข่ายหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../apt-mirror-setup.templates:6001
+msgid "No network mirror was selected."
+msgstr "ยังไม่ได้เลือกแหล่งสำเนาในเครือข่าย"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:1001
+msgid "Use restricted software?"
+msgstr "จะใช้ซอฟต์แวร์จำกัดสิทธิ์หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:1001
+msgid ""
+"Some non-free software is available in packaged form. Though this software "
+"is not a part of the main distribution, standard package management tools "
+"can be used to install it. This software has varying licenses which may "
+"prevent you from using, modifying, or sharing it."
+msgstr ""
+"ซอฟต์แวร์ไม่เสรีบางตัว มีให้ติดตั้งในรูปแบบแพกเกจ "
+"แม้ซอฟต์แวร์เหล่านี้จะไม่ใช่ส่วนหนึ่งของชุดแจกจ่ายหลัก "
+"แต่ก็สามารถใช้เครื่องมือจัดการแพกเกจมาตรฐานในการติดตั้งได้ ซอฟต์แวร์เหล่านี้ใช้สัญญาอนุญาตต่างๆ "
+"กันไป ซึ่งอาจห้ามคุณไม่ให้ใช้ แก้ไข หรือแบ่งปันก็ได้"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:2001
+msgid "Use software from the \"universe\" component?"
+msgstr "จะใช้ซอฟต์แวร์จากองค์ประกอบ \"universe\" หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:2001
+msgid ""
+"Some additional software is available in packaged form. This software is "
+"free and, though it is not a part of the main distribution, standard package "
+"management tools can be used to install it."
+msgstr ""
+"ซอฟต์แวร์เพิ่มเติมบางตัว มีให้ติดตั้งในรูปแบบแพกเกจ ซอฟต์แวร์เหล่านี้เป็นซอฟต์แวร์เสรี "
+"และแม้จะไม่ใช่ส่วนหนึ่งของชุดแจกจ่ายหลัก "
+"แต่ก็สามารถใช้เครื่องมือจัดการแพกเกจมาตรฐานในการติดตั้งได้"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:3001
+msgid "Use software from the \"multiverse\" component?"
+msgstr "จะใช้ซอฟต์แวร์จากองค์ประกอบ \"multiverse\" หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:3001
+msgid ""
+"Some non-free software is available in packaged form. Though this software "
+"is not a part of the main distribution, standard package management tools "
+"can be used to install it. This software has varying licenses and (in some "
+"cases) patent restrictions which may prevent you from using, modifying, or "
+"sharing it."
+msgstr ""
+"ซอฟต์แวร์ไม่เสรีบางตัว มีให้ติดตั้งในรูปแบบแพกเกจ "
+"แม้ซอฟต์แวร์เหล่านี้จะไม่ใช่ส่วนหนึ่งของชุดแจกจ่ายหลัก "
+"แต่ก็สามารถใช้เครื่องมือจัดการแพกเกจมาตรฐานในการติดตั้งได้ ซอฟต์แวร์เหล่านี้ใช้สัญญาอนุญาตต่างๆ "
+"กันไป และในบางกรณีอาจมีสิทธิบัตรคุ้มครอง ซึ่งอาจห้ามคุณไม่ให้ใช้ แก้ไข หรือแบ่งปันก็ได้"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:4001
+msgid "Use software from the \"partner\" repository?"
+msgstr "จะใช้ซอฟต์แวร์จากองค์ประกอบ \"partner\" หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:4001
+msgid ""
+"Some additional software is available from Canonical's \"partner\" "
+"repository. This software is not part of Ubuntu, but is offered by Canonical "
+"and the respective vendors as a service to Ubuntu users."
+msgstr ""
+"ซอฟต์แวร์เพิ่มเติมบางตัว มีให้ติดตั้งได้จากคลัง \"partner\" ของ Canonical "
+"ซอฟต์แวร์เหล่านี้ไม่ใช่ส่วนหนึ่งของ Ubuntu แต่จัดเตรียมให้โดย Canonical และผู้จัดจำหน่ายอื่นๆ "
+"เพื่อเป็นบริการสำหรับผู้ใช้ Ubuntu"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:5001
+msgid "Use backported software?"
+msgstr "จะใช้ซอฟต์แวร์ย้ายกลับหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:5001
+msgid ""
+"Some software has been backported from the development tree to work with "
+"this release. Although this software has not gone through such complete "
+"testing as that contained in the release, it includes newer versions of some "
+"applications which may provide useful features."
+msgstr ""
+"ซอฟต์แวร์บางตัวถูกย้ายกลับมาจากสายงานพัฒนา เพื่อให้ทำงานกับรุ่นนี้ได้ "
+"แม้ซอฟต์แวร์เหล่านี้จะไม่ได้ผ่านกระบวนการทดสอบอย่างสมบูรณ์เหมือนที่อยู่ในรุ่นแจกจ่าย "
+"แต่ก็มีโปรแกรมรุ่นใหม่ๆ ที่อาจมีความสามารถที่เป็นประโยชน์"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:8001
+msgid "Create a normal user account now?"
+msgstr "จะสร้างบัญชีผู้ใช้ปกติเลยหรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:8001
+msgid ""
+"It's a bad idea to use the root account for normal day-to-day activities, "
+"such as the reading of electronic mail, because even a small mistake can "
+"result in disaster. You should create a normal user account to use for those "
+"day-to-day tasks."
+msgstr ""
+"ไม่ใช่ความคิดที่ดีที่จะใช้บัญชี root สำหรับการทำงานประจำวันทั่วไป เช่นการอ่านอีเมล "
+"เพราะความผิดพลาดเพียงเล็กน้อยก็สามารถสร้างหายนะได้ "
+"คุณควรสร้างบัญชีผู้ใช้ปกติเพื่อใช้ทำงานประจำวันเหล่านั้น"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:8001
+msgid ""
+"Note that you may create it later (as well as any additional account) by "
+"typing 'adduser <username>' as root, where <username> is an username, like "
+"'imurdock' or 'rms'."
+msgstr ""
+"สังเกตว่า คุณสามารถสร้างบัญชีดังกล่าวภายหลังได้ (รวมถึงบัญชีเพิ่มเติมอื่นๆ) โดยพิมพ์คำสั่ง "
+"'adduser <ชื่อผู้ใช้>' ขณะเป็น root เมื่อ <ชื่อผู้ใช้> คือชื่อสำหรับเข้าระบบของผู้ใช้ เช่น "
+"'imurdock' หรือ 'rms'"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:11001
+msgid "Invalid username"
+msgstr "ชื่อผู้ใช้ผิดพลาด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:11001
+msgid ""
+"The username you entered is invalid. Note that usernames must start with a "
+"lower-case letter, which can be followed by any combination of numbers and "
+"more lower-case letters, and must be no more than 32 characters long."
+msgstr ""
+"ชื่อผู้ใช้ที่คุณป้อนไม่สามารถใช้ได้ โปรดสังเกตว่าชื่อผู้ใช้ต้องขึ้นต้นด้วยอักษรตัวพิมพ์เล็ก "
+"และสามารถตามด้วยตัวเลขหรือตัวพิมพ์เล็กหลายตัวได้ โดยต้องยาวไม่เกิน 32 ตัว"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:12001
+msgid "Reserved username"
+msgstr "ชื่อผู้ใช้สงวนไว้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:12001
+msgid ""
+"The username you entered (${USERNAME}) is reserved for use by the system. "
+"Please select a different one."
+msgstr "ชื่อผู้ใช้ที่คุณป้อน (${USERNAME}) ได้สงวนไว้สำหรับการทำงานของระบบ กรุณาตั้งชื่อใหม่"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:15001 ../grub-installer.templates:10001
+msgid "Password input error"
+msgstr "การป้อนรหัสผ่านผิดพลาด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:15001 ../grub-installer.templates:10001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr "รหัสผ่านที่คุณป้อนทั้งสองครั้งไม่ตรงกัน กรุณาลองใหม่"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:16001 ../network-console.templates:6001
+msgid "Empty password"
+msgstr "รหัสผ่านว่างเปล่า"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:16001 ../network-console.templates:6001
+msgid ""
+"You entered an empty password, which is not allowed. Please choose a non-"
+"empty password."
+msgstr "คุณป้อนรหัสผ่านว่างเปล่า ซึ่งไม่อนุญาต กรุณาตั้งรหัสผ่านที่ไม่ว่างเปล่า"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:17001
+msgid "Enable shadow passwords?"
+msgstr "เปิดใช้รหัสผ่าน shadow หรือไม่?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:17001
+msgid ""
+"Shadow passwords make your system more secure because nobody is able to view "
+"even encrypted passwords. The passwords are stored in a separate file that "
+"can only be read by special programs. The use of shadow passwords is "
+"strongly recommended, except in a few cases such as NIS environments."
+msgstr ""
+"รหัสผ่านเงา (shadow) จะทำให้ระบบของคุณปลอดภัยยิ่งขึ้น "
+"เพราะจะไม่มีใครดูได้แม้แต่รหัสผ่านที่เข้ารหัสไว้ "
+"รหัสผ่านจะถูกเก็บไว้ในแฟ้มต่างหากที่สามารถอ่านได้โดยโปรแกรมพิเศษเท่านั้น "
+"เราขอแนะนำอย่างยิ่งให้ใช้รหัสผ่านเงานี้ ยกเว้นในบางกรณีที่พบไม่บ่อย เช่น ในสภาพแวดล้อมที่ใช้ NIS"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../cdebconf-udeb.templates:2001
+msgid "critical"
+msgstr "สำคัญมาก"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../cdebconf-udeb.templates:2001
+msgid "high"
+msgstr "สำคัญ"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../cdebconf-udeb.templates:2001
+msgid "medium"
+msgstr "ปานกลาง"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../cdebconf-udeb.templates:2001
+msgid "low"
+msgstr "ต่ำ"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdebconf-udeb.templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "ละเลยคำถามที่มีระดับความสำคัญต่ำกว่า:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdebconf-udeb.templates:2002
+msgid ""
+"Packages that use debconf for configuration prioritize the questions they "
+"might ask you. Only questions with a certain priority or higher are actually "
+"shown to you; all less important questions are skipped."
+msgstr ""
+"แพกเกจที่ใช้ debconf สำหรับตั้งค่า จะจัดลำดับความสำคัญของคำถามต่างๆ ที่จะถามคุณ "
+"โดยจะถามเฉพาะคำถามที่สำคัญระดับหนึ่งหรือสูงกว่าเท่านั้น คำถามที่สำคัญน้อยกว่านั้นจะถูกข้ามไป"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdebconf-udeb.templates:2002
+msgid ""
+"You can select the lowest priority of question you want to see:\n"
+" - 'critical' is for items that will probably break the system\n"
+"    without user intervention.\n"
+" - 'high' is for items that don't have reasonable defaults.\n"
+" - 'medium' is for normal items that have reasonable defaults.\n"
+" - 'low' is for trivial items that have defaults that will work in\n"
+"   the vast majority of cases."
+msgstr ""
+"คุณสามารถเลือกระดับความสำคัญต่ำสุดของคำถามที่คุณต้องการเห็นได้:\n"
+" - 'สำคัญมาก' สำหรับรายการที่อาจทำให้ระบบพังถ้าไม่มีการตอบสนองจากผู้ใช้\n"
+" - 'สำคัญ' สำหรับรายการที่ไม่มีค่าปริยายที่สมเหตุสมผล\n"
+" - 'ปานกลาง' สำหรับรายการปกติที่มีค่าปริยายที่สมเหตุสมผล\n"
+" - 'ต่ำ' สำหรับรายการที่ไม่สำคัญ ที่มีค่าปริยายที่ใช้ได้กับกรณีส่วนใหญ่"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdebconf-udeb.templates:2002
+msgid ""
+"For example, this question is of medium priority, and if your priority were "
+"already 'high' or 'critical', you wouldn't see this question."
+msgstr ""
+"ตัวอย่างเช่น คำถามนี้มีระดับความสำคัญระดับปานกลาง และถ้าระดับความสำคัญที่คุณเลือก เป็นระดับ "
+"'สำคัญ' หรือ 'สำคัญมาก' อยู่ก่อนแล้ว คุณก็จะไม่เห็นคำถามนี้"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../cdebconf-priority.templates:1001
+msgid "Change debconf priority"
+msgstr "เปลี่ยนระดับความสำคัญของคำถาม debconf"
+
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:6001
+#: ../grub-installer.templates:14001
+msgid "Unable to configure GRUB"
+msgstr "ไม่สามารถตั้งค่า GRUB"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: string
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#. :sl4:
+#: ../grub-installer.templates:7001 ../yaboot-installer.templates:9001
+msgid "Device for boot loader installation:"
+msgstr "อุปกรณ์สำหรับติดตั้งบูตโหลดเดอร์:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001
+msgid ""
+"You need to make the newly installed system bootable, by installing the GRUB "
+"boot loader on a bootable device. The usual way to do this is to install "
+"GRUB on the master boot record of your first hard drive. If you prefer, you "
+"can install GRUB elsewhere on the drive, or to another drive, or even to a "
+"floppy."
+msgstr ""
+"คุณต้องทำให้ระบบที่เพิ่งติดตั้งใหม่นี้บูตได้ โดยติดตั้งบูตโหลดเดอร์ GRUB ในอุปกรณ์ที่บูตได้ วิธีปกติก็คือ "
+"ติดตั้ง GRUB ลงในมาสเตอร์บูตเรคอร์ดของฮาร์ดดิสก์ตัวแรกของคุณ หรือถ้าคุณต้องการ คุณสามารถติดตั้ง "
+"GRUB ในที่อื่นในไดรว์ ในไดรว์อื่น หรือกระทั่งในแผ่นฟลอปปี้ก็ได้"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001
+msgid ""
+"The device should be specified as a device in /dev. Below are some "
+"examples:\n"
+" - \"/dev/sda\" will install GRUB to the master boot record of your first\n"
+"   hard drive;\n"
+" - \"/dev/sda2\" will use the second partition of your first hard drive;\n"
+" - \"/dev/sdc5\" will use the first extended partition of your third hard\n"
+"   drive;\n"
+" - \"/dev/fd0\" will install GRUB to a floppy."
+msgstr ""
+"ควรระบุอุปกรณ์โดยอ้างอุปกรณ์ใน /dev ดังตัวอย่างข้างล่าง:\n"
+" - \"/dev/sda\" จะติดตั้ง GRUB ลงในมาสเตอร์บูตเรคอร์ดของฮาร์ดดิสก์ตัวแรกของคุณ\n"
+" - \"/dev/sda2\" จะใช้พาร์ทิชันที่สองของฮาร์ดดิสก์ตัวแรกของคุณ\n"
+" - \"/dev/sdc5\" จะใช้พาร์ทิชันขยายพาร์ทิชันแรกของฮาร์ดดิสก์ตัวที่สามของคุณ\n"
+" - \"/dev/fd0\" จะติดตั้ง GRUB ลงในแผ่นฟลอปปี้"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:8001
+msgid "GRUB password:"
+msgstr "รหัสผ่าน GRUB:"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:8001
+msgid ""
+"The GRUB boot loader offers many powerful interactive features, which could "
+"be used to compromise your system if unauthorized users have access to the "
+"machine when it is starting up. To defend against this, you may choose a "
+"password which will be required before editing menu entries or entering the "
+"GRUB command-line interface. By default, any user will still be able to "
+"start any menu entry without entering the password."
+msgstr ""
+"บูตโหลดเดอร์ GRUB มีความสามารถในการโต้ตอบที่ทรงพลัง ซึ่งสามารถถูกใช้เพื่อบุกรุกระบบของคุณได้ "
+"ถ้าผู้ที่ไม่มีสิทธิ์สามารถเข้าถึงเครื่องตอนที่เปิดเครื่องได้ ดังนั้น เพื่อป้องกันสถานการณ์ดังกล่าว "
+"คุณอาจเลือกรหัสผ่าน ซึ่งจะบังคับให้ป้อนก่อนที่จะแก้ไขรายการเมนู หรือเข้าสู่ส่วนติดต่อ GRUB "
+"แบบบรรทัดคำสั่ง ค่าปกติก็คือ ผู้ใช้ใดๆ ก็ตาม จะยังสามารถเลือกรายการบูตใดๆ ก็ได้ "
+"โดยไม่ต้องป้อนรหัสผ่าน"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:8001
+msgid "If you do not wish to set a GRUB password, leave this field blank."
+msgstr "หากคุณไม่ต้องการตั้งรหัสผ่าน GRUB ก็ปล่อยช่องนี้ให้ว่างไว้"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:9001
+msgid ""
+"Please enter the same GRUB password again to verify that you have typed it "
+"correctly."
+msgstr "กรุณาป้อนรหัสผ่านเดิมสำหรับ GRUB อีกครั้ง เพื่อตรวจสอบว่าคุณพิมพ์ไม่ผิด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:12001
+msgid "GRUB installation failed"
+msgstr "ติดตั้ง GRUB ไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:12001
+msgid ""
+"The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
+"loader, the installed system will not boot."
+msgstr ""
+"ติดตั้งแพกเกจ ${GRUB} ลงใน /target/ ไม่สำเร็จ ถ้าไม่มีบูตโหลดเดอร์ GRUB "
+"ระบบที่ติดตั้งจะบูตไม่ได้"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001
+msgid "Unable to install GRUB in ${BOOTDEV}"
+msgstr "ไม่สามารถติดตั้ง GRUB ลงใน ${BOOTDEV}"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001
+msgid "Executing 'grub-install ${BOOTDEV}' failed."
+msgstr "การทำงานคำสั่ง 'grub-install ${BOOTDEV}' ล้มเหลว"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001 ../grub-installer.templates:14001
+msgid "This is a fatal error."
+msgstr "ถือเป็นความผิดพลาดร้ายแรง"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:14001
+msgid "Executing 'update-grub' failed."
+msgstr "การทำงานคำสั่ง 'update-grub' ล้มเหลว"
+
+#. Type: text
+#. Description
+#. Rescue menu item
+#. :sl2:
+#: ../grub-installer.templates:25001
+msgid "Reinstall GRUB boot loader"
+msgstr "ติดตั้งบูตโหลดเดอร์ GRUB ใหม่"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:1001
+msgid "Failed to retrieve the preconfiguration file"
+msgstr "ดึงแฟ้มค่าตั้งล่วงหน้าไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:1001
+msgid ""
+"The file needed for preconfiguration could not be retrieved from "
+"${LOCATION}. The installation will proceed in non-automated mode."
+msgstr ""
+"ไม่สามารถดึงแฟ้มที่ต้องใช้เพื่อการตั้งค่าล่วงหน้าจาก ${LOCATION} ได้ "
+"การติดตั้งจะดำเนินต่อไปในแบบไม่เป็นอัตโนมัติ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:2001
+msgid "Failed to process the preconfiguration file"
+msgstr "ประมวลผลแฟ้มค่าตั้งล่วงหน้าไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:2001
+msgid ""
+"The installer failed to process the preconfiguration file from ${LOCATION}. "
+"The file may be corrupt."
+msgstr ""
+"โปรแกรมติดตั้งประมวลผลแฟ้มค่าตั้งล่วงหน้าจาก ${LOCATION} ไม่สำเร็จ แฟ้มดังกล่าวอาจจะเสียหาย"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:10001
+msgid "Failed to run preseeded command"
+msgstr "เรียกคำสั่งที่มีการตั้งค่าล่วงหน้าไม่สำเร็จ"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:10001
+msgid ""
+"Execution of preseeded command \"${COMMAND}\" failed with exit code ${CODE}."
+msgstr ""
+"การทำงานของคำสั่งที่มีการตั้งค่าล่วงหน้า \"${COMMAND}\" ล้มเหลวด้วยรหัสข้อผิดพลาด ${CODE}"
+
+#. Type: title
+#. Description
+#. Info message displayed when running in rescue mode
+#. :sl2:
+#: ../rescue-check.templates:2001
+msgid "Rescue mode"
+msgstr "โหมดกู้ระบบ"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:3002
+msgid "Device to use as root file system:"
+msgstr "อุปกรณ์ที่จะใช้เป็นระบบแฟ้มราก:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:3002
+msgid ""
+"Enter a device you wish to use as your root file system. You will be able to "
+"choose among various rescue operations to perform on this file system."
+msgstr ""
+"ป้อนชื่ออุปกรณ์ที่คุณต้องการใช้เป็นระบบแฟ้มราก คุณจะสามารถเลือกปฏิบัติการกู้ระบบจากตัวเลือกต่างๆ "
+"เพื่อทำกับระบบแฟ้มนี้ได้"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:3002
+msgid ""
+"If you choose not to use a root file system, you will be given a reduced "
+"choice of operations that can be performed without one. This may be useful "
+"if you need to correct a partitioning problem."
+msgstr ""
+"ถ้าคุณเลือกที่จะไม่ใช้ระบบแฟ้มราก "
+"จะตัดตัวเลือกการกระทำลงเหลือเฉพาะรายการที่ไม่ต้องใช้ระบบแฟ้มรากเท่านั้น "
+"ซึ่งอาจเป็นประโยชน์ถ้าคุณต้องการแก้ปัญหาการแบ่งพาร์ทิชัน"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:8001
+msgid "Execute a shell in ${DEVICE}"
+msgstr "เปิดเชลล์ใน ${DEVICE}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:9001
+msgid "Execute a shell in the installer environment"
+msgstr "เปิดเชลล์ภายใต้สภาพแวดล้อมของโปรแกรมติดตั้ง"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:10001
+msgid "Choose a different root file system"
+msgstr "เลือกระบบแฟ้มรากอื่น"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:11001
+msgid "Reboot the system"
+msgstr "เริ่มบูตระบบใหม่"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:12001 ../rescue-mode.templates:16001
+#: ../rescue-mode.templates:17001
+msgid "Executing a shell"
+msgstr "กำลังเรียกเชลล์"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:12001
+msgid ""
+"After this message, you will be given a shell with ${DEVICE} mounted on \"/"
+"\". If you need any other file systems (such as a separate \"/usr\"), you "
+"will have to mount those yourself."
+msgstr ""
+"หลังจากข้อความนี้ คุณจะเข้าสู่เชลล์โดยมีการเมานท์ ${DEVICE} เข้ากับ \"/\" "
+"ถ้าคุณต้องการใช้ระบบแฟ้มอื่นๆ (เช่น \"/usr\" ที่ทำแยกต่างหากไว้) ด้วย "
+"คุณจะต้องเมานท์อุปกรณ์ต่างๆ เหล่านั้นเอง"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:15001
+msgid "Interactive shell on ${DEVICE}"
+msgstr "เปิดเชลล์โต้ตอบใน ${DEVICE}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:16001
+msgid ""
+"After this message, you will be given a shell with ${DEVICE} mounted on \"/"
+"target\". You may work on it using the tools available in the installer "
+"environment. If you want to make it your root file system temporarily, run "
+"\"chroot /target\". If you need any other file systems (such as a separate "
+"\"/usr\"), you will have to mount those yourself."
+msgstr ""
+"หลังจากข้อความนี้ คุณจะเข้าสู่เชลล์โดยมีการเมานท์ ${DEVICE} เข้ากับ \"/target\" "
+"คุณสามารถทำงานในระบบแฟ้มดังกล่าวได้ โดยใช้เครื่องมือที่มีในระบบติดตั้ง "
+"ถ้าคุณต้องการทำให้ระบบแฟ้มดังกล่าวกลายเป็นระบบแฟ้มรากชั่วคราว ก็เรียกคำสั่ง \"chroot /target"
+"\" ถ้าคุณต้องการใช้ระบบแฟ้มอื่นๆ (เช่น \"/usr\" ที่ทำแยกต่างหากไว้) ด้วย "
+"คุณจะต้องเมานท์อุปกรณ์ต่างๆ เหล่านั้นเอง"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:17001
+msgid ""
+"After this message, you will be given a shell in the installer environment. "
+"No file systems have been mounted."
+msgstr ""
+"หลังจากข้อความนี้ คุณจะเข้าสู่เชลล์ภายใต้สภาพแวดล้อมของโปรแกรมติดตั้ง "
+"โดยไม่มีการเมานท์ระบบแฟ้มใดๆ"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:18001
+msgid "Interactive shell in the installer environment"
+msgstr "เปิดเชลล์โต้ตอบภายใต้สภาพแวดล้อมของโปรแกรมติดตั้ง"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:19001
+msgid "Passphrase for ${DEVICE}:"
+msgstr "วลีรหัสผ่านสำหรับ ${DEVICE}:"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:19001
+msgid "Please enter the passphrase for the encrypted volume ${DEVICE}."
+msgstr "กรุณาตั้งวลีรหัสผ่านสำหรับเข้ารหัสลับโวลุม ${DEVICE}"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:19001
+msgid ""
+"If you don't enter anything, the volume will not be available during rescue "
+"operations."
+msgstr "ถ้าคุณไม่ป้อนอะไรเลย จะใช้โวลุมนี้ไม่ได้ในขณะกู้ระบบ"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:20002
+msgid "Partitions to assemble:"
+msgstr "พาร์ทิชันที่จะประกอบสร้าง:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:20002
+msgid ""
+"Select the partitions to assemble into a RAID array. If you select "
+"\"Automatic\", then all devices containing RAID physical volumes will be "
+"scanned and assembled."
+msgstr ""
+"เลือกพาร์ทิชันที่จะประกอบสร้างเป็นอาร์เรย์ RAID  ถ้าคุณเลือก \"อัตโนมัติ\" "
+"ก็จะตรวจหาอุปกรณ์ทั้งหมดที่มีโวลุมจริงของ RAID มาประกอบสร้าง"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:20002
+msgid ""
+"Note that a RAID partition at the end of a disk may sometimes cause that "
+"disk to be mistakenly detected as containing a RAID physical volume. In that "
+"case, you should select the appropriate partitions individually."
+msgstr ""
+"ระวังว่าบางครั้งพาร์ทิชัน RAID ที่ท้ายดิสก์อาจทำให้ดิสก์นั้นๆ ถูกตรวจพบว่าเป็นโวลุมจริงของ RAID "
+"ทั้งที่ไม่ใช่ ในกรณีดังกล่าว คุณควรเลือกพาร์ทิชันต่างๆ ที่เหมาะสมทีละพาร์ทิชันเอา"
+
+#. Type: select
+#. Choices
+#. Possible locations for debug logs to be saved
+#. :sl2:
+#: ../save-logs.templates:2001
+msgid "floppy"
+msgstr "ฟลอปปี้"
+
+#. Type: select
+#. Choices
+#. Possible locations for debug logs to be saved
+#. :sl2:
+#: ../save-logs.templates:2001
+msgid "web"
+msgstr "เว็บ"
+
+#. Type: select
+#. Choices
+#. Possible locations for debug logs to be saved
+#. :sl2:
+#: ../save-logs.templates:2001
+msgid "mounted file system"
+msgstr "ระบบแฟ้มที่เมานท์ไว้"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../save-logs.templates:2002
+msgid "How should the debug logs be saved or transferred?"
+msgstr "จะบันทึกหรือถ่ายโอนข้อมูลดีบั๊กอย่างไร?"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../save-logs.templates:2002
+msgid ""
+"Debugging log files for the installer can be saved to floppy, served up over "
+"the web, or saved to a mounted file system."
+msgstr ""
+"แฟ้มบันทึกข้อมูลดีบั๊ก สามารถบันทึกลงในแผ่นฟลอปปี้ หรือเปิดให้อ่านผ่านเว็บ "
+"หรือบันทึกลงในระบบแฟ้มที่เมานท์ไว้ก็ได้"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../save-logs.templates:3001
+msgid "Directory in which to save debug logs:"
+msgstr "ไดเรกทอรีที่จะใช้บันทึกข้อมูลดีบั๊ก:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../save-logs.templates:3001
+msgid ""
+"Please make sure the file system you want to save debug logs on is mounted "
+"before you continue."
+msgstr ""
+"ก่อนที่จะดำเนินการต่อ กรุณาตรวจสอบให้แน่ใจ ว่าระบบแฟ้มที่คุณจะใช้บันทึกข้อมูลดีบั๊ก ได้ถูกเมานท์ไว้แล้ว"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../save-logs.templates:4001
+msgid "Cannot save logs"
+msgstr "ไม่สามารถบันทึกข้อมูลดีบั๊ก"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../save-logs.templates:4001
+msgid "The directory \"${DIR}\" does not exist."
+msgstr "ไม่มีไดเรกทอรี \"${DIR}\" อยู่"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../save-logs.templates:7001
+msgid "Insert formatted floppy in drive"
+msgstr "ใส่แผ่นฟลอปปี้ที่ฟอร์แมตแล้วในไดรว์"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../save-logs.templates:7001
+msgid "Log files and debug info will be copied into this floppy."
+msgstr "แฟ้มบันทึกปฏิบัติการและข้อมูลดีบั๊กจะถูกคัดลอกลงแผ่นฟลอปปี้นี้"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../save-logs.templates:7001
+msgid ""
+"The information will also be stored in /var/log/installer/ on the installed "
+"system."
+msgstr "ข้อมูลดังกล่าวจะเก็บไว้ที่ /var/log/installer/ ในระบบที่ติดตั้งแล้วเช่นกัน"
+
+#. Type: text
+#. Description
+#. Main menu item
+#. Translators: keep it under 65 columns
+#. :sl2:
+#: ../cdrom-checker.templates:12001
+msgid "Check the CD-ROM(s) integrity"
+msgstr "ตรวจสอบความสมบูรณ์ของซีดีรอม"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../network-console.templates:1001
+msgid "Continue installation remotely using SSH"
+msgstr "ดำเนินการติดตั้งต่อจากระยะไกลด้วย SSH"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl2:
+#: ../network-console.templates:2001
+msgid "Start installer"
+msgstr "เริ่มติดตั้ง"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl2:
+#: ../network-console.templates:2001
+msgid "Start installer (expert mode)"
+msgstr "เริ่มติดตั้ง (สำหรับผู้เชี่ยวชาญ)"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl2:
+#: ../network-console.templates:2001
+msgid "Start shell"
+msgstr "เปิดเชลล์"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../network-console.templates:2002
+msgid "Network console option:"
+msgstr "ตัวเลือกคอนโซลเครือข่าย:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../network-console.templates:2002
+msgid ""
+"This is the network console for the Debian installer. From here, you may "
+"start the Debian installer, or execute an interactive shell."
+msgstr ""
+"นี่คือคอนโซลเครือข่ายสำหรับโปรแกรมติดตั้งเดเบียน จากจุดนี้ คุณอาจเลือกเริ่มติดตั้งเดเบียน "
+"หรือเรียกเชลล์โต้ตอบก็ได้"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../network-console.templates:2002
+msgid "To return to this menu, you will need to log in again."
+msgstr "หากจะกลับมาที่เมนูนี้ คุณจะต้องเข้าระบบใหม่อีกครั้ง"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../network-console.templates:3001
+msgid "Generating SSH host key"
+msgstr "กำลังสร้างกุญแจโฮสต์สำหรับ SSH"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../network-console.templates:4001
+msgid "Remote installation password:"
+msgstr "รหัสผ่านสำหรับการติดตั้งจากระยะไกล:"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../network-console.templates:4001
+msgid ""
+"You need to set a password for remote access to the Debian installer. A "
+"malicious or unqualified user with access to the installer can have "
+"disastrous results, so you should take care to choose a password that is not "
+"easy to guess. It should not be a word found in the dictionary, or a word "
+"that could be easily associated with you, like your middle name."
+msgstr ""
+"คุณต้องตั้งรหัสผ่านสำหรับการเข้าใช้โปรแกรมติดตั้งเดเบียนจากระยะไกล ผู้ใช้ที่ไม่หวังดี "
+"หรือไม่มีความรู้ในการดูแลระบบ หากมีสิทธิ์เข้าถึงโปรแกรมติดตั้ง "
+"จะสามารถทำความเสียหายใหญ่หลวงได้ คุณจึงควรระวังในการตั้งรหัสผ่าน "
+"ไม่ให้สามารถเดาได้ง่ายเกินไป ไม่ควรจะเป็นคำที่พบในพจนานุกรม "
+"หรือคำที่เกี่ยวโยงกับตัวคุณได้อย่างง่ายดาย เช่น ชื่อเล่นของคุณ"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../network-console.templates:4001
+msgid ""
+"This password is used only by the Debian installer, and will be discarded "
+"once you finish the installation."
+msgstr "รหัสผ่านนี้จะใช้ในโปรแกรมติดตั้งเดเบียนเท่านั้น และจะถูกลบทิ้งเมื่อติดตั้งเสร็จแล้ว"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../network-console.templates:5001
+msgid ""
+"Please enter the same remote installation password again to verify that you "
+"have typed it correctly."
+msgstr "กรุณาป้อนรหัสผ่านสำหรับการติดตั้งเดิมอีกครั้ง เพื่อตรวจสอบว่าคุณไม่ได้พิมพ์ผิด"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../network-console.templates:7001
+msgid "Password mismatch"
+msgstr "รหัสผ่านไม่ตรงกัน"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../network-console.templates:7001
+msgid ""
+"The two passwords you entered were not the same. Please enter a password "
+"again."
+msgstr "รหัสผ่านที่คุณป้อนทั้งสองครั้งไม่ตรงกัน กรุณาลองใหม่"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../network-console.templates:8001
+msgid "Start SSH"
+msgstr "เปิด SSH"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../network-console.templates:8001
+msgid ""
+"To continue the installation, please use an SSH client to connect to the IP "
+"address ${ip} and log in as the \"installer\" user. For example:"
+msgstr ""
+"เพื่อดำเนินการติดตั้งต่อ กรุณาใช้ไคลเอนต์ SSH เชื่อมต่อมายังที่อยู่ไอพี ${ip} แล้วเข้าระบบเป็นผู้ใช้ "
+"\"installer\" ตัวอย่างเช่น:"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../network-console.templates:8001
+msgid "The fingerprint of this SSH server's host key is: ${fingerprint}"
+msgstr "ลายพิมพ์ของกุญแจโฮสต์สำหรับเซิร์ฟเวอร์ SSH นี้คือ: ${fingerprint}"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../network-console.templates:8001
+msgid ""
+"Please check this carefully against the fingerprint reported by your SSH "
+"client."
+msgstr "กรุณาตรวจสอบลายพิมพ์นี้กับลายพิมพ์ที่ไคลเอนต์ SSH ของคุณรายงานด้วย"

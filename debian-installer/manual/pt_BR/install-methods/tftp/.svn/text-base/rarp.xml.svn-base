@@ -1,0 +1,35 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 62401 -->
+<!-- reviewed by Felipe Augusto van de Wiel (faw) 2005.12.30 -->
+<!-- updated 39897:62401 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+  <sect2 condition="supports-rarp" id="tftp-rarp">
+  <title>Configurando um servidor RARP</title>
+<para>
+
+Para configurar o RARP, você precisa conhecer o endereço Ethernet (também
+chamado de endereço MAC) dos computadores clientes que serão instalados. Se
+você não sabe essa informação, você pode
+
+<phrase arch="sparc"> pegá-la a partir das mensagens iniciais de
+inicialização do OpenPROM, use o comando <userinput>.enet-addr</userinput>
+do OpenBoot ou </phrase>
+
+inicializar no modo <quote>Rescue</quote> (e.g., a partir do disquete de
+recuperação) e usar o comando <userinput>ip addr show dev eth0</userinput>.
+
+</para><para>
+
+Em um servidor RARP usando um kernel Linux 2.4 ou 2.6, ou Solaris/SunOS, você 
+usa o programa <command>rarpd</command>.
+Você precisará certificar-se de que o endereço de hardware Ethernet do cliente
+está listado no banco de dados <quote>ethers</quote> (ou
+no arquivo <filename>/etc/ethers</filename> ou via NIS/NIS+) e no banco de
+dados <quote>hosts</quote>. Então você precisará iniciar o daemon RARP. 
+Digite o comando (como root): <userinput>/usr/sbin/rarpd -a</userinput>; 
+na maioria dos sistemas Linux e no SunOS 5 (Solaris 2),
+<userinput>/usr/sbin/in.rarpd -a</userinput> em alguns outros sistemas Linux,
+ou <userinput>/usr/etc/rarpd -a</userinput> no SunOS 4 (Solaris 1).
+
+</para>
+  </sect2>

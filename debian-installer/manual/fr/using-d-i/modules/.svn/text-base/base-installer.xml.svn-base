@@ -1,0 +1,43 @@
+<!-- original version: 64743 -->
+
+<para>
+
+Pendant l'installation du système de base, les messages concernant la 
+décompression et la configuration des paquets sont redirigés sur 
+<userinput>tty4</userinput>. On peut accéder à ce terminal en faisant
+<keycombo><keycap>Left Alt</keycap><keycap>F4</keycap></keycombo>&nbsp;; 
+et l'on revient au processus principal avec 
+<keycombo><keycap>Left Alt</keycap><keycap>F1</keycap></keycombo>.
+
+
+</para><para>
+
+Les messages concernant la décompression et la configuration des paquets 
+produits par le processus d'installation sont enregistrés dans le fichier
+<filename>/var/log/syslog</filename>. Vous pouvez les lire dans ce fichier
+quand l'installation se fait avec une console série.
+
+</para>
+<para>
+Le noyau &arch-kernel; fait partie de l'installation. Avec la priorité par défaut,
+l'installateur choisira le noyau qui correspond le mieux à votre matériel.
+Avec les priorités les plus basses, vous pourrez en choisir un dans une liste.
+</para>
+
+<para>
+Quand le système de gestion des paquets installe des paquets, il
+installe par défaut les paquets qui sont <quote>recommandés</quote> par
+ces paquets. Les paquets <quote>recommandés</quote> ne sont pas
+absolument nécessaires aux fonctions de base des logiciels mais ils les
+améliorent. Dans l'esprit des responsables de paquets, ils doivent être
+installés.
+</para>
+
+<note><para>
+
+Pour des raisons techniques, Les paquets <quote>recommandés</quote> par
+les paquets installés pendant le processus d'installation du système de
+base ne sont pas installés. La règle décrite précédemment n'est
+appliquée qu'après l'installation du système de base.
+
+</para></note>

@@ -1,0 +1,56 @@
+<!-- original version: 64829 -->
+
+<sect3 id="lowmem">
+<title>Vérification de la mémoire disponible / le mode <emphasis>peu de mémoire</emphasis></title>
+
+<para>
+
+L'une des premières tâches effectuées par l'installateur est la vérification
+de la mémoire disponible. Si la mémoire disponible est insuffisante, 
+le processus d'installation sera modifié pour permettre l'installation de &debian-gnu;
+sur votre machine.
+
+</para><para>
+La première mesure prise pour réduire la consommation de mémoire est de supprimer
+les traductions. Cela signifie que l'installation ne peut se faire qu'en anglais.
+Bien sûr, une fois l'installation terminée, vous pourrez <emphasis>localiser</emphasis>
+le système.
+</para>
+<para>
+Si cela ne suffit pas, l'installateur ne chargera que les composants nécessaires
+pour terminer une installation élémentaire. Cela réduit les fonctionnalités du
+système installé. Vous avez toujours la possibilité de charger des composants supplémentaires,
+mais vous devez savoir que chaque composant choisi utilisera de la mémoire, ce qui
+peut provoquer l'échec de l'installation.
+</para>
+<para>
+Quand l'installateur est en mode <emphasis>peu de mémoire</emphasis>, il est recommandé
+de créer une partition d'échange assez grande (64&ndash;128&nbsp;Mo). Elle sera utilisée comme 
+mémoire virtuelle, ce qui augmentera la quantité de mémoire disponible.
+L'installateur activera cette partition aussi tôt que possible pendant le processus
+d'installation. Il faut noter que cette utilisation de la partition d'échange
+réduit les performances du système et provoque une grande activité du disque.
+</para>
+<para>
+Malgré tout, il se peut encore que le système <emphasis>gèle</emphasis>, que des erreurs se produisent
+ou que des processus soient supprimés par le noyau à cause du manque de mémoire (cela
+sera signalé par des messages <quote>Out of memory</quote> sur la console VT4 
+et dans le syslog).
+</para>
+<para>
+Il a été rapporté par exemple que la création d'un gros système de fichiers ext3
+n'est pas possible dans ce mode quand la partition d'échange n'est
+pas assez grande. Si l'augmentation de la taille de la partition d'échange ne
+change rien, essayez de créer un système ext2 (qui est un composant essentiel
+de l'installateur). Après l'installation, il sera possible de changer le
+système ext2 en ext3.
+
+</para>
+<para>
+
+Il est possible d'indiquer un niveau de mémoire à utiliser plus élevé que celui basé 
+sur la mémoire disponible. Il suffit de donner une valeur au paramètre d'amorçage
+<quote>lowmem</quote>. Voyez <xref linkend="installer-args"/>.
+
+ </para>
+   </sect3>

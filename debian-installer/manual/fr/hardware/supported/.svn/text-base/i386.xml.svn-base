@@ -1,0 +1,69 @@
+<!-- original version: 65170 -->
+
+  <sect2 arch="i386">
+<title>Microprocesseurs, cartes mère et cartes vidéo</title>
+
+<para>
+Vous pouvez trouver une information complète concernant les périphériques 
+reconnus dans le <ulink url="&url-hardware-howto;">HOWTO sur la compatibilité 
+des matériels avec Linux</ulink>. 
+Cette section présente seulement les éléments de base.
+</para>
+
+   <sect3>
+<title>Microprocesseurs</title>
+
+<para>
+Quasiment tous les processeurs de la famille x86 (IA-32), toute la série Pentium
+d'Intel encore en usage sur les PC sont reconnus&nbsp;; cela 
+veut dire également les processeurs 32-bits AMD et VIA (anciennement Cyrix) et les 
+processeurs tels que Athlon XP et Intel P4 Xeon.
+</para>
+
+<para>
+Cependant, &debian; GNU/Linux &releasename; <emphasis>ne fonctionnera pas</emphasis> sur les 
+processeurs 386 ou antérieurs. Malgré le nom de l'architecture, <quote>i386</quote>,
+la gestion des processeurs 80386 (et de leurs clones) a été abandonnée depuis la version
+r3.1 de Sarge
+<footnote>
+<para>
+Nous avons longtemps essayé d'éviter cet abandon mais il est devenu nécessaire
+à cause de problèmes malheureux avec le compilateur et le noyau, en commençant par
+un bug dans l'ABI C++ fournie par GCC. Il est toujours possible d'installer
+&debian; GNU/Linux sur des processeurs 80386 mais il faut compiler le noyau et
+tous les paquets à partir des sources.
+</para>
+</footnote>.
+
+(Aucune version de Linux n'a jamais fonctionné avec les processeurs 286 ou
+antérieurs.) Tous les processeurs 486 sont gérés <footnote>
+<para>
+Beaucoup de paquets &debian; fonctionneront légèrement plus vite sur
+des ordinateurs modernes, c'est un effet positif de l'abandon de la gestion
+des anciens processeurs. Le processeur i486, lancé en 1989, possède trois
+<quote>opcodes</quote>, bswap, cmpxchg et xadd que ne possède pas l'i386, lancé en
+1986. Les paquets &debian; ne pouvaient pas les utiliser facilement.
+</para>
+</footnote>.
+ 
+</para>
+<note><para>
+Si votre système possède un processeur 64-bits des familles AMD64 ou Intel EM64T,
+vous devriez utiliser l'installateur pour l'architecture amd64
+au lieu de l'installateur pour l'architecture i386 (32 bits).
+</para></note>
+   </sect3>
+
+   <sect3 id="bus">
+<title>Bus d'entrée-sortie</title>
+
+<para>
+Le bus système est la partie de la carte mère permettant au processeur de 
+communiquer avec les périphériques tels que les périphériques de stockage. 
+Votre ordinateur doit utiliser l'un des bus ISA, EISA, PCI, PCIe, PCI-X ou VESA Local Bus
+(VLB, parfois appelé bus VL). Tous les PC vendus ces dernières années utilisent
+l'un d'entre eux.
+</para>
+
+   </sect3>
+  </sect2>

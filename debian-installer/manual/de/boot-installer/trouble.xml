@@ -1,0 +1,643 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66601 -->
+
+ <sect1 id="boot-troubleshooting">
+ <title>Beseitigen von Problemen während der Installation</title>
+<para>
+</para>
+
+  <sect2 arch="not-s390" id="unreliable-cd">
+  <title>Zuverlässigkeit von CD-ROMs</title>
+<para>
+
+Manchmal schlägt der Start des Installers von CD-ROM fehl, speziell bei
+älteren CD-ROM-Laufwerken. Auch könnte es möglich sein &ndash; sogar wenn
+erfolgreich von CD-ROM gebootet wurde &ndash; dass der Installer die CD-ROM
+nicht mehr erkennt oder Fehler ausgibt, wenn er während der Installation
+von der CD liest.
+
+</para><para>
+
+Es gibt viele verschiedene Gründe, die dies verursachen könnten. Wir
+können hier nur einige allgemeine Probleme auflisten und generelle
+Empfehlungen geben, wie Sie damit umgehen sollten. Der Rest liegt bei
+Ihnen.
+
+</para><para>
+
+Es gibt zwei einfache Dinge, die Sie zunächst ausprobieren sollten.
+
+<itemizedlist>
+<listitem><para>
+
+Wenn die CD-ROM nicht bootet, überprüfen Sie, ob Sie korrekt eingelegt wurde
+und nicht verschmutzt ist.
+
+</para></listitem>
+<listitem><para>
+
+Erkennt der Installer die CD-ROM nicht mehr, wählen Sie ein zweites
+Mal die Option <menuchoice> <guimenuitem>CD-ROM erkennen und
+einbinden</guimenuitem> </menuchoice> aus dem Menü. Es ist uns bekannt,
+dass einige Probleme bezüglich DMA bei älteren CD-ROM-Laufwerken auf
+diese Weise behoben werden können.
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Falls dies nicht funktioniert, probieren Sie die Empfehlungen weiter
+unten aus. Die meisten dieser Empfehlungen gelten sowohl für
+CD-ROM- wie auch für DVD-Laufwerke, aber wir verwenden der Einfachheit
+halber nur den Begriff CD-ROM.
+
+</para><para>
+
+Sollten Sie die Installation überhaupt nicht per CD-ROM zum Laufen
+bekommen, versuchen Sie eine der anderen verfügbaren
+Installationsmethoden.
+
+</para>
+
+  <sect3>
+  <title>Allgemeine Probleme</title>
+
+<itemizedlist>
+  <listitem><para>
+
+Einige ältere CD-ROM-Laufwerke unterstützen nicht das Lesen von Disks, die
+mit modernen CD-Brennern in hoher Geschwindigkeit gebrannt wurden.
+
+  </para></listitem>
+  <listitem><para>
+
+Wenn Ihr System von der CD-ROM bootet, heißt das nicht zwingend, dass
+das Laufwerk auch von &arch-kernel; unterstützt wird (bzw. vielmehr der Controller,
+an den Ihr CD-ROM-Laufwerk angeschlossen ist).
+
+  </para></listitem>
+  <listitem><para>
+
+Einige ältere CD-ROM-Laufwerke arbeiten nicht korrekt, wenn <quote>Direct
+Memory Access</quote> (DMA) aktiviert ist.
+
+  </para></listitem>
+</itemizedlist>
+
+  </sect3>
+
+  <sect3>
+  <title>Wie Sie Probleme untersuchen und vielleicht auch lösen</title>
+<para>
+
+Falls die CD-ROM nicht bootet, versuchen Sie dies:
+
+<itemizedlist>
+  <listitem><para>
+
+Überprüfen Sie, ob das BIOS Ihres Rechners das Booten von CD-ROM unterstützt
+(ältere System tun dies möglicherweise nicht) und ob Ihr Laufwerk zu dem
+Medium kompatibel ist, das Sie nutzen.
+
+  </para></listitem>
+  <listitem><para>
+
+Falls Sie ein iso-Image heruntergeladen haben, überprüfen Sie, ob die
+md5sum-Prüfsumme des Images mit der übereinstimmt, die in der Datei
+<filename>MD5SUMS</filename> für dieses Image aufgelistet ist. Sie sollten
+diese Datei dort finden, wo Sie auch das Image heruntergeladen haben.
+
+<informalexample><screen>
+$ md5sum <replaceable>debian-testing-i386-netinst.iso</replaceable>
+a20391b12f7ff22ef705cee4059c6b92  <replaceable>debian-testing-i386-netinst.iso</replaceable>
+</screen></informalexample>
+
+Überprüfen Sie auch, ob die md5sum-Prüfsumme der gebrannten CD korrekt ist.
+Dies sollten Sie mit dem folgenden Kommando erledigen können. Es nutzt die
+Größe des Images, um die korrekte Zahl an Bytes von der CD-ROM zu lesen.
+
+<informalexample><screen>
+$ dd if=/dev/cdrom | \
+> head -c `stat --format=%s <replaceable>debian-testing-i386-netinst.iso</replaceable>` | \
+> md5sum
+a20391b12f7ff22ef705cee4059c6b92  -
+262668+0 records in
+262668+0 records out
+134486016 bytes (134 MB) copied, 97.474 seconds, 1.4 MB/s
+</screen></informalexample>
+
+  </para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Wenn die CD-ROM nicht mehr erkannt wird, nachdem der Installer erfolgreich
+davon gestartet hat, kann es funktionieren, es einfach noch einmal zu
+probieren. Haben Sie mehr als ein CD-ROM-Laufwerk, versuchen Sie, die
+CD-ROM in das andere Laufwerk einzulegen. Funktioniert dies auch nicht
+oder die CD-ROM wird zwar erkannt, aber es gibt trotzdem Fehler beim
+Lesen, versuchen Sie die folgenden Empfehlungen. Dazu sind einige
+grundlegende &arch-kernel;-Kenntnisse nötig. Um die aufgelisteten Kommandos
+auszuführen, sollten Sie zunächst auf die zweite virtuelle Konsole (VT2)
+wechseln und dort die Shell aktivieren.
+
+<itemizedlist>
+  <listitem><para>
+
+Wechseln Sie auf VT4 oder lesen Sie den Inhalt der Datei
+<filename>/var/log/syslog</filename> (nutzen Sie <command>nano</command>
+als Editor), um zu überprüfen, ob eventuell spezielle Fehlermeldungen
+vorhanden sind. Überprüfen Sie danach auch die Ausgabe von
+<command>dmesg</command>.
+
+  </para></listitem>
+  <listitem><para>
+
+Kontrollieren Sie in der Ausgabe von <command>dmesg</command>, ob Ihr
+CD-ROM-Laufwerk erkannt wurde. Es sollte etwas ähnliches angezeigt werden
+wie dies (die Zeilen müssen allerdings nicht zwingend direkt aufeinander
+folgend angezeigt werden):
+
+<informalexample><screen>
+Probing IDE interface ide1...
+hdc: TOSHIBA DVD-ROM SD-R6112, ATAPI CD/DVD-ROM drive
+ide1 at 0x170-0x177,0x376 on irq 15
+hdc: ATAPI 24X DVD-ROM DVD-R CD-R/RW drive, 2048kB Cache, UDMA(33)
+Uniform CD-ROM driver Revision: 3.20
+</screen></informalexample>
+
+Sollten Sie solche Zeilen nicht finden, besteht die Möglichkeit, dass der
+Controller, an den Ihr Laufwerk angeschlossen ist, nicht erkannt wurde oder
+von Linux nicht unterstützt wird. Falls Sie wissen, welcher Treiber dafür
+benötigt wird, können Sie versuchen, ihn mit <command>modprobe</command>
+zu laden.
+
+  </para></listitem>
+  <listitem><para>
+
+Überprüfen Sie, ob eine Gerätedatei (device node) für Ihr CD-ROM-Laufwerk
+in <filename>/dev/</filename> existiert. In dem obigen Beispiel
+wäre dies <filename>/dev/hdc</filename>. Auch
+<filename>/dev/cdrom</filename> sollte existieren.
+
+  </para></listitem>
+  <listitem><para>
+
+Kontrollieren Sie mittels <command>mount</command>, ob die CD-ROM
+bereits ins Dateisystem eingebunden ist; falls nicht, erledigen Sie dies
+manuell:
+
+<informalexample><screen>
+$ mount /dev/<replaceable>hdc</replaceable> /cdrom
+</screen></informalexample>
+
+Achten Sie darauf, ob nach diesem Befehl irgendwelche Fehlermeldungen
+angezeigt werden.
+
+  </para></listitem>
+  <listitem><para>
+
+Überprüfen Sie, ob DMA im Moment aktiviert ist:
+
+<informalexample><screen>
+$ cd /proc/<replaceable>ide</replaceable>/<replaceable>hdc</replaceable>
+$ grep using_dma settings
+using_dma      1       0       1       rw
+</screen></informalexample>
+
+Eine <quote>1</quote> an der ersten Stelle hinter
+<quote>using_dma</quote> bedeutet, dass DMA aktiviert ist. Sollte
+dies so sein, versuchen Sie, es zu deaktivieren:
+
+<informalexample><screen>
+$ echo -n "using_dma:0" >settings
+</screen></informalexample>
+
+Stellen Sie sicher, dass Sie sich in dem Verzeichnis befinden, das zu
+Ihrem CD-ROM-Laufwerk gehört.
+
+  </para></listitem>
+  <listitem><para>
+
+Falls während der Installation irgendwelche Probleme auftreten, überprüfen
+Sie die Integrität der CD-ROM mittels der entsprechenden Option im
+Hauptmenü des Installers (ziemlich weit unten). Sie können dies auch nutzen,
+um zu testen, ob die CD-ROM zuverlässig gelesen werden kann.
+
+  </para></listitem>
+</itemizedlist>
+
+</para>
+  </sect3>
+  </sect2>
+
+  <sect2 condition="supports-floppy-boot" id="unreliable-floppies">
+  <title>(Un-)Zuverlässigkeit von Floppy-Disks</title>
+
+<para>
+
+Das größte Problem für Leute, die Disketten für die Installation von
+&debian; benutzen, scheint die (Un-)Zuverlässigkeit der Floppy-Disks zu sein.
+
+</para><para>
+
+Die Boot-Floppy ist die Floppy, die die größten Probleme macht,
+weil sie direkt von der Hardware gelesen wird, bevor Linux bootet.
+Oft liest der Hardware-Treiber nicht so zuverlässig wie der
+Linux Floppy-Disk-Treiber und könnte einfach ohne jede Fehlermeldung
+stoppen, wenn er inkorrekte Daten ausliest. Auch die Disketten können
+fehlerhaft sein, was sich als Flut von »disk I/O error«-Meldungen
+zeigt.
+
+</para><para>
+
+Wenn Sie mit einer bestimmten Floppy einen Abbruch der Installation
+haben, sollten Sie als erstes das Floppy-Disk-Image auf eine
+<emphasis>andere</emphasis> Diskette schreiben und schauen, ob dies
+das Problem löst. Die alte
+Disk einfach nur neu zu formatieren, könnte nicht ausreichend sein,
+selbst wenn das Neuformatieren und Beschreiben scheinbar ohne Fehler
+funktioniert. Manchmal kann es auch sinnvoll sein, die Floppy
+testweise auf einem anderen System zu beschreiben.
+
+</para><para>
+
+Jemand hat uns berichtet, dass er die Images <emphasis>dreimal</emphasis>
+auf Diskette schreiben musste, bis eine funktionierte, und
+mit der dritten Floppy war dann alles in Ordnung.
+
+</para><para>
+
+Normalerweise sollte es nicht nötig sein, das Floppy-Image neu herunterzuladen,
+wenn Sie aber Probleme feststellen, ist es immer nützlich, über die
+md5sum-Prüfsummen zu kontrollieren, ob die Images korrekt heruntergeladen
+wurden.
+
+</para><para>
+
+Andere Benutzer berichteten, dass einfach das mehrmalige Rebooten
+mit derselben Floppy im Laufwerk zu einem erfolgreichen Boot-Vorgang
+geführt hat. Dies alles ist auf fehlerhafte Hardware oder
+Firmware-Floppy-Driver zurückzuführen.
+
+</para>
+  </sect2>
+
+  <sect2><title>Boot-Konfiguration</title>
+
+<para>
+
+Wenn Sie Probleme haben und der Kernel bleibt während des Boot-Prozesses
+hängen oder Ihre Peripherie bzw. Laufwerke werden nicht korrekt erkannt,
+sollten Sie als erstes die Boot-Parameter überprüfen, die in
+<xref linkend="boot-parms"/> erläutert werden.
+
+</para><para>
+
+Oft können Probleme gelöst werden, indem man Erweiterungen und Peripheriegeräte
+entfernt und dann erneut bootet.
+<phrase arch="any-x86">Speziell interne Modems, Soundkarten und
+Plug-n-Play-Geräte können problematisch sein.</phrase>
+
+</para><para>
+
+Wenn Sie viel Arbeitsspeicher in Ihrem Rechner installiert haben
+(mehr als 512MB) und der Installer hängt, während der Kernel bootet,
+müssen Sie möglicherweise ein Boot-Argument angeben, das den Umfang
+des Speichers vor dem Kernel verbirgt bzw. limitiert, z.B.
+<userinput>mem=512m</userinput>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86">
+  <title>Software-Sprachausgabe (Software-Sprachsynthesizer)</title>
+
+<para>
+
+Falls die Software-Sprachausgabe nicht funktioniert, gibt es höchstwahrscheinlich
+ein Problem mit Ihrer Soundkarte, üblicherweise weil entweder der dafür
+benötigte Treiber nicht im Installer enthalten ist, oder weil die Karte Mixerregler
+mit ungewöhnlichen Namen hat, die standardmäßig stumm geschaltet sind. Sie sollten
+daher einen Fehlerbericht einreichen, der die Ausgabe der folgenden Befehle enthält
+(ausgeführt auf dem gleichen Rechner und von einem Linux-System, auf dem der Sound
+bekanntermaßen funktioniert (z.B. einer Live-CD)):
+
+<itemizedlist>
+<listitem>
+<para><userinput>dmesg</userinput></para>
+</listitem><listitem>
+<para><userinput>lspci</userinput></para>
+</listitem><listitem>
+<para><userinput>lsmod</userinput></para>
+</listitem><listitem>
+<para><userinput>amixer</userinput></para>
+</listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+   <sect2 arch="x86" id="i386-boot-problems">
+  <title>Häufige Installationsprobleme unter &arch-title;</title>
+<para>
+
+Es gibt einige bekannte Installationsprobleme, die gelöst oder vermieden
+werden können, indem man dem Installer entsprechende Boot-Parameter mit gibt.
+
+</para><para>
+
+Einige Systeme haben Floppy-Laufwerke mit <quote>invertierten DCLs</quote>.
+Wenn Sie Probleme haben, von der Floppy-Disk zu lesen, obwohl Sie wissen,
+dass die Disk in Ordnung ist, versuchen Sie den Parameter
+<userinput>floppy=thinkpad</userinput>.
+
+</para><para>
+
+Auf einigen System wie dem IBM PS/1 oder ValuePoint (die ST-506-Laufwerkstreiber
+haben) werden IDE-Laufwerke unter Umständen nicht korrekt erkannt.
+Versuchen Sie es hier zunächst ohne Boot-Parameter und überprüfen Sie,
+ob das IDE-Laufwerk richtig erkannt wird. Falls nicht, bestimmen Sie
+die Geometrie-Parameter Ihrer Festplatte (Zylinder, Köpfe und Sektoren)
+und nutzen Sie das Boot-Argument
+<userinput>hd=<replaceable>Zylinder</replaceable>,<replaceable>Köpfe</replaceable>,<replaceable>Sektoren</replaceable></userinput>.
+
+</para><para>
+
+Wenn Sie eine sehr alte Maschine haben und der Kernel nach der Meldung
+<computeroutput>Checking 'hlt' instruction...</computeroutput> hängt,
+versuchen Sie es mit dem Boot-Argument <userinput>no-hlt</userinput>,
+das diesen Test deaktiviert.
+
+</para><para>
+
+Einige Systeme (speziell Laptops), bei denen die Original-Auflösung
+nicht dem 4:3-Seitenverhältnis entspricht (800x600 oder 1024x768
+wäre beispielweise 4:3), zeigen möglicherweise einen leeren Bildschirm,
+nachdem der Installer gebootet hat. In diesem Fall könnte der
+Boot-Parameter <userinput>vga=788</userinput><footnote>
+
+<para>
+Der Parameter <userinput>vga=788</userinput> aktiviert den VESA-Framebuffer
+mit einer Auflösung von 800x600. Dies wird zwar möglicherweise funktionieren,
+ist aber vielleicht trotzdem nicht die optimale Auflösung für Ihr System.
+Eine Liste der von Ihrem System unterstützten Auflösungen kann mit
+<userinput>vga=ask</userinput> abgefragt werden, aber Sie sollten
+vorsichtig sein: die Liste könnte unvollständig sein.
+</para>
+
+</footnote> helfen. Falls nicht, versuchen Sie <userinput>fb=false</userinput>.
+
+</para><para>
+
+Wenn Ihr Bildschirm ein eigenartiges Bild zeigt, während der Kernel bootet,
+z.B. komplett weiß, komplett schwarz oder farbiger Pixelmüll, enthält
+Ihr Rechner möglicherweise eine problematische Grafikkarte, die nicht
+ordnungsgemäß in den Framebuffer-Modus schaltet. Sie können dann den
+Boot-Parameter <userinput>fb=false</userinput> benutzen,
+um den Framebuffer auf der Konsole zu deaktivieren.
+In diesem Fall steht aufgrund von eingeschränkter Konsolenfunktionalität
+nur eine reduzierte Anzahl Sprachen zur Verfügung. <xref linkend="boot-parms"/>
+enthält Details zu diesem Thema.
+
+</para>
+  
+  <sect3>
+  <title>Während der PCMCIA-Konfiguration friert das System ein</title>
+<para>
+
+Einige Laptop-Modelle von Dell sind bekannt dafür, dass Sie sich aufhängen,
+wenn die PCMCIA-Geräteerkennung versucht, bestimmte Hardware-Adressen
+abzufragen. Andere Modelle können ähnliche Symptome zeigen. Wenn Ihnen solche
+Probleme unterkommen und Sie kein PCMCIA-Gerät während der Installation
+benötigen, können Sie PCMCIA komplett deaktivieren, indem Sie den
+Boot-Parameter <userinput>hw-detect/start_pcmcia=false</userinput>
+benutzen. Nachdem die Installation abgeschlossen ist, können Sie PCMCIA so
+konfigurieren, dass der problematische Adressbereich ausgeschlossen wird.
+
+</para><para>
+
+Alternativ können Sie den Installer im Experten-Modus booten.
+Sie werden dann aufgefordert, die Ressourcenbereiche einzugeben,
+die Ihre Hardware benötigt. Ein Beispiel: wenn Sie einen der oben
+erwähnten Dell-Laptops besitzen, sollten Sie hier
+<userinput>exclude port 0x800-0x8ff</userinput> eingeben.
+Im <ulink url="http://pcmcia-cs.sourceforge.net/ftp/doc/PCMCIA-HOWTO-1.html#ss1.12">Kapitel
+<quote>System resource settings</quote> des PCMCIA-HowTos</ulink> gibt es eine
+Liste mit einigen allgemeinen Angaben über Ressourcenbereiche.
+Beachten Sie, dass Sie alle eventuell vorhandenen Kommata weglassen müssen,
+wenn Sie Angaben von dieser Quelle in den Installer eingeben.
+
+</para>
+   </sect3>
+
+   <sect3>
+   <title>Das System friert ein, während die USB-Module geladen werden</title>
+<para>
+
+Der Kernel versucht normalerweise, die USB-Module und die USB-Tastatur-Treiber
+zu laden, um einige nicht standardkonforme USB-Tastaturen unterstützen zu
+können. Allerdings gibt es einige gestörte USB-Systeme, bei denen sich der
+Treiber während des Ladens aufhängt. Eine Möglichkeit, dies zu umgehen, ist,
+den USB-Controller im BIOS des Mainboards zu deaktivieren. Ein anderer Weg
+ist, den Parameter <userinput>nousb</userinput> am Boot-Prompt einzugeben;
+dies verhindert, dass die Module geladen werden.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="sparc" id="sparc-boot-problems">
+  <title>Allgemeine &arch-title;-Installationsprobleme</title>
+<para>
+
+Es gibt einige allgemeine Installationsproblem, die hier erwähnt werden sollten:
+
+</para>
+   <sect3>
+   <title>Fehlgeleitete Grafikausgabe</title>
+<para>
+
+Es ist für &arch-title;-Systeme nicht unüblich, zwei Grafikkarten in einem
+Rechner installiert zu haben, zum Beispiel eine ATI-Karte und eine Sun Creator
+3D. In solchen Fällen könnte dies dazu führen, dass die Grafikausgabe recht
+früh nach dem Systemstart auf die falsche Grafikkarte geschaltet wird. In
+typischen Fällen zeigt das Display nur folgendes an:
+
+<informalexample><screen>
+Remapping the kernel... done
+Booting Linux...
+</screen></informalexample>
+
+Um dies zu umgehen, können Sie entweder eine der Grafikkarten aus dem Rechner
+entfernen oder diejenige Karte, die während der OpenProm-Bootphase nicht
+verwendet wird, mittels eines Kernel-Parameters deaktivieren. Um zum Beispiel
+eine ATI-Karte zu deaktivieren, sollten Sie mit dem Parameter
+<userinput>video=atyfb:off</userinput> booten.
+
+</para><para>
+
+Bedenken Sie, dass Sie diesen Parameter unter Umständen auch manuell zur
+silo-Konfiguration hinzufügen müssen (editieren Sie
+<filename>/target/etc/silo.conf</filename> vor dem Neustart). Außerdem müssen
+Sie eventuell den Grafiktreiber in <filename>/etc/X11/xorg.conf</filename>
+anpassen, wenn Sie X11 installiert haben.
+
+</para>
+   </sect3>
+
+   <sect3>
+   <title>Booten oder Installieren von CD-ROM schlägt fehl</title>
+<para>
+
+Einige Sparc-Systeme sind notorisch problematisch, wenn es darum geht, sie
+von CD-ROM zu booten, und sogar wenn Sie booten, kann es unerklärliche
+Fehler während der Installation geben. Die meisten solcher Probleme wurden
+mit SunBlade-Systemen berichtet.
+
+</para><para>
+
+Wir empfehlen, zur Installation solcher Systeme den Installer per Netzwerk-Boot
+zu starten.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 id="kernel-msgs">
+  <title>Die Startmeldungen des Kernels deuten</title>
+
+<para>
+
+Während des Boot-Prozesses können Sie viele Meldungen der Form
+<computeroutput>can't
+find <replaceable>something</replaceable></computeroutput> (kann
+<replaceable>irgendetwas</replaceable> nicht finden) oder
+<computeroutput><replaceable>something</replaceable>
+not present</computeroutput> (<replaceable>irgendetwas</replaceable>
+nicht vorhanden), <computeroutput>can't initialize
+<replaceable>something</replaceable></computeroutput>,
+(kann <replaceable>irgendetwas</replaceable> nicht initialisieren)
+oder sogar <computeroutput>this driver release depends
+on <replaceable>something</replaceable></computeroutput>
+(diese Treiberversion ist abhängig von
+<replaceable>irgendetwas</replaceable>) sehen.
+Die meisten dieser Meldungen sind harmlos. Sie erscheinen, weil der
+Kernel des Installationssystems gebaut wurde, um auf vielen Maschinen
+mit viel verschiedener Hardware zu funktionieren. Wahrscheinlich wird
+kein Rechner alle möglichen Peripheriegeräte beinhalten, deswegen
+wird das Betriebssystem wohl immer etwas zu beklagen haben, wenn es
+Peripherie sucht, die Sie nicht besitzen. Sie werden vielleicht auch
+feststellen, dass das System für eine Weile pausiert. Dies kommt vor, wenn
+es auf die Antwort eines Gerätes wartet, das in Ihrem System nicht vorhanden
+ist. Wenn Sie meinen, dass die Zeit zum Booten des Systems unakzeptabel lang
+ist, können Sie später einen eigenen, maßgeschneiderten Kernel erstellen
+<phrase arch="linux-any">(siehe auch <xref linkend="kernel-baking"/>)</phrase>.
+
+</para>
+  </sect2>
+
+
+  <sect2 id="problem-report">
+  <title>Installationsprobleme berichten</title>
+<para>
+Wenn Sie zwar die anfängliche Boot-Phase hinter sich bringen, aber
+die Installation nicht abschließen können, kann die Auswahl des
+Eintrags <quote>Debug-Logs speichern</quote> hilfreich sein.
+Dabei können System-Fehlermeldungen und Konfigurationsdaten vom Installer
+auf eine Floppy-Disk gespeichert oder mittels eines Webbrowsers heruntergeladen
+werden.
+
+Diese Informationen können Hinweise darauf geben, was schief gelaufen ist
+und wie man dies beheben kann. Wenn Sie einen Fehlerbericht einschicken,
+sollten Sie diese Informationen dem Bericht beilegen.
+
+</para><para>
+
+Andere sachdienliche Installationsmeldungen findet man während der
+Installation in <filename>/var/log/</filename> und nachdem das neu
+installierte System gebootet wurde in <filename>/var/log/installer/</filename>.
+
+</para>
+  </sect2>
+
+  <sect2 id="submit-bug">
+  <title>Installationsberichte einschicken</title>
+<para>
+
+Wenn Sie immer noch Probleme haben, senden Sie uns einen
+Installationsbericht (in englischer Sprache bitte). Wir bitten ebenfalls
+darum, uns Berichte schicken,
+wenn die Installation erfolgreich war, so dass wir so viele Informationen
+wie möglich über die riesige Zahl von Hardware-Konfigurationen bekommen.
+
+</para><para>
+
+Bedenken Sie, dass Ihr Installationsbericht in der Debian-Fehlerdatenbank
+(Debian Bug Tracking System, BTS) veröffentlicht und an eine öffentliche
+Mailingliste weitergeleitet wird. Verwenden Sie also eine E-Mail-Adresse, bei
+der Sie nichts dagegen haben, dass sie öffentlich gemacht wird.
+
+</para><para>
+
+Falls Sie bereits ein funktionierendes &debian;-System haben, ist dies der
+einfachste Weg, um uns einen Installationsbericht zu schicken: installieren Sie
+die Pakete <classname>installation-report</classname> und
+<classname>reportbug</classname> (mit <command>aptitude install
+installation-report reportbug</command>), konfigurieren Sie
+<classname>reportbug</classname> wie in <xref linkend="mail-outgoing"/>
+beschrieben und führen Sie dann den Befehl
+<command>reportbug installation-reports</command> aus.
+
+</para><para>
+
+Sie können alternativ diese Vorlage benutzen, um Installationsberichte zu
+verfassen, und schicken Sie ihn dann als Fehlerbericht gegen das Pseudo-Paket
+<classname>installation-reports</classname> ein, indem Sie ihn an
+<email>submit@bugs.debian.org</email> senden.
+
+<informalexample><screen>
+Package: installation-reports
+
+Boot method: &lt;How did you boot the installer? CD? floppy? network?&gt;
+Image version: &lt;Full URL to image you downloaded is best&gt;
+Date: &lt;Date and time of the install&gt;
+
+Machine: &lt;Description of machine (eg, IBM Thinkpad R32)&gt;
+Processor:
+Memory:
+Partitions: &lt;df -Tl will do; the raw partition table is preferred&gt;
+
+Output of lspci -knn (or lspci -nn):
+
+Base System Installation Checklist:
+[O] = OK, [E] = Error (please elaborate below), [ ] = didn't try it
+
+Initial boot:           [ ]
+Detect network card:    [ ]
+Configure network:      [ ]
+Detect CD:              [ ]
+Load installer modules: [ ]
+Detect hard drives:     [ ]
+Partition hard drives:  [ ]
+Install base system:    [ ]
+Clock/timezone setup:   [ ]
+User/password setup:    [ ]
+Install tasks:          [ ]
+Install boot loader:    [ ]
+Overall install:        [ ]
+
+Comments/Problems:
+
+&lt;Description of the install, in prose, and any thoughts, comments
+      and ideas you had during the initial install.&gt;
+</screen></informalexample>
+
+Beschreiben Sie in dem Bericht, was das Problem ist (inklusive der
+letzten sichtbaren Kernelmeldungen, falls der Kernel sich aufgehangen
+hat). Beschreiben Sie die Schritte, die Sie durchgeführt haben und die das
+System in den problematischen Zustand gebracht haben.
+
+</para>
+  </sect2>
+ </sect1>

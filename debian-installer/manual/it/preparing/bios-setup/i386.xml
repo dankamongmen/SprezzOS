@@ -1,0 +1,581 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+<!-- This section is heavily outdated. It only really describes
+     older BIOSes and not the current situation. Most of it is not
+     really relevant for AMD64, but a general description would be.
+     File should be renamed to x86.xml if a more general text is
+     written. -->
+
+  <sect2 arch="any-x86" id="bios-setup">
+  <!-- <title>Invoking the BIOS Set-Up Menu</title> -->
+  <title>Invocare il menu di configurazione del BIOS</title>
+<para>
+
+<!--
+BIOS provides the basic functions needed to boot your machine to allow
+your operating system to access your hardware.  Your system probably
+provides a BIOS setup menu, which is used to configure the BIOS.
+Before installing, you <emphasis>must</emphasis> ensure that your BIOS
+is set up correctly; not doing so can lead to intermittent crashes or
+an inability to install &debian;.
+-->
+
+Il BIOS fornisce le funzioni di base necessarie al boot della macchina
+e permette al sistema operativo di accedere all'hardware. Il sistema
+probabilmente è dotato di un apposito menu di configurazione del BIOS.
+Prima di iniziare l'installazione è <emphasis>necessario</emphasis>
+assicurarsi che il BIOS sia configurato correttamente, non farlo potrebbe
+causare blocchi intermittenti o l'impossibilità di installare &debian;.
+
+</para><para>
+
+<!--
+The rest of this section is lifted from the
+<ulink url="&url-pc-hw-faq;"></ulink>, answering the question, <quote>How do I
+enter the CMOS configuration menu?</quote>.  How you access the BIOS (or
+<quote>CMOS</quote>) configuration menu depends on who wrote your BIOS
+software:
+-->
+
+Il resto della sezione è copiato dalla <ulink url="&url-pc-hw-faq;"></ulink>,
+precisamente dalla risposta a alla domanda <quote>come entrare nel menu
+di configurazione del CMOS?</quote>. Il modo per accedere al menu di
+configurazione del BIOS (o <quote>CMOS</quote>) dipende da chi ha scritto
+il software:
+
+</para>
+
+<!-- From: burnesa@cat.com (Shaun Burnet) -->
+<variablelist>
+
+<varlistentry>
+ <term>AMI BIOS</term>
+ <listitem><para>
+
+<!--
+<keycap>Delete</keycap> key during the POST (power on self test)
+-->
+
+Premere il tasto <keycap>Canc</keycap> durante il POST (power on self
+test) [fase di test successiva all'accensione della macchina NdT]
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+ <term>Award BIOS</term>
+ <listitem><para>
+
+<!--
+<keycombo>
+  <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap>
+</keycombo>, or <keycap>Delete</keycap> key during the POST
+-->
+
+Premere <keycombo> <keycap>Ctrl</keycap> <keycap>Alt</keycap>
+<keycap>Esc</keycap> </keycombo> o il tasto <keycap>Canc</keycap>
+durante il POST
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+ <term>DTK BIOS</term>
+ <listitem><para>
+
+<!--
+<keycap>Esc</keycap> key during the POST
+-->
+
+Premere il tasto <keycap>Esc</keycap> durante il POST
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+ <term>IBM PS/2 BIOS</term>
+ <listitem><para>
+
+<!--
+<keycombo>
+  <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</keycap>
+</keycombo>
+after
+<keycombo>
+  <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Delete</keycap>
+</keycombo>
+-->
+
+Premere <keycombo> <keycap>Ctrl</keycap> <keycap>Alt</keycap>
+<keycap>Ins</keycap> </keycombo> dopo <keycombo> <keycap>Ctrl</keycap>
+<keycap>Alt</keycap> <keycap>Canc</keycap> </keycombo>
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+ <term>Phoenix BIOS</term>
+ <listitem><para>
+
+ <!--
+<keycombo>
+  <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap>
+</keycombo>
+or
+<keycombo>
+  <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>S</keycap>
+</keycombo>
+or
+<keycap>F1</keycap>
+-->
+
+Premere <keycombo> <keycap>Ctrl</keycap> <keycap>Alt</keycap>
+<keycap>Esc</keycap> </keycombo>, <keycombo> <keycap>Ctrl</keycap>
+<keycap>Alt</keycap> <keycap>S</keycap> </keycombo> o <keycap>F1</keycap>
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+<!--
+Information on invoking other BIOS routines can be found in
+<ulink url="&url-invoking-bios-info;"></ulink>.
+-->
+
+Informazioni su come invocare altre routine BIOS possono essere trovate in
+<ulink url="&url-invoking-bios-info;"></ulink>.
+
+</para><para>
+
+<!--
+Some &arch-title; machines don't have a CMOS configuration menu in the
+BIOS.  They require a software CMOS setup program.  If you don't have
+the Installation and/or Diagnostics diskette for your machine, you can
+try using a shareware/freeware program.  Try looking in
+<ulink url="&url-simtel;"></ulink>.
+-->
+
+Alcune macchine &arch-title; non hanno un menu di configurazione nel BIOS.
+Richiedono invece l'esecuzione di un programma apposito di configurazione.
+Se non si dispone dei dischetti d'installazione o di diagnostica della
+macchina, si può provare con un programma shareware o freeware. Provare a
+cercare in <ulink url="&url-simtel;"></ulink>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="any-x86" id="boot-dev-select">
+  <!-- <title>Boot Device Selection</title> -->
+  <title>Selezione del dispositivo di boot</title>
+<para>
+
+<!--
+Many BIOS setup menus allow you to select the devices that will be
+used to bootstrap the system. Set this to look for a bootable
+operating system on <filename>A:</filename> (the first floppy disk),
+then optionally the first CD-ROM device (possibly appearing as
+<filename>D:</filename> or <filename>E:</filename>), and then from
+<filename>C:</filename> (the first hard disk).  This setting enables
+you to boot from either a floppy disk or a CD-ROM, which are the two
+most common boot devices used to install &debian;.
+-->
+
+Molti menu di configurazione del BIOS permettono di scegliere il
+dispositivo da cui verrà fatto il bootstrap del sistema. Modificare
+le impostazioni affinché venga cercato un sistema operativo avviabile
+prima su <filename>A:</filename> (il primo lettore di dischetti), quindi
+opzionalmente sul primo lettore CD-ROM (può darsi figuri come
+<filename>D:</filename> o <filename>E:</filename>), infine sul primo
+disco fisso, <filename>C:</filename>. Tali impostazioni permetteranno di
+avviare il sistema da un dischetto o da un CD-ROM, i due modi più comuni per
+installare &debian;.
+
+</para><para>
+
+<!--
+If you have a newer SCSI controller and you have a CD-ROM device
+attached to it, you are usually able to boot from the CD-ROM.  All you
+have to do is enable booting from a CD-ROM in the SCSI-BIOS of your
+controller.
+-->
+
+Se si dispone di un controller SCSI recente e un lettore CD collegato ad
+esso, si dovrebbe essere in grado di avviare il sistema da CD-ROM. Tutto ciò che
+si deve fare è abilitare il boot da CD nel BIOS del controller SCSI.
+
+</para><para>
+
+<!--
+Another popular option is to boot from a USB storage device (also called
+a USB memory stick or USB key). Some BIOSes can boot directly from a USB
+storage device, but some cannot. You may need to configure your BIOS to boot
+from a <quote>Removable drive</quote> or even from <quote>USB-ZIP</quote> to
+get it to boot from the USB device.
+-->
+
+Un'altra possibilità molto comune è fare l'avvio da una memoria di massa
+USB (spesso chiamata penna USB o chiavetta USB). Alcuni BIOS possono fare
+direttamente l'avvio da dispositivi USB mentre altri no, potrebbe essere
+necessario configurare il BIOS in modo che faccia l'avvio da <quote>Disco
+rimovibile</quote> o da <quote>USB-ZIP</quote> per fare l'avvio dal
+dispositivo USB.
+
+</para><para>
+
+<!--
+Here are some details about how to set the boot order. Remember to
+reset the boot order after &arch-kernel; is installed, so that you restart
+your machine from the hard drive.
+-->
+
+Di seguito sono forniti alcuni suggerimenti su come configurare l'ordine
+di avvio. Ricordarsi di ripristinare l'ordine originale una volta conclusa
+l'installazione di &arch-kernel;, in modo da continuare ad avviare la macchina dal
+disco fisso.
+
+</para>
+
+   <sect3 id="ctbooi">
+   <!-- <title>Changing the Boot Order on IDE Computers</title> -->
+   <title>Modifica dell'ordine di avvio su macchine IDE</title>
+
+<orderedlist>
+<listitem><para>
+
+<!--
+As your computer starts, press the keys to enter the BIOS
+utility. Often, it is the <keycap>Delete</keycap> key. However,
+consult the hardware documentation for the exact keystrokes.
+-->
+
+All'accensione del computer premere i tasti per entrare nella utility di
+configurazione del BIOS, spesso si utilizza il tasto <keycap>Canc</keycap>.
+Si consulti la documentazione dell'hardware per conoscere la giusta
+combinazione di tasti.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Find the boot sequence in the setup utility. Its location depends on
+your BIOS, but you are looking for a field that lists drives.
+-->
+
+Cercare nella utility di configurazione dove si imposta la sequenza d'avvio.
+La sua posizione dipende dal BIOS, si deve cercare un campo in cui sono
+elencati i dischi.
+
+</para><para>
+
+<!--
+Common entries on IDE machines are C, A, cdrom or A, C, cdrom.
+-->
+
+Dei valori comuni sulle macchine IDE sono C, A, cdrom oppure A, C, cdrom.
+
+</para><para>
+
+<!--
+C is the hard drive, and A is the floppy drive.
+-->
+
+C è il disco fisso e A è il lettore dei dischetti.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Change the boot sequence setting so that the CD-ROM or the
+floppy is first. Usually, the <keycap>Page Up</keycap> or
+<keycap>Page Down</keycap> keys cycle
+through the possible choices.
+-->
+
+Modificare la sequenza di avvio in modo da dare precedenza al CD-ROM oppure
+al lettore dei dischetti. Di solito è possibile scorrere le scelte possibili
+con i tasti <keycap>Pag su</keycap> oppure <keycap>Pag giù</keycap>.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Save your changes. Instructions on the screen tell you how to
+save the changes on your computer.
+-->
+
+Salvare le modifiche. Sullo schermo ci sono le istruzioni da seguire per
+rendere effettive le modifiche.
+
+</para></listitem>
+</orderedlist>
+   </sect3>
+
+   <sect3 id="ctboos">
+   <!-- <title>Changing the Boot Order on SCSI Computers</title> -->
+   <title>Modifica dell'ordine di avvio su macchine SCSI</title>
+<para>
+
+<orderedlist>
+<listitem><para>
+
+<!--
+As your computer starts, press the keys to enter the SCSI setup
+utility.
+-->
+
+All'accensione del computer premere i tasti per entrare nella utility di
+configurazione SCSI.
+
+</para><para>
+
+<!--
+You can start the SCSI setup utility after the memory check and
+the message about how to start the BIOS utility displays when you
+start your computer.
+-->
+
+Si può avviare l'utility di configurazione SCSI dopo il controllo della
+memoria e dopo che è apparso sullo schermo il messaggio che indica come
+come avviare l'utility di configurazione del BIOS.
+
+</para><para>
+
+<!--
+The keystrokes you need depend on the utility. Often, it is
+<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>.
+However, consult your hardware documentation for the
+exact keystrokes.
+-->
+
+La combinazione di tasti dipende dall'utility. Spesso si utilizza
+<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>. Si
+consulti la documentazione dell'hardware per conoscere la giusta
+combinazione di tasti.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Find the utility for changing the boot order.
+-->
+
+Cercare nella utility di configurazione dove si imposta la sequenza d'avvio.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Set the utility so that the SCSI ID of the CD drive is first on
+the list.
+-->
+
+Con l'utility fare in modo che l'ID SCSI del lettore CD sia il primo
+della lista.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Save your changes. Instructions on the screen tell you how to
+save the changes on your computer. Often, you must press
+<keycap>F10</keycap>.
+-->
+
+Salvare le modifiche. Sullo schermo ci sono le istruzioni da seguire per
+rendere effettive le modifiche. Spesso si deve premere <keycap>F10</keycap>.
+
+</para></listitem>
+</orderedlist>
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="any-x86">
+  <!-- <title>Miscellaneous BIOS Settings</title> -->
+  <title>Opzioni varie del BIOS</title>
+
+   <sect3 id="cd-settings">
+   <!-- <title>CD-ROM Settings</title> -->
+   <title>Impostazione del CD-ROM</title>
+<para>
+
+<!--
+Some BIOS systems (such as Award BIOS) allow you to automatically set
+the CD speed.  You should avoid that, and instead set it to, say, the
+lowest speed.  If you get <userinput>seek failed</userinput> error
+messages, this may be your problem.
+-->
+
+Alcuni BIOS (ad esempio quelli Award) permettono di impostare automaticamente
+la velocità del lettore CD. Si dovrebbe evitare di farlo e impostare piuttosto,
+per dire, la velocità più bassa; se si ottengono dei messaggi d'errore
+<userinput>seek failed</userinput> il problema potrebbe nascere da questo.
+
+</para>
+   </sect3>
+
+   <sect3>
+   <!-- <title>Extended vs. Expanded Memory</title> -->
+   <title>Memoria estesa contro memoria espansa</title>
+<para>
+
+<!--
+If your system provides both ex<emphasis>ten</emphasis>ded and
+ex<emphasis>pan</emphasis>ded memory, set it so that there is as much
+extended and as little expanded memory as possible. &arch-kernel; requires
+extended memory and cannot use expanded memory.
+-->
+
+Se il sistema fornisce sia memoria es<emphasis>te</emphasis>sa che
+es<emphasis>pan</emphasis>sa, impostatelo in modo che ci sia quanta più
+memoria estesa e quanta meno memoria espansa possibile. &arch-kernel; infatti
+richiede la prima e non è in grado di usare la seconda.
+
+</para>
+   </sect3>
+
+   <sect3>
+   <!-- <title>Virus Protection</title> -->
+   <title>Protezione dai virus</title>
+<para>
+
+<!--
+Disable any virus-warning features your BIOS may provide. If you have
+a virus-protection board or other special hardware, make sure it is
+disabled or physically removed while running GNU/&arch-kernel;. These aren't
+compatible with GNU/&arch-kernel;; moreover, due to the file system
+permissions and protected memory of the &arch-kernel; kernel, viruses are
+almost unheard of<footnote>
+-->
+
+Disabilitare qualunque funzionalità di protezione dai virus fornita dal
+BIOS. Se si dispone di una scheda di protezione dai virus o altro hardware
+speciale, assicurarsi che sia disabilitato oppure rimuoverlo fisicamente
+mentre si utilizza GNU/&arch-kernel;, dato che non sono compatibili. Per giunta,
+grazie ai permessi sul filesystem e alla memoria protetta del kernel, i
+virus su &arch-kernel; in pratica non esistono<footnote>
+
+<para>
+
+<!--
+After installation you can enable Boot Sector protection if you
+want. This offers no additional security in &arch-kernel; but if you also run
+Windows it may prevent a catastrophe. There is no need to tamper with
+the Master Boot Record (MBR) after the boot manager has been set up.
+-->
+
+Dopo l'installazione è possibile abilitare la protezione del Boot Sector,
+se si vuole. La cosa non offre alcuna sicurezza aggiuntiva in &arch-kernel;, ma se
+si usa anche Windows potrebbe prevenire una catastrofe. Dopo aver
+installato il boot manager non c'è alcun motivo di andare a toccare il
+Master Boot Record (MBR).
+
+</para>
+
+</footnote>.
+
+</para>
+   </sect3>
+
+   <sect3>
+   <!-- <title>Shadow RAM</title> -->
+   <title>La RAM shadow</title>
+<para>
+
+<!--
+Your motherboard may provide <emphasis>shadow RAM</emphasis> or BIOS
+caching. You may see settings for <quote>Video BIOS Shadow</quote>,
+<quote>C800-CBFF Shadow</quote>, etc. <emphasis>Disable</emphasis>
+all shadow RAM.  Shadow
+RAM is used to accelerate access to the ROMs on your motherboard and
+on some of the controller cards. &arch-kernel; does not use these ROMs once it
+has booted because it provides its own faster 32-bit software in place
+of the 16-bit programs in the ROMs. Disabling the shadow RAM may make
+some of it available for programs to use as normal memory.  Leaving
+the shadow RAM enabled may interfere with &arch-kernel; access to hardware
+devices.
+-->
+
+La scheda madre potrebbe supportare la <emphasis>RAM shadow</emphasis>
+o il caching del BIOS, in tal caso si possono vedere delle opzioni tipo
+<quote>Video BIOS Shadow</quote>, <quote>C800-CBFF Shadow</quote>, ecc.
+<emphasis>Disabilitate</emphasis> tutte le impostazioni relative alla
+RAM shadow: viene usata per accelerare l'accesso alle ROM della scheda
+madre e di alcuni controller. &arch-kernel; una volta avviato non usa queste ROM,
+che contengono programmi a 16 bit, ma il suo software a 32 bit, più veloce.
+Disabilitare la RAM shadow può renderne almeno una parte disponibile ai
+programmi come normale memoria. Lasciarla abilitata d'altrocanto può
+ostacolare l'accesso di &arch-kernel; ai dispositivi hardware.
+
+</para>
+   </sect3>
+
+   <sect3>
+   <!-- <title>Memory Hole</title> -->
+   <title>La <quote>memory hole</quote></title>
+<para>
+
+<!--
+If your BIOS offers something like <quote>15&ndash;16 MB Memory
+Hole</quote>, please disable that. &arch-kernel; expects to find memory there if
+you have that much RAM.
+-->
+
+Se il BIOS presenta un'opzione tipo <quote>15&ndash;16 MB Memory
+Hole</quote>, va disabilita. &arch-kernel; si aspetta di trovarci della memoria,
+se si dispone di RAM sufficiente.
+
+</para><para>
+
+<!--
+We have a report of an Intel Endeavor motherboard on which there is an
+option called <quote>LFB</quote> or <quote>Linear Frame Buffer</quote>.
+This had two settings: <quote>Disabled</quote> and <quote>1
+Megabyte</quote>. Set it to <quote>1 Megabyte</quote>.
+When disabled, the installation floppy was not read correctly, and the
+system eventually crashed. At this writing we don't understand what's
+going on with this particular device &mdash; it just worked with that
+setting and not without it.
+-->
+
+Secondo un resoconto, pare ci siano schede madri Intel Endeavor che
+presentano un'opzione chiamata <quote>LFB</quote> (<quote>Linear Frame
+Buffer</quote>). Essa ha due valori possibili: <quote>Disabled</quote>
+e <quote>1&nbsp;Megabyte</quote>. Deve essere impostata a
+<quote>1&nbsp;Megabyte</quote>. Se disabilitata, il dischetto
+d'installazione non viene letto correttamente e il sistema si blocca.
+Al momento della presente stesura non sappiamo cosa accada con questa
+particolare scheda, sappiamo che funziona correttamente solo con tale
+impostazione.
+
+</para>
+   </sect3>
+
+<!-- no other platforms other than x86 provide this sort of thing, AFAIK -->
+
+   <sect3>
+   <!-- <title>Advanced Power Management</title> -->
+   <title>Gestione energetica avanzata (Advanced Power Management)</title>
+<para>
+
+<!--
+If your motherboard provides Advanced Power Management (APM),
+configure it so that power management is controlled by APM. Disable
+the doze, standby, suspend, nap, and sleep modes, and disable the hard
+disk's power-down timer.  &arch-kernel; can take over control of these modes,
+and can do a better job of power-management than the BIOS.
+-->
+
+Se la scheda madre ha il supporto per l'Advanced Power Management (APM),
+deve essere configurato in modo che esso controlli la gestione energetica.
+Disabilitare le modalità doze, standby, suspend, nap e sleep. Disabilitare
+inoltre il timer di spegnimento del disco fisso. &arch-kernel; può assumere il
+controllo di queste modalità e fare un lavoro migliore del BIOS.
+
+</para>
+   </sect3>
+  </sect2>

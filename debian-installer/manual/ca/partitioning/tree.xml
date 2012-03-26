@@ -1,0 +1,156 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+
+ <sect1 id="directory-tree">
+ <title>L'arbre de directoris</title>
+<para>
+
+&debian-gnu; s'adhereix a la <ulink url="&url-fhs-home;">Filesystem
+Hierarchy Standard</ulink> (Jerarquia estàndard del sistema de fitxers)
+per a anomenar directoris i fitxers. Aquest estàndard permet tant
+a usuaris com a programes predir la ubicació dels fitxers i
+directoris. El directori arrel es representa simplement per una barra
+<filename>/</filename>. A partir de l'arrel, tots els sistemes &debian;
+inclouen aquests directoris:
+
+<informaltable>
+<tgroup cols="2">
+<thead>
+<row>
+  <entry>Directori</entry><entry>Contingut</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry><filename>bin</filename></entry>
+  <entry>Binaris d'ordres essencials</entry>
+</row><row>
+  <entry><filename>boot</filename></entry>
+  <entry>Fitxers estàtics del carregador d'arrencada</entry>
+</row><row>
+  <entry><filename>dev</filename></entry>
+  <entry>Fitxers de dispositiu</entry>
+</row><row>
+  <entry><filename>etc</filename></entry>
+  <entry>Configuració del sistema específica de la màquina</entry>
+</row><row>
+  <entry><filename>home</filename></entry>
+  <entry>Directoris dels usuaris</entry>
+</row><row>
+  <entry><filename>lib</filename></entry>
+  <entry>Biblioteques compartides essencials i mòduls del nucli</entry>
+</row><row>
+  <entry><filename>media</filename></entry>
+  <entry>Punts de muntatge per a dispositius extraïbles</entry>
+</row><row>
+  <entry><filename>mnt</filename></entry>
+  <entry>Muntatge temporal de sistemes de fitxers</entry>
+</row><row>
+  <entry><filename>proc</filename></entry>
+  <entry>Directori virtual per a informació del sistema (nuclis 2.4
+         i 2.6)</entry>
+</row><row>
+  <entry><filename>root</filename></entry>
+  <entry>Directori principal de l'usuari root</entry>
+</row><row>
+  <entry><filename>sbin</filename></entry>
+  <entry>Binaris essencials del sistema</entry>
+</row><row>
+  <entry><filename>sys</filename></entry>
+  <entry>Directori virtual per a informació del sistema (nuclis 2.6)</entry>
+</row><row>
+  <entry><filename>tmp</filename></entry>
+  <entry>Fitxers temporals</entry>
+</row><row>
+  <entry><filename>usr</filename></entry>
+  <entry>Jerarquia secundària</entry>
+</row><row>
+  <entry><filename>var</filename></entry>
+  <entry>Dades variables</entry>
+</row><row>
+  <entry><filename>srv</filename></entry>
+  <entry>Dades pels serveis facilitats pel sistema</entry>
+</row><row>
+  <entry><filename>opt</filename></entry>
+  <entry>Aplicacions de programari addicionals</entry>
+</row>
+</tbody></tgroup></informaltable>
+</para>
+
+<para>
+
+A continuació teniu una llista de consideracions importants pel que
+fa a directoris i particions. Tingueu en compte que l'ús del disc pot
+variar molt segons la configuració del sistema. Aquestes recomanacions
+són més aviat generals i proporcionen un bon punt de partida per
+a fer particions.
+
+</para>
+<itemizedlist>
+<listitem><para>
+
+La partició arrel <filename>/</filename> sempre ha de contenir
+físicament <filename>/etc</filename>, <filename>/bin</filename>,
+<filename>/sbin</filename>, <filename>/lib</filename> i
+<filename>/dev</filename>, sinó no podreu arrencar. Normalment calen
+150&ndash;250 MiB per a la partició arrel.
+
+</para></listitem>
+<listitem><para>
+
+<filename>/usr</filename>: conté tots els programes d'usuari
+(<filename>/usr/bin</filename>), biblioteques
+(<filename>/usr/lib</filename>), documentació
+(<filename>/usr/share/doc</filename>), etc.
+Aquesta és la part del sistema de fitxers que generalment ocupa més. Li
+hauríeu de concedir com a mínim 500 MiB d'espai en disc. Aquesta mida
+s'ha d'incrementar depenent del nombre i el tipus de paquets que planegeu
+instal·lar. Una estació de treball potent o un servidor poden dedicar-li
+4-6 GiB.
+
+</para></listitem>
+<listitem><para>
+
+<filename>/var</filename>: les dades variables com ara articles de grups
+de discussió, correus electrònics, pàgines web, bases de dades,
+la memòria cau del sistema de paquets, etc. aniran a parar a aquest
+directori. La seva mida dependrà en bona part de l'ús que doneu al
+sistema, però per a la majoria de gent, el que marcarà la mida serà
+la sobrecàrrega produïda pel sistema d'administració de paquets.
+Si penseu fer una instal·lació completa de ben bé tot allò que
+&debian; pot oferir, tot en una sola sessió, n'hi hauria d'haver prou amb
+reservar 2 o 3 GiB d'espai per a <filename>/var</filename>. Si
+penseu fer la instal·lació per parts (és a dir, instal·lar els
+serveis i utilitats, després les eines de text, llavors X...), us en
+podeu sortir amb 300&ndash;500 MiB. Si aneu més justos de disc i no
+penseu fer actualitzacions importants, passareu amb només 30 o 40 MiB.
+
+</para></listitem>
+<listitem><para>
+
+<filename>/tmp</filename>: les dades temporals creades per programes
+segurament aniran a parar a aquest directori. 40&ndash;100 MiB haurien
+de ser suficients. Algunes aplicacions, com ara eines de manipulació
+de fitxers, autoria de CD/DVD, o altre programari multimèdia, poden
+fer servir <filename>/tmp</filename> per emmagatzemar fitxers imatge. Si
+teniu intenció de fer servir aquest tipus d'aplicacions, és recomanable
+ajustar l'espai disponible a <filename>/tmp</filename> convenientment.
+
+</para></listitem>
+<listitem><para>
+
+<filename>/home</filename>: tot usuari deixa les seves dades en un
+subdirectori d'aquest directori. La seva mida dependrà del nombre
+d'usuaris que tingui el sistema, i dels fitxers que s'hi hagin
+d'emmagatzemar. Segons l'ús planejat per a la màquina s'haurien de
+reservar uns 100 MiB per a cada usuari, adaptant aquest valor a les nostres
+necessitats particulars. Reserveu molt més espai si teniu previst desar
+molts fitxers multimèdia (imatges, MP3, pel·lícules) als vostres directoris
+personals.
+
+</para></listitem>
+</itemizedlist>
+
+ </sect1>

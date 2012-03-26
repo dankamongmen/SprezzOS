@@ -1,0 +1,67 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+  <sect3 id="lowmem">
+  <title>Comprovació de la memòria disponible / mode <emphasis>poca
+  memòria</emphasis></title>
+
+<para>
+
+Una de les primeres coses que fa el &d-i; és comprovar la memòria
+disponible. Si la memòria disponible és limitada, aquest component
+realitzarà algunes modificacions en el procés d'instal·lació
+que us haurien de permetre instal·lar &debian-gnu; al sistema.
+
+</para><para>
+
+La primera mesura que es pren per reduir el consum de memòria per part
+de l'instal·lador és inhabilitar les traduccions, de manera que el
+procés només es podrà seguir en anglès. Evidentment, encara podreu
+localitzar el sistema després que la instal·lació s'hagi completat.
+
+</para><para>
+
+Si això no és suficient, l'instal·lador encara reduirà més
+el consum de memòria carregant només els components essencials per
+completar la instal·lació bàsica. Això redueix la funcionalitat del
+sistema d'instal·lació. Tindreu l'oportunitat de carregar components
+addicionals manualment, però haureu d'anar amb compte que cada component
+que seleccioneu utilitzarà més memòria i per tant també hi haurà
+més possibilitats que el procés falli.
+
+</para><para>
+
+Si l'instal·lador funciona en mode <emphasis>poca memòria</emphasis>,
+és recomanable crear una partició d'intercanvi relativament gran
+(64&ndash;128 MiB). La partició d'intercanvi s'utilitzarà com a memòria
+virtual, incrementant així la quantitat de memòria disponible per al
+sistema. L'instal·lador activarà la partició d'intercanvi tan aviat
+com sigui possible en el procés d'instal·lació. Fixeu-vos que un ús
+excessiu de la memòria d'intercanvi pot reduir el rendiment del sistema
+i augmentar l'activitat del disc.
+
+</para><para>
+
+Malgrat totes aquestes mesures, encara és possible que el sistema
+es bloquegi, que es produeixin errors inesperats, o que el nucli mati
+processos si es queda sense memòria (fet que resultarà en missatges
+de <quote>Out of memory</quote> mostrats a VT4 i al registre del sistema).
+
+</para><para>
+
+Per exemple, s'ha pogut comprovar que crear un sistema de fitxers
+ext3 gran falla en mode <emphasis>poca memòria</emphasis> quan no hi
+ha prou espai d'intercanvi. Si més memòria d'intercanvi no ajuda a
+solucionar-ho, podeu provar de crear el sistema de fitxers com a ext2
+(que és un component essencial de l'instal·lador). És possible passar
+particions ext2 a ext3 després de la instal·lació.
+
+</para><para>
+
+Hi ha la possibilitat de forçar l'instal·lador a emprar un valor més
+gran de <emphasis>poca memòria</emphasis> al basat en la memòria
+disponible usant el paràmetre d'arrencada <quote>lowmem</quote> com es
+descriu a <xref linkend="installer-args"/>.
+
+</para>
+   </sect3>

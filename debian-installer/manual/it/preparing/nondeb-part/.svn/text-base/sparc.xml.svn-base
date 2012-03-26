@@ -1,0 +1,69 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="sparc">
+  <!-- <title>Partitioning from SunOS</title> -->
+  <title>Partizionare da SunOS</title>
+<para>
+
+<!--
+It's perfectly fine to partition from SunOS; in fact, if you intend to
+run both SunOS and &debian; on the same machine, it is recommended that
+you partition using SunOS prior to installing &debian;.  The Linux
+kernel understands Sun disk labels, so there are no problems there.
+SILO supports booting Linux and SunOS from any of EXT2 (Linux), UFS
+(SunOS), romfs or iso9660 (CDROM) partitions.
+-->
+
+È un'ottima cosa partizionare da SunOS: di fatto se si intende avere SunOS e
+&debian; sulla stessa macchina, si raccomanda di partizionare da SunOS prima di
+installare &debian;. Il kernel Linux riconosce senza problemi le disk label
+Sun. SILO supporta il boot di Linux e SunOS da partizioni EXT2 (Linux), UFS
+(SunOS), romfs o iso9660 (CDROM).
+
+</para>
+  </sect2>
+
+  <sect2 arch="sparc">
+  <!-- <title>Partitioning from Linux or another OS</title> -->
+  <title>Partizionare da Linux o da un altro sistema operativo</title>
+<para>
+
+<!--
+Whatever system you are using to partition, make sure you create a
+<quote>Sun disk label</quote> on your boot disk.  This is the only kind of
+partition scheme that the OpenBoot PROM understands, and so it's the
+only scheme from which you can boot.  In <command>fdisk</command>, the
+<keycap>s</keycap> key is used to create Sun disk labels. You only need to do this
+on drives that do not already have a Sun disk label. If you are using a
+drive that was previously formatted using a PC (or other architecture) you
+must create a new disk label, or problems with the disk geometry will most
+likely occur.
+-->
+
+Qualunque sistema si stia usando per partizionare, ci si deve assicurare
+di creare una <quote>disk label Sun</quote>. È il solo tipo di schema di
+partizionamento che la PROM OpenBoot riconosce, quindi è il solo dal quale
+si può fare l'avvio. In <command>fdisk</command> potete usare il tasto
+<emphasis>s</emphasis> per creare una disk label Sun. È necessario farlo
+solo sui dischi che non ne hanno già una. Se si usa un disco formattato in
+precedenza da un PC (o altre architetture) si deve per forza crearne una
+nuova, in caso contrario potranno facilmente manifestarsi problemi con la
+geometria del disco.
+
+</para><para>
+
+<!--
+You will probably be using <command>SILO</command> as your boot loader (the
+small program which runs the operating system kernel).
+<command>SILO</command> has certain requirements for partition sizes and
+location; see <xref linkend="partitioning"/>.
+-->
+
+Probabilmente si userà <command>SILO</command> come boot loader (il
+programma di ridotte dimensioni che avvia il kernel del sistema operativo).
+<command>SILO</command> richiede che dimensioni e ubicazione delle partizioni
+soddisfino certi requisiti, si consulti <xref linkend="partitioning"/>.
+
+</para>
+  </sect2>

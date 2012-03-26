@@ -1,0 +1,71 @@
+<!-- $Id: rescue.xml 64781 2010-09-18 15:58:51Z mck-guest $ -->
+<!-- original version: 64745 -->
+
+ <sect1 id="rescue">
+ <title>Obnovení poškozeného systému</title>
+<para>
+
+Občas se věci pokazí a pečlivě instalovaný systém najednou nejde
+zavést. Možná se při změně porušil zavaděč, možná není funkční nově
+instalované jádro, nebo možná kosmické záření zasáhlo váš disk
+a v <filename>/sbin/init</filename> změnilo nějaký bit. Pomineme-li
+příčinu toho, proč je váš systém pokažen, budete potřebovat funkční
+systém, ze kterého můžete věci opravit. Jednou z možností je záchranný
+režim instalačního systému.
+
+</para><para>
+
+Pro spuštění záchranného režimu zadejte na výzvu
+<prompt>boot:</prompt> <userinput>rescue</userinput>, nebo použijte
+běžnou instalační metodu se zaváděcím parametrem
+<userinput>rescue/enable=true</userinput>. Nejprve se zobrazí několik
+prvních obrazovek z instalace, pouze v rohu obrazovky bude poznámka,
+že se jedná o záchranný režim. Nepanikařte, váš stávající systém
+nebude přepsán. Záchranný režim jednoduše z instalačního systému
+využije možnost automatického rozpoznání hardwaru, aby zajistil, že
+budete mít při opravách přístup k vašim diskům, síťovým kartám,
+a podobným užitečným zařízením.
+
+</para><para>
+
+Namísto nástroje pro dělení disků by se vám měl zobrazit seznam
+nalezených oblastí s pobídkou, abyste jednu z oblastí vybrali. Obvykle
+byste měli vybrat oblast, na které se nachází kořenový souborový
+systém, jež chcete opravit. Kromě běžných <quote>fyzických</quote>
+oblastí můžete samozřejmě vybírat i oblasti <quote>virtuální</quote>
+ležící na softwarovém RAIDu nebo LVM.
+
+</para><para>
+
+Pokud to bude jen trochu možné, instalátor vám nyní nabídne příkazový
+řádek ve vybraném souborovém systému, který teď můžete použít pro
+provedení nezbytných záchranných prací.
+
+<phrase arch="any-x86">
+Například potřebujete-li přeinstalovat zavaděč GRUB do hlavního
+zaváděcího záznamu (MBR) prvního disku, můžete použít příkaz
+<userinput>grub-install '(hd0)'</userinput>.
+</phrase>
+
+</para><para>
+
+Pokud se nepodaří spustit použitelný příkazový řádek ve vybraném
+kořenovém souborovém systému, je možné, že je souborový systém
+porušen. V takovém případě se zobrazí dialog, který zobrazí varování
+a nabídne spuštění příkazového řádku v prostředí instalačního systému.
+V tomto prostředí se nenachází příliš nástrojů, ale k základní opravě
+systému často bohatě postačí. Vybraný kořenový souborový systém bude
+připojen do adresáře <filename>/target</filename>.
+
+</para><para>
+
+V obou případech se po ukončení shellu systém restartuje.
+
+</para><para>
+
+Na závěr mějte na paměti, že oprava poškozených systémů může být
+obtížná a popis všech možností, které mohou nastat, je mimo rozsah
+této příručky. Pokud máte problémy, obraťte se na specialistu.
+
+</para>
+ </sect1>

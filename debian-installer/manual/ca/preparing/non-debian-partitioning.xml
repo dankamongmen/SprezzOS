@@ -1,0 +1,187 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61147 -->
+
+ <sect1 id="non-debian-partitioning">
+ <title>Preparticionar per sistemes multi-arrencada</title>
+<para>
+
+Quan es parla de partir el vostre disc es refereix al fet de dividir
+el vostre disc en seccions. Cada secció és independent de les altres.
+És bastant similar a posar murs dins d'una casa; si afegiu mobles
+a una habitació, no afectarà a les altres habitacions.
+
+</para><para arch="s390">
+
+Sempre que a aquesta secció es parle de <quote>discs</quote> hauríeu
+d'entendre com a DASD o minidisc VM al mon &arch-title;. També en aquest
+cas, una màquina vol dir hoste VM o LPAR.
+
+</para><para>
+
+Si ja teniu un sistema operatiu al vostre sistema
+
+<phrase arch="any-x86">
+(Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD, &hellip;)
+</phrase>
+
+<phrase arch="s390">
+(VM, z/OS, OS/390, &hellip;)
+</phrase>
+
+i voleu afegir &debian; al mateix disc, necessitareu tornar a partir el disc.
+&debian; necessita de les seves particions pròpies al disc. No es pot
+instal·lar a particions Windows o MacOS. Es poden compartir algunes
+particions amb altres sistemes Unix, però no es descriu ací. Com a mínim
+necessitareu una partició dedicada per l'arrel de &debian;.
+
+</para><para>
+
+Podeu trobar informació de la configuració de la vostra partició utilitzant
+una eina de fer particions pel vostre sistema operatiu
+<phrase
+arch="any-x86">, com l'fdisk o el PartitionMagic</phrase><phrase
+arch="powerpc">, com el Drive Setup, HD Toolkit, o les MacTools</phrase><phrase
+arch="s390">, com el VM diskmap</phrase>. Les eines de fer particions
+sempre donen un mecanisme per mostrar les particions existents sense fer
+canvis.
+
+</para><para>
+
+En general, canviar una partició que ja conté un sistema de fitxers,
+suposa esborrar tota la informació que hi tingui. Així sempre hauríeu
+de fer copies de seguretat abans de tornar a fer particions. Utilitzant
+l'analogia de la casa, és millor si canvieu tots els mobles fora de la
+casa abans de moure una paret pel risc que hi ha de destruir-ho tot.
+
+</para><para arch="hppa" condition="FIXME">
+
+<emphasis>FIXME: write about HP-UX disks?</emphasis>
+
+</para><para>
+
+Si el vostre ordinador té més d'un disc dur, podria ser que volguéssiu
+dedicar un disc complet a &debian;. Si és així, no necessitareu partir
+el disc abans d'arrencar el sistema d'instal·lació; l'instal·lador
+inclou un programa de fer particions que pot fer-ho molt bé.
+
+</para><para>
+
+Si la vostra màquina tan sols té un disc dur, i voleu canviar completament
+el sistema operatiu actual per &debian-gnu;, també podeu esperar a fer particions
+en un dels passos del procés d'instal·lació (<xref linkend="di-partition"/>),
+després d'haver arrencat el sistema d'instal·lació. Per altra banda açò
+tan sols funciona si penseu arrencar l'instal·lador des de cintes, CD-ROM o
+fitxers a una màquina connectada.
+Penseu: si arrenqueu des de fitxers que són al disc dur, i particioneu
+el mateix disc sense el sistema d'instal·lació, us esborrarà els fitxers
+d'arrencada, així que la vostra esperança serà que tot funcione bé a la
+primera. Com a mínim, en aquesta cas, assegureu-vos de tenir els mitjans
+alternatius per reviure la vostra màquina des de cintes o CD-ROM
+d'instal·lació del sistema original.
+
+</para><para>
+
+Si la vostra màquina ja té particions fetes, i té espai suficient esborrant
+o afegint noves particions, aleshores també podeu esperar a fer particions
+amb el programa que porta l'instal·lador de &debian;. Hauríeu de llegir encara
+els materials següents, ja que podeu trobar circumstàncies especials, com
+l'ordre de les particions existents dins el mapa de particions, que obliga
+a que particioneu abans de instal·lar de tota manera.
+
+</para><para arch="any-x86">
+
+Si teniu a la vostra màquina un sistema de fitxers FAT o bé NTFS, que
+utilitzen el DOS i el Windows, podeu esperar i utilitzar el programa de
+fer particions de l'instal·lador de &debian; per canviar la mida del sistema
+de fitxers.
+
+</para><para>
+
+Si cap dels cassos anteriors són aplicables, aleshores necessitareu
+partir el vostre disc abans d'iniciar la instal·lació per crear
+l'espai que es pugui partir per a &debian;. Si alguna de les particions són
+propietàries d'un altre sistema operatiu, hauríeu de crear aquelles
+particions utilitzant el programes de fer particions del sistema operatiu
+nadiu. Us recomanem que <emphasis>no</emphasis> intenteu crear les particions
+de &debian-gnu; utilitzant les eines d'un altre sistema operatiu. En comptes
+d'això, hauríeu de crear les particions del sistema operatiu nadiu que
+voleu mantenir.
+
+</para><para>
+
+Si aneu a instal·lar més d'un sistema operatiu a la mateixa màquina,
+hauríeu d'instal·lar tots els altres sistemes abans de fer la instal·lació
+de &debian;. La instal·lació del Windows i altres SO destruirà l'arrencada del
+&debian;, o us animarà a formatar les particions no natives.
+
+</para><para>
+
+Es pot recuperar el sistema després d'una d'aquestes accions, però
+si instal·leu primer el sistema nadiu, no patireu aquest problema.
+
+</para><para arch="powerpc">
+
+Per que l'OpenFirmware automàticament arrenque &debian-gnu; les particions
+de &arch-parttype; haurien d'aparèixer abans de totes les altres particions al disc,
+especialment les particions d'arrencada del MacOS. Açò s'ha de tenir en
+ment quan pre-particioneu; hauríeu de disposar de l'espai contenidor per
+la partició de &arch-parttype; <emphasis>abans</emphasis> de les altres particions
+amb arrencada al disc (les particions dedicades xicotetes dels controladors
+de disc d'Apple no són d'arrencada). Podeu esborrar l'espai contenidor amb
+les eines de fer particions de &debian; a la instal·lació actual, i
+reemplçar-les amb particions &arch-parttype;.
+
+</para><para>
+
+Si teniu ja un disc dur amb una partició (una configuració prou comuna
+als ordinadors de taula), i voleu disposar de multiarrencada amb el
+sistema operatiu nadiu i &debian;, necessitareu:
+
+  <orderedlist>
+<listitem><para>
+
+Fer còpia de seguretat de tot el que hi ha a l'ordinador.
+
+</para></listitem>
+<listitem><para>
+
+Arrencar des de mitjà d'instal·lació del sistema operatiu nadiu com els
+CD-ROM o cintes.
+
+<phrase arch="powerpc">Quan arrenqueu des d'un CD MacOS, premeu la tecla
+<keycap>c</keycap> quan esteu arrencant per forçar al CD que sigui el
+sistema MacOS actiu.</phrase>
+
+</para></listitem>
+<listitem><para>
+
+Utilitzar les eines de fer particions natives per crear les particions del
+sistema operatiu nadiu. Deixeu un lloc buit per la partició o espai buit per
+&debian-gnu;.
+
+</para></listitem>
+<listitem><para>
+
+Instal·lar el sistema operatiu nadiu a la seva nova partició.
+
+</para></listitem>
+<listitem><para>
+
+Arrencar al vostre sistema nadiu per verificar que tot és correcte i
+arrenqueu els fitxers d'arrencada de l'instal·lador de &debian;.
+
+</para></listitem>
+<listitem><para>
+
+Arrenque l'instal·lador de &debian; per continuar la instal·lació de &debian;.
+
+</para></listitem>
+</orderedlist>
+
+</para>
+
+&nondeb-part-x86.xml;
+&nondeb-part-sparc.xml;
+&nondeb-part-powerpc.xml;
+
+ </sect1>

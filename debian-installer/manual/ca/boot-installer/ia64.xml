@@ -1,0 +1,451 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="ia64"><title>Arrencada des d'un CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+  <note>
+  <title>Contingut del CD</title>
+
+<para>
+
+Hi ha tres variants bàsiques dels CD d'instal·lació de &debian;. El CD de
+<emphasis>Targeta de visita</emphasis> conté una instal·lació mínima que
+s'ajusta als CD de format petit. Requereix una connexió de xarxa a fi
+d'instal·lar la resta de la instal·lació bàsica i construir un sistema
+que es puga utilitzar. El CD d'<emphasis>Instal·lació per xarxa</emphasis>
+conté tots els paquets per a una instal·lació bàsica però requereix una
+connexió de xarxa a un servidor amb una rèplica de &debian; a fi d'instal·lar
+els paquets addicionals que calen per tenir un sistema complet. El conjunt
+de CD de &debian; pot instal·lar un sistema complet d'entre la gran quantitat
+de paquets disponibles, sense haver de tenir accés a la xarxa.
+</para>
+  </note>
+
+<para>
+
+L'arquitectura IA-64 fa servir la Interfície Extensible de Microprogramari
+(Extensible Firmware Interface, EFI) de nova generació, de la casa Intel.
+A diferència de les BIOS x86 tradicionals, que no saben res sobre el
+dispositiu d'arrencada tret de la taula de particions i el registre
+principal d'arrencada (MBR), l'EFI pot llegir i escriure fitxers de
+particions de disc formatades en FAT16 o FAT32. Això simplifica el sovint
+esotèric procés d'iniciar un sistema. El carregador del sistema i el
+microprogramari EFI que permet d'emprar-lo disposen d'un sistema de fitxers
+sencer per emmagatzemar els fitxers que calen per arrencar la màquina. Això
+vol dir que el disc de sistema d'una màquina IA-64 té una partició addicional
+dedicada a l'EFI, en lloc d'un simple MBR o un bloc d'arrencada que trobem
+a sistemes més convencionals.
+
+</para><para>
+
+El CD de l'instal·lador de &debian; conté una petita partició EFI amb el
+carregador <command>ELILO</command>, el seu fitxer de configuració, el
+nucli de l'instal·lador i el sistema de fitxers inicial (l'initrd). El
+sistema en execució també conté una partició EFI on hi ha els fitxers
+necessaris per arrencar el sistema. Aquest fitxers es poden llegir des
+de l'intèrpret d'ordres EFI, tal com es descriu més endavant.
+
+</para><para>
+
+La majoria dels detalls sobre com l'<command>ELILO</command> carrega i
+inicia realment un sistema són transparents a l'instal·lador del sistema.
+Tanmateix, l'instal·lador ha de configurar la partició EFI abans
+d'instal·lar el sistema bàsic. Altrament, la instal·lació de
+l'<command>ELILO</command> fallarà, i no es podrà arrencar el sistema. La
+partició EFI es reserva i es formata en la fase de fer particions de la
+instal·lació, abans de posar cap paquet al disc dur. La tasca de
+fer particions també comprova que hi ha una partició EFI adient abans de
+permetre que continue la instal·lació.
+
+</para><para>
+
+El gestor d'arrencada EFI és el darrer pas de la inicialització del
+microprogramari. Mostra un menú des del qual l'usuari pot seleccionar una
+opció. Segons els model del sistema i segons quin altre software s'hi haja
+carregat, el menú pot variar d'un sistema a l'altre. Hauria d'haver-hi si
+més no dues entrades al menú,
+<command>Menú de manteniment de les opcions d'arrencada</command> i
+<command>Intèrpret d'ordres EFI (incorporat)</command>.
+És preferible emprar la primera opció; tanmateix, si no hi és a l'abast o
+per alguna raó el CD no arrenca amb ella, feu servir la segona opció.
+
+</para>
+
+  <warning>
+  <title>IMPORTANT</title>
+<para>
+El gestor d'arrencada EFI selecciona una acció d'arrencada predeterminada,
+normalment la primera opció del menú, dins un període de temps en segons
+establert prèviament. Això s'indica amb un compte enrere al peu de la
+pantalla. Una vegada el comptador acaba i el sistema inicia l'acció
+predeterminada, potser haureu de tornar a iniciar la màquina a fi de
+continuar la instal·lació. Si l'acció predeterminada és l'intèrpret
+d'ordres EFI Shell, podeu tornar al gestor d'arrencada executant
+<command>exit</command> a l'indicador de l'intèrpret.
+</para>
+  </warning>
+
+  <sect3 arch="ia64" id="bootable-cd">
+  <title>Opció 1: Arrencada des de l'opció Arrenca el menú de manteniment</title>
+<para>
+
+</para>
+
+<itemizedlist>
+
+<listitem><para>
+Inseriu el CD a la unitat de DVD/CD i torneu a iniciar la màquina.
+El microprogramari mostrarà la pàgina i el menú del gestor d'arrencada EFI
+després de completar la inicialització del sistema.
+</para></listitem>
+
+<listitem><para>
+Seleccioneu <command>Arrenca el menú de manteniment</command> del menú
+amb les tecles del cursor i premeu <command>ENTER</command>. Això mostrarà
+un menú nou.
+</para></listitem>
+
+<listitem><para>
+Seleccioneu <command>Arrencada des d'un fitxer</command> del menú amb les
+tecles del cursor i premeu <command>ENTER</command>. Això mostrarà una
+llista de dispositius examinats pel microprogramari. També haurien d'aparèixer
+dues línies de menú amb l'etiqueta <command>Debian Inst [Acpi ...</command>
+o <command>Mitjà d'instal·lació extraïble</command>.
+Si examineu la resta de la línia, s'adonareu que la informació sobre el
+dispositiu i el controlador hauria de ser la mateixa.
+</para></listitem>
+
+<listitem><para>
+Podeu triar qualsevol de les entrades referides a la unitat de CD/DVD. Feu
+la selecció amb les tecles del cursor i premeu <command>ENTER</command>.
+Si trieu <command>Mitjà d'instal·lació extraïble</command> la màquina
+començarà immediatament la seqüència d'arrencada. Si trieu
+<command>Debian Inst [Acpi ...</command>, es mostrarà una llista de
+directoris de la part arrencable del CD, i us indicarà que continueu al
+pas següent (addicional) del procés.
+</para></listitem>
+
+<listitem><para>
+Només cal aquest pas si trieu <command>Debian Inst [Acpi ...</command>.
+La llista de directoris també mostrarà
+<command>[Tracta-ho com una arrencada amb mitjà extraïble]</command> a la
+penúltima línia. Seleccioneu aquesta línia amb les tecles del cursor i
+premeu <command>ENTER</command>. Això inciarà la seqüència d'arrencada.
+</para></listitem>
+
+</itemizedlist>
+
+<para>
+
+Aquests passos inicien el carregador de &debian;, i es mostrarà un menú
+perquè seleccioneu un nucli i les opcions d'arrencada. Procediu a la
+selecció del nucli i de les opcions d'arrencada.
+
+</para>
+  </sect3>
+
+  <sect3 arch="ia64" id="boot-with-efi">
+  <title>Opció 2: Arrencada des de l'intèrpret d'ordres EFI</title>
+<para>
+
+Si, per alguna raó, l'opció 1 no reïx, torneu a iniciar la màquina;
+quan aparega la pantalla del gestor d'arrencada EFI, ha d'haver-hi
+una opció anomenada <command>Intèrpret d'ordres EFI (incorporat)</command>.
+Arrenqueu el CD de l'instal·lador de &debian; seguint aquests passos:
+
+</para>
+
+<itemizedlist>
+
+<listitem><para>
+Inseriu el CD a la unitat de DVD/CD i torneu a iniciar la màquina.
+El microprogramari mostrarà la pàgina i el menú del gestor d'arrencada EFI
+després de completar la inicialització del sistema.
+</para></listitem>
+
+<listitem><para>
+Seleccioneu l'<command>Intèrpret d'ordres EFI</command> del menú amb les
+tecles del cursor i premeu <command>ENTER</command>. L'intèrpret d'ordres
+EFI analitzarà tots els dispositius arrencables i els mostrarà a la
+consola abans de mostrar l'indicador d'ordres. Les particions arrencables
+reconegudes als dispositius mostraran un nom de dispositiu
+<filename>fs<replaceable>n</replaceable>:</filename>. La resta de particions
+reconegudes serà anomenada
+<filename>blk<replaceable>n</replaceable>:</filename>. Si heu inserit el
+CD just abans d'entrar a l'intèrpret, això pot trigar uns pocs segons més,
+ja que cal inicialitzar la unitat de CD.
+</para>
+</listitem>
+
+<listitem><para>
+Examineu els missatges de l'intèrpret i cerqueu-ne el de la unitat de CDROM.
+Probablement serà el dispositiu <filename>fs0:</filename>, tot i que altres
+dispositius amb particions arrencables també apareixeran com a
+<filename>fs<replaceable>n</replaceable></filename>.
+</para></listitem>
+
+<listitem><para>
+Introduïu <command>fs<replaceable>n</replaceable>:</command> i premeu
+<command>ENTER</command> per seleccionar el dispositiu, on
+<replaceable>n</replaceable> és el número de partició del CDROM.
+L'intèrpret mostrarà aleshores el número de la partició com a indicador.
+</para></listitem>
+
+<listitem><para>
+Introduïu <command>elilo</command> i premeu <command>ENTER</command>.
+Això iniciarà la seqüència d'arrencada.
+</para></listitem>
+
+</itemizedlist>
+
+<para>
+
+Igual com amb l'opció 1, aquests passos inicien el carregador de &debian;,
+que mostrarà un menú perquè seleccioneu un nucli i les opcions d'arrencada.
+També podeu introduir l'ordre
+<command>fs<replaceable>n</replaceable>:elilo</command>, més curta, a
+l'indicador de l'intèrpret d'ordres. Procediu a la selecció del nucli i
+de les opcions d'arrencada.
+
+</para>
+
+  </sect3>
+
+  <sect3 arch="ia64" id="serial-console">
+  <title>Instal·lació amb una consola sèrie</title>
+
+<para>
+
+Podeu dur a terme la instal·lació emprant un monitor i un teclat o bé fent
+servir una connexió sèrie. Per a emprar una configuració de monitor/teclat,
+seleccioneu una opció amb la cadena [VGA console]. Per a instal·lar a
+través d'una connexió sèrie, trieu una opció amb la cadena
+[<replaceable>BAUD</replaceable> baud serial console], on
+<replaceable>BAUD</replaceable> és la velocitat de la consola sèrie.
+Hi ha configurades prèviament opcions de menú amb els valors de taxa
+de baudis més típics per al dispositiu ttyS0.
+
+</para><para>
+
+En la majoria de casos, voldreu que l'instal·lador use la mateixa taxa de
+baudis que la de la connexió a la consola EFI. Si no esteu segurs de quin
+és el valor exacte, podeu obtenir-lo introduint l'ordre <command>baud</command>
+a l'intèrpret EFI.
+
+</para><para>
+
+Si no hi ha a l'abast cap opció configurada prèviament per al dispositiu
+sèrie o cap taxa de baudis que vulgueu emprar, podeu substituir l'ajust de
+la consola per una de les opcions del menú. Per exemple, per a emprar una
+consola de 57600 baudis sobre el dispositiu ttyS1, introduïu
+<command>console=ttyS1,57600n8</command> a la finestra de text
+<classname>Boot:</classname>.
+
+</para>
+
+<note><para>
+La majoria d'ordinadors IA-64 venen amb un ajust de consola predeterminat de
+9600 baudis. Aquest ajust és força baix, i el procés normal d'instal·lació
+trigarà prou temps a dibuixar cada pantalla. Hauríeu de considerar o bé
+augmentar la taxa de baudis emprada per dur a terme la instal·lació, o bé
+fer una instal·lació en mode de text. Consulteu el menú d'ajuda
+<classname>Params</classname> per a instruccions sobre com iniciar
+l'instal·lador en mode de text.
+</para></note>
+
+<warning><para>
+Si seleccioneu un tipus de consola no vàlid, podreu seleccionar el nucli i
+introduir-n'hi paràmetres, però tant la pantalla com el dispositiu d'entrada
+deixaran de funcionar tan bon punt s'inicie el nucli, i caldrà que torneu a
+iniciar abans de començar la instal·lació.
+</para></warning>
+  </sect3>
+
+  <sect3 arch="ia64" id="kernel-option-menu">
+  <title>Selecció del nucli i les opcions d'arrencada</title>
+
+<para>
+
+El carregador mostrarà una plantilla amb un menú i una finestra de text amb
+un indicador <classname>Boot:</classname>. Les tecles del cursor seleccionen
+els ítems del menú, i qualsevol text teclejat apareixerà a la finestra de
+text. Hi ha també finestres d'ajuda que poden mostrar-se prement la tecla
+de funció corresponent. La pantalla d'ajuda <classname>General</classname>
+explica les opcions del menú i la de <classname>Params</classname> explica
+les opcions habituals de l'intèrpret d'ordres.
+
+</para><para>
+
+Consulteu la pantalla d'ajuda <classname>General</classname> per a la
+descripció dels nuclis i els modes d'instal·lació més adients. També
+hauríeu de consultar <xref linkend="boot-parms"/> de sota per a qualsevol
+paràmetre addicional que vulgueu establir a la finestra de text
+<classname>Boot:</classname>.
+La versió del nucli que trieu selecciona la versió del nucli que s'emprarà
+tant per al procés d'instal·lació com per al sistema instal·lat. Si teniu
+problemes amb el nucli durant la instal·lació, podeu tenir-los també una
+vegada el sistema s'haja instal·lat. Els següents dos passos seleccionen i
+inicien la instal·lació:
+
+</para>
+
+<itemizedlist>
+
+<listitem><para>
+Seleccioneu la versió del nucli i el mode d'instal·lació més adients a les
+vostres necessitats amb les tecles del cursor.
+</para></listitem>
+
+<listitem><para>
+Introduïu qualsevol paràmetre d'arrencada amb el teclat. El text es
+mostrarà directament a la finestra de text. Aquest és el lloc on
+s'especifiquen els paràmetres del nucli (com els ajusts de la consola
+sèrie).
+</para></listitem>
+
+<listitem><para>
+Premeu <command>ENTER</command>. Això carregarà i iniciarà el nucli.
+El nucli mostrarà els missatges usuals d'inicialització seguits de la
+primera pantalla de l'instal·lador de &debian;.
+</para></listitem>
+
+</itemizedlist>
+
+<para>
+
+Dirigiu-vos al proper capítol per continuar la instal·lació i ajustar la
+llengua, la xarxa i les particions de disc.
+
+</para>
+  </sect3>
+  </sect2>
+
+  <sect2 arch="ia64" id="boot-tftp"><title>Arrencada amb el TFTP</title>
+
+<para>
+L'arrencada d'un sistema IA-64 des de la xarxa és similar a la de CD.
+L'única diferència és la manera com es carrega el nucli de la
+instal·lació. El gestor d'arrencada EFI pot carregar i iniciar programes
+des d'un servidor en xarxa. Una vegada el nucli de la instal·lació s'haja
+carregat i s'inicie, la instal·lació del sistema procedirà amb els
+mateixos passos que la de CD, tret que els paquets de la instal·lació
+bàsica es carregaran des de la xarxa i no des del CD.
+
+</para>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+L'arrencada en xarxa d'un sistema IA-64 requereix dues accions específiques
+per a aquest arquitectura. Al servidor d'arrencada, s'han de configurar el
+DHCP i el TFTP per a transferir l'<command>elilo</command>.
+Al client, s'ha de definir una opció d'arrencada nova el gestor d'arrencada
+EFI a fi d'habilitar la càrrega per xarxa.
+
+</para>
+
+  <sect3 arch="ia64" id="boot-tftp-server">
+  <title>Configuració del servidor</title>
+<para>
+
+Una entrada de TFTP adient per arrencar en xarxa en sistemes IA-64 és
+quelcom semblant a això:
+
+<informalexample><screen>
+host mcmuffin {
+        hardware ethernet 00:30:6e:1e:0e:83;
+        fixed-address 10.0.0.21;
+        filename "debian-installer/ia64/elilo.efi";
+}
+</screen></informalexample>
+
+Tingueu en compte que l'objectiu és fer funcionar
+l'<command>elilo.efi</command> al client.
+
+</para><para>
+
+Extragueu el fitxer <filename>netboot.tar.gz</filename> al directori emprat
+com a arrel del servidor TFTP. Els directoris arrel TFTP solen incloure els
+fitxers <filename>/var/lib/tftp</filename> i <filename>/tftpboot</filename>.
+Això crearà un arbre de directoris del <filename>debian-installer</filename>
+que contindrà els fitxers d'arrencada per al sistema IA-64.
+
+</para><para>
+
+<informalexample><screen>
+# cd /var/lib/tftp
+# tar xvfz /home/user/netboot.tar.gz
+./
+./debian-installer/
+./debian-installer/ia64/
+[...]
+</screen></informalexample>
+
+El fitxer <filename>netboot.tar.gz</filename> conté un fitxer
+<filename>elilo.conf</filename> que hauria de funcionar a la majoria de
+configuracions. Si us cal fer canvis a aquest fitxer, podeu trobar-lo al
+directori <filename>debian-installer/ia64/</filename>.
+
+Hi ha la possibilitat de tenir diferents fitxers de configuració per a
+diferents clients anomenant-los fent servir l'adreça IP del client (en
+hexadecimal) amb el sufix <filename>.conf</filename> en lloc de
+l'<filename>elilo.conf</filename>. Per als detalls vegeu la documentació
+proporcionada al paquet <classname>elilo</classname>.
+
+</para>
+  </sect3>
+
+  <sect3 arch="ia64" id="boot-tftp-client">
+  <title>Configuració del client</title>
+<para>
+
+Per configurar al client la funcionalitat TFTP, comenceu arrencant l'EFI i
+entreu al <guimenu>Menú de manteniment de les opcions d'arrencada</guimenu>.
+
+<itemizedlist>
+<listitem><para>
+
+Afegiu-hi una opció d'arrencada.
+
+</para></listitem>
+<listitem><para>
+
+Ha d'haver-hi una o més línies amb el text
+<guimenuitem>Load File [Acpi()/.../Mac()]</guimenuitem>. Si n'hi ha
+més d'una, seleccioneu la que conté l'adreça física MAC de la interfície
+des de la qual aneu a arrencar. Feu servir les tecles del cursor per
+remarcar l'opció escollida i premeu enter.
+
+</para></listitem>
+<listitem><para>
+
+Anomeneu l'entrada <userinput>Arrencda en xarxa</userinput> o quelcom de
+semblant, deseu-la, i retorneu al menú d'opcions d'arrencada.
+
+</para></listitem>
+</itemizedlist>
+
+S'ha de veure la nova opció d'arrencada que acabeu de crear, i en
+seleccionar-la s'hauria d'iniciar una consulta DHCP, amb la posterior
+càrrega per TFTP de l'<filename>elilo.efi</filename> procedent del
+servidor.
+
+</para><para>
+
+El carregador mostrarà l'indicador després que s'haja descarregat i s'haja
+processat el seu fitxer de configuració. En aquest punt, la instal·lació
+continua amb els mateixos passos que la de CD. Seleccioneu una opció
+d'arrencada, com abans, i quan el nucli haja acabat d'instal·lar-se des
+de la xarxa, iniciarà l'instal·lador de &debian;.
+
+</para><para>
+
+Dirigiu-vos al proper capítol per continuar la instal·lació i ajustar la
+llengua, la xarxa i particions de disc.
+
+</para>
+  </sect3>
+  </sect2>

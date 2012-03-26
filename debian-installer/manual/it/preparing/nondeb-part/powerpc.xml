@@ -1,0 +1,82 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+  <sect2 arch="powerpc">
+  <!-- <title>MacOS/OSX Partitioning</title> -->
+  <title>Partizionare da MacOS/OSX</title>
+<para>
+
+<!--
+The <application>Apple Drive Setup</application> application can be found in the
+<filename>Utilities</filename> folder on the MacOS CD. It will not adjust existing
+partitions; it is limited to partitioning the entire disk at once. The
+disk driver partitions don't show up in <application>Drive Setup</application>.
+-->
+
+L'applicazione <application>Apple Drive Setup</application> può essere
+trovata nella cartella <filename>Utilities</filename> del CD di MacOS. Non
+riesce a modificare le partizioni esistenti, ha il limite di partizionare
+tutto il disco in una sola volta. Le partizioni sul disco non sono mostrate
+in <application>Drive Setup</application>.
+
+</para><para>
+
+<!--
+Remember to create a placeholder partition for GNU/Linux, preferably
+positioned first in the disk layout. it doesn't matter what type it
+is, it will be deleted and replaced later inside the &debian-gnu; installer.
+-->
+
+Ricordarsi di creare una partizione (preferibilmente all'inizio del disco)
+per tenere il posto a GNU/Linux. Il tipo di questa partizione non è importante,
+in seguito verrà cancellata e sostituita dal programma d'installazione di
+&debian-gnu;.
+
+</para><para>
+
+<!--
+If you are planning to install both MacOS 9 and OS X, it is best to
+create separate partitions for OS 9 and OS X. If they are installed on
+the same partition, <application>Startup Disk</application> (and reboot) must be used to select
+between the two; the choice between the two systems can't be made at
+boot time. With separate partitions, separate options for OS 9 and OS
+X will appear when holding the <keycap>option</keycap> key at boot time, and separate
+options can be installed in the <application>yaboot</application> boot menu as well. Also,
+Startup Disk will de-bless all other mountable partitions, which can
+affect GNU/Linux booting. Both OS 9 and OS X partitions will be
+accessible from either OS 9 or OS X.
+-->
+
+Se si sta preparando l'installazione di MacOS 9 e OS X, si consiglia di
+creare delle partizioni separate per OS 9 e OS X. Infatti se sono installati
+nella stessa partizione, si deve usare ogni volta <application>Startup
+Disk</application> per selezionare quale dei due attivare; la scelta fra
+i due sistemi non può essere fatta all'avvio. Usando delle partizioni
+separate per OS 9 e OS X si può scegliere quale avviare tenendo premuto
+il tasto <keycap>option</keycap> e si possono anche inserire nel menu di
+<application>yaboot</application>. Inoltre, Startup Disk declassa tutte
+le altre partizioni e quindi può avere degli effetti sull'avvio di
+GNU/Linux. Le partizioni per OS 9 e OS X saranno accessibili da entrambi
+i sistemi.
+
+</para><para>
+
+<!--
+GNU/Linux is unable to access information on UFS partitions, but does
+support HFS+ (aka MacOS Extended) partitions. OS X requires one of these
+two types for its boot partition. MacOS 9 can be installed on either HFS
+(aka MacOS Standard) or HFS+. To share information between the MacOS and
+GNU/Linux systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT
+partitions are supported by both MacOS and Linux.
+-->
+
+GNU/Linux non è in grado di accedere alle informazioni su partizioni UFS,
+però supporta le partizioni HFS+ (note come MacOS Extended). OS X richiede
+uno di questi due tipi per la propria partizione di avvio. MacOS 9 può essere
+installato su partizioni HFS (note come MacOS Standard) o HFS+. Per
+condividere informazioni fra sistemi MacOS e GNU/Linux è necessaria una
+partizione di scambio. Le partizioni HFS, HFS+ e MS-DOS FAT sono supportate
+da MacOS e Linux.
+
+</para>
+  </sect2>

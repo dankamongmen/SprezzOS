@@ -1,0 +1,50 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 58021 -->
+<!-- updated 43841:48719 by Felipe Augusto van de Wiel (faw) 2007.07.28 -->
+<!-- updated 48719:58021 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+  <sect2 arch="sparc" id="boot-tftp"><title>Inicializando com TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+Em máquinas com o OpenBoot, simplesmente entre no monitor de
+inicialização da máquina que está sendo instalada (veja
+<xref linkend="invoking-openboot"/>).
+
+Use o comando <userinput>boot net</userinput> para inicializar através de
+um servidor TFTP e RARP ou tente <userinput>boot net:bootp</userinput> ou
+<userinput>boot net:dhcp</userinput> para inicializar através de um servidor
+TFTP, BOOTP ou DHCP. Você pode passar parâmetros para o &d-i; no final do
+comando de inicialização (<userinput>boot</userinput>).
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="sparc"><title>Inicializando através de um CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<para>
+
+A maioria das versões do OpenBoot suportam o comando
+<userinput>boot cdrom</userinput> que é simplesmente
+um apelido para a inicialização através de um dispositivo
+SCSI no ID 6 (ou mestre secundário para sistemas baseados em IDE).
+
+</para>
+  </sect2>
+
+  <sect2 arch="sparc"><title>Mensagens do IDPROM</title>
+<para>
+
+Caso não puder inicializar porque você está recebendo mensagens
+sobre um problema com a <quote>IDPROM</quote>, então é possível que sua bateria
+NVRAM, que armazena a informação de configuração de seu firmware,
+esteja esgotada. Veja <ulink url="&url-sun-nvram-faq;">Sun NVRAM FAQ</ulink>
+para mais detalhes.
+
+</para>
+  </sect2>

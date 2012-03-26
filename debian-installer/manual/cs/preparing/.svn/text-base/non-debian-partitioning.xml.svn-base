@@ -1,0 +1,179 @@
+<!-- $Id$ -->
+<!-- original version: 65194 -->
+
+ <sect1 id="non-debian-partitioning">
+ <title>Předrozdělení disku pro více operačních systémů</title>
+<para>
+
+Rozdělením disku se na disku vytvoří několik vzájemně nezávislých
+oddílů (angl. partition). Každý oddíl je nezávislý na ostatních.
+Dá se to přirovnat k bytu rozčleněnému zdmi &mdash; přidání nábytku do
+jedné místnosti nemá na ostatní místnosti žádný vliv.
+
+</para><para arch="s390">
+
+Kdykoliv se v této kapitole bude mluvit o <quote>disku</quote>, měli
+byste si to přeložit do světa &arch-title; jako <quote>DASD</quote>
+nebo <quote>VM minidisk</quote>.  Obdobně <quote>počítač</quote>
+znamená <quote>LPAR</quote> nebo <quote>VM guest</quote>.
+
+</para><para>
+
+Jestliže už na počítači máte nějaký operační systém
+
+<phrase arch="any-x86">
+(Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD,
+&hellip;)
+</phrase>
+
+<phrase arch="s390">
+(VM, z/OS, OS/390, &hellip;)
+</phrase>
+
+a chcete na stejný disk ještě umístit &debian;, patrně se nevyhnete
+přerozdělení disku. &debian; pro sebe potřebuje vlastní diskové oblasti
+a nemůže být nainstalován na oblasti systému Windows nebo třeba MacOS.
+Je sice možné sdílet některé oblasti s jinými systémy, ale popis
+je mimo rozsah tohoto dokumentu. Minimálně budete potřebovat jednu
+oblast pro kořenový souborový systém.
+
+</para><para>
+
+Informace o aktuálním rozdělení disku můžete získat dělicím programem
+svého stávajícího operačního systému<phrase arch="any-x86">, jako je
+fdisk nebo PartitionMagic</phrase><phrase arch="powerpc">, jako je
+Drive Setup, HD Toolkit nebo MacTools</phrase>
+<phrase
+arch="s390">, jako je VM diskmap</phrase>. Každý dělicí nástroj
+umožňuje prohlížet oblasti bez jejich modifikace.
+
+</para><para>
+
+Obecně změna oddílu, na kterém je souborový systém, znamená ztrátu
+dat, takže si raději disk před změnami do tabulky diskových oddílů
+zazálohujte. Podle analogie s bytem a zdmi, z bytu také raději
+vynesete veškerý nábytek, než budete přestavovat zdi.
+
+</para><para arch="hppa" condition="FIXME">
+
+<emphasis>FIXME: write about HP-UX disks?</emphasis>
+
+</para><para>
+
+Jestliže má váš počítač více než jeden pevný disk, můžete celý disk
+vyhradit pro &debian; a dělením disku se můžete zabývat až v průběhu
+instalace. Oddílový program obsažený v instalačním programu se s tím
+jednoduše vypořádá.
+
+</para><para>
+
+Stejně tak pokud máte pouze jeden pevný disk a chcete kompletně
+nahradit stávající operační systém &debian;em, může rozdělení disku
+proběhnout až během instalace (viz <xref linkend="di-partition"/>).
+Pozor: pokud startujete instalační systém z pevného disku a potom
+tento disk rozdělíte, smažete si zaváděcí soubory a musíte doufat, že
+se instalace povede napoprvé. (Minimálně v tomto případě je dobré mít
+u sebe nástroje pro oživení počítače, jako jsou zaváděcí diskety nebo
+CD s původním systémem a podobně.)
+
+</para><para>
+
+Také v případě, že již máte na disku několik oblastí a potřebné místo
+můžete získat jejich smazáním, můžete počkat s rozdělením disku a
+rozdělit jej až při instalaci. I tak byste si měli raději tuto
+kapitolu přečíst, protože někdy mohou nastat okolnosti, které vás k
+rozdělení disku před instalací stejně donutí (například vynucené
+pořadí některých oblastí).
+
+</para><para arch="any-x86">
+
+S rozdělováním můžete rovněž počkat, pokud máte ve svém počítači
+oblast(i) se souborovým systémem FAT nebo NTFS. Tyto oblasti můžete
+zmenšit rovnou v instalačním programu.
+
+</para><para>
+
+Ve všech ostatních případech musíte disk rozdělit ještě před
+instalací, abyste pro &debian; vytvořili volné místo.
+Pokud některé z oblastí budou patřit k jinému operačnímu systému,
+vytvořte je pomocí oddílových programů daného systému. Stejně tak
+<emphasis>nedoporučujeme</emphasis> vytvářet oblasti pro &debian-gnu; nástroji
+z jiných operačních systémů. (Každý systém ví nejlépe, co mu chutná.)
+
+</para><para>
+
+Jestliže budete mít na počítači více operačních systémů, měli byste
+tyto systémy instalovat před &debian;em. Instalační programy Windows a
+jiných systémů by mohly zabránit startu &debian;u nebo vás navést k
+přeformátování některých důležitých oblastí.
+
+</para><para>
+
+Tyto problémy můžete úspěšně vyřešit, případně se jim úplně vyhnout,
+ale nejjistější je instalovat &debian; jako poslední systém.
+
+</para><para arch="powerpc">
+
+Aby OpenFirmware automaticky zaváděl &debian-gnu;, měly by se oblasti pro
+&debian; vyskytovat před všemi ostatními oblastmi na disku (obzvláště
+před zaváděcími oblastmi MacOS).
+To se zajistí třeba tím, že se před instalací vytvoří prázdná oblast
+<emphasis>před</emphasis> ostatními zaváděcími oblastmi na disku.
+(Z malých applových oblastí vyhrazených pro ovladače disků nelze
+zavádět.) Poté, při instalaci &debian;u, se tato oblast smaže a nahradí
+se oblastmi pro &arch-parttype;.
+
+</para><para>
+
+Jestliže máte, jako většina kancelářských počítačů, pouze jeden pevný
+disk s oblastí o maximální velikosti a chcete zavádět oba operační
+systémy (původní systém a &debian;), musíte:
+
+  <orderedlist>
+<listitem><para>
+
+Zazálohovat vše v počítači.
+
+</para></listitem>
+<listitem><para>
+
+Zavést z <phrase arch="s390">pásek</phrase> <phrase
+arch="not-s390">disket</phrase> nebo CD dodaných s původním operačním
+systémem.
+
+<phrase arch="powerpc">Při zavádění z CD MacOS držte klávesu
+<keycap>c</keycap>. Tím donutíte CD, aby se stalo aktivním systémem
+MacOS.</phrase>
+
+</para></listitem>
+<listitem><para>
+
+Oddílovým programem původního systému vytvořit oblast(i) pro původní
+systém a ponechat volné místo pro &debian;.
+
+</para></listitem>
+<listitem><para>
+
+Nainstalovat původní operační systém do jeho nových oblastí.
+
+</para></listitem>
+<listitem><para>
+
+Vyzkoušet, že původní systém funguje a stáhnout si instalační soubory
+&debian;u.
+
+</para></listitem>
+<listitem><para>
+
+Zavést instalátor &debian;u a pokračovat v instalaci.
+
+</para></listitem>
+</orderedlist>
+
+</para>
+
+&nondeb-part-x86.xml;
+&nondeb-part-sparc.xml;
+&nondeb-part-powerpc.xml;
+
+ </sect1>

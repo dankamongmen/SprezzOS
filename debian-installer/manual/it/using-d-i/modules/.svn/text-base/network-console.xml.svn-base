@@ -1,0 +1,260 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65801 -->
+
+  <sect2 id="network-console">
+  <!-- <title>Installation Over the Network</title> -->
+  <title>Installazione dalla rete</title>
+<para arch="not-s390">
+
+<!--
+One of the more interesting components is
+<firstterm>network-console</firstterm>. It allows you to do a large
+part of the installation over the network via SSH. The use of the
+network implies you will have to perform the first steps of the
+installation from the console, at least to the point of setting up
+the networking. (Although you can automate that part with
+<xref linkend="automatic-install"/>.)
+-->
+
+Uno dei componenti più interessanti è la
+<firstterm>network-console</firstterm>. Permette di effettuare la gran
+parte dell'installazione tramite la rete via SSH, il fatto che sia usata
+la rete implica che è necessario eseguire i primi passi dell'installazione
+dalla console, almeno fino al punto in cui viene configurata la rete (è
+comunque possibile preconfigurare questa parte seguendo
+<xref linkend="automatic-install"/>).
+
+</para><para arch="not-s390">
+
+<!--
+This component is not loaded into the main installation menu by default,
+so you have to explicitly ask for it.
+
+If you are installing from CD, you need to boot with medium priority or
+otherwise invoke the main installation menu and choose <guimenuitem>Load
+installer components from CD</guimenuitem> and from the list of
+additional components select <guimenuitem>network-console: Continue
+installation remotely using SSH</guimenuitem>. Successful load is
+indicated by a new menu entry called <guimenuitem>Continue
+installation remotely using SSH</guimenuitem>.
+-->
+
+Normalmente questo componente non è caricato nel menu d'installazione
+principale e quindi deve essere esplicitamente richiesto. Se l'installazione
+avviene da CD è necessario avviare l'installatore con priorità media o più
+bassa altrimenti si può scegliere <guimenuitem>Caricare i componenti
+dell'installatore dal CD-ROM</guimenuitem> dal menu d'installazione principale
+e nell'elenco dei componenti addizionali scegliere
+<guimenuitem>network-console: Proseguire l'installazione in remoto usando
+SSH</guimenuitem>. Se il caricamento ha successo nel menu principale appare
+una nuova voce <guimenuitem>Proseguire l'installazione in remoto usando
+SSH</guimenuitem>.
+
+</para><para arch="s390">
+
+<!--
+For installations on &arch-title;, this is the default method after
+setting up the network.
+-->
+
+Per le installazioni su &arch-title; questo è il metodo che viene normalmente
+richiamato in seguito alla configurazione della rete.
+
+</para><para>
+
+<!--
+<phrase arch="not-s390">After selecting this new entry, you</phrase>
+<phrase arch="s390">You</phrase> will be asked for a new password
+to be used for connecting to the installation system and for its
+confirmation. That's all. Now you should see a screen which instructs
+you to login remotely as the user <emphasis>installer</emphasis> with
+the password you just provided. Another important detail to notice on
+this screen is the fingerprint of this system.  You need to transfer
+the fingerprint securely to the person who will continue the
+installation remotely.
+-->
+
+<phrase arch="not-s390">Dopo la selezione della nuova voce, viene</phrase>
+<phrase arch="s390">Viene</phrase> richiesta la password per connettersi al
+sistema d'installazione; è tutto. Dovrebbe essere visibile una schermata
+con le indicazioni per effettuare il login da remoto con l'utente
+<emphasis>installer</emphasis> e con la stessa password appena inserita.
+Un altro importante dettaglio presente nella schermata è il fingerprint
+del sistema. È necessario che il fingerprint sia trasmesso in modo sicuro
+alla persona che continuerà l'installazione da remoto.
+
+</para><para>
+
+<!--
+Should you decide to continue with the installation locally, you
+can always press &enterkey;, which will bring you back to
+the main menu, where you can select another component.
+-->
+
+Se si desidera continuare con l'installazione locale si può premere
+&enterkey;, in questo modo si ritorna al menu principale dal quale poi
+è possibile selezionare un altro componente.
+
+</para><para>
+
+<!--
+Now let's switch to the other side of the wire. As a prerequisite, you
+need to configure your terminal for UTF-8 encoding, because that is
+what the installation system uses. If you do not, remote installation
+will be still possible, but you may encounter strange display
+artefacts like destroyed dialog borders or unreadable non-ascii
+characters. Establishing a connection with the installation system
+is as simple as typing:
+-->
+
+Passando sull'altro sistema. È necessario configurare il proprio terminale
+in modo che usi la codifica UTF-8, dato che è quella usata dal sistema
+d'installazione. Senza questa configurazione l'installazione da remoto
+rimane comunque possibile ma si possono verificare dei problemi di
+visualizzazione dei bordi dei dialoghi e dei caratteri non-ascii. La
+connessione al sistema d'installazione avviene semplicemente
+eseguendo il seguente comando:
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>ssh -l installer <replaceable>install_host</replaceable></userinput>
+</screen></informalexample>
+
+<!--
+Where <replaceable>install_host</replaceable> is either the name
+or IP address of the computer being installed. Before the actual
+login the fingerprint of the remote system will be displayed and
+you will have to confirm that it is correct.
+-->
+
+Dove <replaceable>install_host</replaceable> è il nome o l'indirizzo IP
+del computer che si sta installando. Prima di effettuare il login viene
+mostrato il fingerprint del sistema remoto e viene chiesto di confermare
+la sua correttezza.
+
+</para><note><para>
+
+<!--
+The <command>ssh</command> server in the installer uses a default
+configuration that does not send keep-alive packets. In principle,
+a connection to the system being installed should be kept open
+indefinitely. However, in some situations &mdash; depending on your
+local network setup &mdash; the connection may be lost after some
+period of inactivity. One common case where this can happen is when
+there is some form of Network Address Translation (NAT) somewhere 
+between the client and the system being installed. Depending on at
+which point of the installation the connection was lost, you may or
+may not be able to resume the installation after reconnecting.
+-->
+
+Il server <command>ssh</command> nell'installatore usa una configurazione
+predefinita che non prevede l'invio di pacchetti keep-alive. In linea di
+principio una connessione verso un sistema in fase di installazione dovrebbe
+essere tenuta aperta indefinitamente. Purtroppo, in alcune situazioni che
+dipendono dalla configurazione della propria rete locale, la connessione
+potrebbe essere interrotta dopo un certo periodo di inattività. Uno dei casi
+più comuni in cui si può verificare questo problema è quando fra il client e
+il sistema che si sta installando è presente una qualche forma di NAT
+(Network Address Translation). La possibilità di riprendere l'installazione
+dopo che la connessione è stata interrotta dipende dal punto a cui era
+l'installazione al momento dell'interruzione.
+
+</para><para>
+
+<!--
+You may be able to avoid the connection being dropped by adding the option
+<userinput>-o&nbsp;ServerAliveInterval=<replaceable>value</replaceable></userinput>
+when starting the <command>ssh</command> connection, or by adding that
+option in your <command>ssh</command> configuration file. Note however
+that in some cases adding this option may also <emphasis>cause</emphasis>
+a connection to be dropped (for example if keep-alive packets are sent
+during a brief network outage, from which <command>ssh</command> would
+otherwise have recovered), so it should only be used when needed.
+-->
+
+È possibile evitare che la connessione sia interrotta aggiungendo l'opzione
+<userinput>-o&nbsp;ServerAliveInterval=<replaceable>valore</replaceable></userinput>
+all'apertura della connessione <command>ssh</command> oppure aggiungendo la
+stessa opzione nel file di configurazione di <command>ssh</command>. Si noti
+che in alcuni casi l'aggiunta di questa opzione potrebbe addirittura
+<emphasis>causare</emphasis> l'interruzione della connessione (per esempio
+se i pacchetti keep-alive sono spediti durante una breve indisponibilità
+della rete, dalla quale <command>ssh</command> poteva recuperare) quindi
+deve essere usata solo quando necessario.
+
+</para></note>
+<note><para>
+
+<!--
+If you install several computers in turn and they happen to have the
+same IP address or hostname, <command>ssh</command> will refuse to connect
+to such host. The reason is that it will have different fingerprint, which
+is usually a sign of a spoofing attack. If you are sure this is not the
+case, you will need to delete the relevant line from
+<filename>~/.ssh/known_hosts</filename><footnote>
+-->
+
+Se si esegue l'installazione su più computer, uno di seguito all'altro,
+può capitare che abbiano lo stesso indirizzo IP o lo stesso nomehost e che
+<command>ssh</command> si rifiuti di fare connessione. Il motivo
+è che hanno dei fingerprint diversi,
+e questo è solitamente il segnale di un attacco spoofing. Se si è sicuri di
+non essere vittime di un attacco allora si deve cancellare dal file
+<filename>~/.ssh/known_hosts</filename> la riga relativa al computer<footnote>
+
+<para>
+
+<!--
+The following command will remove an existing entry for a host:
+<command>ssh-keygen -R &lt;<replaceable>hostname</replaceable>|<replaceable>IP&nbsp;address</replaceable>&gt;</command>.
+-->
+
+Il seguente comando rimuove la riga esistente per un host:
+<command>ssh-keygen -R &lt;<replaceable>nomehost</replaceable>|<replaceable>indirizzo&nbsp;IP</replaceable>&gt;</command>.
+
+</para>
+
+<!--
+</footnote> and try again.
+-->
+
+</footnote> e poi provare nuovamente la connessione.
+
+</para></note><para>
+
+<!--
+After the login you will be presented with an initial screen where you
+have two possibilities called <guimenuitem>Start menu</guimenuitem> and
+<guimenuitem>Start shell</guimenuitem>. The former brings you to the
+main installer menu, where you can continue with the installation as
+usual. The latter starts a shell from which you can examine and possibly
+fix the remote system. You should only start one SSH session for the
+installation menu, but may start multiple sessions for shells.
+-->
+
+Dopo il login viene presentata una schermata iniziale dalla quale si
+ha la possibilità di <guimenuitem>Avviare il menu</guimenuitem> o di
+<guimenuitem>Aprire una shell</guimenuitem>. Scegliendo il menu viene
+attivano il menu principale dal quale si può continuare l'installazione,
+con la shell si può esaminare e forse anche correggere il sistema remoto.
+Probabilmente servirà solo una connessione con il menu d'installazione,
+comunque è possibile avviare altre sessioni per la shell.
+
+</para><warning><para>
+
+<!--
+After you have started the installation remotely over SSH, you should
+not go back to the installation session running on the local console.
+Doing so may corrupt the database that holds the configuration of
+the new system. This in turn may result in a failed installation or
+problems with the installed system.
+-->
+
+Dopo aver avviato l'installazione da remoto tramite SSH non si deve
+ritornare alla sessione d'installazione che è attiva nella console
+locale. Questa operazione potrebbe corrompere il database che contiene
+la configurazione del nuovo sistema e quindi provocare il blocco
+dell'installazione oppure dei problemi nel sistema una volta conclusa
+l'installazione.
+
+</para></warning>
+  </sect2>

@@ -1,0 +1,295 @@
+<!-- $Id: mdcfg.xml 59778 2009-07-26 17:38:54Z mck-guest $ -->
+<!-- original version: 56427 -->
+
+   <sect3 id="mdcfg">
+   <title>Nastavení vícediskových zařízení (Softwarový RAID)</title>
+<para>
+
+Jestliže máte ve svém počítači více než jeden pevný
+disk<footnote><para>
+
+Ve skutečnosti můžete MD vytvořit i z oblastí ležících na jednom
+fyzickém disku, ale nezískáte tím žádnou popisovanou výhodu.
+
+</para></footnote>, můžete využít této skutečnosti nastavit disky pro
+větší výkon a/nebo pro větší bezpečnost dat. Výsledek se nazývá
+<firstterm>Vícediskové zařízení - MD</firstterm> (nebo podle své
+nejznámější varianty <firstterm>softwarový RAID</firstterm>).
+
+</para><para>
+
+Jednoduše řečeno je MD množina oblastí umístěných na různých
+discích. Tyto oblasti se v <command>mdcfg</command> spojí dohromady
+a vytvoří <emphasis>logické</emphasis> zařízení. Toto zařízení pak
+můžete používat jako běžnou oblast (například
+v <command>partman</command>u ji můžete zformátovat, přiřadit jí
+přípojný bod atd.).
+
+</para><para>
+
+Co vám tato operace přinese, závisí na typu vícediskového zařízení,
+které vytváříte. Momentálně jsou podporovány:
+
+<variablelist>
+<varlistentry>
+
+<term>RAID0</term><listitem><para>
+
+Je hlavně zaměřen na rychlost. RAID0 rozdělí všechna příchozí data na
+<firstterm>proužky</firstterm> (stripes) a ty pak rovnoměrně rozmístí
+na každý disk v poli. To může zvýšit rychlost čtení a zápisu, ovšem
+pokud jeden z disků odejde do věčných lovišť, odejdou s ním
+<emphasis>všechna data</emphasis> (část informace je stále na zdravém
+disku (discích), zbývající část <emphasis>byla</emphasis> na vadném
+disku).
+
+</para><para>
+
+Typicky se RAID0 používá pro oblast na stříhání videa.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>RAID1</term><listitem><para>
+
+Je vhodný systémy, kde je spolehlivost na prvním místě. Skládá se
+z několika (obvykle dvou) stejně velkých oblastí, kde každá oblast
+obsahuje naprosto shodná data. Prakticky to znamená tři věci. Za prvé,
+pokud jeden z disků selže, stále máte data zrcadlena na zbývajících
+discích. Za druhé, k dispozici máte pouze část celkové kapacity
+(přesněji to je velikost nejmenší oblasti v poli). Za třetí, pokud se
+vyskytne větší počet požadavků na čtení, mohou se tyto rovnoměrně
+rozdělit mezi jednotlivé disky, což může přinést zajímavé zrychlení
+u serverů, kde převažují čtecí operace na zápisovými.
+
+</para><para>
+
+Volitelně můžete mít v poli rezervní disk, který se normálně nevyužívá
+a v případě výpadku jednoho z disků okamžitě nahradí jeho místo.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>RAID5</term><listitem><para>
+
+Je rozumným kompromisem mezi rychlostí, spolehlivostí a redundancí
+dat. RAID5, podobně jako RAID0, rozdělí všechna příchozí data na
+proužky a poté je rovnoměrně rozmístí na disky v poli. Oproti RAID0 je
+zde však podstatný rozdíl v tom, že se samotná data zapisují pouze na
+<replaceable>n</replaceable> - 1 disků. Zbývající
+<replaceable>n</replaceable>. disk nezahálí, ale zapíše se na něj
+paritní informace. Paritní disk není statický (to by se pak jednalo
+o RAID4), ale pravidelně se posouvá tak, aby byly paritní informace
+rozmístěny rovnoměrně na všech discích v poli. V případě výpadku
+jednoho z disků se může chybějící informace dopočítat ze zbývajících dat
+a jejich parity. RAID5 se musí skládat z alespoň
+<emphasis>tří</emphasis> aktivních zařízení. Volitelně můžete mít
+v poli rezervní disk, který se normálně nevyužívá a v případě výpadku
+jednoho z disků okamžitě nahradí jeho místo.
+
+</para><para>
+
+Jak je vidět, RAID5 nabízí podobný stupeň spolehlivosti jako RAID1,
+ovšem dosahuje menší míry redundance dat. Čtecí operace budou stejně
+rychlé jako na RAID0, ovšem zápis bude mírně pomalejší kvůli počítání
+paritních informací.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>RAID6</term><listitem><para>
+
+Je podobný jako RAID5, ale používá pro paritní informace dva disky,
+což vede k tomu, že přežije výpadek dvou disků.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>RAID10</term><listitem><para>
+
+RAID10 kombinuje proužky (RAID0) se zrcadlením (RAID1). Vytvoří
+<replaceable>n</replaceable> kopií příchozích dat a rozmístí je po
+discích tak, že se žádná z kopií nenachází na stejném zařízení.
+Výchozí hodnota <replaceable>n</replaceable> je 2, ale v expertním
+režimu můžete zvolit jinou hodnotu. Počet použitých oblastí musí být
+nejméně <replaceable>n</replaceable>. RAID10 má pro rozmísťování kopií
+bloků několik algoritmů. Výchozí jsou <quote>blízké kopie</quote>,
+které ukládají kopie bloku na různá zařízení na stejnou pozici.
+Další možností jsou <quote>vzdálené kopie</quote>, které ukládají
+kopie bloků na různá zařízení na zcela jinou pozici. Poslední
+<quote>offsetové kopie</quote> nekopírují jednotlivé kopie, ale celé
+proužky.
+
+</para><para>
+
+RAID10 se dá použít pro dosažení spolehlivosti a redundance bez
+nutnosti počítat paritu.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+Kdybychom měli shrnout podstatné vlastnosti:
+
+<informaltable>
+<tgroup cols="5">
+<thead>
+<row>
+  <entry>Typ</entry>
+  <entry>Minimálně zařízení</entry>
+  <entry>Rezervní zařízení</entry>
+  <entry>Přežije výpadek disku?</entry>
+  <entry>Dostupné místo</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>RAID0</entry>
+  <entry>2</entry>
+  <entry>ne</entry>
+  <entry>ne</entry>
+  <entry>velikost nejmenšího zařízení krát počet aktivních zařízení v in RAIDu</entry>
+</row>
+
+<row>
+  <entry>RAID1</entry>
+  <entry>2</entry>
+  <entry>volitelně</entry>
+  <entry>ano</entry>
+  <entry>velikost nejmenšího zařízení v RAIDu</entry>
+</row>
+
+<row>
+  <entry>RAID5</entry>
+  <entry>3</entry>
+  <entry>volitelně</entry>
+  <entry>ano</entry>
+  <entry>velikost nejmenšího zařízení krát (počet akt. zařízení v RAIDu - 1)</entry>
+</row>
+
+<row>
+  <entry>RAID6</entry>
+  <entry>4</entry>
+  <entry>volitelně</entry>
+  <entry>ano</entry>
+  <entry>velikost nejmenšího zařízení krát (počet akt. zařízení v RAIDu - 2)</entry>
+</row>
+
+<row>
+  <entry>RAID10</entry>
+  <entry>2</entry>
+  <entry>volitelně</entry>
+  <entry>ano</entry>
+  <entry>součet všech oblastí děleno počet kopií (standardně dvě)</entry>
+</row>
+
+</tbody></tgroup></informaltable>
+
+</para><para>
+
+Chcete-li se o Softwarovém RAIDu dozvědět více, rozhodně se podívejte
+na <ulink url="&url-software-raid-howto;">Software RAID HOWTO</ulink>.
+
+</para><para>
+
+Pro vytvoření vícediskového zařízení musí být oblasti, ze kterých se
+má zařízení skládat, označeny pro použití v RAIDu.  (To se provádí
+v <command>partman</command>u v menu <guimenu>Nastavení
+oblasti</guimenu>, kde byste měli nastavit položku <guimenu>Použít
+jako:</guimenu> na hodnotu <guimenuitem>fyzický svazek pro
+RAID</guimenuitem>.)
+
+</para><note><para>
+
+Při rozdělování disku počítejte s tím, že při použití RAIDu pro
+kořenový souborový systém (<filename>/</filename>) je obvykle potřeba
+vytvořit samostatnou oblast pro <filename>/boot</filename>. Většina
+zavaděčů <phrase arch="x86">(včetně lila a grubu)</phrase> podporují
+zrcadlený RAID1 (pozor, ne RAID0), takže je např. možné použít RAID5
+pro <filename>/</filename> a RAID1 pro <filename>/boot</filename>.
+
+</para></note><warning><para>
+
+Podpora vícediskových zařízení je relativně nedávný přírůstek
+k instalačnímu programu a proto je možné, že pokud se pokusíte použít
+vícediskové zařízení pro kořenovou oblast (<filename>/</filename>),
+tak se mohou objevit nějaké problémy se zavaděčem. Zkušení uživatelé
+mohou tyto problémy obejít ručním nastavením v shellu.
+
+</para></warning><para>
+
+Na první obrazovce <command>mdcfg</command> jednoduše vyberte
+<guimenuitem>Vytvořit MD zařízení</guimenuitem>. Bude vám nabídnut
+seznam podporovaných typů vícediskových zařízení, ze kterého si jeden
+vyberte (např. RAID1). Co bude následovat, závisí na typu vybraného
+zařízení.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+RAID0 je velmi jednoduchý &mdash; vaším jediným úkolem je vybrat
+z nabídnutého seznamu RAIDových oblastí ty, které budou tvořit pole.
+
+</para></listitem>
+<listitem><para>
+
+RAID1 je trošku složitější. Nejprve musíte zadat počet aktivních
+a počet rezervních zařízení (oblastí), které budou tvořit RAID. Dále
+musíte ze seznamu dostupných RAIDových oblastí vybrat ty, které mají
+být aktivní a poté ty, které mají být rezervní. Počty vybraných
+oblastí se musí rovnat číslům, která jste zadali před chvílí. Pokud
+uděláte chybu a vyberete jiný počet oblastí, nic se neděje &mdash;
+&d-i; vás nenechá pokračovat, dokud vše nespravíte.
+
+</para></listitem>
+<listitem><para>
+
+RAID5 se nastavuje stejně jako RAID1 s drobnou výjimkou &mdash; musíte
+použít nejméně <emphasis>tři</emphasis> aktivní zařízení.
+
+</para></listitem>
+<listitem><para>
+
+RAID5 se nastavuje stejně jako RAID1 s drobnou výjimkou &mdash; musíte
+použít nejméně <emphasis>čtyři</emphasis> aktivní zařízení.
+
+</para></listitem>
+<listitem><para>
+
+Základní nastavení RAID10 je stejné jako u RAID1. V expertním režimu
+&d-i;u budete navíc dotázáni na na rozložení pole. Rozložení se skládá
+ze dvou částí. První část určuje typ rozložení, druhá pak počet kopií
+každého bloku dat. Typ rozložení může být <literal>n</literal> (pro
+blízké kopie), <literal>f</literal> (pro vzdálené kopie)
+nebo <literal>o</literal> (pro offsetové kopie). Počet kopií musí být
+menší nebo roven počtu zařízení, aby bylo zaručeno, že se každá kopie
+zapíše na jiné zařízení.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+Poznamenejme, že můžete používat více typů vícediskových zařízení
+najednou. Například pokud máte pro MD vyhrazeny tři 200 GB pevné disky
+a na každém máte dvě 100 GB oblasti, můžete z prvních oblastí všech
+disků sestavit pole RAID0 (rychlá 300 GB oblast pro střih videa) a ze
+zbývajících tří oblastí (2 aktivní a 1 rezervní) sestavit RAID1
+(rozumně spolehlivá 100 GB oblast pro domovské adresáře uživatelů).
+
+</para><para>
+
+Až nastavíte vícedisková zařízení podle chuti, můžete ukončit
+<command>mdcfg</command> a vrátit se tak do
+<command>partman</command>u, kde těmto zařízením přiřadíte obvyklé
+atributy jako souborové systémy a přípojné body.
+
+</para>
+   </sect3>

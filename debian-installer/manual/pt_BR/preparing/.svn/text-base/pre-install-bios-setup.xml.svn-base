@@ -1,0 +1,64 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61133 -->
+<!-- revised by Herbert Parentes Fortes Neto (hpfn) 2006.06.28 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.12.27 -->
+<!-- updated by Felipe Augusto van de Wiel (faw) 2007.01.14 -->
+
+ <sect1 id="pre-install-bios-setup">
+ <title>Pré-Instalação do hardware e configuração do sistema operacional</title>
+<para>
+
+Esta seção lhe guiará através da configuração e pré-instalação de
+hardware, se preciso, você precisará fazê-lo antes de instalar a &debian;.
+Geralmente isto envolve a checagem e possivelmente a alteração de
+configurações de firmware para seu sistema. A <quote>firmware</quote> é o
+software central usado pelo hardware; é mais criticamente chamado durante o
+processo de inicialização (após ligar a força). Os assuntos conhecidos
+de hardwares afetando a confiança da &debian-gnu; em seu sistema
+também são destacados.
+
+</para>
+
+&bios-setup-i386.xml;
+&bios-setup-powerpc.xml;
+&bios-setup-sparc.xml;
+&bios-setup-s390.xml;
+
+  <sect2 arch="x86;powerpc" id="hardware-issues">
+  <title>Assuntos relacionados ao hardware que tem em mãos</title>
+
+   <formalpara arch="x86">
+   <title>Suporte da USB na BIOS e teclados USB</title>
+<para>
+
+Se não possuir somente um teclado modelo USB, pode ser necessário
+ativar a emulação de teclado AT em sua BIOS. Somente faça isto
+caso o sistema de instalação falhar em tentar usar o seu teclado em modo USB.
+De modo controverso, em alguns sistemas (em especial em notebooks) você pode
+precisar desativar o suporte USB caso seu teclado não responda. Consulte
+o manual de sua placa mãe e procure na BIOS pelas opções <quote>Legacy keyboard
+emulation</quote> ou <quote>USB keyboard support</quote>.
+
+</para>
+   </formalpara>
+
+   <formalpara arch="powerpc">
+   <title>Visibilidade do display em Powermacs do Antigo Mundo (<quote>OldWorld</quote>)</title>
+
+<para>
+
+Alguns Powermacs do Antigo Mundo (<quote>OldWorld</quote>), mais notoriamente
+aqueles com o driver de <quote>controle</quote> do display, podem não produzir
+de forma confiável um mapa de cores sob o Linux quando o visor
+(<quote>display</quote>) é configurado para mais de 256 cores.
+Se você estiver tendo problemas desta natureza com seu display após uma
+reinicialização (você pode algumas vezes ver os dados no monitor, mas em outras
+ocasiões não consegue ver nada) ou, se a tela fica preta após iniciar o 
+instalador ao invés de exibir para você a interface de usuário, tente alterar
+suas configurações do display no MacOS para usar 256 cores ao invés de
+<quote>milhares</quote> ou <quote>milhões</quote>.
+
+</para>
+   </formalpara>
+  </sect2>
+ </sect1>

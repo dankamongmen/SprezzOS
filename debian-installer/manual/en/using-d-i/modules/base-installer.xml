@@ -1,0 +1,43 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id: base-installer.xml 64743 2010-09-16 22:28:36Z sthibault $ -->
+
+<para>
+
+During installation of the base system, package unpacking and setup
+messages are redirected to <userinput>tty4</userinput>.
+You can access this terminal by pressing
+<keycombo><keycap>Left Alt</keycap><keycap>F4</keycap></keycombo>;
+get back to the main installer process with
+<keycombo><keycap>Left Alt</keycap><keycap>F1</keycap></keycombo>.
+
+</para><para>
+
+The unpack/setup messages generated during this phase are also saved in
+<filename>/var/log/syslog</filename>. You can check them there if the
+installation is performed over a serial console.
+
+</para><para>
+
+As part of the installation, a &arch-kernel; kernel will be installed. At the default
+priority, the installer will choose one for you that best matches your
+hardware. In lower priority modes, you will be able to choose from a list
+of available kernels.
+
+</para><para>
+
+When packages are installed using the package management system, it will
+by default also install packages that are recommended by those packages.
+Recommended packages are not strictly required for the core functionality
+of the selected software, but they do enhance that software and should,
+in the view of the package maintainers, normally be installed together
+with that software.
+
+</para>
+<note><para>
+
+For technical reasons packages installed during the installation of the
+base system are installed without their <quote>Recommends</quote>. The
+rule described above only takes effect after this point in the installation
+process.
+
+</para></note>

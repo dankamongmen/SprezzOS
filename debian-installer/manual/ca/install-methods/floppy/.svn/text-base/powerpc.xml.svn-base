@@ -1,0 +1,121 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+
+  <sect2 arch="powerpc"><title>Gravar imatges de disc des de MacOS</title>
+<para>
+
+Hi ha una seqüència d'Apple <application>Make &debian; Floppy</application> per
+gravar disquets des dels fitxers d'imatge de disc. Es pot descarregar des de
+<ulink url="ftp://ftp2.sourceforge.net/pub/sourceforge/d/de/debian-imac/MakeDebianFloppy.sit"></ulink>.
+Utilitzeu-lo, i descomprimiu-lo al vostre escriptori, i aleshores arrossegueu
+qualsevol fitxer d'imatge dels disquets al disquet. Heu de tenir la seqüència
+d'Apple instal·lada i activada al vostre gestor d'extensions. Al fer Disk
+Copy us demanarà que confirmeu que voleu esborrar el disquet i continuar
+gravant el fitxer de la imatge.
+
+</para><para>
+
+Podeu utilitzar la utilitat de MacOS <command>Disk Copy</command>
+directament, o la utilitat freeware <command>suntar</command>. El
+fitxer <filename>root.bin</filename> és un exemple d'imatge per disquets.
+Utilitzeu aquestes utilitats amb un dels dos mètodes següents per crear
+un disquet des de la imatge del disquet.
+
+</para>
+
+   <sect3>
+   <title>Gravar imatges de disc amb <command>Disk Copy</command></title>
+<para>
+
+Si esteu creant la imatge del disquet des dels fitxers que estan originalment
+al CD de &debian-gnu;, aleshores el Type and Creator estan configurats
+correctament. Els passos següents de <command>Creator-Changer</command> són
+tan sols necessaris si descarregueu els fitxers d'imatge des d'un rèplica
+de &debian;.
+
+</para>
+<orderedlist>
+<listitem><para>
+
+Descarregueu
+<ulink url="&url-powerpc-creator-changer;">Creator-Changer</ulink>
+i utilitzeu-lo per obrir el fitxer <filename>root.bin</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Canvieu el Creator a <userinput>ddsk</userinput> (Disk Copy), i el Type a
+<userinput>DDim</userinput> (imatge binària del disquet). Aneu en compte
+ja que en aquestos camps es distingeix entre majúscules i minúscules.
+
+</para></listitem>
+<listitem><para>
+
+<emphasis>Important:</emphasis> Al Finder, utilitzeu <userinput>Get
+Info</userinput> per mostrar la informació del Finder per la imatge
+del disquet, i poseu <quote>X</quote> al quadre de verificació
+<userinput>File Locked</userinput> per que el MacOS pugui esborrar els
+blocs d'arrencada si la imatge es munta accidentalment.
+
+</para></listitem>
+    <listitem><para>
+
+Descarregueu <command>Disk Copy</command>; si teniu un sistema MacOS o CD
+serà molt probable que el tingueu ja, en altre cas proveu 
+<ulink url="&url-powerpc-diskcopy;"></ulink>.
+
+</para></listitem>
+<listitem><para>
+
+Executeu <command>Disk Copy</command>, i seleccioneu <menuchoice>
+<guimenu>Utilities</guimenu> <guimenuitem>Make a Floppy</guimenuitem>
+</menuchoice>, i aleshores seleccioneu la imatge de l'arxiu
+<emphasis>blocat</emphasis> al diàleg resultant . Us preguntarà que
+inseriu un disquet, i si voleu realment esborrar-lo.
+Quan estigui acabat, expulsarà el disquet.
+
+</para></listitem>
+</orderedlist>
+
+   </sect3>
+
+   <sect3>
+   <title>Gravar les imatges amb <command>suntar</command></title>
+<para>
+
+<orderedlist>
+<listitem><para>
+
+Descarregueu <command>suntar</command> des de <ulink url="&url-powerpc-suntar;">
+</ulink>. Executeu el <command>suntar</command> i seleccioneu
+<quote>Overwrite Sectors...</quote> des del menú <userinput>Special</userinput>.
+
+</para></listitem>
+<listitem><para>
+
+Inseriu el disquet com es demana, i premeu &enterkey; (comença al sector 0).
+
+</para></listitem>
+<listitem><para>
+
+Trieu el fitxer <filename>root.bin</filename> al diàleg d'obrir fitxers.
+
+</para></listitem>
+<listitem><para>
+
+Desprès de crear el disquet, trieu <menuchoice>
+<guimenu>File</guimenu> <guimenuitem>Eject</guimenuitem> </menuchoice>.
+Si hi ha errors a l'escriure al disquet, llanceu el disquet i proveu amb
+un altre.
+
+</para></listitem>
+</orderedlist>
+
+Abans d'utilitzar el disquet que heu creat, <emphasis>protegiu el disquet
+contra escriptura amb la pestanya</emphasis>! Si no ho feu i munteu
+accidentalment al MacOS, probablement l'espatllarà.
+
+</para>
+   </sect3>
+  </sect2>

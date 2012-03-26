@@ -1,0 +1,155 @@
+#!/usr/bin/perl -w
+#
+# This script checks if the translations of the documents are up to date.
+#
+
+use Getopt::Std;
+use File::Find;
+$opt_d = $opt_h = $opt_r = $opt_s = $opt_v = $opt_V = 0;
+getopts('hr:dsvV');
+# You may set this to your default language code
+$lang = shift || "pl";
+if ($opt_r and $opt_r !~ /[0-9]+/) {
+	warn "Please enter a revision number for parameter -r.\n";
+	exit 1
+}
+
+sub usage
+{
+	printf <<HERE, $lang;
+Usage: $0 [options] [<language>]
+
+  -h        print this help message.
+  -d        print what has changed in the original since last translation.
+  -r <rev>  take the diff against the revision number <rev> instead of the
+	    latest revision of the English original.
+  -s        show also all files marked untranslated.
+  -v        be verbose.
+  -V        be slightly more verbose.
+
+  Current <language> is '%s'.
+HERE
+	exit 0;
+}
+
+sub checkdiff
+{
+	my ($plfname, $enfname) = (@_);
+	my ($plrev, $enrev, $untrans) = getrev($plfname, $enfname);
+	$plrev and $enrev or return;
+	if ( "$plrev" ne "$enrev" ) {
+		if ($opt_d and $opt_r and $opt_r < $enrev) {
+			$enrev = $opt_r;
+		}
+		if ($untrans) {
+			print "$enfname : $plrev -> $enrev (untranslated)\n";
+		} else {
+			print "$enfname : $plrev -> $enrev\n";
+		}
+		if ($opt_d) {
+			my $s = "svn diff -r $plrev:$enrev $enfname";
+			warn "running $s:\n" if ($opt_V);
+			system($s);
+		}
+	} else {
+		if ($untrans && $opt_s) {
+			print "$plfname: untranslated\n";
+		}
+	}
+}
+
+sub getrev
+{
+	my ($plfname, $enfname) = (@_);
+	my ($plrev, $enrev, $untrans, $notconverted) = (0, 0, 0, 0);
+	my $line = 0;
+
+	warn "checking $plfname:\n" if $opt_v;
+	open FILE, $plfname or warn "$plfname: $!\n" and return;
+	while (<FILE>) {
+		$line++;
+
+		# Also check for revision comments of original documents
+		# These may be used in combination with a translation comment in
+		# which case the translation comment overrules what's found here
+		if (($plrev == 0) && (/<!--\s*\$Id: \S+ (\d+) /)) {
+			$plrev = $1;
+			$notconverted = 1;
+			$untrans = 1;
+		}
+		if (/<!--\s*original version\D*([\d\.]+)\s*-->/) {
+			$plrev = $1;
+			$untrans = 0;
+			$notconverted = 0;
+			last;
+		}
+		if (/<!--\s*original version\D*(\d+)\s*untranslated\s*-->/) {
+			$plrev = $1;
+			$untrans = 1;
+			$notconverted = 0;
+			last;
+		}
+		# Also support CVS style revision comments (depreciated)
+		if (/<!--\s*original document: en\/\S+, revision ([\d\.]+)\s*-->/) {
+			$plrev = $1;
+			last;
+		}
+		if ($line++ > 10) {
+			last;
+		}
+	}
+	warn "checking $enfname:\n" if $opt_v;
+	open FILE, $enfname or warn "$enfname: $!\n" and return;
+	while (<FILE>) {
+		if (/\$Id: \S+ (\d+) /) {
+			$enrev = $1;
+			last;
+		}
+		# Also support CVS style revision comments (depreciated)
+		if (/\$Revision: (\d+) \$/) {
+			$enrev = $1;
+			last;
+		}
+	}
+	close FILE;
+	warn "failed to find revision for $plfname\n" unless $plrev;
+	warn "failed to find revision for $enfname\n" unless $enrev;
+	if ($notconverted) {
+		warn "$plfname: contains revision comment for original document\n";
+		warn "   use 'rev-update' to convert\n";
+	}
+	return ($plrev, $enrev, $untrans);
+}
+
+sub process
+{
+	my $enfname = $File::Find::name;
+	return unless $enfname =~ m/\.xml$/;
+	my $plfname = $enfname;
+	$plfname =~ s,^en/,$lang/,;
+	checkdiff($plfname, $enfname);
+}
+
+sub process_obsolete
+{
+	my $plfname = $File::Find::name;
+	return unless $plfname =~ m/\.xml$/;
+	my $enfname = $plfname;
+	$enfname =~ s,^$lang/,en/,;
+	open FILE, $enfname or warn "$plfname: Probably obsoleted\n" and return;
+	close FILE;
+}
+
+usage() if $opt_h;
+
+warn "\nChecking for outdated or missing translations...\n" if $opt_v;
+File::Find::find({ wanted => \&process, no_chdir => 1 }, 'en');
+warn "\nChecking for obsoleted translations...\n" if $opt_v;
+File::Find::find({ wanted => \&process_obsolete, no_chdir => 1 }, $lang);
+
+#checkdiff("build/install.$lang.xml", "build/install.en.xml");
+#checkdiff("release-notes.$lang.sgml","release-notes.sgml");
+#checkdiff("index.$lang.html.m4","index.en.html.m4");
+#checkdiff("dselect-beginner.$lang.sgml","dselect-beginner.sgml");
+
+warn "All done.\n" if $opt_v;

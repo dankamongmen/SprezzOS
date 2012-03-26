@@ -1,0 +1,102 @@
+<!--  original version:  64829 -->
+
+ <sect1 id="pppoe" arch="not-s390">
+ <title>Installer &debian-gnu; avec PPP sur Ethernet (PPPoE)</title>
+
+<para>
+
+PPP sur Ethernet (PPPoE) est un protocole très utilisé dans certains pays pour
+établir des connexions de type ADSL ou câble à un fournisseur d'accès à internet.
+L'installateur ne permet pas une mise en place automatique de ce type de connexion mais
+il est très facile de le faire soi-même.
+
+</para><para>
+
+Une connexion PPPoE établie pendant l'installation sera aussi disponible
+pour le système installé après le réarmorçage. Consultez <xref linkend="boot-new"/>.
+
+</para><para>
+
+Pour pouvoir utiliser une connexion PPPoE pendant l'installation,
+vous devez faire une installation avec l'une des images CD-ROM/DVD disponibles.
+Il n'est pas possible d'utiliser une autre méthode d'installation, par exemple
+netboot<phrase condition="supports-floppy-boot"> ou floppy</phrase>.
+
+</para><para>
+
+Une installation avec PPPoE ressemble beaucoup à un autre type d'installation.
+La suite du texte explique certaines différences.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+Il faut amorcer l'installateur avec le paramètre 
+<userinput>modules=ppp-udeb</userinput><footnote arch="x86">
+<para>
+Consultez <xref linkend="boot-screen"/> pour savoir comment passer
+un paramètre d'amorçage.
+</para>
+
+</footnote>.
+
+Ainsi le composant chargé de la mise en &oelig;uvre du protocole PPPoE
+(<classname>ppp-udeb</classname>) sera exécuté automatiquement.
+
+</para></listitem>
+<listitem><para>
+
+Ensuite suivez les étapes habituelles de l'installateur (sélection de la langue, du pays
+et du clavier&nbsp;; chargement de composants supplémentaires<footnote>
+
+<para>
+
+Le composant <classname>ppp-udeb</classname> est chargé à ce moment-là.
+Si vous faites une installation en mode <quote>expert</quote>, priorité <quote>medium</quote>
+ou <quote>low</quote>, vous pouvez choisir vous-même le composant
+au lieu de saisir un paramètre <quote>modules</quote> à l'amorçage.
+
+</para>
+
+</footnote>).
+
+</para></listitem>
+<listitem><para>
+
+L'étape suivante est la détection du matériel réseau et des cartes Ethernet présentes.
+
+</para></listitem>
+<listitem><para>
+
+Puis commence la mise en &oelig;uvre du protocole PPPoE. L'installateur examine
+toutes les interfaces Ethernet détectées pour trouver un concentrateur PPPoE
+(type de serveur qui gère les connexions PPPoE).
+
+</para><para>
+
+Il est possible que le concentrateur ne soit pas trouvé du premier coup.
+Cela arrive parfois avec des réseaux lents ou surchargés ou avec des serveurs défectueux.
+La plupart du temps, le deuxième essai réussira. Pour réessayer,
+sélectionnez <guimenuitem>Configurer et lancer une connexion PPPoE</guimenuitem> dans
+le menu principal de l'installateur.
+
+</para></listitem>
+<listitem><para>
+
+Une fois le concentrateur trouvé, l'utilisateur doit indiquer son identifiant et son mot de
+passe PPPoE.
+
+</para></listitem>
+<listitem><para>
+
+L'installateur tente maintenant d'établir la connexion PPPoE.
+Si tout est correct, la connexion est établie et l'installateur peut récupérer
+des paquets sur internet. Si l'information donnée n'est pas correcte, l'installateur
+s'arrête. On peut retenter la configuration en sélectionnant
+l'entrée de menu <guimenuitem>Configurer et lancer une connexion PPPoE</guimenuitem>.
+
+</para></listitem>
+</itemizedlist>
+
+ </sect1>

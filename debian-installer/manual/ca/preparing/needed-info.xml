@@ -1,0 +1,409 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61147 -->
+
+ <sect1 id="needed-info">
+ <title>Informació requerida</title>
+
+  <sect2>
+  <title>Documentació</title>
+
+   <sect3>
+   <title>Manual d'instal·lació</title>
+
+<para condition="for_cd">
+
+El document present, en format ASCII pla, HTML o PDF.
+
+</para>
+
+<itemizedlist condition="for_cd">
+
+&list-install-manual-files;
+
+</itemizedlist>
+
+<para condition="for_wdo">
+
+El document present, el qual és la versió oficial de la Guia d'instal·lació
+de la versió &releasename; de &debian;; el teniu a l'abast a
+<ulink url="&url-release-area;/installmanual">en diversos formats i
+llengües</ulink>.
+
+</para>
+
+<para condition="for_alioth">
+
+El document present, el qual és una versió de desenvolupament de la Guia
+d'instal·lació de la propera versió de &debian;; el teniu a l'abast a
+<ulink url="&url-d-i-alioth-manual;">en diversos formats i llengües</ulink>.
+
+</para>
+
+</sect3>
+
+
+   <sect3><title>Documentació sobre el maquinari</title>
+<para>
+
+Sol contenir informació d'utilitat per a la configuració i ús del maquinari.
+
+</para>
+
+ <!-- We need the arch dependence for the whole list to ensure proper xml
+      as long as not architectures have a paragraph -->
+ <itemizedlist arch="x86;sparc;mips;mipsel">
+<listitem arch="x86"><para>
+
+<ulink url="&url-hardware-howto;">COM ES FA sobre compatibilitat de maquinari
+amb el Linux (en anglès)</ulink>
+
+</para></listitem>
+
+<listitem arch="sparc"><para>
+
+<ulink url="&url-sparc-linux-faq;">PMF del Linux per a processadors SPARC
+(en anglès)</ulink>
+
+</para></listitem>
+
+<listitem arch="mips;mipsel"><para>
+
+<ulink url="&url-linux-mips;">Lloc web del Linux/Mips</ulink>
+
+</para></listitem>
+
+</itemizedlist>
+   </sect3>
+
+
+   <sect3 arch="s390">
+   <title>&arch-title; Referències sobre maquinari</title>
+<para>
+
+
+Instruccions d'instal·lació i controladors de dispositius (DASD, XPRAM,
+Console, tape, z90 crypto, chandev, network) per al Linux en &arch-title;
+amb nucli 2.4
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://oss.software.ibm.com/developerworks/opensource/linux390/docu/l390dd08.pdf">
+Controladors de dispositius i Instruccions d'instal·lació</ulink>
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+El llibre roig d'IBM descriu com es pot combinar el Linux amb z/VM sobre
+zSeries i el maquinari en &arch-title;.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+Linux per a &arch-title;</ulink>
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+El llibre roig d'IBM que descriu les distribucions de Linux disponibles
+per al mainframe. No té cap capítol sobre &debian; però els conceptes bàsics
+d'instal·lació són els mateixos per a totes les distribucions &arch-title;.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux per a l'IBM eServer zSeries i &arch-title;: distribucions</ulink>
+
+</para></listitem>
+</itemizedlist>
+   </sect3>
+
+  </sect2>
+
+  <sect2 id="fsohi">
+  <title>Fonts d'informació sobre el maquinari</title>
+<para>
+
+En molts casos, l'instal·lador detectarà automàticament el maquinari.
+Però en qualsevol cas, és recomanable que us familiaritzeu amb el
+maquinari abans de la instal·lació.
+
+</para><para>
+
+La informació sobre el maquinari es pot obtenir de:
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+Els manuals que acompanyen el dispositiu.
+
+</para></listitem>
+<listitem><para>
+
+La informació en pantalla del programa de configuració de la BIOS, a què
+podeu accedir en iniciar l'ordinador prement una combinació de tecles que
+heu d'esbrinar consultant el manual. Sovint cal prémer la tecla
+<keycap>Delete</keycap>.
+
+</para></listitem>
+<listitem><para>
+
+Els embalatges i les caixes del maquinari.
+
+</para></listitem>
+
+<listitem arch="any-x86"><para>
+
+La finestra Sistema del Tauler de Control del Windows.
+
+
+</para></listitem>
+<listitem><para>
+
+Ordres o eines de sistema d'un altre sistema operatiu, incloent-hi els
+gestors d'arxius, especialment útils com a font d'informació sobre
+la RAM i l'espai del disc dur.
+
+</para></listitem>
+<listitem><para>
+
+L'administrador del sistema o el proveïdor del servei d'internet (ISP).
+Aquestes fonts poden indicar-vos els ajusts que calen per configurar la
+xarxa i el correu electrònic.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+<table>
+<title>Informació sobre el maquinari requerida per a la instal·lació</title>
+<tgroup cols="2">
+<thead>
+<row>
+  <entry>Maquinari</entry><entry>Informació que us pot caldre</entry>
+</row>
+</thead>
+
+<tbody>
+<row arch="not-s390">
+  <entry morerows="5">Discs durs</entry>
+  <entry>Quants en teniu.</entry>
+</row>
+<row arch="not-s390"><entry>Quin ordre tenen al sistema.</entry></row>
+<row arch="not-s390">
+  <entry>Si són IDE (també coneguts com PATA), SATA o SCSI.</entry>
+</row>
+<row arch="not-s390"><entry>Quant d'espai lliure hi ha.</entry></row>
+<row arch="not-s390"><entry>Particions.</entry></row>
+<row arch="not-s390">
+  <entry>Particions on hi ha instal·lats altres sistemes operatius.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="5">Monitor</entry>
+  <entry>Model i fabricant.</entry>
+</row>
+<row arch="not-s390"><entry>Resolucions permeses.</entry></row>
+<row arch="not-s390"><entry>Freqüència de refresc horitzontal.</entry></row>
+<row arch="not-s390"><entry>Freqüència de refresc vertical.</entry></row>
+<row arch="not-s390">
+  <entry>Profunditat del color (nombre de colors) permesa.</entry>
+</row>
+<row arch="not-s390"><entry>Mida de la pantalla.</entry></row>
+
+<row arch="not-s390">
+  <entry morerows="3">Ratolí</entry>
+  <entry>Tipus: sèrie, PS/2 o USB.</entry>
+</row>
+<row arch="not-s390"><entry>Port.</entry></row>
+<row arch="not-s390"><entry>Fabricant.</entry></row>
+<row arch="not-s390"><entry>Nombre de botons.</entry></row>
+
+<row arch="not-s390">
+  <entry morerows="1">Xarxa</entry>
+  <entry>Model i fabricant.</entry>
+</row>
+<row arch="not-s390"><entry>Tipus d'adaptador.</entry></row>
+
+<row arch="not-s390">
+  <entry morerows="1">Impressorar</entry>
+  <entry>Model i fabricant.</entry>
+</row>
+<row arch="not-s390"><entry>Resolucions d'impressió permeses.</entry></row>
+
+<row arch="not-s390">
+  <entry morerows="2">Targeta de vídeo</entry>
+  <entry>Model i fabricant.</entry>
+</row>
+<row arch="not-s390"><entry>Memòria RAM de vídeo disponible.</entry></row>
+<row arch="not-s390">
+  <entry>Resolucions i profunditat del color permeses (s'haurien de tenir en
+	 compte les especificacions del monitor).</entry>
+</row>
+
+<row arch="s390">
+  <entry morerows="1">DASD</entry>
+  <entry>Número(s) del dispositiu.</entry>
+</row>
+<row arch="s390"><entry>Espai lliure disponible.</entry></row>
+
+<row arch="s390">
+  <entry morerows="2">Xarxa</entry>
+  <entry>Tipus d'adaptador.</entry>
+</row>
+<row arch="s390"><entry>Números del dispositiu.</entry></row>
+<row arch="s390"><entry>Número d'adaptador relatiu per a targetes OSA.</entry></row>
+
+</tbody></tgroup></table>
+
+</para>
+  </sect2>
+
+  <sect2>
+  <title>Compatibilitat del maquinari</title>
+
+<para>
+
+Molts productes de marca funcionen en &arch-kernel; sense cap problema. A més,
+el suport per a maquinari a &arch-kernel; millora constantment. Tanmateix, el
+&arch-kernel; encara no treballa amb tants tipus diferents de maquinari com
+altres sistemes operatius.
+
+</para><para arch="any-x86">
+
+En particular, el &arch-kernel; sol no poder treballar amb maquinari que requereix
+que s'execute una versió de Windows per funcionar.
+
+</para><para arch="x86">
+
+Tot i que es pot fer que algun maquinari específic per al Windows funcione
+amb el Linux, això suposa molt d'esforç. A més, els controladors de Linux
+per a maquinari específic per al Windows solen funcionar només amb un nucli
+específic de Linux. Per tant, poden esdevenir obsolets ràpidament.
+
+</para><para arch="any-x86">
+
+Els anomenats win-mòdems són el tipus més usual d'aquest maquinari.
+Tanmateix, hi ha també impressores i altres dispositius que també poden
+ser específics per al Windows.
+
+</para><para>
+
+A fi de comprovar la compatibilitat del maquinari podeu:
+
+<itemizedlist>
+<listitem><para>
+
+Cercar controladors al lloc web del fabricant.
+
+</para></listitem>
+<listitem><para>
+
+Examinar llocs web o manuals amb informació sobre emulacions.
+De vegades, les marques menys conegudes empren els controladors o
+les configuracions de les més conegudes.
+
+</para></listitem>
+<listitem><para>
+
+Consultar llistes de compatibilitat de maquinari amb el &arch-kernel; a llocs
+web dedicats a la vostra arquitectura.
+
+</para></listitem>
+<listitem><para>
+
+Cercar a Internet per aprendre de les experiències d'altres usuaris.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+
+  <sect2>
+  <title>Configuració de la xarxa</title>
+
+<para>
+
+Si teniu l'ordinador connectat a una xarxa les 24 hores del dia (és a dir,
+amb una connexió Ethernet o equivalent &mdash; no una PPP), demaneu la
+informació a l'administrador del sistema de xarxa.
+
+<itemizedlist>
+<listitem><para>
+
+El nom de l'ordinador (potser podreu decidir-lo vosaltres mateixos).
+
+</para></listitem>
+<listitem><para>
+
+El nom del domini.
+
+</para></listitem>
+<listitem><para>
+
+L'adreça IP de l'ordinador.
+
+</para></listitem>
+<listitem><para>
+
+La màscara que fa servir la xarxa.
+
+</para></listitem>
+<listitem><para>
+
+L'adreça IP de la passarel·la predeterminada a què us heu de dirigir si
+la xarxa <emphasis>en té una</emphasis>, de passarel·la.
+
+</para></listitem>
+<listitem><para>
+
+El sistema de la xarxa que heu d'emprar com a servidor DNS (Servei de nom
+del domini).
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+D'altra banda, si l'administrador us indica que hi ha un servidor DHCP a
+l'abast i el recomana, aleshores no us cal aquesta informació ja que el
+servidor DHCP proporciona la informació directament a l'ordinador durant
+el procés d'instal·lació.
+
+</para><para>
+
+Si teniu una xarxa sense fils, heu d'esbrinar:
+
+<itemizedlist>
+<listitem><para>
+
+L'ESSID de la xarxa.
+
+</para></listitem>
+<listitem><para>
+
+La clau WEP de seguretat (si s'escau).
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+
+ </sect1>

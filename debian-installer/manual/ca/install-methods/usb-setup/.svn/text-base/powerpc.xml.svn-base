@@ -1,0 +1,120 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+   <sect3 arch="powerpc">
+   <title>Partició de dispositius USB</title>
+<para>
+
+La major part dels dispositius USB no venen preconfigurats de manera
+que l'Open Firmware pugui arrencar des d'ells, així que necessitareu
+tornar a partir el dispositiu. Als sistemes Mac, executeu
+<userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></userinput>,
+i inicieu la nova taula de particions utilitzant l'ordre
+<userinput>i</userinput>, i creeu una nova partició de tipus «Apple_Bootstrap»
+utilitzant l'ordre <userinput>C</userinput>. (Fixeu-vos que la primera
+«partició» serà sempre la taula de particions.) Aleshores escriviu
+
+<informalexample><screen>
+$ hformat /dev/<replaceable>sdX2</replaceable>
+</screen></informalexample>
+
+Aneu en compte d'utilitzar en nom del dispositiu correcte al vostre USB.
+L'ordre <command>hformat</command> la podeu trobar al paquet de &debian;
+<classname>hfsutils</classname>.
+
+</para><para>
+
+Per iniciar el nucli després d'arrencar des del dispositiu USB, afegirem
+un carregador d'arrencada al dispositiu. El carregador d'arrencada
+<command>yaboot</command> es pot instal·lar al sistema de fitxers HFS i es
+pot reconfigurar editant tan sols un fitxer de text. Qualsevol sistema
+operatiu que suporte el sistema de fitxer HFS es pot utilitzar per fer
+els canvis a la configuració del carregador d'arrencada.
+
+</para><para>
+
+L'eina normal <command>ybin</command> que ve amb <command>yaboot</command>
+no pot utilitzar dispositius d'emmagatzemament USB, així que haureu
+d'instal·lar <command>yaboot</command> manualment utilitzant les eines de
+<classname>hfsutils</classname>. Escriviu
+
+<informalexample><screen>
+$ hmount /dev/<replaceable>sdX2</replaceable>
+$ hcopy -r /usr/lib/yaboot/yaboot :
+$ hattrib -c UNIX -t tbxi :yaboot
+$ hattrib -b :
+$ humount
+</screen></informalexample>
+
+Altra vegada, aneu en compte d'utilitzar el nom de dispositiu correcte.
+La partició no s'hauria de muntar en aquest procediment. Aquest procediment
+escriu el carregador d'arrencada a la partició, i fa ús de les utilitats
+HFS per marcar-la de manera que l'Open Firmware la pugui arrencar. Fent
+açò, la resta del dispositiu USB es podria preparar per fer ús de les
+utilitats Unix normals.
+
+</para>
+   </sect3>
+
+   <sect3 arch="powerpc">
+   <title>Afegir la imatge de l'instal·lador</title>
+<para>
+
+Munteu la partició (<userinput>mount /dev/<replaceable>sdX2</replaceable>
+/mnt</userinput>) i copieu els fitxers de l'instal·lador següents al llapis
+USB:
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinux</filename> (binari del nucli)
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename> (imatge inicial del disc RAM)
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot.conf</filename> (fitxer de configuració del yaboot)
+
+</para></listitem>
+<listitem><para>
+
+<filename>boot.msg</filename> (missatge opcional d'arrencada)
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+El fitxer de configuració de <filename>yaboot.conf</filename> hauria de
+contenir les línies següents:
+
+<informalexample><screen>
+default=install
+root=/dev/ram
+
+message=/boot.msg
+
+image=/vmlinux
+        label=install
+        initrd=/initrd.gz
+        initrd-size=10000
+        read-only
+</screen></informalexample>
+
+Adoneu-vos que el paràmetre <userinput>initrd-size</userinput> es podria
+incrementar, depenent de la imatge que esteu arrencant.
+
+</para><para>
+
+Si heu utilitzat una imatge <filename>hd-media</filename>, ara hauríeu de
+copiar una imatge ISO de &debian; (<quote>businesscard</quote>,
+<quote>netinst</quote> o una imatge de CD complet; assegureu-vos de triar-ne
+una que hi càpiga) al llapis USB. Finalment, desmunteu el dispositiu USB
+(<userinput>umount /mnt</userinput>).
+
+</para>
+   </sect3>

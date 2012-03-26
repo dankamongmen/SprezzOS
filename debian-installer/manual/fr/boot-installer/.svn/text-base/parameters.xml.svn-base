@@ -1,0 +1,632 @@
+<!-- original version:  66709 -->
+
+ <sect1 id="boot-parms"><title>Paramètres d'amorçage</title>
+<para arch="linux-any">
+
+Les paramètres d'amorçage sont des paramètres passés au noyau Linux pour
+s'assurer que les périphériques seront correctement pris en compte. Dans la
+plupart des cas le noyau détecte les périphériques, mais parfois vous devez
+l'aider un peu.
+
+</para><para>
+
+Si c'est la première fois que vous démarrez le système, essayez les paramètres
+par défaut&nbsp;; autrement dit, ne donnez pas de paramètre et vérifiez que 
+cela fonctionne correctement. Ce devrait être le cas. Sinon, vous pouvez 
+redémarrer et donner les paramètres nécessaires à votre matériel.
+
+</para><para arch="linux-any">
+
+Toutes les informations nécessaires sur les paramètres
+d'amorçage sont disponibles dans le 
+<ulink url="http://www.tldp.org/HOWTO/BootPrompt-HOWTO.html">HOWTO Linux BootPrompt</ulink>&nbsp;;
+la présente section contient seulement un résumé des paramètres les
+plus utilisés. Certains <emphasis>trucs</emphasis> sont donnés dans la
+<xref linkend="boot-troubleshooting"/>.
+
+</para><para arch="linux-any">
+
+Lorsque le noyau démarre, un message 
+
+<informalexample><screen>
+Memory:<replaceable> avail</replaceable> k/<replaceable> total</replaceable> k available 
+</screen></informalexample>
+
+doit être affiché assez tôt durant le processus. 
+<replaceable>Total</replaceable> doit correspondre à la quantité de mémoire 
+vive (exprimée en kilo-octets) que contient votre machine. Si la quantité de
+mémoire vive détectée ne correspond pas à la quantité de mémoire de votre 
+machine, vous devez utiliser le paramètre
+<userinput>mem=<replaceable>ram</replaceable></userinput>, où 
+<replaceable>ram</replaceable> est la taille mémoire de votre machine, suivie 
+par <quote>k</quote> pour kilo-octets ou <quote>m</quote> pour méga-octets. Par 
+exemple, <userinput>mem=65536k</userinput> et <userinput>mem=64m</userinput> 
+sont équivalents pour forcer l'utilisation de 64&nbsp;Mo de mémoire vive.
+</para>
+
+<para arch="linux-any" condition="supports-serial-console">
+
+Si vous démarrez avec la console série, le noyau la
+détecte automatiquement. 
+Si une carte vidéo («&nbsp;framebuffer&nbsp;») et un clavier sont également 
+connectés à l'ordinateur que vous voulez démarrer à l'aide de la console 
+série, vous devrez peut-être passer l'option
+<userinput>console=<replaceable>device</replaceable></userinput> au noyau, où
+<replaceable>device</replaceable> est votre interface série, c'est-à-dire 
+quelque chose comme <filename>ttyS0</filename> <footnote>
+
+<para>
+
+Il est possible d'ajouter le paramètre <userinput>TERM=<replaceable>type</replaceable></userinput>
+pour s'assurer que le type de terminal utilisé par l'installateur corresponde
+à votre terminal. L'installateur reconnaît les types de terminal suivants :
+<literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>,
+<literal>vt102</literal> et <literal>dumb</literal>. Pour la console série, le type utilisé est
+<userinput>vt102</userinput>.
+</para>
+
+</footnote>.
+  </para>
+
+<para arch="sparc">
+Pour &arch-title;, les interfaces série sont <filename>ttya</filename> ou
+<filename>ttyb</filename>. Alternativement, mettez les
+      variables OpenPROM <envar>input-device</envar> et
+<envar>output-device</envar> à <filename>ttya</filename>.
+</para>
+
+
+  <sect2 id="installer-args"><title>Paramètres pour l'installateur &debian;</title>
+<para>
+
+Le système d'installation accepte des paramètres d'amorçage<footnote>
+
+<para>
+À partir des noyaux de la série 2.6.9, on peut utiliser
+32 options sur la ligne de commande et 32 options d'environnement.
+En cas de dépassement, le noyau <emphasis>panique</emphasis>.
+</para></footnote>.</para>
+
+<para>
+
+Certains paramètres possèdent une <quote>forme courte</quote> qui permet
+d'éviter les limitations concernant les options du noyau données sur la
+ligne de commande. La saisie en est aussi facilitée. Quand il existe une forme courte,
+elle sera donnée entre parenthèses, après la forme longue. Les exemples de ce
+manuel utilisent la forme courte des paramètres.
+</para>
+
+
+<variablelist>
+<varlistentry>
+<term>debconf/priority (priority)</term>
+<listitem><para>
+
+Ce paramètre sert à déclarer le niveau de la priorité à partir de laquelle
+les messages sont affichés. 
+
+</para><para>
+
+Dans l'installation par défaut, ce paramètre est égal à
+<userinput>priority=high</userinput>. Cela signifie que les messages
+avec des priorités <quote>high</quote> et <quote>critical</quote> seront
+affichés, mais non les messages avec des priorités <quote>medium</quote> et
+<quote>low</quote>. Si des problèmes apparaissent, l'installateur fixe la
+priorité comme il est nécessaire.
+
+</para><para>
+
+Si vous ajoutez le paramètre <userinput>priority=medium</userinput>
+au démarrage, vous obtiendrez le menu d'installation et un contrôle plus fin 
+du processus d'installation. Si vous ajoutez 
+<userinput>priority=low</userinput>, tous les messages seront affichés&nbsp;;
+c'est l'équivalent de la méthode de démarrage <emphasis>expert</emphasis>.
+Si vous utilisez <userinput>priority=critical</userinput>, seuls les
+messages critiques seront affichés et l'installateur fera ce qu'il faut pour
+tout faire correctement.
+
+</para></listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term>DEBIAN_FRONTEND</term>
+<listitem><para>
+
+Ce paramètre contrôle le type d'interface qu'utilisera l'installateur.
+Voici les valeurs possibles actuellement&nbsp;:
+
+<itemizedlist>
+<listitem>
+<para><userinput>DEBIAN_FRONTEND=noninteractive</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=text</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=newt</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=gtk</userinput></para>
+</listitem>
+</itemizedlist>
+
+L'interface par défaut est <userinput>DEBIAN_FRONTEND=newt</userinput>.
+<userinput>DEBIAN_FRONTEND=text</userinput> est préférable pour les 
+installations avec une console série. Certains supports d'installation spécialisés
+n'offrent pas toutes les interfaces possibles mais les interfaces <userinput>newt</userinput>
+<userinput>text</userinput> sont disponibles sur la plupart des supports d'installation.
+Sur certaines architectures, l'installateur graphique utilise l'interface <userinput>gtk</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>BOOT_DEBUG</term>
+<listitem><para>
+
+Si l'on donne la valeur 2 à ce paramètre, le processus d'amorçage de l'installateur sera
+enregistré avec beaucoup de détails dans les journaux du démarrage. Si l'on donne la valeur 3,
+des interpréteurs seront disponibles à des endroits stratégiques du processus d'amorçage.
+Il faut quitter (exit) les interpréteurs pour revenir au processus d'amorçage.
+
+<variablelist>
+<varlistentry>
+<term><userinput>BOOT_DEBUG=0</userinput></term>
+<listitem><para>valeur par défaut.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=1</userinput></term>
+<listitem><para>Un peu plus bavard qu'habituellement.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=2</userinput></term>
+<listitem><para>Beaucoup d'informations.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=3</userinput></term>
+<listitem><para>
+
+À certains moments du processus de démarrage, un shell est exécuté pour
+permettre un débogage approfondi. Quittez le shell pour revenir au processus
+de démarrage.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+</para></listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term>INSTALL_MEDIA_DEV</term>
+<listitem><para>
+
+La valeur de ce paramètre donne l'adresse du périphérique sur lequel se
+trouve l'installateur &debian;.
+Par exemple,
+<userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</userinput>
+
+</para><para>
+
+
+La disquette de démarrage recherche la disquette racine sur toutes les 
+disquettes. Grâce à ce paramètre, on peut limiter
+cette recherche à un seul périphérique.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>log_host</term>
+<term>log_port</term>
+<listitem><para>
+
+Avec ces paramètres, l'installateur peut envoyer des messages à un syslog distant,
+sur un hôte et un port spécifiés, aussi bien que dans un fichier local. Si le port
+n'est pas indiqué, l'installateur utilise le port standard de syslog, 514.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>lowmem</term>
+<listitem><para>
+
+Ce paramètre permet de forcer un niveau de mémoire à utiliser autre que celui
+basé sur la mémoire disponible. Les valeurs possibles sont 1 ou 2. Voyez
+<xref linkend="lowmem"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>noshell</term>
+<listitem><para>
+
+Ce paramètre interdit l'utilisation de shell interactif sur les consoles tty2 et tty3.
+C'est utile pour des installations automatisées où la sécurité est limitée.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/framebuffer (fb)</term>
+<listitem><para>
+
+Certaines architectures utilisent le tampon vidéo du noyau <emphasis>framebuffer</emphasis>
+afin d'offrir l'installation en plusieurs langues. Si le tampon vidéo pose des 
+problèmes sur votre système, vous pouvez utiliser le paramètre 
+<userinput arch="x86">vga=normal</userinput> <userinput>fb=false</userinput>, pour le désactiver. 
+Les symptômes de ce problème sont des messages d'erreur au sujet de bterm ou 
+bogl, un écran noir, ou un blocage quelques minutes après le début de
+l'installation.
+
+</para><para arch="hppa">
+
+Des problèmes semblables ont été rencontrés sur les hppa.
+
+</para><note arch="sparc"><para>
+
+La gestion du tampon video est <emphasis>désactivé par défaut</emphasis>
+sur &arch-title; à cause de problèmes d'affichage sur certains systèmes.
+Cela provoque un affichage très laid sur des systèmes qui gèrent correctement
+le tampon video, comme les systèmes avec des cartes graphiques ATI.
+Si vous rencontrez des problèmes d'affichage avec l'installateur, vous
+pouvez amorcer avec le paramètre 
+<userinput>debian-installer/framebuffer=true</userinput>, ou <userinput>fb=true</userinput>. 
+
+</para></note></listitem>
+
+</varlistentry>
+
+
+ <varlistentry arch="not-s390">
+<term>debian-installer/theme (theme)</term>
+<listitem><para>
+
+L'apparence (couleurs, icônes, etc.) de l'interface de l'installateur est
+déterminée par un thème. Les thèmes diffèrent selon les interfaces. Pour l'instant,
+il n'existe qu'un seul thème, <quote>dark</quote>, à destination des déficients visuels.
+Proposé par les interfaces newt et gtk, il peut être activé avec le paramètre
+<userinput>theme=<replaceable>dark</replaceable></userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>netcfg/disable_dhcp</term>
+<listitem><para>
+
+L'installateur &debian; recherche automatiquement la configuration du réseau 
+avec DHCP. Si la recherche réussit, vous n'aurez plus la possibilité de vérifier
+et de modifier les valeurs obtenues. Vous ne pouvez configurer vous-même
+le réseau que si la recherche avec DHCP a échoué.
+	  </para>
+<para>
+
+S'il existe un serveur DHCP sur votre réseau local et si vous voulez l'ignorer
+parce qu'il donne, par exemple, des valeurs fausses, vous pouvez utiliser le
+paramètre <userinput>netcfg/disable_dhcp=true</userinput> pour le désactiver et
+indiquer vous-même les paramètres du réseau.
+	  </para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>hw-detect/start_pcmcia</term>
+<listitem><para>
+
+Fixez ce paramètre à <userinput>false</userinput> pour empêcher le démarrage
+des services PCMCIA. Certains ordinateurs portables connaissent des problèmes avec les
+PCMCIA.
+	  </para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>disk-detect/dmraid/enable (dmraid)</term>
+<listitem><para>
+
+Fixez ce paramètre à <userinput>true</userinput> pour permettre la reconnaissance des disques
+Serial ATA RAID (ATA RAID, BIOS RAID ou fake RAID). Notez que la gestion de ces disques n'est qu'en
+phase d'expérimentation. On peut trouver d'autres informations sur le
+<ulink url="&url-d-i-wiki;">wiki de l'installateur Debian</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/url (url)</term>
+<listitem><para>
+
+Ce paramètre indique l'URL d'un fichier de préconfiguration à télécharger pour
+automatiser l'installation. Voyez la <xref linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/file (file)</term>
+<listitem><para>
+
+Ce paramètre indique le chemin d'un fichier de préconfiguration à utiliser pour
+automatiser l'installation. Voyez la <xref linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term>preseed/interactive</term>
+<listitem><para>
+
+Avec la valeur <userinput>true</userinput>, les questions seront affichées même
+si elles ont été préconfigurées. Cela peut être utile pour tester le
+fichier de préconfiguration. Il faut noter que cela n'aura aucun effet sur les
+paramètres passés comme paramètres d'amorçage. Pour ces paramètres, on peut
+utiliser une syntaxe spéciale. Consultez <xref linkend="preseed-seenflag"/> pour
+des précisions.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>auto-install/enable (auto)</term>
+<listitem><para>
+
+Ce paramètre retarde certaines questions normalement posées avant l'installation du réseau.
+Ainsi la préconfiguration devient possible.
+Voyez <xref linkend="preseed-auto"/> pour des précisions.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>finish-install/keep-consoles</term>
+<listitem><para>
+
+Lors d'une installation à partir d'une console série, les consoles virtuelles (VT1-VT6)
+sont désactivées dans <filename>/etc/inittab</filename>.
+Pour empêcher cette désactivation, mettez ce paramètre à <userinput>true</userinput>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>cdrom-detect/eject</term>
+<listitem><para>
+
+Avant de réamorcer, l'installateur éjecte automatiquement le support optique
+utilisé pendant l'installation. Cela peut être inutile si le système ne s'amorce
+pas automatiquement à partir du cédérom. Parfois ce n'est pas souhaitable si,
+par exemple, le lecteur optique ne peut pas réinsérer le support lui-même et si
+l'utilisateur n'est pas là pour le faire. Certains types de lecteurs ne peuvent pas
+recharger automatiquement le support.
+<!-- Many slot loading, slim-line, and caddy style drives 
+cannot reload media automatically. c'est la phrase à traduire...:-) --> 
+
+</para><para>
+
+Il suffit de mettre ce paramètre à <userinput>false</userinput> pour
+désactiver l'éjection automatique. Mais il faut vous assurer que
+le système ne s'amorcera pas à partir du lecteur après l'installation.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>base-installer/install-recommends (recommends)</term>
+<listitem><para>
+
+En mettant cette option à <userinput>false</userinput>, le système de
+gestion des paquets n'installera pas automatiquement les paquets
+<quote>Recommends</quote>, ni pendant l'installation ni ensuite dans le
+système installé. Consultez <xref linkend="di-install-base"/>.
+
+</para>
+<para>
+
+Cette option permet d'obtenir un système plus petit. Elle peut conduire
+aussi à l'absence de fonctionnalités qu'on peut normalement s'attendre à
+trouver. Il vous faudra installer vous-mêmes les paquets recommandés
+pour retrouver ces fonctionnalités. Seuls des utilisateurs très
+expérimentés devraient se servir de cette option.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/allow_unauthenticated</term>
+<listitem><para>
+
+Par défaut, l'installateur demande que les dépôts soient authentifiés par
+une clé gpg connue. On peut mettre ce paramètre à <userinput>true</userinput>
+pour désactiver cette authentification. 
+<emphasis role="bold">Attention : commande insécurisée et non recommandée.</emphasis>
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry arch="mips;mipsel">
+<term>ramdisk_size</term>
+<listitem><para>
+
+Ce paramètre devrait déjà posséder une valeur correcte là où il est
+nécessaire. Changez-la quand vous voyez des messages d'erreur au moment
+de l'amorçage qui indiquent que le disque virtuel ne peut être
+chargé complètement. La valeur est en Ko.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>rescue/enable</term>
+<listitem><para>
+
+Mettez ce paramètre à <userinput>true</userinput> pour entrer dans le mode de secours
+au lieu de faire une installation normale. Voyez <xref linkend="rescue"/>.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+  </sect2>
+
+  <sect2 id="preseed-args">
+  <title>Répondre à des questions avec les paramètres d'amorçage</title>
+<para>
+
+À quelques exceptions près, toute question posée pendant l'installation peut recevoir
+une réponse définie au moment de l'invite d'amorçage. Ce n'est vraiment utile que
+pour certains cas particuliers. Une présentation générale se trouve dans
+<xref linkend="preseed-bootparms"/>. Voici quelques exemples.
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term>debian-installer/language (language)</term>
+<term>debian-installer/country (country)</term>
+<term>debian-installer/locale (locale)</term>
+<listitem><para>
+
+La langue, le pays et la locale, utilisés pour l'installation et dans le
+système installé, peuvent être indiqués de deux manières.
+
+</para>
+
+<para>
+La méthode la plus facile est de passer simplement le paramètre
+<literal>locale</literal>. La langue et le pays seront déduits de cette
+valeur. Par exemple, <userinput>locale=de_CH</userinput> sélectionne
+l'allemand comme langue et la Suisse comme pays. La locale
+<literal>de_CH.UTF-8</literal> sera la locale par défaut sur le système
+installé. Le défaut de cette methode est qu'elle ne permet pas de
+choisir toutes les combinaisons possibles de langue, pays et locale.
+</para>
+<para>
+La deuxième méthode, plus souple, permet d'indiquer séparément
+<literal>language</literal> et <literal>country</literal>. Dans ce cas,
+il est aussi possible d'indiquer une locale particulière pour le système
+installé. Par exemple :
+<userinput>language=en country=DE locale=en_GB.UTF-8</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>anna/choose_modules (modules)</term>
+<listitem><para>
+
+Ce paramètre permet de charger automatiquement des composants de l'installateur
+qui ne sont pas chargés par défaut.
+Voici des exemples de composants qui peuvent être utiles&nbsp;:
+<classname>openssh-client-udeb</classname> (pour pouvoir utiliser
+<command>scp</command> pendant l'installation)<phrase arch="not-s390">et
+<classname>ppp-udeb</classname> (consultez <xref linkend="pppoe"/>)</phrase>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>netcfg/disable_dhcp</term>
+<listitem><para>
+
+Ce paramètre peut être mis à <userinput>true</userinput> pour désactiver DHCP et
+forcer une configuration manuelle du réseau.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>mirror/protocol (protocol)</term>
+<listitem><para>
+
+L'installateur utilise normalement le protocole HTTP pour télécharger les fichiers
+sur les miroirs &debian;. Il n'est pas possible de passer à FTP pendant les
+installations faites avec la priorité <emphasis>normale</emphasis>. En mettant
+ce paramètre à <userinput>ftp</userinput>, vous pouvez forcer l'installateur
+à utiliser ce protocole. Notez que vous ne pouvez sélectionner un miroir FTP dans une
+liste, vous devrez saisir son nom.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>tasksel:tasksel/first (tasks)</term>
+<listitem><para>
+Ce paramètre permet la sélection de tâches qui ne sont pas disponibles
+dans la liste interactive, comme par exemple la tâche <literal>kde-desktop</literal>.
+Voyez <xref linkend="pkgsel"/> pour des précisions.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+  </sect2>
+
+  <sect2 id="module-parms">
+  <title>Passer des paramètres aux modules du noyau</title>
+<para>
+
+Selon la documentation du noyau Linux, il est possible de passer des paramètres
+aux pilotes de périphériques compilés dans le noyau. Cependant, il existe une différence
+entre la façon de charger un module pendant l'installation et la façon de le charger sur
+un système installé. Aussi, quand les pilotes sont compilés en modules, il n'est pas possible
+de leur passer des paramètres de la manière habituelle. Une syntaxe spéciale est nécessaire.
+L'installateur fera en sorte que les paramètres soient dans les bons fichiers de
+configuration quand les modules seront réellement chargés. Les paramètres seront aussi
+propagés automatiquement dans la configuration du système installé.
+</para>
+<para>
+Il est aujourd'hui très rare d'avoir à passer des paramètres aux modules.
+Dans la plupart des cas, le noyau sait tester le matériel présent sur une machine et
+donner de bons paramètres par défaut. Parfois cependant il sera nécessaire de passer
+soi-même des paramètres.
+</para>
+<para>
+Voici la syntaxe à utiliser&nbsp;:
+ 
+<informalexample><screen>
+<replaceable>module</replaceable>.<replaceable>paramètre</replaceable>=<replaceable>valeur</replaceable>
+</screen></informalexample>
+
+Si vous devez passer plusieurs paramètres, pour un module ou pour plusieurs modules,
+il suffit de répéter la formule. Ainsi, pour faire qu'une vieille carte 3com utilise le
+connecteur BNC (connexion par câble coaxial) et l'IRQ 10&nbsp;:
+
+<informalexample><screen>
+3c509.xcvr=3 3c509.irq=10
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 id="module-blacklist">
+  <title>Interdire des modules du noyau</title>
+<para>
+
+Il est parfois nécessaire de mettre un module dans une liste noire pour
+empêcher son chargement automatique par le noyau et udev. Il se peut par exemple que
+tel module pose des problèmes à tel matériel. Le noyau peut aussi lister deux
+pilotes différents pour le même périphérique. Si les pilotes s'excluent ou si le
+mauvais pilote est chargé en premier, le périphérique ne fonctionnera pas
+correctement.
+</para>
+<para>
+
+Voici comment créer cette liste noire&nbsp;:
+<userinput><replaceable>module_name</replaceable>.blacklist=yes</userinput>.
+Le module sera listé dans le fichier <filename>/etc/modprobe.d/blacklist.local</filename>
+et sera interdit à la fois pendant l'installation et pour le système installé.
+</para>
+<para>
+
+Il faut noter que le système d'installation peut toujours charger
+le module. Vous pouvez l'empêcher en faisant une installation en mode
+<emphasis>expert</emphasis> et en désélectionnant le module dans la liste des
+modules qui est affiché pendant la phase de détection du matériel.
+</para>
+
+  </sect2>
+ </sect1>

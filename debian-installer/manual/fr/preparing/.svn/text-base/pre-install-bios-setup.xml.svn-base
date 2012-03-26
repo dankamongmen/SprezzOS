@@ -1,0 +1,61 @@
+<!-- original version:  64916 -->
+
+
+ <sect1 id="pre-install-bios-setup">
+ <title>Configuration matérielle et système avant l'installation</title>
+<para>
+
+Cette section passe en revue les réglages matériels que vous devrez peut-être
+effectuer avant d'installer &debian;. En général,
+cela implique de vérifier, et parfois de modifier, les réglages du
+microprogramme (BIOS, etc.) sur votre système. Le microprogramme est le logiciel
+de base utilisé par le matériel&nbsp;; il est plus spécifiquement exécuté
+pendant le processus d'amorçage (après la mise sous tension). Les
+problèmes matériels connus qui affectent la fiabilité de &debian-gnu; sur votre
+système sont aussi mis en lumière.
+
+</para>
+
+&bios-setup-i386.xml;
+&bios-setup-powerpc.xml;
+&bios-setup-sparc.xml;
+&bios-setup-s390.xml;
+
+  <sect2 arch="x86;powerpc" id="hardware-issues">
+<title>Problèmes matériels à surveiller</title>
+
+<formalpara arch="x86">
+<title>BIOS et Claviers USB</title>
+<para>
+
+Si vous n'avez pas de clavier de type AT, mais seulement un modèle USB,
+vous devrez peut-être activer l'émulation AT dans la configuration du
+BIOS. Ne l'activez que si l'installateur n'a pu utiliser le clavier en mode
+USB. Mais, à l'inverse, pour certains systèmes, en particulier les portables,
+vous devrez désactiver la gestion de l'USB si votre clavier ne répond pas.
+Consultez le manuel de votre carte mère et regardez dans le BIOS
+pour une option «&nbsp;Legacy keyboard emulation&nbsp;» ou «&nbsp;USB
+keyboard support&nbsp;».
+
+</para>
+</formalpara>
+
+  <formalpara arch="powerpc">
+   <title>Problèmes d'affichage sur OldWorld Powermacs</title>
+<para>
+
+Certaines machines OldWorld Powermacs, particulièrement celles qui ont
+un pilote d'affichage <quote>control</quote>,
+peuvent ne pas produire un système des couleurs fiable
+pour un affichage avec plus de 256 couleurs sous Linux. Si vous rencontrez des
+problèmes après le redémarrage (parfois vous voyez quelque chose, parfois rien)
+ou bien si l'écran devient noir après le lancement de l'installateur au lieu de
+montrer l'interface utilisateur, essayez de régler l'affichage sous MacOS à
+256 couleurs au lieu des <quote>centaines</quote> ou <quote>millions</quote> couleurs
+disponibles.
+</para>
+</formalpara>
+  </sect2>
+ </sect1>
+
+

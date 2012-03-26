@@ -1,0 +1,104 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61133 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2005.12.31 -->
+<!-- updated 43790:48637 by Felipe Augusto van de Wiel (faw) 2007.07.28 -->
+
+ <sect1 id="minimum-hardware-reqts">
+<title>Atingindo os requerimentos mínimos de hardware</title>
+<para>
+
+Assim que pegar informações sobre o hardware do seu computador,
+verifique se o hardware lhe permitirá fazer o tipo de instalação
+que deseja.
+
+</para><para arch="not-s390">
+
+Dependendo de suas necessidades, poderá trabalhar com um requerimento
+menor que o recomendado na tabela abaixo. No entanto, a maioria dos
+usuários correm o risco de ficar frustrados caso ignorem estas sugestões.
+
+</para><para arch="any-x86">
+
+Um Pentium 4 1GHz é o mínimo recomendado para um sistema desktop.
+
+</para><para arch="powerpc">
+
+Qualquer PowerPC OldWorld ou NewWorld poderá servir bem como
+um sistema desktop.
+
+</para>
+
+<table>
+<title>Requerimento mínimo recomendado do sistema</title>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Tipo de Instalação</entry>
+  <entry>RAM (mínimo)</entry>
+  <entry>RAM (recomendado)</entry>
+  <entry>Disco Rígido</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Sem desktop</entry>
+  <entry>64 megabytes</entry>
+  <entry>256 megabytes</entry>
+  <entry>1 gigabyte</entry>
+</row><row arch="not-s390">
+  <entry>Com desktop</entry>
+  <entry>128 megabyts</entry>
+  <entry>512 megabytes</entry>
+  <entry>5 gigabytes</entry>
+</row>
+
+</tbody></tgroup></table>
+
+<para>
+
+Os atuais requerimentos mínimos de memória são muito menores do que os números
+listados nesta tabela. Dependendo de sua arquitetura, é possível instalar o
+&debian; com tão pouco como 20MB (para o s390) até 60MB (para amd64). O
+mesmo vale para os requerimentos de espaço em disco, especialmente se você
+selecionar quais aplicações instalar; veja <xref linkend="tasksel-size-list"/>
+para mais informações sobre requerimentos de espaço em disco.
+
+</para><para arch="not-s390">
+
+É possível executar um ambiente desktop gráfico com um sistema antigo
+ou baixo desempenho, mas neste caso é recomendado instalar um gerenciador
+de janelas que não seja tão faminto por memória como os ambientes desktop
+GNOME ou KDE, alternativas incluem
+<classname>xfce4</classname>, <classname>icewm</classname> e 
+<classname>wmaker</classname>, mas há outros que podem ser escolhidos.
+
+</para><para>
+
+É praticamente impossível informar requerimentos gerais de memória e
+espaço em disco para instalações de servidor pois estas dependem muito
+do uso que será dado para o servidor.
+
+</para><para>
+
+Lembre-se que estes tamanhos não incluem todos os outros materiais que
+normalmente são encontrados, como arquivos de usuários, e-mails e dados.
+É sempre melhor ser generoso quando considerar o espaço para seus
+arquivos e dados.
+
+</para><para>
+
+O espaço em disco requerido para a operação tranqüila de um sistema
+&debian-gnu; foi levada em conta nestes requerimentos mínimos recomendados.
+Notavelmente a partição <filename>/var</filename> contém
+muitas informações de estado específicas a distribuição &debian; em adição ao
+conteúdo de arquivos regulares, como os de log. Os arquivos do
+<command>dpkg</command> (com informações sobre todos os pacotes instalados)
+pode facilmente consumir 40MB; O <command>apt-get</command> também coloca
+os arquivos de pacotes que baixou antes que eles sejam instalados. Você
+normalmente deverá reservar 200MB para a partição <filename>/var</filename>
+e muito mais se você instalar um ambiente de desktop gráfico.
+
+</para>
+
+ </sect1>

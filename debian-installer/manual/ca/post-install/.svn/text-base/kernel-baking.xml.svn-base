@@ -1,0 +1,180 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 arch="linux-any" id="kernel-baking"><title>Compilar un nou nucli</title>
+<para>
+
+Per què algú voldria compilar un nou nucli? Sovint no és necessari,
+ja que el nucli que distribueix &debian; gestiona la majoria de les
+configuracions. &debian; també ofereix sovint uns quants nuclis alternatius.
+Per tant, pot ser que vulgueu comprovar primer si hi ha algun paquet d'imatge
+de nucli alternatiu que correspon millor al vostre maquinari. Tot i això,
+compilar un nou nucli pot ser útil per:
+
+<itemizedlist>
+<listitem><para>
+
+gestionar maquinari especial o conflicte de maquinari amb els
+nuclis proporcionats
+
+</para></listitem>
+<listitem><para>
+
+utilitzar opcions del nucli que no estan suportades pels nuclis
+proporcionats (algunes com suport de gran memòria)
+
+</para></listitem>
+<listitem><para>
+
+optimitzar el nucli suprimint controladors inútils per tal
+d'agilitzar el temps d'arrencada
+
+</para></listitem>
+<listitem><para>
+
+crear un nucli monolític en comptes d'un de modular
+
+</para></listitem>
+<listitem><para>
+
+executar un nucli actualitzat o de desenvolupament
+
+</para></listitem>
+<listitem><para>
+
+aprendre més sobre nuclis de linux
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+
+  <sect2><title>Gestió de la imatge del nucli</title>
+<para>
+
+No tingueu por a l'hora de compilar el nucli. És divertit i profitós.
+
+</para><para>
+
+Per compilar un nucli a la manera de &debian;, necessiteu alguns paquets:
+<classname>fakeroot</classname>, <classname>kernel-package</classname>,
+<classname>linux-source-2.6</classname>
+i alguns d'altres que probablement ja teniu instal·lats
+(per accedir a la llista completa vegeu
+<filename>/usr/share/doc/kernel-package/README.gz</filename>).
+
+</para><para>
+
+A través d'aquest mètode es generarà un .deb del codi font del nucli,
+i en el cas que disposeu de mòduls no estàndard en crearà un .deb
+dependent sincronitzat. És un mètode millor per gestionar imatges del nucli;
+el directori <filename>/boot</filename> contindrà el nucli, el System.map i
+un registre del fitxer de configuració actiu del muntatge.
+
+</para><para>
+
+Recordeu que no <emphasis>forçosament heu</emphasis> de compilar el nucli
+seguint el <quote>mètode &debian;</quote>; però creiem que utilitzar el sistema
+d'empaquetat per gestionar el nucli és la manera més segura i fàcil. De fet,
+podeu descarregar el codi font del nucli directament del Linus en comptes de
+<classname>linux-source-2.6</classname>,
+ja que utilitza el mètode de compilació <classname>kernel-package</classname>.
+
+</para><para>
+
+Recordeu que trobareu documentació respecte a la utilització de
+<classname>kernel-package</classname> al directori
+<filename>/usr/share/doc/kernel-package</filename>. Aquesta
+secció únicament conté un petit tutorial.
+
+</para><para>
+
+S'assumeix que disposeu de llibertat absoluta sobre el vostre sistema i que
+extraureu el codi font del nucli en algun lloc del vostre directori
+personal<footnote>
+
+<para>
+
+Hi ha d'altres ubicacions on podeu extreure el codi font del nucli i generar
+el vostre nucli personalitzat, però aquest és el més fàcil al no precisar
+de permisos especials.
+
+</para>
+
+</footnote>. Assumirem que la vostra versió del nucli és &kernelversion;.
+Assegureu-vos d'estar al directori on voleu desempaquetar el codi
+font del nucli, extraieu-lo utilitzant l'ordre
+<userinput>tar xjf /usr/src/linux-source-&kernelversion;.tar.bz2</userinput>
+i entreu al directori que s'haurà creat
+<filename>linux-source-&kernelversion;</filename>.
+
+</para><para>
+
+Ja podeu configurar el nucli. Si teniu instal·lat, configurat i executant-se
+l'X11, executeu l'ordre <userinput>make xconfig</userinput>; si no el teniu
+instal·lat executeu l'ordre <userinput>make menuconfig</userinput> (haureu
+de tenir instal·lat <classname>libncurses5-dev</classname>). Preneu-vos el
+temps necessari per llegir l'ajuda en línia i seleccionar les opcions de
+forma acurada. En cas de dubte, normalment és millor introduir el controlador
+del dispositiu (el programari que gestiona els perifèrics com la targeta
+Ethernet, controladors SCSI i similars). Recordeu que en cas de no entendre
+d'altres opcions no relacionades amb un maquinari específic, les hauríeu de
+deixar amb el valor predeterminat. No oblideu seleccionar l'opció
+<quote>Carregador de mòduls del nucli</quote> a <quote>Suport de mòduls
+carregables</quote> (per defecte no està seleccionat). En cas de no incloure
+l'opció, hi hauria problemes amb la instal·lació de &debian;.
+
+</para><para>
+
+Netegeu l'arrel del codi font i reinicieu els paràmetres del
+<classname>kernel-package</classname>. Per a fer-ho, utilitzeu
+l'ordre <userinput>make-kpkg clean</userinput>.
+
+</para><para>
+
+Seguidament heu de compilar el nucli:
+<userinput>fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image</userinput>.
+El número de versió <quote>1.0</quote> es pot modificar; és únicament
+un número de versió que s'utilitzarà per registrar les generacions del nucli.
+Podeu utilitzar qualsevol paraula enlloc de <quote>custom</quote>
+(ex. un nom d'ordinador). La duració de la compilació del nucli
+dependrà de la potència de l'ordinador.
+
+
+</para><para>
+
+Un cop finalitzada la compilació, podeu instal·lar el nucli personalitzat
+com qualsevol altre paquet. Heu d'executar, com a superusuari,
+<userinput>dpkg -i
+../&kernelpackage;-&kernelversion;-<replaceable>subarquitectura</replaceable>_custom.1.0_&architecture;.deb</userinput>.
+La part <replaceable>subarquitectura</replaceable> és una subarquitectura
+opcional
+<phrase arch="i386"> com per exemple <quote>686</quote>, </phrase>
+en funció de les opcions del nucli seleccionades.
+
+L'ordre <userinput>dpkg -i</userinput> instal·larà el nucli,
+juntament amb d'altres fitxers de suport. Per exemple, s'instal·larà
+<filename>System.map</filename> (que serà d'ajuda en els problemes
+de depuració del nucli), i també s'instal·larà el fitxer
+<filename>/boot/config-&kernelversion;</filename> que contindrà el conjunt
+d'opcions de configuració actuals. El paquet del nucli es prou intel·ligent
+per actualitzar automàticament el vostra carregador d'arrencada per utilitzar
+el nou nucli. Si heu creat un paquet amb mòduls, necessitareu instal·lar
+eixe paquet també.
+
+</para><para>
+
+És el moment de reiniciar el sistema: llegiu acuradament qualsevol avís
+produït pel pas anterior i executeu l'ordre <userinput>shutdown -r now</userinput>.
+</para><para>
+
+Per a veure més informació sobre els nuclis de &debian; i compilacions
+de nuclis, vegeu el <ulink url="&url-kernel-handbook;">Llibre de butxaca
+de nuclis Linux de Debian</ulink>.
+
+Per a veure més informació sobre <classname>kernel-package</classname> llegiu
+la documentació del directori <filename>/usr/share/doc/kernel-package</filename>.
+
+</para>
+  </sect2>
+ </sect1>

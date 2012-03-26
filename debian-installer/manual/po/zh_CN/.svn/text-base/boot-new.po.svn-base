@@ -1,0 +1,602 @@
+# Debian GNU/Linux Installation Guide
+msgid ""
+msgstr ""
+"Project-Id-Version: d-i-manual\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-10 12:35+0000\n"
+"PO-Revision-Date: 2010-10-26 21:00+0800\n"
+"Last-Translator: Ji YongGang <jungleji@gmail.com>\n"
+"Language-Team: debian-chinese-gb <debian-chinese-gb@lists.debian.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#: boot-new.xml:5
+#, no-c-format
+msgid "Booting Into Your New &debian; System"
+msgstr "启动进入新的 &debian; 系统"
+
+#. Tag: title
+#: boot-new.xml:7
+#, no-c-format
+msgid "The Moment of Truth"
+msgstr "关键时刻"
+
+#. Tag: para
+#: boot-new.xml:8
+#, no-c-format
+msgid ""
+"Your system's first boot on its own power is what electrical engineers call "
+"the <quote>smoke test</quote>."
+msgstr ""
+"当您的系统首次依靠自身启动，这在电子工程师圈子里面称为<quote>冒烟测试</"
+"quote>。"
+
+#. Tag: para
+#: boot-new.xml:13
+#, no-c-format
+msgid ""
+"If you did a default installation, the first thing you should see when you "
+"boot the system is the menu of the <classname>grub</classname><phrase arch="
+"\"x86\"> or possibly the <classname>lilo</classname> bootloader</phrase>. "
+"The first choices in the menu will be for your new &debian; system. If you "
+"had any other operating systems on your computer (like Windows) that were "
+"detected by the installation system, those will be listed lower down in the "
+"menu."
+msgstr ""
+"如果您使用了默认安装，引导系统后首先看到的是 <classname>grub</classname> "
+"<phrase arch=\"x86\">或者是 <classname>lilo</classname> bootloader</phrase>菜"
+"单。菜单中的首选项将是新的 &debian; 系统。假如您的计算机上有其他的操作系统"
+"(如 Windows)，它们将被安装系统检测到，并列入菜单的下方。"
+
+#. Tag: para
+#: boot-new.xml:23
+#, no-c-format
+msgid ""
+"If the system fails to start up correctly, don't panic. If the installation "
+"was successful, chances are good that there is only a relatively minor "
+"problem that is preventing the system from booting &debian;. In most cases "
+"such problems can be fixed without having to repeat the installation. One "
+"available option to fix boot problems is to use the installer's built-in "
+"rescue mode (see <xref linkend=\"rescue\"/>)."
+msgstr ""
+"如果系统无法正确启动，请勿惊慌。如果安装成功，还不错，只是出了一点儿小问题没"
+"法让系统引导 &debian;。多数情况下不需重新安装就能修复。修复引导问题的一种方法"
+"是使用安装程序内置的 rescue 模式(参阅 <xref linkend=\"rescue\"/>)。"
+
+#. Tag: para
+#: boot-new.xml:32
+#, no-c-format
+msgid ""
+"If you are new to &debian; and &arch-kernel;, you may need some help from "
+"more experienced users. <phrase arch=\"x86\">For direct on-line help you can "
+"try the IRC channels #debian or #debian-boot on the OFTC network. "
+"Alternatively you can contact the <ulink url=\"&url-list-subscribe;\">debian-"
+"user mailing list</ulink>.</phrase> <phrase arch=\"not-x86\">For less common "
+"architectures like &arch-title;, your best option is to ask on the <ulink "
+"url=\"&url-list-subscribe;\">debian-&arch-listname; mailing list</ulink>.</"
+"phrase> You can also file an installation report as described in <xref "
+"linkend=\"submit-bug\"/>. Please make sure that you describe your problem "
+"clearly and include any messages that are displayed and may help others to "
+"diagnose the issue."
+msgstr ""
+"假如您刚接触 &debian; 和 &arch-kernel;，可能需要从有经验的用户那里得到一些帮"
+"助。<phrase arch=\"x86\">直接的在线帮助，可以通过 OFTC network 上的 #debian "
+"或 #debian-boot IRC 频道。另一种选择是 <ulink url=\"&url-list-subscribe;"
+"\">debian-user mailing list</ulink>。</phrase> <phrase arch=\"not-x86\">对于"
+"不常见的体系，比如 &arch-title;，最适合的方式是在 <ulink url=\"&url-list-"
+"subscribe;\">debian-&arch-listname; mailing list</ulink> 上请教。</phrase> 您"
+"也可以写下安装报告，详情参见 <xref linkend=\"submit-bug\"/>。请确保问题描述清"
+"楚，并包括显示的任何信息，以助于分析问题。"
+
+#. Tag: para
+#: boot-new.xml:48
+#, no-c-format
+msgid ""
+"If you had any other operating systems on your computer that were not "
+"detected or not detected correctly, please file an installation report."
+msgstr ""
+"如果您计算机上的其他操作系统没有被侦测到，或者未被正确侦测，请撰写一份安装报"
+"告。"
+
+#. Tag: title
+#: boot-new.xml:56
+#, no-c-format
+msgid "OldWorld PowerMacs"
+msgstr "OldWorld PowerMacs"
+
+#. Tag: para
+#: boot-new.xml:57
+#, no-c-format
+msgid ""
+"If the machine fails to boot after completing the installation, and stops "
+"with a <prompt>boot:</prompt> prompt, try typing <userinput>Linux</"
+"userinput> followed by &enterkey;. (The default boot configuration in "
+"<filename>quik.conf</filename> is labeled Linux). The labels defined in "
+"<filename>quik.conf</filename> will be displayed if you press the "
+"<keycap>Tab</keycap> key at the <prompt>boot:</prompt> prompt. You can also "
+"try booting back into the installer, and editing the <filename>/target/etc/"
+"quik.conf</filename> placed there by the <guimenuitem>Install Quik on a Hard "
+"Disk</guimenuitem> step. Clues for dealing with <command>quik</command> are "
+"available at <ulink url=\"&url-powerpc-quik-faq;\"></ulink>."
+msgstr ""
+"如果机器在完成安装后启动失败，并停在 <prompt>boot:</prompt> 提示符，试着键入 "
+"<userinput>Linux</userinput> 然后是 &enterkey;。(默认的启动配置在 "
+"<filename>quik.conf</filename> 标签是 Linux)。标签定义在 <filename>quik."
+"conf</filename> 如果您按 <keycap>Tab</keycap> 键在 <prompt>boot:</prompt> 提"
+"示符下。您也可以启动回到安装程序，并编辑 <filename>/target/etc/quik.conf</"
+"filename> 然后回到 <guimenuitem>到硬盘</guimenuitem> 步骤。处理 "
+"<command>quik</command> 的细节位于 <ulink url=\"&url-powerpc-quik-faq;\"></"
+"ulink>。"
+
+#. Tag: para
+#: boot-new.xml:71
+#, no-c-format
+msgid ""
+"To boot back into MacOS without resetting the nvram, type <userinput>bye</"
+"userinput> at the OpenFirmware prompt (assuming MacOS has not been removed "
+"from the machine). To obtain an OpenFirmware prompt, hold down the "
+"<keycombo> <keycap>command</keycap> <keycap>option</keycap> <keycap>o</"
+"keycap> <keycap>f</keycap> </keycombo> keys while cold booting the machine. "
+"If you need to reset the OpenFirmware nvram changes to the MacOS default in "
+"order to boot back to MacOS, hold down the <keycombo> <keycap>command</"
+"keycap> <keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap> </"
+"keycombo> keys while cold booting the machine."
+msgstr ""
+"启动会 MacOS 而不重设 nvram，键入 <userinput>bye</userinput> 在 OpenFirmware "
+"提示符下(假设 MacOS 没有从机器里面删除)。要得到 OpenFirmware 提示，按住 "
+"<keycombo> <keycap>command</keycap> <keycap>option</keycap> <keycap>o</"
+"keycap> <keycap>f</keycap> </keycombo> 健，在启动机器的时候。如果您需要重置 "
+"OpenFirmware nvram 改变默认为 MacOS 以启动 回到 MacOS，按下 <keycombo> "
+"<keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap> "
+"<keycap>r</keycap> </keycombo> 键，在启动机器的时候。"
+
+#. Tag: para
+#: boot-new.xml:84
+#, no-c-format
+msgid ""
+"If you use <command>BootX</command> to boot into the installed system, just "
+"select your desired kernel in the <filename>Linux Kernels</filename> folder, "
+"un-choose the ramdisk option, and add a root device corresponding to your "
+"installation; e.g. <userinput>/dev/hda8</userinput>."
+msgstr ""
+"假如您使用 <command>BootX</command> 启动到安装的系统，只需选择需要的内核，位"
+"于 <filename>Linux Kernels</filename> 目录，去掉 ramdisk 选项，并添加与您安装"
+"对应的根设备；如 <userinput>/dev/hda8</userinput>。"
+
+#. Tag: title
+#: boot-new.xml:96
+#, no-c-format
+msgid "NewWorld PowerMacs"
+msgstr "NewWorld PowerMacs"
+
+#. Tag: para
+#: boot-new.xml:97
+#, no-c-format
+msgid ""
+"On G4 machines and iBooks, you can hold down the <keycap>option</keycap> key "
+"and get a graphical screen with a button for each bootable OS, &debian-gnu; "
+"will be a button with a small penguin icon."
+msgstr ""
+"在 G4 机器和 iBooks 上，您可以按住 <keycap>option</keycap> 键，得到一个图形界"
+"面，每个可以启动的系统对应一个按钮，&debian-gnu; 将是一个企鹅图标的按钮。"
+
+#. Tag: para
+#: boot-new.xml:104
+#, no-c-format
+msgid ""
+"If you kept MacOS and at some point it changes the OpenFirmware <envar>boot-"
+"device</envar> variable you should reset OpenFirmware to its default "
+"configuration. To do this hold down the <keycombo> <keycap>command</keycap> "
+"<keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap> </keycombo> "
+"keys while cold booting the machine."
+msgstr ""
+"如果您保留 MacOS，在些时候它会修改 OpenFirmware <envar>boot-device</envar> 变"
+"量，您应该重置 OpenFirmware 到它的默认设置。要这样做需按住 <keycombo> "
+"<keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap> "
+"<keycap>r</keycap> </keycombo> 键，在启动机器的时候。"
+
+#. Tag: para
+#: boot-new.xml:112
+#, no-c-format
+msgid ""
+"The labels defined in <filename>yaboot.conf</filename> will be displayed if "
+"you press the <keycap>Tab</keycap> key at the <prompt>boot:</prompt> prompt."
+msgstr ""
+"定义在 <filename>yaboot.conf</filename> 里的标签，当您按下 <keycap>Tab</"
+"keycap> 键在 <prompt>boot:</prompt> 提示符时标签会显示出来。"
+
+#. Tag: para
+#: boot-new.xml:118
+#, no-c-format
+msgid ""
+"Resetting OpenFirmware on G3 or G4 hardware will cause it to boot &debian-"
+"gnu; by default (if you correctly partitioned and placed the Apple_Bootstrap "
+"partition first). If you have &debian-gnu; on a SCSI disk and MacOS on an "
+"IDE disk this may not work and you will have to enter OpenFirmware and set "
+"the <envar>boot-device</envar> variable, <command>ybin</command> normally "
+"does this automatically."
+msgstr ""
+"重置 G3 或 G4 硬件上的 OpenFirmware 将导致默认启动 &debian-gnu;(假设您正确分"
+"区，并将 Apple_Bootstrap 分区放在首位)。如果您将 &debian-gnu; 放在 SCSI 磁"
+"盘，而 MacOS 位于 IDE 磁盘，这也许不工作，而您不得不进入 OpenFirmware 并设置 "
+"<envar>boot-device</envar> 变量，<command>ybin</command> 通常会自动完成。"
+
+#. Tag: para
+#: boot-new.xml:127
+#, no-c-format
+msgid ""
+"After you boot &debian-gnu; for the first time you can add any additional "
+"options you desire (such as dual boot options) to <filename>/etc/yaboot."
+"conf</filename> and run <command>ybin</command> to update your boot "
+"partition with the changed configuration. Please read the <ulink url=\"&url-"
+"powerpc-yaboot-faq;\">yaboot HOWTO</ulink> for more information."
+msgstr ""
+"在首次启动 &debian-gnu; 之后，您可以添加您希望的额外选项(如双启动选项)到 "
+"<filename>/etc/yaboot.conf</filename> 并运行 <command>ybin</command> 以更新修"
+"改过的设置。请参阅 <ulink url=\"&url-powerpc-yaboot-faq;\">yaboot HOWTO</"
+"ulink> 了解更多信息。"
+
+#. Tag: title
+#: boot-new.xml:145
+#, no-c-format
+msgid "Mounting encrypted volumes"
+msgstr "挂载加密卷"
+
+#. Tag: para
+#: boot-new.xml:147
+#, no-c-format
+msgid ""
+"If you created encrypted volumes during the installation and assigned them "
+"mount points, you will be asked to enter the passphrase for each of these "
+"volumes during the boot. The actual procedure differs slightly between dm-"
+"crypt and loop-AES."
+msgstr ""
+"假如您在安装的时候创建了加密卷并设置了挂载点，在启动的时候每个这样的卷将会要"
+"求输入密码。对于 dm-crypt 和 loop-AES 具体的过程稍有不同。"
+
+#. Tag: title
+#: boot-new.xml:157
+#, no-c-format
+msgid "dm-crypt"
+msgstr "dm-crypt"
+
+#. Tag: para
+#: boot-new.xml:159
+#, no-c-format
+msgid ""
+"For partitions encrypted using dm-crypt you will be shown the following "
+"prompt during the boot: <informalexample><screen>\n"
+"Starting early crypto disks... <replaceable>part</replaceable>_crypt"
+"(starting)\n"
+"Enter LUKS passphrase:\n"
+"</screen></informalexample> In the first line of the prompt, "
+"<replaceable>part</replaceable> is the name of the underlying partition, e."
+"g. sda2 or md0. You are now probably wondering <emphasis>for which volume</"
+"emphasis> you are actually entering the passphrase. Does it relate to your "
+"<filename>/home</filename>? Or to <filename>/var</filename>? Of course, if "
+"you have just one encrypted volume, this is easy and you can just enter the "
+"passphrase you used when setting up this volume. If you set up more than one "
+"encrypted volume during the installation, the notes you wrote down as the "
+"last step in <xref linkend=\"partman-crypto\"/> come in handy. If you did "
+"not make a note of the mapping between <filename><replaceable>part</"
+"replaceable>_crypt</filename> and the mount points before, you can still "
+"find it in <filename>/etc/crypttab</filename> and <filename>/etc/fstab</"
+"filename> of your new system."
+msgstr ""
+"通过 dm-crypt 加密的分区，启动的时候会有下面的提示信息："
+"<informalexample><screen>\n"
+"Starting early crypto disks... <replaceable>part</replaceable>_crypt"
+"(starting)\n"
+"Enter LUKS passphrase:\n"
+"</screen></informalexample> 提示的第一行，<replaceable>part</replaceable> 是"
+"底下分区的名称，如：sda2 或 md0。您也许想知道输入密码的具体 <emphasis>是哪一"
+"卷</emphasis>。它是与 <filename>/home</filename> 相关？或者是 <filename>/"
+"var</filename>？当然，如果您只有一个加密卷，只需输入密码就可以轻松地建立起该"
+"卷。假如您在安装过程中建立了多个加密卷，把上一步 <xref linkend=\"partman-"
+"crypto\"/> 里的记录放在手边。要是之前没有记下 <filename><replaceable>part</"
+"replaceable>_crypt</filename> 和挂载点之间的映射关系，仍然可以在新系统的 "
+"<filename>/etc/crypttab</filename> 和 <filename>/etc/fstab</filename> 里面找"
+"到它。"
+
+#. Tag: para
+#: boot-new.xml:182
+#, no-c-format
+msgid ""
+"The prompt may look somewhat different when an encrypted root file system is "
+"mounted. This depends on which initramfs generator was used to generate the "
+"initrd used to boot the system. The example below is for an initrd generated "
+"using <classname>initramfs-tools</classname>:"
+msgstr ""
+"根文件系统加载的时候，提示信息或许会有些不同。这取决于使用了哪个 initamfs 生"
+"成器制作用于启动的 initrd。下面的例子是使用 <classname>initramfs-tools</"
+"classname> 生成的 initrd："
+
+#. Tag: screen
+#: boot-new.xml:189
+#, no-c-format
+msgid ""
+"Begin: Mounting <emphasis>root file system</emphasis>... ...\n"
+"Begin: Running /scripts/local-top ...\n"
+"Enter LUKS passphrase:"
+msgstr ""
+"Begin: Mounting <emphasis>root file system</emphasis>... ...\n"
+"Begin: Running /scripts/local-top ...\n"
+"Enter LUKS passphrase:"
+
+#. Tag: para
+#: boot-new.xml:191 boot-new.xml:216
+#, no-c-format
+msgid ""
+"No characters (even asterisks) will be shown while entering the passphrase. "
+"If you enter the wrong passphrase, you have two more tries to correct it. "
+"After the third try the boot process will skip this volume and continue to "
+"mount the next filesystem. Please see <xref linkend=\"crypto-troubleshooting"
+"\"/> for further information."
+msgstr ""
+"输入密码时不会有字符(包括星号)回显。如果密码输错，您还有两次机会修正。第三次"
+"输错后，启动过程将跳过该卷进入到下一个文件系统。请参阅 <xref linkend="
+"\"crypto-troubleshooting\"/> 了解更多信息。"
+
+#. Tag: para
+#: boot-new.xml:199 boot-new.xml:224
+#, no-c-format
+msgid "After entering all passphrases the boot should continue as usual."
+msgstr "输入密码之后，启动过程与通常情况相同。"
+
+#. Tag: title
+#: boot-new.xml:207
+#, no-c-format
+msgid "loop-AES"
+msgstr "loop-AES"
+
+#. Tag: para
+#: boot-new.xml:209
+#, no-c-format
+msgid ""
+"For partitions encrypted using loop-AES you will be shown the following "
+"prompt during the boot:"
+msgstr "使用 loop-AES 加密的分区，启动的时候将会有下面的提示信息："
+
+#. Tag: screen
+#: boot-new.xml:214
+#, no-c-format
+msgid ""
+"Checking loop-encrypted file systems.\n"
+"Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</"
+"replaceable>)\n"
+"Password:"
+msgstr ""
+"Checking loop-encrypted file systems.\n"
+"Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</"
+"replaceable>)\n"
+"Password:"
+
+#. Tag: title
+#: boot-new.xml:232
+#, no-c-format
+msgid "Troubleshooting"
+msgstr "故障处理"
+
+#. Tag: para
+#: boot-new.xml:234
+#, no-c-format
+msgid ""
+"If some of the encrypted volumes could not be mounted because a wrong "
+"passphrase was entered, you will have to mount them manually after the boot. "
+"There are several cases."
+msgstr ""
+"如果由于输错密码造成无法加载加密卷，您只能在启动以后手动加载。有下面这些情"
+"况。"
+
+#. Tag: para
+#: boot-new.xml:243
+#, no-c-format
+msgid ""
+"The first case concerns the root partition. When it is not mounted "
+"correctly, the boot process will halt and you will have to reboot the "
+"computer to try again."
+msgstr ""
+"第一种情况是与根分区相关。如果它不能正确加载，启动过程将中止，您不得不重新启"
+"动计算机再试一次。"
+
+#. Tag: para
+#: boot-new.xml:250
+#, no-c-format
+msgid ""
+"The easiest case is for encrypted volumes holding data like <filename>/home</"
+"filename> or <filename>/srv</filename>. You can simply mount them manually "
+"after the boot. For loop-AES this is a one-step operation: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
+"userinput>\n"
+"<prompt>Password:</prompt>\n"
+"</screen></informalexample> where <replaceable>/mount_point</replaceable> "
+"should be replaced by the particular directory (e.g. <filename>/home</"
+"filename>). The only difference from an ordinary mount is that you will be "
+"asked to enter the passphrase for this volume."
+msgstr ""
+"最容易处理的情况是加密卷位于 <filename>/home</filename> 或 <filename>/srv</"
+"filename>。您在启动后可以很容易手动加载。对于 loop-AES 只需操作一步："
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
+"userinput>\n"
+"<prompt>Password:</prompt>\n"
+"</screen></informalexample> 其中 <replaceable>/mount_point</replaceable> 要替"
+"换为特定的目录(例如，<filename>/home</filename>)。它与普通的加载不同支持仅在"
+"于需要为该卷输入密码。"
+
+#. Tag: para
+#: boot-new.xml:264
+#, no-c-format
+msgid ""
+"For dm-crypt this is a bit trickier. First you need to register the volumes "
+"with <application>device mapper</application> by running: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
+"</screen></informalexample> This will scan all volumes mentioned in "
+"<filename>/etc/crypttab</filename> and will create appropriate devices under "
+"the <filename>/dev</filename> directory after entering the correct "
+"passphrases. (Already registered volumes will be skipped, so you can repeat "
+"this command several times without worrying.) After successful registration "
+"you can simply mount the volumes the usual way:"
+msgstr ""
+"对于 dm-crypt 需要一些技巧。首先，您需要用 <application>device mapper</"
+"application> 注册卷，需要运行：<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
+"</screen></informalexample> 这将扫描 <filename>/etc/crypttab</filename> 里面"
+"的所有卷，输入正确的密码之后，将在 <filename>/dev</filename> 目录下面创建对应"
+"的设备。(已注册的卷会被跳过，因此您可以放心地多次运行该命令。) 正确注册以后，"
+"就可以按普通的方法加载这些卷："
+
+#. Tag: screen
+#: boot-new.xml:279
+#, no-c-format
+msgid ""
+"<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
+"userinput>"
+msgstr ""
+"<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
+"userinput>"
+
+#. Tag: para
+#: boot-new.xml:282
+#, no-c-format
+msgid ""
+"If any volume holding noncritical system files could not be mounted "
+"(<filename>/usr</filename> or <filename>/var</filename>), the system should "
+"still boot and you should be able to mount the volumes manually like in the "
+"previous case. However, you will also need to (re)start any services usually "
+"running in your default runlevel because it is very likely that they were "
+"not started. The easiest way to achieve this is by switching to the first "
+"runlevel and back by entering <informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>init 1</userinput>\n"
+"</screen></informalexample> at the shell prompt and pressing <keycombo> "
+"<keycap>Control</keycap> <keycap>D</keycap> </keycombo> when asked for the "
+"root password."
+msgstr ""
+"如果保存着非临界系统文件(<filename>/usr</filename> 或 <filename>/var</"
+"filename>)的卷不能加载，系统仍然可以启动，并且您仍然可以按前一种情况手动加"
+"载。但是，您需要(重新)启动默认 runlevel 下的任何 service，因为它们很可能没有"
+"启动。最简单的做法是切换到第一个 runlevel 再返回<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>init 1</userinput>\n"
+"</screen></informalexample> 在 shell 提示符下输入该命令，并在要求输入 root 口"
+"令时按下 <keycombo> <keycap>Control</keycap> <keycap>D</keycap> </keycombo>。"
+
+#. Tag: title
+#: boot-new.xml:305
+#, no-c-format
+msgid "Log In"
+msgstr "登录"
+
+#. Tag: para
+#: boot-new.xml:307
+#, no-c-format
+msgid ""
+"Once your system boots, you'll be presented with the login prompt. Log in "
+"using the personal login and password you selected during the installation "
+"process. Your system is now ready for use."
+msgstr ""
+"系统引导以后，会看到登录提示符。使用您在安装过程中选择的用户名和密码登录。现"
+"在您的系统就能使用了。"
+
+#. Tag: para
+#: boot-new.xml:313
+#, no-c-format
+msgid ""
+"If you are a new user, you may want to explore the documentation which is "
+"already installed on your system as you start to use it. There are currently "
+"several documentation systems, work is proceeding on integrating the "
+"different types of documentation. Here are a few starting points."
+msgstr ""
+"如果您是新用户，您也许希望开始使用后可以浏览已经安装到系统上的文档。当前有多"
+"个文档系统，由不同类型的文档组成。这里是一些出发点。"
+
+#. Tag: para
+#: boot-new.xml:321
+#, no-c-format
+msgid ""
+"Documentation accompanying programs you have installed can be found in "
+"<filename>/usr/share/doc/</filename>, under a subdirectory named after the "
+"program (or, more precise, the &debian; package that contains the program). "
+"However, more extensive documentation is often packaged separately in "
+"special documentation packages that are mostly not installed by default. For "
+"example, documentation about the package management tool <command>apt</"
+"command> can be found in the packages <classname>apt-doc</classname> or "
+"<classname>apt-howto</classname>."
+msgstr ""
+"已安装程序相关的文档可以在 <filename>/usr/share/doc/</filename> 里找到，位于"
+"该程序名的子目录下(或者，更准确地说，包含该程序的 &debian; 软件包名)。但范围"
+"更广的文档会单独放在一个特殊的文档软件包内，默认并不安装。例如，关于软件包管"
+"理工具 <command>apt</command> 的文档放在 <classname>apt-doc</classname> 或 "
+"<classname>apt-howto</classname> 软件包内。"
+
+#. Tag: para
+#: boot-new.xml:332
+#, no-c-format
+msgid ""
+"In addition, there are some special folders within the <filename>/usr/share/"
+"doc/</filename> hierarchy. Linux HOWTOs are installed in <emphasis>.gz</"
+"emphasis> (compressed) format, in <filename>/usr/share/doc/HOWTO/en-txt/</"
+"filename>. After installing <classname>dhelp</classname>, you will find a "
+"browsable index of documentation in <filename>/usr/share/doc/HTML/index."
+"html</filename>."
+msgstr ""
+"另外，还有一些特殊的目录位于 <filename>/usr/share/doc/</filename> 里。Linux "
+"HOWTOs 以 <emphasis>.gz</emphasis> (压缩)格式安装，放在 <filename>/usr/share/"
+"doc/HOWTO/en-txt/</filename>。安装 <command>dhelp</command>之后，可以浏览 "
+"<filename>/usr/share/doc/HTML/index.html</filename> 文档索引。"
+
+#. Tag: para
+#: boot-new.xml:341
+#, no-c-format
+msgid ""
+"One easy way to view these documents using a text based browser is to enter "
+"the following commands: <informalexample><screen>\n"
+"$ cd /usr/share/doc/\n"
+"$ w3m .\n"
+"</screen></informalexample> The dot after the <command>w3m</command> command "
+"tells it to show the contents of the current directory."
+msgstr ""
+"使用基于文本的浏览器查看这些文档的简单方法是输入下面命令："
+"<informalexample><screen>\n"
+"$ cd /usr/share/doc/\n"
+"$ w3m .\n"
+"</screen></informalexample> <command>w3m</command> 命令后的点告知将显示当前目"
+"录下的内容。"
+
+#. Tag: para
+#: boot-new.xml:351
+#, no-c-format
+msgid ""
+"If you have a graphical desktop environment installed, you can also use its "
+"web browser. Start the web browser from the application menu and enter "
+"<userinput>/usr/share/doc/</userinput> in the address bar."
+msgstr ""
+"如果您安装了图形桌面环境，可以使用它的 web 浏览器。从应用程序菜单启动 web 浏"
+"览器，然后在地址栏内键入 <userinput>/usr/share/doc/</userinput>。"
+
+#. Tag: para
+#: boot-new.xml:357
+#, no-c-format
+msgid ""
+"You can also type <userinput>info <replaceable>command</replaceable></"
+"userinput> or <userinput>man <replaceable>command</replaceable></userinput> "
+"to see documentation on most commands available at the command prompt. "
+"Typing <userinput>help</userinput> will display help on shell commands. And "
+"typing a command followed by <userinput>--help</userinput> will usually "
+"display a short summary of the command's usage. If a command's results "
+"scroll past the top of the screen, type <userinput>|&nbsp;more</userinput> "
+"after the command to cause the results to pause before scrolling past the "
+"top of the screen. To see a list of all commands available which begin with "
+"a certain letter, type the letter and then two tabs."
+msgstr ""
+"您也可以键入 <userinput>info <replaceable>command</replaceable></userinput> "
+"或 <userinput>man <replaceable>command</replaceable></userinput> 去查看大多数"
+"的命令行下的命令。键入 <userinput>help</userinput> 将显示 shell 命令的帮助。"
+"键入命令后面加上 <userinput>--help</userinput> 通常会显示命令用法的简短摘要。"
+"如果命令的结果滚动超出屏幕顶端，命令后面加上 <userinput>|&nbsp;more</"
+"userinput>，可以让输出在滚出顶端屏幕前暂停。查看某字母开始的所有可用命令，键"
+"入该字母，然后按两个 tab。"

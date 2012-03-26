@@ -1,0 +1,74 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 59293 -->
+<!-- revised by Herbert P Fortes Neto (hpfn) 2006.05.02 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.12.27 -->
+<!-- updated 43558:59293 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+  <sect2 condition="supports-bootp" id="tftp-bootp">
+  <title>Configurando um servidor BOOTP</title>
+<para>
+
+Há dois servidores BOOTP disponíveis para GNU/Linux. O primeiro é o
+CMU <command>bootpd</command>. O outro é, na verdade, um servidor DHCP: ISC
+<command>dhcpd</command>. No &debian-gnu; eles estão disponíveis nos pacotes
+<classname>bootp</classname> e <classname>dhcp3-server</classname>
+respectivamente.
+
+</para><para>
+
+Para usar o CMU <command>bootpd</command> você deverá primeiro descomentar
+(ou adicionar) a linha relevante em <filename>/etc/inetd.conf</filename>.
+No &debian-gnu;, você pode executar <userinput>update-inetd --enable
+bootps</userinput> e depois executar <userinput>/etc/init.d/inetd
+reload</userinput>. Apenas para o caso de seu servidor BOOTP não estar
+sendo executado no &debian;, a linha em questão deveria ser parecida com:
+
+<informalexample><screen>
+bootps  dgram  udp  wait  root  /usr/sbin/bootpd  bootpd -i -t 120
+</screen></informalexample>
+
+Agora, você deverá criar um arquivo <filename>/etc/bootptab</filename>.
+Ele terá o mesmo tipo de formato criptográfico e familiar dos bons e velhos
+arquivos <filename>printcap</filename>, <filename>termcap</filename> e
+<filename>disktab</filename> do BSD. Veja a página de manual do
+<filename>bootptab</filename> para mais informações. Para o
+CMU <command>bootpd</command> você precisará conhecer o endereço de
+hardware (MAC) do cliente. Aqui está um exemplo de arquivo
+<filename>/etc/bootptab</filename>:
+
+<informalexample><screen>
+client:\
+  hd=/tftpboot:\
+  bf=tftpboot.img:\
+  ip=192.168.1.90:\
+  sm=255.255.255.0:\
+  sa=192.168.1.1:\
+  ha=0123456789AB:
+</screen></informalexample>
+
+Você precisará mudar, no mínimo, a opção <quote>ha</quote>, que especifica o
+endereço de hardware do cliente. A opção <quote>bf</quote> especifica o
+arquivo que o cliente deverá baixar via TFTP; veja
+<xref linkend="tftp-images"/> para mais detalhes.
+
+<phrase arch="mips">
+Em máquinas SGI você poderá apenas apertar enter no monitor de comandos
+e digitar <userinput>printenv</userinput>. O valor da variável
+<userinput>eaddr</userinput> é o endereço MAC da máquina.
+</phrase>
+
+</para><para>
+
+Em contraste, a configuração de um BOOTP com o ISC <command>dhcpd</command>
+é realmente fácil, por que ele trata clientes BOOTP como casos moderamente
+especiais de clientes DHCP. Algumas arquiteturas requerem uma
+configuração complexa para a inicialização de clientes via BOOTP.
+Caso a sua seja uma destas, leia a seção <xref linkend="dhcpd"/>.
+Caso contrário, você provavelmente será capaz de adicionar a diretiva
+<userinput>allow bootp</userinput> no bloco de configuração de sub-rede
+contendo o seu cliente em <filename>/etc/dhcp3/dhcpd.conf</filename> e
+reiniciar o <command>dhcpd</command> com o comando
+<userinput>/etc/init.d/dhcp3-server restart</userinput>.
+
+</para>
+  </sect2>

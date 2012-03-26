@@ -1,0 +1,235 @@
+<!-- $Id$ -->
+<!-- original version: 67007 -->
+
+ <sect1 id="installation-media">
+ <title>Instalační média</title>
+
+<para>
+
+Tato podkapitola popisuje různé druhy instalačních médií, která můžete
+použít pro instalaci &debian;u. Výhody a nevýhody jednotlivých médií pak
+podrobněji rozebírá kapitola <xref linkend="install-methods"/>.
+
+</para>
+
+  <sect2 condition="supports-floppy-boot"><title>Diskety</title>
+
+<para>
+
+Přestože je instalace z disket nejméně pohodlná volba, stále se někdy
+používá pro počáteční zavedení instalačního systému.
+Vše co potřebujete, je pouze 3,5 palcová disketová jednotka
+s kapacitou 1440 kilobajtů.
+
+</para><para arch="powerpc">
+
+Podpora disket na CHRP je momentálně nefunkční.
+
+</para>
+  </sect2>
+
+  <sect2 arch="not-s390"><title>CD-ROM/DVD-ROM</title>
+<note><para>
+
+Kdykoliv v této příručce uvidíte napsáno <quote>CD-ROM</quote>, čtěte
+to jako <quote>CD-ROM nebo DVD-ROM</quote>, protože z hlediska
+operačního systému není mezi těmito technologiemi žádný rozdíl.
+
+</para></note><para>
+
+Některé architektury umožňují instalaci z CD. Na počítačích s možností
+zavedení systému z CD mechaniky se lze při instalaci vyhnout použití
+<phrase arch="not-s390">disket.</phrase>
+<phrase arch="s390">pásek.</phrase>
+I v případě, že váš počítač neumí zavádět systém přímo z CD, můžete
+CD-ROM využít po počátečním zavedení systému z jiného média, viz
+<xref linkend="boot-installer"/>.
+
+</para><para arch="x86">
+
+Využít můžete SCSI, SATA a IDE/ATAPI CD/DVD-ROM. Vyčerpávající
+informace o CD mechanikách v Linuxu najdete
+v <ulink url="&url-cd-howto;">Linux CD-ROM HOWTO</ulink>.
+
+</para><para arch="x86">
+
+Podporovány jsou také externí USB CD-ROM mechaniky a některá FireWire
+zařízení pracující s ovladači ohci1394 a sbp2.
+
+</para><para arch="arm">
+
+CD-ROM mechaniky IDE/ATAPI jsou podporovány na všech počítačích ARM.
+
+</para><para arch="mips">
+
+Na počítačích SGI vyžaduje zavádění z CD SCSI CD-ROM mechaniku
+schopnou pracovat s logickými bloky velikosti 512 bajtů. Mnoho
+prodávaných SCSI mechanik tuto schopnost postrádá. Pokud má vaše
+CD-ROM mechanika propojku nazvanou <quote>Unix/PC</quote> nebo
+<quote>512/2048</quote>, nastavte ji do pozice <quote>Unix</quote>
+resp. <quote>512</quote>. Poté stačí vstoupit do firmwaru a vybrat
+položku <quote>System installation</quote>.
+
+</para>
+  </sect2>
+
+  <sect2><title>Pevný disk</title>
+
+<para>
+
+Pro mnoho architektur je také zajímavá možnost zavedení instalačního
+systému z pevného disku. To však vyžaduje jiný operační systém, pomocí
+kterého nahrajete na disk instalační program.
+
+</para><para arch="sparc">
+
+Přestože &arch-title; nepodporuje zavádění ze SunOS (Solarisu), můžete
+instalovat z jejich oblasti (UFS).
+
+</para>
+  </sect2>
+
+  <sect2 condition="bootable-usb"><title>USB Memory Stick</title>
+
+<para>
+
+Mnoho počítačů potřebuje disketové nebo CD-ROM mechaniky pouze pro
+instalaci systému a pro záchranné účely. Pokud spravujete nějaké
+servery, jistě jste již uvažovali o zbytečnosti těchto mechanik
+a o možnosti instalovat systém z paměťového USB média, populární
+<quote>klíčenky</quote>. Tato možnost je velmi zajímavá i pro malé
+systémy, jejichž skříně neoplývají volným prostorem.
+
+</para>
+  </sect2>
+
+  <sect2><title>Síť</title>
+
+<para>
+
+Během instalace můžete pro stažení potřebných souborů použít síť
+(konkrétně služny HTTP nebo FTP). To, zda se síť použije, závisí na
+typu instalace, který si zvolíte, a na vašich odpovědích během
+instalace. Instalační systém podporuje většinu typů síťových připojení
+včetně PPPoE, výjimkou jsou ISDN nebo PPP. Po instalaci můžete svůj
+systém nastavit i pro tato připojení.
+
+</para><para condition="supports-tftp">
+
+Instalační systém také můžete <emphasis>zavést</emphasis> ze sítě.
+<phrase arch="mips;mipsel">
+Pro &arch-title; to je preferovaný způsob instalace.
+</phrase>
+
+</para><para condition="supports-nfsroot">
+
+Příjemnou možností je bezdisková instalace. Systém se zavede z lokální
+sítě a všechny lokální souborové systémy se připojí přes NFS.
+
+</para>
+  </sect2>
+
+  <sect2><title>Un*x nebo systém GNU</title>
+
+<para>
+
+Pokud používáte jiný unixový systém, můžete jej využít pro instalaci
+&debian;u a úplně tak obejít &d-i; popisovaný ve zbytku
+příručky. Tento způsob instalace je vhodný zejména pro uživatele
+s podivným hardwarem, který jinak není podporován instalačními médii,
+nebo na počítačích, které si nemohou dovolit prostoje. Jestliže vás
+zmíněná technika zajímá, přeskočte na <xref linkend="linux-upgrade"/>.
+
+</para>
+  </sect2>
+
+  <sect2><title>Podporovaná datová média</title>
+
+<para>
+
+Zaváděcí disky &debian;u obsahují jádro s velkým množstvím ovladačů,
+aby fungovaly na co nejširší škále počítačů. Jestli se vám takto
+připravené jádro zdá pro běžné použití zbytečně velké, pročtěte si
+návod o přípravě vlastního jádra<phrase arch="linux-any"> (<xref	linkend="kernel-baking"/>)</phrase>.
+Podpora co nejvíce zařízení na instalačních discích je žádoucí pro
+snadnou instalaci na libovolném hardwaru.
+
+</para><para arch="x86">
+
+Instalační systém &debian;u obsahuje podporu pro disketové mechaniky,
+IDE disky (též známé jako PATA disky), disketové mechaniky IDE, IDE
+disky na paralelním portu, SATA a SCSI řadiče a jednotky, USB a
+FireWire. Systém umí pracovat se souborovými systémy FAT, FAT s
+rozšířením Win-32 (VFAT), NTFS a dalšími.
+
+</para><para arch="x86">
+
+Podporovány jsou také disky emulující AT rozhraní. Bývají označeny
+jako MFM, RLL, IDE nebo PATA. Použít můžete také SATA a SCSI řadiče
+disků od nejrůznějších výrobců, podrobnosti jsou shromážděny
+v <ulink url="&url-hardware-howto;">Linux Hardware Compatibility
+HOWTO</ulink>.
+
+</para><para arch="sparc">
+
+Všechny systémy pro ukládání dat podporované linuxovým jádrem jsou
+také podporovány instalačním systémem.
+Standardní jádro obsahuje tyto SCSI ovladače:
+
+<itemizedlist>
+<listitem><para>
+
+Sparc ESP
+
+</para></listitem>
+<listitem><para>
+
+PTI Qlogic,ISP
+
+</para></listitem>
+<listitem><para>
+
+Adaptec AIC7xxx
+
+</para></listitem>
+<listitem><para>
+
+NCR a Symbios 53C8XX
+
+</para></listitem>
+</itemizedlist>
+
+Samozřejmě jsou podporovány také IDE systémy (jako UltraSPARC 5).
+V dokumentu <ulink url="&url-sparc-linux-faq;">Linux for SPARC
+Processors FAQ</ulink> naleznete vyčerpávající informace o podpoře
+SPARC hardwaru v linuxovém jádře.
+
+</para><para arch="powerpc">
+
+Všechny systémy pro ukládání dat podporované linuxovým jádrem jsou
+také podporovány instalačním systémem. Aktuální linuxová jádra však
+stále na systémech CHRP nepodporují disketové mechaniky.
+
+</para><para arch="hppa">
+
+Všechny systémy pro ukládání dat podporované linuxovým jádrem jsou
+také podporovány instalačním systémem. Aktuální linuxová jádra však
+nepodporují disketové mechaniky.
+
+</para><para arch="mips;mipsel">
+
+Všechny systémy pro ukládání dat podporované linuxovým jádrem jsou
+také podporovány instalačním systémem.
+
+</para><para arch="s390">
+
+Všechny systémy pro ukládání dat podporované linuxovým jádrem jsou
+také podporovány instalačním systémem. To znamená, že DASD FBA a ECKD
+jsou podporovány jak starým (ldl), tak i novým obecným rozvržením
+disku S/390 (cdl).
+
+</para>
+
+  </sect2>
+
+ </sect1>

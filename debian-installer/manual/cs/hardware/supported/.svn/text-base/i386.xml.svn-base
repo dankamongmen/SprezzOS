@@ -1,0 +1,70 @@
+<!-- $Id$ -->
+<!-- original version: 65170 -->
+
+  <sect2 arch="i386">
+  <title>Procesory, základní desky a grafické karty</title>
+<para>
+
+Úplné informace o podporovaných zařízeních naleznete v
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility
+HOWTO</ulink>. Tato kapitola nastiňuje pouze základní požadavky.
+
+</para>
+
+   <sect3><title>Procesory</title>
+<para>
+
+Jsou podporovány téměř všechny procesory řady x86 (IA-32), včetně
+všech variant a klonů procesorové řady Intel Pentium. To zahrnuje i
+32 bitové procesory Athlon XP, Intel Pentium 4, Intel Xeon
+nebo Via C3.
+
+</para><para>
+
+Navzdory názvu architektury &arch-title; již &debian-gnu; &releasename;
+nepoběží na skutečných procesorech 80386 a nižších, protože od verze
+3.1 &debian; tyto procesory nepodporuje<footnote>
+
+<para>
+
+Dlouho jsme se tomuto kroku bránili, ale nakonec to bylo nevyhnutelné
+kvůli kombinaci problémů v kompilátoru a linuxovém jádře (plus chybě
+v C++ ABI kompilátoru GCC). &debian-gnu; je stále možné na procesorech
+řady 80386 používat, ovšem vyžaduje to ruční kompilaci vlastního jádra
+a celého archivu, což překračuje tuto příručku.
+
+</para><para>
+
+Jako pozitivní důsledek tohoto kroku je fakt, že mnoho programů
+v &debian;u nyní poběží rychleji, protože po zahození podpory starých
+čipů můžeme využít tři nové instrukce bswap, cmpxchg a xadd, které
+přidává procesor i486 uvedený v roce 1989. (Procesor i386 z roku 1986
+tyto instrukce neobsahoval, a tedy je nemohly využívat ani debianí
+balíky.)
+
+</para></footnote>. Samotný Linux neběží a nikdy neběžel na
+procesorech 286 a nižších. Všechny procesory i486 a novější jsou stále
+podporovány.
+
+</para><note><para>
+
+Pokud je váš počítač postaven na 64 bitovém procesoru z rodiny AMD64
+nebo Intel EM64T (např. Intel Core 2 Duo), budete pravděpodobně chtít
+použít instalátor pro architekturu amd64. Díky zpětné kompatibilitě
+však můžete použít i 32 bitový instalátor pro architekturu i386.
+
+</para></note>
+   </sect3>
+
+   <sect3 id="bus"><title>V/V sběrnice</title>
+<para>
+
+Systémová sběrnice je částí základní desky, která umožňuje procesoru
+komunikaci s perifériemi jako jsou například datová média. Váš počítač
+musí být vybaven sběrnicí ISA, EISA, PCI, PCIe, PCI-X nebo VESA Local Bus
+(VLB, někdy též označovanou VL bus).
+
+</para>
+   </sect3>
+  </sect2>
+

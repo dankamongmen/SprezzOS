@@ -1,0 +1,2859 @@
+# Vietnamese translation for Preparing.
+# Copyright © 2010 Free Software Foundation, Inc.
+# Clytie Siddall <clytie@riverland.net.au>, 2007-2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: preparing\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-29 05:56+0000\n"
+"PO-Revision-Date: 2010-11-07 15:58+1030\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: LocFactoryEditor 1.8\n"
+
+#. Tag: title
+#: preparing.xml:5
+#, no-c-format
+msgid "Before Installing &debian-gnu;"
+msgstr "Trước khi cài đặt &debian-gnu;"
+
+#. Tag: para
+#: preparing.xml:6
+#, no-c-format
+msgid ""
+"This chapter deals with the preparation for installing &debian; before you "
+"even boot the installer. This includes backing up your data, gathering "
+"information about your hardware, and locating any necessary information."
+msgstr ""
+"Chương này diễn tả cách chuẩn bị để cài đặt hệ thống &debian;, trước khi bạn "
+"ngay cả khởi động trình cài đặt. Gồm có tiến trình sao lưu dữ liệu, tập hợp "
+"thông tin về phần cứng, và tìm thông tin khác nào cần thiết."
+
+#. Tag: title
+#: preparing.xml:19
+#, no-c-format
+msgid "Overview of the Installation Process"
+msgstr "Toàn cảnh tiến trình cài đặt"
+
+#. Tag: para
+#: preparing.xml:20
+#, no-c-format
+msgid ""
+"First, just a note about re-installations. With &debian;, a circumstance "
+"that will require a complete re-installation of your system is very rare; "
+"perhaps mechanical failure of the hard disk would be the most common case."
+msgstr ""
+"Trước tiên có chú thích về việc cài đặt lại. Đối với hệ thống &debian;, có "
+"rất ít trường hợp yêu cầu cài đặt lại toàn bộ hệ thống (v.d. cơ chế đĩa cứng "
+"thất bại)."
+
+#. Tag: para
+#: preparing.xml:27
+#, no-c-format
+msgid ""
+"Many common operating systems may require a complete installation to be "
+"performed when critical failures take place or for upgrades to new OS "
+"versions. Even if a completely new installation isn't required, often the "
+"programs you use must be re-installed to operate properly in the new OS."
+msgstr ""
+"Nhiều hệ điều hành thường dùng có thể cần thiết người dùng cài đặt lại toàn "
+"bộ hệ thống khi sự hỏng nghiêm trọng xảy ra, hoặc để nâng cấp lên phiên bản "
+"HĐH mới. Thậm chí nếu không cần thiết cài đặt lại hoàn toàn, thường bạn phải "
+"cài đặt lại các chương trình để hoạt động cho đúng trên HĐH mới."
+
+#. Tag: para
+#: preparing.xml:35
+#, no-c-format
+msgid ""
+"Under &debian-gnu;, it is much more likely that your OS can be repaired "
+"rather than replaced if things go wrong. Upgrades never require a wholesale "
+"installation; you can always upgrade in-place. And the programs are almost "
+"always compatible with successive OS releases. If a new program version "
+"requires newer supporting software, the &debian; packaging system ensures "
+"that all the necessary software is automatically identified and installed. "
+"The point is, much effort has been put into avoiding the need for re-"
+"installation, so think of it as your very last option. The installer is "
+"<emphasis>not</emphasis> designed to re-install over an existing system."
+msgstr ""
+"Gặp vấn đề dưới &debian-gnu;, thì rất có thể là hệ điều hành có thể được sửa "
+"chữa, thay vào bị thay thế. Tiến trình nâng cấp không bao giờ yêu cầu bạn "
+"cài đặt lại hoàn toàn: lúc nào bạn cũng có thể nâng cấp « tại chỗ ». Hơn "
+"nữa, hậu hết chương trình vẫn còn tương thích với bản phát hành HĐH mới. Nếu "
+"một phiên bản chương trình mới nào đó cũng yêu cầu phần mềm hỗ trợ mới, hệ "
+"thống quản lý gói &debian; đảm bảo là tất cả phần mềm cần thiết được tự động "
+"nhận diện và cài đặt. Điểm quan trọng là rất nhiều sự cố gắng đã được đóng "
+"góp để tránh yêu cầu cài đặt lại, vì vậy bạn nên thấy việc đó là tùy chọn "
+"cuối cùng. Trình cài đặt &debian; <emphasis>không phải</emphasis> được thiết "
+"kế để cài đặt lại trên một hệ thống đã có."
+
+#. Tag: para
+#: preparing.xml:48
+#, no-c-format
+msgid ""
+"Here's a road map for the steps you will take during the installation "
+"process."
+msgstr "Đây là các bước chính bạn nên theo trong tiến trình cài đặt."
+
+#. Tag: para
+#: preparing.xml:56
+#, no-c-format
+msgid ""
+"Back up any existing data or documents on the hard disk where you plan to "
+"install."
+msgstr ""
+"Sao lưu mọi dữ liệu hay tài liệu hiện thời nằm trên đĩa cứng nơi bạn định "
+"cài đặt Debian."
+
+#. Tag: para
+#: preparing.xml:62
+#, no-c-format
+msgid ""
+"Gather information about your computer and any needed documentation, before "
+"starting the installation."
+msgstr ""
+"Tập hợp thông tin về máy tính đích, và tài liệu hướng dẫn nào cần thiết, "
+"trước khi khởi chạy tiến trình cài đặt."
+
+#. Tag: para
+#: preparing.xml:68
+#, no-c-format
+msgid "Create partitionable space for &debian; on your hard disk."
+msgstr "Trên đĩa cứng, tạo sức chứa có thể phân vùng được dành cho &debian;."
+
+#. Tag: para
+#: preparing.xml:73
+#, no-c-format
+msgid ""
+"Locate and/or download the installer software and any specialized driver "
+"files your machine requires (except &debian; CD users)."
+msgstr ""
+"Tìm và/hay tải về phần mềm cài đặt &debian;, và tập tin trình điều khiển đặc "
+"biệt nào máy tính yêu cầu (người dùng đĩa CD &debian; nên bỏ qua bước này)."
+
+#. Tag: para
+#: preparing.xml:79
+#, no-c-format
+msgid ""
+"Set up boot tapes/floppies/USB sticks, or place boot files (most &debian; CD "
+"users can boot from one of the CDs)."
+msgstr ""
+"Thiết lập băng hay đĩa mềm hay thanh USB có khả năng khởi động, hoặc để tập "
+"tin khởi động vào vị trí (hậu hết người dùng đĩa CD &debian; có khả năng "
+"khởi động từ một của những đĩa CD đó)."
+
+#. Tag: para
+#: preparing.xml:85
+#, no-c-format
+msgid "Boot the installation system."
+msgstr "Khởi động hệ thống cài đặt."
+
+#. Tag: para
+#: preparing.xml:90
+#, no-c-format
+msgid "Select the installation language."
+msgstr "Chọn ngôn ngữ cài đặt."
+
+#. Tag: para
+#: preparing.xml:95
+#, no-c-format
+msgid "Activate the ethernet network connection, if available."
+msgstr "Kích hoạt sự kết nối mạng Ethernet, nếu có."
+
+#. Tag: para
+#: preparing.xml:101
+#, no-c-format
+msgid "Configure one network interface."
+msgstr "Cấu hình một giao diện mạng."
+
+#. Tag: para
+#: preparing.xml:106
+#, no-c-format
+msgid "Open an ssh connection to the new system."
+msgstr "Mở một sự kết nối SSH đến hệ thống mới."
+
+#. Tag: para
+#: preparing.xml:111
+#, no-c-format
+msgid "Attach one or more DASDs (Direct Access Storage Device)."
+msgstr "Gắn một hay nhiều DASD (thiết bị cất giữ truy cập trực tiếp)."
+
+#. Tag: para
+#: preparing.xml:117
+#, no-c-format
+msgid "Create and mount the partitions on which &debian; will be installed."
+msgstr "Tạo và gắn kết những phân vùng nơi &debian; sẽ được cài đặt."
+
+#. Tag: para
+#: preparing.xml:122
+#, no-c-format
+msgid ""
+"Watch the automatic download/install/setup of the <firstterm>base system</"
+"firstterm>."
+msgstr ""
+"Theo dõi tiến trình tải về/cài đặt/thiết lập tự động <firstterm>hệ thống cơ "
+"bản</firstterm>."
+
+#. Tag: para
+#: preparing.xml:128
+#, no-c-format
+msgid ""
+"Install a <firstterm>boot loader</firstterm> which can start up &debian-gnu; "
+"and/or your existing system."
+msgstr ""
+"Cài đặt một <firstterm>bộ nạp khởi động</firstterm> có khả năng khởi chạy "
+"&debian-gnu; và/hay hệ thống đã có."
+
+#. Tag: para
+#: preparing.xml:134
+#, no-c-format
+msgid "Load the newly installed system for the first time."
+msgstr "Tải lần đầu tiên hệ thống mới được cài đặt."
+
+#. Tag: para
+#: preparing.xml:141
+#, no-c-format
+msgid ""
+"For &arch-title; you have the option of using <phrase arch=\"any-x86\">a</"
+"phrase> <phrase arch=\"powerpc\">an experimental</phrase> graphical version "
+"of the installation system. For more information about this graphical "
+"installer, see <xref linkend=\"graphical\"/>."
+msgstr ""
+"Đối với &arch-title;, bạn có tùy chọn sử dụng <phrase arch=\"any-x86\">một</"
+"phrase><phrase arch=\"powerpc\">một kiểu thử nghiệm của</phrase> phiên bản "
+"đồ họa của hệ thống cài đặt. Để tìm thêm thông tin về bộ cài đặt đồ họa, xem "
+"<xref linkend=\"graphical\"/>."
+
+#. Tag: para
+#: preparing.xml:149
+#, no-c-format
+msgid ""
+"If you have problems during the installation, it helps to know which "
+"packages are involved in which steps. Introducing the leading software "
+"actors in this installation drama:"
+msgstr ""
+"Nếu bạn gặp khó khăn trong tiến trình cài đặt, có ích khi biết bước nào sử "
+"dụng gói nào. Ở đây giới thiệu những gói phần mềm quan trọng nhất:"
+
+#. Tag: para
+#: preparing.xml:155
+#, no-c-format
+msgid ""
+"The installer software, <classname>debian-installer</classname>, is the "
+"primary concern of this manual. It detects hardware and loads appropriate "
+"drivers, uses <classname>dhcp-client</classname> to set up the network "
+"connection, runs <classname>debootstrap</classname> to install the base "
+"system packages, and runs <classname>tasksel</classname> to allow you to "
+"install certain additional software. Many more actors play smaller parts in "
+"this process, but <classname>debian-installer</classname> has completed its "
+"task when you load the new system for the first time."
+msgstr ""
+"Phần mềm cài đặt <classname>debian-installer</classname> là chủ đề chính của "
+"sổ tay này. Nó phát hiện phần cứng nên tải các trình điều khiển thích hợp, "
+"sử dụng ứng dụng khách <classname>dhcp-client</classname> để thiết lập sự "
+"kết nối mạng, chạy <classname>debootstrap</classname> để cài đặt các gói hệ "
+"thống cơ bản, và chạy <classname>tasksel</classname> để cho bạn có khả năng "
+"cài đặt phần mềm thêm. Có nhiều gói khác cũng làm việc trong tiến trình cài "
+"đặt này, nhưng trình <classname>debian-installer</classname> đã làm xong "
+"công việc khi bạn nạp lần đầu tiên hệ thống mới."
+
+#. Tag: para
+#: preparing.xml:167
+#, no-c-format
+msgid ""
+"To tune the system to your needs, <classname>tasksel</classname> allows you "
+"to choose to install various predefined bundles of software like a Web "
+"server or a Desktop environment."
+msgstr ""
+"Để điều chỉnh hệ thống để thích hợp với sự cần của bạn, <classname>tasksel</"
+"classname> cho bạn khả năng cài đặt một số phần mềm bó riêng, v.d. trình "
+"phục vụ Mạng hay môi trường làm việc."
+
+#. Tag: para
+#: preparing.xml:173
+#, no-c-format
+msgid ""
+"One important option during the installation is whether or not to install a "
+"graphical desktop environment, consisting of the X Window System and one of "
+"the available graphical desktop environments. If you choose not to select "
+"the <quote>Desktop environment</quote> task, you will only have a relatively "
+"basic, command line driven system. Installing the Desktop environment task "
+"is optional because it requires a fairly large amount of disk space, and "
+"because many &debian-gnu; systems are servers which don't really have any "
+"need for a graphical user interface to do their job."
+msgstr ""
+"Một tùy chọn quan trọng trong khi cài đặt là có nên cài đặt môi trường làm "
+"việc đồ họa, chứa hệ thống cửa sổ X và một của những môi trường làm việc đồ "
+"họa có sẵn. Không cài đặt công việc <quote>Môi trường làm việc</quote> thì "
+"chỉ có hệ thống cơ bản được điều khiển bằng dòng lệnh. Việc cài đặt công "
+"việc Môi trường làm việc là tùy chọn, vì nó chiếm vùng hơi lớn trên đĩa, và "
+"vì nhiều hệ thống &debian-gnu; là máy phục vụ không thật cần chạy giao diện "
+"người dùng đồ họa (GUI) để hoạt động."
+
+#. Tag: para
+#: preparing.xml:185
+#, no-c-format
+msgid ""
+"Just be aware that the X Window System is completely separate from "
+"<classname>debian-installer</classname>, and in fact is much more "
+"complicated. Installation and troubleshooting of the X Window System is not "
+"within the scope of this manual."
+msgstr ""
+"Hãy ghi chú rằng hệ thống cửa sổ X là phần mềm riêng hoàn toàn với "
+"<classname>debian-installer</classname>, và thực sự rất phức tạp hơn. Tiến "
+"trình cài đặt hệ thống cửa sổ X và giải đáp thắc mắc về nó nằm ở ngoại phạm "
+"vi của sổ tay này."
+
+#. Tag: title
+#: preparing.xml:200
+#, no-c-format
+msgid "Back Up Your Existing Data!"
+msgstr "Sao lưu mọi dữ liệu đã có đi !"
+
+#. Tag: para
+#: preparing.xml:201
+#, no-c-format
+msgid ""
+"Before you start, make sure to back up every file that is now on your "
+"system. If this is the first time a non-native operating system has been "
+"installed on your computer, it's quite likely you will need to re-partition "
+"your disk to make room for &debian-gnu;. Anytime you partition your disk, "
+"you run a risk of losing everything on the disk, no matter what program you "
+"use to do it. The programs used in installation are quite reliable and most "
+"have seen years of use; but they are also quite powerful and a false move "
+"can cost you. Even after backing up, be careful and think about your answers "
+"and actions. Two minutes of thinking can save hours of unnecessary work."
+msgstr ""
+"Trước hết, hãy kiểm tra xem bạn đã sao lưu mọi tập tin hiện thời nằm trên hệ "
+"thống. Nếu đây là lần đầu tiên hệ điều hành nào không sở hữu đã được cài đặt "
+"vào máy tính đó, rất có thể là bạn sẽ cần phải phân vùng lại đĩa cứng để "
+"nhường chỗ cho hệ thống &debian-gnu;. Mỗi lần phân vùng đĩa cứng, cũng rủi "
+"ro mất toàn bộ dữ liệu, bất chấp chương trình nào được dùng để làm như thế. "
+"Những chương trình được dùng trong tiến trình cài đặt này là hơi tin cậy, "
+"phần lớn chúng đã được dùng trong mấy năm, nhưng mà chúng cũng là hơi mạnh "
+"mẽ nên bước sai nào có thể mất nhiều. Ngay cả sau khi sao lưu, hãy cẩn thận, "
+"bạn nên suy tính mỗi đáp ứng và hành động riêng. Hai phút nghĩ có thể tiết "
+"kiệm nhiều tiếng làm việc thêm."
+
+#. Tag: para
+#: preparing.xml:214
+#, no-c-format
+msgid ""
+"If you are creating a multi-boot system, make sure that you have the "
+"distribution media of any other present operating systems on hand. "
+"Especially if you repartition your boot drive, you might find that you have "
+"to reinstall your operating system's boot loader, or in many cases the whole "
+"operating system itself and all files on the affected partitions."
+msgstr ""
+"Nếu bạn đang tạo một hệ thống đa khởi động, hãy kiểm tra xem có vật chứa bản "
+"phát hành của hệ điều hành khác đã có. Nhất là nếu bạn phân vùng lại đĩa "
+"khởi động, có lẽ bạn cũng cần phải cài đặt lại trình tải khởi động của HĐH "
+"đó, hoặc trong nhiều trường hợp, cài đặt lại toàn bộ HĐH đó và mọi tập tin "
+"nằm trong phần vùng bị tác động."
+
+#. Tag: title
+#: preparing.xml:232
+#, no-c-format
+msgid "Information You Will Need"
+msgstr "Thông tin cần thiết"
+
+#. Tag: title
+#: preparing.xml:235
+#, no-c-format
+msgid "Documentation"
+msgstr "Tài liệu hướng dẫn"
+
+#. Tag: title
+#: preparing.xml:238
+#, no-c-format
+msgid "Installation Manual"
+msgstr "Sổ tay cài đặt"
+
+#. Tag: para
+#: preparing.xml:240
+#, no-c-format
+msgid "This document you are now reading, in plain ASCII, HTML or PDF format."
+msgstr "Tài liệu này, dạng ASCII, HTML hay PDF."
+
+# Variable: don't translate / Biến: đừng dịch
+#. Tag: itemizedlist
+#: preparing.xml:246
+#, no-c-format
+msgid "&list-install-manual-files;"
+msgstr "&list-install-manual-files;"
+
+#. Tag: para
+#: preparing.xml:252
+#, no-c-format
+msgid ""
+"The document you are now reading, which is the official version of the "
+"Installation Guide for the &releasename; release of &debian;; available in "
+"<ulink url=\"&url-release-area;/installmanual\">various formats and "
+"translations</ulink>."
+msgstr ""
+"Tài liệu này, phiên bản chính thức của Sổ Tay Cài Đặt bản phát hành "
+"&releasename; của &debian;, được công bố bằng nhiều <ulink url=\"&url-"
+"release-area;/installmanual\">dạng thức và bản dịch</ulink> khác nhau."
+
+#. Tag: para
+#: preparing.xml:261
+#, no-c-format
+msgid ""
+"The document you are now reading, which is a development version of the "
+"Installation Guide for the next release of &debian;; available in <ulink url="
+"\"&url-d-i-alioth-manual;\">various formats and translations</ulink>."
+msgstr ""
+"Tài liệu này, phiên bản phát triển của Sổ Tay Cài Đặt bản phát hành &debian; "
+"kế tiếp, được công bố bằng nhiều <ulink url=\"&url-d-i-alioth-manual;\">dạng "
+"thức và bản dịch</ulink> khác nhau."
+
+#. Tag: title
+#: preparing.xml:273
+#, no-c-format
+msgid "Hardware documentation"
+msgstr "Tài liệu hướng dẫn về phần cứng"
+
+#. Tag: para
+#: preparing.xml:274
+#, no-c-format
+msgid ""
+"Often contains useful information on configuring or using your hardware."
+msgstr "Thường chứa thông tin có ích về cách cấu hình hay sử dụng phần cứng."
+
+#. Tag: ulink
+#: preparing.xml:285
+#, no-c-format
+msgid "Linux Hardware Compatibility HOWTO"
+msgstr "Phần Cứng Tương Thích với Linux Thế Nào"
+
+#. Tag: ulink
+#: preparing.xml:291
+#, no-c-format
+msgid "Linux for SPARC Processors FAQ"
+msgstr "Hỏi Đáp Linux cho bộ xử lý SPARC"
+
+#. Tag: ulink
+#: preparing.xml:297
+#, no-c-format
+msgid "Linux/Mips website"
+msgstr "Nơi Mạng Linux/Mips"
+
+#. Tag: title
+#: preparing.xml:306
+#, no-c-format
+msgid "&arch-title; Hardware References"
+msgstr "Tham Chiếu Phần Cứng &arch-title;"
+
+#. Tag: para
+#: preparing.xml:307
+#, no-c-format
+msgid ""
+"Documentation of &arch-title;-specific boot sequence, commands and device "
+"drivers (e.g. DASD, XPRAM, Console, OSA, HiperSockets and z/VM interaction)"
+msgstr ""
+"Tài liệu hướng dẫn về cả dãy khởi động, các lệnh và trình điều khiển thiết "
+"bị đều đặc trưng cho &arch-title; (v.d. DASD, XPRAM, Bàn giao tiếp, OSA, "
+"HiperSockets và Tương tác z/VM)"
+
+#. Tag: ulink
+#: preparing.xml:318
+#, no-c-format
+msgid "Device Drivers, Features, and Commands (Linux Kernel 2.6.32)"
+msgstr "Trình điều khiển, Tính năng và Lệnh (Hạt nhân Linux 2.6.32)"
+
+#. Tag: para
+#: preparing.xml:323
+#, no-c-format
+msgid ""
+"IBM Redbook describing how Linux can be combined with z/VM on zSeries and "
+"&arch-title; hardware."
+msgstr ""
+"Quyển Đỏ (Redbook) IBM diễn tả cách tổ hợp Linux với z/VM trên phần cứng "
+"zSeries và &arch-title;."
+
+#. Tag: ulink
+#: preparing.xml:333
+#, no-c-format
+msgid "Linux for &arch-title;"
+msgstr "Chạy Linux trên &arch-title;"
+
+#. Tag: para
+#: preparing.xml:339
+#, no-c-format
+msgid ""
+"IBM Redbook describing the Linux distributions available for the mainframe. "
+"It has no chapter about &debian; but the basic installation concepts are the "
+"same across all &arch-title; distributions."
+msgstr ""
+"Quyển Đỏ (Redbook) IBM diễn tả các bản phát hành Linux sẵn sàng cho máy tính "
+"lớn. Quyển này không có chương riêng về &debian;, nhưng mà những khái niệm "
+"cài đặt cơ bản vẫn thích hợp với mọi bản phát hành &arch-title;."
+
+#. Tag: ulink
+#: preparing.xml:350
+#, no-c-format
+msgid "Linux for IBM eServer zSeries and &arch-title;: Distributions"
+msgstr "Chạy Linux trên IBM eServer zSeries và &arch-title;: bản phát hành"
+
+#. Tag: title
+#: preparing.xml:360
+#, no-c-format
+msgid "Finding Sources of Hardware Information"
+msgstr "Tìm nguồn thông tin về phần cứng"
+
+#. Tag: para
+#: preparing.xml:361
+#, no-c-format
+msgid ""
+"In many cases, the installer will be able to automatically detect your "
+"hardware. But to be prepared, we do recommend familiarizing yourself with "
+"your hardware before the install."
+msgstr ""
+"Trong nhiều trường hợp, trình cài đặt sẽ có khả năng phát hiện tự động phần "
+"cứng riêng của bạn. Để chuẩn bị được, khuyên bạn quen với phần cứng đó trước "
+"khi cài đặt."
+
+#. Tag: para
+#: preparing.xml:367
+#, no-c-format
+msgid "Hardware information can be gathered from:"
+msgstr "Có thể tập hợp thông tin về phần cứng từ :"
+
+#. Tag: para
+#: preparing.xml:374
+#, no-c-format
+msgid "The manuals that come with each piece of hardware."
+msgstr "Sổ tay có sẵn với mỗi phần cứng."
+
+#. Tag: para
+#: preparing.xml:379
+#, no-c-format
+msgid ""
+"The BIOS setup screens of your computer. You can view these screens when you "
+"start your computer by pressing a combination of keys. Check your manual for "
+"the combination. Often, it is the <keycap>Delete</keycap> key."
+msgstr ""
+"Màn hình thiết lập BIOS của máy tính. Bạn có thể xem màn hình này khi khởi "
+"động máy tính bằng cách bấm tổ hợp phím. Hãy tham chiếu đến sổ tay máy tính "
+"để tìm biết tổ hợp phím này. Thường nó đơn giản là phím <keycap>Delete</"
+"keycap>."
+
+#. Tag: para
+#: preparing.xml:386
+#, no-c-format
+msgid "The cases and boxes for each piece of hardware."
+msgstr "Hộp của mỗi phần cứng."
+
+#. Tag: para
+#: preparing.xml:392
+#, no-c-format
+msgid "The System window in the Windows Control Panel."
+msgstr ""
+"Cửa sổ Hệ Thống (System) trong bảng điều khiển (Control Panel) Windows."
+
+#. Tag: para
+#: preparing.xml:398
+#, no-c-format
+msgid ""
+"System commands or tools in another operating system, including file manager "
+"displays. This source is especially useful for information about RAM and "
+"hard drive memory."
+msgstr ""
+"Lệnh hay công cụ hệ thống trong hệ điều hành khác, gồm bộ quản lý tập tin. "
+"Nguồn này có ích đặc biệt để tìm thông tin về bộ nhớ RAM và bộ nhớ của phần "
+"cứng."
+
+#. Tag: para
+#: preparing.xml:405
+#, no-c-format
+msgid ""
+"Your system administrator or Internet Service Provider. These sources can "
+"tell you the settings you need to set up your networking and e-mail."
+msgstr ""
+"Quản trị hệ thống hay nhà cung cấp dịch vụ Mạng (ISP). Những nguồn này có "
+"thông tin báo bạn biết cách thiết lập khả năng chạy mạng và gởi/nhận thư "
+"điện tử."
+
+#. Tag: title
+#: preparing.xml:417
+#, no-c-format
+msgid "Hardware Information Needed for an Install"
+msgstr "Thông tin về phần cứng cần thiết để cài đặt"
+
+#. Tag: entry
+#: preparing.xml:421
+#, no-c-format
+msgid "Hardware"
+msgstr "Phần cứng"
+
+#. Tag: entry
+#: preparing.xml:421
+#, no-c-format
+msgid "Information You Might Need"
+msgstr "Thông tin có thể cần"
+
+#. Tag: entry
+#: preparing.xml:427
+#, no-c-format
+msgid "Hard Drives"
+msgstr "Phần cứng"
+
+#. Tag: entry
+#: preparing.xml:428
+#, no-c-format
+msgid "How many you have."
+msgstr "Có mấy cái."
+
+#. Tag: entry
+#: preparing.xml:430
+#, no-c-format
+msgid "Their order on the system."
+msgstr "Thứ tự trên hệ thống."
+
+#. Tag: entry
+#: preparing.xml:432
+#, no-c-format
+msgid "Whether IDE (also known as PATA), SATA or SCSI."
+msgstr "Kiểu IDE (cũng biết là PATA), SATA hay SCSI."
+
+#. Tag: entry
+#: preparing.xml:434 preparing.xml:486
+#, no-c-format
+msgid "Available free space."
+msgstr "Sức chứa còn rảnh sẵn sàng."
+
+#. Tag: entry
+#: preparing.xml:435
+#, no-c-format
+msgid "Partitions."
+msgstr "Phân vùng."
+
+#. Tag: entry
+#: preparing.xml:437
+#, no-c-format
+msgid "Partitions where other operating systems are installed."
+msgstr "Phân vùng nơi hệ điều hành khác đã được cài đặt."
+
+#. Tag: entry
+#: preparing.xml:441
+#, no-c-format
+msgid "Monitor"
+msgstr "Bộ trình bày"
+
+#. Tag: entry
+#: preparing.xml:442 preparing.xml:462 preparing.xml:468 preparing.xml:474
+#, no-c-format
+msgid "Model and manufacturer."
+msgstr "Mẫu và hãng chế tạo."
+
+#. Tag: entry
+#: preparing.xml:444
+#, no-c-format
+msgid "Resolutions supported."
+msgstr "Độ phân giải được hố trợ."
+
+#. Tag: entry
+#: preparing.xml:445
+#, no-c-format
+msgid "Horizontal refresh rate."
+msgstr "Tỷ lệ cập nhật ngang."
+
+#. Tag: entry
+#: preparing.xml:446
+#, no-c-format
+msgid "Vertical refresh rate."
+msgstr "Tỷ lệ cập nhật dọc."
+
+#. Tag: entry
+#: preparing.xml:448
+#, no-c-format
+msgid "Color depth (number of colors) supported."
+msgstr "Độ sâu màu (số màu sắc) được hỗ trợ."
+
+#. Tag: entry
+#: preparing.xml:450
+#, no-c-format
+msgid "Screen size."
+msgstr "Kích cỡ màn hình."
+
+#. Tag: entry
+#: preparing.xml:453
+#, no-c-format
+msgid "Mouse"
+msgstr "Con chuột"
+
+#. Tag: entry
+#: preparing.xml:454
+#, no-c-format
+msgid "Type: serial, PS/2, or USB."
+msgstr "Kiểu : nối tiếp, PS/2 hay USB."
+
+#. Tag: entry
+#: preparing.xml:456
+#, no-c-format
+msgid "Port."
+msgstr "Cổng."
+
+#. Tag: entry
+#: preparing.xml:457
+#, no-c-format
+msgid "Manufacturer."
+msgstr "Hãng chế tạo."
+
+#. Tag: entry
+#: preparing.xml:458
+#, no-c-format
+msgid "Number of buttons."
+msgstr "Số cái nút."
+
+#. Tag: entry
+#: preparing.xml:461 preparing.xml:489
+#, no-c-format
+msgid "Network"
+msgstr "Mạng"
+
+#. Tag: entry
+#: preparing.xml:464 preparing.xml:490
+#, no-c-format
+msgid "Type of adapter."
+msgstr "Kiểu bộ tiếp hợp."
+
+#. Tag: entry
+#: preparing.xml:467
+#, no-c-format
+msgid "Printer"
+msgstr "Máy in"
+
+#. Tag: entry
+#: preparing.xml:470
+#, no-c-format
+msgid "Printing resolutions supported."
+msgstr "Độ phân giải in được hỗ trợ."
+
+#. Tag: entry
+#: preparing.xml:473
+#, no-c-format
+msgid "Video Card"
+msgstr "Thẻ ảnh động"
+
+#. Tag: entry
+#: preparing.xml:476
+#, no-c-format
+msgid "Video RAM available."
+msgstr "Bộ nhớ RAM ảnh động sẵn sàng."
+
+#. Tag: entry
+#: preparing.xml:478
+#, no-c-format
+msgid ""
+"Resolutions and color depths supported (these should be checked against your "
+"monitor's capabilities)."
+msgstr ""
+"Độ phân giải và độ sâu màu được hỗ trợ (những giá trị này nên được so sánh "
+"với khả năng của bộ trình bày)."
+
+#. Tag: entry
+#: preparing.xml:483
+#, no-c-format
+msgid "DASD"
+msgstr "Thiết bị cất giữ truy cập trực tiếp"
+
+#. Tag: entry
+#: preparing.xml:484
+#, no-c-format
+msgid "Device number(s)."
+msgstr "(Các) số hiệu thiết bị."
+
+#. Tag: entry
+#: preparing.xml:492
+#, no-c-format
+msgid "Device numbers."
+msgstr "Các số hiệu thiết bị."
+
+#. Tag: entry
+#: preparing.xml:493
+#, no-c-format
+msgid "Relative adapter number for OSA cards."
+msgstr "Số hiệu bộ tiếp hợp tương đối cho thẻ OSA."
+
+#. Tag: title
+#: preparing.xml:501
+#, no-c-format
+msgid "Hardware Compatibility"
+msgstr "Khả năng tương thích của phần cứng"
+
+#. Tag: para
+#: preparing.xml:503
+#, no-c-format
+msgid ""
+"Many brand name products work without trouble on &arch-kernel;. Moreover, "
+"hardware support in &arch-kernel; is improving daily. However, &arch-kernel; "
+"still does not run as many different types of hardware as some operating "
+"systems."
+msgstr ""
+"Nhiều sản phẩm có nhãn hiệu phổ biến có hoạt động được trên &arch-kernel;. "
+"Hơn nữa, khả năng hỗ trợ phần cứng trong &arch-kernel; cứ cải tiến. Tuy "
+"nhiên, &arch-kernel; vẫn còn chạy ít kiểu phần cứng hơn một số hệ điều hành "
+"riêng."
+
+#. Tag: para
+#: preparing.xml:509
+#, no-c-format
+msgid ""
+"In particular, &arch-kernel; usually cannot run hardware that requires a "
+"running version of Windows to work."
+msgstr ""
+"Đặc biệt, &arch-kernel; thường không thể chạy phần cứng cần thiết một phiên "
+"bản Windows đang chạy để hoạt động được."
+
+#. Tag: para
+#: preparing.xml:514
+#, no-c-format
+msgid ""
+"Although some Windows-specific hardware can be made to run on Linux, doing "
+"so usually requires extra effort. In addition, Linux drivers for Windows-"
+"specific hardware are usually specific to one Linux kernel. Therefore, they "
+"can quickly become obsolete."
+msgstr ""
+"Mặc dù một số kiểu phần cứng đặc trưng cho Windows có thể được thích nghi để "
+"chạy được trên Linux, việc thích nghi này thường cần thiết sự cố gắng thêm. "
+"Hơn nữa, trinh điều khiển Linux cho phần cứng đặc trưng cho Windows thường "
+"cũng là đặc trưng cho một hạt nhân Linux riêng. Như thế thì trình này trơ "
+"thành nhanh quá cũ."
+
+#. Tag: para
+#: preparing.xml:521
+#, no-c-format
+msgid ""
+"So called win-modems are the most common type of this hardware. However, "
+"printers and other equipment may also be Windows-specific."
+msgstr ""
+"Thiết bị được gọi là « win-modem » là kiểu thường nhất của phần cứng này. "
+"Tuy nhiên, máy in và thiết bị khác cũng có thể là đặc trưng cho Windows."
+
+#. Tag: para
+#: preparing.xml:526
+#, no-c-format
+msgid "You can check hardware compatibility by:"
+msgstr "Có thể kiểm tra xem khả năng tương thích của phần cứng bằng cách:"
+
+#. Tag: para
+#: preparing.xml:531
+#, no-c-format
+msgid "Checking manufacturers' web sites for new drivers."
+msgstr "Kiểm tra xem nơi Mạng của hãng chế tạo có trình điều khiển mới chưa."
+
+#. Tag: para
+#: preparing.xml:536
+#, no-c-format
+msgid ""
+"Looking at web sites or manuals for information about emulation. Lesser "
+"known brands can sometimes use the drivers or settings for better-known ones."
+msgstr ""
+"Quét qua nơi Mạng hay sổ tay tìm thông tin về khả năng mô phỏng. Thiết bị có "
+"nhãn hiệu ít nổi tiếng hơn có lẽ vẫn còn sử dụng được trình điều khiển hay "
+"thiết lập của điều phổ biến."
+
+#. Tag: para
+#: preparing.xml:543
+#, no-c-format
+msgid ""
+"Checking hardware compatibility lists for &arch-kernel; on web sites "
+"dedicated to your architecture."
+msgstr ""
+"Kiểm tra đọc danh sách phần cứng tương thích với &arch-kernel; tại nơi Mạng "
+"dành cho kiến trúc của máy tính của bạn."
+
+#. Tag: para
+#: preparing.xml:549
+#, no-c-format
+msgid "Searching the Internet for other users' experiences."
+msgstr "Tìm kiếm qua Mạng kinh nghiệm của các người dùng khác."
+
+#. Tag: title
+#: preparing.xml:560
+#, no-c-format
+msgid "Network Settings"
+msgstr "Thiết lập mạng"
+
+#. Tag: para
+#: preparing.xml:562
+#, no-c-format
+msgid ""
+"If your computer is connected to a network 24 hours a day (i.e., an Ethernet "
+"or equivalent connection &mdash; not a PPP connection), you should ask your "
+"network's system administrator for this information."
+msgstr ""
+"Nếu máy tính của bạn có kết nối đến mạng suốt ngày (tức là sự kết nối kiểu "
+"Ethernet hay tương tự, không phải kiểu PPP), bạn nên yêu cầu quản trị hệ "
+"thống mạng cung cấp thông tin này."
+
+#. Tag: para
+#: preparing.xml:569
+#, no-c-format
+msgid "Your host name (you may be able to decide this on your own)."
+msgstr "Tên máy [host name] (có lẽ bạn tự quyết định được)."
+
+#. Tag: para
+#: preparing.xml:574
+#, no-c-format
+msgid "Your domain name."
+msgstr "Tên miền [domain name]."
+
+#. Tag: para
+#: preparing.xml:579
+#, no-c-format
+msgid "Your computer's IP address."
+msgstr "Địa chỉ IP [IP address] của máy tính."
+
+#. Tag: para
+#: preparing.xml:584
+#, no-c-format
+msgid "The netmask to use with your network."
+msgstr "Mặt nạ mạng [netmask] cần dùng với mạng cục bộ."
+
+#. Tag: para
+#: preparing.xml:589
+#, no-c-format
+msgid ""
+"The IP address of the default gateway system you should route to, if your "
+"network <emphasis>has</emphasis> a gateway."
+msgstr ""
+"Địa chỉ IP của hệ thống cổng ra [gateway] mặc định tới đó bạn nên định "
+"tuyến, <emphasis>nếu mạng có</emphasis>."
+
+#. Tag: para
+#: preparing.xml:595
+#, no-c-format
+msgid ""
+"The system on your network that you should use as a DNS (Domain Name "
+"Service) server."
+msgstr ""
+"Trên mạng, hệ thống cần dùng như là trình phục vụ dịch vụ tên miền (DNS)."
+
+#. Tag: para
+#: preparing.xml:603
+#, no-c-format
+msgid ""
+"On the other hand, if your administrator tells you that a DHCP server is "
+"available and is recommended, then you don't need this information because "
+"the DHCP server will provide it directly to your computer during the "
+"installation process."
+msgstr ""
+"Mặt khác, nếu quản trị nói rằng có trình phục vụ DHCP sẵn sàng, cũng khuyên "
+"bạn dùng nó, trong trường hợp này bạn không cần thông tin trước, vì trình "
+"phục vụ DHCP sẽ cung cấp trực tiếp cho máy tính của bạn trong tiến trình cài "
+"đặt."
+
+#. Tag: para
+#: preparing.xml:610
+#, no-c-format
+msgid "If you use a wireless network, you should also find out:"
+msgstr "Nếu bạn sử dụng mạng vô tuyến, bạn cũng nên tìm biết:"
+
+#. Tag: para
+#: preparing.xml:615
+#, no-c-format
+msgid "ESSID of your wireless network."
+msgstr "ESSID của mạng vô tuyến đó."
+
+#. Tag: para
+#: preparing.xml:620
+#, no-c-format
+msgid "WEP security key (if applicable)."
+msgstr "Khoá bảo mật WEP (nếu thích hợp)."
+
+#. Tag: title
+#: preparing.xml:637
+#, no-c-format
+msgid "Meeting Minimum Hardware Requirements"
+msgstr "Thoả tiêu chuẩn phần cứng tối thiểu"
+
+#. Tag: para
+#: preparing.xml:638
+#, no-c-format
+msgid ""
+"Once you have gathered information about your computer's hardware, check "
+"that your hardware will let you do the type of installation that you want to "
+"do."
+msgstr ""
+"Một khi bạn đã tập hợp thông tin về các phần cứng của máy tính, hãy kiểm tra "
+"xem phần cứng này sẽ cho phép bạn cài đặt bằng cách đã muốn."
+
+#. Tag: para
+#: preparing.xml:644
+#, no-c-format
+msgid ""
+"Depending on your needs, you might manage with less than some of the "
+"recommended hardware listed in the table below. However, most users risk "
+"being frustrated if they ignore these suggestions."
+msgstr ""
+"Phụ thuộc vào sự cần của bạn, có lẽ bạn cài đặt được bằng ít phần cứng hơn "
+"những điều được liệt kê trong bảng bên dưới. Tuy nhiên, hậu hết người dùng "
+"sẽ gặp khó khăn nếu họ bỏ qua danh sách phần cứng khuyến khích."
+
+#. Tag: para
+#: preparing.xml:650
+#, no-c-format
+msgid ""
+"A Pentium 4, 1GHz system is the minimum recommended for a desktop system."
+msgstr "Khuyên dùng ít nhất máy Pentium 4, 1 GHz, cho máy tính để bàn."
+
+#. Tag: para
+#: preparing.xml:655
+#, no-c-format
+msgid "Any OldWorld or NewWorld PowerPC can serve well as a desktop system."
+msgstr ""
+"Có thể sử dụng bất kỳ máy PowerPC (kiểu cũ hay kiểu mới cũng được) là hệ "
+"thống để bàn."
+
+#. Tag: title
+#: preparing.xml:662
+#, no-c-format
+msgid "Recommended Minimum System Requirements"
+msgstr "Điều kiện hệ thống tối thiểu khuyến khích"
+
+#. Tag: entry
+#: preparing.xml:666
+#, no-c-format
+msgid "Install Type"
+msgstr "Kiểu cài đặt"
+
+#. Tag: entry
+#: preparing.xml:667
+#, no-c-format
+msgid "RAM (minimal)"
+msgstr "RAM (tối thiểu)"
+
+#. Tag: entry
+#: preparing.xml:668
+#, no-c-format
+msgid "RAM (recommended)"
+msgstr "RAM (khuyến khích)"
+
+#. Tag: entry
+#: preparing.xml:669
+#, no-c-format
+msgid "Hard Drive"
+msgstr "Đĩa cứng"
+
+#. Tag: entry
+#: preparing.xml:675
+#, no-c-format
+msgid "No desktop"
+msgstr "Vô GUI"
+
+#. Tag: entry
+#: preparing.xml:676
+#, no-c-format
+msgid "64 megabytes"
+msgstr "64 MB"
+
+#. Tag: entry
+#: preparing.xml:677
+#, no-c-format
+msgid "256 megabytes"
+msgstr "256 MB"
+
+#. Tag: entry
+#: preparing.xml:678
+#, no-c-format
+msgid "1 gigabyte"
+msgstr "1 GB"
+
+#. Tag: entry
+#: preparing.xml:680
+#, no-c-format
+msgid "With Desktop"
+msgstr "Có GUI"
+
+#. Tag: entry
+#: preparing.xml:681
+#, no-c-format
+msgid "128 megabytes"
+msgstr "128 MB"
+
+#. Tag: entry
+#: preparing.xml:682
+#, no-c-format
+msgid "512 megabytes"
+msgstr "512 MB"
+
+#. Tag: entry
+#: preparing.xml:683
+#, no-c-format
+msgid "5 gigabytes"
+msgstr "5 GB"
+
+#. Tag: para
+#: preparing.xml:688
+#, no-c-format
+msgid ""
+"The actual minimum memory requirements are a lot less then the numbers "
+"listed in this table. Depending on the architecture, it is possible to "
+"install &debian; with as little as 20MB (for s390) to 60MB (for amd64). The "
+"same goes for the disk space requirements, especially if you pick and choose "
+"which applications to install; see <xref linkend=\"tasksel-size-list\"/> for "
+"additional information on disk space requirements."
+msgstr ""
+"Vùng nhớ tối thiều cần thiết thực sự rất ít hơn nhưng số lượng được hiển thị "
+"trong bảng này. Phụ thuộc vào kiến trúc, có thể cài đặt &debian; với ngay cả "
+"20 MB (cho s390) đến 60 MB (cho amd64). Cũng vậy với sức chứa còn rảnh cần "
+"thiết, đặc biệt nếu bạn kén những chương trình cần cài đặt. Xem <xref "
+"linkend=\"tasksel-size-list\"/> để tìm thêm thông tin về sức chứa còn rảnh "
+"yêu cầu trên đĩa."
+
+#. Tag: para
+#: preparing.xml:698
+#, no-c-format
+msgid ""
+"It is possible to run a graphical desktop environment on older or low-end "
+"systems, but in that case it is recommended to install a window manager that "
+"is less resource-hungry than those of the GNOME or KDE desktop environments; "
+"alternatives include <classname>xfce4</classname>, <classname>icewm</"
+"classname> and <classname>wmaker</classname>, but there are others to choose "
+"from."
+msgstr ""
+"Có thể chạy môi trường làm việc đồ họa trên hệ thống cũ hay hệ thống cấp "
+"thấp, nhưng trong trường hợp đó, khuyên bạn cài đặt một bộ quản lý cửa sổ "
+"chiếm ít tài nguyên hơn những điều quản lý môi trường làm việc GNOME hay "
+"KDE. Các sự chọn thay thế gồm <classname>xfce4</classname>, "
+"<classname>icewm</classname> và <classname>wmaker</classname>."
+
+#. Tag: para
+#: preparing.xml:707
+#, no-c-format
+msgid ""
+"It is practically impossible to give general memory or disk space "
+"requirements for server installations as those very much depend on what the "
+"server is to be used for."
+msgstr ""
+"Không thể khuyến dự bộ nhớ hay sức chứa trên đĩa cần thiết cho việc cài đặt "
+"vào máy phục vụ, vì số lượng phụ thuộc nhiều vào mục đích của máy phục vụ."
+
+#. Tag: para
+#: preparing.xml:713
+#, no-c-format
+msgid ""
+"Remember that these sizes don't include all the other materials which are "
+"usually to be found, such as user files, mail, and data. It is always best "
+"to be generous when considering the space for your own files and data."
+msgstr ""
+"Ghi nhớ rằng những sự ước lượng này không gồm các dữ liệu thường dụng, như "
+"thư điện tử và tập tin người dùng kiểu khác nhau. Bạn nên tính rộng lượng "
+"sức chứa cho các tập tin và dữ liệu của mình. "
+
+#. Tag: para
+#: preparing.xml:720
+#, no-c-format
+msgid ""
+"Disk space required for the smooth operation of the &debian-gnu; system "
+"itself is taken into account in these recommended system requirements. "
+"Notably, the <filename>/var</filename> partition contains a lot of state "
+"information specific to &debian; in addition to its regular contents, like "
+"logfiles. The <command>dpkg</command> files (with information on all "
+"installed packages) can easily consume 40MB. Also, <command>apt-get</"
+"command> puts downloaded packages here before they are installed. You should "
+"usually allocate at least 200MB for <filename>/var</filename>, and a lot "
+"more if you install a graphical desktop environment."
+msgstr ""
+"Sức chứa trên đĩa cần thiết để thao tác mịn hệ thống &debian-gnu; chính nó "
+"cũng được tính trong những số lượng khuyến dụ này. Chẳng hạn, phân vùng "
+"<filename>/var</filename> chứa rất nhiều thông tin về tình trạng đặc trưng "
+"cho &debian;, thêm vào nội dung bình thường như các tập tin theo dõi. Các "
+"tập tin <command>dpkg</command> (gồm có thông tin về mọi gói đã cài đặt) có "
+"thể chiếm dễ dàng đến 40 MB. Tiến trình <command>apt-get</command> cũng để "
+"vào đây các gói vừa mới tải về, trước khi cài đặt chúng. Bạn thường nên cấp "
+"phát ít nhất 200 MB cho phân vùng <filename>/var</filename>, và rất nhiều "
+"thêm nữa nếu bạn cài đặt môi trường làm việc đồ họa."
+
+#. Tag: title
+#: preparing.xml:744
+#, no-c-format
+msgid "Pre-Partitioning for Multi-Boot Systems"
+msgstr "Phân vùng sẵn cho hệ thống đa khởi động"
+
+#. Tag: para
+#: preparing.xml:745
+#, no-c-format
+msgid ""
+"Partitioning your disk simply refers to the act of breaking up your disk "
+"into sections. Each section is then independent of the others. It's roughly "
+"equivalent to putting up walls inside a house; if you add furniture to one "
+"room it doesn't affect any other room."
+msgstr ""
+"Tiến trình phân vùng đĩa đơn giản là việc chia đĩa ra nhiều phần riêng, "
+"không phụ thuộc vào nhau. Nó giống như việc xây dựng tường ở trong nhà: khi "
+"bạn thêm đồ đạc vào phòng này, không có tác động trong phòng khác."
+
+#. Tag: para
+#: preparing.xml:752
+#, no-c-format
+msgid ""
+"Whenever this section talks about <quote>disks</quote> you should translate "
+"this into a DASD or VM minidisk in the &arch-title; world. Also a machine "
+"means an LPAR or VM guest in this case."
+msgstr ""
+"Khi nào tiết đoạn này nói về <quote>đĩa</quote>, nó có nghĩa là DASD (thiết "
+"bị cất giữ truy cập trực tiếp, v.d. đĩa cứng) hay đĩa nhỏ VM (bộ nhớ ảo) cho "
+"máy kiểu &arch-title;. Hơn nữa, <quote>máy</quote> là LPAR (phân vùng hợp "
+"lý) hay máy khách VM trong trường hợp này."
+
+#. Tag: para
+#: preparing.xml:758
+#, no-c-format
+msgid ""
+"If you already have an operating system on your system <phrase arch=\"any-"
+"x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, "
+"FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, "
+"&hellip;) </phrase> and want to stick &debian; on the same disk, you will "
+"need to repartition the disk. &debian; requires its own hard disk "
+"partitions. It cannot be installed on Windows or MacOS partitions. It may be "
+"able to share some partitions with other Unix systems, but that's not "
+"covered here. At the very least you will need a dedicated partition for the "
+"&debian; root."
+msgstr ""
+"Nếu máy tính của bạn đã có một hệ điều hành <phrase arch=\"any-x86\"> "
+"(Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD, "
+"&hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, &hellip;) </"
+"phrase> và bạn muốn thêm &debian; vào cùng một đĩa, bạn sẽ cần phải phân "
+"vùng lại đĩa đó. &debian; cần thiết một số phân vùng riêng trên đĩa cứng. "
+"Không thể cài đặt nó vào phân vùng kiểu Windows hay MacOS. Có thể là nó chia "
+"sẻ được phân vùng với kiểu UNIX khác, nhưng trường hợp đó không phải được "
+"diễn tả ở đây. Ít nhất bạn sẽ cần thiết một phân vùng riêng dành cho gốc "
+"(root) của &debian;."
+
+#. Tag: para
+#: preparing.xml:777
+#, no-c-format
+msgid ""
+"You can find information about your current partition setup by using a "
+"partitioning tool for your current operating system<phrase arch=\"any-"
+"x86\">, such as fdisk or PartitionMagic</phrase><phrase arch=\"powerpc\">, "
+"such as Drive Setup, HD Toolkit, or MacTools</phrase><phrase arch=\"s390\">, "
+"such as the VM diskmap</phrase>. Partitioning tools always provide a way to "
+"show existing partitions without making changes."
+msgstr ""
+"Bạn có thể tìm thông tin về thiết lập phân vùng hiện thời của máy tính bằng "
+"cách sử dụng một công cụ phân vùng cho hệ điều hành đã có<phrase arch=\"any-"
+"x86\">, v.d. fdisk hay PartitionMagic</phrase><phrase arch=\"powerpc\">, v."
+"d. Drive Setup, HD Toolkit hay MacTools</phrase><phrase arch=\"s390\">, v.d. "
+"sơ VM diskmap (sơ đồ đĩa vùng nhớ ảo)</phrase>. Công cụ phân vùng lúc nào "
+"cũng cung cấp một phương pháp hiển thị các phân vùng đã có mà chưa thay đổi "
+"gì."
+
+#. Tag: para
+#: preparing.xml:786
+#, no-c-format
+msgid ""
+"In general, changing a partition with a file system already on it will "
+"destroy any information there. Thus you should always make backups before "
+"doing any repartitioning. Using the analogy of the house, you would probably "
+"want to move all the furniture out of the way before moving a wall or you "
+"risk destroying it."
+msgstr ""
+"Thông thường, việc thay đổi phân vùng chứa hệ thống tập tin sẽ hủy mọi thông "
+"tin trên nó. Vì vậy bạn phải sao lưu hết trước khi phân vùng lại. Giống như "
+"trong nhà, rất có thể là bạn muốn di chuyển các đồ đạc ra trước khi chuyển "
+"tường, nếu không thì rủi ro hủy nó."
+
+#. Tag: emphasis
+#: preparing.xml:796
+#, no-c-format
+msgid "FIXME: write about HP-UX disks?"
+msgstr "FIXME: (chưa ghi đoạn tiếng Anh)"
+
+#. Tag: para
+#: preparing.xml:798
+#, no-c-format
+msgid ""
+"If your computer has more than one hard disk, you may want to dedicate one "
+"of the hard disks completely to &debian;. If so, you don't need to partition "
+"that disk before booting the installation system; the installer's included "
+"partitioning program can handle the job nicely."
+msgstr ""
+"Nếu máy tính của bạn có nhiều đĩa cứng, có thể là bạn muốn cấp phát một đĩa "
+"cứng riêng dành cho &debian;. Có thì bạn không cần phải phân vùng đĩa đó "
+"trước khi khởi động hệ thống cài đặt, vì chương trình phân vùng có sẵn trong "
+"trình cài đặt sẽ làm việc này."
+
+#. Tag: para
+#: preparing.xml:805
+#, no-c-format
+msgid ""
+"If your machine has only one hard disk, and you would like to completely "
+"replace the current operating system with &debian-gnu;, you also can wait to "
+"partition as part of the installation process (<xref linkend=\"di-partition"
+"\"/>), after you have booted the installation system. However this only "
+"works if you plan to boot the installer system from tapes, CD-ROM or files "
+"on a connected machine. Consider: if you boot from files placed on the hard "
+"disk, and then partition that same hard disk within the installation system, "
+"thus erasing the boot files, you'd better hope the installation is "
+"successful the first time around. At the least in this case, you should have "
+"some alternate means of reviving your machine like the original system's "
+"installation tapes or CDs."
+msgstr ""
+"Còn nếu máy tính của bạn chỉ có một đĩa cứng, và bạn muốn thay thế hoàn toàn "
+"hệ điều hành đã tồn tại bằng &debian-gnu;, bạn cũng có thể đợi phân vùng nó "
+"làm phần của tiến trình cài đặt (<xref linkend=\"di-partition\"/>), sau khi "
+"bạn đã khởi động hệ thống cài đặt. Tuy nhiên, thủ tục này chỉ có tác động "
+"nếu bạn định khởi động hệ thống cài đặt từ băng, đĩa CD-ROM hay các tập tin "
+"nằm trên máy khác đã kết nối. Suy nghĩ: nếu bạn khởi động từ các tập tin "
+"được để vào đĩa cứng, rồi phân vùng cùng đĩa cứng đó bên trong hệ thống cài "
+"đặt, thì xoá các tập tin khởi động, trong trường hợp đó bạn phải hy vọng "
+"tiến trình cài đặt chạy thành công lần đầu tiên. ít nhất trong trường hợp "
+"này, bạn nên có phương tiện xen kẽ nào để phục hồi máy, v.d. băng/đĩa cài "
+"đặt của hệ thống gốc."
+
+#. Tag: para
+#: preparing.xml:820
+#, no-c-format
+msgid ""
+"If your machine already has multiple partitions, and enough space can be "
+"provided by deleting and replacing one or more of them, then you too can "
+"wait and use the &debian; installer's partitioning program. You should still "
+"read through the material below, because there may be special circumstances "
+"like the order of the existing partitions within the partition map, that "
+"force you to partition before installing anyway."
+msgstr ""
+"Nếu máy tính của bạn đã có nhiều phân vùng, và bạn có thể giải phóng đủ sức "
+"chứa bằng cách xoá bỏ và thay thế một hay nhiều phân vùng, bạn cũng có thể "
+"hoãn phân vùng đến khi sử dụng chương trình phân vùng có sẵn trong trình cài "
+"đặt &debian;. Trước tiên, bạn nên đọc thông tin bên dưới, để xem nếu có "
+"trường hợp đặc biệt (v.d. thứ tự các phân vùng đã có trên sơ đồ phân vùng) "
+"làm cho bạn vẫn còn cần phải phân vùng trước khi cài đặt."
+
+#. Tag: para
+#: preparing.xml:830
+#, no-c-format
+msgid ""
+"If your machine has a FAT or NTFS filesystem, as used by DOS and Windows, "
+"you can wait and use &debian; installer's partitioning program to resize the "
+"filesystem."
+msgstr ""
+"Nếu máy tính của bạn có hệ thống tập tin kiểu FAT hay NTFS, như được dùng "
+"bởi DOS và Windows, bạn có thể đợi đến khi sử dụng chương trình phân vùng có "
+"sẵn trong trình cài đặt &debian;, để thay đổi kích cỡ của hệ thống tập tin "
+"đó."
+
+#. Tag: para
+#: preparing.xml:836
+#, no-c-format
+msgid ""
+"If none of the above apply, you'll need to partition your hard disk before "
+"starting the installation to create partitionable space for &debian;. If "
+"some of the partitions will be owned by other operating systems, you should "
+"create those partitions using native operating system partitioning programs. "
+"We recommend that you do <emphasis>not</emphasis> attempt to create "
+"partitions for &debian-gnu; using another operating system's tools. Instead, "
+"you should just create the native operating system's partitions you will "
+"want to retain."
+msgstr ""
+"Không có trường hợp nào ở trên thì bạn cần phải phân vùng đĩa cứng trước khi "
+"khởi chạy tiến trình cài đặt, để tạo sức chứa có khả năng phân vùng dành cho "
+"&debian;. Nếu một số phân vùng sẽ bị hệ điều hành khác sở hữu, bạn nên tạo "
+"các phân vùng riêng đó bằng chương trình phân vùng sở hữu của HĐH đó. Khuyên "
+"bạn <emphasis>đừng</emphasis> cố gắng tạo phân vùng cho &debian-gnu; bằng "
+"công cụ của một HĐH khác: chỉ nên tạo những phân vùng cần giữ lại cho HĐH "
+"khác đó."
+
+#. Tag: para
+#: preparing.xml:848
+#, no-c-format
+msgid ""
+"If you are going to install more than one operating system on the same "
+"machine, you should install all other system(s) before proceeding with "
+"&debian; installation. Windows and other OS installations may destroy your "
+"ability to start &debian;, or encourage you to reformat non-native "
+"partitions."
+msgstr ""
+"Dự định cài đặt nhiều hệ điều hành vào cùng một máy thì bạn nên cài đặt HĐH "
+"khác nào trước khi cài đặt &debian;. Thứ tự cài đặt này ngăn cản HĐH khác "
+"hủy khả năng khởi chạy &debian;, cũng tránh xem hướng dẫn bạn định dạng lại "
+"phân vùng không sở hữu."
+
+#. Tag: para
+#: preparing.xml:856
+#, no-c-format
+msgid ""
+"You can recover from these actions or avoid them, but installing the native "
+"system first saves you trouble."
+msgstr ""
+"Cũng có thể tránh những hành động này hoặc phục hồi máy tính về sau, nhưng "
+"mà theo thứ tự cài đặt này (cài đặt hệ thống sở hữu về trước) khỏi phiền đến "
+"bạn."
+
+#. Tag: para
+#: preparing.xml:861
+#, no-c-format
+msgid ""
+"In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
+"parttype; partitions should appear before all other partitions on the disk, "
+"especially MacOS boot partitions. This should be kept in mind when pre-"
+"partitioning; you should create a &arch-parttype; placeholder partition to "
+"come <emphasis>before</emphasis> the other bootable partitions on the disk. "
+"(The small partitions dedicated to Apple disk drivers are not bootable.) You "
+"can delete the placeholder with the &debian; partition tools later during "
+"the actual install, and replace it with &arch-parttype; partitions."
+msgstr ""
+"Để OpenFirmware tự động khởi động &debian-gnu; những phân vùng &arch-"
+"parttype; nên nằm phía trước các phân vùng khác trên đĩa, đặc biệt phân vùng "
+"khởi động MacOS. Ghi nhớ thứ tự này khi phân vùng sẵn: bạn nên tạo một phân "
+"vùng giữ chỗ &arch-parttype; sẽ nằm <emphasis>phía trước</emphasis> các phân "
+"vùng khởi động được khác trên đĩa. (Phân vùng nhỏ đặc trưng cho trình điều "
+"khiển đĩa Apple thì không có khả năng khởi động.) Bạn có thể sử dụng công cụ "
+"phân vùng &debian; để xoá bỏ bộ giữ chỗ này vào một bước sau trong khi cài "
+"đặt, và thay thế nó bằng phân vùng kiểu &arch-parttype;."
+
+#. Tag: para
+#: preparing.xml:873
+#, no-c-format
+msgid ""
+"If you currently have one hard disk with one partition (a common setup for "
+"desktop computers), and you want to multi-boot the native operating system "
+"and &debian;, you will need to:"
+msgstr ""
+"Nếu bạn hiện thời có một đĩa cứng riêng lẻ chứa chỉ một phân vùng (một thiết "
+"lập thường gặp trên máy tính để bàn), và bạn muốn « đa khởi động » cả hai hệ "
+"điều hành gốc và &debian;, bạn cần phải:"
+
+#. Tag: para
+#: preparing.xml:880
+#, no-c-format
+msgid "Back up everything on the computer."
+msgstr "Sao lưu tất cả trên máy tính đó."
+
+#. Tag: para
+#: preparing.xml:885
+#, no-c-format
+msgid ""
+"Boot from the native operating system installer media such as CD-ROM or "
+"tapes. <phrase arch=\"powerpc\">When booting from a MacOS CD, hold the "
+"<keycap>c</keycap> key while booting to force the CD to become the active "
+"MacOS system.</phrase>"
+msgstr ""
+"Khởi động từ vật chứa (v.d. đĩa CD hay băng) cài đặt hệ điều hành gốc. "
+"<phrase arch=\"powerpc\">Khi khởi động từ đĩa CD kiểu MacOS, hãy bấm giữ "
+"phím <keycap>c</keycap> trong khi khởi động, để ép buộc đĩa CD đó trở thành "
+"hệ thống MacOS hoạt động.</phrase>"
+
+#. Tag: para
+#: preparing.xml:895
+#, no-c-format
+msgid ""
+"Use the native partitioning tools to create native system partition(s). "
+"Leave either a place holder partition or free space for &debian-gnu;."
+msgstr ""
+"Dùng công cụ phân vùng của HĐH gốc để tạo các phân vùng dành cho nó. Để lại "
+"hoặc một phân vùng giữ chỗ hoặc sức chứa còn rảnh dành cho Debian."
+
+#. Tag: para
+#: preparing.xml:902
+#, no-c-format
+msgid "Install the native operating system on its new partition."
+msgstr "Cài đặt hệ điều hành gốc vào phân vùng mới của nó."
+
+#. Tag: para
+#: preparing.xml:907
+#, no-c-format
+msgid ""
+"Boot back into the native system to verify everything's OK, and to download "
+"the &debian; installer boot files."
+msgstr ""
+"Khởi động về HĐH sở hữu để kiểm tra xem mọi thứ là ổn, cũng để tải về các "
+"tập tin khởi động của trình cài đặt &debian;."
+
+#. Tag: para
+#: preparing.xml:913
+#, no-c-format
+msgid "Boot the &debian; installer to continue installing &debian;."
+msgstr "Khởi động trình cài đặt &debian; để tiếp tục lại cài đặt &debian;."
+
+#. Tag: title
+#: preparing.xml:927
+#, no-c-format
+msgid "Partitioning From DOS or Windows"
+msgstr "Phân vùng từ DOS hay Windows"
+
+#. Tag: para
+#: preparing.xml:928
+#, no-c-format
+msgid ""
+"If you are manipulating existing FAT or NTFS partitions, it is recommended "
+"that you either use the scheme below or native Windows or DOS tools. "
+"Otherwise, it is not really necessary to partition from DOS or Windows; the "
+"&debian; partitioning tools will generally do a better job."
+msgstr ""
+"Có thao tác phân vùng FAT hay NTFS đã có thì khuyên bạn hoặc sử dụng lược đồ "
+"bên dưới, hoặc sử dụng công cụ sở hữu của Windows hay DOS. Không thì bạn "
+"không thật cần phải phân vùng từ DOS hay Windows; nói chung công cụ phân "
+"vùng &debian; làm việc tốt hơn."
+
+#. Tag: para
+#: preparing.xml:936
+#, no-c-format
+msgid ""
+"But if you have a large IDE disk, and are not using LBA addressing, overlay "
+"drivers (sometimes provided by hard disk manufacturers), or a new (post "
+"1998) BIOS that supports large disk access extensions, then you must locate "
+"your &debian; boot partition carefully. In this case, you will have to put "
+"the boot partition into the first 1024 cylinders of your hard disk (usually "
+"around 524 megabytes, without BIOS translation). This may require that you "
+"move an existing FAT or NTFS partition."
+msgstr ""
+"Tuy nhiên, nếu bạn có một đĩa IDE lớn, và không sử dụng khả năng đặt địa chỉ "
+"LBA, trình điều khiển phủ (đôi khi được cung cấp bởi hãng chế tạo đĩa cứng), "
+"hoặc một BIOS mới (sau năm 1998) hỗ trợ các phần mở rộng truy cập đến đĩa "
+"lớn, thì bạn cần phải định vị cẩn thận phân vùng khởi động &debian;. Trong "
+"trường hợp này, bạn cần phải để phân vùng khởi động vào vùng chứa 1024 hình "
+"trụ đầu của đĩa cứng (bình thường là khoảng 524 MB mà không có dịch BIOS). "
+"Việc này có thể yêu cầu bạn dời một phân vùng NAT hay NTFS đã có."
+
+#. Tag: title
+#: preparing.xml:950
+#, no-c-format
+msgid "Lossless Repartitioning When Starting From DOS, Win-32 or OS/2"
+msgstr "Phân vùng lại không mất gì khi bắt đầu từ DOS, Win-32 hay OS/2"
+
+#. Tag: para
+#: preparing.xml:953
+#, no-c-format
+msgid ""
+"One of the most common installations is onto a system that already contains "
+"DOS (including Windows 3.1), Win32 (such as Windows 95, 98, Me, NT, 2000, "
+"XP, 2003, Vista, 7), or OS/2, and it is desired to put &debian; onto the "
+"same disk without destroying the previous system. Note that the installer "
+"supports resizing of FAT and NTFS filesystems as used by DOS and Windows. "
+"Simply start the installer and when you get to the partitioning step, select "
+"the option for <menuchoice> <guimenuitem>Manual</guimenuitem> </menuchoice> "
+"partitioning, select the partition to resize, and specify its new size. So "
+"in most cases you should not need to use the method described below."
+msgstr ""
+"Một của những việc cài đặt thường làm nhất là vào một hệ thống đã có DOS "
+"(gồm có Windows 3.1), Win32 (v.d. Windows 95, 98, Me, NT, 2000, XP, 2003, "
+"Vista, 7), hay OS/2 và người dùng muốn cài đặt &debian; vào cùng một đĩa mà "
+"không hủy hệ thống trước. Ghi chú rằng trình cài đặt &debian; hỗ trợ chức "
+"năng thay đổi kích cỡ của hệ thống tập tin kiểu FAT và NTFS như được dùng "
+"bởi hệ điều hành DOS và Windows. Đơn giản hãy khởi chạy trình cài đặt, và "
+"khi bạn tới bước phân vùng, chọn làm phân vùng <menuchoice> "
+"<guimenuitem>Bằng tay</guimenuitem> </menuchoice>, chọn phân vùng có kích cỡ "
+"cần thay đổi, và xác định kích cỡ mới cho nó. Vì vậy trong phần lớn các "
+"trường hợp bạn không cần sử dụng phương pháp được diễn tả bên dưới."
+
+#. Tag: para
+#: preparing.xml:965
+#, no-c-format
+msgid ""
+"Before going any further, you should have decided how you will be dividing "
+"up the disk. The method in this section will only split a partition into two "
+"pieces. One will contain the original OS and the other will be used for "
+"&debian;. During the installation of &debian;, you will be given the "
+"opportunity to use the &debian; portion of the disk as you see fit, i.e., as "
+"swap or as a file system."
+msgstr ""
+"Trước khi tiếp tục, bạn nên đã quyết định nên chia đĩa ra như thế nào. "
+"Phương pháp trong tiết đoạn này sẽ chia phân vùng ra chỉ hai phần. Một phần "
+"sẽ chứa HĐH gốc, còn phần khác sẽ chứa &debian;. Trong khi cài đặt &debian;, "
+"bạn sẽ có dịp sử dụng phần đĩa &debian; bằng cách nào thích hợp, tức là làm "
+"vùng trao đổi hoặc làm hệ thống tập tin."
+
+#. Tag: para
+#: preparing.xml:974
+#, no-c-format
+msgid ""
+"The idea is to move all the data on the partition to the beginning, before "
+"changing the partition information, so that nothing will be lost. It is "
+"important that you do as little as possible between the data movement and "
+"repartitioning to minimize the chance of a file being written near the end "
+"of the partition as this will decrease the amount of space you can take from "
+"the partition."
+msgstr ""
+"Mục đích là di chuyển về đầu phân vùng mọi dữ liệu đã có trên nó, trước khi "
+"thay đổi thông tin phân vùng, để tránh mất gì. Quan trọng là bạn làm ít nhất "
+"có thể giữa việc chuyển dữ liệu và việc phân vùng lại, để ngăn cản ghi tập "
+"tin gần cuối phân vùng, vì tập tin đó giảm sức chứa sẵn sàng."
+
+#. Tag: para
+#: preparing.xml:983
+#, no-c-format
+msgid ""
+"The first thing needed is a copy of <command>fips</command>. Unzip the "
+"archive and copy the files <filename>RESTORRB.EXE</filename>, <filename>FIPS."
+"EXE</filename> and <filename>ERRORS.TXT</filename> to a bootable floppy. A "
+"bootable floppy can be created using the command <filename>sys a:</filename> "
+"under DOS. <command>fips</command> comes with very good documentation which "
+"you may want to read. You will definitely need to read the documentation if "
+"you use a disk compression driver or a disk manager. Create the disk and "
+"read the documentation <emphasis>before</emphasis> you defragment the disk."
+msgstr ""
+"Trước tiên yêu cầu một bản sao của tiện ích <command>fips</command>. Giải "
+"nén kho này và sao chép những tập tin <filename>RESTORRB.EXE</filename>, "
+"<filename>FIPS.EXE</filename> và <filename>ERRORS.TXT</filename> vào một đĩa "
+"mềm có khả năng khởi động. Có thể tạo một đĩa mềm có khả năng khởi động bằng "
+"cách sử dụng lệnh <filename>sys a:</filename> dưới hệ điều hành DOS. Tiện "
+"ích <command>fips</command> có sẵn tài liệu hướng dẫn rất tốt: khuyên bạn "
+"đọc nó, đặc biệt nếu bạn sử dụng một trình điều khiển nén đĩa hoặc một bộ "
+"quản lý đĩa. Tạo đĩa này và đọc tài liệu tương ứng <emphasis>trước</"
+"emphasis> khi bạn chắp liền đĩa đó."
+
+#. Tag: para
+#: preparing.xml:995
+#, no-c-format
+msgid ""
+"The next thing needed is to move all the data to the beginning of the "
+"partition. <command>defrag</command>, which comes standard with DOS 6.0 and "
+"later, can easily do the job. See the <command>fips</command> documentation "
+"for a list of other software that may do the trick. Note that if you have "
+"Windows 9x, you must run <command>defrag</command> from there, since DOS "
+"doesn't understand VFAT, which is used to support for long filenames, used "
+"in Windows 95 and higher."
+msgstr ""
+"Sau đó cần thiết di chuyển mọi dữ liệu về đầu của phân vùng. Tiện ích "
+"<command>defrag</command>, mà có sẵn chuẩn trong hệ điều hành DOS 6.0 và "
+"sau, có khả năng làm việc này. Xem tài liệu hướng dẫn <command>fips</"
+"command> để tìm danh sách phần mềm khác cùng có khả năng này. Ghi chú rằng "
+"nếu bạn có hệ điều hành Windows 9x, bạn cần phải chạy <command>defrag</"
+"command> từ nó, vì DOS không hiểu được dạng thức VFAT, được dùng để hỗ trợ "
+"khả năng thao tác tên tập tin dài (có sẵn trong HĐH Windows 95 và sau)."
+
+#. Tag: para
+#: preparing.xml:1005
+#, no-c-format
+msgid ""
+"After running the defragmenter (which can take a while on a large disk), "
+"reboot with the <command>fips</command> disk you created in the floppy "
+"drive. Simply type <filename>a:\\fips</filename> and follow the directions."
+msgstr ""
+"Sau khi chạy bộ chắp liền (mà có thể hơi lâu trên đĩa lớn), hãy khởi động "
+"lại bằng đĩa <command>fips</command> bạn đã tạo trong ổ đĩa mềm. Đơn giản "
+"hãy gõ <filename>a:\\fips</filename> rồi theo những hướng dẫn."
+
+#. Tag: para
+#: preparing.xml:1011
+#, no-c-format
+msgid ""
+"Note that there are many other partition managers out there, in case "
+"<command>fips</command> doesn't do the trick for you."
+msgstr ""
+"Ghi chú rằng có nhiều bộ quản lý phân vùng khác, nếu <command>fips</command> "
+"không phải là thích hợp."
+
+#. Tag: title
+#: preparing.xml:1019
+#, no-c-format
+msgid "Partitioning for DOS"
+msgstr "Phân vùng cho DOS"
+
+#. Tag: para
+#: preparing.xml:1021
+#, no-c-format
+msgid ""
+"If you are partitioning for DOS drives, or changing the size of DOS "
+"partitions, using &debian; tools, many people experience problems working "
+"with the resulting FAT partitions. For instance, some have reported slow "
+"performance, consistent problems with <command>scandisk</command>, or other "
+"weird errors in DOS or Windows."
+msgstr ""
+"Nếu bạn phân vùng cho đĩa DOS (hoặc thay đổi kích cỡ của phân vùng DOS) bằng "
+"công cụ &debian;, nhiều người gặp khó khăn sử dụng phân vùng FAT là kết quả. "
+"Chẳng hạn, một số người dùng đã thông báo hiệu suất bị giảm, lỗi bền bỉ "
+"trong tiến trình <command>scandisk</command> (quét đĩa), và một số lỗi lạ "
+"khác trong DOS hay Windows."
+
+#. Tag: para
+#: preparing.xml:1029
+#, no-c-format
+msgid ""
+"Apparently, whenever you create or resize a partition for DOS use, it's a "
+"good idea to fill the first few sectors with zeros. You should do this prior "
+"to running DOS's <command>format</command> command by executing the "
+"following command from &debian;:"
+msgstr ""
+"Có vẻ là khi nào bạn tạo hoặc thay đổi kích cỡ của một phân vùng cho DOS "
+"dùng, một ý kiến tốt là tô đầy vài rãnh ghi đầu tiên bằng số không. Bạn nên "
+"làm việc này trước khi chạy lệnh <command>format</command> (định dạng) của "
+"DOS, bằng cách chạy câu lệnh này từ &debian;:"
+
+# Literal: don't translate / Nghĩa chữ: đừng dịch
+#. Tag: screen
+#: preparing.xml:1036
+#, no-c-format
+msgid "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
+msgstr "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
+
+#. Tag: title
+#: preparing.xml:1047
+#, no-c-format
+msgid "Partitioning from SunOS"
+msgstr "Phân vùng từ SunOS"
+
+#. Tag: para
+#: preparing.xml:1049
+#, no-c-format
+msgid ""
+"It's perfectly fine to partition from SunOS; in fact, if you intend to run "
+"both SunOS and &debian; on the same machine, it is recommended that you "
+"partition using SunOS prior to installing &debian;. The Linux kernel "
+"understands Sun disk labels, so there are no problems there. SILO supports "
+"booting Linux and SunOS from any of EXT2 (Linux), UFS (SunOS), romfs or "
+"iso9660 (CDROM) partitions."
+msgstr ""
+"Có thể phân vùng được từ hệ điều hành SunOS. Tức là, nếu bạn dự định chạy cả "
+"hai hệ điều hành SunOS và &debian; trên cùng một máy, khuyên bạn phân vùng "
+"bằng SunOS trước khi cài đặt &debian;. Hạt nhân Linux hiểu được các nhãn đĩa "
+"kiểu SunOS nên không có sao. SILO hỗ trợ chức năng khởi động Linux và SunOS "
+"từ phân vùng bất cứ kiểu EXT2 (Linux), UFS (SunOS), romfs hay iso9660 "
+"(CDROM) nào."
+
+#. Tag: title
+#: preparing.xml:1061
+#, no-c-format
+msgid "Partitioning from Linux or another OS"
+msgstr "Phân vùng từ Linux hay HĐH khác"
+
+#. Tag: para
+#: preparing.xml:1063
+#, no-c-format
+msgid ""
+"Whatever system you are using to partition, make sure you create a "
+"<quote>Sun disk label</quote> on your boot disk. This is the only kind of "
+"partition scheme that the OpenBoot PROM understands, and so it's the only "
+"scheme from which you can boot. In <command>fdisk</command>, the <keycap>s</"
+"keycap> key is used to create Sun disk labels. You only need to do this on "
+"drives that do not already have a Sun disk label. If you are using a drive "
+"that was previously formatted using a PC (or other architecture) you must "
+"create a new disk label, or problems with the disk geometry will most likely "
+"occur."
+msgstr ""
+"Bất chấp hệ điều hành bạn sử dụng để phân vùng, hãy đảm bảo bạn tạo một "
+"<quote>nhãn đĩa Sun </quote> (Sun disk label) trên đĩa khởi động. Đây là "
+"lược đồ phân vùng duy nhất do OpenBoot PROM hiểu, nên nó là lược đồ duy nhất "
+"từ đó bạn có thể khởi động. Trong chương trình <command>fdisk</command>, "
+"phím <keycap>s</keycap> được dùng để tạo nhãn đĩa Sun. Bạn cần phải làm việc "
+"này chỉ trên đĩa chưa có nhãn đĩa kiểu Sun. Nếu bạn đang sử dụng đĩa đã được "
+"định dạng bằng máy PC (hay bằng kiến trúc khác) bạn cần phải tạo một nhãn "
+"đĩa mới, nếu không sẽ gặp khó khăn với dạng hình của đĩa."
+
+#. Tag: para
+#: preparing.xml:1075
+#, no-c-format
+msgid ""
+"You will probably be using <command>SILO</command> as your boot loader (the "
+"small program which runs the operating system kernel). <command>SILO</"
+"command> has certain requirements for partition sizes and location; see "
+"<xref linkend=\"partitioning\"/>."
+msgstr ""
+"Rất có thể là bạn sử dụng <command>SILO</command> là bộ nạp khởi động "
+"(chương trình nhỏ chạy hạt nhân của hệ điều hành). <command>SILO</command> "
+"cần thiết kích cỡ và vị trí phân vùng đặc biệt: hãy xem <xref linkend="
+"\"partitioning\"/>."
+
+#. Tag: title
+#: preparing.xml:1090
+#, no-c-format
+msgid "MacOS/OSX Partitioning"
+msgstr "Phân vùng MacOS/MacOSX"
+
+#. Tag: para
+#: preparing.xml:1092
+#, no-c-format
+msgid ""
+"The <application>Apple Drive Setup</application> application can be found in "
+"the <filename>Utilities</filename> folder on the MacOS CD. It will not "
+"adjust existing partitions; it is limited to partitioning the entire disk at "
+"once. The disk driver partitions don't show up in <application>Drive Setup</"
+"application>."
+msgstr ""
+"Ứng dụng <application>Apple Drive Setup</application> nằm trong thư mục "
+"<filename>Utilities</filename> trên đĩa CD cài đặt hệ điều hành MacOS. Nó "
+"không điều chỉnh phân vùng đã có; nó chỉ phân vùng toàn bộ đĩa đồng thời. "
+"Ứng dụng <application>Drive Setup</application> cũng không hiển thị những "
+"phân vùng dành cho trình điều khiển đĩa."
+
+#. Tag: para
+#: preparing.xml:1099
+#, no-c-format
+msgid ""
+"Remember to create a placeholder partition for GNU/Linux, preferably "
+"positioned first in the disk layout. it doesn't matter what type it is, it "
+"will be deleted and replaced later inside the &debian-gnu; installer."
+msgstr ""
+"Hãy nhớ để tạo một phân vùng giữ chỗ dành cho GNU/Linux, tốt hơn có vị trí "
+"thứ nhất trong bố trí đĩa. Kiểu phân vùng không quan trọng, vì nó sẽ bị xoá "
+"bỏ và thay thế sau này trong tiến trình cài đặt &debian-gnu;."
+
+#. Tag: para
+#: preparing.xml:1105
+#, no-c-format
+msgid ""
+"If you are planning to install both MacOS 9 and OS X, it is best to create "
+"separate partitions for OS 9 and OS X. If they are installed on the same "
+"partition, <application>Startup Disk</application> (and reboot) must be used "
+"to select between the two; the choice between the two systems can't be made "
+"at boot time. With separate partitions, separate options for OS 9 and OS X "
+"will appear when holding the <keycap>option</keycap> key at boot time, and "
+"separate options can be installed in the <application>yaboot</application> "
+"boot menu as well. Also, Startup Disk will de-bless all other mountable "
+"partitions, which can affect GNU/Linux booting. Both OS 9 and OS X "
+"partitions will be accessible from either OS 9 or OS X."
+msgstr ""
+"Nếu bạn định cài đặt cả hai hệ điều hành Mac OS9 và OSX, tốt nhất để tạo "
+"phân vùng riêng cho mỗi hệ thống. Nếu bạn cài đặt cả hai hệ thống vào cùng "
+"một phân vùng, cần phải dùng tiện ích <application>Startup Disk</"
+"application> (rồi khởi động lại) để chọn hệ thống nào khởi động máy: không "
+"thể chọn nó vào lúc khởi động. Nếu bạn cài đặt mỗi hệ điều hành OS9 và OSX "
+"vào phân vùng riêng, cũng có tùy chọn riêng sẽ xuất hiện khi bạn bấm giữ "
+"phím <keycap>option</keycap> vào lúc khởi động, và cũng có thể cài đặt tùy "
+"chọn riêng vào trình đơn khởi động của <application>yaboot</application>. "
+"Hơn nữa, tiện ích Startup Disk sẽ vô hiệu hoá các phân vùng lắp được khác có "
+"thể tác động lên khả năng khởi động GNU/Linux. Bạn sẽ cũng có thể truy cập "
+"mỗi kiểu phân vùng từ hệ điều hành hoặc OS9 hoặc OSX."
+
+#. Tag: para
+#: preparing.xml:1118
+#, no-c-format
+msgid ""
+"GNU/Linux is unable to access information on UFS partitions, but does "
+"support HFS+ (aka MacOS Extended) partitions. OS X requires one of these two "
+"types for its boot partition. MacOS 9 can be installed on either HFS (aka "
+"MacOS Standard) or HFS+. To share information between the MacOS and GNU/"
+"Linux systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT "
+"partitions are supported by both MacOS and Linux."
+msgstr ""
+"Hệ điều hành GNU/Linux không có khả năng truy cập thông tin nằm trên phân "
+"vùng kiểu UFS, nhưng có phải hỗ trợ dạng thức phân vùng HFS+ (cũng tên Mac "
+"OS Extended). Hệ điều hành OSX cần thiết một của hai kiểu phân vùng này là "
+"phân vùng khởi động của nó. Còn OS9 có thể được cài đặt vào phân vùng kiểu "
+"hoặc HFS (cũng tên MacOS Standard) hoặc HFS+. Để chia sẻ thông tin giữa hai "
+"hệ điều hành MacOS và GNU/Linux, hữu ích để tạo một phân vùng trao đổi. Cả "
+"hai HĐH MacOS và GNU/Linux hỗ trợ phân vùng kiểu HFS, HFS+ và MS-DOS FAT."
+
+#. Tag: title
+#: preparing.xml:1138
+#, no-c-format
+msgid "Pre-Installation Hardware and Operating System Setup"
+msgstr "Phần cứng cài đặt sẵn và thiết lập hệ điều hành"
+
+#. Tag: para
+#: preparing.xml:1139
+#, no-c-format
+msgid ""
+"This section will walk you through pre-installation hardware setup, if any, "
+"that you will need to do prior to installing &debian;. Generally, this "
+"involves checking and possibly changing firmware settings for your system. "
+"The <quote>firmware</quote> is the core software used by the hardware; it is "
+"most critically invoked during the bootstrap process (after power-up). Known "
+"hardware issues affecting the reliability of &debian-gnu; on your system are "
+"also highlighted."
+msgstr ""
+"Tiết đoạn này sẽ hướng dẫn bạn qua tiến trình thiết lập phần cứng nào yêu "
+"cầu trước khi cài đặt &debian;. Bình thường, tiến trình này gồm có việc kiểm "
+"tra, và có thể thay đổi, thiết lập phần vững cho hệ thống. <quote>Phần vững</"
+"quote> (firmware) là phần mềm lõi được dùng bởi phần cứng, đặc biệt trong "
+"tiến trình nạp và khởi động hệ điều hành (một khi mở điện). Bên dưới cũng "
+"diễn tả một số vấn đề phần cứng đã biết có tác động sự đáng tin cậy của "
+"&debian-gnu; trên máy tính của bạn."
+
+#. Tag: title
+#: preparing.xml:1161
+#, no-c-format
+msgid "Invoking the BIOS Set-Up Menu"
+msgstr "Gọi trình đơn thiết lập BIOS"
+
+#. Tag: para
+#: preparing.xml:1163
+#, no-c-format
+msgid ""
+"BIOS provides the basic functions needed to boot your machine to allow your "
+"operating system to access your hardware. Your system probably provides a "
+"BIOS setup menu, which is used to configure the BIOS. Before installing, you "
+"<emphasis>must</emphasis> ensure that your BIOS is set up correctly; not "
+"doing so can lead to intermittent crashes or an inability to install "
+"&debian;."
+msgstr ""
+"BIOS (hệ thống vào/ra cơ bản) cung cấp các chức năng cơ bản cần thiết để "
+"khởi động máy, để cho phép hệ điều hành truy cập đến phần cứng. Hệ điều hành "
+"gốc rất có thể cung cấp một trình đơn thiết lập BIOS, được dùng để cấu hình "
+"BIOS đó. Trước khi cài đặt &debian;, bạn <emphasis>cần phải</emphasis> kiểm "
+"tra xem BIOS có thiết lập đúng: nếu không thì máy sụp đổ lúc có lúc không, "
+"hoặc bạn sẽ không có khả năng cài đặt &debian;."
+
+#. Tag: para
+#: preparing.xml:1172
+#, no-c-format
+msgid ""
+"The rest of this section is lifted from the <ulink url=\"&url-pc-hw-faq;\"></"
+"ulink>, answering the question, <quote>How do I enter the CMOS configuration "
+"menu?</quote>. How you access the BIOS (or <quote>CMOS</quote>) "
+"configuration menu depends on who wrote your BIOS software:"
+msgstr ""
+"Phần tiết đoạn này còn lại là phần của Hỏi Đáp <ulink url=\"&url-pc-hw-faq;"
+"\"></ulink> trả lời cho câu hỏi <quote>Tôi vào trình đơn cấu hình CMOS như "
+"thế nào?</quote>. Cách truy cập trình đơn cấu hình BIOS (hay <quote>CMOS</"
+"quote>) phụ thuộc vào ai đã ghi phần mềm BIOS đó:"
+
+#. Tag: term
+#: preparing.xml:1186
+#, no-c-format
+msgid "AMI BIOS"
+msgstr "AMI BIOS"
+
+#. Tag: para
+#: preparing.xml:1187
+#, no-c-format
+msgid "<keycap>Delete</keycap> key during the POST (power on self test)"
+msgstr "Phím <keycap>Delete</keycap> trong POST (việc mở điện tự kiểm tra)"
+
+#. Tag: term
+#: preparing.xml:1195
+#, no-c-format
+msgid "Award BIOS"
+msgstr "Award BIOS"
+
+#. Tag: para
+#: preparing.xml:1196
+#, no-c-format
+msgid ""
+"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </"
+"keycombo>, or <keycap>Delete</keycap> key during the POST"
+msgstr ""
+"Tổ hợp phím <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</"
+"keycap> </keycombo>, hay <keycap>Delete</keycap> trong POST"
+
+#. Tag: term
+#: preparing.xml:1205
+#, no-c-format
+msgid "DTK BIOS"
+msgstr "DTK BIOS"
+
+#. Tag: para
+#: preparing.xml:1206
+#, no-c-format
+msgid "<keycap>Esc</keycap> key during the POST"
+msgstr "Phím <keycap>Esc</keycap> trong POST"
+
+#. Tag: term
+#: preparing.xml:1213
+#, no-c-format
+msgid "IBM PS/2 BIOS"
+msgstr "IBM PS/2 BIOS"
+
+#. Tag: para
+#: preparing.xml:1214
+#, no-c-format
+msgid ""
+"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</keycap> "
+"</keycombo> after <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+"keycap><keycap>Delete</keycap> </keycombo>"
+msgstr ""
+"Tổ hợp phím <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+"keycap><keycap>Insert</keycap> </keycombo> sau <keycombo> <keycap>Ctrl</"
+"keycap><keycap>Alt</keycap><keycap>Delete</keycap> </keycombo>"
+
+#. Tag: term
+#: preparing.xml:1228
+#, no-c-format
+msgid "Phoenix BIOS"
+msgstr "Phoenix BIOS"
+
+#. Tag: para
+#: preparing.xml:1229
+#, no-c-format
+msgid ""
+"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </"
+"keycombo> or <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>S</"
+"keycap> </keycombo> or <keycap>F1</keycap>"
+msgstr ""
+"Tổ hợp phím <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</"
+"keycap> </keycombo> hay <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+"keycap><keycap>S</keycap> </keycombo> hay <keycap>F1</keycap>"
+
+#. Tag: para
+#: preparing.xml:1245
+#, no-c-format
+msgid ""
+"Information on invoking other BIOS routines can be found in <ulink url="
+"\"&url-invoking-bios-info;\"></ulink>."
+msgstr ""
+"Thông tin về cách gọi hàm BIOS khác nằm trong <ulink url=\"&url-invoking-"
+"bios-info;\"></ulink>."
+
+#. Tag: para
+#: preparing.xml:1250
+#, no-c-format
+msgid ""
+"Some &arch-title; machines don't have a CMOS configuration menu in the BIOS. "
+"They require a software CMOS setup program. If you don't have the "
+"Installation and/or Diagnostics diskette for your machine, you can try using "
+"a shareware/freeware program. Try looking in <ulink url=\"&url-simtel;\"></"
+"ulink>."
+msgstr ""
+"Một số máy kiểu &arch-title; không có trình đơn cấu hình CMOS trong BIOS. "
+"Những máy này cần thiết phần mềm thiết lập CMOS. Nếu bạn không có đĩa mềm "
+"Cài Đặt (Installation) và/hay Chẩn Đoán (Diagnostics) dành cho máy của mình, "
+"bạn có thể thử sử dụng một chương trình phần mềm cổ đông/biếu không: v.d. "
+"xem <ulink url=\"&url-simtel;\"></ulink>."
+
+#. Tag: title
+#: preparing.xml:1261 preparing.xml:1579
+#, no-c-format
+msgid "Boot Device Selection"
+msgstr "Chọn thiết bị khởi động"
+
+#. Tag: para
+#: preparing.xml:1263
+#, no-c-format
+msgid ""
+"Many BIOS setup menus allow you to select the devices that will be used to "
+"bootstrap the system. Set this to look for a bootable operating system on "
+"<filename>A:</filename> (the first floppy disk), then optionally the first "
+"CD-ROM device (possibly appearing as <filename>D:</filename> or <filename>E:"
+"</filename>), and then from <filename>C:</filename> (the first hard disk). "
+"This setting enables you to boot from either a floppy disk or a CD-ROM, "
+"which are the two most common boot devices used to install &debian;."
+msgstr ""
+"Nhiều trình đơn thiết lập BIOS cho phép bạn chọn (những) thiết bị cần dùng "
+"để nạp và khởi động hệ điều hành. Lập nó tìm một hệ điều hành có khả năng "
+"khởi động và nằm trên <filename>A:</filename> (đĩa mềm thứ nhất), sau đó "
+"(tùy chọn) trên thiết bị đĩa CD-ROM thứ nhất (có thể là <filename>D:</"
+"filename> hay <filename>E:</filename>), sau đó trên <filename>C:</filename> "
+"(đĩa cứng thứ nhất). Thiết lập này cho bạn có khả năng khởi động từ hoặc một "
+"đĩa mềm hoặc một đĩa CD-ROM, hai thiết bị khởi động thường dùng nhất để cài "
+"đặt &debian;."
+
+#. Tag: para
+#: preparing.xml:1274
+#, no-c-format
+msgid ""
+"If you have a newer SCSI controller and you have a CD-ROM device attached to "
+"it, you are usually able to boot from the CD-ROM. All you have to do is "
+"enable booting from a CD-ROM in the SCSI-BIOS of your controller."
+msgstr ""
+"Nếu bạn có bộ điều khiển SCSI mới hơn với thiết bị đĩa CD-ROM được kết nối, "
+"bạn thường có khả năng khởi động từ đĩa CD-ROM nằm trong thiết bị đó. Bạn "
+"đơn giản hãy hiệu lực khả năng khởi động từ đĩa CD-ROM trong SCSI-BIOS của "
+"bộ điều khiển này."
+
+#. Tag: para
+#: preparing.xml:1281
+#, no-c-format
+msgid ""
+"Another popular option is to boot from a USB storage device (also called a "
+"USB memory stick or USB key). Some BIOSes can boot directly from a USB "
+"storage device, but some cannot. You may need to configure your BIOS to boot "
+"from a <quote>Removable drive</quote> or even from <quote>USB-ZIP</quote> to "
+"get it to boot from the USB device."
+msgstr ""
+"Một tùy chọn ưa chuộng khác là khởi động từ thiết bị lưu trữ kiểu USB (cũng "
+"được gọi như là thanh USB hay khoá USB). Một số BIOS riêng có khả năng khởi "
+"động trực tiếp từ thiết bị lưu trữ USB, còn một số BIOS khác không có. Có lẽ "
+"bạn cần phải cấu hình BIOS để khởi động từ <quote>ổ đĩa rời</quote> "
+"(removable drive) hay ngay cả từ <quote>USB-ZIP</quote> để làm cho nó khởi "
+"động từ thiết bị USB."
+
+#. Tag: para
+#: preparing.xml:1289
+#, no-c-format
+msgid ""
+"Here are some details about how to set the boot order. Remember to reset the "
+"boot order after &arch-kernel; is installed, so that you restart your "
+"machine from the hard drive."
+msgstr ""
+"Đây là vài chi tiết về cách đặt thứ tự khởi động. Hãy nhớ để đặt lại thứ tự "
+"khởi động sau khi cài đặt &arch-kernel;, để khởi động lại máy từ đĩa cứng."
+
+#. Tag: title
+#: preparing.xml:1298
+#, no-c-format
+msgid "Changing the Boot Order on IDE Computers"
+msgstr "Thay đổi thứ tự khởi động trên máy IDE"
+
+#. Tag: para
+#: preparing.xml:1301
+#, no-c-format
+msgid ""
+"As your computer starts, press the keys to enter the BIOS utility. Often, it "
+"is the <keycap>Delete</keycap> key. However, consult the hardware "
+"documentation for the exact keystrokes."
+msgstr ""
+"Vào lúc khởi động máy, hãy bấm tổ hợp phím để vào tiện ích BIOS. Thường là "
+"phím <keycap>Delete</keycap>. Tùy nhiên, bạn hãy xem tài liệu hướng dẫn sử "
+"dụng phần cứng đó để tìm tổ hợp phím chính xác."
+
+#. Tag: para
+#: preparing.xml:1308
+#, no-c-format
+msgid ""
+"Find the boot sequence in the setup utility. Its location depends on your "
+"BIOS, but you are looking for a field that lists drives."
+msgstr ""
+"Hãy tìm thứ tự khởi động (boot sequence / boot order) trong tiện ích thiết "
+"lập. Vị trí của nó phụ thuộc vào BIOS đó, nhưng bạn cần tìm một trường liệt "
+"kê các ổ đĩa."
+
+#. Tag: para
+#: preparing.xml:1313
+#, no-c-format
+msgid "Common entries on IDE machines are C, A, cdrom or A, C, cdrom."
+msgstr "Mục nhập thường xem trên máy IDE là : C, A, cdrom hay A, C, cdrom."
+
+#. Tag: para
+#: preparing.xml:1318
+#, no-c-format
+msgid "C is the hard drive, and A is the floppy drive."
+msgstr "C là ổ đĩa cứng, còn A là ổ đĩa mềm."
+
+#. Tag: para
+#: preparing.xml:1324
+#, no-c-format
+msgid ""
+"Change the boot sequence setting so that the CD-ROM or the floppy is first. "
+"Usually, the <keycap>Page Up</keycap> or <keycap>Page Down</keycap> keys "
+"cycle through the possible choices."
+msgstr ""
+"Hãy thay đổi thiết lập thứ tự khởi động để hiển thị đĩa CD-ROM hay đĩa mềm "
+"có vị trí thứ nhất. Bình thường, hai phím <keycap>Page Up</keycap> và "
+"<keycap>Page Down</keycap> cuộn qua các sự chọn có thể."
+
+#. Tag: para
+#: preparing.xml:1332
+#, no-c-format
+msgid ""
+"Save your changes. Instructions on the screen tell you how to save the "
+"changes on your computer."
+msgstr ""
+"Lưu các thay đổi. Những hướng dẫn trên màn hình diễn tả cách lưu các thay "
+"đổi này trên máy đó."
+
+#. Tag: title
+#: preparing.xml:1342
+#, no-c-format
+msgid "Changing the Boot Order on SCSI Computers"
+msgstr "Thay đổi thứ tự khởi động trên máy kiểu SCSI"
+
+#. Tag: para
+#: preparing.xml:1346
+#, no-c-format
+msgid ""
+"As your computer starts, press the keys to enter the SCSI setup utility."
+msgstr "Vào lúc khởi động máy, hãy bấm tổ hợp phím để vào tiện ích SCSI."
+
+#. Tag: para
+#: preparing.xml:1351
+#, no-c-format
+msgid ""
+"You can start the SCSI setup utility after the memory check and the message "
+"about how to start the BIOS utility displays when you start your computer."
+msgstr ""
+"Bạn có khả năng khởi chạy tiện ích thiết lập SCSI sau việc kiểm tra bộ nhớ "
+"và thông điệp về cách khởi chạy tiện ích BIOS xuất hiện, khi bạn khởi động "
+"máy đó."
+
+#. Tag: para
+#: preparing.xml:1357
+#, no-c-format
+msgid ""
+"The keystrokes you need depend on the utility. Often, it is "
+"<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>. However, "
+"consult your hardware documentation for the exact keystrokes."
+msgstr ""
+"Tổ hợp phím cần thiết phụ thuộc vào tiện ích đó. Thường là "
+"<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>. Tùy nhiên, "
+"bạn hãy xem tài liệu hướng dẫn sử dụng phần cứng để tìm tổ hợp phím chính "
+"xác."
+
+#. Tag: para
+#: preparing.xml:1365
+#, no-c-format
+msgid "Find the utility for changing the boot order."
+msgstr "Tìm tiện ích thay đổi thứ tự khởi động."
+
+#. Tag: para
+#: preparing.xml:1370
+#, no-c-format
+msgid ""
+"Set the utility so that the SCSI ID of the CD drive is first on the list."
+msgstr ""
+"Đặt tiện ích đó, để hiển thị mã nhận diện SCSI (SCSI ID) của ổ đĩa CD có vị "
+"trí thứ nhất trong danh sách."
+
+#. Tag: para
+#: preparing.xml:1376
+#, no-c-format
+msgid ""
+"Save your changes. Instructions on the screen tell you how to save the "
+"changes on your computer. Often, you must press <keycap>F10</keycap>."
+msgstr ""
+"Lưu các thay đổi. Những hướng dẫn trên màn hình diễn tả cách lưu các thay "
+"đổi này trên máy đó. Thường cần bấm phím <keycap>F10</keycap>."
+
+#. Tag: title
+#: preparing.xml:1390
+#, no-c-format
+msgid "Miscellaneous BIOS Settings"
+msgstr "Thiết lập BIOS lặt vặt"
+
+#. Tag: title
+#: preparing.xml:1392
+#, no-c-format
+msgid "CD-ROM Settings"
+msgstr "Thiết lập đĩa CD-ROM"
+
+#. Tag: para
+#: preparing.xml:1393
+#, no-c-format
+msgid ""
+"Some BIOS systems (such as Award BIOS) allow you to automatically set the CD "
+"speed. You should avoid that, and instead set it to, say, the lowest speed. "
+"If you get <userinput>seek failed</userinput> error messages, this may be "
+"your problem."
+msgstr ""
+"Một số hệ thống BIOS (v.d. Award BIOS) cho bạn khả năng đặt tự động tốc độ "
+"của ổ đĩa CD. Bạn nên tránh nó, đặt tốc độ thấp nhất thay thế. Nếu bạn gặp "
+"lỗi <userinput>lỗi tìm nơi</userinput> (seek failed), có lẽ máy có tốc độ CD "
+"cao quá."
+
+#. Tag: title
+#: preparing.xml:1403
+#, no-c-format
+msgid "Extended vs. Expanded Memory"
+msgstr "Bộ nhớ đã kéo dài so với bộ nhớ đã mở rộng"
+
+#. Tag: para
+#: preparing.xml:1404
+#, no-c-format
+msgid ""
+"If your system provides both ex<emphasis>ten</emphasis>ded and "
+"ex<emphasis>pan</emphasis>ded memory, set it so that there is as much "
+"extended and as little expanded memory as possible. &arch-kernel; requires "
+"extended memory and cannot use expanded memory."
+msgstr ""
+"Nếu hệ điều hành gốc cung cấp bộ nhớ kiểu cả <emphasis>đã kéo dài</emphasis> "
+"lẫn <emphasis>đã mở rộng</emphasis>, hãy đặt nhiều nhất bộ nhớ đã kéo dài và "
+"ít nhất bộ nhớ đã mở rộng có thể. Hệ điều hành &arch-kernel; cần thiết bộ "
+"nhớ đã kéo dài, còn không có khả năng sử dụng bộ nhớ đã mở rộng."
+
+#. Tag: title
+#: preparing.xml:1414
+#, no-c-format
+msgid "Virus Protection"
+msgstr "Bảo vệ chống vi rút"
+
+#. Tag: para
+#: preparing.xml:1415
+#, no-c-format
+msgid ""
+"Disable any virus-warning features your BIOS may provide. If you have a "
+"virus-protection board or other special hardware, make sure it is disabled "
+"or physically removed while running GNU/&arch-kernel;. These aren't "
+"compatible with GNU/&arch-kernel;; moreover, due to the file system "
+"permissions and protected memory of the &arch-kernel; kernel, viruses are "
+"almost unheard of<footnote> <para> After installation you can enable Boot "
+"Sector protection if you want. This offers no additional security in &arch-"
+"kernel; but if you also run Windows it may prevent a catastrophe. There is "
+"no need to tamper with the Master Boot Record (MBR) after the boot manager "
+"has been set up. </para> </footnote>."
+msgstr ""
+"Hãy tắt tính năng nào cảnh báo về vi rút do BIOS cung cấp. Nếu máy của bạn "
+"có bo mạch chống vi rút hay phần cứng chống vi rút đặc biệt khác, kiểm tra "
+"xem nó bị tắt hay bị gỡ bỏ vật lý, trong khi chạy hệ điều hành GNU/&arch-"
+"kernel;. Thiết bị kiểu này không tương thích với GNU/&arch-kernel;; hơn nữa, "
+"do quyền hạn của hệ thống tập tin và bộ nhớ đã bảo vệ của hạt nhân &arch-"
+"kernel;, vi rút gần chưa từng nghe thấy<footnote> <para> Sau khi cài đặt, "
+"bạn có thể bật chạy bảo vệ rãnh ghi khởi động, nếu muốn. Nó không cung cấp "
+"bảo mật thêm trong &arch-kernel;, nhưng nếu bạn cũng chạy Windows nó có thể "
+"ngăn cản tai ương. Không cần sửa đổi Mục Ghi Khởi Động Chủ (MBR) sau khi "
+"thiết lập bộ quản lý khởi động.</para> </footnote>."
+
+#. Tag: title
+#: preparing.xml:1436
+#, no-c-format
+msgid "Shadow RAM"
+msgstr "RAM bóng"
+
+#. Tag: para
+#: preparing.xml:1437
+#, no-c-format
+msgid ""
+"Your motherboard may provide <emphasis>shadow RAM</emphasis> or BIOS "
+"caching. You may see settings for <quote>Video BIOS Shadow</quote>, "
+"<quote>C800-CBFF Shadow</quote>, etc. <emphasis>Disable</emphasis> all "
+"shadow RAM. Shadow RAM is used to accelerate access to the ROMs on your "
+"motherboard and on some of the controller cards. &arch-kernel; does not use "
+"these ROMs once it has booted because it provides its own faster 32-bit "
+"software in place of the 16-bit programs in the ROMs. Disabling the shadow "
+"RAM may make some of it available for programs to use as normal memory. "
+"Leaving the shadow RAM enabled may interfere with &arch-kernel; access to "
+"hardware devices."
+msgstr ""
+"Bo mạch chủ trong máy của bạn có lẽ cung cấp <emphasis>RAM bóng</emphasis> "
+"(shadow RAM) hay cách lưu tạm thời BIOS (BIOS caching). Có thể xem thiết lập "
+"về <quote>Video BIOS Shadow</quote>, <quote>C800-CBFF Shadow</quote>, v.v. "
+"<emphasis>Tắt</emphasis> mọi RAM bóng. RAM bóng được dùng để tăng tốc truy "
+"cập các ROM nằm trên bo mạch chủ, cũng trên một số thẻ điều khiển. Hệ điều "
+"hành &arch-kernel; không sử dụng các ROM này một khi khởi động, vì nó cung "
+"cấp phần mềm 32-bit sở hữu nhanh hơn các chương trình 16-bit trong các ROM "
+"này. Việc tắt RAM bóng có thể làm cho một phần nó sẵn sàng cho chương trình "
+"sử dụng như là bộ nhớ chuẩn. Còn RAM bóng hoạt động có thể ngăn cản &arch-"
+"kernel; truy cập thiết bị phần cứng."
+
+#. Tag: title
+#: preparing.xml:1454
+#, no-c-format
+msgid "Memory Hole"
+msgstr "Lỗ hổng bộ nhớ"
+
+#. Tag: para
+#: preparing.xml:1455
+#, no-c-format
+msgid ""
+"If your BIOS offers something like <quote>15&ndash;16 MB Memory Hole</"
+"quote>, please disable that. &arch-kernel; expects to find memory there if "
+"you have that much RAM."
+msgstr ""
+"Nếu BIOS của máy cung cấp cái gì như <quote>15&ndash;16 MB Memory Hole</"
+"quote> (lỗ hổng bộ nhớ), bạn hãy tắt nó. Hệ điều hành &arch-kernel; ngờ gặp "
+"bộ nhớ tại đó nếu bạn có đủ RAM."
+
+#. Tag: para
+#: preparing.xml:1461
+#, no-c-format
+msgid ""
+"We have a report of an Intel Endeavor motherboard on which there is an "
+"option called <quote>LFB</quote> or <quote>Linear Frame Buffer</quote>. This "
+"had two settings: <quote>Disabled</quote> and <quote>1 Megabyte</quote>. Set "
+"it to <quote>1 Megabyte</quote>. When disabled, the installation floppy was "
+"not read correctly, and the system eventually crashed. At this writing we "
+"don't understand what's going on with this particular device &mdash; it just "
+"worked with that setting and not without it."
+msgstr ""
+"Người dùng đã thông báo một bo mạch chủ Intel Endeavor có sẵn tùy chọn "
+"<quote>LFB</quote> hay <quote>Bộ Đệm Khung Tuyến</quote>. Nó có hai sự đặt: "
+"<quote>Tắt</quote> (Disabled) và <quote>1 Megabyte</quote> (1 MB). Nếu bạn "
+"có bo mạch chủ này, hãy đặt nó thành <quote>1 Megabyte</quote>. Khi tắt, đĩa "
+"mềm cài đặt không được đọc cho đúng, và cuối cùng hệ thống sụp đổ. Vào lúc "
+"viết câu này, chúng tôi chưa hiểu lý do : thiết bị đó đơn giản hoạt động "
+"được với một sự đặt, và không hoạt động được với sự đặt khác."
+
+#. Tag: title
+#: preparing.xml:1477
+#, no-c-format
+msgid "Advanced Power Management"
+msgstr "Khả năng quản lý nguồn điện cấp cao"
+
+#. Tag: para
+#: preparing.xml:1478
+#, no-c-format
+msgid ""
+"If your motherboard provides Advanced Power Management (APM), configure it "
+"so that power management is controlled by APM. Disable the doze, standby, "
+"suspend, nap, and sleep modes, and disable the hard disk's power-down timer. "
+"&arch-kernel; can take over control of these modes, and can do a better job "
+"of power-management than the BIOS."
+msgstr ""
+"Nếu bo mạch chủ trong máy cung cấp APM (khả năng quản lý nguồn điện cấp "
+"cao), bạn hãy cấu hình nó để mà khả năng quản lý nguồn điện do APM điều "
+"khiển. Tắt các chế độ ngủ và ngưng, và tắt bộ đếm thời gian tắt điện của đĩa "
+"cứng. Hệ điều hành &arch-kernel; có thể điều khiển các chế độ này, cũng quản "
+"lý nguồn điện một cách rất tốt hơn BIOS."
+
+#. Tag: title
+#: preparing.xml:1496
+#, no-c-format
+msgid "Invoking OpenFirmware"
+msgstr "Gọi OpenFirmware"
+
+#. Tag: para
+#: preparing.xml:1497
+#, no-c-format
+msgid ""
+"There is normally no need to set up the BIOS (called OpenFirmware) on &arch-"
+"title; systems. PReP and CHRP are equipped with OpenFirmware, but "
+"unfortunately, the means you use to invoke it vary from manufacturer to "
+"manufacturer. You'll have to consult the hardware documentation which came "
+"with your machine."
+msgstr ""
+"Bình thường không cần thiết lập BIOS (tên OpenFirmware) trên hệ thống kiểu "
+"&arch-title;. Cả PrEp lẫn CHRP đều có sẵn OpenFirmware, nhưng tiếc là cách "
+"gọi nó thay đổi mỗi hãng chế tạo một khác. Bạn cần phải xem tài liệu hướng "
+"dẫn có sẵn với máy đó."
+
+#. Tag: para
+#: preparing.xml:1505
+#, no-c-format
+msgid ""
+"On &arch-title; Macintoshes, you invoke OpenFirmware with "
+"<keycombo><keycap>Command (cloverleaf/Apple)</keycap><keycap>Option</"
+"keycap><keycap>o</keycap><keycap>f</keycap></keycombo> while booting. "
+"Generally it will check for these keystrokes after the chime, but the exact "
+"timing varies from model to model. See <ulink url=\"&url-netbsd-powerpc-faq;"
+"\"></ulink> for more hints."
+msgstr ""
+"Trên máy Apple Mac &arch-title;, bạn gọi OpenFirmware bằng tổ hợp phím "
+"<keycombo><keycap>Command (cloverleaf/Apple)</keycap><keycap>Option</"
+"keycap><keycap>o</keycap><keycap>f</keycap></keycombo> đồng thời trong khi "
+"khởi động. Bình thường, nó sẽ đợi tổ hợp phím này sau khi rung chuông khởi "
+"động, nhưng mà cách tính thời gian chính xác biên đổi mỗi mẫu một khác. Xem "
+"Hỏi Đáp <ulink url=\"&url-netbsd-powerpc-faq;\"></ulink> để tìm mẹo thêm."
+
+#. Tag: para
+#: preparing.xml:1513
+#, no-c-format
+msgid ""
+"The OpenFirmware prompt looks like this: <informalexample><screen>\n"
+"ok\n"
+"0 &gt;\n"
+"</screen></informalexample> Note that on older model &arch-title; Macs, the "
+"default and sometimes hardwired I/O for OpenFirmware user interaction is "
+"through the serial (modem) port. If you invoke OpenFirmware on one of these "
+"machines, you will just see a black screen. In that case, a terminal program "
+"running on another computer, connected to the modem port, is needed to "
+"interact with OpenFirmware."
+msgstr ""
+"Dấu nhắc OpenFirmware hình như đây: <informalexample><screen>\n"
+"ok\n"
+"0 &gt;\n"
+"</screen></informalexample> Ghi chú rằng trên máy Mac &arch-title; cũ hơn, I/"
+"O (nhập/xuất) mặc định và đôi khi được kiểm soát bằng mạch điện điện tử để "
+"tương tác với người dùng của OpenFirmware chạy qua cổng nối tiếp (cổng bộ "
+"điều giải). Nếu bạn gọi OpenFirmware trên máy kiểu đó, chỉ hiển thị màn hình "
+"màu đen. Trong trường hợp đó, cần thiết chương trình thiết bị cuối chạy trên "
+"máy tính khác, được kết nối đến cổng bộ điều giải, để tương tác với "
+"OpenFirmware."
+
+#. Tag: para
+#: preparing.xml:1526
+#, no-c-format
+msgid ""
+"The OpenFirmware on OldWorld Beige G3 machines, OF versions 2.0f1 and 2.4, "
+"is broken. These machines will most likely not be able to boot from the hard "
+"drive unless the firmware is patched. A firmware patch is included in the "
+"<application>System Disk 2.3.1</application> utility, available from Apple "
+"at <ulink url=\"ftp://ftp.apple.com/developer/macosxserver/utilities/"
+"SystemDisk2.3.1.smi.bin\"></ulink>. After unpacking the utility in MacOS, "
+"and launching it, select the <guibutton>Save</guibutton> button to have the "
+"firmware patches installed to nvram."
+msgstr ""
+"Trên máy Apple Mac G3 màu be kiểu cũ (chạy OpenFirmware phiên bản 2.0f1 và "
+"2.4), chức năng OpenFirmware bị hỏng. Rất có thể là máy kiểu này không thể "
+"khởi động từ đĩa cứng, nếu phần vững chưa có đắp vá riêng. Đắp vá phần vững "
+"này có sẵn trong tiện ích <application>System Disk 2.3.1</application>, sẵn "
+"sàng từ Apple ở địa chỉ <ulink url=\"ftp://ftp.apple.com/developer/"
+"macosxserver/utilities/SystemDisk2.3.1.smi.bin\"></ulink>. Sau khi giải nén "
+"tiện ích này dưới MacOS, và khởi chạy nó, hãy bấm cái nút <guibutton>Save</"
+"guibutton> (Lưu) để cài đặt các đắp vá phần vững vào bộ nhớ nvram."
+
+#. Tag: title
+#: preparing.xml:1546
+#, no-c-format
+msgid "Invoking OpenBoot"
+msgstr "Gọi OpenBoot"
+
+#. Tag: para
+#: preparing.xml:1548
+#, no-c-format
+msgid ""
+"OpenBoot provides the basic functions needed to boot the &arch-title; "
+"architecture. This is rather similar in function to the BIOS in the x86 "
+"architecture, although much nicer. The Sun boot PROMs have a built-in forth "
+"interpreter which lets you do quite a number of things with your machine, "
+"such as diagnostics and simple scripts."
+msgstr ""
+"OpenBoot cung cấp những chức năng cơ bản cần thiết để khởi động kiến trúc "
+"&arch-title;. Những chức năng này làm công việc hơi tương tự với BIOS của "
+"kiến trúc x86, dù rất đẹp hơn. Các PROM khởi động của Sun có sẵn một bộ "
+"thông dịch « forth » cho bạn một số khả năng có ích, v.d. chẩn đoán và chạy "
+"tập lệnh đơn giản."
+
+#. Tag: para
+#: preparing.xml:1556
+#, no-c-format
+msgid ""
+"To get to the boot prompt you need to hold down the <keycap>Stop</keycap> "
+"key (on older type 4 keyboards, use the <keycap>L1</keycap> key, if you have "
+"a PC keyboard adapter, use the <keycap>Break</keycap> key) and press the "
+"<keycap>A</keycap> key. The boot PROM will give you a prompt, either "
+"<userinput>ok</userinput> or <userinput>&gt;</userinput>. It is preferred to "
+"have the <userinput>ok</userinput> prompt. So if you get the old style "
+"prompt, hit the <keycap>n</keycap> key to get the new style prompt."
+msgstr ""
+"Để xem dấu nhắc khởi động, bạn cần phải bấm giữ phím <keycap>Stop</keycap> "
+"(trên bàn phím type4 cũ hơn, hãy dùng phím <keycap>L1</keycap>, còn nếu bạn "
+"có bộ tiếp hợp bàn phím PC, hãy dùng phím <keycap>Break</keycap>) rồi bấm "
+"phím <keycap>A</keycap>. PROM khởi động sẽ hiển thị dấu nhắc: hoặc "
+"<userinput>ok</userinput> hoặc <userinput>&gt;</userinput>. Dấu nhắc "
+"<userinput>ok</userinput> là tốt hơn, vậy nếu bạn xem dấu nhắc kiểu cũ, bấm "
+"phím <keycap>n</keycap> để hiển thị dấu nhắc kiểu mới."
+
+#. Tag: para
+#: preparing.xml:1568
+#, no-c-format
+msgid ""
+"If you are using a serial console, send a break to the machine. With "
+"Minicom, use <keycap>Ctrl-A F</keycap>, with cu, hit <keycap>Enter</keycap>, "
+"then type <userinput>%~break</userinput>. Consult the documentation of your "
+"terminal emulator if you are using a different program."
+msgstr ""
+"Nếu bạn sử dụng bàn điều khiển nối tiếp, hãy gởi tín hiệu ngắt cho máy. "
+"Trong Minicom, bấm tổ hợp phím <keycap>Ctrl-A-F</keycap>, còn trong chương "
+"trình « cu », bấm phím <keycap>Enter</keycap>, rồi gõ <userinput>%~break</"
+"userinput>. Xem tài liệu hướng dẫn sử dụng phần mềm mô phỏng thiết bị cuối "
+"nếu bạn chạy chương trình khác."
+
+#. Tag: para
+#: preparing.xml:1581
+#, no-c-format
+msgid ""
+"You can use OpenBoot to boot from specific devices, and also to change your "
+"default boot device. However, you need to know some details about how "
+"OpenBoot names devices; it's considerably different from Linux device "
+"naming, described in <xref linkend=\"device-names\"/>. Also, the command "
+"will vary a bit, depending on what version of OpenBoot you have. More "
+"information about OpenBoot can be found in the <ulink url=\"&url-openboot;"
+"\">Sun OpenBoot Reference</ulink>."
+msgstr ""
+"Bạn có khả năng sử dụng OpenBoot để khởi động từ thiết bị riêng, cũng để "
+"chuyển đổi thiết bị khởi động mặc định. Tuy nhiên, bạn cần phải biết vài chi "
+"tiết về phương pháp đặt tên thiết bị của OpenBoot: nó rất khác với cách đặt "
+"tên thiết bị của Linux, được diễn tả trong <xref linkend=\"device-names\"/>. "
+"Hơn nữa, lệnh dùng sẽ đổi khác một ít, phụ thuộc vào phiên bản OpenBoot bạn "
+"dùng. Thông tin thêm về OpenBoot nằm trong Tham Chiếu OpenBoot của Sun "
+"<ulink url=\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
+
+#. Tag: para
+#: preparing.xml:1591
+#, no-c-format
+msgid ""
+"Typically, with newer revisions, you can use OpenBoot devices such as "
+"<quote>floppy</quote>, <quote>cdrom</quote>, <quote>net</quote>, "
+"<quote>disk</quote>, or <quote>disk2</quote>. These have the obvious "
+"meanings; the <quote>net</quote> device is for booting from the network. "
+"Additionally, the device name can specify a particular partition of a disk, "
+"such as <quote>disk2:a</quote> to boot disk2, first partition. Full OpenBoot "
+"device names have the form: <informalexample> <screen>\n"
+"<replaceable>driver-name</replaceable>@\n"
+"<replaceable>unit-address</replaceable>:\n"
+"<replaceable>device-arguments</replaceable>\n"
+"</screen></informalexample> In older revisions of OpenBoot, device naming is "
+"a bit different: the floppy device is called <quote>/fd</quote>, and SCSI "
+"disk devices are of the form <quote>sd(<replaceable>controller</"
+"replaceable>, <replaceable>disk-target-id</replaceable>, <replaceable>disk-"
+"lun</replaceable>)</quote>. The command <userinput>show-devs</userinput> in "
+"newer OpenBoot revisions is useful for viewing the currently configured "
+"devices. For full information, whatever your revision, see the <ulink url="
+"\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
+msgstr ""
+"Bình thường, dưới bản sửa đổi kiểu mới, bạn có khả năng sử dụng thiết bị "
+"OpenBoot như <quote>floppy</quote> (đĩa mềm), <quote>cdrom</quote> (đĩa CD-"
+"ROM), <quote>net</quote> (mạng), <quote>disk</quote> (đĩa), hay "
+"<quote>disk2</quote> (đĩa 2). Hơn nữa, tên thiết bị có thể xác định một phân "
+"vùng riêng trên đĩa, v.d. <quote>disk2:a</quote> để khởi động đĩa 2, phân "
+"vùng thứ nhất. Tên thiết bị OpenBoot đầy đủ có dạng <informalexample> "
+"<screen>\n"
+"<replaceable>tên trình điều khiển</replaceable>@\n"
+"<replaceable>địa chỉ đơn vị</replaceable>:\n"
+"<replaceable>các đối số thiết bị</replaceable>\n"
+"</screen></informalexample>. Còn dưới bản sửa đổi OpenBoot kiểu cũ, phương "
+"pháp đặt tên thiết bị là khác một ít: thiết bị đĩa mềm có tên <quote>/fd</"
+"quote>, và thiết bị đĩa SCSI có dạng <quote>sd(<replaceable>bộ điều khiển</"
+"replaceable>, <replaceable>mã hiệu đích đĩa</replaceable>, <replaceable>đơn "
+"vị hợp lý của đĩa</replaceable>)</quote>. Dưới bản sửa đổi OpenBoot kiểu "
+"mới, lệnh <userinput>show-devs</userinput> (hiển thị các thiệt bị) có ích để "
+"xem các thiết bị được cấu hình hiện thời. Để tìm thông tin đầy đủ, bất chấp "
+"bản sửa đổi, xem Tham Chiếu OpenBoot của Sun <ulink url=\"&url-openboot;"
+"\">Sun OpenBoot Reference</ulink>."
+
+#. Tag: para
+#: preparing.xml:1614
+#, no-c-format
+msgid ""
+"To boot from a specific device, use the command <userinput>boot "
+"<replaceable>device</replaceable></userinput>. You can set this behavior as "
+"the default using the <userinput>setenv</userinput> command. However, the "
+"name of the variable to set changed between OpenBoot revisions. In OpenBoot "
+"1.x, use the command <userinput>setenv boot-from <replaceable>device</"
+"replaceable></userinput>. In later revisions of OpenBoot, use the command "
+"<userinput>setenv boot-device <replaceable>device</replaceable></userinput>. "
+"Note, this is also configurable using the <command>eeprom</command> command "
+"on Solaris, or modifying the appropriate files in <filename>/proc/openprom/"
+"options/</filename>, for example under Linux: <informalexample><screen>\n"
+"# echo disk1:1 &gt; /proc/openprom/options/boot-device\n"
+"</screen></informalexample> and under Solaris:"
+msgstr ""
+"Để khởi động từ một thiết bị riêng, hãy chạy lệnh <userinput>boot "
+"<replaceable>thiết_bị</replaceable></userinput>. Bạn có khả năng đặt ứng xử "
+"này là mặc định, bằng cách sử dụng lệnh <userinput>setenv</userinput> (đặt "
+"môi trường). Tuy nhiên, tên của biến cần đặt đã thay đổi giữa bản sửa đổi "
+"OpenBoot khác nhau. Dưới OpenBoot 1.x, chạy lệnh <userinput>setenv boot-from "
+"<replaceable>thiết_bị</replaceable></userinput>. Còn dưới bản sửa đổi "
+"OpenBoot sau đó, hãy sử dụng lệnh <userinput>setenv boot-device "
+"<replaceable>thiết_bị</replaceable></userinput>. Ghi chú rằng bạn cũng có "
+"khả năng tạo cấu hình này bằng lệnh <command>eeprom</command> trên Solaris, "
+"hoặc bằng cách sửa đổi những tập tin thích hợp nằm trong thư mục <filename>/"
+"proc/openprom/options/</filename>, ví dụ dưới Linux: "
+"<informalexample><screen>\n"
+"# echo disk1:1 &gt; /proc/openprom/options/boot-device\n"
+"</screen></informalexample> còn dưới Solaris:"
+
+# Literal: don't translate / Nghĩa chữ: đừng dịch
+#. Tag: screen
+#: preparing.xml:1633
+#, no-c-format
+msgid "eeprom boot-device=disk1:1"
+msgstr "eeprom boot-device=disk1:1"
+
+#. Tag: title
+#: preparing.xml:1643
+#, no-c-format
+msgid "BIOS Setup"
+msgstr "Thiết lập BIOS"
+
+#. Tag: para
+#: preparing.xml:1644
+#, no-c-format
+msgid ""
+"In order to install &debian-gnu; on a &arch-title; or zSeries machine you "
+"have first boot a kernel into the system. The boot mechanism of this "
+"platform is inherently different to other ones, especially from PC-like "
+"systems: there are no floppy devices available at all. You will notice "
+"another big difference while you work with this platform: most (if not all) "
+"of the time you will work remote, with the help of some client session "
+"software like telnet, or a browser. This is due to that special system "
+"architecture where the 3215/3270 console is line-based instead of character-"
+"based."
+msgstr ""
+"Để cài đặt &debian-gnu; trên máy kiểu &arch-title; hay zSeries, trước tiên "
+"bạn cần phải khởi động hạt nhân vào hệ thống. Cơ chế khởi động của nền tảng "
+"này là hơi khác, đặc biệt với hệ thống kiểu PC: không có sẵn sàng thiết bị "
+"đĩa mềm nào cả. Bạn sẽ cũng thấy biết một sự khác lớn thêm: bình thường (nếu "
+"không phải luôn luôn), bạn sẽ làm việc từ xa, dùng phần mềm phiên chạy "
+"khách, v.d. telnet hay trình duyệt Mạng. Các sự khác này do kiến trúc hệ "
+"thống đặc biệt: bàn điều khiển 3215/3270 dựa vào dòng, không phải vào ký tự."
+
+#. Tag: para
+#: preparing.xml:1656
+#, no-c-format
+msgid ""
+"Linux on this platform runs either natively on the bare machine, in a so-"
+"called LPAR (Logical Partition) or in a virtual machine supplied by the VM "
+"system. You can use a boot tape on all of those systems; you may use some "
+"other boot media, too, but those may not be generally available. For "
+"example, you can use the virtual card reader of a virtual machine, or boot "
+"from the HMC (Hardware Management Console) of an LPAR if the HMC and this "
+"option is available for you."
+msgstr ""
+"Tên nền tảng này, Linux chạy sở hữu trên máy thô, trong cái gọi là LPAR "
+"(phân vùng hợp lý), hoặc trong máy ảo được cung cấp bởi hệ thống VM. Bạn có "
+"khả năng sử dụng băng khởi động trên mọi hệ thống kiểu đó; cũng có thể sử "
+"dụng vật chứa khởi động khác (có lẽ cũng ít sẵn sàng hơn). Chẳng hạn, bạn có "
+"thể sử dụng bộ đọc thẻ ảo của một máy ảo riêng, hoặc khởi động từ HMC (bàn "
+"giao tiếp quản lý phần cứng) của một LPAR nếu cả HMC lẫn tùy chọn này đều "
+"sẵn sàng."
+
+#. Tag: para
+#: preparing.xml:1666
+#, no-c-format
+msgid ""
+"Before you actually perform an installation, you have to go over some design "
+"and preparation steps. IBM has made documentation available about the whole "
+"process, e.g. how to prepare an installation medium and how actually to boot "
+"from that medium. Duplicating that information here is neither possible nor "
+"necessary. However, we will describe here which kind of &debian;-specific "
+"data is needed and where to find it. Using both sources of information, you "
+"have to prepare your machine and the installation medium before you can "
+"perform a boot from it. When you see the welcome message in your client "
+"session, return to this document to go through the &debian;-specific "
+"installation steps."
+msgstr ""
+"Trước khi thật thực hiện tiến trình cài đặt, bạn cần phải theo vài bước "
+"thiết kế và chuẩn bị. Công ty IBM đã cung cấp tài liệu hướng dẫn về toàn bộ "
+"tiến trình này, v.d. phương pháp chuẩn bị vật chứa cài đặt và khởi động từ "
+"nó. Không cần (và không thể) nhân đôi thông tin đó vào đây. Tuy nhiên, ở đây "
+"chúng tôi sẽ diễn tả kiểu dữ liệu đặc trưng cho &debian; nào cần thiết, và "
+"có thể tìm nó ở đâu. Dựa vào cả hai nguồn thông tin này, bạn cần phải chuẩn "
+"bị máy và vật chứa cài đặt, để có khả năng thực hiện việc khởi động từ nó. "
+"Khi bạn xem thông điệp chào mừng trong buổi hợp của ứng dụng khách, hãy trở "
+"về tài liệu này để theo những bước cài đặt đặc trưng cho &debian;."
+
+#. Tag: title
+#: preparing.xml:1683
+#, no-c-format
+msgid "Native and LPAR installations"
+msgstr "Sự cài đặt kiểu sở hữu và LPAR"
+
+#. Tag: para
+#: preparing.xml:1684
+#, no-c-format
+msgid ""
+"Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/"
+"pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook "
+"and chapter 3.2 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
+"Distributions</ulink> Redbook on how to set up an LPAR for Linux."
+msgstr ""
+"Xem chương 5 của Quyển Đỏ <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> và chương 3.2 của "
+"Quyển Đỏ <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/"
+"sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
+"distributions</ulink> để tìm thông tin về cách thiết lập LPAR dành cho Linux."
+
+#. Tag: title
+#: preparing.xml:1698
+#, no-c-format
+msgid "Installation as a VM guest"
+msgstr "Cài đặt như là khách VM"
+
+#. Tag: para
+#: preparing.xml:1700
+#, no-c-format
+msgid ""
+"Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/"
+"pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook "
+"and chapter 3.1 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
+"Distributions</ulink> Redbook on how to set up a VM guest for running Linux."
+msgstr ""
+"Xem chương 6 của Quyển Đỏ <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> và chương 3.1 của "
+"Quyển Đỏ <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/"
+"sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
+"distributions</ulink> để tìm thông tin về cách thiết lập một ứng dụng khách "
+"VM để chạy Linux."
+
+#. Tag: para
+#: preparing.xml:1710
+#, no-c-format
+msgid ""
+"You need to copy all the files from the <filename>generic</filename> sub-"
+"directory to your CMS disk. Be sure to transfer <filename>kernel.debian</"
+"filename> and <filename>initrd.debian</filename> in binary mode with a fixed "
+"record length of 80 characters. <filename>parmfile.debian</filename> can be "
+"in either ASCII or EBCDIC format. A sample <filename>debian.exec</filename> "
+"script, which will punch the files in the proper order, is included with the "
+"images."
+msgstr ""
+"Bạn cần phải sao chép sang đĩa CMS tất cả các tập tin nằm trong thư mục con "
+"<filename>generic</filename>. Quan trọng là bạn truyền tập tin "
+"<filename>kernel.debian</filename> và <filename>initrd.debian</filename> "
+"trong chế độ nhị phân (binary mode) với chiều dài mục ghi cố định là 80 ký "
+"tự. <filename>parmfile.debian</filename> có thể theo định dạng hoặc ASCII "
+"hoặc EBCDIC. Ảnh có sẵn một văn lệnh mẫu <filename>debian.exec</filename> sẽ "
+"xử lý các tập tin theo thứ tự đúng."
+
+#. Tag: title
+#: preparing.xml:1726
+#, no-c-format
+msgid "Setting up an installation server"
+msgstr "Thiết lập máy phục vụ cài đặt"
+
+#. Tag: para
+#: preparing.xml:1728
+#, no-c-format
+msgid ""
+"If you don't have a connection to the Internet (either directly or via a web "
+"proxy) you need to create a local installation server that can be accessed "
+"from your S/390. This server keeps all the packages you want to install and "
+"must make them available using NFS, HTTP or FTP."
+msgstr ""
+"Nếu bạn không có sự kết nối đến Mạng (hoặc trực tiếp hoặc qua máy phục vụ ủy "
+"nhiệm Mạng), bạn cần phải tạo một máy phục vụ cài đặt cục bộ có thể được "
+"truy cập từ S/390 của bạn. Máy phục vụ này giữ các gói bạn muốn cài đặt, và "
+"phải cung cấp chúng bằng giao thức NFS, HTTP hay FTP."
+
+#. Tag: para
+#: preparing.xml:1736
+#, no-c-format
+msgid ""
+"The installation server needs to copy the exact directory structure from any "
+"&debian-gnu; mirror, but only the s390 and architecture-independent files "
+"are required. You can also copy the contents of all installation CDs into "
+"such a directory tree."
+msgstr ""
+"Máy phục vụ cài đặt cần phải sao chép cấu trúc thư mục chính xác từ máy nhân "
+"bản &debian-gnu; nào, nhưng cần thiết chỉ những tập tin S390 và những tập "
+"tin không phụ thuộc vào kiến trúc. Bạn cũng có khả năng sao chép nội dung "
+"của các đĩa CD cài đặt vào cây thư mục như vậy."
+
+#. Tag: emphasis
+#: preparing.xml:1745
+#, no-c-format
+msgid "FIXME: more information needed &mdash; from a Redbook?"
+msgstr "FIXME: (chưa ghi đoạn tiếng Anh)"
+
+#. Tag: title
+#: preparing.xml:1752
+#, no-c-format
+msgid "Hardware Issues to Watch Out For"
+msgstr "Vấn đề phần cứng cần theo dõi"
+
+#. Tag: title
+#: preparing.xml:1755
+#, no-c-format
+msgid "USB BIOS support and keyboards"
+msgstr "Hỗ trợ BIOS và bàn phím kiểu USB"
+
+#. Tag: para
+#: preparing.xml:1756
+#, no-c-format
+msgid ""
+"If you have no AT-style keyboard and only a USB model, you may need to "
+"enable legacy AT keyboard emulation in your BIOS setup. Only do this if the "
+"installation system fails to use your keyboard in USB mode. Conversely, for "
+"some systems (especially laptops) you may need to disable legacy USB support "
+"if your keyboard does not respond. Consult your main board manual and look "
+"in the BIOS for <quote>Legacy keyboard emulation</quote> or <quote>USB "
+"keyboard support</quote> options."
+msgstr ""
+"Nếu bạn không có bàn phím kiểu AT, chỉ có bàn phím mẫu USB, có lẽ bạn cần "
+"phải bật khả năng mô phỏng bàn phím AT kiểu cũ trong thiết lập BIOS. Chỉ hãy "
+"làm như thế nếu hệ thống cài đặt không sử dụng được bàn phím của bạn trong "
+"chế độ USB. Ngược lại, đối với một số hệ thống riêng (đặc biệt là máy tính "
+"xách tay) bạn có thể cần phải tắt khả năng hỗ trợ USB kiểu cũ nếu bàn phím "
+"không hoạt động được. Xem sổ tay của bo mạch chủ, cũng xem BIOS tìm các tùy "
+"chọn <quote>Legacy keyboard emulation</quote> (mô phỏng bàn phím kiểu cũ) "
+"hay <quote>USB keyboard support</quote> (khả năng hỗ trợ bàn phím USB)."
+
+#. Tag: title
+#: preparing.xml:1770
+#, no-c-format
+msgid "Display-visibility on OldWorld Powermacs"
+msgstr "Tầm nhìn bộ trình bày của PowerMac kiểu cũ"
+
+#. Tag: para
+#: preparing.xml:1772
+#, no-c-format
+msgid ""
+"Some OldWorld Powermacs, most notably those with the <quote>control</quote> "
+"display driver, may not reliably produce a colormap under Linux when the "
+"display is configured for more than 256 colors. If you are experiencing such "
+"issues with your display after rebooting (you can sometimes see data on the "
+"monitor, but on other occasions cannot see anything) or, if the screen turns "
+"black after booting the installer instead of showing you the user interface, "
+"try changing your display settings under MacOS to use 256 colors instead of "
+"<quote>thousands</quote> or <quote>millions</quote>."
+msgstr ""
+"Một số máy PowerMac kiểu cũ, nhất là những máy có trình điều khiển bộ trình "
+"bày kiểu <quote>điều khiển</quote> (control), có lẽ không tạo sơ đồ màu sắc "
+"có kết quả đáng tin cậy dưới Linux, khi bộ trình bày được cấu hình cho số "
+"màu sắc hơn 256. Nếu bạn gặp khó khăn như vậy với bộ trình bày sau khi khởi "
+"động lại (lúc này bạn xem được dữ liệu trên màn hình, còn lúc khác không xem "
+"gì), hoặc nếu màn hình trở thành màu đen sau khi khởi động trình cài đặt "
+"thay vào hiển thị giao diện người dùng, hãy thử thay đổi thiết lập trình bày "
+"dưới hệ điều hành MacOS thành 256 màu sắc thay cho <quote>thousands</quote> "
+"(mấy nghìn) hay <quote>millions</quote> (mấy tỷ) màu sắc."
+
+#~ msgid ""
+#~ "Installation instructions and device drivers (DASD, XPRAM, Console, tape, "
+#~ "z90 crypto, chandev, network) for Linux on &arch-title; using kernel 2.4"
+#~ msgstr ""
+#~ "Hướng dẫn cài đặt và trình điều khiển thiết bị (DASD, XPRAM, bàn giao "
+#~ "tiếp, băng, mật mã z90, chandev, mạng) khi chạy Linux trên &arch-title; "
+#~ "bằng hạt nhân phiên bản 2.4"
+
+#~ msgid "Device Drivers and Installation Commands"
+#~ msgstr "Trình điều khiển thiết bị và lệnh cài đặt"

@@ -1,0 +1,183 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect2 id="network-cards">
+ <title>Maquinari per a la connexió de xarxes</title>
+<para>
+
+Pràcticament qualsevol targeta de xarxa (NIC) suportada pel nucli
+&arch-kernel; és també suportada pel sistema d'instal·lació; els controladors
+modulars s'haurien de carregar automàticament.
+
+<phrase arch="x86">Inclou la majoria de targetes PCI i PCMCIA.</phrase>
+<phrase arch="i386">Moltes targetes ISA antigues també són
+suportades.</phrase>
+
+</para><para arch="sparc">
+
+Això inclou diverses targetes PCI genèriques (per a sistemes que tenen
+PCI) i les següents NIC de Sun:
+
+<itemizedlist>
+<listitem><para>
+
+Sun LANCE
+
+</para></listitem>
+<listitem><para>
+
+Sun Happy Meal
+
+</para></listitem>
+<listitem><para>
+
+Sun BigMAC
+
+</para></listitem>
+<listitem><para>
+
+Sun QuadEthernet
+
+</para></listitem>
+<listitem><para>
+
+MyriCOM Gigabit Ethernet
+
+</para></listitem>
+</itemizedlist>
+
+</para><para arch="s390">
+
+La llista de dispositius suportats és:
+
+<itemizedlist>
+ <listitem><para>
+
+Channel to Channel (CTC) i connexió ESCON (real o emulada)
+
+</para></listitem>
+ <listitem><para>
+
+OSA-2 Token Ring/Ethernet i OSA-Express Fast Ethernet (no QDIO)
+
+</para></listitem>
+<listitem><para>
+
+OSA-Express en mode QDIO, HiperSockets i Guest-LANs
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+
+<para arch="arm">
+
+En &arch-title;, la majoria de dispositius Ethernet integrats són
+suportats i es proveeixen mòduls addicionals per a dispositius PCI i
+USB. La principal excepció és la plataforma IXP4xx (amb dispositius com
+el Linksys NSLU2) la qual necessita un microcodi propietari per a poder
+operar amb el seu dispositiu Ethernet integrat. Es poden obtenir imatges
+no oficials per al Linksys NSLU2 amb el seu microcodi propietari del
+<ulink url="&url-slug-firmware;">lloc Slug-Firmware</ulink>.
+
+</para><para arch="x86">
+
+Tal i com passa amb l'XDSI, el protocol D-channel per a les (antigues)
+German 1TR6 no és suportat; &d-i; tampoc suporta les plaques Spellcaster
+BRI ISDN. L'XDSI funciona, però no durant la instal·lació.
+
+</para>
+
+  <sect3 condition="supports-wireless" id="nics-wireless">
+  <title>Targetes de xarxa sense fils</title>
+<para>
+
+La gestió de xarxes sense fils en general també funciona, i hi ha un nombre
+creixent d'adaptadors per a diverses targetes suportades oficialment al nucli
+&arch-kernel;, tot i que moltes requereixen carregar microprogramari. Si fes falta
+el mircroprogramari, l'instal·lador demanarà que el carregueu. Vegeu
+<xref linkend="loading-firmware"/> per més informació de com carregar el
+microprogramari durant l'instal·lació.
+
+</para><para>
+
+El suport per xarxes sense fils xifrades durant la instal·lació està
+actualment limitat a WEP. Si el vostre punt d'accés fa servir un xifrat
+més fort, no es pot fer servir durant l'instal·lació.
+
+</para><para>
+
+Si hi ha cap problema amb la xarxa sense fils i no hi ha cap altre NIC que
+pugueu fer servir durant l'instal·lació, encara es
+possible instal·lar &debian-gnu; utilitzant la imatge completa d'un CD-ROM o
+DVD. Seleccioneu l'opció de no configurar la xarxa i instal·leu només
+aquells paquets que estiguin disponibles al CD/DVD. Podreu instal·lar
+el controlador i el microprogramari que necessiteu quan la instal·lació
+s'hagi completat (després de reiniciar) i configurar la xarxa manualment.
+
+</para><para>
+
+En alguns casos, el controlador que necessiteu no estarà disponible en un
+paquet &debian;. Haureu de buscar si hi ha disponible el codi font a Internet
+i, si hi és, compilar-lo. Com fer-ho està fora de l'abast d'aquest manual.
+<phrase arch="x86">Si no hi ha disponible cap controlador per a Linux,
+l'últim recurs que teniu és utilitzar el paquet
+<classname>ndiswrapper</classname>, el qual us permet utilitzar-ne un de
+Windows.</phrase>
+
+</para>
+  </sect3>
+
+  <sect3 arch="sparc" id="nics-sparc-trouble">
+  <title>Problemes coneguts per &arch-title;</title>
+<para>
+
+Hi ha un parell de problemes coneguts amb unes targetes de xarxa específiques
+que val la pena mencionar aquí.
+
+</para>
+
+   <sect4><title>Conflictes entre els controladors tulip i dfme</title>
+<!-- BTS: #334104; may also affect other arches, but most common on sparc -->
+<para>
+
+<!-- BTS: #334104; may also affect other arches, but most common on sparc -->
+Hi ha diverses targetes de xarxa PCI que tenen el mateix identificador PCI,
+les quals són suportades mitjançant controladors relacionats, però diferents.
+Algunes utilitzen el controlador <literal>tulip</literal>, altres amb el
+<literal>dfme</literal>. Atès que comparteixen l'identificador, el nucli no
+les pot distingir i no se sap amb seguretat quin controlador emprarà. Si
+escull el que no toca, la NIC pot no funcionar, o fer-ho de forma incorrecta.
+
+</para><para>
+
+Aquest és un problema típic dels sistemes Netra amb NIC Davicom (compatibles
+amb DEC-Tulip). En aquest cas, el controlador <literal>tulip</literal> és
+probablement el correcte. Podeu prevenir aquest problema afegint el
+mòdul del controlador erroni a la llista negra com es descriu a
+<xref linkend="module-blacklist"/>.
+
+</para><para>
+
+Una solució alternativa durant la instal·lació consisteix en canviar
+d'intèrpret d'ordres i desactivar el mòdul del controlador erroni utilitzant
+<userinput>modprobe -r <replaceable>mòdul</replaceable></userinput> (o ambdós,
+si els dos estan carregats). A continuació, podreu carregar el mòdul correcte
+utilitzant <userinput>modprobe <replaceable>mòdul</replaceable></userinput>.
+Tingeu en compte que el mòdul erroni pot ser que es carregui quan el sistema
+arrenqui de nou.
+
+</para>
+   </sect4>
+
+   <sect4><title>Sun B100 blade</title>
+<!-- BTS: #383549; should be checked for kernels >2.6.18 -->
+<para>
+
+El controlador de xarxa <literal>cassini</literal> no funciona amb els sistemes
+Sun B100 blade.
+
+</para>
+   </sect4>
+  </sect3>
+ </sect2>

@@ -1,0 +1,204 @@
+<!-- original version: 64916 -->
+
+<chapter id="boot-new">
+ <title>Démarrer votre nouveau système &debian;</title>
+
+ <sect1 id="base-boot"><title>Le moment de vérité</title>
+<para>
+
+Voici ce que les ingénieurs en électronique appellent le
+<emphasis>test de la fumée</emphasis>&nbsp;: démarrer un système pour la 
+première fois.
+</para>
+<para arch="any-x86">
+Après une installation standard, le premier écran que vous verrez au démarrage
+du système est le menu du programme d'amorçage <classname>grub</classname>
+<phrase arch="x86">ou celui de <classname>lilo</classname></phrase>. Le premier choix est votre nouveau
+système &debian;. Si d'autres systèmes (comme Windows) ont été détectés, ils seront affichés
+au dessous.
+</para>
+<para>
+Si le système ne démarre pas correctement, ne paniquez pas. Si l'installation s'est déroulée
+normalement, il est très probable que seul un problème mineur empêche le système d'amorcer
+&debian;. Dans la plupart des cas, il ne sera pas nécessaire de refaire une installation pour
+corriger de tels problèmes. On peut commencer par utiliser le mode de secours
+intégré à l'installateur (voyez <xref linkend="rescue"/>).
+</para>
+
+<para>
+Si vous découvrez &debian; et &arch-kernel;, vous aurez besoin de l'aide d'utilisateurs
+expérimentés.
+<phrase arch="x86">Les canaux IRC #debian ou #debian-boot sur le réseau OFTC apportent
+une aide directe. Vous pouvez aussi contacter la
+<ulink url="&url-list-subscribe;">liste de diffusion debian-user</ulink>.</phrase>
+<phrase arch="not-x86">Pour des architectures comme &arch-title;, la meilleure idée
+est de s'adresser à la <ulink url="&url-list-subscribe;">liste debian-&arch-listname;</ulink>.
+</phrase>
+Vous pouvez aussi envoyer un rapport d'installation, voyez <xref linkend="submit-bug"/>.
+Assurez-vous de bien décrire votre problème et d'inclure tous les messages qui
+sont affichés. Cela peut aider à diagnostiquer le problème.
+</para>
+<para arch="any-x86">
+Veuillez envoyer un rapport d'installation si des systèmes d'exploitation installés sur
+la machine n'ont pas été détectés ou ont été mal détectés.
+</para>
+
+
+<sect2 arch="powerpc"><title>OldWorld PowerMacs</title>
+<para>
+
+Si la machine ne démarre pas quand l'installation est terminée, et s'arrête
+avec l'invite <prompt>boot:</prompt>, saisissez 
+<userinput>Linux</userinput> suivi de &enterkey;. La configuration par défaut 
+dans le fichier <filename>quik.conf</filename> est nommée Linux. Les noms
+définis dans ce fichier seront affichés si vous pressez la touche
+<keycap>Tab</keycap> à l'invite <prompt>boot:</prompt>. Vous pouvez essayer
+de réamorcer l'installateur et de modifier le fichier 
+<filename>/target/etc/quik.conf</filename> qui a été créé à l'étape
+<guimenuitem>Installer Quik sur un disque dur</guimenuitem>.
+Des renseignements sur <command>quik</command> sont disponibles dans
+<ulink url="&url-powerpc-quik-faq;"></ulink>.
+</para>
+<para>
+Pour démarrer de nouveau sous MacOS sans réinitialiser la <quote>nvram</quote>,
+saisissez <userinput>bye</userinput> à l'invite de l'Open Firmware (en 
+supposant que MacOS n'a pas été enlevé de la machine). Pour obtenir une invite
+Open Firmware, appuyez simultanément sur les touches
+<keycombo><keycap>command</keycap> <keycap>option</keycap> <keycap>o</keycap>
+<keycap>f</keycap> </keycombo> pendant le démarrage à froid de la machine.
+Si vous devez réinitialiser les changements de l'Open Firmware en nvram,
+appuyez simultanément sur les touches
+<keycombo><keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap><keycap>r</keycap> </keycombo>
+lors d'un démarrage à froid de la machine.
+</para>
+<para>
+Si vous amorcez le système installé avec <command>BootX</command>, choisissez
+simplement le noyau dans le dossier <filename>Linux Kernels</filename>,
+ne choisissez pas l'option ramdisk et ajoutez un périphérique racine pour
+votre installation, par exemple <userinput>/dev/hda8</userinput>.
+</para>
+
+</sect2>
+
+  <sect2 arch="powerpc"><title>NewWorld PowerMacs</title>
+
+<para>
+Sur les machines de type G4 et iBook, vous pouvez maintenir la touche
+<keycap>option</keycap> enfoncée pour obtenir un écran graphique, avec un
+bouton pour chaque système d'exploitation démarrable&nbsp;; pour &debian-gnu;
+il s'agit d'un bouton avec une icône de petit pingouin.
+</para>
+<para>
+Si vous avez conservé MacOS et qu'à un moment ou à un autre la variable
+<envar>boot-device</envar> de l'Open Firmware a été modifiée, vous devrez
+restaurer sa configuration. Pour cela, maintenez enfoncées les touches
+<keycombo><keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap><keycap>r</keycap> </keycombo>
+lors du démarrage à froid de la machine.
+</para>
+<para>
+Les noms définis dans <filename>yaboot.conf</filename> seront
+affichés si vous appuyez sur la touche <keycap>Tab</keycap> à l'invite
+<prompt>boot:</prompt>.
+</para>
+<para>
+La réinitialisation de l'Open Firmware sur les matériels G3 et G4 les fera
+démarrer par défaut sur &debian-gnu; (à condition d'avoir effectué un
+partitionnement correct et d'avoir placé la partition Apple_Bootstrap en
+premier). Si &debian-gnu; se trouve sur un disque SCSI et que MacOS se trouve sur
+un disque IDE, il se pourrait que cela ne fonctionne pas et que vous deviez
+lancer l'OpenFirmware et déclarer la variable <envar>boot-device</envar>
+manuellement&nbsp;; en principe, <command>ybin</command> le fait
+automatiquement.
+</para>
+<para>
+Après avoir lancé &debian-gnu; pour la première fois, vous pourrez ajouter autant
+d'options que vous le souhaitez (par exemple, les options pour amorcer 
+d'autres systèmes)
+dans le fichier <filename>/etc/yaboot.conf</filename> et démarrer
+<command>ybin</command> pour mettre à jour votre partition de démarrage avec
+la nouvelle configuration. Lisez le
+<ulink url="&url-powerpc-yaboot-faq;">HOWTO sur yaboot</ulink>.
+</para>
+</sect2>
+
+ </sect1>
+
+&mount-encrypted.xml;
+
+ <sect1 id="login">
+ <title>Se connecter</title>
+
+<para>
+
+Quand le système a été amorcé, vous vous retrouvez face à l'invite de 
+connexion (login). Connectez-vous en utilisant le nom d'utilisateur et le mot 
+de passe que vous avez choisis pendant le processus d'installation. 
+Vous pouvez maintenant utiliser votre système.
+
+</para><para>
+
+Si vous êtes un nouvel utilisateur, vous voudrez peut-être parcourir la 
+documentation qui est déjà installée sur votre système. Il existe plusieurs 
+systèmes de documentation&nbsp;; un travail est en cours afin de les intégrer 
+dans un tout cohérent. Vous trouverez ci-dessous quelques points de départ.
+
+</para><para>
+
+La documentation qui accompagne les programmes que vous avez installés
+se trouve dans le répertoire <filename>/usr/share/doc/</filename>, dans un
+sous-répertoire qui porte le nom du programme, et plus précisément le nom du
+paquet qui contient le programme. 
+Il arrive qu'une documentation soit mise dans un paquet séparé qui n'est pas installé
+par défaut. Par exemple, de la documentation concernant le gestionnaire de paquets
+<command>apt</command> se trouve dans les paquets <classname>apt-doc</classname> et
+<classname>apt-howto</classname>.
+
+</para><para>
+ 
+De plus, il y a quelques répertoires spéciaux dans le répertoire 
+<filename>/usr/share/doc/</filename>. Les HOWTO Linux sont installés au 
+format <emphasis>.gz</emphasis> (compressé) dans le répertoire
+      <filename>/usr/share/doc/HOWTO/en-txt/</filename>.
+Une fois <classname>dhelp</classname> installé, vous pouvez consulter avec votre
+navigateur le fichier 
+<filename>/usr/share/doc/HTML/index.html</filename>
+qui contient un index sur la documentation installée.
+
+</para><para>
+
+Pour consulter facilement ces documents, on peut utiliser un navigateur
+en mode texte&nbsp;:
+
+
+<informalexample><screen>
+$ cd /usr/share/doc/
+$ w3m .
+</screen></informalexample>
+
+Le point après la commande <command>w3m</command> demande d'afficher le contenu
+du répertoire courant.
+
+</para><para>
+
+Avec un environnement graphique, vous pouvez lancer son navigateur depuis le menu
+application et mettre <userinput>/usr/share/doc/</userinput> comme adresse.
+</para> 
+
+<para>
+Vous pouvez aussi saisir <userinput>info
+<replaceable>command</replaceable></userinput> ou <userinput>man
+<replaceable>command</replaceable></userinput> pour obtenir des informations 
+sur la plupart des commandes disponibles depuis l'interpréteur de commandes. 
+En exécutant <userinput>help</userinput>, vous afficherez l'aide sur les 
+commandes de l'interpréteur de commandes. Et si vous tapez une commande 
+suivie par <userinput>--help</userinput>, un court résumé sur l'usage de 
+cette commande sera affiché. Si le résultat d'une commande défile au-delà du 
+haut de l'écran, tapez <userinput>|&nbsp;more</userinput> après la commande de 
+façon à provoquer une pause entre chaque écran. Pour voir une liste de toutes 
+les commandes disponibles qui commencent par une lettre donnée, tapez cette 
+lettre, suivie de deux fois la touche de tabulation.
+
+</para>
+
+ </sect1>
+</chapter>

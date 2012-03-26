@@ -1,0 +1,249 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="arm" id="boot-tftp"><title>Arrencada amb el TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+  </sect2>
+
+
+  <sect2 arch="arm"><title>Arrencada des de CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+  </sect2>
+
+
+  <sect2 arch="arm" id="boot-firmware"><title>Arrencada amb el
+  microprogramari</title>
+
+&boot-installer-intro-firmware.xml;
+
+   <sect3 arch="arm" id="boot-firmware-nslu2"><title>Arrencada de
+   l'NSLU2</title>
+<para>
+
+Hi ha tres maneres de carregar el microprogramari a la flaix:
+
+</para>
+
+    <sect4 arch="arm"><title>Usar la interfície web de l'NSLU2</title>
+<para>
+
+Des de la secció d'administració, trieu l'opció
+<literal>Upgrade</literal> al menú. Podeu navegar aleshores pel
+vostre disc i seleccionar la imatge de l'instal·lador descarregada
+prèviament. Premeu el botó <literal>Start Upgrade</literal>, confirmeu,
+espereu uns minuts i confirmeu novament. El sistema arrencarà directament
+l'instal·lador.
+
+</para>
+    </sect4>
+
+    <sect4 arch="arm"><title>Des de la xarxa usant Linux/Unix</title>
+<para>
+
+Podeu fer servir <command>upslug2</command> des de qualsevol màquina
+Linux o Unix per actualitzar mitjançant la xarxa. Aquest programa està
+empaquetat per a &debian;.
+
+Primer, haureu de posar l'NSLU2 en mode actualització:
+
+<orderedlist>
+<listitem><para>
+
+Desconnecteu qualsevol disc i/o dispositiu que hi hagi als ports USB.
+
+</para></listitem>
+<listitem><para>
+
+Atureu l'NSLU2.
+
+</para></listitem>
+<listitem><para>
+
+Premeu i mantingueu el botó de reiniciar (accessible per un petit forat
+al darrere, just per sobre de l'entrada de corrent).
+
+</para></listitem>
+<listitem><para>
+
+Premeu i deixeu anar el botó d'engegar per arrencar la màquina.
+
+</para></listitem>
+<listitem><para>
+
+Espereu 10 segons tot i observant el LED preparat/estat. Després
+d'aquests 10 segons canviarà d'àmbar a vermell. Deixeu anar el botó
+de reiniciar immediatament.
+
+</para></listitem>
+<listitem><para>
+
+El LED de preparat/estat de l'NSLU2 es veurà vermell/verd alternativament
+(hi ha un segon de retard abans del primer verd). L'NSLU2 ja està ara
+en mode actualització.
+
+</para></listitem>
+</orderedlist>
+
+Vegeu les <ulink
+url="http://www.nslu2-linux.org/wiki/OpenSlug/UsingTheBinary">pàgines
+de NSLU2-Linux</ulink> si teniu problemes amb això.
+
+Una vegada estigui en mode actualització, podeu carregar la nova imatge:
+
+<informalexample><screen>
+sudo upslug2 -i di-nslu2.bin
+</screen></informalexample>
+
+Tingueu en compte que aquesta eina també mostra l'adreça MAC de
+l'NSLU2, cosa que us pot ser molt útil per configurar un servidor
+DHCP. Després d'escriure i verificar tota la imatge, el sistema
+reiniciarà automàticament. Assegureu-vos de connectar el vostre disc
+USB un altre cop, si no ho feu ara l'instal·lador no el trobarà.
+
+</para>
+    </sect4>
+
+    <sect4 arch="arm"><title>Des de la xarxa usant Windows</title>
+<para>
+
+Hi ha <ulink
+url="http://www.everbesthk.com/8-download/sercomm/firmware/all_router_utility.zip">una
+eina</ulink> per a Windows que serveix per actualitzar el microprogramari
+per xarxa.
+
+</para>
+    </sect4>
+   </sect3>
+
+   <sect3 arch="arm" id="boot-firmware-ss4000e">
+   <title>Arrencada de l'SS4000-E</title>
+<para>
+
+Degut a limitacions del microprogramari de l'SS4000-E, desafortunadament
+no es pot, ara per ara, arrencar l'instal·lador sense emprar un port sèrie.
+Per a arrencar l'instal·lador, necessiteu un cable sèrie de mòdem nul,
+un ordinador amb un port sèrie<footnote id="arm-s4ke-port">
+
+<para>
+Un conversor sèrie USB també val.
+</para>
+
+</footnote> i un cable pla amb un connector DB9 mascle a un extrem
+i una capçalera IDC de 0,1 polzades i 10 pius a l'altre<footnote id="arm-s4k-rib">
+
+<para>
+Aquest cable es sol trobar en antigues màquines d'escriptori amb ports
+sèrie incorporats de 9 pius.
+</para>
+
+</footnote>.
+
+</para><para>
+
+Per a arrencar l'SS4000-E empreu el cable sèrie de mòdem nul i el cable pla
+per a connectar amb el port sèrie de l'SS4000-E, i reinicieu la màquina.
+Necessitareu emprar una aplicació de terminal sèrie per a comunicar-vos
+amb la màquina; una bona opció en un sistema &debian; GNU/Linux és emprar
+el programa <command>cu</command>, disponible al paquet del mateix nom.
+Assumint que el port sèrie del vostre ordinador es troba a
+<filename>/dev/ttyS0</filename>, empreu la línia d'ordres següent:
+
+</para>
+
+<informalexample><screen>
+cu -lttyS0 -s115200
+</screen></informalexample>
+
+<para>
+
+Si empreu Windows, considereu emprar el programa
+<classname>hyperterminal</classname>. Seleccioneu una velocitat de
+115200 bauds, una longitud de paraula de 8 bits, sense bits d'aturada i
+amb un bit de paritat.
+
+</para><para>
+
+Quan la màquina arrenque, veureu la línia de sortida següent:
+
+</para>
+
+<informalexample><screen>
+No network interfaces found
+
+EM-7210 ver.T04 2005-12-12 (For ver.AA)
+== Executing boot script in 1.000 seconds - enter ^C to abort
+</screen></informalexample>
+
+<para>
+
+En aquest punt, premeu Control-C per a interrompre el carregador
+d'arrencada<footnote id="arm-s4ke-sec">
+
+<para>
+Adoneu-vos que només disposeu d'un segon per a fer-ho. Si se vos passa,
+simplement reinicieu la màquina i torneu a provar.
+</para>
+
+</footnote>. Açò vos portarà a l'indicador de RedBoot. Entreu les
+ordres següents:
+
+<informalexample><screen>
+load -v -r -b 0x01800000 -m ymodem ramdisk.gz
+load -v -r -b 0x01008000 -m ymodem zImage
+exec -c "console=ttyS0,115200 rw root=/dev/ram mem=256M@0xa0000000" -r 0x01800000
+</screen></informalexample>
+
+</para><para>
+
+Després de cada ordre <command>load</command>, el sistema esperarà un
+fitxer a transmetre via el protocol YMODEM. Si empreu «cu», assegureu-vos
+de que teniu instal·lat el paquet <classname>lrzsz</classname>, premeu
+retorn seguit de la seqüència d'escapada <quote>~&lt;</quote> per a
+iniciar un programa extern, i executeu <command>sb initrd.gz</command> o
+<command>sb vmlinuz</command>.
+
+</para><para>
+
+Alternativament, podeu carregar el nucli i el disc RAM via HTTP en lloc
+d'YMODEM. Açò és més ràpid, però requereix un servidor HTTP funcional a
+la xarxa. Per a fer-ho, canvieu primer el carregador d'arrencada al mode
+RAM:
+
+<informalexample><screen>
+fis load rammode
+g
+</screen></informalexample>
+
+</para><para>
+
+Açò sembla reiniciar la màquina, però realment carrega el reinici a RAM i
+reinicia des d'allà. Si vos salteu aquest pas el sistema es penjarà al
+pas «ip_address» que ve a continuació.
+
+</para><para>
+
+Haureu de prémer Control-C una altra volta per a interrompre l'arrencada.
+Aleshores entreu:
+
+<informalexample><screen>
+ip_address -l <replaceable>192.168.2.249</replaceable> -h <replaceable>192.168.2.4</replaceable>
+load -v -r -b 0x01800000 -m http /initrd.gz
+load -v -r -b 0x01008000 -m http /zImage
+exec -c "console=ttyS0,115200 rw root=/dev/ram mem=256M@0xa0000000" -r 0x01800000
+</screen></informalexample>
+
+On <replaceable>192.168.2.249</replaceable> és l'adreça IP del sistema
+instal·lat i <replaceable>192.168.2.4</replaceable> l'adreça IP del servidor
+HTTP que conté els fitxers del nucli i el disc RAM.
+
+</para><para>
+
+A continuació l'instal·lador s'iniciarà com de costum.
+
+</para>
+   </sect3>
+  </sect2>

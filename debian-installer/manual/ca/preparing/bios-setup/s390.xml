@@ -1,0 +1,111 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64994 -->
+
+
+  <sect2 arch="s390"><title>Configuració de la BIOS</title>
+<para>
+
+A l'hora d'instal·lar &debian-gnu; a &arch-title; o a màquines zSeries
+s'ha d'arrencar primer amb un nucli dins el sistema. El mecanisme
+d'arrencada en aquesta plataforma és inherentment diferent a d'altres,
+especialment dels sistemes PC: no hi ha cap disquetera disponible.
+Us haureu adonat d'una altra gran diferència mentre treballeu amb
+aquesta plataforma: la majoria (si no tot) del temps que hi esteu
+treballant serà remotament, amb l'ajut d'algun programari client de
+sessió com pot ser telnet, o un navegador. Això deu ser degut a aquesta
+arquitectura tan especial on la consola 3215/3270 es basa en línies
+enlloc de basar-se en caràcters.
+
+</para><para>
+
+Linux s'executa, en aquesta plataforma, tant nativament en la màquina,
+en una LPAR (Partició Lògica) o en una màquina virtual proporcionada per
+el sistema VM. Podeu usar una cinta d'arrencada en tots aquests sistemes;
+podeu usar altres sistemes d'arrencada, també, però poden no estar
+disponibles.  Per exemple, podeu usar el lector de targetes virtuals
+d'una màquina virtual, o arrencar des de la HMC (Consola d'administració
+de maquinari) d'una LPAR si la HMC i aquesta opció és disponible.
+
+</para><para>
+
+Abans de que comenceu la instal·lació, haureu de revisar alguns
+passos de disseny i preparació. IBM ha posat a disposició documentació
+del procés sencer, ex. com preparar el mitjà d'instal·lació
+i com arrencar des d'aquest mitjà. Duplicar aquí aquesta informació
+no és possible ni necessari. De totes maneres, descriurem aquí
+quin tipus específic de dades de &debian; són necessàries i on les podreu
+trobar. Usant aquestes dues fonts d'informació, podreu preparar la
+vostra màquina i el mitjà d'instal·lació i procedir a l'arrencada des
+del mitjà. Quan veieu el missatge de benvinguda a la sessió client
+seguiu les passes específiques de &debian; d'aquest document.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390">
+  <title>Instal·lacions nativa i LPAR</title>
+<para>
+
+Si us plau, dirigiu-vos al capítol 5 del
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+Linux per &arch-title;</ulink>
+Llibre vermell i capítol 3.2 del
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux per eServer zSeries d'IBM i &arch-title;: Distribucions</ulink>
+Llibre vermell a com establir una LPAR per Linux.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390">
+  <title>Instal·lació com a VM</title>
+
+<para>
+
+Si us plau, dirigiu-vos al capítol 6 del
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+Linux per &arch-title;</ulink>
+Llibre vermell i capítol 3.1 del
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux per eServer zSeries d'IBM i &arch-title;: Distribucions</ulink>
+Llibre vermell a com establir una VM per executar Linux.
+
+</para><para>
+
+Necessiteu copiar tots els fitxers des del subdirectori
+<filename>generic</filename> al disc CMS. Assegureu-vos de transferir
+<filename>kernel.debian</filename> i
+<filename>initrd.debian</filename> en mode binari amb una longitud fixa
+de registre de 80 caràcters. El fitxer <filename>parmfile.debian</filename>
+pot estar tant en format ASCII o EBCDIC.
+
+Amb les imatges s'inclou un guió <filename>debian.exec</filename> de mostra,
+que introduïrà els fitxers en l'ordre correcte.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390">
+  <title>Instal·lació en un servidor</title>
+
+<para>
+
+Si no teniu connexió a Internet (ni directament ni a través d'un servidor
+intermediari web) necessiteu crear una instal·lació local a un servidor,
+que sigui accessible des de el S/390. Aquest servidor contindrà tots els
+paquets que es vulguin instal·lar i els ha de fer accessibles usant NFS,
+HTTP o FTP.
+
+</para><para>
+
+El servidor d'instal·lació ha de tenir l'estructura de directoris exacta
+a la de qualsevol rèplica de &debian-gnu; però només els arxius de s390 i els
+independents d'arquitectura. També podeu copiar el contingut de tots els
+CD d'instal·lació dins l'arbre de directoris.
+
+</para><para condition="FIXME">
+
+<emphasis>FIXME: més informació &mdash; del llibre vermell?</emphasis>
+
+</para>
+  </sect2>

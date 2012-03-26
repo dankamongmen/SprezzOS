@@ -1,0 +1,926 @@
+# Korean messages for debian-installer.
+# Copyright (C) 2003,2004,2005 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# Changwoo Ryu <cwryu@debian.org>, 2010, 2011
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-27 22:51+0000\n"
+"PO-Revision-Date: 2011-12-10 21:08+0900\n"
+"Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
+"Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:60001
+#, no-c-format
+msgid "ZFS pool %s, volume %s"
+msgstr "ZFS 풀 %s, 볼륨 %s"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:62001
+#, no-c-format
+msgid "DASD %s (%s)"
+msgstr "DASD %s (%s)"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:63001
+#, no-c-format
+msgid "DASD %s (%s), partition #%s"
+msgstr "DASD %s (%s), 파티션 #%s"
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Setting to reserve a small part of the disk for use by BIOS-based bootloaders
+#. such as GRUB.
+#: ../partman-partitioning.templates:36001
+msgid "Reserved BIOS boot area"
+msgstr "BIOS 예약 부팅 영역"
+
+#. Type: text
+#. Description
+#. :sl5:
+#. short variant of 'Reserved BIOS boot area'
+#. Up to 10 character positions
+#: ../partman-partitioning.templates:37001
+msgid "biosgrub"
+msgstr "BIOS부팅"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:1001
+msgid ""
+"In order to start your new system, the firmware on your Itanium system loads "
+"the boot loader from its private EFI partition on the hard disk.  The boot "
+"loader then loads the operating system from that same partition.  An EFI "
+"partition has a FAT16 file system formatted on it and the bootable flag set. "
+"Most installations place the EFI partition on the first primary partition of "
+"the same hard disk that holds the root file system."
+msgstr ""
+"새 데비안 시스템을 시작할 때, 이 이터늄 시스템의 펌웨어가 하드 디스크의 EFI "
+"파티션에서 부트로더를 읽어들입니다.  그 다음에 부트로더가 같은 파티션에서 운"
+"영 체제를 읽어들입니다.  EFI 파티션은 FAT16 파티션으로 포맷되어 있고 부팅 가"
+"능 플래그가 설정되어 있습니다.  보통 루트 파일 시스템이 들어 있는 같은 하드 "
+"디스크의 첫 번째 주 파티션을 EFI 파티션으로 합니다."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:2001 ../partman-efi.templates:4001
+msgid "EFI boot partition"
+msgstr "EFI 부팅 파티션"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:3001
+msgid "No EFI partition was found."
+msgstr "EFI 파티션이 없습니다."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. short variant of 'EFI boot partition'
+#. Up to 10 character positions
+#: ../partman-efi.templates:5001
+msgid "EFIboot"
+msgstr "EFIboot"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:7001
+msgid "EFI-fat16"
+msgstr "EFI-fat16"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:1001
+msgid ""
+"No partitions were found in your system. You may need to partition your hard "
+"drives or load additional kernel modules."
+msgstr ""
+"시스템에 파티션이 없습니다. 하드 드라이브의 파티션을 나눠야 하거나, 커널 모듈"
+"을 추가로 읽어들여야 할 수 있습니다."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:2001
+msgid "No file systems found"
+msgstr "파일 시스템이 없습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:2001
+msgid ""
+"No usable file systems were found. You may need to load additional kernel "
+"modules."
+msgstr ""
+"사용할 수 있는 파일 시스템이 없습니다. 커널 모듈을 추가로 읽어들여야 할 수 있"
+"습니다."
+
+#. Type: select
+#. Choices
+#. :sl5:
+#: ../partconf.templates:3001
+msgid "Abort"
+msgstr "중지"
+
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#: ../partconf.templates:4001
+msgid "Leave the file system intact"
+msgstr "파일 시스템 그대로 유지"
+
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#: ../partconf.templates:4001 ../partconf.templates:5001
+msgid "Create swap space"
+msgstr "스왑 공간 만들기"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:4002 ../partconf.templates:5002
+msgid "Action on ${PARTITION}:"
+msgstr "${PARTITION}에 할 작업:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:4002
+msgid ""
+"This partition seems to already have a file system (${FSTYPE}). You can "
+"choose to leave this file system intact, create a new file system, or create "
+"swap space."
+msgstr ""
+"이 파티션에는 이미 파일 시스템이 들어 있습니다 (${FSTYPE}). 이 파일 시스템을 "
+"그대로 유지할 수도 있고, 파일 시스템을 새로 만들거나 스왑 공간을 만들 수 있습"
+"니다."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:5002
+msgid ""
+"This partition does not seem to have a file system. You can create a file "
+"system or swap space on it."
+msgstr ""
+"이 파티션에는 파일 시스템이 없습니다. 파일 시스템을 새로 만들거나 스왑 공간"
+"을 만들 수 있습니다."
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl5:
+#. "it" is a partition
+#: ../partconf.templates:6001
+msgid "Don't mount it"
+msgstr "마운트하지 않음"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: string
+#. Description
+#. :sl5:
+#: ../partconf.templates:6002 ../partconf.templates:7001
+msgid "Mount point for ${PARTITION}:"
+msgstr "${PARTITION}의 마운트 위치:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:6002
+msgid ""
+"When a partition is mounted, it is available to the users of the system. You "
+"always need a root (\"/\") partition, and it's often good to have a separate "
+"partition for /home."
+msgstr ""
+"파티션을 마운트해야 시스템에서 사용할 수 있습니다. 루트 파티션은 (\"/\") 꼭 "
+"필요하며, /home은 별도 파티션으로 만드는 편이 좋습니다."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../partconf.templates:7001
+msgid "Please enter where the partition should be mounted."
+msgstr "파티션을 마운트할 위치를 입력하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:8001
+msgid "Do you want to unmount the partitions so you can make changes?"
+msgstr "파티션을 수정할 수 있도록 파티션의 마운트를 해제하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:8001
+msgid ""
+"Since the partitions have already been mounted, you cannot do any changes."
+msgstr "파티션이 마운트되어 있으므로, 수정할 수 없습니다."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "Failed to unmount partitions"
+msgstr "파티션을 마운트 해제하는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "An unexpected error occurred while unmounting the partitions."
+msgstr "파티션의 마운트를 해제하는데 알 수 없는 오류가 발생했습니다."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "The partition configuration process has been aborted."
+msgstr "파티션 설정 과정을 중단했습니다."
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partconf.templates:10001
+#, no-c-format
+msgid "Create %s file system"
+msgstr "%s 파일 시스템을 만듭니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:11001
+msgid "No root partition (/)"
+msgstr "루트 파일 시스템 (/) 없음"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:11001
+msgid ""
+"You need a root partition. Please assign a partition to the root mount point "
+"before continuing."
+msgstr ""
+"루트 파일 시스템이 필요합니다. 계속 하시기 전에 파티션에 루트 마운트 위치를 "
+"지정하십시오."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:12001
+msgid "Partition assigned to ${MOUNT}"
+msgstr "${MOUNT}에 마운트할 파티션"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:12001
+msgid "Mounting a partition on ${MOUNT} makes no sense. Please change this."
+msgstr "파티션을 ${MOUNT}에 마운트하는 건 맞지 않습니다. 바로잡으십시오."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:13001
+msgid "Several partitions assigned to ${MOUNT}"
+msgstr "${MOUNT}에 파티션 여러 개를 마운트했습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:13001
+msgid ""
+"You cannot assign several partitions to the same mount point. Please change "
+"all but one of them."
+msgstr ""
+"파티션 여러 개를 같은 마운트 위치에 마운트할 수 없습니다. 한 개만 남겨두고 마"
+"운트 위치를 바꾸십시오."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid "Ready to create file systems and mount partitions?"
+msgstr "파일 시스템을 만들고 파티션을 마운트할 준비가 되었습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid "File systems will be created and partitions mounted."
+msgstr "파일 시스템을 만들고 파티션을 마운트합니다."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid ""
+"WARNING: This will destroy all data on the partitions you have assigned file "
+"systems to."
+msgstr ""
+"경고: 파일 시스템을 지정한 파티션에 있는 모든 데이터를 잃게 될 것입니다."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001
+msgid "Failed to create swap space on ${PARTITION}"
+msgstr "${PARTITION} 파티션에 스왑 공간을 만드는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001
+msgid "An error occurred when the swap space was created on ${PARTITION}."
+msgstr "${PARTITION} 파티션에 스왑 공간을 만드는데 오류가 발생했습니다."
+
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001 ../partconf.templates:16001
+#: ../partconf.templates:17001 ../partconf.templates:18001
+msgid ""
+"Please check the error log on the third console or /var/log/messages for "
+"more information."
+msgstr ""
+"자세한 정보는 세 번째 콘솔에서 오류 로그를 살펴 보시거나 /var/log/messages를 "
+"살펴보십시오."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:16001
+msgid "Failed to activate the swap space on ${PARTITION}"
+msgstr "${PARTITION} 파티션에 스왑 공간을 활성화하는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:16001
+msgid "An error occurred when the swap space on ${PARTITION} was activated."
+msgstr "${PARTITION} 파티션의 스왑 공간을 활성화하는데 오류가 발생했습니다."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:17001
+msgid "Failed to create ${FS} file system on ${PARTITION}"
+msgstr "${PARTITION} 파티션에 ${FS} 파일 시스템을 만드는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:17001
+msgid ""
+"An error occurred when the ${FS} file system was created on ${PARTITION}."
+msgstr ""
+"${PARTITION} 파티션에 ${FS} 파일 시스템을 만드는데 오류가 발생했습니다."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:18001
+msgid "Failed to mount ${PARTITION} on ${MOUNT}"
+msgstr "${MOUNT}에 ${PARTITION} 파티션을 마운트하는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:18001
+msgid "An error occurred when ${PARTITION} was mounted on ${MOUNT}."
+msgstr "${MOUNT}에 ${PARTITION} 파티션을 마운트하는데 오류가 발생했습니다."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../partconf.templates:19001
+msgid "Configure and mount partitions"
+msgstr "파티션 설정 및 마운트"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002
+msgid "Disk to partition:"
+msgstr "파티션할 디스크:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002
+msgid "Please choose one of the listed disks to create partitions on it."
+msgstr "디스크 목록에서 파티션을 만들 디스크를 하나 선택하십시오."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002 ../s390-dasd.templates:1002
+msgid "Select \"Finish\" at the bottom of the list when you are done."
+msgstr "모두 마쳤으면 목록 아래에 있는 \"마치기\"를 선택하십시오."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:2001
+msgid "No disk found"
+msgstr "디스크를 찾을 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:2001
+msgid ""
+"Unable to find any disk in your system. Maybe some kernel modules need to be "
+"loaded."
+msgstr ""
+"시스템에 디스크를 하나도 찾을 수 없습니다. 커널 모듈을 읽어들여야 할 수 있습"
+"니다."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:3001
+msgid "Partitioning error"
+msgstr "파티션 오류"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:3001
+msgid "Failed to partition the disk ${DISC}."
+msgstr "${DISC} 디스크를 파티션하는데 실패했습니다."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Main menu item
+#: ../partitioner.templates:4001
+msgid "Partition a hard drive"
+msgstr "하드 드라이브 파티션"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "ctc: Channel to Channel (CTC) or ESCON connection"
+msgstr "ctc: 채널에서 채널 (CTC) 혹은 ESCON 연결"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "qeth: OSA-Express in QDIO mode / HiperSockets"
+msgstr "qeth: OSA-Express (QDIO 모드) / HiperSockets"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "iucv: Inter-User Communication Vehicle - available for VM guests only"
+msgstr "iucv: 사용자간 통신 장치 - VM 게스트만 사용 가능"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "virtio: KVM VirtIO"
+msgstr "virtio: KVM 가상 입출력"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:1002
+msgid "Network device type:"
+msgstr "네트워크 장치 종류:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:1002
+msgid ""
+"Please choose the type of your primary network interface that you will need "
+"for installing the Debian system (via NFS or HTTP). Only the listed devices "
+"are supported."
+msgstr ""
+"데비안을 설치할 때 (NFS 혹은 HTTP를 통해) 사용할 주 네트워크 인터페이스의 종"
+"류를 선택하십시오. 이 목록에 있는 장치만 지원합니다."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:2001
+msgid "CTC read device:"
+msgstr "CTC 읽기 장치:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:2001 ../s390-netdevice.templates:3001
+msgid "The following device numbers might belong to CTC or ESCON connections."
+msgstr "다음 장치 번호는 CTC 혹은 ESCON 연결에 해당할 지도 모릅니다."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:3001
+msgid "CTC write device:"
+msgstr "CTC 쓰기 장치:"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#. Type: boolean
+#. Description
+#. :sl5:
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:4001 ../s390-netdevice.templates:8001
+#: ../s390-netdevice.templates:13001
+msgid "Do you accept this configuration?"
+msgstr "이 설정대로 사용하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:4001
+msgid ""
+"The configured parameters are:\n"
+" read channel  = ${device_read}\n"
+" write channel = ${device_write}\n"
+" protocol      = ${protocol}"
+msgstr ""
+"설정한 인수는 다음과 같습니다:\n"
+" 읽기 채널     = ${device_read}\n"
+" 쓰기 채널     = ${device_write}\n"
+" 프로토콜      = ${protocol}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:5001
+msgid "No CTC or ESCON connections"
+msgstr "CTC나 ESCON 연결이 없습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:5001
+msgid "Please make sure that you have set them up correctly."
+msgstr "올바르게 설정했는지 확인하십시오."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:6001
+msgid "Protocol for this connection:"
+msgstr "이 연결에 사용할 프로토콜:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:7001
+msgid "Device:"
+msgstr "장치:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:7001
+msgid "Please select the OSA-Express QDIO / HiperSockets device."
+msgstr "OSA-Express QDIO / HiperSockets 장치를 선택하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:8001
+msgid ""
+"The configured parameters are:\n"
+" channels = ${device0}, ${device1}, ${device2}\n"
+" port     = ${port}\n"
+" portname = ${portname}\n"
+" layer2   = ${layer2}"
+msgstr ""
+"설정한 인수는 다음과 같습니다:\n"
+" 채널     = ${device0}, ${device1}, ${device2}\n"
+" 포트     = ${port}\n"
+" 포트이름 = ${portname}\n"
+" 레이어2  = ${layer2}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:9001
+msgid "No OSA-Express QDIO cards / HiperSockets"
+msgstr "OSA-Express QDIO 카드 혹은 HiperSocket이 없습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:9001
+msgid ""
+"No OSA-Express QDIO cards / HiperSockets were detected. If you are running "
+"VM please make sure that your card is attached to this guest."
+msgstr ""
+"OSA-Express QDIO 카드 혹은 HiperSockets를 찾지 못했습니다. VM을 실행중이라면 "
+"카드가 게스트에 붙어 있는 지 확인하십시오."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid "Portname:"
+msgstr "포트이름:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid ""
+"Please enter the portname of your OSA-Express card. This name must be 1 to 8 "
+"characters long and must be equal on all systems accessing the same card."
+msgstr ""
+"OSA-Express 카드의 포트이름을 입력하십시오. 이 이름은 한 글자에서 여덟 글자 "
+"사이여야 하고 같은 카드를 접근하는 모든 시스템에 대해 동일해야 합니다."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid ""
+"Leave it empty if you want to use HiperSockets. This parameter is required "
+"for cards with microcode level 2.10 or later or when you want to share a "
+"card."
+msgstr ""
+"HiperSockets를 사용하려면 비워두십시오. 이 인수는 마이크로코드 레벨 2.10 혹"
+"은 그 이후의 카드 아니면 카드를 공유할 때 필요합니다."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid "The name will automatically be converted to uppercase."
+msgstr "이름은 자동으로 대문자로 변환합니다."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:11001
+msgid "Port:"
+msgstr "포트:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:11001
+msgid "Please enter a relative port for this connection."
+msgstr "이 연결의 상대 포트를 입력하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:12001
+msgid "Use this device in layer2 mode?"
+msgstr "이 장치를 레이어2 모드로 사용하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:12001
+msgid ""
+"By default OSA-Express cards use layer3 mode. In that mode LLC headers are "
+"removed from incoming IPv4 packets. Using the card in layer2 mode will make "
+"it keep the MAC addresses of IPv4 packets."
+msgstr ""
+"OSA-Express 카드는 기본적으로 레이어3 모드를 사용합니다. 레이어3 모드에서는 "
+"들어오는 IPv4 패킷에서 LLC 헤더를 지웁니다. 레이어2 모드를 사용하면 IPv4에 있"
+"는 MAC 주소를 그대로 둡니다."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:13001
+msgid ""
+"The configured parameter is:\n"
+" peer  = ${peer}"
+msgstr ""
+"설정한 사항은 다음과 같습니다:\n"
+" 피어  = ${peer}"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid "VM peer:"
+msgstr "VM 피어:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid "Please enter the name of the VM peer you want to connect to."
+msgstr "연결하려는 VM 피어의 이름을 입력하십시오."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid ""
+"If you want to connect to multiple peers, separate the names by colons, e."
+"g.  tcpip:linux1."
+msgstr ""
+"피어 여러개에 연결하려면 각각의 이름을 콜론으로 구분하십시오. 예를 들어, "
+"tcpip:linux1."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid ""
+"The standard TCP/IP server name on VM is TCPIP; on VIF it's $TCPIP. Note: "
+"IUCV must be enabled in the VM user directory for this driver to work and it "
+"must be set up on both ends of the communication."
+msgstr ""
+"VM의 표준 TCP/IP 서버 이름은 TCPIP입니다. VIF에서는 $TCPIP입니다. 주의: VM 사"
+"용자 디렉터리에서 IUCV를 켜야 이 드라이버가 동작합니다. 그리고 통신하는 양쪽 "
+"모두에서 설정해야 합니다."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../s390-netdevice.templates:15001
+msgid "Configure the network device"
+msgstr "네트워크 장치 설정"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:1002
+msgid "Available devices:"
+msgstr "사용할 수 있는 장치:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:1002
+msgid ""
+"The following direct access storage devices (DASD) are available. Please "
+"select each device you want to use one at a time."
+msgstr ""
+"다음 DASD(direct access storage device)를 사용할 수 있습니다.  사용하려는 장"
+"치를 하나씩 선택하십시오."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:2001
+msgid "Choose device:"
+msgstr "장치를 선택하십시오:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:2001
+msgid ""
+"Please choose a device. You have to specify the complete device number, "
+"including leading zeros."
+msgstr ""
+"장치를 선택하십시오. 앞에 붙어 있는 0까지도 다 포함해서, 완전한 장치 번호를 "
+"지정해야 합니다."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:3001
+msgid "Invalid device"
+msgstr "장치가 잘못되었습니다"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:3001
+msgid "An invalid device number has been chosen."
+msgstr "잘못된 장치 번호를 선택했습니다."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid "Format the device?"
+msgstr "장치를 포맷하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid ""
+"The installer is unable to detect if the device ${device} has already been "
+"formatted or not. Devices need to be formatted before you can create "
+"partitions."
+msgstr ""
+"${device} 장치에 이미 포맷을 했는지 알아낼 수 없습니다. 파티션을 만들기 전에 "
+"장치를 포맷해야 합니다."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid ""
+"If you are sure the device has already been correctly formatted, you don't "
+"need to do so again."
+msgstr ""
+"장치가 올바르게 포맷한 상태라고 확신한다면, 다시 포맷할 필요는 없습니다."
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:5001
+msgid "Formatting ${device}..."
+msgstr "${device} 장치를 포맷하는 중입니다..."
+
+#. Type: text
+#. Description
+#. Main menu item. Keep translations below 55 columns
+#. :sl5:
+#: ../s390-dasd.templates:6001
+msgid "Configure direct access storage devices (DASD)"
+msgstr "DASD (direct access storage device) 설정"
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../zipl-installer.templates:1001
+msgid "Install the ZIPL boot loader on a hard disk"
+msgstr "하드 디스크에 ZIPL 부트로더 설치"

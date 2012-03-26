@@ -1,0 +1,494 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="mail-setup">
+ <!-- <title>Setting Up Your System To Use E-Mail</title> -->
+ <title>Configurazione del sistema per la posta elettronica</title>
+<para>
+
+<!--
+Today, email is an important part of many people's life. As there are
+many options as to how to set it up, and as having it set up correctly is
+important for some &debian; utilities, we will try to cover the basics in
+this section.
+-->
+
+Oggi l'email è una parte molto importante nella vita di molte persone.
+Ci sono molte opzioni da impostare; è molto importante che la posta sia
+configurata correttamente per alcuni programmi di utilità &debian;; in
+questa sezione sono spiegati i concetti di base.
+
+</para><para>
+
+<!--
+There are three main functions that make up an e-mail system. First there is
+the <firstterm>Mail User Agent</firstterm> (MUA) which is the program a user
+actually uses to compose and read mails. Then there is the <firstterm>Mail
+Transfer Agent</firstterm> (MTA) that takes care of transferring messages
+from one computer to another. And last there is the <firstterm>Mail
+Delivery Agent</firstterm> (MDA) that takes care of delivering incoming mail
+to the user's inbox.
+-->
+
+Un sistema di posta elettronica è composto da tre funzioni principali.
+La prima è il <firstterm>Mail User Agent</firstterm> (MUA), cioè il
+programma usato dagli utenti per scrivere e leggere la posta. Poi c'è
+un <firstterm>Mail Transfer Agent</firstterm> (MTA) che si occupa del
+trasferimento dei messaggi da un computer a un altro. Infine c'è un
+<firstterm>Mail Delivery Agent</firstterm> (MDA) che si occupa della
+consegna della posta in arrivo nelle caselle degli utenti.
+
+</para><para>
+
+<!--
+These three functions can be performed by separate programs, but they can
+also be combined in one or two programs. It is also possible to have
+different programs handle these functions for different types of mail.
+-->
+
+Queste tre funzioni possono essere svolte da programmi diversi ma possono
+essere anche concentrate in uno o due programmi. È anche possibile che
+ognuna di queste funzioni sia svolta da programmi diversi a seconda della
+tipologia di posta.
+
+</para><para>
+
+<!--
+On Linux and Unix systems <command>mutt</command> is historically a very
+popular MUA. Like most traditional Linux programs it is text based. It is
+often used in combination with <command>exim</command> or
+<command>sendmail</command> as MTA and <command>procmail</command> as MDA.
+-->
+
+Storicamente sui sistemi Linux e Unix un MUA molto popolare è
+<command>mutt</command> che, come la maggioranza dei programmi Linux
+tradizionali, è testuale. Spesso viene usato in combinazione con
+<command>exim</command> o <command>sendmail</command> come MTA e con
+<command>procmail</command> come MDA.
+
+</para><para>
+
+<!--
+With the increasing popularity of graphical desktop systems, the use of
+graphical e-mail programs like GNOME's <command>evolution</command>,
+KDE's <command>kmail</command> or Mozilla's <command>thunderbird</command>
+(in &debian; available as <command>icedove</command><footnote>
+-->
+
+Con la crescente popolarità dei sistemi desktop grafici, l'uso di programmi
+di posta elettronica grafici come <command>evolution</command> per GNOME,
+<command>kmail</command> per KDE o <command>thunderbird</command> di Mozilla
+(in &debian; è disponibile con nome <command>icedove</command><footnote>
+
+<para>
+
+<!--
+The reason that <command>thunderbird</command> has been renamed to
+<command>icedove</command> in &debian; has to do with licensing issues.
+Details are outside the scope of this manual.
+-->
+
+In Debian <command>thunderbird</command> è stato rinominato
+<command>icedove</command> per un problema con la licenza; i dettagli
+del problema non rientrano nello scopo di questo manuale.
+
+</para>
+
+<!--
+</footnote>) is becoming more popular. These programs combine the function
+of a MUA, MTA and MDA, but can &mdash; and often are &mdash; also be used
+in combination with the traditional Linux tools.
+-->
+
+</footnote>) sta diventando molto comune. Questi programmi combinano le
+funzioni di MUA, MTA e MDA, ma possono essere, e spesso sono, usati in
+combinazione con i tradizionali strumenti Linux.
+
+</para>
+
+  <sect2 id="mail-default">
+  <!-- <title>Default E-Mail Configuration</title> -->
+  <title>Configurazione predefinita della posta elettronica</title>
+<para>
+
+<!--
+Even if you are planning to use a graphical mail program, it is important
+that a traditional MTA/MDA is also installed and correctly set up on your
+&debian-gnu; system. Reason is that various utilities running on the
+system<footnote>
+-->
+
+Anche se si vuole usare un programma di posta grafico è importante che
+sul proprio sistema &debian-gnu; sia installato e configurato correttamente anche
+un MTA/MDA tradizionale. Il motivo è che molte utilità in esecuzione sul
+sistema<footnote>
+
+<para>
+
+<!--
+Examples are: <command>cron</command>, <command>quota</command>,
+<command>logcheck</command>, <command>aide</command>, &hellip;
+-->
+
+Per esempio: <command>cron</command>, <command>quota</command>,
+<command>logcheck</command>, <command>aide</command>, &hellip;
+
+</para>
+
+<!--
+</footnote> can send important notices by e-mail to inform the system
+administrator of (potential) problems or changes.
+-->
+
+</footnote> usano la posta elettronica per inviare degli avvisi
+all'amministratore di sistema su (potenziali) problemi o modifiche.
+
+</para><para>
+
+<!--
+For this reason the packages <classname>exim4</classname> and
+<classname>mutt</classname> will be installed by default (provided you
+did not unselect the <quote>standard</quote> task during the installation).
+<classname>exim4</classname> is a combination MTA/MDA that is relatively
+small but very flexible. By default it will be configured to only handle
+e-mail local to the system itself and e-mails addressed to the system
+administrator (root account) will be delivered to the regular user account
+created during the installation<footnote>
+-->
+
+Per questa ragione i pacchetti <classname>exim4</classname> e
+<classname>mutt</classname> fanno parte dell'installazione predefinita
+(sono disponibili a meno che durante l'installazione non sia stato
+deselezionato il task <quote>standard</quote>). <classname>exim4</classname>
+combina MTA e MDA, inoltre è relativamente piccolo e molto flessibile. Con
+la configurazione predefinita gestisce soltanto la posta locale al sistema
+e le email indirizzate all'amministratore (l'account root) sono consegnate
+all'utente normale creato durante l'installazione<footnote>
+
+<para>
+
+<!--
+The forwarding of mail for root to the regular user account is configured
+in <filename>/etc/aliases</filename>. If no regular user account was created,
+the mail will of course be delivered to the root account itself.
+-->
+
+L'inoltro della posta indirizzata a root verso un utente normale si configura
+in <filename>/etc/aliases</filename>. Se non è stato creato un utente normale,
+la posta viene consegnata direttamente all'account root.
+
+</para>
+
+</footnote>.
+
+</para><para>
+
+<!--
+When system e-mails are delivered they are added to a file in
+<filename>/var/mail/<replaceable>account_name</replaceable></filename>.
+The e-mails can be read using <command>mutt</command>.
+-->
+
+Alla consegna, le email di sistema vengono aggiunte a un file in
+<filename>/var/mail/<replaceable>nome_account</replaceable></filename>
+e possono essere lette con <command>mutt</command>.
+
+</para>
+  </sect2>
+
+  <sect2 id="mail-outgoing">
+  <!-- <title>Sending E-Mails Outside The System</title> -->
+  <title>Invio di email all'esterno del sistema</title>
+<para>
+
+<!--
+As mentioned earlier, the installed &debian; system is only set up to handle
+e-mail local to the system, not for sending mail to others nor for
+receiving mail from others.
+-->
+
+Come detto in precedenza, dopo l'installazione, il sistema &debian; è
+configurato solo per gestire la posta locale, non per l'invio e la
+ricezione della posta verso e da altri sistemi.
+
+</para><para>
+
+<!--
+If you would like <classname>exim4</classname> to handle external e-mail,
+please refer to the next subsection for the basic available configuration
+options. Make sure to test that mail can be sent and received correctly.
+-->
+
+Se si vuole che <classname>exim4</classname> gestisca la posta esterna, si
+consulti la prossima sezione nella quale sono illustrate le opzioni di
+configurazione disponibili. Si consiglia di fare delle prove per essere sicuri
+che la posta sia inviata e ricevuta correttamente.
+
+</para><para>
+
+<!--
+If you intend to use a graphical mail program and use a mail server of
+your Internet Service Provider (ISP) or your company, there is not really
+any need to configure <classname>exim4</classname> for handling external
+e-mail. Just configure your favorite graphical mail program to use the
+correct servers to send and receive e-mail (how is outside the scope of
+this manual).
+-->
+
+Se si vuole usare un programma di posta grafico e un server di posta fornito
+dal proprio ISP (Internet Service Provider) o dalla propria azienda, non è
+necessario configurare <classname>exim4</classname> per la gestione della
+posta esterna. È sufficiente configurare il proprio programma grafico di
+posta preferito in modo che usi i server corretti per inviare e ricevere le
+email (questa configurazione non rientra nello scopo di questa guida).
+
+</para><para>
+
+<!--
+However, in that case you may need to configure individual utilities to
+correctly send e-mails. One such utility is <command>reportbug</command>,
+a program that facilitates submitting bug reports against &debian; packages.
+By default it expects to be able to use <classname>exim4</classname> to
+submit bug reports.
+-->
+
+Purtroppo, in questo caso, potrebbe essere necessario configurare i
+singoli programmi di utilità per l'invio delle email. Una di queste
+utilità è <command>reportbug</command>, un programma che semplifica
+l'invio di una segnalazione di bug nei pacchetti &debian;, infatti la
+sua configurazione predefinita si aspetta di poter usare
+<classname>exim4</classname> per la spedizione della segnalazione.
+
+</para><para>
+
+<!--
+To correctly set up <command>reportbug</command> to use an external mail
+server, please run the command <command>reportbug \-\-configure</command>
+and answer <quote>no</quote> to the question if an MTA is available. You
+will then be asked for the SMTP server to be used for submitting bug reports.
+-->
+
+Per configurare <command>reportbug</command> in modo che usi un server di
+posta esterno usare il comando <command>reportbug --configure</command> e
+rispondere <quote>no</quote> alla domanda se è disponibile un MTA. Così
+facendo viene chiesto di specificare il server SMTP da usare per inviare
+le segnalazioni di bug.
+
+</para>
+  </sect2>
+
+  <sect2 id="config-mta">
+  <!-- <title>Configuring the Exim4 Mail Transport Agent</title> -->
+  <title>Configurazione del MTA (Mail Transport Agent) Exim4</title>
+<para>
+
+<!--
+If you would like your system to also handle external e-mail, you will
+need to reconfigure the <classname>exim4</classname> package<footnote>
+-->
+
+Se si vuole che il proprio sistema gestisca anche posta elettronica esterna,
+è necessario configurare il pacchetto <classname>exim4</classname><footnote>
+
+<para>
+
+<!--
+You can of course also remove <classname>exim4</classname> and replace
+it with an alternative MTA/MDA.
+-->
+
+Ovviamente si può anche rimuovere <classname>exim4</classname> e installare
+al suo posto altri MTA/MDA.
+
+</para>
+
+</footnote>:
+
+<informalexample><screen>
+# dpkg-reconfigure exim4-config
+</screen></informalexample>
+
+</para><para>
+
+<!--
+After entering that command (as root), you will be asked if you want split
+the configuration into small files. If you are unsure, select the default
+option.
+-->
+
+Con questo comando (da root), viene chiesto se si vuole spezzare la
+configurazione in più file. In caso di dubbi usare la risposta predefinita.
+
+</para><para>
+
+<!--
+Next you will be presented with several common mail scenarios. Choose the
+one that most closely resembles your needs.
+-->
+
+Poi vengono mostrati diversi scenari di posta molto comuni. Selezionare il
+tipo di configurazione che meglio rispecchia le proprie esigenze.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<!-- <term>internet site</term> -->
+<term>sito internet</term>
+<listitem><para>
+
+<!--
+Your system is connected to a network and your mail is sent and
+received directly using SMTP. On the following screens you will be
+asked a few basic questions, like your machine's mail name, or a list of
+domains for which you accept or relay mail.
+-->
+
+Il sistema è connesso a una rete e la posta viene spedita e ricevuta
+direttamente con SMTP. Nelle schermate successive verranno poste altre
+domande per la configurazione, quali il nome di posta della macchina o un
+elenco di domini per i quali possa essere accettata o inoltrata la posta.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<!-- <term>mail sent by smarthost</term> -->
+<term>posta inviata tramite uno smarthost</term>
+<listitem><para>
+
+<!--
+In this scenario your outgoing mail is forwarded to another machine,
+called a <quote>smarthost</quote>, which takes care of sending the message
+on to its destination.
+The smarthost also usually stores incoming mail addressed to your
+computer, so you don't need to be permanently online. That also means
+you have to download your mail from the smarthost via programs like
+fetchmail.
+-->
+
+In questo scenario la posta in uscita viene inoltrata ad un'altra macchina
+chiamata <quote>smarthost</quote>, che si occupa della reale consegna del
+messaggio ai destinatari. Uno smarthost di solito conserva la posta in
+arrivo indirizzata al computer destinatario, pertanto questo non dovrà
+essere permanentemente connesso alla rete. Ciò significa che bisognerà
+scaricare la posta dallo smarthost tramite programmi come fetchmail.
+
+</para><para>
+
+<!--
+In a lot of cases the smarthost will be your ISP's mail server, which
+makes this option very suitable for dial-up users. It can also be a
+company mail server, or even another system on your own network.
+-->
+
+In parecchi casi lo smarthost è il server di posta del proprio ISP, questa
+opzione è particolarmente adatta agli utenti dial-up. Lo smarthost può
+anche essere il server di posta aziendale oppure un altro sistema connesso
+alla propria rete.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<!-- <term>mail sent by smarthost; no local mail</term> -->
+<term>posta inviata tramite uno smarthost; niente posta locale</term>
+<listitem><para>
+
+<!--
+This option is basically the same as the previous one except that the
+system will not be set up to handle mail for a local e-mail domain. Mail
+on the system itself (e.g. for the system administrator) will still be
+handled.
+-->
+
+Questo scenario è simile al precedente ma con una eccezione: il sistema
+non è configurato per gestire posta per il dominio locale. La posta di
+sistema (cioè quella per l'amministratore) viene comunque gestita.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<!-- <term>local delivery only</term> -->
+<term>solo consegna locale</term>
+<listitem><para>
+
+<!--
+This is the option your system is configured for by default.
+-->
+
+Questa è la configurazione predefinita del proprio sistema.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<!-- <term>no configuration at this time</term> -->
+<term>nessuna configurazione per il momento</term>
+<listitem><para>
+
+<!--
+Choose this if you are absolutely convinced you know what you are
+doing. This will leave you with an unconfigured mail system &mdash;
+until you configure it, you won't be able to send or receive any mail
+and you may miss some important messages from your system utilities.
+-->
+
+Questa opzione può essere selezionata soltanto se si è assolutamente
+sicuri di ciò che si sta facendo. Fino a quando non viene configurato,
+il sistema di posta non funziona e non può spedire né ricevere messaggi
+inoltre potrebbero andare perse delle importanti segnalazioni da parte
+delle utilità di sistema.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+<!--
+If none of these scenarios suits your needs, or if you need a finer
+grained setup, you will need to edit configuration files under the
+<filename>/etc/exim4</filename> directory after the installation is
+complete. More information about <classname>exim4</classname> may be
+found under <filename>/usr/share/doc/exim4</filename>; the file
+<filename>README.Debian.gz</filename> has further details about
+configuring <classname>exim4</classname> and explains where to find
+additional documentation.
+-->
+
+Se nessuno di questi scenari rispecchiasse le proprie necessità, oppure
+se servisse una configurazione più accurata, è necessario modificare, al
+termine dell'installazione, i file di configurazione posti nella directory
+<filename>/etc/exim4</filename>. Ulteriori informazioni su
+<command>exim4</command> sono reperibili in
+<filename>/usr/share/doc/exim4</filename>; nel file
+<filename>README.Debian.gz</filename> sono contenuti dei dettagli riguardo
+la configurazione di <classname>exim4</classname> e indica dove trovare
+altra documentazione.
+
+</para><para>
+
+<!--
+Note that sending mail directly to the Internet when you don't have an
+official domain name, can result in your mail being rejected because of
+anti-spam measures on receiving servers. Using your ISP's mail server is
+preferred. If you still do want to send out mail directly, you may want to
+use a different e-mail address than is generated by default. If you use
+<classname>exim4</classname> as your MTA, this is possible by adding an
+entry in <filename>/etc/email-addresses</filename>.
+-->
+
+Si noti che se non si dispone di un dominio ufficiale e si invia la propria
+posta direttamente su Internet, può accadere che la propria posta sia
+rifiutata dal server destinatario come misura anti-spam; si deve preferire
+l'uso del server di posta del proprio ISP. Invece, se si invia direttamente
+la posta, potrebbe interessare come usare un indirizzo email diverso da
+quello generato automaticamente. Se si usa <classname>exim4</classname>
+come MTA, è possibile aggiungere una voce in
+<filename>/etc/email-addresses</filename>.
+
+</para>
+  </sect2>
+ </sect1>

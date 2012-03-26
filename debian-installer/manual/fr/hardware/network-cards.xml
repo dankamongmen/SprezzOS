@@ -1,0 +1,177 @@
+<!-- original version: 64916 -->
+
+ <sect2 id="network-cards">
+<title>Matériel de connexion réseau</title>
+<para>
+
+Toute carte réseau (<emphasis>NIC, network interface card</emphasis>)
+reconnue par le noyau &arch-kernel; devrait aussi être reconnue par l'installateur.
+Les pilotes réseau sont chargés sous forme de module.
+
+<phrase arch="x86">La plupart des cartes PCI et PCMCIA sont reconnues.</phrase>
+<phrase arch="i386">Beaucoup d'anciennes cartes ISA le sont aussi.</phrase>
+
+</para>
+
+<para arch="sparc">
+Beaucoup de cartes PCI génériques sont reconnues, ainsi que les cartes SUN suivantes&nbsp;:
+
+<itemizedlist>
+<listitem><para>
+
+Sun LANCE
+
+</para></listitem>
+<listitem><para>
+
+Sun Happy Meal
+
+</para></listitem>
+<listitem><para>
+
+Sun BigMAC
+
+</para></listitem>
+<listitem><para>
+
+Sun QuadEthernet
+
+</para></listitem>
+<listitem><para>
+
+MyriCOM Gigabit Ethernet
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+
+<para arch="s390">
+La liste des cartes réseau reconnues est&nbsp;:
+
+<itemizedlist>
+ <listitem><para>
+
+Channel to Channel (CTC) et ESCON connection (réelle ou émulée).
+
+</para></listitem>
+ <listitem><para>
+
+OSA-2 Token Ring/Ethernet et OSA-Express Fast Ethernet (non-QDIO)
+
+</para></listitem>
+<listitem><para>
+
+OSA-Express in QDIO mode, HiperSockets et Guest-LANs
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+
+<para arch="arm">
+
+Sur &arch-title;, la plupart des périphériques Ethernet intégrés sont reconnus
+et des modules pour les périphériques USB et PCI sont fournis. L'exception
+est la plateforme IXP4xx (avec par exemple le Linksys NSLU2) qui a besoin d'un microprogramme
+propriétaire pour faire fonctionner le périphérique Ethernet intégré.
+Des images non officielles pour le Linksys NSLU2 existent sur le site
+<ulink url="&url-slug-firmware;">Slug-Firmware</ulink>.
+
+</para>
+
+<para arch="x86">
+
+Le RNIS ne peut pas être utilisé pour l'installation.
+</para>
+
+
+<sect3 condition="supports-wireless" id="nics-wireless">
+  <title>Cartes réseau sans fil</title>
+<para>
+
+Les cartes réseau sans fil sont en général reconnues et le noyau &arch-kernel; officiel reconnaît
+un nombre croissant d'adaptateurs. Cependant beaucoup d'entre eux demandent
+le chargement d'un microprogramme. Quand un microprogramme est
+nécessaire, l'installateur vous demandera de le télécharger. Consultez
+<xref linkend="loading-firmware"/> pour des informations détaillées sur
+la manière de télécharger un microprogramme pendant l'installation.
+</para>
+<para> 
+On peut faire fonctionner des cartes non reconnues par le noyau &arch-kernel; officiel avec
+&debian-gnu;, mais elles ne sont pas gérées pendant l'installation.
+</para>
+
+<para>
+L'utilisation d'un réseau sans fil chiffré pendant l'installation est
+possible mais seul le chiffrage WEP est reconnu. Si la configuration du
+point d'accès autorise un chiffrage plus évolué, il ne peut être
+utilisé pendant l'installation.
+</para>
+<para>
+Si vous ne pouvez pas utiliser d'autre carte pour l'installation, vous pouvez
+toujours installer &debian-gnu; avec un CD ou un DVD.
+Choisissez l'option de ne pas configurer le réseau et utilisez seulement les paquets qui
+se trouvent sur le cédérom. Une fois l'installation terminée (après le réamorçage),
+vous pourrez charger le pilote et le microprogramme dont vous avez besoin et configurer
+le réseau.
+</para>
+
+<para>
+Parfois, le pilote nécessaire n'est pas disponible sous forme de paquet &debian;.
+Il faudra chercher le code source sur internet et le compiler vous-même.
+Comment procéder dépasse le cadre de ce manuel.
+<phrase arch="x86">S'il n'existe pas de pilote pour Linux, vous pouvez
+toujours utiliser le paquet <classname>ndiswrapper</classname> qui permet
+d'installer un pilote Windows.</phrase>
+
+</para>
+  </sect3>
+
+  <sect3 arch="sparc" id="nics-sparc-trouble">
+  <title>Problèmes connus sur &arch-title;</title>
+<para>
+
+Quelques cartes réseau spéciales posent des problèmes qui méritent d'être
+mentionnés.
+
+</para>
+
+   <sect4><title>Conflits entre les pilotes tulip et dfme</title>
+<!-- BTS: #334104; may also affect other arches, but most common on sparc -->
+<para>
+
+<!-- BTS: #334104; may also affect other arches, but most common on sparc -->
+
+Certaines cartes PCI ont la même identité mais sont gérées par des pilotes
+différents. Certaines sont gérées par le pilote <literal>tulip</literal> et d'autres
+par le pilote <literal>dfme</literal>. Comme elles ont la même identité, le noyau
+ne les distingue pas et peut charger le mauvais pilote.
+</para>
+<para>
+
+C'est un problème connu sur les systèmes Netra avec une carte Davicom (DEC-Tulip).
+Dans ce cas le pilote <literal>tulip</literal> est correct.
+Pour éviter ce problème, il faut mettre le module défectueux sur liste noire.
+Voyez <xref linkend="module-blacklist"/>.
+</para>
+<para>
+Pendant l'installation, la solution est de passer sur un shell et de supprimer
+le mauvais pilote (ou les deux, si les deux sont chargés) avec
+<userinput>modprobe -r <replaceable>module</replaceable></userinput>.
+Ensuite il suffit de charger le bon pilote avec
+<userinput>modprobe <replaceable>module</replaceable></userinput>.
+Il se peut malgré tout que le mauvais module soit chargé quand le système
+est redemarré.
+</para>
+</sect4>
+   <sect4><title>Sun B100 blade</title>
+<!-- BTS: #384549; should be checked for kernels >2.6.18 -->
+<para>
+Le pilote réseau <literal>cassini</literal> ne fonctionne pas avec les
+systèmes Sun B100 blade.
+</para>
+</sect4>
+</sect3>
+
+ </sect2>

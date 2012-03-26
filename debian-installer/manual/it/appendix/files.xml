@@ -1,0 +1,519 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65939 -->
+
+ <sect1 arch="linux-any" id="linuxdevices">
+ <!-- <title>Linux Devices</title> -->
+ <title>I device linux</title>
+<para>
+
+<!--
+In Linux various special files can be found under the directory
+<filename>/dev</filename>. These files are called device files and
+behave unlike ordinary files. The most common types of device files
+are for block devices and character devices. These files are an
+interface to the actual driver (part of the Linux kernel) which in
+turn accesses the hardware. Another, less common, type of device file
+is the named <firstterm>pipe</firstterm>.
+The most important device files are listed in the tables below.
+-->
+
+In Linux, all'interno della directory <filename>/dev</filename>, sono
+presenti diversi file speciali, chiamati file di device, che si comportano
+in modo diverso dai file normali. I tipi più comuni di file di device sono
+per i device a blocchi e per i device a caratteri. Questo tipo di file sono
+un'interfaccia per i driver (che fanno parte del kernel Linux) che si
+occupano del reale accesso all'hardware. Un altro tipo di device, meno
+comune, sono i file <firstterm>pipe</firstterm>. I file di device più
+significativi sono elencati nella seguente tabella.
+
+</para><para>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>fd0</filename></entry>
+  <entry><!-- First Floppy Drive -->Primo lettore di dischetti</entry>
+</row><row>
+  <entry><filename>fd1</filename></entry>
+  <entry><!-- Second Floppy Drive -->Secondo lettore di dischetti</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>hda</filename></entry>
+  <entry><!-- IDE Hard disk / CD-ROM on the first IDE port (Master) -->
+  Disco fisso o lettore CD IDE presente sulla prima porta IDE (Master)</entry>
+</row><row>
+  <entry><filename>hdb</filename></entry>
+  <entry><!-- IDE Hard disk / CD-ROM on the first IDE port (Slave) -->
+  Disco fisso o lettore CD IDE presente sulla prima porta IDE (Slave)</entry>
+</row><row>
+  <entry><filename>hdc</filename></entry>
+  <entry><!-- IDE Hard disk / CD-ROM on the second IDE port (Master) -->
+  Disco fisso o lettore CD IDE presente sulla seconda porta IDE (Master)</entry>
+</row><row>
+  <entry><filename>hdd</filename></entry>
+  <entry><!-- IDE Hard disk / CD-ROM on the second IDE port (Slave) -->
+  Disco fisso o lettore CD IDE presente sulla seconda porta IDE (Slave)</entry>
+</row><row>
+  <entry><filename>hda1</filename></entry>
+  <entry><!-- First partition of the first IDE hard disk -->
+  Prima partizione del primo disco fisso IDE</entry>
+</row><row>
+  <entry><filename>hdd15</filename></entry>
+  <entry><!-- Fifteenth partition of the fourth IDE hard disk -->
+  Quindicesima partizione del primo disco fisso IDE</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sda</filename></entry>
+  <entry><!-- SCSI Hard disk with lowest SCSI ID (e.g. 0) -->
+  Il disco fisso SCSI con l'ID SCSI più basso (p.e. 0)</entry>
+</row><row>
+  <entry><filename>sdb</filename></entry>
+  <entry><!-- SCSI Hard disk with next higher SCSI ID (e.g. 1) -->
+  Il disco fisso SCSI con l'ID SCSI successivo (p.e. 1)</entry>
+</row><row>
+  <entry><filename>sdc</filename></entry>
+  <entry><!-- SCSI Hard disk with next higher SCSI ID (e.g. 2) -->
+  Il disco fisso SCSI con l'ID SCSI ulteriore (p.e. 2)</entry>
+</row><row>
+  <entry><filename>sda1</filename></entry>
+  <entry><!-- First partition of the first SCSI hard disk -->
+  Prima partizione del primo disco fisso SCSI</entry>
+</row><row>
+  <entry><filename>sdd10</filename></entry>
+  <entry><!-- Tenth partition of the fourth SCSI hard disk -->
+  Decima partizione del primo disco fisso SCSI</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sr0</filename></entry>
+  <entry><!-- SCSI CD-ROM with the lowest SCSI ID -->
+  Il lettore CD SCSI con l'ID SCSI più basso</entry>
+</row><row>
+  <entry><filename>sr1</filename></entry>
+  <entry><!-- SCSI CD-ROM with the next higher SCSI ID -->
+  Il lettore CD SCSI con l'ID SCSI successivo</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>ttyS0</filename></entry>
+  <entry><!-- Serial port 0, COM1 under MS-DOS -->
+  Porta seriale 0, COM1 sotto MS-DOS</entry>
+</row><row>
+  <entry><filename>ttyS1</filename></entry>
+  <entry><!-- Serial port 1, COM2 under MS-DOS -->
+  Porta seriale 1, COM2 sotto MS-DOS</entry>
+</row><row>
+  <entry><filename>psaux</filename></entry>
+  <entry><!-- PS/2 mouse device -->
+  Device del mouse PS/2</entry>
+</row><row>
+  <entry><filename>gpmdata</filename></entry>
+  <entry><!-- Pseudo device, repeater data from GPM (mouse) daemon -->
+  Pseudo device, usato dal demone GPM per ritrasmettere i dati del mouse</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>cdrom</filename></entry>
+  <entry><!-- Symbolic link to the CD-ROM drive -->
+  Link simbolico al lettore CD</entry>
+</row><row>
+  <entry><filename>mouse</filename></entry>
+  <entry><!-- Symbolic link to the mouse device file -->
+  Link simbolico al file di device del mouse</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>null</filename></entry>
+  <entry><!-- Anything written to this device will disappear -->
+  Qualunque cosa scritta su questo device scomparirà</entry>
+</row><row>
+  <entry><filename>zero</filename></entry>
+  <entry><!-- One can endlessly read zeros out of this device -->
+  Vi si possono leggere infiniti zero</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+  <sect2 arch="not-s390" id="device-mouse">
+  <!-- <title>Setting Up Your Mouse</title> -->
+  <title>Configurazione del mouse</title>
+<para>
+
+<!--
+The mouse can be used in both the Linux console (with gpm) and the X
+window environment. Normally, this is a simple matter of installing
+<filename>gpm</filename> and the X server itself. Both should be
+configured to use <filename>/dev/input/mice</filename> as the mouse
+device. The correct mouse protocol is named <userinput>exps2</userinput>
+in gpm, and <userinput>ExplorerPS/2</userinput> in X. The respective
+configuration files are <filename>/etc/gpm.conf</filename> and
+<filename>/etc/X11/xorg.conf</filename>.
+-->
+
+Il mouse può essere utilizzato sia in console (con gpm) che in ambiente
+X Window. Normalmente si tratta solo di installare <filename>gpm</filename>
+e il server X. Entrambi devono essere configurati
+per usare come device per il mouse <filename>/dev/input/mice</filename>,
+il protocollo corretto è chiamato <userinput>exps2</userinput> in gpm e
+<userinput>ExplorerPS/2</userinput> sotto X. I file di configurazione
+sono rispettivamente <filename>/etc/gpm.conf</filename> e
+<filename>/etc/X11/xorg.conf</filename>.
+
+</para><para>
+
+<!--
+Certain kernel modules must be loaded in order for your mouse to work.
+In most cases the correct modules are autodetected, but not always for
+old-style serial and bus mice<footnote>
+-->
+
+Potrebbe essere necessario caricare alcuni moduli del kernel per far
+funzionare il mouse. Nella maggior parte dei casi questi moduli vengono
+caricati automaticamente, ma per i vecchi mouse seriali e per i bus
+mouse<footnote>
+
+<para>
+
+<!--
+Serial mice usually have a 9-hole D-shaped connector; bus mice have an
+8-pin round connector, not to be confused with the 6-pin round connector
+of a PS/2 mouse or the 4-pin round connector of an ADB mouse.
+-->
+
+Solitamente i mouse seriali hanno un connettore a forma di una
+<quote>D</quote> con 9 poli; i bus mouse hanno un connettore rotondo a
+8 poli che non deve essere confuso con il connettore rotondo a 6 poli
+dei mouse PS/2 o con il connettore rotondo a 4 poli dei mouse ADB.
+
+</para>
+
+<!--
+</footnote>, which are quite rare except on very old computers. Summary
+of Linux kernel modules needed for different mouse types:
+-->
+
+</footnote> non sempre avviene. Questi mouse sono abbastanza rari tranne
+su computer molto vecchi. Segue un riepilogo dei moduli per il kernel
+Linux necessari all'uso dei diversi tipi di mouse:
+
+<informaltable><tgroup cols="2"><thead>
+<row>
+  <entry><!-- Module -->Modulo</entry>
+  <entry><!-- Description -->Descrizione</entry>
+</row>
+</thead><tbody>
+<row>
+  <entry>psmouse</entry>
+  <entry><!-- PS/2 mice (should be autodetected) -->
+  Mouse PS/2 (dovrebbe essere riconosciuto automaticamente)</entry>
+</row>
+<row>
+  <entry>usbhid</entry>
+  <entry><!-- USB mice (should be autodetected) -->
+  Mouse USB (dovrebbe essere riconosciuto automaticamente)</entry>
+</row>
+<row>
+  <entry>sermouse</entry>
+  <entry><!-- Most serial mice -->
+  La maggior parte dei mouse seriali</entry>
+</row>
+<row>
+  <entry>logibm</entry>
+  <entry><!-- Bus mouse connected to Logitech adapter card -->
+  Bus mouse connesso a una scheda Logitech</entry>
+</row>
+<row>
+  <entry>inport</entry>
+  <entry><!-- Bus mouse connected to ATI or Microsoft InPort card -->
+  Bus mouse connesso a una scheda ATI o Microsoft InPort</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<!--
+To load a mouse driver module, you can use the <command>modconf</command>
+command (from the package with the same name) and look in the category
+<userinput>kernel/drivers/input/mouse</userinput>.
+-->
+
+Per caricare un modulo con il driver per un mouse si può usare il comando
+<command>modconf</command> (contenuto nell'omonimo pacchetto) e controllare
+nella categoria <userinput>kernel/drivers/input/mouse</userinput>.
+
+</para><para arch="powerpc">
+<!-- FJP 20070122: Unsure if this is still valid -->
+
+<!--
+Modern kernels give you the capability to emulate a three-button mouse
+when your mouse only has one button. Just add the following lines to
+<filename>/etc/sysctl.conf</filename> file.
+-->
+
+I kernel attuali permettono di emulare un mouse a tre tasti con un mouse
+ad un solo tasto. È sufficiente aggiungere le righe seguenti al
+file <filename>/etc/sysctl.conf</filename>.
+
+<!--
+<informalexample><screen>
+# 3-button mouse emulation
+# turn on emulation
+/dev/mac_hid/mouse_button_emulation = 1
+# Send middle mouse button signal with the F11 key
+/dev/mac_hid/mouse_button2_keycode = 87
+# Send right mouse button signal with the F12 key
+/dev/mac_hid/mouse_button3_keycode = 88
+# For different keys, use showkey to tell you what the code is.
+</screen></informalexample>
+-->
+
+<informalexample><screen>
+# Emulazione di mouse a 3 tasti
+# attiva l'emulazione
+/dev/mac_hid/mouse_button_emulation = 1
+# invia il segnale del tasto mediano con F11
+/dev/mac_hid/mouse_button2_keycode = 87
+# invia il segnale del tasto di destra con F12
+/dev/mac_hid/mouse_button3_keycode = 88
+# in caso si vogliano usare tasti diversi da F11 e F12, con
+# showkey si possono ottenere i codici corrispondenti
+</screen></informalexample>
+
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="tasksel-size-list">
+ <!-- <title>Disk Space Needed for Tasks</title> -->
+ <title>Spazio su disco necessario per i task</title>
+<para>
+
+<!--
+A standard installation for the amd64 architecture, including all standard
+packages and using the default 2.6 kernel, takes up &std-system-size;MB of disk space.
+A minimal base installation, without the <quote>Standard system</quote>
+task selected, will take &base-system-size;MB.
+-->
+
+L'installazione standard sull'architettura amd64, compresi tutti i pacchetti
+standard e il kernel 2.6 predefinito, richiede &std-system-size;&nbsp;MB di spazio su
+disco. L'installazione di base minimale, senza il task <quote>Sistema
+standard</quote>, richiede &base-system-size;&nbsp;MB.
+
+</para>
+<important><para>
+
+<!--
+In both cases this is the actual disk space used <emphasis>after</emphasis>
+the installation is finished and any temporary files deleted. It also does
+not take into account overhead used by the file system, for example for
+journal files. This means that significantly more disk space is needed both
+<emphasis>during</emphasis> the installation and for normal system use.
+-->
+
+In entrambi i casi è lo spazio su disco effettivamente usato
+<emphasis>dopo</emphasis> aver finito l'installazione e aver rimosso
+qualsiasi file temporaneo. Inoltre non tiene conto del carico dovuto ai
+file di sistema, per esempio i file di giornale. Questo vuol dire che è
+necessaria una quantità di spazio su disco significativamente superiore
+<emphasis>durante</emphasis> l'installazione e il normale uso del sistema.
+
+</para></important>
+<para>
+
+
+<!--
+The following table lists sizes reported by aptitude for the tasks listed
+in tasksel. Note that some tasks have overlapping constituents, so the
+total installed size for two tasks together may be less than the total
+obtained by adding up the numbers.
+-->
+
+La tabella seguente elenca le dimensioni dei task proposti in tasksel, secondo
+quanto riportato da aptitude. Si noti che alcuni task hanno dei componenti in
+comune, per cui lo spazio realmente occupato da due task installati assieme
+potrebbe essere minore della somma teorica.
+
+</para><para>
+
+<!--
+By default the installer will install the GNOME desktop environment, but
+alternative desktop environments can be selected either by using one
+of the special CD images, or by specifying the desired desktop environment
+when the installer is booted (see <xref linkend="pkgsel"/>).
+-->
+
+L'ambiente desktop predefinito è GNOME, però è possibile utilizzare
+anche altri ambienti desktop alternativi usando una delle immagini CD
+speciali oppure specificando l'ambiente desktop desiderato all'avvio
+dell'installazione (si veda <xref linkend="pkgsel"/>).
+
+</para><para>
+
+<!--
+Note that you will need to add the sizes listed in the table to the size
+of the standard installation when determining the size of partitions.
+Most of the size listed as <quote>Installed size</quote> will end up in
+<filename>/usr</filename> and in <filename>/lib</filename>;
+the size listed as <quote>Download size</quote>
+is (temporarily) required in <filename>/var</filename>.
+-->
+
+Si noti che è necessario aggiungere dello spazio rispetto a quanto
+indicato nella tabella come spazio minimo nel momento in cui si definisce
+la dimensione delle partizioni. La maggior parte delle dimensioni elencate
+come <quote>Dimensione installazione</quote> va a finire all'interno
+di <filename>/usr</filename> e di <filename>/lib</filename>; le dimensioni
+elencate come <quote>Dimensione download</quote> devono essere
+(temporaneamente) disponibili in <filename>/var</filename>.
+
+</para><para>
+
+<informaltable><tgroup cols="4">
+<thead>
+<row>
+  <entry><!-- Task -->Task</entry>
+  <entry><!-- Installed size (MB) -->Dimensione installazione (MB)</entry>
+  <entry><!-- Download size (MB) -->Dimensione download (MB)</entry>
+  <entry><!-- Space needed to install (MB) -->Spazio necessario
+  all'installazione (MB)</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry><!-- Desktop environment -->Ambiente desktop</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;GNOME <!-- (default) -->(predefinito)</entry>
+  <entry>&task-desktop-gnome-inst;</entry>
+  <entry>&task-desktop-gnome-dl;</entry>
+  <entry>&task-desktop-gnome-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;KDE</entry>
+  <entry>&task-desktop-kde-inst;</entry>
+  <entry>&task-desktop-kde-dl;</entry>
+  <entry>&task-desktop-kde-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;Xfce</entry>
+  <entry>&task-desktop-xfce-inst;</entry>
+  <entry>&task-desktop-xfce-dl;</entry>
+  <entry>&task-desktop-xfce-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;LXDE</entry>
+  <entry>&task-desktop-lxde-inst;</entry>
+  <entry>&task-desktop-lxde-dl;</entry>
+  <entry>&task-desktop-lxde-tot;</entry>
+</row>
+
+<row>
+  <entry><!-- Laptop -->Computer portatile<footnote>
+
+  <para>
+
+<!--
+  There is some overlap of the Laptop task with the Desktop environment task.
+  If you install both, the Laptop task will only require a few MB additional
+  disk space.
+-->
+
+  Alcune parti del task Computer portatile sono comuni con il task Ambiente desktop.
+  Installandoli entrambi, il task Computer portatile richiede solo pochi MB di spazio
+  su disco in più.
+
+  </para>
+
+  </footnote></entry>
+  <entry>&task-laptop-inst;</entry>
+  <entry>&task-laptop-dl;</entry>
+  <entry>&task-laptop-tot;</entry>
+</row>
+
+<row>
+  <entry><!-- Web server -->Server web</entry>
+  <entry>&task-web-inst;</entry>
+  <entry>&task-web-dl;</entry>
+  <entry>&task-web-tot;</entry>
+</row>
+
+<row>
+  <entry><!-- Print server -->Server di stampa</entry>
+  <entry>&task-print-inst;</entry>
+  <entry>&task-print-dl;</entry>
+  <entry>&task-print-tot;</entry>
+</row>
+
+<row>
+  <entry><!-- DNS server -->Server DNS</entry>
+  <entry>&task-dns-inst;</entry>
+  <entry>&task-dns-dl;</entry>
+  <entry>&task-dns-tot;</entry>
+</row>
+
+<row>
+  <entry>File server</entry>
+  <entry>&task-file-inst;</entry>
+  <entry>&task-file-dl;</entry>
+  <entry>&task-file-tot;</entry>
+</row>
+
+<row>
+  <entry><!-- Mail server -->Server di posta</entry>
+  <entry>&task-mail-inst;</entry>
+  <entry>&task-mail-dl;</entry>
+  <entry>&task-mail-tot;</entry>
+</row>
+
+<row>
+  <entry><!-- SQL database -->Database SQL</entry>
+  <entry>&task-sql-inst;</entry>
+  <entry>&task-sql-dl;</entry>
+  <entry>&task-sql-tot;</entry>
+</row>
+
+<row>
+  <entry><!-- SSH server -->Server SSH</entry>
+  <entry>&task-ssh-inst;</entry>
+  <entry>&task-ssh-dl;</entry>
+  <entry>&task-ssh-tot;</entry>
+</row>
+
+</tbody>
+</tgroup></informaltable>
+
+</para><para>
+
+<!--
+If you install in a language other than English, <command>tasksel</command>
+may automatically install a <firstterm>localization task</firstterm>, if one
+is available for your language. Space requirements differ per language;
+you should allow up to 350MB in total for download and installation. 
+-->
+
+Se l'installazione avviene in una lingua diversa dall'inglese,
+<command>tasksel</command> potrebbe installare automaticamente un
+<firstterm>localization task</firstterm> se disponibile per la lingua
+in uso. Lo spazio richiesto varia a seconda della lingua; potrebbero essere
+necessari altri 350&nbsp;MB per il download e l'installazione di questo
+task.
+
+</para>
+ </sect1>

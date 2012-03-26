@@ -1,0 +1,110 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66548 -->
+
+  <sect2 arch="arm"><title>CPUs, Mainboards und Grafikunterstützung</title>
+
+<para>
+
+Jede unterschiedliche ARM-Architektur benötigt einen eigenen Kernel.
+Daher unterstützt die Standard-&debian;-Distribution die Installation nur
+auf einigen der weit verbreiteten Plattformen. Die &debian;-Arbeitsumgebung
+sollte jedoch auf <emphasis>jeder</emphasis> ARM-CPU verwendet werden können.
+
+</para>
+
+<para>
+
+Die meisten ARM-CPUs müssen in einem der beiden Endian-Modi laufen
+(Little-Endian oder Big-Endian), wobei die Mehrzahl der aktuellen
+System-Implementationen den Little-Endian-Modus verwenden.
+&debian; unterstützt momentan nur Little-Endian-ARM-Systeme.
+
+</para>
+
+<para>
+
+Die unterstützten Plattformen sind:
+
+<variablelist>
+
+<varlistentry>
+<term>IOP32x</term>
+<listitem><para>
+
+Intels I/O-Prozessor-Serie (IOP) findet sich in einer Reihe von Produkten
+für Datenspeicherung und -verarbeitung. &debian; unterstützt derzeit
+die IOP32x-Plattform, von der die IOP 80219- und 32x-Chips derzeit in
+netzwerk-gebundenen Speichergeräten (Network Attached Storage/NAS-Devices)
+zu finden sind. &debian; unterstützt explizit zwei solche Geräte:
+den <ulink url="&url-arm-cyrius-glantank;">GLAN Tank</ulink> von IO-Data
+und den <ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>IXP4xx</term>
+<listitem><para>
+
+Die IXP4xx-Plattform basiert auf Intels XScale-ARM-CPU-Kern. Derzeit wird
+nur ein IXP4xx-basiertes System unterstützt, der Linksys NSLU2 (ein
+Netzwerk-Speichergerät für USB 2.0-Festplatten). Es ist ein
+kleines Gerät, dass es erlaubt, Speicherplatz einfach im Netzwerk
+bereitzustellen. Es hat eine Ethernet-Schnittstelle und zwei USB-Ports, an 
+die Festplatten angeschlossen werden können. Es gibt eine externe Seite mit
+<ulink url="&url-arm-cyrius-nslu2;">Instruktionen zur Installation</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Kirkwood</term>
+<listitem><para>
+
+Kirkwood ist ein <quote>System on a Chip</quote> (SoC; ein komplettes System
+auf einem einzigen Chip integriert) von Marvell, das eine ARM-CPU, Ethernet,
+SATA, USB sowie weitere Funktionalitäten auf einem Chip vereint. Wir
+unterstützen derzeit folgende Kirkwood-basierte Geräte: OpenRD (OpenRD-Base,
+OpenRD-Client und OpenRD-Ultimate),
+<ulink url="&url-arm-cyrius-sheevaplug;">SheevaPlug</ulink>
+und <ulink url="&url-arm-cyrius-qnap-kirkwood;">QNAP Turbo Station</ulink>
+(TS-110, TS-112, TS-119, TS-119P+, TS-210, TS-212, TS-219, TS-219P, TS-219P+,
+TS-410, TS-410U, TS-419P, TS-419P+ and TS-419U).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Orion5x</term>
+<listitem><para>
+
+Orion ist ein System-on-a-Chip (SoC - ein komplettes System in einem Chip) von
+Marvell, das eine ARM-CPU, Ethernet, SATA, USB sowie weitere Funktionalität
+in einem Chip vereint. Es gibt viele Network-Attached-Storage-Geräte (NAS -
+Geräte, die Speicherplatz im Netzwerk zur Verfügung stellen) auf dem Markt,
+die auf dem Orion-Chip basieren. Wir unterstützen derzeit die folgenden
+Orion-basierten Geräte: <ulink
+url="&url-arm-cyrius-kuroboxpro;">Buffalo Kurobox</ulink>, <ulink
+url="&url-arm-cyrius-dns323;">D-Link DNS-323</ulink>, <ulink
+url="&url-arm-cyrius-mv2120;">HP mv2120</ulink> und <ulink
+url="&url-arm-cyrius-qnap;">QNAP Turbo Station</ulink> (TS-109, TS-209 and
+TS-409).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Versatile</term>
+<listitem><para>
+
+Die Versatile-Plattform wird von QEMU emuliert und ist deshalb eine nette
+Möglichkeit, &debian; auf MIPS zu testen und laufen zu lassen, falls echte
+Hardware nicht zur Verfügung steht.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</para>
+  </sect2>

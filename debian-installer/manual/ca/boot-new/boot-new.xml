@@ -1,0 +1,224 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61133 -->
+
+<chapter id="boot-new">
+ <title>Arrancada del nou sistema &debian;</title>
+
+ <sect1 id="base-boot"><title>El moment de la veritat</title>
+<para>
+
+La primera arrencada del vostre sistema pels seus propis mitjans és el que els
+enginyers electrònics anomenen la <quote>prova de foc</quote>.
+
+</para><para arch="any-x86">
+
+Si heu realitzat una instal·lació predeterminada, el primer que hauríeu
+de veure en arrencar el sistema és el menú del carregador de l'arrencada
+<classname>grub</classname><phrase arch="x86">, o bé el <classname>lilo</classname></phrase>.
+Les primeres opcions al menú seran per al nou sistema &debian;. Si es
+detecten altres sistemes operatius durant el procés d'instal·lació
+(com ara Windows), es llistaran en el menú a continuació de les entrades
+dedicades a &debian;.
+
+</para><para>
+
+Si el sistema no s'inicialitza correctament, que no entri el pànic. Si
+la instal·lació ha finalitzat amb èxit, és molt probable que
+només sigui un problema menor que estigui dificultant l'arrencada
+de &debian;. En la majoria de casos, aquest tipus de problemes es poden
+solucionar sense repetir la instal·lació. Una opció per solucionar
+els problemes és utilitzar el mode rescat integrat en l'instal·lador
+(vegeu <xref linkend="rescue"/>).
+
+</para><para>
+
+Si sou nou a &debian; i &arch-kernel;, tal vegada necessiteu l'ajuda d'usuaris
+més experimentats. <phrase arch="x86">Per a ajuda en línia podeu provar
+els canals d'IRC #debian o #debian-boot a la xarxa OFTC. Alternativament
+podeu preguntar a la <ulink url="&url-list-subscribe;">llista de correu
+debian-user</ulink>.</phrase>
+<phrase arch="not-x86">Per a arquitectures menys
+habituals, com &arch-title;, el millor és preguntar a
+la <ulink url="&url-list-subscribe;">llista de correu
+debian-&arch-listname;</ulink>.</phrase>
+També podeu enviar un informe d'instal·lació tal i com es descriu a
+<xref linkend="submit-bug"/>. Si us plau, assegureu-vos de descriure
+clarament la situació i d'incloure tots els missatges mostrats que
+puguin ser d'ajuda als demés a l'hora de diagnosticar el problema.
+
+</para><para arch="any-x86">
+
+Si teníeu altres sistemes operatius instal·lats a la màquina i no
+s'han detectat correctament, envieu també un informe d'instal·lació.
+
+</para>
+
+
+  <sect2 arch="powerpc"><title>PowerMacs OldWorld</title>
+<para>
+
+Si la màquina falla en arrencar després de completar la instal·lació, i
+s'atura amb un indicador <prompt>boot:</prompt>, proveu de teclejar
+<userinput>Linux</userinput> seguit de &enterkey;. (La configuració
+d'arrencada predeterminada a <filename>quik.conf</filename> té l'etiqueta
+Linux). Les etiquetes definides a <filename>quik.conf</filename> es
+mostraran si premeu la tecla <keycap>Tab</keycap> a l'indicador
+<prompt>boot:</prompt>. També podeu provar d'arrencar de nou amb
+l'instal·lador, i editar el <filename>/target/etc/quik.conf</filename> que
+el pas <guimenuitem>Instal·la quik en un disc dur</guimenuitem>
+ha col·locat allà. A <ulink url="&url-powerpc-quik-faq;"></ulink> podeu
+trobar pistes per tractar amb el <command>quik</command>.
+
+</para><para>
+
+Per arrencar de nou en el MacOS sense reinicialitzar la nvram, teclegeu
+<userinput>bye</userinput> a l'indicador de l'OpenFirmware (suposant que
+el MacOS no s'hagi esborrat de la màquina). Per obtenir l'indicador de
+l'OpenFirmware, manteniu premudes les tecles <keycombo> <keycap>command</keycap>
+<keycap>option</keycap> <keycap>o</keycap> <keycap>f</keycap>
+</keycombo> mentre feu una arrencada en fred de la màquina. Si necessiteu
+desfer els canvis i tornar als valors predeterminats de l'OpenFirmware de
+la nvram per tal de tornar a arrencar el MacOS, mantingueu premudes les
+tecles <keycombo> <keycap>command</keycap>
+<keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap>
+</keycombo> mentre arrenqueu la màquina en fred.
+
+</para><para>
+
+Si utilitzeu <command>BootX</command> per arrencar el sistema instal·lat,
+simplement seleccioneu el nucli desitjat en la carpeta <filename>Linux
+Kernels</filename>, desseleccioneu l'opció disc RAM, i afegiu un dispositiu
+arrel que es correspongui amb la vostra instal·lació; p. ex.
+<userinput>/dev/hda8</userinput>.
+
+</para>
+   </sect2>
+
+
+  <sect2 arch="powerpc"><title>NewWorld PowerMacs</title>
+<para>
+
+A les màquines G4 i als iBooks, podeu mantenir la tecla
+<keycap>option</keycap> premuda i obtindreu una pantalla gràfica amb
+un botó per a cada sistema operatiu arrencable; el &debian-gnu; serà el
+botó amb la icona d'un petit pingüí.
+
+</para><para>
+
+Si manteniu el MacOS i en algun punt us canvia la variable
+<envar>boot-device</envar> de l'OpenFirmware, hauríeu de tornar a
+assignar a l'OpenFirmware la seva configuració predeterminada. Per fer
+això, mantingueu les tecles <keycombo><keycap>command</keycap>
+<keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap>
+</keycombo> premudes mentre arrenqueu la màquina en fred.
+
+</para><para>
+
+Podeu veure les etiquetes definides a <filename>yaboot.conf</filename>
+si premeu la tecla <keycap>Tab</keycap> a l'indicador
+<prompt>boot:</prompt>.
+
+</para><para>
+
+Reinicialitzar l'OpenFirmware en el maquinari dels G3 o G4 farà que
+&debian-gnu; arrenqui amb les opcions predeterminades (si heu fet les particions
+correctament i heu situat la partició «Apple_Bootstrap» en primer lloc).
+Si teniu &debian-gnu; en un disc SCSI i el MacOS en un disc IDE, pot ser que
+això no funcioni i que hagueu d'entrar a l'OpenFirmware i configurar la
+variable <envar>boot-device</envar>; normalment el <command>ybin</command>
+ho farà automàticament.
+
+</para><para>
+
+Després d'arrencar &debian-gnu; per primer cop podreu afegir
+qualsevol opció addicional que desitgeu (com ara l'arrencada dual) a
+<filename>/etc/yaboot.conf</filename> i executar <command>ybin</command>
+per actualitzar la taula de particions o d'altres canvis en la
+configuració. Si us plau, per a més informació llegiu el <ulink
+url="&url-powerpc-yaboot-faq;">yaboot HOWTO</ulink>.
+
+</para>
+   </sect2>
+ </sect1>
+
+&mount-encrypted.xml;
+
+ <sect1 id="login">
+ <title>L'entrada</title>
+
+<para>
+
+Una vegada arrenqui el sistema, veureu un indicador d'entrada
+(login). Entreu utilitzant el nom d'usuari personal i la contrasenya
+seleccionada durant el procés d'instal·lació. El vostre sistema ja
+està a punt per a ser utilitzat.
+
+</para><para>
+
+Si sou un usuari nou, tal vegada us interessi explorar la
+documentació que ja està instal·lada en el sistema quan comenceu
+a utilitzar-lo. Actualment hi ha diversos sistemes de documentació,
+i s'està treballant en integrar-los. A continuació teniu alguns punts
+de partida.
+
+</para><para>
+
+La documentació que acompanya als programes que teniu instal·lats és a
+<filename>/usr/share/doc/</filename>, sota un subdirectori que s'anomena
+com el programa (o, per ser més precisos, com el nom del paquet &debian;
+que conté el programa). Tanmateix, sovint es pot trobar documentació
+mes àmplia empaquetada per separat en paquets especials que normalment
+no s'instal·len. Per exemple, la documentació sobre el l'eina
+d'administració de paquets <command>apt</command> es pot trobar als
+paquets <classname>apt-doc</classname> o <classname>apt-howto</classname>.
+
+</para><para>
+
+Addicionalment, hi ha alguns directoris especials dins de la
+jerarquia de <filename>/usr/share/doc/</filename>. Els
+COM ES FA de Linux s'instal·len en format
+<emphasis>.gz</emphasis> (comprimits), a
+<filename>/usr/share/doc/HOWTO/en-txt/</filename>. Després
+d'instal·lar <command>dhelp</command>, trobareu un índex
+navegable de la documentació a
+<filename>/usr/share/doc/HTML/index.html</filename>.
+
+</para><para>
+
+Una manera senzilla de veure aquests documents utilitzant un navegador
+en mode text és introduir les ordres següents:
+
+<informalexample><screen>
+$ cd /usr/share/doc/
+$ w3m .
+</screen></informalexample>
+
+El punt després de l'ordre <command>w3m</command> indica que es mostrin
+els continguts del directori actual.
+
+</para><para>
+
+Si teniu un entorn gràfic d'escriptori instal·lat, també podeu
+utilitzar el seu navegador web. Executeu el navegador des del menú
+d'aplicacions i introduïu <userinput>/usr/share/doc/</userinput> a la
+barra d'adreces.
+
+</para><para>
+
+També podeu teclejar <userinput>info
+<replaceable>ordre</replaceable></userinput> o <userinput>man
+<replaceable>ordre</replaceable></userinput> per veure la
+documentació de la major part d'ordres disponibles a la línia d'ordres.
+Teclejant <userinput>help</userinput> es mostrarà l'ajuda sobre les ordres
+de l'intèrpret. I si es tecleja una ordre seguida de
+<userinput>--help</userinput> es visualitzarà normalment un resum curt de la
+forma d'ús del programa. Si el resultat d'una ordre es desplaça més enllà de
+la part superior de la pantalla, teclegeu <userinput>|&nbsp;more</userinput>
+després de l'ordre per fer que els resultats s'aturin abans de desplaçar-se
+fora de la pantalla. Per veure una llista de totes les ordres disponibles que
+comencen amb una certa lletra, teclegeu la lletra i després dos tabuladors.
+
+</para>
+
+ </sect1>
+</chapter>

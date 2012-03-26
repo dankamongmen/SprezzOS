@@ -1,0 +1,365 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 58142 -->
+<!-- updated 42302:43841 by Felipe Augusto van de Wiel (faw) 2007.01.18 -->
+<!-- updated 43841:44436 by Herbert Parentes Fortes Neto (hpfn) 2007.02.22 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2008.04.14 -->
+<!-- updated 42302:43841 by Felipe Augusto van de Wiel (faw) 2007.01.18 -->
+<!-- updated 51571:58142 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+ <sect1 arch="linux-any" id="linuxdevices"><title>Dispositivos do Linux</title>
+<para>
+
+No Linux, diversos arquivos especiais podem ser encontrados sob o diretório
+<filename>/dev</filename>. Estes arquivos são chamados de arquivos de
+dispositivos e não se comportam como arquivos comuns. Os tipos mais comuns de
+arquivos de dispositivos são os dispositivos de bloco (<quote>block
+devices</quote>) e os dispositivos de caractere (<quote>character
+devices</quote>). Estes arquivos são uma interface para o driver atual (parte
+do kernel Linux) que por sua vez acessa o hardware. Outro tipo, menos comum,
+de arquivo de dispositivo é o chamado <firstterm>pipe</firstterm>.
+Os arquivos de dispositivo mais importantes estão listados nas tabelas abaixo.
+
+</para><para>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>fd0</filename></entry>
+  <entry>Primeira Unidade de Disquetes</entry>
+</row><row>
+  <entry><filename>fd1</filename></entry>
+  <entry>Segunda Unidade de Disquetes</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>hda</filename></entry>
+  <entry>Disco rígido IDE / CD-ROM na primeira porta IDE (Principal)</entry>
+</row><row>
+  <entry><filename>hdb</filename></entry>
+  <entry>Disco rígido IDE / CD-ROM na primeira porta IDE (Escravo)</entry>
+</row><row>
+  <entry><filename>hdc</filename></entry>
+  <entry>Disco rígido IDE / CD-ROM na segunda porta IDE (Principal)</entry>
+</row><row>
+  <entry><filename>hdd</filename></entry>
+  <entry>Disco rígido IDE / CD-ROM na segunda porta IDE (Escravo)</entry>
+</row><row>
+  <entry><filename>hda1</filename></entry>
+  <entry>Primeira partição do primeiro disco rígido IDE</entry>
+</row><row>
+  <entry><filename>hdd15</filename></entry>
+  <entry>Décima quinta partição do quarto disco rígido IDE</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sda</filename></entry>
+  <entry>Disco rígido SCSI com o ID mais baixo (e.g. 0)</entry>
+</row><row>
+  <entry><filename>sdb</filename></entry>
+  <entry>Disco rígido SCSI com o próximo ID após o menor (e.g. 1)</entry>
+</row><row>
+  <entry><filename>sdc</filename></entry>
+  <entry>Disco rígido SCSI com o próximo ID (e.g. 2)</entry>
+</row><row>
+  <entry><filename>sda1</filename></entry>
+  <entry>Primeira partição do primeiro disco rígido SCSI</entry>
+</row><row>
+  <entry><filename>sdd10</filename></entry>
+  <entry>Décima partição do quarto disco rígido SCSI</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sr0</filename></entry>
+  <entry>Unidade de CD-ROM SCSI com o ID SCSI mais baixo</entry>
+</row><row>
+  <entry><filename>sr1</filename></entry>
+  <entry>Unidade de CD-ROM SCSI com o ID SCSI maior que o anterior</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>ttyS0</filename></entry>
+  <entry>Porta serial 0, COM1 no MS-DOS</entry>
+</row><row>
+  <entry><filename>ttyS1</filename></entry>
+  <entry>Porta serial 1, COM2 no MS-DOS</entry>
+</row><row>
+  <entry><filename>psaux</filename></entry>
+  <entry>dispositivo de mouse PS/2</entry>
+</row><row>
+  <entry><filename>gpmdata</filename></entry>
+  <entry>Pseudo dispositivo, repetidor de dados do daemon GPM (mouse)</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>cdrom</filename></entry>
+  <entry>Link simbólico para a unidade de CD-ROM</entry>
+</row><row>
+  <entry><filename>mouse</filename></entry>
+  <entry>Link simbólico para o arquivo de dispositivo de mouse</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>null</filename></entry>
+  <entry>Qualquer coisa escrita neste dispositivo irá desaparecer</entry>
+</row><row>
+  <entry><filename>zero</filename></entry>
+  <entry>Qualquer um poderá ler zeros deste dispositivo</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+  <sect2  arch="not-s390" id="device-mouse">
+  <title>Configurando seu Mouse</title>
+<para>
+
+O mouse pode ser usado em ambos o console do Linux (com o gpm) e no
+ambiente de janelas X. Normalmente, isso é resolvido simplesmente instalando
+o <filename>gpm</filename> e o próprio servidor X. Ambos devem ser
+configurados para usar <filename>/dev/input/mice</filename> como dispositivo
+de mouse. O protocolo do mouse correto é nomeado como
+<userinput>exps2</userinput> no gpm, e <userinput>ExplorerPS/2</userinput>
+no X. Os respectivos arquivos de configuração são
+<filename>/etc/gpm.conf</filename> e <filename>/etc/X11/xorg.conf</filename>.
+
+</para><para>
+
+Certos módulos do kernel devem ser carregados para que seu mouse funcione.
+Na maioria dos casos os módulos corretos são autodetectados, mas nem
+sempre para antigos mouses serial e bus<footnote>
+
+<para>
+O mouse serial usualmente tem um conector com 9 buracos em formato D; o
+mouse bus tem um conector de 8 pinos redondo, não confunda com o conector
+de 6 pinos do mouse PS/2 ou o conector de 4 pinos de um mouse ADB.
+</para>
+
+</footnote>, os quais são raros, a não ser em computadores antigos. Um
+sumário dos módulos do kernel Linux necessários para os diferentes tipos
+de mouse:
+
+<informaltable><tgroup cols="2"><thead>
+<row>
+  <entry>Módulo</entry>
+  <entry>Descrição</entry>
+</row>
+</thead><tbody>
+<row>
+  <entry>psmouse</entry>
+  <entry>mouse PS/2 (deve ser autodetectado)</entry>
+</row>
+<row>
+  <entry>usbhid</entry>
+  <entry>mouse USB (deve ser autodetectado)</entry>
+</row>
+<row>
+  <entry>sermouse</entry>
+  <entry>A maioria dos mouses serial</entry>
+</row>
+<row>
+  <entry>logibm</entry>
+  <entry>Mouse Bus conectado a uma placa adaptadora Logitech</entry>
+</row>
+<row>
+  <entry>inport</entry>
+  <entry>mouse Bus conectado a uma placa Inport ATI ou Microsoft</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+Para carregar um módulo para o mouse, você pode usar o comando
+<command>modconf</command> (do pacote com mesmo nome) e olhar na categoria
+<userinput>kernel/drivers/input/mouse</userinput>.
+
+</para><para arch="powerpc">
+<!-- FJP 20070122: Unsure if this is still valid -->
+
+Os kernels mais modernos lhe oferecem a capacidade de emular um mouse
+de três botões caso seu mouse somente tenha um botão. Apenas adicione as
+seguinte linhas no seu arquivo
+<filename>/etc/sysctl.conf</filename>:
+
+<informalexample><screen> 
+# Emulação de mouse 3-button
+# ativa a emulação
+/dev/mac_hid/mouse_button_emulation = 1
+# Envia o sinal da tela central do mouse com a tecla F11
+/dev/mac_hid/mouse_button2_keycode = 87
+# Envia o sinal do botão direito do mouse com a tecla F12
+/dev/mac_hid/mouse_button3_keycode = 88
+# Para teclas diferentes, use o atalho para lhe dizer que código é.
+</screen></informalexample>
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="tasksel-size-list">
+ <title>Espaço em Disco Necessário para as Tarefas (tasks)</title>
+<para>
+
+Uma instalação padrão para a arquitetura amd64, incluindo todos os pacotes
+padrão (<quote>standard</quote>) e usando o kernel padrão 2.6, ocupa
+&std-system-size;MB de espaço em disco. Uma instalação mínima, sem a tarefa
+<quote>Sistema padrão</quote> selecionada, ocupará &base-system-size;MB.
+
+</para>
+<important><para>
+
+Em ambos os casos, este é o espaço em disco usado <emphasis>após</emphasis>
+a instalação ter terminado e quaisquer arquivos temporários terem sido
+apagados. Isto também não leva em conta a sobrecarga usada pelo sistema de
+arquivos, por exemplo, para arquivos de <quote>journal</quote>. Isto quer
+dizer que significativamente mais espaço em disco é necessário tanto
+<emphasis>durante</emphasis> a instalação quanto para o uso normal do sistema.
+
+</para></important>
+<para>
+
+A seguinte tabela lista tamanhos relatados pelo aptitude para as tarefas
+listadas no tasksel. Note que algumas tarefas tem pacotes que também são
+usados em outras, assim o tamanho instalado total de duas tarefas juntas pode
+ser menos que o total obtido pela adição dos números.
+
+</para><para>
+
+Por padrão o instalador instalará o ambiente de área de trabalho GNOME,
+mas ambientes de área de trabalho alternativo pode ser selecionados usando
+uma das imagens de CD especiais ou especificando o ambiente de área de
+trabalho desejado quando o instalador é inicializado
+(veja <xref linkend="pkgsel"/>).
+
+</para><para>
+
+Note que você precisará adicionar os tamanhos listados na tabela ao
+tamanho da instalação do sistema padrão, quando determinar o tamanho
+de partições. A maioria dos tamanhos listados como <quote>Tamanho
+instalado</quote> é o requerimento em <filename>/usr</filename> e em
+<filename>/lib</filename>; o tamanho listado em
+<quote>Tamanho do Download</quote> é o espaço (temporário) requerido
+em <filename>/var</filename>.
+
+</para><para>
+
+<informaltable><tgroup cols="4">
+<thead>
+<row>
+  <entry>Tarefa</entry>
+  <entry>Tamanho instalado (MB)</entry>
+  <entry>Tamanho do Download (MB)</entry>
+  <entry>Espaço requerido para instalação (MB)</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Ambiente desktop</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;GNOME (padrão)</entry>
+  <entry>&task-desktop-gnome-inst;</entry>
+  <entry>&task-desktop-gnome-dl;</entry>
+  <entry>&task-desktop-gnome-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;KDE</entry>
+  <entry>&task-desktop-kde-inst;</entry>
+  <entry>&task-desktop-kde-dl;</entry>
+  <entry>&task-desktop-kde-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;Xfce</entry>
+  <entry>&task-desktop-xfce-inst;</entry>
+  <entry>&task-desktop-xfce-dl;</entry>
+  <entry>&task-desktop-xfce-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;LXDE</entry>
+  <entry>&task-desktop-lxde-inst;</entry>
+  <entry>&task-desktop-lxde-dl;</entry>
+  <entry>&task-desktop-lxde-tot;</entry>
+</row>
+
+
+<row>
+  <entry>Laptop<footnote>
+
+  <para>
+  Há alguma sobreposição da tarefa Laptop com a tarefa Ambiente Desktop.
+  Se você instalar ambas, a tarefa Laptop irá requerer apenas alguns MB
+  adicionais de espaço em disco.
+  </para>
+
+  </footnote></entry>
+  <entry>&task-laptop-inst;</entry>
+  <entry>&task-laptop-dl;</entry>
+  <entry>&task-laptop-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor Web</entry>
+  <entry>&task-web-inst;</entry>
+  <entry>&task-web-dl;</entry>
+  <entry>&task-web-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor de Impressão</entry>
+  <entry>&task-print-inst;</entry>
+  <entry>&task-print-dl;</entry>
+  <entry>&task-print-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor de DNS</entry>
+  <entry>&task-dns-inst;</entry>
+  <entry>&task-dns-dl;</entry>
+  <entry>&task-dns-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor de Arquivos</entry>
+  <entry>&task-file-inst;</entry>
+  <entry>&task-file-dl;</entry>
+  <entry>&task-file-tot;</entry>
+</row>
+
+ <row>
+  <entry>Servidor de E-mails</entry>
+  <entry>&task-mail-inst;</entry>
+  <entry>&task-mail-dl;</entry>
+  <entry>&task-mail-tot;</entry>
+</row>
+
+<row>
+  <entry>Banco de dados SQL</entry>
+  <entry>&task-sql-inst;</entry>
+  <entry>&task-sql-dl;</entry>
+  <entry>&task-sql-tot;</entry>
+</row>
+
+</tbody>
+</tgroup></informaltable>
+
+</para><para>
+
+Se instalar em um idioma que não seja o inglês, o <command>tasksel</command>
+pode instalar automaticamente uma <firstterm>tarefa de localização</firstterm>,
+se alguma estiver disponível para seu idioma. Os requerimentos de espaço se
+diferem por idioma, você deverá permitir até 350MB de espaço total para
+download e instalação.
+
+</para>
+ </sect1>

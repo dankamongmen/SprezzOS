@@ -1,0 +1,115 @@
+<!-- $Id: x86.xml 65798 2010-11-27 15:25:19Z mck-guest $ -->
+<!-- original version: 65195 -->
+
+  <sect2 arch="any-x86">
+  <title>Dělení disku v systémech DOS a Windows</title>
+<para>
+
+Pokud budete měnit diskové oddíly se souborovými svazky FAT nebo NTFS,
+doporučuje se buď postup popsaný dále v textu, nebo použití programů
+dodávaných se systémy DOS nebo Windows. V opačném případě není nutné
+provádět rozdělení disku z těchto systémů, lepších výsledků obvykle
+docílíte unixovými nástroji.
+
+</para><para>
+
+Možným problémem může být velký IDE disk, na kterém nepoužíváte ani
+LBA adresování, ani překládací ovladač od výrobce, nebo pokud máte
+starší BIOS (vyrobený před rokem 1998), který nepodporuje rozšíření
+pro velké disky.
+Potom je nutné umístit zaváděcí oddíl do prvních 1024 cylindrů na
+disku (obvykle prvních 524 MB), což může vyžadovat posunutí
+stávajících  FAT nebo NTFS oblastí.
+
+</para>
+
+   <sect3 id="lossless">
+   <title>Změna rozdělení disku beze ztráty dat</title>
+<para>
+
+Jedna z nejčastějších situací je přidání &debian;u na systém, kde už je
+DOS (případně Windows 3.1), Win32 (jako Windows 95, 98, Me, NT, 2000,
+XP, 2003, Vista, 7) nebo OS/2, aniž by se zničil původní systém. Instalační
+program podporuje změnu velikosti oblastí se souborovým systémem FAT
+a NTFS (ovšem počátek oblasti se nesmí posunout). V takovém případě
+nemusíte postupovat podle této kapitoly a můžete disk rozdělit až při
+instalaci, kde u rozdělení disku zvolíte <menuchoice>
+<guimenuitem>Ručně</guimenuitem> </menuchoice>, vyberete oblast a
+zadáte její novou velikost.
+
+</para><para>
+
+Nejprve se rozhodněte, jak chcete disk rozdělit. Postup v této
+sekci rozdělí jeden oddíl na dva. První bude obsahovat původní
+operační systém a druhý bude pro &debian;. Během instalace &debian;u
+budete mít příležitost druhou část disku dále rozdělit.
+
+</para><para>
+
+Myšlenka je taková, že se veškerá data přesunou na začátek oddílu,
+aby, až se změní záznamy o rozdělení disku, nedošlo ke ztrátě dat.
+Důležité je, abyste mezi přesunutím dat a změnou oddílu provedli co
+nejméně operací. Snížíte tak možnost zápisu nějakého souboru do
+volného místa na konci oblasti a tím větší kus se vám podaří ukrojit
+z původního oddílu.
+
+</para><para>
+
+Nyní budete potřebovat program <command>fips</command>.
+Rozbalte archiv a nakopírujte soubory
+<filename>RESTORRB.EXE</filename>, <filename>FIPS.EXE</filename> a
+<filename>ERRORS.TXT</filename> na systémovou disketu.
+Systémová disketa se vytvoří příkazem <command>sys a:</command>.
+Program <command>fips</command> je doplněn velmi kvalitním popisem,
+který jistě oceníte v případě, že používáte při přístupu na disk
+kompresi dat nebo diskový manažer. Vytvořte si systémovou disketu a
+<emphasis>než</emphasis> začnete defragmentaci, přečtěte si dokumentaci.
+
+</para><para>
+
+Dalším krokem je přesun dat na začátek oddílu. To umí program
+<command>defrag</command>, jež je součástí systému DOS od verze 6.0.
+Dokumentace k programu <command>fips</command> obsahuje seznam jiných
+programů, které můžete k tomuto úkonu použít. Jestliže používáte
+Windows 95 a vyšší, musíte použít jejich verzi programu
+<command>defrag</command>, poněvadž verze pro DOS nezvládá souborový
+systém VFAT, který obsahuje podporu dlouhých jmen u Windows 95
+a vyšších.
+
+</para><para>
+
+Po ukončení defragmentace disku, která může na větších discích chvíli
+trvat, zaveďte systém z připravené systémové diskety. Spusťte
+<filename>a:\fips</filename> a postupujte podle nápovědy.
+
+</para><para>
+
+Pokud s programem <command>fips</command> neuspějete, můžete zkusit
+přehršel jiných programů pro správu disku.
+
+</para>
+   </sect3>
+
+   <sect3 id="partitioning-for-dos">
+   <title>Vytváření oddílů pro DOS</title>
+<para>
+
+Při vytváření oddílů pro DOS nebo změně jejich velikosti unixovými
+nástroji, pozorovali někteří uživatelé problémy s takto připravenými
+oddíly. Někdy se jednalo o zhoršení výkonu, jindy se objevily časté
+potíže s programem <command>scandisk</command> nebo divné chyby
+systémů DOS a Windows.
+
+</para><para>
+
+Kdykoliv vytvoříte nebo změníte velikost oddílu určeného pro DOS, je
+dobré vymazat prvních pár sektorů. Před spuštěním programu
+<command>format</command> v systému DOS, proveďte z &debian;u
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>dd if=/dev/zero of=/dev/hd<replaceable>XX</replaceable> bs=512 count=4</userinput>
+</screen></informalexample>
+
+</para>
+   </sect3>
+  </sect2>

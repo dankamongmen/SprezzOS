@@ -1,0 +1,67 @@
+<!-- $Id: user-setup.xml 51162 2008-02-03 19:55:47Z mck-guest $ -->
+<!-- original version: 50618 -->
+
+   <sect3 id="user-setup-root">
+   <title>Nastavení rootova hesla</title>
+
+<para>
+
+Účet <emphasis>root</emphasis> je účtem pro
+<emphasis>superuživatele</emphasis>, na kterého se nevztahují
+bezpečnostní omezení. Měli byste ho používat pouze, když provádíte
+správu systému, a jen na dobu nezbytně nutnou.
+
+</para><para>
+
+Uživatelská hesla by měla být sestavena z alespoň 6 písmen, obsahovat
+malá a velká písmena včetně dalších znaků (jako ; . ,).  Speciální
+pozornost věnujte výběru hesla pro roota, protože je to velmi mocný
+účet. Vyhněte se slovům ze slovníků, jménům oblíbených postav,
+jakýmkoliv osobním údajům, prostě čemukoliv, co se dá lehce uhodnout.
+
+</para><para>
+
+Jestliže vám někdo bude tvrdit, že potřebuje heslo vašeho rootovského
+účtu, buďte velice ostražití. V žádném případě byste neměli toto heslo
+prozrazovat! Jedině snad, že daný stroj spravuje více
+spolu-administrátorů.
+
+</para>
+   </sect3>
+
+   <sect3 id="make-normal-user">
+   <title>Vytvoření uživatelského účtu</title>
+
+<para>
+
+Systém se zeptá, zda nyní chcete vytvořit uživatelský účet.  (Účet je
+právo k používání počítače, tvoří ho jméno uživatele a jeho heslo).
+Tento účet byste měli používat ke každodenní práci. Jak již bylo
+řečeno, <emphasis>nepoužívejte</emphasis> účet superuživatele pro
+běžné úkoly.
+
+</para><para>
+
+Proč ne?  Případná chyba by mohla mít katastrofické důsledky a dokonce
+by si mohla vyžádat novou instalaci systému.  Dalším důvodem je
+možnost, že vám může být nastrčen program nazývaný <emphasis>trojský
+kůň</emphasis>, který zneužije práv, jež jako root máte, a naruší
+bezpečnost vašeho systému.  Kvalitní knihy o administraci unixového
+operačního systému vám jistě podrobněji osvětlí danou problematiku.
+Jestliže v Unixu začínáte, uvažte četbu na toto téma.
+
+</para><para>
+
+Postupně budete požádáni o zadání celého jména uživatele, jména
+uživatelského účtu a hesla.  Jméno uživatelského účtu si můžete vybrat
+zcela libovolně.  Například, pokud se jmenujete Jan Novák, vytvořte si
+nový účet <userinput>jan</userinput>, <userinput>jnovak</userinput>
+nebo <userinput>jn</userinput>.
+
+</para><para>
+
+Pokud budete chtít vytvořit další účet, můžete to udělat kdykoliv
+po skončení instalace programem <command>adduser</command>.
+
+</para>
+   </sect3>

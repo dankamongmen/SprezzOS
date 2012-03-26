@@ -1,0 +1,107 @@
+<!-- $Id$ -->
+<!-- original version: 64916 -->
+
+ <sect1 id="debian-orientation"><title>Orientace v &debian;u</title>
+<para>
+
+&debian-gnu; se od ostatních distribucí mírně odlišuje. Proto i když
+jste již s Linuxem nebo jiným unixovým systémem pracovali, pokud si
+chcete udržet systém v pořádku, je třeba se seznámit s tím, jak
+distribuce funguje. Tato kapitola vám pomůže se v &debian;u lépe
+zorientovat. Opět se jedná pouze o letmý přehled.
+
+</para>
+
+  <sect2><title>Balíčkovací systém &debian;u</title>
+<para>
+
+Nejdůležitější je pochopit, jak pracuje balíčkovací software, protože
+systém je z velké části spravován právě balíčkovacím systémem.
+Jedná se o adresáře:
+
+<itemizedlist>
+<listitem><para>
+
+<filename>/usr</filename> (vyjma <filename>/usr/local</filename>)
+
+</para></listitem>
+<listitem><para>
+
+<filename>/var</filename> (vyjma <filename>/var/local</filename>)
+
+</para></listitem>
+<listitem><para>
+
+<filename>/bin</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>/sbin</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>/lib</filename>
+
+</para></listitem>
+</itemizedlist>
+
+Do vyjmenovaných adresářů byste neměli zasahovat, protože byste mohli
+narušit informace udržované balíčkovacím systémem a mohlo by to vést
+až k nefunkčním aplikacím.
+Například když nahradíte program <filename>/usr/bin/perl</filename>,
+nejspíš bude vše fungovat, ale s přechodem k novější verzi balíku
+<classname>perl</classname> o své úpravy přijdete. Zkušení uživatelé
+tomu dokáží zabránit převedením balíku do stavu <quote>hold</quote>.
+
+</para><para>
+
+Jedna z nejlepších instalačních metod je určitě apt. Můžete ji použít
+z příkazové řádky programem <command>apt-get</command>, nebo v
+celoobrazovkové textové aplikaci <application>aptitude</application>.
+Apt vám dovolí sloučit všechny archivy (main, contrib a non-free),
+takže můžete instalovat jak standardní, tak exportně omezené verze
+balíčků.
+
+</para>
+  </sect2>
+
+  <sect2><title>Správa různých verzí programů</title>
+<para>
+
+Pokud udržujete více verzí různých aplikací, bude vás zajímat
+manuálová stránka příkazu <command>update-alternatives</command>.
+
+</para>
+  </sect2>
+
+  <sect2><title>Správa Cronu</title>
+<para>
+
+Všechny periodické úlohy spojené se správou systému by měly být
+v adresáři <filename>/etc</filename>, protože to jsou konfigurační
+soubory. Pokud spouštíte administrátorské úlohy denně, týdně, nebo
+měsíčně, umístěte je do
+<filename>/etc/cron.{daily,weekly,monthly}</filename>. Spouštění
+těchto úloh je řízeno souborem <filename>/etc/crontab</filename>.
+Úlohy poběží postupně podle abecedního pořadí.
+
+</para><para>
+
+Jestliže však máte speciálnější požadavky (potřebujete úlohu spouštět
+pod jiným uživatelem nebo chcete úlohu pouštět v určitém čase nebo
+intervalu), můžete použít soubor <filename>/etc/crontab</filename>,
+nebo ještě lépe <filename>/etc/cron.d/cokoliv</filename>. Tyto soubory
+mají navíc pole pro jméno uživatele, pod kterým se má úloha spustit.
+
+</para><para>
+
+V obou případech stačí přidat/upravit soubory a cron je automaticky
+rozpozná a začne používat &mdash; není potřeba spouštět žádný příkaz.
+Další informace jsou v cron(8), crontab(5) a
+<filename>/usr/share/doc/cron/README.Debian</filename>.
+
+</para>
+  </sect2>
+ </sect1>

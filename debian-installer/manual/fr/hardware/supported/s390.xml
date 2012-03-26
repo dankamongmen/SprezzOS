@@ -1,0 +1,30 @@
+<!-- original version: 67087 -->
+
+  <sect2 arch="s390">
+<title>Types de machine zSeries et System z</title>
+
+<para>
+Depuis la version Squeeze, la gestion du démarrage en mode ESA/390 a été abandonnée.
+Votre machine doit reconnaître au moins l'architecture z et le mode 64 bits est obligatoire.
+Toutes les applications du portage s390 sont encore compilées pour ESA/390. Toutes les machines zSeries
+et System z sont pleinement reconnues.
+
+Les logiciels pour &arch-title; sont inclus à partir de la version de développement
+du noyau 3.1.
+
+L'information la plus à jour sur la prise en charge de linux par IBM se trouve sur la
+<ulink url="http://www.ibm.com/developerworks/linux/linux390/development_technical.html">
+page Linux sur <trademark class="registered">System z</trademark> sur developerWorks</ulink>.
+</para>
+
+ </sect2>
+
+ <sect2 arch="s390"><title>PAV et HyperPAV</title>
+<para>
+PAV et HyperPAV sont immédiatement reconnus ; le <quote>multipathing</quote> n'est pas
+nécessaire pour bénéficier des fonctionnalités de ces systèmes de stockage. Faites attention à
+configurer les périphériques lors de la sélection du DASD. Les périphériques <quote>alias</quote>
+ne sont pas proposés pour le formatage, le partitionnement ou une utilisation immédiate.
+
+</para>
+  </sect2> 

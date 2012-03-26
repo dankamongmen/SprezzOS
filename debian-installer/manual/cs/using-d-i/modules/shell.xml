@@ -1,0 +1,56 @@
+<!-- $Id: shell.xml 56327 2008-10-06 23:11:28Z fjp $ -->
+<!-- original version: 56326 -->
+
+  <sect3 id="shell">
+  <title>Používání shellu a prohlížení logů</title>
+
+<para>
+
+Shell můžete během instalace získat několika způsoby. Pokud zrovna
+neinstalujete přes sériovou konzoli, je nejjednodušší se přepnout na
+druhou <emphasis>virtuální konzoli</emphasis> klávesami <keycombo>
+<keycap>Levý Alt</keycap> <keycap>F2</keycap> </keycombo> (na
+macintoshí klávesnici <keycombo> <keycap>Option</keycap>
+<keycap>F2</keycap> </keycombo>), kde běží samostatný klon Bourne
+shellu nazvaný <command>ash</command>. Zpět do instalátoru se
+dostanete klávesovou zkratkou <keycombo> <keycap>Levý Alt</keycap>
+<keycap>F1</keycap> </keycombo>.
+
+</para><para condition="gtk">
+
+Používáte-li grafický instalátor, podívejte se též na kapitolu
+<xref linkend="gtk-using"/>.
+
+</para><para>
+
+Pokud se nemůžete přepínat mezi virtuálními konzolami, můžete shell
+spustit z hlavního menu příkazem <guimenuitem>Spustit
+shell</guimenuitem>. Po vykonání potřebných příkazů se zpět do menu
+vrátíte příkazem <userinput>exit</userinput>.
+
+</para><para>
+
+V tomto okamžiku běží systém z RAMdisku a nabízí několik základních
+unixových nástrojů. Seznam dostupných programů můžete zjistit příkazy
+<userinput>ls /bin /sbin /usr/bin /usr/sbin</userinput> a
+<userinput>help</userinput>. Shell má některé příjemné vlastnosti
+svých větších bratříčků, jako je historie a automatické doplňování
+příkazů.
+
+</para><para>
+
+Pro úpravu souborů máte k dispozici textový editor
+<command>nano</command>.
+
+</para><para>
+
+Přestože můžete v shellu provádět téměř cokoliv, co vám dostupné
+programy umožní, měli byste raději používat menu instalačního programu
+&mdash; shell a jeho příkazy jsou zde jen pro případ, že se něco
+pokazí. Ruční spouštění příkazů ze shellu totiž může kolidovat s
+instalačním procesem. Konkrétně pro inicializaci odkládací oblasti
+byste měli použít menu a ne shell, protože instalační program jinak
+nepozná, že jste tento krok již provedli.
+
+</para>
+  </sect3>

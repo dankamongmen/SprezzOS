@@ -1,0 +1,62 @@
+<!-- $Id: lowmem.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64829 -->
+
+  <sect3 id="lowmem">
+  <title>Kontrola dostupné paměti / nízkopaměťový režim</title>
+<para>
+
+Jednou z prvních věcí, které &d-i; zkontroluje, je velikost operační
+paměti. Pokud má váš systém málo paměti, tak se tato komponenta pokusí
+provést změny v instalačním procesu tak, aby byla instalace možná i na
+tomto počítači.
+
+</para><para>
+
+Prvním krokem ke snížení paměťové náročnosti je vyhození všech
+překladů, což znamená že instalace bude probíhat pouze v
+angličtině. Samozřejmě, že po dokončení instalace si můžete systém
+lokalizovat dle potřeb (viz <ulink
+url="http://www.debian.cz/users/localization.php">Lokalizace
+Debianu</ulink>).
+
+</para><para>
+
+Pokud to nestačí, instalace přejde na dietu, při které nahraje pouze
+ty komponenty, které jsou nezbytné pro dokončení základní
+instalace. Tím se o něco sníží funkčnost systému. Sice budete mít
+možnost nahrát dodatečné komponenty ručně, ale mějte na paměti, že
+každá komponenta znamená další paměť a proto se může stát, že
+instalace selže.
+
+</para><para>
+
+Když instalace probíhá v nízkopaměťovém režimu, je doporučeno vytvořit
+odkládací oblast o velikosti nejméně (64&ndash;128 MB). Odkládací
+oblast se použije jako virtuální paměť a tedy zvýší množství dostupné
+paměti. Instalační systém se pokusí aktivovat odkládací oblast co
+nejdříve. Intenzivní využívání odkládací oblasti výrazně zvýší
+diskovou aktivitu a sníží výkon celého systému.
+
+</para><para>
+
+I přes tato opatření je možné, že instalace zamrzne, nebo že jádro
+odstřelí některé procesy, protože systému dojde paměť (v syslogu a na
+4. konzoli by se to mělo projevit hláškami <computeroutput>Out of
+memory</computeroutput>).
+
+</para><para>
+
+Například máme zprávu, že při nedostatku paměti a odkládacího prostoru
+selže vytváření velkého souborového systému typu ext3. Pokud nepomůže
+zvětšení odkládacího prostoru, můžete zkusit vytvořit souborový systém
+jako ext2 a později po instalaci oblast převést na ext3.
+
+</para><para>
+
+Důraznější nízkopaměťový režim lze vynutit i v případech, kdy by podle
+dostupné paměti měla fungovat jeho mírnější varianta nebo dokonce
+i běžná instalace. Stačí použít parametr <quote>lowmem</quote>, jak
+popisuje část <xref linkend="installer-args"/>.
+
+</para>
+  </sect3>

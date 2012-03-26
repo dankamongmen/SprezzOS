@@ -1,0 +1,238 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="installation-media">
+ <title>Mitjans d'instal·lació</title>
+
+<para>
+
+Aquesta secció us ajudarà a determinar quins mitjans podeu utilitzar per
+instal·lar &debian;. Per exemple, si teniu una disquetera al vostre
+ordinador, la podeu utilitzar per instal·lar &debian;. Hi ha un capítol
+complet dedicat als mitjans consagrats, <xref linkend="install-methods"/>,
+que llista els avantatges i desavantatges de cada un d'ells. Una vegada
+aplegueu a eixa secció, segurament voldreu tornar a aquesta pàgina.
+
+</para>
+
+  <sect2 condition="supports-floppy-boot"><title>Disquets</title>
+<para>
+
+En alguns casos, heu de fer la primera arrencada des de disquet.
+Normalment, tot el que necessitareu es un disquet d'alta densitat de
+3.5 polsades (1440 KiB).
+
+</para><para arch="powerpc">
+
+El suport per disquets per CHRP no funciona en aquest moment.
+
+</para>
+  </sect2>
+
+  <sect2><title>CD-ROM/DVD-ROM</title>
+
+<note><para>
+
+Quan vegeu en aquest manual <quote>CD-ROM</quote>, s'aplica a CD-ROM i
+DVD-ROM, ja que les dues tecnologies són en realitat la mateixa des del
+punt de vista del sistema operatiu, excepte per algunes unitats de
+CD-ROM antigues i no estàndard que no son ni SCSI ni IDE/ATAPI.
+
+</para></note><para>
+
+La instal·lació basada en CD-ROM està suportada per algunes arquitectures.
+En ordinadors amb suport per CD-ROM arrencables, podríeu fer una
+instal·lació completa <phrase arch="not-s390">sense disquets</phrase>
+<phrase arch="s390">sense cinta</phrase>. Fins i tot si el vostre sistema
+no suporta arrencar des de CD-ROM, podeu complementar-ho amb les altres
+tècniques per instal·lar el vostre sistema, un cop l'heu arrencat per altres
+mitjans; mireu <xref linkend="boot-installer"/>.
+
+</para><para arch="x86">
+
+Es suporten els CD-ROM SCSI, SATA i IDE/ATAPI. El <ulink
+url="&url-cd-howto;">Linux CD-ROM HOWTO</ulink> conté informació en
+profunditat de com fer servir els CD-ROM a Linux.
+
+</para><para arch="x86">
+
+Les unitats de CD-ROM USB també estan suportades, així com tots els
+dispositius FireWire que suporten els controladors ohci1394 i sbp2.
+
+</para><para arch="arm">
+
+Estan suportats els CD-ROM IDE/ATAPI a totes les màquines ARM.
+
+</para><para arch="mips">
+
+A les màquines SGI, per arrencar des de CD-ROM es necessita una unitat
+SCSI que pugui treballar amb un bloc de dades de 512 bytes. Molts dels
+CD-ROM SCSI venuts al mercat pel PC no tenen aquesta capacitat. Si la
+vostra unitat de CD-ROM té un pont amb una etiqueta
+<quote>Unix/PC</quote> o <quote>512/2048</quote>, poseu-la a la posició
+<quote>Unix</quote> o <quote>512</quote>. Per començar a instal·lar,
+escolliu <quote>Instal·lació del sistema</quote> al microprogramari.
+
+</para>
+  </sect2>
+
+  <sect2><title>Disc Dur</title>
+
+<para>
+
+Arrencar el sistema d'instal·lació directament des del disc dur és un
+altra opció per moltes arquitectures. Açò requerirà un altre sistema
+operatiu per copiar l'instal·lador al disc dur.
+
+</para><para arch="sparc">
+
+Malgrat que &arch-title; no permet arrencar des de SunOS
+(Solaris), podeu instal·lar des d'una partició SunOS (particions UFS).
+
+</para>
+  </sect2>
+
+  <sect2 condition="bootable-usb"><title>Dispositiu de memòria USB</title>
+
+<para>
+
+Moltes màquines &debian; només necessiten el seu disquet i/o unitat CD-ROM
+per configurar el sistema i per fer rescats. Si gestioneu algun
+servidor, segurament haureu pensat en ometre aquestes unitats
+i utilitzar la memòria USB per instal·lar, i (si és necessari) per
+recuperar el sistema. Aquesta situació també és útil en sistemes petits
+on no es té espai per unitats no necessàries.
+
+</para>
+  </sect2>
+
+  <sect2><title>Xarxa</title>
+
+<para>
+
+La xarxa es pot utilitzar durant la instal·lació per a obtenir fitxers que
+aquesta pugui necessitar. Que la xarxa s'utilitzi o no depèn del mètode
+d'instal·lació que s'hagi escollit i de les respostes que s'hagin donat
+a algunes preguntes efectuades durant la instal·lació. El sistema
+d'instal·lació suporta la majoria de connexions de xarxa (PPPoE inclosa,
+però no XDSI o PPP), via HTTP o FTP. Un cop complatada la instal·lació,
+podeu configurar el vostre sistema per utilitzar XDSI i PPP.
+
+</para><para condition="supports-tftp">
+
+Podeu <emphasis>arrencar</emphasis> també el vostre sistema utilitzant la
+xarxa. <phrase arch="mips;mipsel">Aquesta és la tècnica preferida per
+&arch-title;.</phrase>
+
+</para><para condition="supports-nfsroot">
+
+La instal·lació sense discs, utilitzant l'arrencada des de xarxa a una
+d'àrea local i muntant amb NFS tots els sistemes de fitxers locals és un
+altra opció.
+
+</para>
+  </sect2>
+
+  <sect2><title>Sistema Un*x o GNU</title>
+
+<para>
+
+Si esteu executant un altre sistema tipus Unix, podríeu utilitzar-lo per
+instal·lar &debian-gnu; sense utilitzar el &d-i; com es descriu a la resta del
+manual. Aquest tipus de instal·lació és prou normal per usuaris amb 
+maquinari no suportat o a màquines que no es poden permetre el temps
+d'apagada. Si esteu interessats en aquesta tècnica, passeu a  <xref
+linkend="linux-upgrade"/>.
+
+</para>
+  </sect2>
+
+  <sect2><title>Sistemes d'emmagatzemament suportats</title>
+
+<para>
+
+Els discs &debian; contenen un nucli que es compila per maximitzar el
+nombre de sistemes on funciona. Desafortunadament, açò fa que el nucli
+sigui més gran, i que incorpore molts controladors que no fan falta per
+la vostra màquina<phrase arch="linux-any"> (vegeu <xref linkend="kernel-baking"/> per aprendre com
+compilar el vostre nucli)</phrase>. Suportar la major quantitat de dispositius
+possible és el que es desitja en general, per assegurar que &debian; pugui
+instal·lar-se a tot el maquinari possible.
+
+</para><para arch="x86">
+
+Normalment, la instal·lació de &debian; inclou el suport per disquets,
+discs IDE (també conegut com PATA), disqueteres IDE, dispositius IDE per port
+paral·lel, controladors i discs SATA i SCSI, USB i FireWire. Els sistemes de
+fitxers suportats inclouen FAT, les extensions Win-32 FAT (VFAT), i NTFS.
+
+</para><para arch="i386">
+
+Les interfícies de disc que emulen la interfície de disc dur <quote>AT</quote>
+&mdash; sovint anomenades MFM, RLL, IDE o PATA &mdash; estan suportades. Els
+controladors de disc SATA i SCSI de molts fabricants també estan suportats.
+Per a més detalls llegiu <ulink url="&url-hardware-howto;">Linux Hardware
+Compatibility HOWTO</ulink>
+
+</para><para arch="sparc">
+
+Qualsevol sistema de emmagatzemament suportat pel nucli de Linux també
+està suportat pel sistema d'arrencada. Per defecte, al nucli estan
+suportats els següents dispositius SCSI:
+
+<itemizedlist>
+<listitem><para>
+
+Sparc ESP
+
+</para></listitem>
+<listitem><para>
+
+PTI Qlogic,ISP
+
+</para></listitem>
+<listitem><para>
+
+Adaptec AIC7xxx
+
+</para></listitem>
+<listitem><para>
+
+NCR i Symbios 53C8XX
+
+</para></listitem>
+</itemizedlist>
+
+Els sistemes IDE (com els UltraSPARC 5) també estan suportats. Vegeu
+<ulink url="&url-sparc-linux-faq;">Linux for SPARC Processors FAQ</ulink>
+Per tenir més informació del maquinari SPARC suportat pel nucli de Linux.
+
+</para><para arch="powerpc">
+
+Qualsevol sistema d'emmagatzemament suportat pel nucli de Linux, està
+també suportat pel sistema d'arrencada. Adoneu-vos que el nucli de Linux
+no suporta del tot els disquets a sistemes CHRP.
+
+</para><para arch="hppa">
+
+Qualsevol sistema d'emmagatzemament suportat pel nucli de Linux, està
+també suportat pel sistema d'arrencada. Adoneu-vos que el nucli de Linux
+no suporta disquets.
+
+</para><para arch="mips;mipsel">
+
+Qualsevol sistema d'emmagatzemament suportat pel nucli de Linux, està
+també suportat pel sistema d'arrencada.
+
+</para><para arch="s390">
+
+Qualsevol sistema d'emmagatzemament suportat pel nucli de Linux, està
+també suportat pel sistema d'arrencada. Açò vol dir que FBA i ECKD DASD
+estan suporten per l'antic esquema de discs de Linux (ldl) i el nou
+esquema de discs S/390 (cdl).
+
+</para>
+
+  </sect2>
+
+ </sect1>

@@ -1,0 +1,67 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64740 -->
+
+<chapter id="boot-installer">
+<!-- <title>Booting the Installation System</title> -->
+<title>Avvio del sistema d'installazione</title>
+
+<!-- Include only archs that are documented to avoid build-errors -->
+<!-- The arch="..." condition can be deleted when al archs are present -->
+ <sect1 arch="arm;any-x86;ia64;mips;mipsel;s390;powerpc;sparc">
+ <!-- <title>Booting the Installer on &arch-title;</title> -->
+ <title>Avvio dell'installatore su &arch-title;</title>
+
+<!-- This info is so architecture dependent, that I have turned the   -->
+<!-- structure inside out for this chapter. Each arch has a document. -->
+<!-- Note: arch hppa is currently missing -->
+
+<warning arch="any-x86;powerpc"><para>
+
+<!--
+If you have any other operating systems on your system that you wish to
+keep (dual boot setup), you should make sure that they have been properly
+shut down <emphasis>before</emphasis> you boot the installer.
+Installing an operating system while another operating system is in
+hibernation (has been suspended to disk) could result in loss of, or damage
+to the state of the suspended operating system which could cause problems
+when it is rebooted.
+-->
+
+Se sul proprio sistema è già installato un qualsiasi altro sistema operativo
+e si desidera conservarlo (configurazione in dual boot), è necessario
+accertarsi che siano stati correttamente spenti <emphasis>prima</emphasis>
+di avviare l'installatore. L'installazione di un sistema operativo mentre un
+altro è in ibernazione (è stato sospeso su disco) può provocare la perdita o
+il danneggiamento dello stato del sistema operativo sospeso e causare problemi
+quando viene riavviato.
+
+</para></warning>
+<note condition="gtk"><para>
+
+<!--
+For information on how to boot the graphical installer, see
+<xref linkend="graphical"/>.
+-->
+
+Le istruzioni per l'avvio della versione grafica dell'installatore sono
+in <xref linkend="graphical"/>.
+
+</para></note>
+
+&boot-installer-arm.xml;
+<!-- &boot-installer-hppa.xml; -->
+&boot-installer-x86.xml;
+&boot-installer-ia64.xml;
+&boot-installer-mips.xml;
+&boot-installer-mipsel.xml;
+&boot-installer-s390.xml;
+&boot-installer-powerpc.xml;
+&boot-installer-sparc.xml;
+
+ </sect1>
+
+&boot-installer-accessibility.xml;
+&boot-installer-parameters.xml;
+&boot-installer-trouble.xml;
+
+</chapter>

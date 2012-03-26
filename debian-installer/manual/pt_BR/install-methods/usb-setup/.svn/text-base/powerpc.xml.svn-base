@@ -1,0 +1,125 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56442 -->
+<!-- updated 33725:56442 by Felipe Augusto van de Wiel (faw) 2008.11.10 -->
+
+   <sect3 arch="powerpc">
+   <title>Particionamento o pendrive USB</title>
+<para>
+
+A maioria dos pendrives USB não vêm pré-configuradas de uma forma que
+possam ser inicializadas através do Open Firmware, você terá que
+reparticionar o pendrive. Em sistemas Mac, execute o comando
+<userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></userinput>,
+inicialize um novo mapa de partição usando o comando <userinput>i</userinput>
+e crie uma nova partição do tipo Apple_Bootstrap usando o comando
+<userinput>C</userinput>. (Note que a primeira <quote>partição</quote> será 
+sempre o próprio mapa da partição). Então digite
+
+<informalexample><screen>
+$ hformat /dev/<replaceable>sdX2</replaceable>
+</screen></informalexample>
+
+Tenha atenção de estar usando o nome de dispositivo correto para seu 
+dispositivo de memória stick. O comando
+<command>hformat</command> vem junto com o pacote da &debian;
+<classname>hfsutils</classname>.
+
+</para><para>
+
+Para iniciar um kernel após inicializar através de um dispositivo USB,
+nós colocaremos um gerenciador de partida na memória stick. O 
+gerenciador de partida <command>yaboot</command> pode ser instalado em
+um sistema de arquivos HFS e pode ser reconfigurado simplesmente pela
+edição de um arquivo de textos. Qualquer sistema operacional que 
+suporte o sistema de arquivos HFS pode ser usado para realizar
+alterações na configuração d gerenciador de partida.
+
+</para><para>
+
+A ferramenta <command>ybin</command> que vem com o 
+<command>yaboot</command> não entende o formato de dispositivos de 
+armazenamento USB, assim você terá que instalar o 
+<command>yaboot</command> manualmente usando as ferramentas
+<classname>hfsutils</classname>. Digite
+
+<informalexample><screen>
+$ hmount /dev/<replaceable>sdX2</replaceable>
+$ hcopy -r /usr/lib/yaboot/yaboot :
+$ hattrib -c UNIX -t tbxi :yaboot
+$ hattrib -b :
+$ humount
+</screen></informalexample>
+
+Novamente, tenha cuidado ao usar o nome de dispositivos.
+A partição não deverá estar montada durante este processo. Este procedimento
+gravará um setor de partida na partição e usará os utilitários HFS para
+marca-lo de forma que o Open Firmware possa inicializar através dele. 
+Tendo feito isto, o resto da memória stick USB poderá ser preparada usando
+utilitários padrões do Unix.
+
+</para>
+   </sect3>
+
+   <sect3 arch="powerpc">
+   <title>Adicionando a imagem do instalador</title>
+<para>
+
+Monte a partição
+(<userinput>mount /dev/<replaceable>sdX1</replaceable> /mnt</userinput>)
+e copie os seguintes arquivos de imagem do instalador para o pendrive:
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinux</filename> (binário do kernel)
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename> (imagem inicial de disco na ram)
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot.conf</filename> (arquivo de configuração do yaboot)
+
+</para></listitem>
+<listitem><para>
+
+<filename>boot.msg</filename> (mensagem de inicialização personalizada)
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+O arquivo de configuração <filename>yaboot.conf</filename> deverá conter
+as seguintes linhas:
+
+<informalexample><screen>
+default=install
+root=/dev/ram
+
+message=/boot.msg
+
+image=/vmlinux
+        label=install
+        initrd=/initrd.gz
+	initrd-size=10000
+        read-only
+</screen></informalexample>
+
+Note que pode ser necessário aumentar o parâmetro
+<userinput>initrd-size</userinput> 
+dependendo do tamanho da imagem que estiver inicializando.
+
+</para><para>
+
+Se você usou uma imagem <filename>hd-media</filename>, agora você deverá
+copiar uma imagem ISO &debian; (imagem <quote>businesscard</quote>,
+<quote>netinst</quote> ou CD completo; selecione uma que caiba) no pendrive.
+Quando você tiver terminado, desmonte o pendrive USB
+(<userinput>umount /mnt</userinput>).
+
+</para>
+   </sect3>

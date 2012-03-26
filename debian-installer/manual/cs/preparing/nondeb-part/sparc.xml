@@ -1,0 +1,43 @@
+<!-- $Id: sparc.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="sparc">
+  <title>Rozdělení disku ze SunOS</title>
+<para>
+
+Rozdělení disku ze SunOS je absolutně bezproblémové. Pokud se
+rozhodnete mít na jednom stroji SunOS i &debian;, je doporučeno rozdělit
+disk nástroji SunOS ještě před instalací &debian;u. Linuxové jádro
+rozumí formátu Sun disklabel, takže zde problémy nebudou. SILO
+podporuje zavádění Linuxu i SunOS z několika oblastí: EXT2 (Linux),
+UFS (SunOS), romfs a iso9660 (CDROM).
+
+</para>
+  </sect2>
+
+  <sect2 arch="sparc">
+  <title>Dělení disku z Linuxu nebo jiného OS</title>
+<para>
+
+Ať už používáte jakýkoliv operační systém pro vytvoření diskových
+oblastí, zkontrolujte si, zda na svém zaváděcím disku vytváříte
+oblast s typem <quote>Sun disk label</quote>.
+Toto je jediný způsob rozdělení, kterému rozumí OpenBoot PROM,
+a tudíž je to jediný způsob, kterým můžete zavést systém.
+V programu <command>fdisk</command>, se k vytvoření Sun disk label
+používá klávesa <keycap>s</keycap>. Toto je nutné udělat pouze na
+discích, které ještě Sun disk label nemají.
+Pokud používáte disk, který byl dříve naformátován v osobním počítači
+(nebo jiné architektuře), musíte vytvořit nový disk label, nebo
+se s velkou pravděpodobností objeví problémy s geometrií disku.
+
+</para><para>
+
+K zavádění systému budete pravděpodobně používat program
+<command>SILO</command> (ten malý program, který zavede jádro
+operačního systému). <command>SILO</command> má jisté specifické
+požadavky na rozdělení a velikost oblastí &mdash; pro bližší informace
+se podívejte na <xref linkend="partitioning"/>.
+
+</para>
+  </sect2>

@@ -1,0 +1,36 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64742 -->
+
+   <sect3 arch="not-s390" id="system-clock">
+   <title>Die Systemuhr stellen</title>
+
+<para>
+
+Der Installer fragt Sie vielleicht, ob die Uhr des Computers auf UTC
+(Universal Coordinated Time, koordinierte Weltzeit) eingestellt ist.
+Die Frage wird nach Möglichkeit unterdrückt und der Installer versucht
+selbst herauszufinden, ob die Uhr auf UTC eingestellt ist, basierend
+auf Dingen wie z.B. welche anderen Betriebssysteme installiert sind.
+
+</para><para>
+
+Im Experten-Modus haben Sie immer die Möglichkeit anzugeben, ob die Uhr
+auf UTC eingestellt ist oder nicht.
+<phrase arch="powerpc">Die Hardware-Uhr auf Macintosh-Systemen ist
+normalerweise auf lokale Zeit eingestellt. Wenn Sie auf dem Rechner beide
+Betriebssysteme laufen haben möchten, wählen Sie lokale Zeit statt
+UTC.</phrase>
+<phrase arch="any-x86">Auf Systemen, auf denen (auch) DOS oder Windows läuft,
+ist die Uhr normalerweise auf lokale Zeit eingestellt. Wenn Sie diese
+Betriebssysteme auch auf dem Rechner laufen haben möchten, wählen Sie
+lokale Zeit statt UTC.</phrase>
+
+</para><para>
+
+An diesem Punkt wird der &d-i; auch versuchen, die aktuelle Zeit in die
+Hardware-Uhr des Systems zu speichern. Dies geschieht entweder als UTC oder
+als lokale Zeit, abhängig von der Auswahl, die vorher getroffen wurde.
+
+</para>
+
+   </sect3>

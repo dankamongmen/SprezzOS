@@ -1,0 +1,110 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61133 -->
+<!-- updated 29467:35612 by André Luís Lopes (andrelop) 2006.04.20 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.12.25 -->
+<!-- updated 43499:43939 by Felipe Augusto van de Wiel (faw) 2007.01.15 -->
+
+ <sect1 arch="not-s390"><title>Comprando Hardwares específicos para GNU/&arch-kernel;</title>
+
+<para arch="linux-any">
+
+Existem muitos vendedores, que vendem sistemas com &debian; ou
+outras distribuições de GNU/Linux
+<ulink url="&url-pre-installed;">pré-instaladas</ulink>. Você pode ter que
+pagar mais pelo privilégio, mas isto não compra o nível de paz de mente que
+isto traz, pois você poderá ter certeza que o hardware é bem suportado pelo
+GNU/Linux.
+
+</para><para arch="any-x86">
+
+Se tiver que comprar uma máquina com o Windows instalado,
+leia cuidadosamente a licença de software que vem com o
+Windows; você pode rejeita a licença e obter um desconto
+do seu vendedor. Procurar na Internet por <quote>windows refund</quote>
+(reembolso windows) pode trazer alguma informação útil para ajudá-lo nisto.
+
+</para><para>
+
+Caso esteja ou não comprando um sistema com o &arch-kernel; incluído, ou
+até mesmo um sistema usado, é ainda importante verificar se seu
+hardware é suportado pelo kernel do &arch-kernel;. Verifique se o seu
+hardware está listado nas referências encontradas acima. Deixe seu
+vendedor (se tiver) saber que está comprando para um sistema
+&arch-kernel;. Apóie os vendedores que são amigos de hardwares compatíveis
+com o &arch-kernel;.
+
+</para>
+
+  <sect2><title>Evite Hardwares Proprietários ou Fechados</title>
+<para>
+
+Alguns fabricantes de hardwares simplesmente não nos dizem como
+escrever controladores para seus hardwares. Outros não nos permitem
+acessar a documentação sem antes assinar uma causa de não revelação
+que nos impediriam de lançar o código fonte no &arch-kernel;.
+
+</para><para>
+
+Como não tivemos acesso garantido a documentação destes
+dispositivos, eles simplesmente não funcionam sob o &arch-kernel;.
+Você poderá ajudar perguntando os fabricantes de tais
+hardwares para obterem a documentação. Se pessoas suficientes
+perguntarem, eles verão que a comunidade de software livre é um
+mercado importante.
+
+</para>
+</sect2>
+
+
+  <sect2 arch="any-x86"><title>Hardwares específicos para Windows</title>
+<para>
+
+Uma tendência que incomoda é a proliferação de modems e
+impressoras específicos para Windows. Em alguns casos, estes são
+especialmente desenvolvidos para funcionarem com o sistema
+operacional Microsoft Windows e vem com a legenda <quote>WinModem</quote> ou
+<quote>Feito especialmente para computadores baseados em Windows</quote>. Isto é
+geralmente feito removendo-se os processadores embutidos do
+hardware e deixando o trabalho deles serem feitos por um
+driver do windows que é executado pela CPU principal do micro. Esta
+estratégia torna o hardware menos caro, mas o que é salvo quase
+<emphasis>nunca</emphasis> é passado para o usuário e este hardware pode
+até se tornar mais caro que um dispositivo equivalente que contém
+sua inteligência embutida.
+
+</para><para>
+
+Você deve evitar hardwares específicos para Windows por duas
+razões. A primeira é que os fabricantes normalmente não tornam
+disponível os recursos para escrever um driver para &arch-kernel;.
+Geralmente, o hardware e a interface de software do dispositivo
+é proprietária, e a documentação não é liberada sem um acordo
+de não revelação, se ele também estiver disponível. Isto impede
+que que ele seja usado por softwares livres, pois pessoas que
+escrevem software livre distribuem o código fonte em seus programas.
+A segunda razão é que quando dispositivos como estes tem seus
+processadores embutidos removidos, o sistema operacional deve
+fazer o trabalho destes processadores embutidos,
+normalmente em prioridade <emphasis>tempo real</emphasis>, e
+assim a CPU não estará disponível para executar seus programas
+enquanto estiver controlando estes dispositivos. Até mesmo
+um típico usuário de Windows não obtém um multi-processamento tão
+intensivo quanto um usuário &arch-kernel;, os fabricantes esperam que
+o usuário do Windows simplesmente não note a carga que estes
+hardwares colocam em sua CPU. No entanto, qualquer sistema operacional
+multi-processamento, até mesmo o Windows 95 ou NT, tem a performance
+prejudicada quando fabricantes de periféricos colocam a carga
+de processamento de seus hardwares na CPU.
+
+</para><para>
+
+Você poderá ajudar a melhorar esta situação encorajando estes
+fabricantes a lançarem a documentação e outros recursos necessários
+por nós para programar seus hardwares, mas a melhor estratégia é
+simplesmente evitar este tipo de hardware até que ele pareça estar
+funcionando em
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>.
+
+</para>
+</sect2>
+ </sect1>

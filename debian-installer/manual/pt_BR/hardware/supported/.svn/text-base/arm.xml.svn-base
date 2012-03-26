@@ -1,0 +1,105 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 55470 -->
+<!-- updated 43693:55470 by Felipe Augusto van de Wiel (faw) 2008.11.11 -->
+
+  <sect2 arch="arm"><title>CPU, placas mãe, e suporte de vídeo</title>
+<para>
+
+Cada arquitetura ARM requer seu próprio kernel, porque esta versão padrão
+da &debian; somente suporta a instalação em parte das plataformas mais comuns.
+Os programas do espaço de usuário podem, contudo, serem usados por
+<emphasis>qualquer</emphasis> CPU ARM.
+
+</para>
+
+<para>
+
+A maioria das CPUs ARM podem ser executadas tanto em modo endian (little ou
+big). No entanto, a maioria das implementações de sistemas atuais utilizam
+o modo little-endian. O &debian; atualmente suporta somente sistemas ARM
+little-endian.
+
+</para>
+
+<para>
+
+As plataformas suportados são:
+
+<variablelist>
+
+<varlistentry>
+<term>Netwinder</term>
+<listitem><para>
+
+Na verdade, este é o nome para o grupo de máquinas baseados na
+CPU StrongARM 110 e Intel 21285 Northbridge (também conhecida
+como Footbridge). O mesmo é composto de máquinas como: Netwinder
+(possivelmente uma das mais comuns das máquinas ARM), CATS (também
+conhecida como EB110ATX), EBSA 285 e Compaq personal server (cps,
+também conhecido como skiff).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>IOP32x</term>
+<listitem><para>
+
+A linha de processadores INTEL I/O (IOP) é encontrada em inúmeros produtos
+relacionados ao armazenamento de dados e processamento. O &debian; atualmente
+suporta a plataforma IOP32x, caracterizando os chips IOP 80219 e 32x
+comumente encontrados nos dispositivos Network Attached Storage (NAS).
+O &debian; suporta explicitamente dois dispositivos deste tipo: o
+<ulink url="&url-arm-cyrius-glantank;">GLAN Tank</ulink> da IO-Data e o
+<ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>IXP4xx</term>
+<listitem><para>
+
+A plataforma IXP4xx é baseada no núcleo XScale ARM da Intel. Atualmente,
+apenas um sistema baseado em IXP4xx é suportado, o Linksys NSLU2. O
+Linksys NSLU2 (Network Storage Link para discos USB 2.0) é um
+pequeno dispositivo que lhe permite fornecer armazenamento facilmente
+através da rede. Ele é distribuído com uma conexão Ethernet e duas
+portas USB nas quais discos rígidos podem ser conectados. Existe um site
+externo com
+<ulink url="&url-arm-cyrius-nslu2;">instruções para instalação</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Orion5x</term>
+<listitem><para>
+
+Orion é um sistema em um chip (SoC) da Marvell que integra uma CPU ARM,
+Ethernet, SATA, USB e outras funcionalidades em um único chip. Há vários
+dispositivos NAS (<quote>Network Attached Storage</quote>) no mercado que
+são baseados no chip Orion. Atualmente, nós damos suporte para os seguintes
+dispositivos baseados em Orion: 
+<ulink url="&url-arm-cyrius-kuroboxpro;">Buffalo Kurobox</ulink>,
+<ulink url="&url-arm-cyrius-mv2120;">HP mv2120</ulink>,
+<ulink url="&url-arm-cyrius-qnap;">QNAP Turbo Station</ulink> (TS-109, TS-209
+e TS-409).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Versatile</term>
+<listitem><para>
+
+A plataforma Versatile é emulada pelo QEMU e é portanto uma forma legal de
+testar e executar o &debian; em ARM se você não tiver o hardware.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</para>
+  </sect2>

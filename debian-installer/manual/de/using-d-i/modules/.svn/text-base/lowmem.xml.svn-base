@@ -1,0 +1,69 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+  <sect3 id="lowmem">
+  <title>Verfügbaren Arbeitsspeicher prüfen / Low-Memory-Modus</title>
+
+<para>
+
+Einer der ersten Tests, die der &d-i; durchführt, ist zu überprüfen,
+wieviel Arbeitsspeicher zur Verfügung steht. Ist der verfügbare Speicher
+knapp, führt dieses Modul einige Änderungen am Installationsprozess durch,
+die Ihnen hoffentlich ermöglichen, &debian-gnu; trotzdem auf Ihrem System zu
+installieren.
+
+</para><para>
+
+Die erste Maßnahme, die getroffen wird, um den Speicherbedarf des Installers
+zu reduzieren, ist die Deaktivierung aller Übersetzungen, was bedeutet,
+dass die Installation nur in Englisch durchgeführt werden kann. Das
+installierte System kann natürlich trotzdem an Ihre Sprache angepasst
+werden, nachdem die Installation abgeschlossen ist.
+
+</para><para>
+
+Falls dies noch nicht ausreichend ist, kann der Speicherbedarf weiter
+reduziert werden, indem nur diejenigen Komponenten geladen werden, die
+unbedingt erforderlich sind, um eine Basisinstallation abzuschließen.
+Dies schränkt die Fähigkeiten des Installers ein. Sie haben die Gelegenheit,
+zusätzliche Komponenten manuell zu laden, aber Sie sollten bedenken, dass
+jede solche Komponente auch zusätzlichen Speicher benötigt und so dazu
+führen könnte, dass die Installation fehlschlägt.
+
+</para><para>
+
+Wenn der Installer im Low-Memory-Modus läuft, ist es empfehlenswert, eine
+relativ große Swap-Partition (64&ndash;128MB) zu erstellen. Diese wird als
+virtueller Speicher genutzt und vergrößert so den Arbeitsspeicher, der dem
+System zur Verfügung steht. Der Installer wird die Swap-Partition so früh
+wie möglich während des Installationsprozesses aktivieren. Bedenken Sie, dass
+die starke Nutzung von Swap-Speicher die Performance des Systems reduziert und
+zu hoher Festplattenaktivität führen kann.
+
+</para><para>
+
+Trotz all dieser Maßnahmen ist es immer noch möglich, dass Ihr System
+einfriert oder sich aufhängt, dass unerwartete Fehler auftreten oder dass
+Prozesse vom Kernel beendet werden, weil kein freier Speicher mehr verfügbar
+ist (erkennbar an Meldungen wie <quote>Out of memory</quote> auf VT4 und im
+Syslog).
+
+</para><para>
+
+Es wurde zum Beispiel berichtet, dass die Erzeugung eines großen
+ext3-Dateisystems im Low-Memory-Modus fehlgeschlagen ist, wenn die
+Swap-Partition zu klein gewählt war. Wenn die Vergrößerung des Swap-Speichers
+nicht hilft, sollten Sie das Dateisystem stattdessen als ext2 erzeugen (dies
+ist eine Standardkomponente des Installers, während ext3 eine der Komponenten
+ist, die im Low-Memory-Modus nicht standardmäßig geladen wird).
+Nach Abschluss der Installation ist es möglich, die ext2-Partition nach
+ext3 umzuwandeln.
+
+</para><para>
+
+Es ist möglich, eine höhere lowmem-Stufe zu verwenden als die, die auf dem
+verfügbaren physikalischen Speicher beruht. Nutzen Sie dazu den Boot-Parameter
+<quote>lowmem</quote> wie in <xref linkend="installer-args"/> beschrieben.
+
+</para>
+   </sect3>

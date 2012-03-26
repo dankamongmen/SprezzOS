@@ -1,0 +1,2476 @@
+# Vietnamese translation for Install Methods.
+# Copyright © 2010 Free Software Foundation, Inc.
+# Clytie Siddall <clytie@riverland.net.au>, 2006-2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: install-methods\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-12-29 12:07+0000\n"
+"PO-Revision-Date: 2010-11-07 16:05+1030\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: LocFactoryEditor 1.8\n"
+
+#. Tag: title
+#: install-methods.xml:5
+#, no-c-format
+msgid "Obtaining System Installation Media"
+msgstr "Lấy vật chứa cài đặt hệ thống"
+
+#. Tag: title
+#: install-methods.xml:12
+#, no-c-format
+msgid "Official &debian-gnu; CD-ROM Sets"
+msgstr "Bộ đĩa CD &debian-gnu; chính thức"
+
+#. Tag: para
+#: install-methods.xml:13
+#, no-c-format
+msgid ""
+"By far the easiest way to install &debian-gnu; is from an Official &debian; "
+"CD-ROM Set. You can buy a set from a vendor (see the <ulink url=\"&url-"
+"debian-cd-vendors;\">CD vendors page</ulink>). You may also download the CD-"
+"ROM images from a &debian; mirror and make your own set, if you have a fast "
+"network connection and a CD burner (see the <ulink url=\"&url-debian-cd;"
+"\">Debian CD page</ulink> for detailed instructions). If you have a &debian; "
+"CD set and CDs are bootable on your machine, you can skip right to <xref "
+"linkend=\"boot-installer\"/>; much effort has been expended to ensure the "
+"files most people need are there on the CD. Although a full set of binary "
+"packages requires several CDs, it is unlikely you will need packages on the "
+"third CD and above. You may also consider using the DVD version, which saves "
+"a lot of space on your shelf and you avoid the CD shuffling marathon."
+msgstr ""
+"Phương pháp dễ nhất cài đặt &debian-gnu; là sử dụng một bộ đĩa CD-ROM "
+"&debian; chính thức. Bạn có thể mua bộ đĩa như thế từ một nhà bán (xem "
+"<ulink url=\"&url-debian-cd-vendors;\">trang nhà bán đĩa CD</ulink>). Cũng "
+"có khả năng tải các ảnh đĩa CD-ROM xuống một máy nhân bản &debian;, và tạo "
+"bộ đĩa CD cài đặt của mình, nếu bạn có kết nối mạng nhanh và máy chép ra CD "
+"(xem <ulink url=\"&url-debian-cd;\">trang đĩa CD Debian</ulink> để tìm hướng "
+"dẫn chi tiết). Có một bộ đĩa CD &debian; và khả năng khởi động máy tính từ "
+"đĩa CD thì bạn có dịp nhảy trực tiếp tới <xref linkend=\"boot-installer\"/>; "
+"rất nhiều sự cố gắng đã được đóng góp để đảm bảo đĩa CD đó chứa những tập "
+"tin yêu cầu bởi hậu hết người dùng. Mặc dù bộ gói nhị phân đầy đủ chiếm vài "
+"đĩa CD, rất có thể là bạn không yêu cầu gói nào nằm trên đĩa CD thứ ba và "
+"sau. Nếu có thể thì sử dụng đĩa DVD &debian; ngay cả dễ nhất (không cần trao "
+"đổi các đĩa CD, không chiếm nhiều sức chứa trên giá sách)."
+
+#. Tag: para
+#: install-methods.xml:30
+#, no-c-format
+msgid ""
+"If your machine doesn't support CD booting, but you do have a CD set, you "
+"can use an alternative strategy such as <phrase condition=\"supports-floppy-"
+"boot\">floppy disk,</phrase> <phrase arch=\"s390\">tape, emulated tape,</"
+"phrase> <phrase condition=\"bootable-disk\">hard disk,</phrase> <phrase "
+"condition=\"bootable-usb\">usb stick,</phrase> <phrase condition=\"supports-"
+"tftp\">net boot,</phrase> or manually loading the kernel from the CD to "
+"initially boot the system installer. The files you need for booting by "
+"another means are also on the CD; the &debian; network archive and CD folder "
+"organization are identical. So when archive file paths are given below for "
+"particular files you need for booting, look for those files in the same "
+"directories and subdirectories on your CD."
+msgstr ""
+"Máy tính không hỗ trợ chức năng khởi động từ đĩa CD, mà bạn có một bộ đĩa CD "
+"&debian;, thì cũng có thể sử dụng một chiến lược xen kẽ như <phrase "
+"condition=\"supports-floppy-boot\">đĩa mềm,</phrase> <phrase arch="
+"\"s390\">băng, băng mô phỏng,</phrase> <phrase condition=\"bootable-disk"
+"\">đĩa cứng,</phrase> <phrase condition=\"bootable-usb\">thanh USB</phrase> "
+"<phrase condition=\"supports-tftp\">khởi động từ mạng,</phrase> hoặc nạp "
+"bằng tay hạt nhân từ đĩa CD để khởi động đầu tiên trình cài đặt hệ thống. "
+"Các tập tin yêu cầu để khởi động bằng một phương pháp khác cũng nằm trên đĩa "
+"CD; kho lưu mạng &debian; và đĩa CD có cùng một phân cấp thư mục. Vì thế, "
+"khi đường dẫn kho lưu đưa ra bên dưới đến tập tin yêu cầu để khởi động, tìm "
+"tập tin đó trong cùng một thư mục trên đĩa CD."
+
+#. Tag: para
+#: install-methods.xml:52
+#, no-c-format
+msgid ""
+"Once the installer is booted, it will be able to obtain all the other files "
+"it needs from the CD."
+msgstr ""
+"Một khi trình cài đặt đã được khởi động, nó sẽ có khả năng lấy từ đĩa CD các "
+"tập tin khác cần thiết."
+
+#. Tag: para
+#: install-methods.xml:57
+#, no-c-format
+msgid ""
+"If you don't have a CD set, then you will need to download the installer "
+"system files and place them on the <phrase arch=\"s390\">installation tape</"
+"phrase> <phrase condition=\"supports-floppy-boot\">floppy disk or</phrase> "
+"<phrase condition=\"bootable-disk\">hard disk or</phrase> <phrase condition="
+"\"bootable-usb\">usb stick or</phrase> <phrase condition=\"supports-tftp\">a "
+"connected computer</phrase> so they can be used to boot the installer."
+msgstr ""
+"Nếu bạn không có bộ đĩa CD cài đặt Debian, trong trường hợp đó bạn cần phải "
+"tải về các tập tin hệ thống cài đặt và chèn chúng vào <phrase arch="
+"\"s390\">băng cài đặt</phrase> <phrase condition=\"supports-floppy-boot"
+"\">đĩa mềm hay</phrase> <phrase condition=\"bootable-disk\">đĩa cứng hay</"
+"phrase> <phrase condition=\"bootable-usb\">thanh USB hay</phrase> <phrase "
+"condition=\"supports-tftp\">máy tính khác được kết nối</phrase> để sử dụng "
+"nó để khởi động trình cài đặt."
+
+#. Tag: title
+#: install-methods.xml:83
+#, no-c-format
+msgid "Downloading Files from &debian; Mirrors"
+msgstr "Tải tập tin xuống máy nhân bản &debian;"
+
+#. Tag: para
+#: install-methods.xml:85
+#, no-c-format
+msgid ""
+"To find the nearest (and thus probably the fastest) mirror, see the <ulink "
+"url=\"&url-debian-mirrors;\">list of &debian; mirrors</ulink>."
+msgstr ""
+"Để tìm máy nhân bản gần nhất (cũng nên là nhanh nhất), xem <ulink url=\"&url-"
+"debian-mirrors;\">danh sách máy nhân bản &debian;</ulink>."
+
+#. Tag: para
+#: install-methods.xml:90
+#, no-c-format
+msgid ""
+"When downloading files from a &debian; mirror using FTP, be sure to download "
+"the files in <emphasis>binary</emphasis> mode, not text or automatic mode."
+msgstr ""
+"Khi tải tập tin xuống một máy nhân bản &debian; qua FTP, kiểm tra lại bạn "
+"tải về trong chế độ <emphasis>nhị phân</emphasis> (binary), không phải chế "
+"độ văn bản (text) hay tự động (automatic)."
+
+#. Tag: title
+#: install-methods.xml:98
+#, no-c-format
+msgid "Where to Find Installation Images"
+msgstr "Tìm ảnh cài đặt ở đâu"
+
+#. Tag: para
+#: install-methods.xml:100
+#, no-c-format
+msgid ""
+"The installation images are located on each &debian; mirror in the directory "
+"<ulink url=\"&url-debian-installer;images\">debian/dists/&releasename;/main/"
+"installer-&architecture;/current/images/</ulink> &mdash; the <ulink url="
+"\"&url-debian-installer;images/MANIFEST\">MANIFEST</ulink> lists each image "
+"and its purpose."
+msgstr ""
+"Các ảnh cài đặt nằm trên mỗi máy nhân bản &debian;, trong thư mục <ulink url="
+"\"&url-debian-installer;images\">debian/dists/&releasename;/main/installer-"
+"&architecture;/current/images/</ulink> &mdash; <ulink url=\"&url-debian-"
+"installer;images/MANIFEST\">MANIFEST</ulink> (bản kê khai) liệt kê mọi ảnh "
+"và mục đích tương ứng."
+
+#. Tag: title
+#: install-methods.xml:113
+#, no-c-format
+msgid "NSLU2 Installation Files"
+msgstr "Tập tin cài đặt NSLU2"
+
+#. Tag: para
+#: install-methods.xml:114
+#, no-c-format
+msgid ""
+"A firmware image is provided for the Linksys NSLU2 which will automatically "
+"boot <classname>debian-installer</classname>. This image can be uploaded via "
+"the Linksys web frontend or with upslug2. This firmware image can be "
+"obtained from &nslu2-firmware-img;."
+msgstr ""
+"Cung cấp cho máy Linksys NSLU2 có một ảnh phần vững sẽ khởi động tự động &d-"
+"i;. Ảnh này có thể được tải lên thông qua giao diện Web Linksys hoặc dùng "
+"upslug2. Ảnh phần vững này có thể được lấy từ &nslu2-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:126
+#, no-c-format
+msgid "Thecus N2100 Installation Files"
+msgstr "Tập tin cài đặt N2100 Thecus"
+
+#. Tag: para
+#: install-methods.xml:127
+#, no-c-format
+msgid ""
+"A firmware image is provided for the Thecus N2100 which will automatically "
+"boot <classname>debian-installer</classname>. This image can be installed "
+"using the Thecus firmware upgrade process. This firmware image can be "
+"obtained from &n2100-firmware-img;."
+msgstr ""
+"Cung cấp cho máy Thecus N2100 một ảnh phần vững sẽ tự động khởi động "
+"<classname>debian-installer</classname>. Ảnh này có thể được cài đặt dùng "
+"quá trình nâng cấp phần vững Thecus. Ảnh phần vững này có thể được lấy từ "
+"ảnh &nslu2-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:138
+#, no-c-format
+msgid "GLAN Tank Installation Files"
+msgstr "Tập tin cài đặt GLAN Tank"
+
+#. Tag: para
+#: install-methods.xml:139
+#, no-c-format
+msgid ""
+"The GLAN Tank requires a kernel and ramdisk on an ext2 partition on the disk "
+"on which you intend to install &debian;. These images can be obtained from "
+"&glantank-firmware-img;."
+msgstr ""
+"GLAN Tank yêu cầu một hạt nhân và đĩa RAM trên một phân vùng ext2 trên đĩa "
+"vào đó bạn định cài đặt &debian;. Các ảnh này có thể được lấy từ &glantank-"
+"firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:149
+#, no-c-format
+msgid "Kurobox Pro Installation Files"
+msgstr "Tập tin cài đặt Kurobox Pro"
+
+#. Tag: para
+#: install-methods.xml:150
+#, no-c-format
+msgid ""
+"The Kurobox Pro requires a kernel and ramdisk on an ext2 partition on the "
+"disk on which you intend to install &debian;. These images can be obtained "
+"from &kuroboxpro-firmware-img;."
+msgstr ""
+"Kurobox Pro yêu cầu một hạt nhân và đĩa RAM trên một phân vùng ext2 trên đĩa "
+"vào đó bạn định cài đặt &debian;. Các ảnh này có thể được lấy từ &kuroboxpro-"
+"firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:160
+#, no-c-format
+msgid "HP mv2120 Installation Files"
+msgstr "Tập tin cài đặt HP mv2120"
+
+#. Tag: para
+#: install-methods.xml:161
+#, no-c-format
+msgid ""
+"A firmware image is provided for the HP mv2120 which will automatically boot "
+"<classname>debian-installer</classname>. This image can be installed with "
+"uphpmvault on Linux and other systems and with the HP Media Vault Firmware "
+"Recovery Utility on Windows. The firmware image can be obtained from &mv2120-"
+"firmware-img;."
+msgstr ""
+"Cung cấp cho máy HP mv2120 một ảnh phần vững sẽ tự động khởi động "
+"<classname>debian-installer</classname>. Ảnh này có thể được cài đặt dùng "
+"uphpmvault trên Linux và các hệ thống khác, và dùng tiện ích HP Media Vault "
+"Firmware Recovery Utility trên Windows. Ảnh phần vững có thể được lấy từ "
+"&mv2120-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:173
+#, no-c-format
+msgid "QNAP Turbo Station Installation Files"
+msgstr "Tập tin cài đặt QNAP Turbo Station"
+
+#. Tag: para
+#: install-methods.xml:174
+#, no-c-format
+msgid ""
+"The installation files for the QNAP Turbo Station consist of a kernel and "
+"ramdisk as well as a script to write these images to flash. You can obtain "
+"the installation files for QNAP TS-109 and TS-209 from &qnap-orion-firmware-"
+"img; and for QNAP TS-110, TS-119, TS-210, TS-219, TS-219P from &qnap-"
+"kirkwood-firmware-img;."
+msgstr ""
+"Những tập tin cài đặt đối với máy QNAP Turbo Station chứa một hạt nhân và "
+"một đĩa RAM, cũng như một văn lệnh để ghi các ảnh này vào vùng nhớ cực "
+"nhanh. Bạn có thể lấy các tập tin cài đặt đối với máy kiểu QNAP TS-109 và "
+"TS-209 từ &qnap-orion-firmware-img;, kiểu QNAP TS-110, TS-119, TS-210, "
+"TS-219, TS-219P từ &qnap-kirkwood-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:186
+#, no-c-format
+msgid "SheevaPlug and OpenRD Installation Files"
+msgstr "Tập tin Cài đặt SheevaPlug và OpenRD"
+
+#. Tag: para
+#: install-methods.xml:187
+#, no-c-format
+msgid ""
+"The installation files for the Marvell SheevaPlug and OpenRD devices consist "
+"of a kernel and initrd for U-Boot. You can obtain these files from &kirkwood-"
+"marvell-firmware-img;."
+msgstr ""
+"Những tập tin cài đặt đối với thiết bị Marvell SheevaPlug và OpenRD chứa một "
+"hạt nhân và initrd cho U-Boot. Bạn có thể lấy các tập tin này từ &kirkwood-"
+"marvell-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:237
+#, no-c-format
+msgid "Creating an IPL tape"
+msgstr "Tạo băng IPL"
+
+#. Tag: para
+#: install-methods.xml:239
+#, no-c-format
+msgid ""
+"If you can't boot (IPL) from the CD-ROM and you are not using VM you need to "
+"create an IPL tape first. This is described in section 3.4.3 in the <ulink "
+"url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux "
+"for IBM eServer zSeries and S/390: Distributions</ulink> Redbook. The files "
+"you need to write to the tape are (in this order): <filename>kernel.debian</"
+"filename>, <filename>parmfile.debian</filename> and <filename>initrd.debian</"
+"filename>. The files can be downloaded from the <filename>tape</filename> "
+"sub-directory, see <xref linkend=\"where-files\"/>."
+msgstr ""
+"Nếu bạn không thể khởi động được (IPL) từ đĩa CD-ROM, cũng không sử dụng VM, "
+"trong trường hợp đó bạn cần phải tạo một băng IPL trước tiên. Tiến trình này "
+"được diễn tả trong tiết đoạn 3.4.3 của Quyển Đỏ <ulink url=\"http://www."
+"redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux dành cho IBM "
+"eServer zSeries và S/390: bản phát hành</ulink>. Bạn cần phải ghi vào băng "
+"đó những tập tin này (theo thứ tự): <filename>kernel.debian</filename>, "
+"<filename>parmfile.debian</filename>, <filename>initrd.debian</filename>. "
+"Những tập tin này có thể được tải xuống thư mục con <filename>tape</"
+"filename>: xem <xref linkend=\"where-files\"/>."
+
+#. Tag: title
+#: install-methods.xml:263
+#, no-c-format
+msgid "Creating Floppies from Disk Images"
+msgstr "Tạo đĩa mềm từ ảnh đĩa"
+
+#. Tag: para
+#: install-methods.xml:264
+#, no-c-format
+msgid ""
+"Bootable floppy disks are generally used as a last resort to boot the "
+"installer on hardware that cannot boot from CD or by other means."
+msgstr ""
+"Đĩa mềm có khả năng khởi động thường được dùng như là phương sách cuối cùng, "
+"để khởi động trình cài đặt trên phần cứng không có khả năng khởi động từ đĩa "
+"CD hoặc bằng cách nào khác."
+
+#. Tag: para
+#: install-methods.xml:269
+#, no-c-format
+msgid ""
+"Booting the installer from floppy disk reportedly fails on Mac USB floppy "
+"drives."
+msgstr ""
+"Người dùng đã thông báo trường hợp không thể khởi động trình cài đặt Debian "
+"từ đĩa mềm nằm trong ổ đĩa mềm USB của máy tính Apple Mac."
+
+#. Tag: para
+#: install-methods.xml:274
+#, no-c-format
+msgid ""
+"Disk images are files containing the complete contents of a floppy disk in "
+"<emphasis>raw</emphasis> form. Disk images, such as <filename>boot.img</"
+"filename>, cannot simply be copied to floppy drives. A special program is "
+"used to write the image files to floppy disk in <emphasis>raw</emphasis> "
+"mode. This is required because these images are raw representations of the "
+"disk; it is required to do a <emphasis>sector copy</emphasis> of the data "
+"from the file onto the floppy."
+msgstr ""
+"Ảnh đĩa là tập tin chứa nội dung hoàn toàn của một đĩa mềm có dạng "
+"<emphasis>thô</emphasis> (raw). Ảnh đĩa, v.d. <filename>boot.img</filename>, "
+"không thể đơn giản được sao chép vào ổ đĩa mềm. Cần phải sử dụng một chương "
+"trình đặc biệt để ghi các tập tin ảnh vào đĩa mềm trong chế độ "
+"<emphasis>thô</emphasis>. Tiến trình này cần thiết vì các ảnh này là sự đại "
+"diện thô của đĩa đó : cần phải làm việc <emphasis>sao chép rãnh ghi</"
+"emphasis> các dữ liệu từ tập tin vào đĩa mềm."
+
+#. Tag: para
+#: install-methods.xml:285
+#, no-c-format
+msgid ""
+"There are different techniques for creating floppies from disk images. This "
+"section describes how to create floppies from disk images on different "
+"platforms."
+msgstr ""
+"Có một số phương pháp khác nhau tạo đĩa mềm từ ảnh đĩa. Tiết đoạn này diễn "
+"tả phương pháp tạo đĩa mềm từ ảnh đĩa trên nền tảng khác nhau."
+
+#. Tag: para
+#: install-methods.xml:291
+#, no-c-format
+msgid ""
+"Before you can create the floppies, you will first need to download them "
+"from one of the &debian; mirrors, as explained in <xref linkend="
+"\"downloading-files\"/>. <phrase arch=\"i386\">If you already have an "
+"installation CD-ROM or DVD, the floppy images may also be included on the CD/"
+"DVD.</phrase>"
+msgstr ""
+"Trước khi tạo đĩa mềm, bạn cần phải tải tập tin tương ứng xuống một của "
+"những máy nhân bản &debian;, như được diễn tả trong <xref linkend="
+"\"downloading-files\"/>. <phrase arch=\"i386\">Nếu bạn đã có một đĩa CD/DVD "
+"cài đặt, những ảnh đĩa mềm có thể nằm trên đĩa đó.</phrase>"
+
+#. Tag: para
+#: install-methods.xml:299
+#, no-c-format
+msgid ""
+"No matter which method you use to create your floppies, you should remember "
+"to flip the write-protect tab on the floppies once you have written them, to "
+"ensure they are not damaged unintentionally."
+msgstr ""
+"Bất chấp phương pháp nào bạn sử dụng để tạo đĩa mềm, bạn nên nhớ bật nút "
+"chống lại ghi trên đĩa mềm đó, một khi ghi nó, để đảm bảo dữ liệu được ghi "
+"sẽ không bị hại tình cờ."
+
+#. Tag: title
+#: install-methods.xml:307
+#, no-c-format
+msgid "Writing Disk Images From a Linux or Unix System"
+msgstr "Ghi ảnh đĩa từ hệ thống Linux/UNIX"
+
+#. Tag: para
+#: install-methods.xml:308
+#, no-c-format
+msgid ""
+"To write the floppy disk image files to the floppy disks, you will probably "
+"need root access to the system. Place a good, blank floppy in the floppy "
+"drive. Next, use the command <informalexample><screen>\n"
+"$ dd if=<replaceable>filename</replaceable> of=/dev/fd0 bs=1024 conv=sync ; "
+"sync\n"
+"</screen></informalexample> where <replaceable>filename</replaceable> is one "
+"of the floppy disk image files. <filename>/dev/fd0</filename> is a commonly "
+"used name of the floppy disk device, it may be different on your "
+"workstation<phrase arch=\"sparc\"> (on Solaris, it is <filename>/dev/fd/0</"
+"filename>)</phrase>. The command may return to the prompt before Unix has "
+"finished writing the floppy disk, so look for the disk-in-use light on the "
+"floppy drive and be sure that the light is out and the disk has stopped "
+"revolving before you remove it from the drive. On some systems, you'll have "
+"to run a command to eject the floppy from the drive <phrase arch=\"sparc\"> "
+"(on Solaris, use <command>eject</command>, see the manual page)</phrase>."
+msgstr ""
+"Để ghi các tập tin ảnh đĩa mềm vào những đĩa mềm thật, rất có thể là bạn sẽ "
+"cần có quyền truy cập hệ thống của người chủ (root). Hãy nạp vào đĩa mềm một "
+"đĩa mềm rỗng tốt. Sau đó, nhập lệnh <informalexample><screen>\n"
+"$ dd if=<replaceable>tên_tập_tin</replaceable> of=/dev/fd0 bs=1024 "
+"conv=sync ; sync\n"
+"</screen></informalexample> mà <replaceable>tên_tập_tin</replaceable> là một "
+"của những tập tin ảnh đĩa mềm đó. <filename>/dev/fd0</filename> là một tên "
+"thường dùng của thiết bị đĩa mềm; có thể khác trên máy trạm của bạn <phrase "
+"arch=\"sparc\"> (trên Solaris, nó là <filename>/dev/fd/0</filename>)</"
+"phrase>. Lệnh này có thể trở về dấu nhắc trước khi UNIX ghi xong đĩa mềm, vì "
+"vậy trên thiết bị đĩa mềm hãy theo dõi đèn ngụ ý đĩa hoạt động, kiểm tra xem "
+"đèn này đã đóng và đĩa đã dừng quay, trước khi đẩy nó ra ổ. Trên một số hệ "
+"thống riêng, bạn cần phải chạy lệnh để đẩy đĩa mềm ra ổ <phrase arch=\"sparc"
+"\">(trên Solaris, dùng lệnh <command>eject</command>, xem trang hướng dẫn để "
+"tìm chi tiết)</phrase>."
+
+#. Tag: para
+#: install-methods.xml:329
+#, no-c-format
+msgid ""
+"Some systems attempt to automatically mount a floppy disk when you place it "
+"in the drive. You might have to disable this feature before the workstation "
+"will allow you to write a floppy in <emphasis>raw mode</emphasis>. "
+"Unfortunately, how to accomplish this will vary based on your operating "
+"system. <phrase arch=\"sparc\"> On Solaris, you can work around volume "
+"management to get raw access to the floppy. First, make sure that the floppy "
+"is auto-mounted (using <command>volcheck</command> or the equivalent command "
+"in the file manager). Then use a <command>dd</command> command of the form "
+"given above, just replace <filename>/dev/fd0</filename> with <filename>/vol/"
+"rdsk/<replaceable>floppy_name</replaceable></filename>, where "
+"<replaceable>floppy_name</replaceable> is the name the floppy disk was given "
+"when it was formatted (unnamed floppies default to the name "
+"<filename>unnamed_floppy</filename>). On other systems, ask your system "
+"administrator. </phrase>"
+msgstr ""
+"Một số hệ thống riêng thử gắn kết tự động đĩa mềm nào được nạp vào ổ. Có lẽ "
+"bạn cần phải tắt tính năng này, trước khi máy trạm cho phép bạn ghi một đĩa "
+"mềm trong <emphasis>chế độ thô</emphasis>. Tiếc là phương pháp thích hợp đặc "
+"trưng cho hệ điều hành. <phrase arch=\"sparc\"> Trên Solaris, bạn có thể "
+"chỉnh sửa tiến trình quản lý khối tin để giành quyền truy cập thô vào đĩa "
+"mềm. Trước tiên, hãy kiểm tra xem đĩa mềm đã được gắn kết tự động (dùng "
+"<command>volcheck</command> hoặc lệnh tương tư trong bộ quản lý tập tin). "
+"Sau đó, dùng lệnh <command>dd</command> dạng đưa ra trên, chỉ thay thế tên "
+"thiết bị <filename>/dev/fd0</filename> bằng <filename>/vol/rdsk/"
+"<replaceable>tên_đĩa_mềm</replaceable></filename>, mà "
+"<replaceable>tên_đĩa_mềm</replaceable> là tên được đặt cho đĩa mềm khi nó "
+"được định dạng (đĩa mềm vô danh có tên mặc định là <filename>unnamed_floppy</"
+"filename>). Trên hệ thống khác, hãy hỏi quản trị hệ thống. </phrase>"
+
+#. Tag: para
+#: install-methods.xml:350
+#, no-c-format
+msgid ""
+"If writing a floppy on powerpc Linux, you will need to eject it. The "
+"<command>eject</command> program handles this nicely; you might need to "
+"install it."
+msgstr ""
+"Nếu bạn ghi đĩa mềm trên máy PowerPC chạy Linux, bạn sẽ cần phải đẩy ra đĩa. "
+"Khuyên bạn dùng chương trình <command>eject</command>; có lẽ bạn cần phải "
+"cài đặt nó trước tiên."
+
+#. Tag: title
+#: install-methods.xml:368
+#, no-c-format
+msgid "Writing Disk Images From DOS, Windows, or OS/2"
+msgstr "Ghi ảnh đĩa từ DOS, Windows, hay OS/2"
+
+#. Tag: para
+#: install-methods.xml:370
+#, no-c-format
+msgid ""
+"If you have access to an i386 or amd64 machine, you can use one of the "
+"following programs to copy images to floppies."
+msgstr ""
+"Nếu bạn có khả năng truy cập một máy kiểu i386 hoặc amd64, bạn có thể dùng "
+"một của những chương trình sau đây để sao chép ảnh vào đĩa mềm."
+
+#. Tag: para
+#: install-methods.xml:375
+#, no-c-format
+msgid ""
+"The <command>rawrite1</command> and <command>rawrite2</command> programs can "
+"be used under MS-DOS. To use these programs, first make sure that you are "
+"booted into DOS. Trying to use these programs from within a DOS box in "
+"Windows, or double-clicking on these programs from the Windows Explorer is "
+"<emphasis>not</emphasis> expected to work."
+msgstr ""
+"Dưới MS-DOS, có thể sử dụng chương trình <command>rawrite1</command> và "
+"<command>rawrite2</command>. Để làm như thế, trước tiên hãy kiểm tra xem bạn "
+"đã khởi động vào hệ điều hành DOS. Việc thử dùng chương trình này bên trong "
+"hộp DOS trong hệ điều hành Windows, hoặc việc nhấn đôi vào chương trình này "
+"trong Windows Explorer rất có thể sẽ <emphasis>không phải</emphasis> hoạt "
+"động được."
+
+#. Tag: para
+#: install-methods.xml:383
+#, no-c-format
+msgid ""
+"The <command>rwwrtwin</command> program runs on Windows 95, NT, 98, 2000, "
+"ME, XP and probably later versions. To use it you will need to unpack diskio."
+"dll in the same directory."
+msgstr ""
+"Chương trình <command>rwwrtwin</command> chạy dưới hệ điều hành Windows 95, "
+"NT, 98, 2000, ME, XP và rất có thể dưới các phiên bản sau. Để sử dụng nó, "
+"bạn sẽ cần phải giải nén tập tin « diskio.dll » trong cùng thư mục."
+
+#. Tag: para
+#: install-methods.xml:389
+#, no-c-format
+msgid ""
+"These tools can be found on the Official &debian; CD-ROMs under the "
+"<filename>/tools</filename> directory."
+msgstr ""
+"Có thể tìm thấy những công cụ này trên đĩa CD-ROM &debian; chính thức, dưới "
+"thư mục <filename>/tools</filename> (công cụ)."
+
+#. Tag: title
+#: install-methods.xml:402
+#, no-c-format
+msgid "Writing Disk Images From MacOS"
+msgstr "Ghi ảnh đĩa từ MacOS"
+
+#. Tag: para
+#: install-methods.xml:403
+#, no-c-format
+msgid ""
+"An AppleScript, <application>Make &debian; Floppy</application>, is "
+"available for burning floppies from the provided disk image files. It can be "
+"downloaded from <ulink url=\"ftp://ftp2.sourceforge.net/pub/sourceforge/d/de/"
+"debian-imac/MakeDebianFloppy.sit\"></ulink>. To use it, just unstuff it on "
+"your desktop, and then drag any floppy image file to it. You must have "
+"Applescript installed and enabled in your extensions manager. Disk Copy will "
+"ask you to confirm that you wish to erase the floppy and proceed to write "
+"the file image to it."
+msgstr ""
+"Có một văn lệnh AppleScript tên <application>Make &debian; Floppy</"
+"application> (tạo đĩa mềm &debian;) sẵn sàng để chép ra đĩa mềm từ các tập "
+"tin ảnh đĩa được cung cấp. Bạn có thể tải nó xuống <ulink url=\"ftp://ftp2."
+"sourceforge.net/pub/sourceforge/d/de/debian-imac/MakeDebianFloppy.sit\"></"
+"ulink>. Để sử dụng nó, chỉ giải nén nó vào Desktop (nền màn hình), sau đó "
+"kéo vào nó tập tin ảnh đĩa mềm nào. Tiến trình này yêu cầu AppleScript được "
+"cài đặt, và được hiệu lực trong Extensions Manager (bộ quản lý các phần mở "
+"rộng). Chương trình Disk Copy (sao chép đĩa) sẽ nhắc bạn xác nhận muốn xoá "
+"bỏ hẳn đĩa mềm đó, sau đó nó sẽ ghi vào đó ảnh tập tin."
+
+#. Tag: para
+#: install-methods.xml:414
+#, no-c-format
+msgid ""
+"You can also use the MacOS utility <command>Disk Copy</command> directly, or "
+"the freeware utility <command>suntar</command>. The <filename>root.bin</"
+"filename> file is an example of a floppy image. Use one of the following "
+"methods to create a floppy from the floppy image with these utilities."
+msgstr ""
+"Cũng có thể dùng trực tiếp tiện ích Mac OS <command>Disk Copy</command> (sao "
+"chép đĩa) hay tiện ích giải nén phần mềm biếu không <command>suntar</"
+"command>. Tập tin <filename>root.bin</filename> là một ảnh đĩa mềm thí dụ. "
+"Hãy dùng một của những phương pháp sau đây để tạo một đĩa mềm từ ảnh đĩa mềm "
+"bằng những tiện ích này."
+
+#. Tag: title
+#: install-methods.xml:425
+#, no-c-format
+msgid "Writing Disk Images with <command>Disk Copy</command>"
+msgstr "Ghi ảnh đĩa bằng <command>Disk Copy</command>"
+
+#. Tag: para
+#: install-methods.xml:426
+#, no-c-format
+msgid ""
+"If you are creating the floppy image from files which were originally on the "
+"official &debian-gnu; CD, then the Type and Creator are already set "
+"correctly. The following <command>Creator-Changer</command> steps are only "
+"necessary if you downloaded the image files from a &debian; mirror."
+msgstr ""
+"Nếu bạn đang tạo ảnh đĩa mềm từ một số tập tin đã có trên đĩa CD &debian-"
+"gnu; chính thức, thì cả hai thuộc tính Type (loại) và Creator (bộ tạo) đã "
+"được lập cho đúng. Chỉ cần phải theo những bước <command>Creator-Changer</"
+"command> (thay đổi bộ tạo) theo đây nếu bạn đã tải các tập tin ảnh xuống một "
+"máy nhân bản &debian;."
+
+#. Tag: para
+#: install-methods.xml:435
+#, no-c-format
+msgid ""
+"Obtain <ulink url=\"&url-powerpc-creator-changer;\">Creator-Changer</ulink> "
+"and use it to open the <filename>root.bin</filename> file."
+msgstr ""
+"Lấy tiện ích <ulink url=\"&url-powerpc-creator-changer;\">Creator-Changer</"
+"ulink> và dùng nó để mở tập tin <filename>root.bin</filename>."
+
+#. Tag: para
+#: install-methods.xml:442
+#, no-c-format
+msgid ""
+"Change the Creator to <userinput>ddsk</userinput> (Disk Copy), and the Type "
+"to <userinput>DDim</userinput> (binary floppy image). The case is sensitive "
+"for these fields."
+msgstr ""
+"Thay đổi thông tin Creator thành <userinput>ddsk</userinput> (Disk Copy), và "
+"thay đổi Type thành <userinput>DDim</userinput> (ảnh đĩa mềm nhị phân). Hai "
+"trường này phân biệt chữ hoa/thường."
+
+#. Tag: para
+#: install-methods.xml:449
+#, no-c-format
+msgid ""
+"<emphasis>Important:</emphasis> In the Finder, use <userinput>Get Info</"
+"userinput> to display the Finder information about the floppy image, and "
+"<quote>X</quote> the <userinput>File Locked</userinput> check box so that "
+"MacOS will be unable to remove the boot blocks if the image is accidentally "
+"mounted."
+msgstr ""
+"<emphasis>Quan trọng:</emphasis> trong Finder, hãy chọn ảnh đĩa mềm rồi bật "
+"tính năng <userinput>Get Info</userinput> (⌘-i, lấy thông tin) để hiển thị "
+"thông tin về nó. Trong hộp thông tin đó, đánh dấu trong hộp chọn ở cạnh "
+"<userinput>File Locked</userinput> (tập tin bị khoá) để ngăn cản hệ điều "
+"hành MacOS gỡ bỏ các khối tin khởi động nếu ảnh này được gắn kết tình cờ."
+
+#. Tag: para
+#: install-methods.xml:458
+#, no-c-format
+msgid ""
+"Obtain <command>Disk Copy</command>; if you have a MacOS system or CD it "
+"will very likely be there already, otherwise try <ulink url=\"&url-powerpc-"
+"diskcopy;\"></ulink>."
+msgstr ""
+"Lấy tiện ích <command>Disk Copy</command>; nếu bạn có hệ điều hành MacOS hay "
+"đĩa CD cài đặt nó, rất có thể là tiện ích này đã có ; nếu không, xem <ulink "
+"url=\"&url-powerpc-diskcopy;\"></ulink>."
+
+#. Tag: para
+#: install-methods.xml:465
+#, no-c-format
+msgid ""
+"Run <command>Disk Copy</command>, and select <menuchoice> "
+"<guimenu>Utilities</guimenu> <guimenuitem>Make a Floppy</guimenuitem> </"
+"menuchoice>, then select the <emphasis>locked</emphasis> image file from the "
+"resulting dialog. It will ask you to insert a floppy, then ask if you really "
+"want to erase it. When done it should eject the floppy."
+msgstr ""
+"Chạy tiện ích <command>Disk Copy</command>, rồi chọn <menuchoice> "
+"<guimenu>Utilities</guimenu> <guimenuitem>Make a Floppy</guimenuitem> </"
+"menuchoice> (tiện ích/tạo đĩa mềm), sau đó, chọn tập tin ảnh <emphasis>bị "
+"khoá</emphasis> trong hộp thoại xuất hiện. Hộp thoại sẽ nhắc bạn nạp đĩa "
+"mềm, rồi hỏi nếu bạn thật sự muốn xoá nó hoàn toàn: xoá đi. Khi làm xong, "
+"chương trình nên đẩy ra đĩa."
+
+#. Tag: title
+#: install-methods.xml:480
+#, no-c-format
+msgid "Writing Disk Images with <command>suntar</command>"
+msgstr "Ghi ảnh đĩa bằng <command>suntar</command>"
+
+#. Tag: para
+#: install-methods.xml:484
+#, no-c-format
+msgid ""
+"Obtain <command>suntar</command> from <ulink url=\"&url-powerpc-suntar;\"> </"
+"ulink>. Start the <command>suntar</command> program and select "
+"<quote>Overwrite Sectors...</quote> from the <userinput>Special</userinput> "
+"menu."
+msgstr ""
+"Lấy tiện ích <command>suntar</command> từ <ulink url=\"&url-powerpc-suntar;"
+"\"> </ulink>. Khởi chạy chương trình <command>suntar</command> rồi chọn "
+"<quote>Overwrite Sectors...</quote> (ghi đè lên các rãnh ghi) trong trình "
+"đơn <userinput>Special</userinput> (đặc biệt)."
+
+#. Tag: para
+#: install-methods.xml:492
+#, no-c-format
+msgid ""
+"Insert the floppy disk as requested, then hit &enterkey; (start at sector 0)."
+msgstr ""
+"Khi được nhắc, nạp đĩa mềm, rồi bấm phím &enterkey; (bất đầu ở rãnh ghi 0)."
+
+#. Tag: para
+#: install-methods.xml:498
+#, no-c-format
+msgid ""
+"Select the <filename>root.bin</filename> file in the file-opening dialog."
+msgstr "Chọn tập tin <filename>root.bin</filename> trong hộp thoại mở tập tin."
+
+#. Tag: para
+#: install-methods.xml:503
+#, no-c-format
+msgid ""
+"After the floppy has been created successfully, select <menuchoice> "
+"<guimenu>File</guimenu> <guimenuitem>Eject</guimenuitem> </menuchoice>. If "
+"there are any errors writing the floppy, simply toss that floppy and try "
+"another."
+msgstr ""
+"Sau khi đĩa mềm được tạo thành công, hãy chọn <menuchoice> <guimenu>File</"
+"guimenu> <guimenuitem>Eject</guimenuitem> </menuchoice> (tập tin/đẩy ra). "
+"Nếu gặp lỗi nào trong khi tạo đĩa mềm, đơn giản hãy bỏ đĩa và thử đĩa mới."
+
+#. Tag: para
+#: install-methods.xml:511
+#, no-c-format
+msgid ""
+"Before using the floppy you created, <emphasis>set the write protect tab</"
+"emphasis>! Otherwise if you accidentally mount it in MacOS, MacOS will "
+"helpfully ruin it."
+msgstr ""
+"Trước khi sử dụng đĩa mềm bạn đã tạo, hãy <emphasis>bật nút chống lại ghi</"
+"emphasis>! Nếu không, hệ điều hành MacOS sẽ hủy đĩa này nếu nó được gắn kết "
+"tình cờ."
+
+#. Tag: title
+#: install-methods.xml:530
+#, no-c-format
+msgid "Preparing Files for USB Memory Stick Booting"
+msgstr "Chuẩn bị tập tin để khởi động thanh bộ nhớ USB"
+
+#. Tag: para
+#: install-methods.xml:532
+#, no-c-format
+msgid ""
+"There are two installation methods possible when booting from USB stick. The "
+"first is to only use the USB stick to boot the installer, and then install "
+"completely from the network. The second is to also copy a CD image onto the "
+"USB stick and use that as a source for packages, possibly in combination "
+"with a mirror."
+msgstr ""
+"Có hai phương pháp cài đặt có thể làm được khi khởi động từ một thanh USB. "
+"Phương pháp trước là chỉ sử dụng thanh USB để khởi động trình cài đặt, sau "
+"đó cài đặt hoàn toàn từ mạng. Phương pháp sau là cũng sao chép vào thanh USB "
+"một ảnh đĩa CD, và sử dụng nó làm một nguồn cho gói, có thể là cùng với một "
+"máy nhân bản &debian;."
+
+#. Tag: para
+#: install-methods.xml:540
+#, no-c-format
+msgid ""
+"To prepare the USB stick, you will need a system where GNU/Linux is already "
+"running and where USB is supported. With current GNU/Linux systems the USB "
+"stick should be automatically recognized when you insert it. If it is not "
+"you should check that the usb-storage kernel module is loaded. When the USB "
+"stick is inserted, it will be mapped to a device named <filename>/dev/sdX</"
+"filename>, where the <quote>X</quote> is a letter in the range a-z. You "
+"should be able to see to which device the USB stick was mapped by running "
+"the command <command>dmesg</command> after inserting it. To write to your "
+"stick, you may have to turn off its write protection switch."
+msgstr ""
+"Để chuẩn bị thanh USB, bạn cần một hệ thống đang chạy GNU/Linux và hỗ trợ "
+"USB. Dùng hệ thống Linux hiện thời, thanh USB nên được tự động nhận ra khi "
+"bạn nạp nó vào. Không thì bạn nên kiểm tra lại mô-đun usb-storage đã được "
+"nạp chưa. Khi thanh USB được nạp, nó sẽ được ánh xạ tới một thiết bị tên "
+"<filename>/dev/sdX</filename>, mà <quote>X</quote> là một chữ trong phạm vi "
+"ASCII a-z. Bạn nên có khả năng thấy thiết bị đích bằng cách chạy lệnh "
+"<command>dmesg</command> sau khi nạp vào. Để ghi vào thanh đó, có lẽ bạn cần "
+"phải tắt cái chuyển bảo vệ chống ghi của nó."
+
+#. Tag: para
+#: install-methods.xml:553
+#, no-c-format
+msgid ""
+"The procedures described in this section will destroy anything already on "
+"the device! Make very sure that you use the correct device name for your USB "
+"stick. If you use the wrong device the result could be that all information "
+"on for example a hard disk could be lost."
+msgstr ""
+"GHI CHÚ : các thủ tục diễn tả trong phần này sẽ hủy bất cứ dữ liệu nào vẫn "
+"còn nằm trên thiết bị đó. Kiểm tra rất cẩn thận bạn đang sử dụng tên thiết "
+"bị đúng cho thanh USB. Nếu bạn sử dụng thiết bị không đúng, kết quả có thể "
+"là tất cả các thông tin nằm trên (ví dụ) một đĩa cứng bị mất hoàn toàn."
+
+#. Tag: para
+#: install-methods.xml:560
+#, no-c-format
+msgid ""
+"To prepare a USB stick that only boots the installer, which then proceeds to "
+"install entirely from the network, you'll need to download the "
+"<filename>mini.iso</filename> image from the <filename>netboot</filename> "
+"directory (at the location mentioned in <xref linkend=\"where-files\"/>), "
+"and write this file directly to the USB stick, overwriting its current "
+"contents. This method will work with very small USB sticks, only a few "
+"megabytes in size."
+msgstr ""
+"Để chuẩn bị một thanh USB chỉ khởi động trình cài đặt, mà sau đó cài đặt "
+"hoàn toàn từ mạng, bạn cần phải tải tập tin <filename>mini.iso</filename> "
+"xuống thư mục <filename>netboot</filename> (ở vị trí lưu ý trong <xref "
+"linkend=\"where-files\"/>), và ghi tập tin này một cách trực tiếp vào thanh "
+"USB, cũng ghi đè lên nội dung đã có. Phương pháp này hoạt động được với "
+"thanh USB rất nhỏ, chỉ có kích cỡ vài MB."
+
+#. Tag: para
+#: install-methods.xml:570
+#, no-c-format
+msgid ""
+"For example, when using an existing GNU/Linux system, the <filename>mini."
+"iso</filename> file can be written to a USB stick as follows: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>dd if=<replaceable>debian.iso</replaceable> of=/dev/<replaceable>sdX</replaceable></userinput>\n"
+"<prompt>#</prompt> <userinput>sync</userinput>\n"
+"</screen></informalexample> To add firmware to a USB stick prepared in this "
+"way, obtain the necessary firmware files. See <xref linkend=\"loading-"
+"firmware\"/> for more information. Now unplug and replug the USB stick, and "
+"two partitions should now be visible on it. You should mount the second of "
+"the two partitions, and unpack the firmware onto it."
+msgstr ""
+"Chẳng hạn, khi sử dụng một hệ thống GNU/Linux đã có, tập tin <filename>mini."
+"iso</filename> có thể được ghi vào một thanh USB như theo đây: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>dd if=<replaceable>debian.iso</replaceable> of=/dev/<replaceable>sdX</replaceable></userinput>\n"
+"<prompt>#</prompt> <userinput>sync</userinput>\n"
+"</screen></informalexample> Để thêm phần vững vào một thanh USB được chuẩn "
+"bị bằng cách này, trước tiên lấy những tập tin phần vững cần thiết. Xem "
+"<xref linkend=\"loading-firmware\"/> để tìm thêm thông tin. Sau đó, tháo ra "
+"và chèn lại thanh USB: hai thành phần nên hiển thị trên nó. Bạn nên gắn kết "
+"thành phần thứ hai, và giải nén phần vững vào nó."
+
+# Literal: don't translate; Nghĩa chữ : dừng dịch
+#. Tag: screen
+#: install-methods.xml:582
+#, no-c-format
+msgid ""
+"# mount /dev/<replaceable>sdX2</replaceable> /mnt\n"
+"# cd /mnt\n"
+"# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz\n"
+"# cd /\n"
+"# umount"
+msgstr ""
+"# mount /dev/<replaceable>sdX2</replaceable> /mnt\n"
+"# cd /mnt\n"
+"# tar zxvf <replaceable>/đường/dẫn/đến/</replaceable>firmware.tar.gz\n"
+"# cd /\n"
+"# umount"
+
+#. Tag: para
+#: install-methods.xml:584
+#, no-c-format
+msgid ""
+"To prepare a USB stick that installs packages from a CD image included on "
+"the stick, use the installer images found in the <filename>hd-media</"
+"filename> directory. Either the <quote>easy way</quote> or the "
+"<quote>flexible way</quote> can be used to copy the image to the USB stick. "
+"For this installation method you will also need to download a CD image. The "
+"installation image and the CD image must be based on the same release of &d-"
+"i;. If they do not match you are likely to get errors<footnote> <para> The "
+"error message that is most likely to be displayed is that no kernel modules "
+"can be found. This means that the version of the kernel module udebs "
+"included on the CD image is different from the version of the running "
+"kernel. </para> </footnote> during the installation."
+msgstr ""
+"Để chuẩn bị một thanh USB cài đặt gói từ một ảnh đĩa CD cũng nằm trên thanh "
+"đó, hãy sử dụng những ảnh cài đặt nằm trong thư mục <filename>hd-media</"
+"filename>. Hoặc <quote>phương pháp dễ dàng</quote> (the easy way) hoặc "
+"<quote>phương pháp dẻo</quote> (the flexible way) có thể được sử dụng để sao "
+"chép ảnh sang thanh USB. Để cài đặt bằng cách này, bạn cũng cần phải tải về "
+"một ảnh đĩa CD. Ảnh cài đặt và ảnh đĩa CD phải dựa vào cùng một bản phát "
+"hành &d-i;, không thì bạn rất có thể gặp lỗi<footnote> <para> Thông điệp lỗi "
+"thường gặp nhất là không tìm thấy mô-đun hạt nhân. Có nghĩa là ảnh đĩa CD "
+"chứa một phiên bản udeb mô-đun hạt nhân khác với phiên bản của hạt nhân đang "
+"chạy. </para> </footnote> trong khi cài đặt."
+
+#. Tag: para
+#: install-methods.xml:604
+#, no-c-format
+msgid ""
+"Note that the USB stick should be at least 256 MB in size (smaller setups "
+"are possible if you follow <xref linkend=\"usb-copy-flexible\"/>)."
+msgstr ""
+"Ghi chú rằng thanh USB nên có khả năng ít nhất 256 MB (còn có thể tạo thiết "
+"lập nhỏ hơn nếu bạn theo <xref linkend=\"usb-copy-flexible\"/>)."
+
+#. Tag: title
+#: install-methods.xml:612
+#, no-c-format
+msgid "Copying the files &mdash; the easy way"
+msgstr "Sao chép tập tin một cách dễ dàng"
+
+#. Tag: para
+#: install-methods.xml:613
+#, no-c-format
+msgid ""
+"There is an all-in-one file <filename>hd-media/boot.img.gz</filename> which "
+"contains all the installer files (including the kernel) <phrase arch="
+"\"x86\">as well as <classname>syslinux</classname> and its configuration "
+"file</phrase> <phrase arch=\"powerpc\">as well as <classname>yaboot</"
+"classname> and its configuration file</phrase>."
+msgstr ""
+"Có một tập tin toàn bộ <filename>hd-media/boot.img.gz</filename> chứa tất cả "
+"các tập tin cài đặt (gồm có hạt nhân) <phrase arch=\"x86\">cũng như "
+"<classname>syslinux</classname> và tập tin cấu hình của nó.</phrase> <phrase "
+"arch=\"powerpc\">cũng như <classname>yaboot</classname> và tập tin cấu hình "
+"của nó.</phrase>"
+
+#. Tag: para
+#: install-methods.xml:622
+#, no-c-format
+msgid ""
+"Note that, although convenient, this method does have one major "
+"disadvantage: the logical size of the device will be limited to 256 MB, even "
+"if the capacity of the USB stick is larger. You will need to repartition the "
+"USB stick and create new file systems to get its full capacity back if you "
+"ever want to use it for some different purpose. A second disadvantage is "
+"that you cannot copy a full CD image onto the USB stick, but only the "
+"smaller businesscard or netinst CD images."
+msgstr ""
+"Ghi chú rằng, dù tiện ích, phương pháp này vẫn có một nhược điểm lớn: kích "
+"cỡ hợp lý của khối tin bị hạn chế thành 256 MB, thậm chí nếu thanh USB có "
+"nhiều khả năng hơn. Bạn cần phải phân vùng lại thanh USB và tạo hệ thống tập "
+"tin mới để phục hồi khả năng đầy đủ về sau nếu bạn muốn sử dụng nó nhằm mục "
+"đích khác. Một nhược điểm thứ hai là bạn không thể sao chép vào thanh USB "
+"một ảnh đĩa CD đầy đủ, chỉ ảnh CD nhỏ hơn kiểu danh thiếp (businesscard) hay "
+"cài đặt qua mạng (netinst)."
+
+#. Tag: para
+#: install-methods.xml:632
+#, no-c-format
+msgid "To use this image simply extract it directly to your USB stick:"
+msgstr "Để sử dụng ảnh này, chỉ cần giải nén nó trực tiếp vào thanh USB:"
+
+# Literal: don't translate / Nghĩa chữ: đừng dịch
+#. Tag: screen
+#: install-methods.xml:636
+#, no-c-format
+msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
+msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
+
+#. Tag: para
+#: install-methods.xml:638
+#, no-c-format
+msgid ""
+"Create a partition of type \"Apple_Bootstrap\" on your USB stick using "
+"<command>mac-fdisk</command>'s <userinput>C</userinput> command and extract "
+"the image directly to that:"
+msgstr ""
+"Tạo một phiên bản kiểu « Apple_Bootstrap » trên thanh USB, dùng lệnh "
+"<userinput>C</userinput> của <command>mac-fdisk</command>, và giải nén ảnh "
+"một cách trực tiếp vào đó :"
+
+# Literal: don't translate / Nghĩa chữ: đừng dịch
+#. Tag: screen
+#: install-methods.xml:644
+#, no-c-format
+msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
+msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
+
+#. Tag: para
+#: install-methods.xml:646
+#, no-c-format
+msgid ""
+"After that, mount the USB memory stick <phrase arch=\"x86\">"
+"(<userinput>mount /dev/<replaceable>sdX</replaceable> /mnt</userinput>),</"
+"phrase> <phrase arch=\"powerpc\">(<userinput>mount /dev/<replaceable>sdX2</"
+"replaceable> /mnt</userinput>),</phrase> which will now have <phrase arch="
+"\"x86\">a FAT filesystem</phrase> <phrase arch=\"powerpc\">an HFS "
+"filesystem</phrase> on it, and copy a &debian; netinst or businesscard ISO "
+"image to it. Unmount the stick (<userinput>umount /mnt</userinput>) and you "
+"are done."
+msgstr ""
+"Sau đó, gắn kết thanh USB <phrase arch=\"x86\">(<userinput>mount /dev/"
+"<replaceable>sdX</replaceable> /mnt</userinput>),</phrase> <phrase arch="
+"\"powerpc\">(<userinput>mount /dev/<replaceable>sdX2</replaceable> /mnt</"
+"userinput>),</phrase> mà giờ chứa một <phrase arch=\"x86\">hệ thống tập tin "
+"FAT</phrase> <phrase arch=\"powerpc\">một hệ thống tập tin HFS</phrase>, và "
+"sao chép vào nó một ảnh ISO &debian; kiểu danh thiếp (businesscard) hay cài "
+"đặt qua mạng (netinst). Tháo gắn kết thanh USB (<userinput>umount /mnt</"
+"userinput>) và bạn đã hoàn tất."
+
+#. Tag: title
+#: install-methods.xml:663
+#, no-c-format
+msgid "Copying the files &mdash; the flexible way"
+msgstr "Sao chép tập tin một cách dẻo"
+
+#. Tag: para
+#: install-methods.xml:664
+#, no-c-format
+msgid ""
+"If you like more flexibility or just want to know what's going on, you "
+"should use the following method to put the files on your stick. One "
+"advantage of using this method is that &mdash; if the capacity of your USB "
+"stick is large enough &mdash; you have the option of copying a full CD ISO "
+"image to it."
+msgstr ""
+"Nếu bạn thích tính chất dẻo hơn, hoặc chỉ muốn biết có gì xảy ra, bạn nên sử "
+"dụng phương pháp theo đây để sao chép các tập tin vào thanh USB. Một lợi ích "
+"về sử dụng phương pháp này là (nếu thanh USB có đủ khả năng) bạn có dịp sao "
+"chép vào nó một ảnh ISO đĩa CD đầy đủ."
+
+#. Tag: title
+#: install-methods.xml:679 install-methods.xml:791
+#, no-c-format
+msgid "Partitioning the USB stick"
+msgstr "Phân vùng thanh USB"
+
+#. Tag: para
+#: install-methods.xml:680
+#, no-c-format
+msgid ""
+"We will show how to set up the memory stick to use the first partition, "
+"instead of the entire device."
+msgstr ""
+"Tiết đoạn này diễn tả phương pháp thiết lập thanh USB để dùng chỉ phân vùng "
+"thứ nhất, thay vì toàn bộ thiết bị."
+
+#. Tag: para
+#: install-methods.xml:685
+#, no-c-format
+msgid ""
+"Since most USB sticks come pre-configured with a single FAT16 partition, you "
+"probably won't have to repartition or reformat the stick. If you have to do "
+"that anyway, use <command>cfdisk</command> or any other partitioning tool to "
+"create a FAT16 partition<footnote> <para> Don't forget to set the "
+"<quote>bootable</quote> bootable flag. </para> </footnote>, and then create "
+"the filesystem using: <informalexample><screen>\n"
+"# mkdosfs /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Take care that you use the correct device name "
+"for your USB stick. The <command>mkdosfs</command> command is contained in "
+"the <classname>dosfstools</classname> &debian; package."
+msgstr ""
+"Vì phần lớn các thanh USB được cấu hình sẵn với một phân vùng FAT16 riêng "
+"lẻ, rất có thể là bạn không cần phân vùng lại hay định dạng lại thanh đó. "
+"Nếu bạn vẫn cần làm như thế, hãy dùng <command>cfdisk</command> hay bất cứ "
+"công cụ phân vùng khác nào để tạo một phân vùng FAT16<footnote> <para> Đừng "
+"quên lập cờ có khả năng khởi động: <quote>bootable</quote>. </para> </"
+"footnote>, sau đó tạo hệ thống tập tin dùng: <informalexample><screen>\n"
+"# mkdosfs /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Kiểm tra lại bạn dùng tên thiết bị đúng cho "
+"thanh USB. Lệnh <command>mkdosfs</command> có sẵn trong gói &debian; "
+"<classname>dosfstools</classname>."
+
+#. Tag: para
+#: install-methods.xml:704
+#, no-c-format
+msgid ""
+"In order to start the kernel after booting from the USB stick, we will put a "
+"boot loader on the stick. Although any boot loader (e.g. <classname>lilo</"
+"classname>) should work, it's convenient to use <classname>syslinux</"
+"classname>, since it uses a FAT16 partition and can be reconfigured by just "
+"editing a text file. Any operating system which supports the FAT file system "
+"can be used to make changes to the configuration of the boot loader."
+msgstr ""
+"Để khởi chạy hạt nhân sau khi khởi động từ thanh USB, bạn cần phải để một bộ "
+"nạp khởi động (bootloader) trên thanh đó. Dù bất cứ bộ nạp khởi động nào (v."
+"d. <classname>lilo</classname>) nên có tác động, tiện ích là sử dụng "
+"<classname>syslinux</classname>, vì nó dùng một phân vùng FAT16 và có thể "
+"được cấu hình lại bằng cách chỉ chỉnh sửa một tập tin văn bản. Bất cứ hệ "
+"điều hành nào hỗ trợ hệ thống tập tin FAT thì có thể được sử dụng để sửa đổi "
+"cấu hình của bộ nạp khởi động."
+
+#. Tag: para
+#: install-methods.xml:714
+#, no-c-format
+msgid ""
+"To put <classname>syslinux</classname> on the FAT16 partition on your USB "
+"stick, install the <classname>syslinux</classname> and <classname>mtools</"
+"classname> packages on your system, and do: <informalexample><screen>\n"
+"# syslinux /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Again, take care that you use the correct device "
+"name. The partition must not be mounted when starting <command>syslinux</"
+"command>. This procedure writes a boot sector to the partition and creates "
+"the file <filename>ldlinux.sys</filename> which contains the boot loader "
+"code."
+msgstr ""
+"Để chèn <classname>syslinux</classname> vào phiên bản FAT16 partition trên "
+"thanh USB, cài đặt vào hệ thống hai gói <classname>syslinux</classname> và "
+"<classname>mtools</classname>, và chạy câu lệnh này: "
+"<informalexample><screen>\n"
+"# syslinux /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Lại kiểm tra xem bạn đang sử dụng tên thiết bị "
+"đúng. Khi khởi chạy <command>syslinux</command>, phiên bản phải chưa được "
+"nạp. Thủ tục này ghi vào phiên bản một rãnh ghi khởi động, và tạo tập tin "
+"<filename>ldlinux.sys</filename> mà chứa mã của bộ nạp khởi động."
+
+#. Tag: title
+#: install-methods.xml:731 install-methods.xml:838
+#, no-c-format
+msgid "Adding the installer image"
+msgstr "Thêm ảnh cài đặt"
+
+#. Tag: para
+#: install-methods.xml:732
+#, no-c-format
+msgid ""
+"Mount the partition (<userinput>mount /dev/<replaceable>sdX1</replaceable> /"
+"mnt</userinput>) and copy the following installer image files to the stick: "
+"<itemizedlist> <listitem><para> <filename>vmlinuz</filename> or "
+"<filename>linux</filename> (kernel binary) </para></listitem> "
+"<listitem><para> <filename>initrd.gz</filename> (initial ramdisk image) </"
+"para></listitem> </itemizedlist> You can choose between either the regular "
+"version or the graphical version of the installer. The latter can be found "
+"in the <filename>gtk</filename> subdirectory. If you want to rename the "
+"files, please note that <classname>syslinux</classname> can only process DOS "
+"(8.3) file names."
+msgstr ""
+"Gắn kết phân vùng (<userinput>mount /dev/<replaceable>sdX1</replaceable> /"
+"mnt</userinput>) và sao chép vào thanh những tập tin ảnh cài đặt theo đây: "
+"<itemizedlist> <listitem><para> <filename>vmlinuz</filename> hay "
+"<filename>linux</filename> (tập tin nhị phân hạt nhân) </para></listitem> "
+"<listitem><para> <filename>initrd.gz</filename> (ảnh đĩa RAM đầu tiên) </"
+"para></listitem> </itemizedlist> Bạn có thể chọn hoặc phiên bản thông thường "
+"hoặc phiên bản đồ họa của trình cài đặt. Phiên bản đồ họa của trình cài đặt "
+"nằm trong thư mục con <filename>gtk</filename>. Nếu bạn muốn thay đổi tên "
+"của tập tin, ghi chú rằng <classname>syslinux</classname> chỉ có khả năng xử "
+"lý tên tập tin kiểu DOS (8.3)."
+
+#. Tag: para
+#: install-methods.xml:756
+#, no-c-format
+msgid ""
+"Next you should create a <filename>syslinux.cfg</filename> configuration "
+"file, which at a bare minimum should contain the following two lines (change "
+"the name of the kernel binary to <quote><filename>linux</filename></quote> "
+"if you used a <filename>netboot</filename> image): "
+"<informalexample><screen>\n"
+"default vmlinuz\n"
+"append initrd=initrd.gz\n"
+"</screen></informalexample> For the graphical installer you should add "
+"<userinput>vga=788</userinput> to the second line."
+msgstr ""
+"Sau đó thì bạn nên tạo một tập tin cấu hình <filename>syslinux.cfg</"
+"filename>: nó nên chứa ít nhất hai dòng này (thay đổi tên của bản nhị phân "
+"hạt nhân thành <quote><filename>linux</filename></quote> nếu bạn đã dùng một "
+"ảnh kiểu <filename>netboot</filename>): <informalexample><screen>\n"
+"default vmlinuz\n"
+"append initrd=initrd.gz\n"
+"</screen></informalexample> Đối với trình cài đặt kiểu đồ họa, bạn nên thêm "
+"vào dòng thứ hai chuỗi <userinput>vga=788</userinput>."
+
+#. Tag: para
+#: install-methods.xml:768
+#, no-c-format
+msgid ""
+"If you used an <filename>hd-media</filename> image, you should now copy a "
+"&debian; ISO image<footnote> <para> You can use either a businesscard, a "
+"netinst or a full CD image (see <xref linkend=\"official-cdrom\"/>). Be sure "
+"to select one that fits. Note that the <quote>netboot <filename>mini.iso</"
+"filename></quote> image is not usable for this purpose. </para> </footnote> "
+"onto the stick. When you are done, unmount the USB memory stick "
+"(<userinput>umount /mnt</userinput>)."
+msgstr ""
+"Nếu bạn đã sử dụng một ảnh <filename>hd-media</filename>, bạn giờ nên sao "
+"chép vào thanh USB một ảnh ISO &debian;<footnote> <para>Bạn có thể sử dụng "
+"một ảnh ISO kiểu danh thiếp (businesscard), một ảnh ISO kiểu cài đặt qua "
+"mạng (netinst) hay một ảnh đĩa CD đầy đủ (xem <xref linkend=\"official-cdrom"
+"\"/>). Kiểm tra lại bạn chọn kiểu thích hợp. Ghi chú rằng ảnh kiểu "
+"<quote>netbookt <filename>mini.iso</filename></quote> không chạy được nhằm "
+"mục đích này.</para> </footnote>. Một khi hoàn tất thì tháo gắn kết thanh "
+"USB (<userinput>umount /mnt</userinput>)."
+
+#. Tag: para
+#: install-methods.xml:792
+#, no-c-format
+msgid ""
+"Most USB sticks do not come pre-configured in such a way that Open Firmware "
+"can boot from them, so you will need to repartition the stick. On Mac "
+"systems, run <userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></"
+"userinput>, initialise a new partition map using the <userinput>i</"
+"userinput> command, and create a new partition of type Apple_Bootstrap using "
+"the <userinput>C</userinput> command. (Note that the first \"partition\" "
+"will always be the partition map itself.) Then type "
+"<informalexample><screen>\n"
+"$ hformat /dev/<replaceable>sdX2</replaceable>\n"
+"</screen></informalexample> Take care that you use the correct device name "
+"for your USB stick. The <command>hformat</command> command is contained in "
+"the <classname>hfsutils</classname> &debian; package."
+msgstr ""
+"Hậu hết các thanh USB không có cấu hình sẵn để Open Firmware khởi động được "
+"từ nó, do đó bạn cần phải phân vùng lại thanh USB. Trên hệ thống Mac, chạy "
+"câu lệnh<userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></userinput>,"
+"sơ khởi một sơ đồ phân vùng mới dùng lệnh <userinput>i</userinput>và tạo một "
+"phân vùng mới có kiểu <quote>Apple_Bootstrap</quote> dùng lệnh <userinput>C</"
+"userinput>. (Ghi chú rằng « phân vùng » thứ nhất lúc nào cũng là sơ đồ phân "
+"vùng chính nó.)Sau đó thì gõ câu lệnh <informalexample><screen>\n"
+"$ hformat /dev/<replaceable>sdX2</replaceable>\n"
+"</screen></informalexample> Kiểm tra lại bạn sử dụng tên thiết bị đúng cho "
+"thanh USB. Lệnh <command>hformat</command> nằm trong gói &debian; "
+"<classname>hfsutils</classname>."
+
+#. Tag: para
+#: install-methods.xml:809
+#, no-c-format
+msgid ""
+"In order to start the kernel after booting from the USB stick, we will put a "
+"boot loader on the stick. The <command>yaboot</command> boot loader can be "
+"installed on an HFS filesystem and can be reconfigured by just editing a "
+"text file. Any operating system which supports the HFS file system can be "
+"used to make changes to the configuration of the boot loader."
+msgstr ""
+"Để khởi chạy hạt nhân sau khi khởi động từ thanh USB, bạn nên để một bộ tải "
+"khởi động trên thanh đó. Bộ nạp khởi động <command>yaboot</command> có thể "
+"được cài đặt vào hệ thống tập tin kiểu HFS, cũng có thể được cấu hình lại "
+"bằng cách chỉ hiệu chỉnh một tập tin văn bản. Bất kỳ hệ điều hành nào hỗ trợ "
+"hệ thống tập tin HFS có thể được dùng để thay đổi cấu hình của bộ tải khởi "
+"động."
+
+#. Tag: para
+#: install-methods.xml:818
+#, no-c-format
+msgid ""
+"The normal <command>ybin</command> tool that comes with <command>yaboot</"
+"command> does not yet understand USB storage devices, so you will have to "
+"install <command>yaboot</command> by hand using the <classname>hfsutils</"
+"classname> tools. Type <informalexample><screen>\n"
+"$ hmount /dev/<replaceable>sdX2</replaceable>\n"
+"$ hcopy -r /usr/lib/yaboot/yaboot :\n"
+"$ hattrib -c UNIX -t tbxi :yaboot\n"
+"$ hattrib -b :\n"
+"$ humount\n"
+"</screen></informalexample> Again, take care that you use the correct device "
+"name. The partition must not be otherwise mounted during this procedure. "
+"This procedure writes the boot loader to the partition, and uses the HFS "
+"utilities to mark it in such a way that Open Firmware will boot it. Having "
+"done this, the rest of the USB stick may be prepared using the normal Unix "
+"utilities."
+msgstr ""
+"Công cụ <command>ybin</command> bình thường mà có sẵn với <command>yaboot</"
+"command> chưa hiểu thiết bị lưu trữ USB, vì vậy bạn cần phải tự cài đặt "
+"<command>yaboot</command> dùng bộ công cụ <classname>hfsutils</classname>. "
+"Gõ <informalexample><screen>\n"
+"$ hmount /dev/<replaceable>sdX2</replaceable>\n"
+"$ hcopy -r /usr/lib/yaboot/yaboot :\n"
+"$ hattrib -c UNIX -t tbxi :yaboot\n"
+"$ hattrib -b :\n"
+"$ humount\n"
+"</screen></informalexample> Lại kiểm tra xem bạn đang sử dụng tên thiết bị "
+"đúng. Phân vùng đó không thể được gắn kết bằng cách khác nào trong thủ tục "
+"này. Thủ tục này ghi vào phân vùng bộ nạp khởi động, và dùng các tiện ích "
+"HFS để đánh dấu nó bằng một cách cho phép Open Firmware khởi động nó. Một "
+"khi làm thì phần còn lại của thanh USB có thể được chuẩn bị dùng các tiện "
+"ích UNIX thông thường."
+
+#. Tag: para
+#: install-methods.xml:839
+#, no-c-format
+msgid ""
+"Mount the partition (<userinput>mount /dev/<replaceable>sdX2</replaceable> /"
+"mnt</userinput>) and copy the following installer image files to the stick:"
+msgstr ""
+"Gắn kết phân vùng (<userinput>mount /dev/<replaceable>sdX2</replaceable> /"
+"mnt</userinput>) và sao chép vào thanh USB những tập tin theo đây từ kho "
+"Debian:"
+
+#. Tag: para
+#: install-methods.xml:846
+#, no-c-format
+msgid "<filename>vmlinux</filename> (kernel binary)"
+msgstr "<filename>vmlinux</filename> (tập tin nhị phân của hạt nhân)"
+
+#. Tag: para
+#: install-methods.xml:851
+#, no-c-format
+msgid "<filename>initrd.gz</filename> (initial ramdisk image)"
+msgstr "<filename>initrd.gz</filename> (ảnh đĩa RAM đầu tiên)"
+
+#. Tag: para
+#: install-methods.xml:856
+#, no-c-format
+msgid "<filename>yaboot.conf</filename> (yaboot configuration file)"
+msgstr "<filename>yaboot.conf</filename> (tập tin cấu hình yaboot)"
+
+#. Tag: para
+#: install-methods.xml:861
+#, no-c-format
+msgid "<filename>boot.msg</filename> (optional boot message)"
+msgstr "<filename>boot.msg</filename> (thông điệp khởi động tùy chọn)"
+
+#. Tag: para
+#: install-methods.xml:868
+#, no-c-format
+msgid ""
+"The <filename>yaboot.conf</filename> configuration file should contain the "
+"following lines: <informalexample><screen>\n"
+"default=install\n"
+"root=/dev/ram\n"
+"\n"
+"message=/boot.msg\n"
+"\n"
+"image=/vmlinux\n"
+"        label=install\n"
+"        initrd=/initrd.gz\n"
+"        initrd-size=10000\n"
+"        read-only\n"
+"</screen></informalexample> Please note that the <userinput>initrd-size</"
+"userinput> parameter may need to be increased, depending on the image you "
+"are booting."
+msgstr ""
+"Tập tin cấu hình <filename>yaboot.conf</filename> nên chứa những dòng này: "
+"<informalexample><screen>\n"
+"default=install\n"
+"root=/dev/ram\n"
+"\n"
+"message=/boot.msg\n"
+"\n"
+"image=/vmlinux\n"
+"        label=install\n"
+"        initrd=/initrd.gz\n"
+"        initrd-size=10000\n"
+"        read-only\n"
+"</screen></informalexample> Ghi chú rằng có lẽ cần thiết tăng giá trị của "
+"tham số <userinput>initrd-size</userinput>, phụ thuộc vào ảnh nào đang được "
+"khởi động."
+
+#. Tag: para
+#: install-methods.xml:878
+#, no-c-format
+msgid ""
+"If you used an <filename>hd-media</filename> image, you should now copy a "
+"&debian; ISO image (businesscard, netinst or full CD image; be sure to "
+"select one that fits) onto the stick. When you are done, unmount the USB "
+"memory stick (<userinput>umount /mnt</userinput>)."
+msgstr ""
+"Nếu bạn đã sử dụng một ảnh <filename>hd-media</filename>, bạn giờ nên sao "
+"chép vào thanh USB một ảnh ISO &debian; (kiểu danh thiếp [businesscard], cài "
+"đặt qua mạng [netinst] hay ảnh đĩa CD đầy đủ : kiểm tra lại bạn chọn một ảnh "
+"vừa được vào thanh USB). Một khi hoàn tất thì tháo gắn kết thanh USB "
+"(<userinput>umount /mnt</userinput>)."
+
+#. Tag: title
+#: install-methods.xml:893
+#, no-c-format
+msgid "Booting the USB stick"
+msgstr "Khởi động thanh USB"
+
+#. Tag: para
+#: install-methods.xml:894
+#, no-c-format
+msgid ""
+"If your system refuses to boot from the memory stick, the stick may contain "
+"an invalid master boot record (MBR). To fix this, use the <command>install-"
+"mbr</command> command from the package <classname>mbr</classname>:"
+msgstr ""
+"Nếu hệ thống không khởi động được từ thanh USB, có lẽ thanh đó chứa một mục "
+"ghi khởi động chủ (Master Boot Record: MBR) không hợp lệ. Để khắc phục nó, "
+"dùng chức năng <command>install-mbr</command> của gói <classname>mbr</"
+"classname>:"
+
+# Literal: don't translate / Nghĩa chữ: đừng dịch
+#. Tag: screen
+#: install-methods.xml:901
+#, no-c-format
+msgid "# install-mbr /dev/<replaceable>sdX</replaceable>"
+msgstr "# install-mbr /dev/<replaceable>sdX</replaceable>"
+
+#. Tag: title
+#: install-methods.xml:912
+#, no-c-format
+msgid "Preparing Files for Hard Disk Booting"
+msgstr "Chuẩn bị tập tin để khởi động đĩa cứng"
+
+#. Tag: para
+#: install-methods.xml:913
+#, no-c-format
+msgid ""
+"The installer may be booted using boot files placed on an existing hard "
+"drive partition, either launched from another operating system or by "
+"invoking a boot loader directly from the BIOS."
+msgstr ""
+"Có thể khởi động trình cài đặt bằng tập tin khởi động nằm trên một phân vùng "
+"đĩa cứng đã có, hoặc được khởi chạy từ hệ điều hành khác, hoặc bằng cách gọi "
+"một bộ nạp khởi động trực tiếp từ BIOS."
+
+#. Tag: para
+#: install-methods.xml:919
+#, no-c-format
+msgid ""
+"A full, <quote>pure network</quote> installation can be achieved using this "
+"technique. This avoids all hassles of removable media, like finding and "
+"burning CD images or struggling with too numerous and unreliable floppy "
+"disks."
+msgstr ""
+"Có thể dùng phương pháp này để cài đặt <quote>hoàn toàn qua mạng</quote>. "
+"Làm như thế tránh tất cả các vấn đề về vật chứa rời, v.d. cần phải tìm và "
+"chép ra ảnh đĩa CD, hoặc gặp khó khăn quản lý đĩa mềm quá nhiều hay không "
+"đáng tin."
+
+#. Tag: para
+#: install-methods.xml:926
+#, no-c-format
+msgid ""
+"The installer cannot boot from files on an HFS+ file system. MacOS System "
+"8.1 and above may use HFS+ file systems; NewWorld PowerMacs all use HFS+. To "
+"determine whether your existing file system is HFS+, select <userinput>Get "
+"Info</userinput> for the volume in question. HFS file systems appear as "
+"<userinput>Mac OS Standard</userinput>, while HFS+ file systems say "
+"<userinput>Mac OS Extended</userinput>. You must have an HFS partition in "
+"order to exchange files between MacOS and Linux, in particular the "
+"installation files you download."
+msgstr ""
+"Trình cài đặt không thể khởi động từ tập tin nằm trên hệ thống tập tin kiểu "
+"HFS+. Hệ điều hành MacOS 8.1 và sau có khả năng dùng hệ thống tập tin HFS+; "
+"mọi máy PowerMac kiểu mới có phải dùng HFS+. Để quyết định nếu hệ thống tập "
+"tin tồn tại của bạn là HFS+ hay không, trong Finder hãy chọn đĩa chứa hệ "
+"thống tập tin đó, rồi chọn mục trình đơn <userinput>Get Info</userinput> "
+"(lấy thông tin: phím tắt là ⌘-i). Nếu hộp thông tin hiển thị đĩa có kiểu "
+"<userinput>Mac OS Extended</userinput>, hệ thống tập tin đó là HFS+, còn "
+"<userinput>Mac OS Standard</userinput> là HFS chuẩn. Bạn cần phải có ít nhất "
+"một phân vùng kiểu HFS chuẩn (không phải HFS+) để trao đổi tập tin giữa hai "
+"hệ điều hành MacOS và Linux, đặc biệt các tập tin cài đặt bạn tải về."
+
+#. Tag: para
+#: install-methods.xml:937
+#, no-c-format
+msgid ""
+"Different programs are used for hard disk installation system booting, "
+"depending on whether the system is a <quote>NewWorld</quote> or an "
+"<quote>OldWorld</quote> model."
+msgstr ""
+"Máy tính <quote>kiểu mới</quote> và <quote>kiểu cũ</quote> sử dụng chương "
+"trình khác nhau để khởi động hệ thống cài đặt trên đĩa cứng."
+
+#. Tag: title
+#: install-methods.xml:946
+#, no-c-format
+msgid ""
+"Hard disk installer booting using <command>LILO</command> or <command>GRUB</"
+"command>"
+msgstr ""
+"Khởi động trình cài đặt trên đĩa cứng bằng <command>LILO</command> hay "
+"<command>GRUB</command>"
+
+#. Tag: para
+#: install-methods.xml:948
+#, no-c-format
+msgid ""
+"This section explains how to add to or even replace an existing linux "
+"installation using either <command>LILO</command> or <command>GRUB</command>."
+msgstr ""
+"Tiết đoạn này diễn tả cách thêm, ngay cả cách thay thế bản cài đặt Linux đã "
+"có, dùng bộ nạp khởi động hoặc <command>LILO</command> hoặc <command>GRUB</"
+"command>."
+
+#. Tag: para
+#: install-methods.xml:954
+#, no-c-format
+msgid ""
+"At boot time, both bootloaders support loading in memory not only the "
+"kernel, but also a disk image. This RAM disk can be used as the root file-"
+"system by the kernel."
+msgstr ""
+"Vào lúc khởi động, cả hai bộ nạp khởi động hỗ trợ khả năng tải vào bộ nhớ "
+"không phải chỉ hạt nhân, cũng lại một ảnh đĩa. Hạt nhân có thể sử dụng đĩa "
+"RAM này như là hệ thống tập tin gốc."
+
+#. Tag: para
+#: install-methods.xml:960
+#, no-c-format
+msgid ""
+"Copy the following files from the &debian; archives to a convenient location "
+"on your hard drive (note that LILO can not boot from files on an NTFS file "
+"system), for instance to <filename>/boot/newinstall/</filename>."
+msgstr ""
+"Sao chép những tập tin theo đây từ kho lưu &debian; vào một vị trí tiện lợi "
+"trên đĩa cứng, v.d. vào <filename>/boot/newinstall/</filename>."
+
+#. Tag: para
+#: install-methods.xml:968
+#, no-c-format
+msgid "<filename>vmlinuz</filename> (kernel binary)"
+msgstr "<filename>vmlinuz</filename> (tập tin nhị phân của hạt nhân)"
+
+#. Tag: para
+#: install-methods.xml:973
+#, no-c-format
+msgid "<filename>initrd.gz</filename> (ramdisk image)"
+msgstr "<filename>initrd.gz</filename> (ảnh đĩa RAM)"
+
+#. Tag: para
+#: install-methods.xml:980
+#, no-c-format
+msgid ""
+"Finally, to configure the bootloader proceed to <xref linkend=\"boot-initrd"
+"\"/>."
+msgstr ""
+"Cuối cùng, để cấu hình bộ nạp khởi động, hãy tiếp tục tới <xref linkend="
+"\"boot-initrd\"/>."
+
+#. Tag: title
+#: install-methods.xml:990
+#, no-c-format
+msgid "Hard disk installer booting using <command>loadlin</command>"
+msgstr "Khởi động trình cài đặt trên đĩa cứng bằng <command>loadlin</command>"
+
+#. Tag: para
+#: install-methods.xml:991
+#, no-c-format
+msgid ""
+"This section explains how to prepare your hard drive for booting the "
+"installer from DOS using <command>loadlin</command>."
+msgstr ""
+"Tiết đoạn này diễn tả cách chuẩn bị đĩa cứng để khởi động trình cài đặt từ "
+"DOS, dùng <command>loadlin</command>."
+
+#. Tag: para
+#: install-methods.xml:996
+#, no-c-format
+msgid ""
+"Copy the following directories from a &debian; CD image to <filename>c:\\</"
+"filename>."
+msgstr ""
+"Sao chép vào <filename>c:\\</filename> từ một ảnh đĩa CD &debian; những thư "
+"mục theo đây."
+
+#. Tag: para
+#: install-methods.xml:1001
+#, no-c-format
+msgid ""
+"<filename>/&x86-install-dir;</filename> (kernel binary and ramdisk image)"
+msgstr ""
+"<filename>/&x86-install-dir;</filename> (bản nhị phân hạt nhân và ảnh đĩa "
+"RAM)"
+
+#. Tag: para
+#: install-methods.xml:1006
+#, no-c-format
+msgid "<filename>/tools</filename> (loadlin tool)"
+msgstr "<filename>/tools</filename> (công cụ loadlin)"
+
+#. Tag: title
+#: install-methods.xml:1019
+#, no-c-format
+msgid "Hard Disk Installer Booting for OldWorld Macs"
+msgstr "Khởi động trình cài đặt trên đĩa cứng của Mac kiểu cũ"
+
+#. Tag: para
+#: install-methods.xml:1020
+#, no-c-format
+msgid ""
+"The <filename>boot-floppy-hfs</filename> floppy uses <application>miBoot</"
+"application> to launch Linux installation, but <application>miBoot</"
+"application> cannot easily be used for hard disk booting. "
+"<application>BootX</application>, launched from MacOS, supports booting from "
+"files placed on the hard disk. <application>BootX</application> can also be "
+"used to dual-boot MacOS and Linux after your &debian; installation is "
+"complete. For the Performa 6360, it appears that <command>quik</command> "
+"cannot make the hard disk bootable. So <application>BootX</application> is "
+"required on that model."
+msgstr ""
+"Đĩa mềm <filename>boot-floppy-hfs</filename> sử dụng ứng dụng "
+"<application>miBoot</application> để khởi chạy tiến trình cài đặt Linux, "
+"nhưng mà không thể dùng dễ dàng ứng dụng <application>miBoot</application> "
+"để khởi động đĩa cứng. Tuy nhiên, ứng dụng <application>BootX</application>, "
+"khi được khởi chạy từ hệ điều hành MacOS, có phải hỗ trợ chức năng khởi động "
+"từ tập tin nằm trên đĩa cứng. Cũng có thể dùng <application>BootX</"
+"application> để khởi động đôi MacOS và Linux một khi hoàn tất cài đặt "
+"&debian;. Trên máy Performa 6360, có vẻ là trình <command>quik</command> "
+"không thể làm cho đĩa cứng có khả năng khởi động. Vì vậy mô hình đó yêu cầu "
+"ứng dụng <application>BootX</application>."
+
+#. Tag: para
+#: install-methods.xml:1033
+#, no-c-format
+msgid ""
+"Download and unstuff the <application>BootX</application> distribution, "
+"available from <ulink url=\"&url-powerpc-bootx;\"></ulink>, or in the "
+"<filename>dists/woody/main/disks-powerpc/current/powermac</filename> "
+"directory on &debian; http/ftp mirrors and official &debian; CDs. Use "
+"<application>Stuffit Expander</application> to extract it from its archive. "
+"Within the package, there is an empty folder called <filename>Linux Kernels</"
+"filename>. Download <filename>linux.bin</filename> and <filename>ramdisk."
+"image.gz</filename> from the <filename>disks-powerpc/current/powermac</"
+"filename> folder, and place them in the <filename>Linux Kernels</filename> "
+"folder. Then place the <filename>Linux Kernels</filename> folder in the "
+"active System Folder."
+msgstr ""
+"Tải về và giải nén bản phát hành <application>BootX</application> sẵn sàng "
+"tại <ulink url=\"&url-powerpc-bootx;\"></ulink>, hoặc nằm trong thư mục "
+"<filename>dists/woody/main/disks-powerpc/current/powermac</filename> trên "
+"máy nhân bản FTP/HTTP của &debian;, cũng trên đĩa CD &debian; chính thức. "
+"Dùng ứng dụng <application>Stuffit Expander</application> (miễn phí) để giải "
+"nén chương trình. Bên trong gói đó có một thư mục trống tên <filename>Linux "
+"Kernels</filename> (các hạt nhân Linux). Tải hai tập tin <filename>linux."
+"bin</filename> và <filename>ramdisk.image.gz</filename> xuống thư mục "
+"<filename>disks-powerpc/current/powermac</filename>, sau đó để chúng vào thư "
+"mục <filename>Linux Kernels</filename>. Sau đó, để thư mục <filename>Linux "
+"Kernels</filename> vào System Folder (thư mục hệ thống) đang hoạt động."
+
+#. Tag: title
+#: install-methods.xml:1053
+#, no-c-format
+msgid "Hard Disk Installer Booting for NewWorld Macs"
+msgstr "Khởi động trình cài đặt trên đĩa cứng của Mac kiểu mới"
+
+#. Tag: para
+#: install-methods.xml:1054
+#, no-c-format
+msgid ""
+"NewWorld PowerMacs support booting from a network or an ISO9660 CD-ROM, as "
+"well as loading ELF binaries directly from the hard disk. These machines "
+"will boot Linux directly via <command>yaboot</command>, which supports "
+"loading a kernel and RAMdisk directly from an ext2 partition, as well as "
+"dual-booting with MacOS. Hard disk booting of the installer is particularly "
+"appropriate for newer machines without floppy drives. <command>BootX</"
+"command> is not supported and must not be used on NewWorld PowerMacs."
+msgstr ""
+"Máy PowerMac kiểu mới hỗ trợ khả năng khởi động từ mạng hay từ đĩa CD-ROM "
+"kiểu ISO9660, cũng như khả năng tải tập tin nhị phân ELF một cách trực tiếp "
+"từ đĩa cứng. Những máy kiểu này sẽ khởi động trực tiếp Linux bằng "
+"<command>yaboot</command>, mà hỗ trợ khả năng tải trực tiếp hạt nhân và đĩa "
+"RAM từ phân vùng kiểu etx2, cũng như khả năng khởi động đôi với hệ điều hành "
+"MacOS. Việc khởi động trình cài đặt trên đĩa cứng là thích hợp đặc biệt trên "
+"máy mới hơn không có ổ đĩa mềm. Không hỗ trợ ứng dụng <command>BootX</"
+"command> nên không dùng nó trên máy PowerMac kiểu mới."
+
+#. Tag: para
+#: install-methods.xml:1065
+#, no-c-format
+msgid ""
+"<emphasis>Copy</emphasis> (not move) the following four files which you "
+"downloaded earlier from the &debian; archives, onto the root level of your "
+"hard drive (this can be accomplished by <keycap>option</keycap>-dragging "
+"each file to the hard drive icon)."
+msgstr ""
+"<emphasis>Sao chép</emphasis> (không phải di chuyển) bốn tập tin theo đây mà "
+"bạn đã tải xuống kho &debian; về trước, vào lớp gốc của đĩa cứng. Có thể làm "
+"như thế bằng cách ấn giữ phím <keycap>option</keycap> trong khi kéo mỗi tập "
+"tin vào biểu tượng của đĩa cứng."
+
+# Name: don't translate / Tên: đừng dịch
+#. Tag: filename
+#: install-methods.xml:1075 install-methods.xml:1401
+#, no-c-format
+msgid "vmlinux"
+msgstr "vmlinux"
+
+# Literal: don't translate / Nghĩa chữ: đừng dịch
+#. Tag: filename
+#: install-methods.xml:1080 install-methods.xml:1406
+#, no-c-format
+msgid "initrd.gz"
+msgstr "initrd.gz"
+
+# Name: don't translate / Tên: đừng dịch
+#. Tag: filename
+#: install-methods.xml:1085 install-methods.xml:1411
+#, no-c-format
+msgid "yaboot"
+msgstr "yaboot"
+
+# Literal: don't translate / Nghĩa chữ: đừng dịch
+#. Tag: filename
+#: install-methods.xml:1090 install-methods.xml:1416
+#, no-c-format
+msgid "yaboot.conf"
+msgstr "yaboot.conf"
+
+#. Tag: para
+#: install-methods.xml:1095
+#, no-c-format
+msgid ""
+"Make a note of the partition number of the MacOS partition where you place "
+"these files. If you have the MacOS <command>pdisk</command> program, you can "
+"use the <command>L</command> command to check for the partition number. You "
+"will need this partition number for the command you type at the Open "
+"Firmware prompt when you boot the installer."
+msgstr ""
+"Hãy ghi nhớ số hiệu phân vùng MacOS nơi bạn để những tập tin này. Nếu bạn có "
+"chương trình MacOS <command>pdisk</command>, bạn có khả năng dùng lệnh "
+"<command>L</command> để kiểm tra xem số hiệu phân vùng. Bạn cần biết số hiệu "
+"phân vùng này để gõ lệnh vào dấu nhắc OpenFirmware, khi bạn khởi động trình "
+"cài đặt."
+
+#. Tag: para
+#: install-methods.xml:1103
+#, no-c-format
+msgid "To boot the installer, proceed to <xref linkend=\"boot-newworld\"/>."
+msgstr ""
+"Để khởi động trình cài đặt, hãy tiếp tục tới <xref linkend=\"boot-newworld\"/"
+">."
+
+#. Tag: title
+#: install-methods.xml:1116
+#, no-c-format
+msgid "Preparing Files for TFTP Net Booting"
+msgstr "Chuẩn bị tập tin để khởi động qua mạng TFTP"
+
+#. Tag: para
+#: install-methods.xml:1117
+#, no-c-format
+msgid ""
+"If your machine is connected to a local area network, you may be able to "
+"boot it over the network from another machine, using TFTP. If you intend to "
+"boot the installation system from another machine, the boot files will need "
+"to be placed in specific locations on that machine, and the machine "
+"configured to support booting of your specific machine."
+msgstr ""
+"Nếu máy tính của bạn có kết nối đến mạng cục bộ, bạn có thể có khả năng khởi "
+"động qua mạng từ máy khác bằng TFTP. Nếu bạn định khởi động hệ thống cài đặt "
+"từ máy khác, cần phải để các tập tin khởi động vào vị trí dứt khoát trên máy "
+"đó, cũng cấu hình máy đó để hỗ trợ khả năng khởi động máy tính riêng của bạn."
+
+#. Tag: para
+#: install-methods.xml:1125
+#, no-c-format
+msgid ""
+"You need to set up a TFTP server, and for many machines a DHCP server<phrase "
+"condition=\"supports-rarp\">, or RARP server</phrase><phrase condition="
+"\"supports-bootp\">, or BOOTP server</phrase>."
+msgstr ""
+"Bạn cần phải thiết lập một trình phục vụ TFTP, và cho nhiều máy cũng cần một "
+"trình phục vụ DHCP<phrase condition=\"supports-rarp\">, hay trình phục vụ "
+"RARP</phrase><phrase condition=\"supports-bootp\">, hay trình phục vụ BOOTP</"
+"phrase>."
+
+#. Tag: para
+#: install-methods.xml:1132
+#, no-c-format
+msgid ""
+"<phrase condition=\"supports-rarp\">The Reverse Address Resolution Protocol "
+"(RARP) is one way to tell your client what IP address to use for itself. "
+"Another way is to use the BOOTP protocol.</phrase> <phrase condition="
+"\"supports-bootp\">BOOTP is an IP protocol that informs a computer of its IP "
+"address and where on the network to obtain a boot image.</phrase> The DHCP "
+"(Dynamic Host Configuration Protocol) is a more flexible, backwards-"
+"compatible extension of BOOTP. Some systems can only be configured via DHCP."
+msgstr ""
+"<phrase condition=\"supports-rarp\">Giao thức quyết định địa chỉ ngược lại "
+"(RARP) là một cách báo ứng dụng khách biết địa chỉ IP nào cần dùng để nhận "
+"diện chính nó. Một cách khác là dùng giao thức BOOTP.</phrase> <phrase "
+"condition=\"supports-bootp\">BOOTP là một giao thức IP báo máy tính biết địa "
+"chỉ IP của chính nó và nơi trên mạng có thể lấy ảnh khởi động.</phrase> "
+"<phrase condition=\"supports-dhcp\">DHCP (giao thức cấu hình máy động) là "
+"một phần mở rộng BOOTP dẻo hơn và có khả năng tương thích ngược. Một số hệ "
+"thống riêng chỉ có thể được cấu hình bằng DHCP.</phrase>"
+
+#. Tag: para
+#: install-methods.xml:1146
+#, no-c-format
+msgid ""
+"For PowerPC, if you have a NewWorld Power Macintosh machine, it is a good "
+"idea to use DHCP instead of BOOTP. Some of the latest machines are unable to "
+"boot using BOOTP."
+msgstr ""
+"Đối với máy PowerPC, nếu bạn có máy tính PowerMac kiểu mới, khuyên bạn dùng "
+"DHCP thay cho BOOTP. Một số máy mới nhất không có khả năng khởi động bằng "
+"BOOTP."
+
+#. Tag: para
+#: install-methods.xml:1152
+#, no-c-format
+msgid ""
+"Some older HPPA machines (e.g. 715/75) use RBOOTD rather than BOOTP. There "
+"is an <classname>rbootd</classname> package available in &debian;."
+msgstr ""
+"Một số máy HPPA cũ (v.d. 715/75) dùng RBOOTD hơn là BOOTP. &debian; có sẵn "
+"một gói <classname>rbootd</classname>."
+
+#. Tag: para
+#: install-methods.xml:1157
+#, no-c-format
+msgid ""
+"The Trivial File Transfer Protocol (TFTP) is used to serve the boot image to "
+"the client. Theoretically, any server, on any platform, which implements "
+"these protocols, may be used. In the examples in this section, we shall "
+"provide commands for SunOS 4.x, SunOS 5.x (a.k.a. Solaris), and GNU/Linux."
+msgstr ""
+"Giao thức truyền tập tin không đáng kể (TFTP) được dùng để phục vụ ảnh khởi "
+"động cho ứng dụng khách. Về lý thuyết có thể sử dụng bất kỳ trình phục vụ "
+"nào trên bất kỳ nền tảng nào mà thực hiện những giao thức này. Những lời thí "
+"dụ trong tiết đoạn này sẽ cung cấp lệnh riêng cho hệ điều hành SunOS 4.x, "
+"SunOS 5.x (cũng tên Solaris), và GNU/Linux."
+
+#. Tag: para
+#: install-methods.xml:1165
+#, no-c-format
+msgid ""
+"For a &debian-gnu; server we recommend <classname>tftpd-hpa</classname>. "
+"It's written by the same author as the <classname>syslinux</classname> "
+"bootloader and is therefore least likely to cause issues. A good alternative "
+"is <classname>atftpd</classname>."
+msgstr ""
+"Đối vơi một trình phục vụ &debian-gnu;, chúng tôi khuyến khích "
+"<classname>tftpd-hpa</classname>. Nó được tạo bởi cùng một tác giả với bộ "
+"nạp khởi động <classname>syslinux</classname> thì ít nhất có thể gây ra vấn "
+"đề. Một sự chọn tốt khác là <classname>atftpd</classname>."
+
+#. Tag: title
+#: install-methods.xml:1181
+#, no-c-format
+msgid "Setting up RARP server"
+msgstr "Thiết lập trình phục vụ RARP"
+
+#. Tag: para
+#: install-methods.xml:1182
+#, no-c-format
+msgid ""
+"To set up RARP, you need to know the Ethernet address (a.k.a. the MAC "
+"address) of the client computers to be installed. If you don't know this "
+"information, you can <phrase arch=\"sparc\"> pick it off the initial "
+"OpenPROM boot messages, use the OpenBoot <userinput>.enet-addr</userinput> "
+"command, or </phrase> boot into <quote>Rescue</quote> mode (e.g., from the "
+"rescue floppy) and use the command <userinput>ip addr show dev eth0</"
+"userinput>."
+msgstr ""
+"Để thiết lập RARP, bạn cần biết địa chỉ Ethernet (cũng tên địa chỉ MAC) của "
+"mỗi máy tính khách cần cài đặt. Chưa biết thông tin này thì cũng có thể "
+"<phrase arch=\"sparc\">lấy nó từ những thông điệp khởi động OpenPROM đầu "
+"tiên, hoặc dùng lệnh OpenBoot <userinput>.enet-addr</userinput>, hoặc </"
+"phrase>khởi động vào chế độ <quote>Cứu</quote> (v.d. từ đĩa mềm cứu) và sử "
+"dụng câu lệnh <userinput>ip addr show dev eth0</userinput>."
+
+#. Tag: para
+#: install-methods.xml:1194
+#, no-c-format
+msgid ""
+"On a RARP server system using a Linux 2.4 or 2.6 kernel, or Solaris/SunOS, "
+"you use the <command>rarpd</command> program. You need to ensure that the "
+"Ethernet hardware address for the client is listed in the <quote>ethers</"
+"quote> database (either in the <filename>/etc/ethers</filename> file, or via "
+"NIS/NIS+) and in the <quote>hosts</quote> database. Then you need to start "
+"the RARP daemon. Issue the command (as root): <userinput>/usr/sbin/rarpd -a</"
+"userinput> on most Linux systems and SunOS 5 (Solaris 2), <userinput>/usr/"
+"sbin/in.rarpd -a</userinput> on some other Linux systems, or <userinput>/usr/"
+"etc/rarpd -a</userinput> in SunOS 4 (Solaris 1)."
+msgstr ""
+"Trên hệ thống phục vụ RARP sử dụng hạt nhân Linux 2.4 hoặc 2.6, hoặc hệ "
+"thống Solaris/SunOS, bạn sử dụng chương trình <command>rarpd</command>. Bạn "
+"cần phải kiểm tra xem địa chỉ phần cứng Ethernet cho máy khách được liệt kê "
+"trong co sở dữ liệu <quote>ethers</quote> (hoặc trong tập tin <filename>/etc/"
+"ethers</filename>, hoặc thông qua NIS/NIS+) và trong co sở dữ liệu "
+"<quote>hosts</quote>. Sau đó, bạn cần khởi chạy trình nền RARP. Chạy lệnh "
+"(như là người chủ): <userinput>/usr/sbin/rarpd -a</userinput> trên phần lớn "
+"hệ thống kiểu Linux và SunOS 5 (Solaris 2), <userinput>/usr/sbin/in.rarpd -"
+"a</userinput> trên một số hệ thống Linux khác, hoặc <userinput>/usr/etc/"
+"rarpd -a</userinput> trên hệ thống SunOS 4 (Solaris 1)."
+
+#. Tag: title
+#: install-methods.xml:1215
+#, no-c-format
+msgid "Setting up a DHCP server"
+msgstr "Thiết lập trình phục vụ DHCP"
+
+#. Tag: para
+#: install-methods.xml:1216
+#, no-c-format
+msgid ""
+"One free software DHCP server is ISC <command>dhcpd</command>. For &debian-"
+"gnu;, the <classname>dhcp3-server</classname> package is recommended. Here "
+"is a sample configuration file for it (see <filename>/etc/dhcp3/dhcpd.conf</"
+"filename>):"
+msgstr ""
+"Một trình phục vụ DHCP phần mềm tự do là <command>dhcpd</command> ISC. Đối "
+"với &debian-gnu;, gói <classname>dhcp3-server</classname> khuyến khích. Đây "
+"là một tập tin cấu hình mẫu cho nó (xem <filename>/etc/dhcp3/dhcpd.conf</"
+"filename>):"
+
+#. Tag: screen
+#: install-methods.xml:1223
+#, no-c-format
+msgid ""
+"option domain-name \"example.com\";\n"
+"option domain-name-servers ns1.example.com;\n"
+"option subnet-mask 255.255.255.0;\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"server-name \"servername\";\n"
+"\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option routers 192.168.1.1;\n"
+"}\n"
+"\n"
+"host clientname {\n"
+"  filename \"/tftpboot.img\";\n"
+"  server-name \"servername\";\n"
+"  next-server servername;\n"
+"  hardware ethernet 01:23:45:67:89:AB;\n"
+"  fixed-address 192.168.1.90;\n"
+"}"
+msgstr ""
+"option domain-name \"mẫu.com\";\n"
+"option domain-name-servers ns1.mẫu.com;\n"
+"option subnet-mask 255.255.255.0;\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"server-name \"tên_máy_phục_vụ\";\n"
+"\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option routers 192.168.1.1;\n"
+"}\n"
+"\n"
+"host tên_máy_khách {\n"
+"  filename \"/tftpboot.img\";\n"
+"  server-name \"tên_máy_phục_vụ\";\n"
+"  next-server tên_máy_phục_vụ;\n"
+"  hardware ethernet 01:23:45:67:89:AB;\n"
+"  fixed-address 192.168.1.90;\n"
+"}\n"
+"\n"
+"[option\t\t\ttùy chọn\n"
+"domain-name\t\ttên miền\n"
+"domain name servers\tcác máy phục vụ tên miền\n"
+"subnet-mask\t\tmặt nạ mạng phụ\n"
+"default-lease-time\t\tthời gian thuê mặc định\n"
+"max-lease-time\tthời gian thuê tối đa\n"
+"server-name\t\ttên máy phục vụ\n"
+"subnet\t\t\tmạng phụ\n"
+"netmask\t\t\tmặt nạ mạng\n"
+"range\t\t\tphạm vị\n"
+"routers\t\t\tcác bộ định tuyến\n"
+"host\t\t\t\tmáy (hỗ trợ)\n"
+"filename\t\t\ttên tập tin\n"
+"hardware ethernet\tEthernet phần cứng\n"
+"fixed-address\t\tđịa chỉ cố định]"
+
+#. Tag: para
+#: install-methods.xml:1225
+#, no-c-format
+msgid ""
+"In this example, there is one server <replaceable>servername</replaceable> "
+"which performs all of the work of DHCP server, TFTP server, and network "
+"gateway. You will almost certainly need to change the domain-name options, "
+"as well as the server name and client hardware address. The "
+"<replaceable>filename</replaceable> option should be the name of the file "
+"which will be retrieved via TFTP."
+msgstr ""
+"Trong lời thí dụ này, có một máy phục vụ tên <replaceable>tên_máy_phục_vụ</"
+"replaceable> mà làm mọi công việc của trình phục vụ DHCP, trình phục vụ TFTP "
+"và cổng ra mạng. Bình thường, bạn sẽ cần phải thay đổi những tùy chọn tên "
+"miền (domain-name), cũng như tên máy phục vụ (server-name) và địa chỉ phần "
+"cứng (hardware address) của máy khách. Tùy chọn <replaceable>filename</"
+"replaceable> (tên tập tin) nên là tên tập tin sẽ được lấy thông qua TFTP."
+
+#. Tag: para
+#: install-methods.xml:1235
+#, no-c-format
+msgid ""
+"After you have edited the <command>dhcpd</command> configuration file, "
+"restart it with <userinput>/etc/init.d/dhcp3-server restart</userinput>."
+msgstr ""
+"Sau khi bạn chỉnh sửa tập tin cấu hình của trình nền <command>dhcpd</"
+"command>, hãy khởi chạy lại nó bằng lệnh <userinput>/etc/init.d/dhcpd3-"
+"server restart</userinput>."
+
+#. Tag: title
+#: install-methods.xml:1243
+#, no-c-format
+msgid "Enabling PXE Booting in the DHCP configuration"
+msgstr "Bật khả năng khởi động PXE trong cấu hình DHCP"
+
+#. Tag: para
+#: install-methods.xml:1244
+#, no-c-format
+msgid ""
+"Here is another example for a <filename>dhcp.conf</filename> using the Pre-"
+"boot Execution Environment (PXE) method of TFTP. <informalexample><screen>\n"
+"option domain-name \"example.com\";\n"
+"\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"\n"
+"allow booting;\n"
+"allow bootp;\n"
+"\n"
+"# The next paragraph needs to be modified to fit your case\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option broadcast-address 192.168.1.255;\n"
+"# the gateway address which can be different\n"
+"# (access to the internet for instance)\n"
+"  option routers 192.168.1.1;\n"
+"# indicate the dns you want to use\n"
+"  option domain-name-servers 192.168.1.3;\n"
+"}\n"
+"\n"
+"group {\n"
+"  next-server 192.168.1.3;\n"
+"  host tftpclient {\n"
+"# tftp client hardware address\n"
+"  hardware ethernet  00:10:DC:27:6C:15;\n"
+"  filename \"/pxelinux.0\";\n"
+" }\n"
+"}\n"
+"</screen></informalexample> Note that for PXE booting, the client filename "
+"<filename>pxelinux.0</filename> is a boot loader, not a kernel image (see "
+"<xref linkend=\"tftp-images\"/> below)."
+msgstr ""
+"Đây là một mẫu <filename>dhcp.conf</filename> khác, dùng phương pháp môi "
+"trường thực hiện tiền khởi động (PXE) của giao thức TFTP. [Chú thích đã được "
+"dịch trong mẫu này.] <informalexample><screen>\n"
+"option domain-name \"mẫu.com\";\n"
+"\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"\n"
+"allow booting;\n"
+"allow bootp;\n"
+"\n"
+"# Cần phải sửa đổi đoạn văn này để thích hợp với trường hợp của bạn\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option broadcast-address 192.168.1.255;\n"
+"# địa chỉ cổng ra mà có thể là khác\n"
+"# (v.d. truy cập Mạng)\n"
+"  option routers 192.168.1.1;\n"
+"# xác định DNS cần dùng\n"
+"  option domain-name-servers 192.168.1.3;\n"
+"}\n"
+"\n"
+"group {\n"
+" next-server 192.168.1.3;\n"
+" host tftpclient {\n"
+"# địa chỉ phần cứng của máy khách TFTP\n"
+"  hardware ethernet  00:10:DC:27:6C:15;\n"
+"  filename \"/pxelinux.0\";\n"
+" }\n"
+"}\n"
+"</screen></informalexample> Ghi chú rằng để khởi động cách PXE, tên tập tin "
+"khách <filename>pxelinux.0</filename> là bộ nạp khởi động, không phải là ảnh "
+"hạt nhân (xem <xref linkend=\"tftp-images\"/> bên dưới)."
+
+#. Tag: title
+#: install-methods.xml:1264
+#, no-c-format
+msgid "Setting up a BOOTP server"
+msgstr "Thiết lập trình phục vụ BOOTP"
+
+#. Tag: para
+#: install-methods.xml:1265
+#, no-c-format
+msgid ""
+"There are two BOOTP servers available for GNU/Linux. The first is CMU "
+"<command>bootpd</command>. The other is actually a DHCP server: ISC "
+"<command>dhcpd</command>. In &debian-gnu; these are contained in the "
+"<classname>bootp</classname> and <classname>dhcp3-server</classname> "
+"packages respectively."
+msgstr ""
+"Có hai trình phục vụ BOOTP sẵn sàng cho GNU/Linux. Trình thứ nhất là "
+"<command>bootpd</command> CMU. Trình thứ hai thật là một trình phục vụ DHCP: "
+"<command>dhcpd</command> ISC. Trong &debian-gnu; hai trình này nằm trong "
+"gói<classname>bootp</classname> và <classname>dhcp3-server</classname> riêng "
+"từng cái."
+
+#. Tag: para
+#: install-methods.xml:1273
+#, no-c-format
+msgid ""
+"To use CMU <command>bootpd</command>, you must first uncomment (or add) the "
+"relevant line in <filename>/etc/inetd.conf</filename>. On &debian-gnu;, you "
+"can run <userinput>update-inetd --enable bootps</userinput>, then "
+"<userinput>/etc/init.d/inetd reload</userinput> to do so. Just in case your "
+"BOOTP server does not run &debian;, the line in question should look like: "
+"<informalexample><screen>\n"
+"bootps  dgram  udp  wait  root  /usr/sbin/bootpd  bootpd -i -t 120\n"
+"</screen></informalexample> Now, you must create an <filename>/etc/bootptab</"
+"filename> file. This has the same sort of familiar and cryptic format as the "
+"good old BSD <filename>printcap</filename>, <filename>termcap</filename>, "
+"and <filename>disktab</filename> files. See the <filename>bootptab</"
+"filename> manual page for more information. For CMU <command>bootpd</"
+"command>, you will need to know the hardware (MAC) address of the client. "
+"Here is an example <filename>/etc/bootptab</filename>: "
+"<informalexample><screen>\n"
+"client:\\\n"
+"  hd=/tftpboot:\\\n"
+"  bf=tftpboot.img:\\\n"
+"  ip=192.168.1.90:\\\n"
+"  sm=255.255.255.0:\\\n"
+"  sa=192.168.1.1:\\\n"
+"  ha=0123456789AB:\n"
+"</screen></informalexample> You will need to change at least the <quote>ha</"
+"quote> option, which specifies the hardware address of the client. The "
+"<quote>bf</quote> option specifies the file a client should retrieve via "
+"TFTP; see <xref linkend=\"tftp-images\"/> for more details. <phrase arch="
+"\"mips\"> On SGI machines you can just enter the command monitor and type "
+"<userinput>printenv</userinput>. The value of the <userinput>eaddr</"
+"userinput> variable is the machine's MAC address. </phrase>"
+msgstr ""
+"Để sử dụng <command>bootpd</command> CMU, trước tiên bạn cần phải bỏ ghi chú "
+"(hay thêm) dòng tương ứng trong trong tập tin cấu hình <filename>/etc/inetd."
+"conf</filename>. Dưới hệ điều hành &debian-gnu;, bạn có khả năng chạy lệnh "
+"<userinput>update-inetd --enable bootps</userinput>, rồi <userinput>/etc/"
+"init.d/inetd reload</userinput> để làm như thế. Trong trường hợp trình phục "
+"vụ BOOTP của bạn không chạy &debian; được, dòng đó nên hình như: "
+"<informalexample><screen>\n"
+"bootps  dgram  udp  wait  root  /usr/sbin/bootpd  bootpd -i -t 120\n"
+"</screen></informalexample> Sau đó, bạn cần phải tạo một tập tin <filename>/"
+"etc/bootptab</filename>. Nó có cùng một dạng thức thường và khó hiểu với "
+"những tập tin <filename>printcap</filename>, <filename>termcap</filename> và "
+"<filename>disktab</filename> của BSD. Xem trang hướng dẫn (man) "
+"<filename>bootptab</filename> để tìm thông tin thêm. Đối với tiến trình "
+"<command>bootpd</command>, bạn cần phải biết địa chỉ phần cứng (địa chỉ MAC) "
+"của máy khách. Đây là một tập tin <filename>/etc/bootptab</filename> thí "
+"dụ : <informalexample><screen>\n"
+"client:\\\n"
+"  hd=/tftpboot:\\\n"
+"  bf=tftpboot.img:\\\n"
+"  ip=192.168.1.90:\\\n"
+"  sm=255.255.255.0:\\\n"
+"  sa=192.168.1.1:\\\n"
+"  ha=0123456789AB:\n"
+"</screen></informalexample> Bạn cần phải thay đổi ít nhất tùy chọn "
+"<quote>ha</quote>, mà xác định địa chỉ phần cứng của máy khách. Tùy chọn "
+"<quote>bf</quote> xác định tập tin máy khách cần lấy bằng TFTP; xem <xref "
+"linkend=\"tftp-images\"/> để tìm chi tiết. <phrase arch=\"mips\"> Trên máy "
+"kiểu SGI, bạn có thể đơn giản vào bộ theo dõi lệnh rồi gõ "
+"<userinput>printenv</userinput> (in ra môi trường). Giá trị của biến "
+"<userinput>eaddr</userinput> là địa chỉ phần cứng (địa chỉ MAC) của máy đó. "
+"</phrase>"
+
+#. Tag: para
+#: install-methods.xml:1306
+#, no-c-format
+msgid ""
+"By contrast, setting up BOOTP with ISC <command>dhcpd</command> is really "
+"easy, because it treats BOOTP clients as a moderately special case of DHCP "
+"clients. Some architectures require a complex configuration for booting "
+"clients via BOOTP. If yours is one of those, read the section <xref linkend="
+"\"dhcpd\"/>. Otherwise you will probably be able to get away with simply "
+"adding the <userinput>allow bootp</userinput> directive to the configuration "
+"block for the subnet containing the client in <filename>/etc/dhcp3/dhcpd."
+"conf</filename>, and restart <command>dhcpd</command> with <userinput>/etc/"
+"init.d/dhcp3-server restart</userinput>."
+msgstr ""
+"Mặt khác, tiến trình thiết lập BOOTP bằng <command>dhcpd</command> ISC vẫn "
+"rất dễ dàng, vì nó thấy các ứng dụng khách BOOTP là ứng dụng khách DHCP kiểu "
+"hơi đặc biệt. Một số kiến trúc nào đó yêu cầu một cấu hình phức tạp để khởi "
+"động ứng dụng khách thông qua BOOTP. Nếu máy của bạn có kiến trúc như thế, "
+"hãy đọc tiết đoạn <xref linkend=\"dhcpd\"/>. Khác thì rất có thể là bạn đơn "
+"giản cần thêm chỉ thị <userinput>allow bootp</userinput> (cho phép BOOTP) "
+"vào khối cấu hình dành cho mạng phụ chứa máy chạy ứng dụng khách đó trong "
+"tập tin <filename>/etc/dhcp3/dhcpd.conf</filename>, sau đó khởi chạy lại "
+"trình nền <command>dhcpd</command> bằng câu lệnh <userinput>/etc/init.d/"
+"dhcp3-server restart</userinput>."
+
+#. Tag: title
+#: install-methods.xml:1325
+#, no-c-format
+msgid "Enabling the TFTP Server"
+msgstr "Bật chạy trình phục vụ TFTP"
+
+#. Tag: para
+#: install-methods.xml:1326
+#, no-c-format
+msgid ""
+"To get the TFTP server ready to go, you should first make sure that "
+"<command>tftpd</command> is enabled."
+msgstr ""
+"Để chuẩn bị trình phục vụ TFTP, trước tiên bạn nên đảm bảo rằng "
+"<command>tftpd</command> được hiệu lực."
+
+#. Tag: para
+#: install-methods.xml:1331
+#, no-c-format
+msgid ""
+"In the case of <classname>tftpd-hpa</classname> there are two ways the "
+"service can be run. It can be started on demand by the system's "
+"<classname>inetd</classname> daemon, or it can be set up to run as an "
+"independent daemon. Which of these methods is used is selected when the "
+"package is installed and can be changed by reconfiguring the package."
+msgstr ""
+"Trong trường hợp của <classname>tftpd-hpa</classname>, có hai phương pháp "
+"chạy dịch vụ. Nó có thể được khởi chạy theo yêu cầu bởi trình nền "
+"<classname>inetd</classname> của hệ thống, hoặc nó có thể được thiết lập để "
+"chạy như là một trình nền độc lập. Phương pháp này được chọn khi gói được "
+"cài đặt, và lúc nào cũng có thể được thay đổi bằng cách cấu hình lại gói đó."
+
+#. Tag: para
+#: install-methods.xml:1340
+#, no-c-format
+msgid ""
+"Historically, TFTP servers used <filename>/tftpboot</filename> as directory "
+"to serve images from. However, &debian-gnu; packages may use other "
+"directories to comply with the <ulink url=\"&url-fhs-home;\">Filesystem "
+"Hierarchy Standard</ulink>. For example, <classname>tftpd-hpa</classname> by "
+"default uses <filename>/srv/tftp</filename>. You may have to adjust the "
+"configuration examples in this section accordingly."
+msgstr ""
+"Trong quá khứ, máy phục vụ TFTP đã dùng <filename>/tftpboot</filename> như "
+"là thư mục từ đó cần phục vụ ảnh. Tuy nhiên, các gói &debian-gnu; có thể sử "
+"dụng thư mục khác để tuân theo <ulink url=\"&url-fhs-home;\">Tiêu Chuẩn Phân "
+"Cấp Hệ Thống Tập Tin</ulink> (FHS). Chẳng hạn, <classname>tftpd-hpa</"
+"classname> theo mặc định sử dụng thư mục <filename>/srv/tftp</filename>. Có "
+"lẽ bạn cần phải điều chỉnh những mẫu cấu hình trong phần này một cách tương "
+"ứng."
+
+#. Tag: para
+#: install-methods.xml:1350
+#, no-c-format
+msgid ""
+"All <command>in.tftpd</command> alternatives available in &debian; should "
+"log TFTP requests to the system logs by default. Some of them support a "
+"<userinput>-v</userinput> argument to increase verbosity. It is recommended "
+"to check these log messages in case of boot problems as they are a good "
+"starting point for diagnosing the cause of errors."
+msgstr ""
+"Tất cả các sự chọn <command>in.tftpd</command> khác sẵn sàng trong &debian; "
+"thì nên ghi lưu các yêu cầu TFTP vào sổ theo dõi hệ thống theo mặc định. Một "
+"số điều cũng hỗ trợ một đối số <userinput>-v</userinput> để tăng mức chi "
+"tiết của kết xuất. Khuyên bạn kiểm tra các thông điệp ghi lưu này trong "
+"trường hợp gặp vấn đề khởi động, vì sổ theo dõi là một điểm bắt đầu hữu ích "
+"để chẩn đoán nguyên nhân của lỗi."
+
+#. Tag: para
+#: install-methods.xml:1358
+#, no-c-format
+msgid ""
+"If you intend to install &debian; on an SGI machine and your TFTP server is "
+"a GNU/Linux box running Linux 2.4, you'll need to set the following on your "
+"server: <informalexample><screen>\n"
+"# echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc\n"
+"</screen></informalexample> to turn off Path MTU discovery, otherwise the "
+"SGI's PROM can't download the kernel. Furthermore, make sure TFTP packets "
+"are sent from a source port no greater than 32767, or the download will "
+"stall after the first packet. Again, it's Linux 2.4.X tripping this bug in "
+"the PROM, and you can avoid it by setting <informalexample><screen>\n"
+"# echo \"2048 32767\" &gt; /proc/sys/net/ipv4/ip_local_port_range\n"
+"</screen></informalexample> to adjust the range of source ports the Linux "
+"TFTP server uses."
+msgstr ""
+"Nếu bạn định cài đặt &debian; trên máy kiểu SGI và máy phục vụ TFTP chạy hệ "
+"điều hành Linux phiên bản 2.4, bạn cần phải nhập dòng này vào máy phục vụ : "
+"<informalexample><screen>\n"
+"# echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc\n"
+"</screen></informalexample> để tắt khả năng phát hiện « Path MTU ». Nếu "
+"không, PROM của SGI không thể tải về hạt nhân. Hơn nữa, hãy kiểm tra xem các "
+"gói tin TFTP được gởi từ cổng nguồn có số hiệu dưới 32768, nếu không thì "
+"việc tải về sẽ bị ngừng chạy sau gói tin thứ nhất. Lần nữa, HĐH Linux 2.4.X "
+"gây ra lỗi này trong PROM, và bạn có thể tránh trường hợp này bằng cách nhập "
+"<informalexample><screen>\n"
+"# echo \"2048 32767\" &gt; /proc/sys/net/ipv4/phạm_vị_cổng_cục_bộ_IP\n"
+"</screen></informalexample> để điều chỉnh phạm vị cổng nguồn sẵn sàng cho "
+"trình phục vụ TFTP Linux sử dụng."
+
+#. Tag: title
+#: install-methods.xml:1380
+#, no-c-format
+msgid "Move TFTP Images Into Place"
+msgstr "Xác định vị trí của ảnh TFTP"
+
+#. Tag: para
+#: install-methods.xml:1381
+#, no-c-format
+msgid ""
+"Next, place the TFTP boot image you need, as found in <xref linkend=\"where-"
+"files\"/>, in the <command>tftpd</command> boot image directory. You may "
+"have to make a link from that file to the file which <command>tftpd</"
+"command> will use for booting a particular client. Unfortunately, the file "
+"name is determined by the TFTP client, and there are no strong standards."
+msgstr ""
+"Sau đó, hãy để ảnh khởi động TFTP cần thiết (như được tìm trong <xref "
+"linkend=\"where-files\"/>) vào thư mục ảnh khởi động của trình nền "
+"<command>tftpd</command>. Có lẽ bạn cần phải tạo một liên kết từ tập tin đó "
+"đến tập tin mà <command>tftpd</command> sẽ sử dụng để khởi động máy khách "
+"riêng. Tiếc là tên tập tin được quyết định bởi máy khách TFTP, và chưa có "
+"tiêu chuẩn mạnh nào."
+
+#. Tag: para
+#: install-methods.xml:1390
+#, no-c-format
+msgid ""
+"On NewWorld Power Macintosh machines, you will need to set up the "
+"<command>yaboot</command> boot loader as the TFTP boot image. "
+"<command>Yaboot</command> will then retrieve the kernel and RAMdisk images "
+"via TFTP itself. You will need to download the following files from the "
+"<filename>netboot/</filename> directory:"
+msgstr ""
+"Trên máy PowerMac kiểu mới, bạn cần phải thiết lập bộ nạp khởi động "
+"<command>yaboot</command> như là ảnh khởi động TFTP. Vậy phần mềm "
+"<command>Yaboot</command> sẽ lấy hạt nhân và các các ảnh đĩa RAM bằng TFTP "
+"chính nó. Bạn cần phải tải xuống thư mục <filename>netboot/</filename> những "
+"tập tin theo đây:"
+
+#. Tag: filename
+#: install-methods.xml:1421
+#, no-c-format
+msgid "boot.msg"
+msgstr "boot.msg"
+
+#. Tag: para
+#: install-methods.xml:1426
+#, no-c-format
+msgid ""
+"For PXE booting, everything you should need is set up in the "
+"<filename>netboot/netboot.tar.gz</filename> tarball. Simply extract this "
+"tarball into the <command>tftpd</command> boot image directory. Make sure "
+"your dhcp server is configured to pass <filename>pxelinux.0</filename> to "
+"<command>tftpd</command> as the filename to boot."
+msgstr ""
+"Để khởi động PXE, mọi thứ cần thiết đã được thiết lập trong kho nén "
+"<filename>netboot/netboot.tar.gz</filename>. Đơn giản hãy giải nén tập tin "
+"này vào thư mục ảnh khởi động của trình nền <command>tftpd</command>. Hãy "
+"kiểm tra xem trình phục vụ DHCP đã được cấu hình để gửi <filename>/"
+"pxelinux.0</filename> cho trình nền<command>tftpd</command> như là tên tập "
+"tin cần khởi động."
+
+#. Tag: para
+#: install-methods.xml:1434
+#, no-c-format
+msgid ""
+"For PXE booting, everything you should need is set up in the "
+"<filename>netboot/netboot.tar.gz</filename> tarball. Simply extract this "
+"tarball into the <command>tftpd</command> boot image directory. Make sure "
+"your dhcp server is configured to pass <filename>/debian-installer/ia64/"
+"elilo.efi</filename> to <command>tftpd</command> as the filename to boot."
+msgstr ""
+"Để khởi động PXE, mọi thứ cần thiết đã được thiết lập trong kho "
+"<filename>netboot/netboot.tar.gz</filename>. Đơn giản hãy giải nén tập tin "
+"này vào thư mục ảnh khởi động của trình nền <command>tftpd</command>. Hãy "
+"kiểm tra xem máy phục vụ DHCP đã được cấu hình để gởi <filename>/debian-"
+"installer/ia64/elilo.efi</filename> cho trình nền <command>tftpd</command> "
+"như là tên tập tin cần khởi động."
+
+#. Tag: title
+#: install-methods.xml:1446
+#, no-c-format
+msgid "SPARC TFTP Booting"
+msgstr "Khởi động TFTP SPARC"
+
+#. Tag: para
+#: install-methods.xml:1447
+#, no-c-format
+msgid ""
+"Some SPARC architectures add the subarchitecture names, such as "
+"<quote>SUN4M</quote> or <quote>SUN4C</quote>, to the filename. Thus, if your "
+"system's subarchitecture is a SUN4C, and its IP is 192.168.1.3, the filename "
+"would be <filename>C0A80103.SUN4C</filename>. However, there are also "
+"subarchitectures where the file the client looks for is just "
+"<filename>client-ip-in-hex</filename>. An easy way to determine the "
+"hexadecimal code for the IP address is to enter the following command in a "
+"shell (assuming the machine's intended IP is 10.0.0.4). "
+"<informalexample><screen>\n"
+"$ printf '%.2x%.2x%.2x%.2x\\n' 10 0 0 4\n"
+"</screen></informalexample> To get to the correct filename, you will need to "
+"change all letters to uppercase and if necessary append the subarchitecture "
+"name."
+msgstr ""
+"Một số kiến trúc SPARC riêng thêm tên kiến trúc phụ, như <quote>SUN4M</"
+"quote> hay <quote>SUN4C</quote> vào tên tập tin. Như thế thì nếu kiến trúc "
+"phụ của hệ thống là SUN4C, với địa chỉ IP 192.168.1.3, tên tập tin là "
+"<filename>C0A80103.SUN4C</filename>. Tuy nhiên, cũng có kiến trúc phụ mà tập "
+"tin được tìm bởi khách là chỉ <filename>địa_chỉ_IP_của_khách_dạng_thập_lục</"
+"filename>. Một phương pháp dễ dàng quyết định mã thập lục của địa chỉ IP là "
+"nhập lệnh theo đây vào trình bao (giả sử địa chỉ IP đã định của máy đó là "
+"10.0.0.4). <informalexample><screen>\n"
+"$ printf '%.2x%.2x%.2x%.2x\\n' 10 0 0 4\n"
+"</screen></informalexample> Để giành tên tập tin đúng, bạn cần phải chuyển "
+"đổi mọi chữ sang chữ hoa, cũng (nếu cần thiết) phụ thêm tên kiến trúc phụ đó."
+
+#. Tag: para
+#: install-methods.xml:1463
+#, no-c-format
+msgid ""
+"If you've done all this correctly, giving the command <userinput>boot net</"
+"userinput> from the OpenPROM should load the image. If the image cannot be "
+"found, try checking the logs on your tftp server to see which image name is "
+"being requested."
+msgstr ""
+"Nếu bạn đã theo các hướng dẫn này, việc chạy lệnh <userinput>boot net</"
+"userinput> từ dấu nhắc OpenPROM nên nạp ảnh đó. Không tìm thấy ảnh thì kiểm "
+"tra các bản ghi trên trình phục vụ TFTP để xem tên ảnh nào được yêu cầu."
+
+#. Tag: para
+#: install-methods.xml:1470
+#, no-c-format
+msgid ""
+"You can also force some sparc systems to look for a specific file name by "
+"adding it to the end of the OpenPROM boot command, such as <userinput>boot "
+"net my-sparc.image</userinput>. This must still reside in the directory that "
+"the TFTP server looks in."
+msgstr ""
+"Bạn cũng có thể ép buộc một số hệ thống SPARC tìm một tên tập tin riêng bằng "
+"cách phụ thêm nó vào lệnh khởi động OpenPROM, v.d. <userinput>boot net "
+"ảnh_sparc.tôi</userinput>. Nó vẫn còn phải nằm trong thư mục trong đó máy "
+"phục vụ TFTP tìm."
+
+#. Tag: title
+#: install-methods.xml:1481
+#, no-c-format
+msgid "SGI TFTP Booting"
+msgstr "Khởi động TFTP SGI"
+
+#. Tag: para
+#: install-methods.xml:1482
+#, no-c-format
+msgid ""
+"On SGI machines you can rely on the <command>bootpd</command> to supply the "
+"name of the TFTP file. It is given either as the <userinput>bf=</userinput> "
+"in <filename>/etc/bootptab</filename> or as the <userinput>filename=</"
+"userinput> option in <filename>/etc/dhcpd.conf</filename>."
+msgstr ""
+"Trên máy kiểu SGI, bạn có thể nhờ trình nền <command>bootpd</command> cung "
+"cấp tên của tập tin TFTP. Tên này được hiển thị hoặc là tùy chọn "
+"<userinput>bf=</userinput> nằm trong tập tin <filename>/etc/bootptab</"
+"filename> hoặc là tùy chọn <userinput>filename=</userinput> nằm trong tập "
+"tin cấu hình <filename>/etc/dhcpd.conf</filename>."
+
+#. Tag: title
+#: install-methods.xml:1590
+#, no-c-format
+msgid "Automatic Installation"
+msgstr "Cài đặt tự động"
+
+#. Tag: para
+#: install-methods.xml:1591
+#, no-c-format
+msgid ""
+"For installing on multiple computers it's possible to do fully automatic "
+"installations. &debian; packages intended for this include <classname>fai-"
+"quickstart</classname> (which can use an install server) and the &debian; "
+"Installer itself. Have a look at the <ulink url=\"http://fai-project.org"
+"\">FAI home page</ulink> for detailed information."
+msgstr ""
+"Để cài đặt vào nhiều máy tính, có thể chạy việc cài đặt đầy đủ tự động. "
+"Những gói &debian; dự định nhằm mục đích này bao gồm <classname>fai</"
+"classname> (mà có thể dùng một trình phục vụ cài đặt), và trình cài đặt "
+"&debian; chính nó. Xem <ulink url=\"http://fai-project.org\">trang chủ FAI</"
+"ulink> để tìm thông tin chi tiết."
+
+#. Tag: title
+#: install-methods.xml:1603
+#, no-c-format
+msgid "Automatic Installation Using the &debian; Installer"
+msgstr "Tự động cài đặt dùng trình cài đặt &debian;"
+
+#. Tag: para
+#: install-methods.xml:1604
+#, no-c-format
+msgid ""
+"The &debian; Installer supports automating installs via preconfiguration "
+"files. A preconfiguration file can be loaded from the network or from "
+"removable media, and used to fill in answers to questions asked during the "
+"installation process."
+msgstr ""
+"Trình cài đặt &debian; hỗ trợ tự động hoá việc cài đặt thông qua tập tin cấu "
+"hình sẵn. Tập tin cấu hình sẵn có thể được nạp từ mạng hoặc từ vật chứa rời, "
+"cũng cung cấp trả lời cho câu được hỏi trong khi cài đặt."
+
+#. Tag: para
+#: install-methods.xml:1611
+#, no-c-format
+msgid ""
+"Full documentation on preseeding including a working example that you can "
+"edit is in <xref linkend=\"appendix-preseed\"/>."
+msgstr ""
+"Tài liệu hướng dẫn đầy đủ về phương pháp chèn trước, gồm một lời thí dụ hữu "
+"ích mà bạn có thể hiệu chỉnh, nằm trong <xref linkend=\"appendix-preseed\"/>."

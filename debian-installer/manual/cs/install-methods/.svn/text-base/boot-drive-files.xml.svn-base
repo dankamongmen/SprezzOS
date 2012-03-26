@@ -1,0 +1,193 @@
+<!-- $Id$ -->
+<!-- original version: 65197 -->
+
+ <sect1 condition="bootable-disk" id="boot-drive-files">
+ <title>Příprava souborů pro zavedení z pevného disku</title>
+<para>
+
+Instalační systém můžete zavést ze zaváděcích souborů umístěných na
+stávající oblasti pevného disku buď přímo BIOSem, nebo z původního
+operačního systému.
+
+</para><para>
+
+Můžete tak dosáhnout <quote>čistě síťové</quote> instalace a vyhnout
+se vzrušující loterii při použití spousty nespolehlivých disket,
+potažmo neskladných CD.
+
+</para><para arch="powerpc">
+
+Instalační program nemůžete zavést ze souborů umístěných na oblasti
+HFS+. Tento souborový systém mohou používat počítače s MacOS System
+8.1 a novější. NewWorld PowerMacy používají HFS+ standardně. Zda tento
+souborový systém používáte zjistíte tak, že na příslušné oblasti
+vyberete <userinput>Get Info</userinput>. Souborové systémy HFS se
+zobrazí jako <userinput>Mac OS Standard</userinput>, zatímco HFS+
+ukazují <userinput>Mac OS Extended</userinput>.
+Abyste si mohli vyměňovat soubory mezi Linuxem a MacOS, musíte mít
+oblast typu HFS (například pro instalační soubory).
+
+</para><para arch="powerpc">
+
+Zavedení instalace z pevného disku se liší podle toho, jestli máte
+novější (NewWorld) nebo starší (OldWorld) Macintosh.
+
+</para>
+
+  <sect2 arch="x86" id="files-lilo">
+  <title>Zavedení instalačního systému programem
+  <command>LILO</command> nebo <command>GRUB</command></title>
+<para>
+
+Tato část vysvětluje, jak zavést instalaci z existující linuxové
+distribuce za pomoci programu <command>LILO</command>, resp.
+<command>GRUB</command>.
+
+</para><para>
+
+Oba zavaděče totiž kromě jádra umí zavést do paměti také
+obraz disku. Ten pak můžete použít jako kořenový souborový systém.
+
+</para><para>
+
+Z archivu &debian;u si stáhněte následující soubory a přesuňte je na
+vhodné místo (například do <filename>/boot/newinstall/</filename>).
+Pozor na to, že LILO neumí zavést soubory ležící na souborovém systému
+NTFS.
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinuz</filename> (vhodné jádro)
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename> (obraz ramdisku)
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Nastavení zavaděče popisuje <xref linkend="boot-initrd"/>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" id="files-loadlin">
+  <title>Zavedení instalačního systému programem
+  <command>loadlin</command></title>
+<para>
+
+Tato část vysvětluje, jak zavést instalaci z DOSu za pomoci programu
+<command>loadlin</command>.
+
+</para><para>
+
+Z instalačního CD &debian;u zkopírujte do <filename>c:\</filename>
+následující adresáře:
+
+<itemizedlist>
+<listitem><para>
+
+<filename>/&x86-install-dir;</filename> (jádro a obraz ramdisku)
+
+</para></listitem>
+<listitem><para>
+
+<filename>/tools</filename> (nástroj loadlin)
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+
+  <sect2 arch="powerpc" id="files-oldworld">
+  <title>Zavedení instalátoru z disku na OldWorld Macích</title>
+<para>
+
+Program <application>miBoot</application>, který se používaná při
+instalaci z diskety <filename>boot-floppy-hfs</filename>, se bohužel
+velmi špatně přizpůsobuje pro zavádění z pevného disku. Z tohoto
+důvodu je lepší použít program <application>BootX</application>, který
+se spouští z MacOS, podporuje zavádění souborů z pevného disku a po
+instalaci &debian;u umí duální zavádění MacOS a Linuxu.
+Zdá se, že <command>quik</command> na stroji Performa 6360 neumí
+nastavit zavádění z pevného disku, takže
+<application>BootX</application> musíte použít tak jako tak.
+
+</para><para>
+
+Z <ulink url="&url-powerpc-bootx;"></ulink> nebo z debianího zrcadla z
+adresáře
+<filename>dists/woody/main/disks-powerpc/current/powermac</filename>
+si stáhněte program <application>BootX</application> a pomocí
+<application>Stuffit Expander</application>u jej rozbalte. V balíčku
+se nachází prázdná složka nazvaná <filename>Linux Kernels</filename>.
+Do této složky nakopírujte soubory <filename>linux.bin</filename> a
+<filename>ramdisk.image.gz</filename> ze složky
+<filename>disks-powerpc/current/powermac</filename>.
+Složku <filename>Linux Kernels</filename> pak přesuňte do aktivní
+složky systému (active System Folder).
+
+</para>
+  </sect2>
+
+  <sect2 arch="powerpc" id="files-newworld">
+  <title>Zavedení instalátoru z disku na NewWorld Macích</title>
+<para>
+
+NewWorld PowerMacy podporují zavádění ze sítě, z ISO9660 CD-ROM
+nebo zavedení binárních ELF souborů přímo z pevného disku.
+Tyto počítače budou zavádět Linux zavaděčem <command>yaboot</command>,
+který podporuje zavedení jádra a RAMdisku přímo z ext2 oblasti stejně
+jako duální zavádění s MacOS. Zavádění z pevného disku je důležité pro
+novější počítače bez disketové mechaniky. <command>BootX</command>
+není na NewWorld PowerMacích podporován, takže ho nepoužívejte.
+
+</para><para>
+
+Následující čtyři soubory <emphasis>zkopírujte</emphasis> (nepřesuňte)
+do kořenového adresáře vašeho disku. (Toho můžete docílit, když
+stisknete <keycap>Option</keycap> a přetáhnete soubory na ikonu
+pevného disku).
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinux</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot.conf</filename>
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Poznamenejte si číslo diskové oblasti, kam jste soubory nakopírovali.
+Například v programu <command>pdisk</command> příkazem
+<userinput>L</userinput>. Toto číslo budete potřebovat pro Open
+Firmware až budete zavádět instalační systém.
+
+</para><para>
+
+Instalační systém zavedete podle <xref linkend="boot-newworld"/>.
+
+</para>
+  </sect2>
+ </sect1>

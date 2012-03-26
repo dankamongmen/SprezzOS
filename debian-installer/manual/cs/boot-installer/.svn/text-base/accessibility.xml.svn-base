@@ -1,0 +1,145 @@
+<!-- $Id$ -->
+<!-- original version: 66987 -->
+
+ <sect1 id="boot-installer-accessibility" arch="not-s390">
+ <title>Zpřístupnění</title>
+<para>
+
+Někteří uživatelé mohou vyžadovat speciální podporu, například z
+důvodu zrakového postižení.
+
+<phrase arch="ia64;powerpc;x86">Braillovy řádky připojené přes USB
+jsou rozpoznány automaticky (s výjimkou sériových modelů připojených
+přes USB převodník), ale většinu zpřístupňujících vlastností je třeba
+zapnout ručně.</phrase>
+
+<phrase arch="arm;hppa;mips;mipsel;sparc">Většinu
+zpřístupňujících vlastností je třeba zapnout ručně.</phrase>
+
+<phrase arch="x86">Na počítačích, které to podporují, se v zaváděcím
+menu ozve pípnutí. Toto pípnutí signalizuje, že je menu připraveno
+zpracovávat stisky kláves. Poté můžete přidat zaváděcí parametry,
+které zapnou některé další zpřístupňující vlastnosti (viz
+<xref linkend="boot-screen"/>).</phrase> Zavaděče na většině
+architektur interpretují klávesnici jako QWERTY.
+
+</para>
+
+  <sect2 arch="ia64;powerpc;x86">
+  <title>Braillův řádek připojený na USB</title>
+<para>
+
+Braillovy řádky připojené na USB by měly být rozpoznány automaticky. V
+takovém případě se instalace automaticky přepne do textového rozhraní
+a podpora braillova řádku se automaticky doinstaluje do instalovaného
+systému. V zaváděcím menu tedy stačí pouze stisknout &enterkey;. Po
+startu <classname>brltty</classname> si můžete v nastaveních zvolit
+vhodnou braillovu tabulku. Dokumentaci ohledně rozložení kláves
+naleznete <ulink url="&url-brltty-driver-help;">na
+stránkách <classname>brltty</classname></ulink>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="ia64;powerpc;x86">
+  <title>Braillův řádek připojený na sériový port</title>
+<para>
+
+Braillovy řádky připojené na sériový port nelze rozpoznat automaticky,
+protože by to některé modely mohlo poškodit. Musíte tedy použít
+zaváděcí parametr
+<userinput>brltty=<replaceable>ovladač</replaceable>,<replaceable>port</replaceable>,<replaceable>tabulka</replaceable></userinput>,
+kterým <classname>brltty</classname> řeknete, který ovladač má použít.
+<replaceable>ovladač</replaceable> je dvoupísmenný kód ovladače
+připojeného řádku (viz <ulink url="&url-brltty-manual;">příručka
+k BRLTTY</ulink>). <replaceable>port</replaceable> je název
+sériového portu, ke kterému je řádek připojen; výchozí hodnotou je
+<userinput>ttyS0</userinput>. Při použití USB převodníku se port
+obvykle jmenuje <userinput>ttyUSB0</userinput>.
+<replaceable>tabulka</replaceable> určuje braillovu tabulku pro daný
+jazyk (viz <ulink url="&url-brltty-manual;">příručka k BRLTTY
+</ulink>); výchozí je anglická tabulka. Tabulku můžete změnit i
+později v nastaveních <classname>brltty</classname>. Dokumentaci
+ohledně rozložení kláves
+naleznete <ulink url="&url-brltty-driver-help;">na
+stránkách <classname>brltty</classname></ulink>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86">
+  <title>Softwarová syntéza hlasu</title>
+<para>
+
+Podporu softwarové syntézy hlasu můžete aktivovat v zaváděcím menu
+stiskem klávesy <userinput>s</userinput> (vybere příslušnou položku
+menu) a potvrdit klávesou &enterkey;. První otázka (výběr jazyka) je
+přečtena v angličtině, zbytek instalace probíhá ve zvoleném jazyce
+(pokud jej <classname>espeak</classname> podporuje).
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86">
+  <title>Hardwarová syntéza hlasu</title>
+<para>
+
+Podpora pro hardwarovou syntézu hlasu funguje pouze v textovém režimu,
+nicméně kvůli své velikosti je dostupná pouze na médiích s podporou
+grafického instalátoru. V zaváděcím menu tedy musíte vybrat grafickou
+instalaci <quote>Graphical install</quote>.
+
+</para><para>
+
+Zařízení pro hardwarovou syntézu hlasu nelze rozpoznat automaticky a
+proto musíte použít zaváděcí parametr
+<userinput>speakup.synth=<replaceable>ovladač</replaceable></userinput>,
+kterým <classname>speakup</classname>u prozradíte, který ovladač má
+použít. Jako <replaceable>ovladač</replaceable> zadejte dvoupísmenný
+kód ovladače vašeho zařízení (viz
+<ulink url="&url-speakup-driver-codes;">seznam kódů</ulink>). Instalace
+se pak automaticky přepne do textového režimu a do instalovaného
+systému přidá podporu pro hlasovou syntézu.
+
+</para>
+  </sect2>
+
+  <sect2 arch="linux-any"><title>Zařízení připojená rovnou na sběrnici</title>
+<para>
+
+Některá zařízení pro zpřístupnění jsou dodávána jako karty zapojené
+uvnitř počítače, které čtou text přímo z videopaměti. Aby tyto karty
+fungovaly, musíte vypnout framebuffer zaváděcím parametrem
+<userinput arch="x86">vga=normal</userinput>
+<userinput>fb=false</userinput>. Tím však také snížíte počet
+dostupných jazyků.
+
+</para><para arch="x86">
+
+Pokud chcete, je možné aktivovat textovou verzi zavaděče ještě před
+přidáním zaváděcícho parametru stiskem klávesy
+<userinput>h</userinput> následované klávesou &enterkey;.
+
+</para>
+  </sect2>
+
+  <sect2><title>Kontrastní téma</title>
+<para>
+
+Uživatelé se zhoršeným zrakem mohou při instalaci použít vysoce
+kontrastní téma, které by mělo zlepšit čitelnost. Pro zapnutí
+stačí přidat zaváděcí parametr <userinput>theme=dark</userinput>.
+
+</para>
+  </sect2>
+
+  <sect2><title>Přednastavení</title>
+<para>
+
+Alternativně lze &debian; nainstalovat zcela automaticky pomocí
+přednastavení. Tomuto způsobu se podrobně věnuje kapitola <xref
+linkend="appendix-preseed"/>.
+
+</para>
+  </sect2>
+ </sect1>

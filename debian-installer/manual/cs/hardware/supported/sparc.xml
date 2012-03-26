@@ -1,0 +1,70 @@
+<!-- $Id: sparc.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="sparc" id="sparc-cpus">
+  <title>Procesory a základní desky</title>
+<para>
+
+Sparc systémy se dají rozdělit do několika podarchitektur: sun4,
+sun4c, sun4d, sun4m, sun4u a sun4v. Následující seznam popisuje, které
+systémy patří do které kategorie a jakou míru podpory pro ně můžete
+očekávat.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>sun4, sun4c, sun4d, sun4m</term>
+
+<listitem><para>
+
+Žádná z těchto 32 bitových podarchitektur (sparc32) již není
+podporovaná. Kompletní seznam strojů patřících do této třídy naleznete
+ve Wikipedii na stránce
+<ulink url="http://en.wikipedia.org/wiki/SPARCstation">SPARCstation</ulink>.
+
+</para><para>
+
+Poslední vydání &debian;u, které ještě podporovalo sparc32, byl Etch,
+ovšem i ten zvládal pouze systémy sun4m. Ostatní 32 bitové
+podarchitektury nejsou podporovány již delší dobu.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4u</term>
+
+<listitem><para>
+
+Tato podarchitektura zahrnuje všechny 64 bitové počítače (sparc64)
+založené na procesoru UltraSparc a jeho klonech. Většina strojů je
+podporována dobře, ale na některých můžete zaznamenat problém se
+zaváděním z CD. Za problémy mohou chyby ve firmwaru nebo zavaděči (a
+můžete je obejít zavedením ze sítě). Pro jedno resp. víceprocesorové
+systémy použijte jádra sparc64 resp. sparc64-smp.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4v</term>
+
+<listitem><para>
+
+Toto je nejnovější přírůstek do rodiny Sparců a zahrnuje počítače
+založené na vícejádrových procesorech Niagara. Tyto procesory jsou
+nyní dostupné pouze v serverech T1000 a T2000 od Sunu a jsou
+podporovány velmi dobře. Použijte jádro sparc64-smp.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Procesory SPARC64 od Fujitsu používané v řadě serverů PRIMEPOWER
+nejsou podporovány, protože pro ně chybí podpora v linuxovém jádře.
+
+</para>
+  </sect2>

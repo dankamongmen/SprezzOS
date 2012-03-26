@@ -1,0 +1,452 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56419 -->
+<!-- updated 42929:56419 by Felipe Augusto van de Wiel (faw) 2008.11.10 -->
+
+  <sect2 arch="any-x86"><title>Inicialização através de um CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<!-- We'll comment the following section until we know exact layout -->
+<!--
+O CD #1 do conjunto oficial de CDs do &debian; para &arch-title;
+mostrará a linha <prompt>boot:</prompt> na maioria das máquinas.
+Pressione <keycap>F4</keycap> para ver a lista de opções do kernel
+disponíveis que poderá usar na inicialização. Você pode apenas digitar
+o nome do tipo de imagem (idepci, vanilla, compact, bf24) no
+prompt <prompt>boot:</prompt> seguido da tecla &enterkey;.
+
+</para><para>
+
+Caso seu hardware não suporte a inicialização através de múltiplas
+imagens, coloque alguns dos outros CDs do &debian; na unidade. Parece
+que a maioria das unidades de CD-ROM SCSI não suportam a inicialização
+através de múltiplas imagens do <command>isolinux</command>, desta forma
+os usuários com seus CD-ROMs scsi deverão tentar o CD2 (vanilla) ou CD3
+(compact), ou o CD5 (bf2.4).
+
+</para><para>
+
+Os CDs do 2 ao 5 inicializarão com um <quote>sabor</quote> diferente
+dependendo de qual CD for inserido. Veja <xref linkend="kernel-choice"/>
+sobre uma discussão sobre os diferentes sabores. Aqui estão a
+lista de tipos de imagem que cada CD contém:
+
+<variablelist>
+<varlistentry>
+<term>CD 1</term><listitem><para>
+
+Permite a seleção de imagens do kernel para inicialização (o tipo
+idepci é o padrão caso nenhuma seleção seja feita).
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 2</term><listitem><para>
+
+Inicializa com o tipo <quote>vanilla</quote>.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 3</term><listitem><para>
+
+Inicializa com o tipo <quote>compact</quote>.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 4</term><listitem><para>
+
+Inicializa com o tipo <quote>idepci</quote>.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 5</term><listitem><para>
+
+Inicializa com o tipo <quote>bf2.4</quote>.
+
+</para></listitem></varlistentry>
+
+ </variablelist>
+
+</para><para>
+
+-->
+
+  </sect2>
+
+  <sect2 arch="any-x86" id="boot-win32">
+  <title>Inicialização através do Windows</title>
+<para>
+
+Para iniciar o instalador a partir do Windows, você deve primeiro ter uma
+mídia de instalação em <quote>memory stick</quote> USB ou CD-ROM/DVD-ROM
+conforme descrito em <xref linkend="official-cdrom"/> e
+<xref linkend="boot-usb-files"/>.
+
+</para><para>
+
+Se você usa um CD ou DVD de instalação, o programa de pré-instalação deveria
+ser lançado automaticamente quando você inserir o disco.
+Caso o Windows não inicie-o automaticamente, ou você esteja usando um
+<quote>memory stick</quote> USB, você pode executá-lo manualmente acessando
+o dispositivo e executando <command>setup.exe</command>.
+
+</para><para>
+
+Após o programa ter sido iniciado, algumas questões preliminares serão
+feitas e o sistema será preparado para iniciar o instalador &debian-gnu;.
+
+</para>
+  </sect2>
+
+<!-- FIXME the documented procedure does not exactly work, commented out
+     until fixes
+
+  <sect2 arch="x86" id="install-from-dos">
+  <title>Inicialização através de uma partição DOS</title>
+
+&boot-installer-intro-hd.xml;
+
+<para>
+
+Inicializa no DOS (não no Windows) sem carregar qualquer controlador de
+dispositivo. Para fazer isto, você terá que pressionar <keycap>F8
+</keycap> no momento certo (e opcionalmente selecionar a opção <quote>Somente
+prompt de comandos no modo de segurança</quote>). Entre com o subdiretório do
+tipo de <quote>sabor</quote> que escolheu., e.g.,
+
+<informalexample><screen>
+cd c:\install
+</screen></informalexample>.
+
+Então, execute o comando <command>install.bat</command>.
+O kernel irá carregar e iniciar o sistema de instalação.
+
+</para><para>
+
+Note que atualmente existe um problema com o loadlin (#142421) que
+impede que o  <filename>install.bat</filename> seja usado com o
+tipo de imagem bf2.4. O sintoma deste problema é um erro
+<computeroutput>invalid compressed format</computeroutput>.
+
+</para>
+  </sect2>
+
+END FIXME -->
+
+  <sect2 arch="x86" id="boot-initrd">
+  <title>Inicialização através do Linux usando o <command>LILO</command> ou
+  <command>GRUB</command></title>
+
+<para>
+Para iniciar o programa de instalação através do disco rígido, você primeiro
+deverá baixar e gravar os arquivos descritos em
+<xref linkend="boot-drive-files"/>.
+</para>
+
+<para>
+Se tiver a intenção de usar um disco rígido somente para a inicialização e
+então baixar o resto através da rede, você deve baixar o arquivo
+<filename>netboot/debian-installer/&architecture;/initrd.gz</filename> e
+seu kernel correspondente
+<filename>netboot/debian-installer/&architecture;/linux</filename>. Isto lhe
+permitirá reparticionar o disco rígido de onde iniciou a instalação, no
+entanto, você deverá fazer isto com cuidado.
+</para>
+
+<para>
+Alternativamente, se tiver a intenção de manter uma partição existente
+no disco rígido inalterada durante a instalação, você poderá baixar o arquivo
+<filename>hd-media/initrd.gz</filename> e seu kernel, assim como copiar um CD
+iso nesta unidade (tenha certeza que o arquivo finaliza em
+<literal>.iso</literal>). O programa de instalação poderá então inicializar
+a partir do disco e ser instalado através da imagem de CD, sem precisar da
+rede.
+</para>
+
+<para>
+Para o <command>LILO</command>, você precisará configurar duas
+coisas essenciais no <filename>/etc/lilo.conf</filename>:
+<itemizedlist>
+<listitem><para>
+
+para carregar o instalador <filename>initrd.gz</filename> durante a
+inicialização;
+
+</para></listitem>
+<listitem><para>
+
+fazer o kernel <filename>vmlinuz</filename> usar este disco
+RAM como partição raiz.
+
+</para></listitem>
+</itemizedlist>
+
+Aqui está um exemplo do <filename>/etc/lilo.conf</filename>:
+
+</para><para>
+
+<informalexample><screen>
+image=/boot/newinstall/vmlinuz
+       label=novainstalacao
+       initrd=/boot/newinstall/initrd.gz
+</screen></informalexample>
+
+Para mais detalhes, veja as páginas de manual do
+<citerefentry><refentrytitle>initrd</refentrytitle>
+<manvolnum>4</manvolnum></citerefentry> e do
+<citerefentry><refentrytitle>lilo.conf</refentrytitle>
+<manvolnum>5</manvolnum></citerefentry>. Agora
+execute o <userinput>lilo</userinput> e reinicialize.
+
+</para><para>
+
+O procedimento para fazer o mesmo com o <command>GRUB</command> é parecido.
+Localize o arquivo <filename>menu.lst</filename> no diretório
+<filename>/boot/grub/</filename> (algumas vezes em
+<filename>/boot/boot/grub/</filename>), e adicione as seguintes linhas:
+
+<informalexample><screen>
+title  Nova Instalação
+kernel (hd0,0)/boot/newinstall/vmlinuz
+initrd (hd0,0)/boot/newinstall/initrd.gz
+</screen></informalexample>
+
+e reinicie.
+
+</para><para>
+
+Pode ser necessário alterar o valor de <userinput>ramdisk_size</userinput>
+para o tamanho da imagem do initrd.
+De agora em diante, não deverá existir diferenças entre o
+<command>GRUB</command> ou <command>LILO</command>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="any-x86" condition="bootable-usb" id="usb-boot">
+  <title>Inicialização através de <quote>memory stick</quote> USB</title>
+<para>
+
+Vamos assumir que você preparou tudo de <xref
+linkend="boot-dev-select"/> e <xref linkend="boot-usb-files"/>. Agora
+apenas ligue seu <quote>memory stick</quote> USB em algum conector USB livre
+e reinicialize o computador. O sistema deverá inicializar e você verá o
+prompt <prompt>boot:</prompt>. Lá você poderá informar argumentos opcionais
+de inicialização ou apenas teclar &enterkey;.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" condition="supports-floppy-boot" id="floppy-boot">
+  <title>Inicialização através de disquetes</title>
+<para>
+
+Você terá que copiar as imagens de disquetes que precisa e as criadas
+como é mostrado em <xref linkend="create-floppy"/>.
+<!-- missing-doc FIXME Se precisar, você também pode alterar o disquete
+de inicialização, veja <xref linkend="rescue-replace-kernel"/>. -->
+
+</para><para>
+
+Para inicializar a partir de um disquete de instalação, coloque o
+disquete na unidade de disquetes primária, desligue o seu sistema
+(da forma que deve ser feita) então ligue-o.
+
+</para><para>
+
+Para fazer a instalação a partir de uma unidade LS-120 (versão ATAPI),
+com um conjunto de disquetes, você precisará especificar uma localização
+virtual para o dispositivo de disquetes. Isto é feito com o argumento de
+inicialização <emphasis>root=</emphasis>, apontando para o dispositivo
+ide que será mapeado. Por exemplo, se sua unidade LS-120 estiver conectada
+como primeiro dispositivo IDE (master) no segundo cabo, você deverá entrar
+com <userinput>install root=/dev/hdc</userinput> no prompt de inicialização.
+
+</para><para>
+
+Note que em algumas máquinas, as teclas <keycombo><keycap>Control</keycap>
+<keycap>Alt</keycap> <keycap>Delete</keycap></keycombo> não reiniciam
+de forma adequada sua máquina, desta forma é recomendável uma reinicialização
+<quote>hard</quote>. Caso esteja instalando a partir de um sistema
+operacional existente (e.g. de um sistema DOS) você não terá escolha. Caso
+contrário, faça uma reinicialização <quote>hard</quote> no momento da
+inicialização.
+
+</para><para>
+
+A unidade de disquetes será acessada, e você verá uma tela que
+introduz o disquete de inicialização e finaliza com o prompt
+<prompt>boot:</prompt>.
+
+</para><para>
+
+Assim que pressionar a tecla &enterkey;, você deverá ver a mensagem
+<computeroutput>Loading...</computeroutput>, seguida de
+<computeroutput>Uncompressing Linux...</computeroutput>, e então
+uma tela cheia de informações sobre o hardware encontrado em seu
+sistema. Mais informações sobre esta fase do processo de inicialização
+pode ser encontrada mais abaixo em <xref linkend="kernel-msgs"/>.
+
+</para><para>
+
+Após inicializar a partir do disquete de inicialização, o disquete
+raiz será solicitado. Insira o disquete raiz e pressione &enterkey;,
+e seu conteúdo será carregado para a memória. O programa de instalação
+<command>debian-installer</command> será automaticamente carregado.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" id="boot-tftp"><title>Inicialização usando o TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+Existem vários métodos de realizar uma inicialização usando TFTP na
+plataforma i386.
+
+</para>
+
+   <sect3><title>Placas de Rede ou Placas mãe que dão suporte ao PXE</title>
+<para>
+
+É possível que sua Placa de rede ou Placa mãe forneçam o recurso de
+inicialização através do PXE.
+Esta é uma reimplementação da <trademark class="trade">Intel</trademark> da
+inicialização usando o protocolo TFTP. Se tiver, você poderá ser capaz de
+configurar seu BIOS para inicializar através da rede.
+
+</para>
+   </sect3>
+
+   <sect3><title>Placa de Rede com inicialização através da rede
+          (BootROM)</title>
+<para>
+
+Pode ser que sua placa de rede tenha a funcionalidade de
+inicializar via TFTP.
+
+</para><para condition="FIXME">
+
+Conte-nos na <email>&email-debian-boot-list;</email> (em inglês) como fez para
+gerenciá-lo. Leia este documento para mais informações.
+
+</para>
+   </sect3>
+
+   <sect3><title>Etherboot</title>
+<para>
+
+O <ulink url="http://www.etherboot.org">projeto etherboot</ulink>
+oferece disquete de inicialização e até mesmo ROMs de inicialização que
+fornecem suporte de inicialização usando o protocolo TFTP.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="x86" id="boot-screen">
+  <title>A Tela de Inicialização</title>
+<para>
+
+Quando o programa de instalação for iniciado, você deverá ver uma amigável
+tela gráfica mostrando o logotipo do &debian; e um menu:
+
+<informalexample><screen>
+Installer boot menu
+
+Install
+Graphical install
+Advanced options       >
+Help
+
+Press ENTER to boot or TAB to edit a menu entry
+</screen></informalexample>
+
+Dependendo do método de instalação que você está usando, a opção de
+<quote>Instalação gráfica</quote> pode não estar disponível.
+
+</para><para>
+
+Para uma instalação normal, selecione a entrada <quote>Install</quote>
+(Instalação) ou <quote>Graphical install</quote> (Instalação gráfica) &mdash;
+usando as setas no seu teclado ou digitando a primeira letra (realçada)
+&mdash; e pressionando &enterkey; para inicializar o instalador.
+
+</para><para>
+
+A entrada <quote>Advanced options</quote> (Opções avançadas) dá acesso a
+um segundo menu que permite inicializar o instalador no modo expert, no
+modo rescue e para instalações automatizadas.
+
+</para><para>
+
+Se você quer ou precisa adicionar quaisquer parâmetros de inicialização
+para o instalador ou kernel, pressione &tabkey;. Isto exibirá o comando
+de inicialização padrão para a entrada de menu selecionada e permitirá
+adicionar opções. As telas de ajuda (veja abaixo) listam algumas opções
+possíveis. Pressione &enterkey; para inicializar o instalador com as suas
+opções; pressionar &escapekey; retornará para o menu de inicialização
+desfazendo quaisquer mudanças que você tenha feito.
+
+</para><para>
+
+Selecionando a entrada <quote>Help</quote> (Ajuda) resultará na exibição da
+primeira tela de ajuda o que dá uma visão geral de todas as telas de
+ajuda disponíveis. Note que não é possível retornar para o menu de
+inicialização após a exibição das telas de ajuda. No entanto, as telas
+de ajuda em F3 e F4 listam comandos que são equivalentes aos métodos de
+inicialização listados no menu. Todas as telas de ajuda possuem um
+prompt de inicialização no qual comandos de inicialização podem ser
+digitados:
+
+<informalexample><screen>
+Press F1 for the help index, or ENTER to boot:
+</screen></informalexample>
+
+Neste prompt de inicialização você pode simplesmente pressionar &enterkey;
+para inicializar o instalador com opções padrão ou informar um comando de
+inicialização específico e, opcionalmente, parâmetros de inicialização.
+Vários parâmetros de inicialização que podem ser úteis podem ser encontrados
+nas várias telas de ajuda. Se você adicionar quaisquer parâmetros na linha
+de comando de inicialização, tenha certeza de digitar primeiro o método
+(o padrão é <userinput>install</userinput>) e um espaço antes do primeiro
+parâmetro (e.g., <userinput>install fb=false</userinput>).
+
+<note><para>
+
+Neste ponto, assume-se que o teclado possui um layout Inglês Americano padrão.
+Isto significa que se seu teclado tem um layout diferente (específico para um
+idioma), os caracteres que aparecerão na tela podem ser diferentes daqueles
+que você espera quando digita os parâmetros. A Wikipedia possui um
+<ulink url="&url-us-keymap;">esquema do layout do teclado EUA</ulink> que
+pode ser usado como uma referência para encontrar as teclas corretas a serem
+usadas.
+
+</para></note>
+<note><para>
+
+Se você está usando um sistema que tem o BIOS configurado para usar um console
+serial, você pode não ser capaz de ver a tela de abertura gráfica inicial
+enquanto inicializa o instalador, você pode até mesmo não ver o menu de
+inicialização. O mesmo pode acontecer se você está instalando o sistema
+através de um dispositivo de gerenciamento remoto que fornece uma interface
+texto para um console VGA. Exemplos destes dispositivos incluem o console de
+texto <quote>integrated Lights Out</quote> (iLO) da Compaq e o
+<quote>Integrated Remote Assistant</quote> (IRA) da HP.
+
+</para><para>
+
+Para passar a tela de inicialização gráfica você pode cegamente apertar
+&escapekey; para obter um prompt de inicialização em modo texto, ou
+(igualmente de forma cega) pressionar <quote>H</quote> seguido por &enterkey;
+para selecionar a opção <quote>Help</quote> (Ajuda) descrita acima. Após
+isso, o que você digitar deveria aparecer no prompt. Para impedir que o
+instalador use o framebuffer para o resto da instalação, você também pode
+adicionar <userinput>fb=false</userinput> ao prompt de inicialização, como
+descrito no texto de ajuda.
+
+</para></note>
+</para>
+
+  </sect2>

@@ -1,0 +1,74 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56326 -->
+<!-- updated 21579:43573 by Felipe Augusto van de Wiel (faw) 2007.01.21 -->
+<!-- updated 43573:51519 by Felipe Augusto van de Wiel (faw) 2008.04.14 -->
+
+   <sect3 id="shell">
+<title>Usando o interpretador de comandos e visualizando os logs</title>
+
+<para>
+
+Há vários métodos que você pode usar para obter um interpretador de comandos
+enquanto executa uma instalação. Na maioria dos sistemas, e se você não estiver
+instalando através do console serial, o método mais fácil é mudar para
+o segundo <emphasis>console virtual</emphasis> apertando
+<keycombo><keycap>Alt Esquerdo</keycap> <keycap>F2</keycap></keycombo><footnote>
+
+<para>
+Isto é: pressionar a tecla <keycap>Alt</keycap> no lado esquerdo da
+<keycap>barra de espaço</keycap> e a tecla de função <keycap>F2</keycap>
+ao mesmo tempo.
+</para>
+
+</footnote> (num teclado Mac, <keycombo><keycap>Opção</keycap>
+<keycap>F2</keycap></keycombo>). Use <keycombo><keycap>Alt Esquerdo</keycap>
+<keycap>F1</keycap></keycombo> para voltar ao instalador.
+
+</para><para condition="gtk">
+
+Para o instalador gráfico veja também <xref linkend="gtk-using"/>.
+
+</para><para>
+
+Se você não consegue trocar de console, há também um item <guimenuitem>Executar
+um prompt de comandos</guimenuitem> no menu principal que pode ser usado para
+iniciar um interpretador de comandos. Você pode voltar ao menu principal a
+partir da maioria dos diálogos usando o botão &BTN-GOBACK; uma ou mais vezes.
+Digite <userinput>exit</userinput> para fechar o interpretador de comandos e
+retornar ao instalador.
+
+</para><para>
+
+Neste ponto, você inicializou através do disco na memória RAM e 
+estarão disponíveis um conjunto limitado de utilitários Unix disponíveis
+para seu uso. Você poderá ver que programas estão disponíveis com o 
+comando <userinput>ls /bin /sbin /usr/bin /usr/sbin</userinput> e 
+digitando <command>help</command>.
+O interpretador de comandos é um clone do Bourne shell chamado
+<command>ash</command> e tem alguns recursos legais como autocompletar e
+histórico.
+
+</para><para>
+
+Para editar e visualizar arquivos, use o editor de textos
+<command>nano</command>. Arquivos de log para o sistema de instalação
+podem ser encontrados no diretório <filename>/var/log</filename>.
+
+</para>
+<note><para>
+
+Embora você possa fazer basicamente qualquer coisa num interpretador de
+comandos que os comandos disponíveis permitem que você faça, a opção de
+usar um interpretador de comandos está lá apenas caso algo dê errado e
+para depuração.
+
+</para><para>
+
+Fazer coisas manualmente a partir do interpretador de comandos pode
+interferir com o processo de instalação e resultar em erros ou em uma
+instalação incompleta. Em particular, você deveria sempre deixar o
+instalador ativar sua partição de área de troca e não fazer isso você
+mesmo a partir de um interpretador de comandos.
+
+</para></note>
+  </sect3>

@@ -1,0 +1,1104 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66709 -->
+
+ <sect1 id="boot-parms">
+ <!-- <title>Boot Parameters </title> -->
+ <title>Parametri di avvio</title>
+<para arch="linux-any">
+
+<!--
+Boot parameters are Linux kernel parameters which are generally used
+to make sure that peripherals are dealt with properly.  For the most
+part, the kernel can auto-detect information about your peripherals.
+However, in some cases you'll have to help the kernel a bit.
+-->
+
+I parametri di avvio sono dei parametri per il kernel Linux che di solito
+sono usati per gestire correttamente le periferiche. Nella maggior parte
+dei casi il kernel recupera automaticamente le informazioni sulle
+periferiche ma in alcuni casi è necessario aiutarlo un po'.
+
+</para><para>
+
+<!--
+If this is the first time you're booting the system, try the default
+boot parameters (i.e., don't try setting parameters) and see if it works
+correctly. It probably will.  If not, you can reboot later and look for
+any special parameters that inform the system about your hardware.
+-->
+
+La prima volta che si avvia il sistema provare a usare i parametri di avvio
+predefiniti (cioè senza impostare alcun parametro) e vedere se funziona
+correttamente. Se non funziona si può riavviare e aggiungere qualsiasi
+parametro necessario per il riconoscimento del proprio hardware.
+
+</para><para arch="linux-any">
+
+<!--
+Information on many boot parameters can be found in the
+<ulink url="http://www.tldp.org/HOWTO/BootPrompt-HOWTO.html"> Linux
+BootPrompt HOWTO</ulink>, including tips for obscure hardware.  This
+section contains only a sketch of the most salient parameters.  Some
+common gotchas are included below in
+<xref linkend="boot-troubleshooting"/>.
+-->
+
+Delle informazioni su molti parametri di avvio possono essere trovate nel
+<ulink url="http://www.tldp.org/HOWTO/BootPrompt-HOWTO.html">Linux
+BootPrompt HOWTO</ulink>, che contiene utili consigli anche per l'hardware
+più misterioso. Questa sezione del manuale contiene solo un riassunto
+delle parti più salienti, alcuni <quote>trucchi</quote> sono stati
+inseriti in <xref linkend="boot-troubleshooting"/>.
+
+</para><para arch="linux-any">
+
+<!--
+When the kernel boots, a message
+-->
+
+All'inizio del processo d'avvio il kernel mostra il messaggio
+
+<informalexample><screen>
+<!--
+Memory:<replaceable>avail</replaceable>k/<replaceable>total</replaceable>k available
+-->Memory:<replaceable>disp</replaceable>k/<replaceable>totale</replaceable>k available
+</screen></informalexample>
+
+<!--
+should be emitted early in the process.
+<replaceable>total</replaceable> should match the total amount of RAM,
+in kilobytes.  If this doesn't match the actual amount of RAM you have
+installed, you need to use the
+<userinput>mem=<replaceable>ram</replaceable></userinput> parameter,
+where <replaceable>ram</replaceable> is set to the amount of memory,
+suffixed with <quote>k</quote> for kilobytes, or <quote>m</quote> for
+megabytes.  For example, both <userinput>mem=65536k</userinput> and
+<userinput>mem=64m</userinput> mean 64MB of RAM.
+-->
+
+<replaceable>totale</replaceable> è la quantità di RAM in kilobyte. Se
+questo valore non coincide con la quantità di RAM installata si deve
+usare il parametro <userinput>mem=<replaceable>ram</replaceable></userinput>,
+dove <replaceable>ram</replaceable> è la quantità di RAM presente, è
+possibile usare i suffissi <quote>k</quote> per kilobyte e <quote>m</quote>
+per megabyte. Per esempio sia <userinput>mem=65536k</userinput> che
+<userinput>mem=64m</userinput> indicano 64&nbsp;MB di RAM.
+
+</para><para arch="linux-any" condition="supports-serial-console">
+
+<!--
+If you are booting with a serial console, generally the kernel will
+autodetect this.
+If you have a videocard (framebuffer) and a keyboard also attached to
+the computer which you wish to boot via serial console, you may have
+to pass the
+<userinput>console=<replaceable>device</replaceable></userinput>
+argument to the kernel, where <replaceable>device</replaceable> is
+your serial device, which is usually something like
+<filename>ttyS0</filename><footnote>
+-->
+
+Generalmente se l'avvio è effettuato con una console seriale il kernel
+riconosce questa tecnica. Se al computer su cui si vuole fare l'installazione
+sono collegati una scheda video e una tastiera potrebbe essere necessario
+passare <userinput>console=<replaceable>device</replaceable></userinput>
+al kernel, dove <replaceable>device</replaceable> è il device seriale
+usato, di solito qualcosa di simile a <filename>ttyS0</filename><footnote>
+
+<para>
+
+<!--
+In order to ensure the terminal type used by the installer matches your
+terminal emulator, the parameter
+<userinput>TERM=<replaceable>type</replaceable></userinput> can be added.
+Note that the installer only supports the following terminal types:
+<literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>,
+<literal>vt102</literal> and <literal>dumb</literal>. The default for
+serial console in &d-i; is <userinput>vt102</userinput>.
+-->
+
+Per assicurare che il tipo di terminale usato dall'installatore sia
+congruente con il proprio emulatore di terminale è possibile usare il
+parametro <userinput>TERM=<replaceable>tipo</replaceable></userinput>.
+Notare che l'installatore supporta solo questi tipi di terminale:
+<literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>,
+<literal>vt102</literal> e <literal>dumb</literal>. Il valore predefinito
+per la console seriale del &d-i; è <userinput>vt102</userinput>.
+
+</para>
+
+</footnote>.
+
+</para><para arch="sparc">
+
+<!--
+For &arch-title; the serial devices are <filename>ttya</filename> or
+<filename>ttyb</filename>.
+Alternatively, set the <envar>input-device</envar> and
+<envar>output-device</envar> OpenPROM variables to
+<filename>ttya</filename>.
+-->
+
+Per &arch-title; i device seriali sono <filename>ttya</filename> o
+<filename>ttyb</filename>. In alternativa impostare le variabili OpenPROM
+<envar>input-device</envar> e <envar>output-device</envar> a
+<filename>ttya</filename>.
+
+</para>
+
+
+  <sect2 id="installer-args">
+  <!-- <title>&debian; Installer Parameters</title> -->
+  <title>Parametri dell'Installatore &debian;</title>
+<para>
+
+<!--
+The installation system recognizes a few additional boot parameters<footnote>
+-->
+
+Il sistema d'installazione riconosce alcuni parametri aggiuntivi<footnote>
+
+<para>
+
+<!--
+With current kernels (2.6.9 or newer) you can use 32 command line options and
+32 environment options. If these numbers are exceeded, the kernel will panic.
+-->
+
+Con gli attuali kernel (2.6.9 e successivi) si possono usare 32 opzioni
+sulla riga di comando e 32 opzioni d'ambiente. Nel caso si superino questi
+limiti il kernel si blocca.
+
+</para>
+
+<!--
+</footnote> which may be useful.
+-->
+
+</footnote> che possono essere molto utili.
+
+</para><para>
+
+<!--
+A number of parameters have a <quote>short form</quote> that helps avoid
+the limitations of the kernel command line options and makes entering the
+parameters easier. If a parameter has a short form, it will be listed in
+brackets behind the (normal) long form. Examples in this manual will
+normally use the short form too.
+-->
+
+Un parte dei parametri dispone di una <quote>abbreviazione</quote> che
+permette di accorciare un po' la riga di comando contenente le opzioni
+da passare al kernel e di semplificare l'inserimento dei parametri. Per
+i parametri che hanno un'abbreviazione, l'abbreviazione è riportata fra
+parentesi accanto alla forma normale (lunga). Gli esempi in questo
+manuale usano normalmente l'abbreviazione.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term>debconf/priority (priority)</term>
+<listitem><para>
+
+<!--
+This parameter sets the lowest priority of messages to be displayed.
+-->
+
+Questo parametro imposta la priorità oltre la quale sono mostrati i messaggi.
+
+</para><para>
+
+<!--
+The default installation uses <userinput>priority=high</userinput>.
+This means that both high and critical priority messages are shown, but medium
+and low priority messages are skipped.
+If problems are encountered, the installer adjusts the priority as needed.
+-->
+
+Il valore predefinito è <userinput>priority=high</userinput>. Questo
+vuol dire che sono mostrati i messaggi con priorità alta (high) e critica
+(critical) ma i messaggi con priorità media (medium) e bassa (low) sono
+saltati. Se durante l'installazione si verificano dei problemi l'installatore
+cambia la priorità a seconda delle necessità.
+
+</para><para>
+
+<!--
+If you add <userinput>priority=medium</userinput> as boot parameter, you
+will be shown the installation menu and gain more control over the installation.
+When <userinput>priority=low</userinput> is used, all messages are shown
+(this is equivalent to the <emphasis>expert</emphasis> boot method).
+With <userinput>priority=critical</userinput>, the installation system
+will display only critical messages and try to do the right thing without fuss.
+-->
+
+Se si aggiunge <userinput>priority=medium</userinput> come
+parametro d'avvio viene mostrato il menu d'installazione e si ottiene
+un controllo più elevato sull'installazione. Quando si usa
+<userinput>priority=low</userinput> sono mostrati tutti i messaggi
+(equivale al metodo d'avvio <emphasis>esperto</emphasis>). Con
+<userinput>priority=critical</userinput> il sistema d'installazione
+mostra solo i messaggi critici e cerca di portare avanti l'installazione
+senza troppe domande.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>DEBIAN_FRONTEND</term>
+<listitem><para>
+
+<!--
+This boot parameter controls the type of user interface used for the
+installer. The current possible parameter settings are:
+-->
+
+Questo parametro controlla il tipo di interfaccia utente usata
+dall'installatore. Attualmente i possibili valori sono:
+
+<itemizedlist>
+<listitem>
+<para><userinput>DEBIAN_FRONTEND=noninteractive</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=text</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=newt</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=gtk</userinput></para>
+</listitem>
+</itemizedlist>
+
+<!--
+The default frontend is <userinput>DEBIAN_FRONTEND=newt</userinput>.
+<userinput>DEBIAN_FRONTEND=text</userinput> may be preferable for
+serial console installs. Some specialized types of install media may
+only offer a limited selection of frontends, but the
+<userinput>newt</userinput> and <userinput>text</userinput> frontends
+are available on most default install media.
+On architectures that support it, the graphical installer uses
+the <userinput>gtk</userinput> frontend.
+-->
+
+L'interfaccia predefinita è <userinput>DEBIAN_FRONTEND=newt</userinput>.
+Nel caso di installazione con una console seriale può essere preferibile
+usare <userinput>DEBIAN_FRONTEND=text</userinput>. Alcuni tipi di supporto
+per l'installazione specializzati potrebbero offrire un insieme ridotto
+di interfacce però le interfacce <userinput>newt</userinput> e
+<userinput>text</userinput> sono disponibili sulla maggior parte delle
+dei supporti per l'installazione preconfezionati. Sulle sole architetture
+che supportano la versione grafica dell'installatore è disponibile anche
+l'interfaccia <userinput>gtk</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>BOOT_DEBUG</term>
+<listitem><para>
+
+<!--
+Setting this boot parameter to 2 will cause the installer's boot process
+to be verbosely logged. Setting it to 3 makes debug shells
+available at strategic points in the boot process. (Exit the shells to
+continue the boot process.)
+-->
+
+Impostando questo parametro a 2 si forza il processo d'avvio dell'installatore
+ad essere più prolisso. Impostando il parametro a 3 si attivano delle shell
+in punti strategici del processo d'avvio (uscire dalle shell per continuare
+il processo d'avvio).
+
+<variablelist>
+<varlistentry>
+<term><userinput>BOOT_DEBUG=0</userinput></term>
+<listitem><para>
+
+<!--
+This is the default.
+-->
+
+Questo è il valore predefinito.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=1</userinput></term>
+<listitem><para>
+
+<!--
+More verbose than usual.
+-->
+
+Più informazioni del solito.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=2</userinput></term>
+<listitem><para>
+
+<!--
+Lots of debugging information.
+-->
+
+Parecchie informazioni per il debug.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=3</userinput></term>
+<listitem><para>
+
+<!--
+Shells are run at various points in the boot process to allow detailed
+debugging. Exit the shell to continue the boot.
+-->
+
+Delle shell sono attivate in vari punti del processo d'avvio per consentire
+un accurato debug. Chiudere la shell per continuare il processo.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>INSTALL_MEDIA_DEV</term>
+<listitem><para>
+
+<!--
+The value of the parameter is the path to the device to load the
+&debian; installer from. For example,
+<userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</userinput>
+-->
+
+Il valore del parametro è il percorso al device da cui caricare
+l'installatore &debian;. Per esempio
+<userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</userinput>.
+
+</para><para>
+
+<!--
+The boot floppy, which normally scans all floppies it can to find the
+root floppy, can be overridden by this parameter to only look at the
+one device.
+-->
+
+Il dischetto d'avvio normalmente effettua la scansione di tutti i dischetti
+alla ricerca del dischetto root, con questo parametro si può cambiare questo
+comportamento in modo da limitare la scansione a solo un device.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>log_host</term>
+<term>log_port</term>
+<listitem><para>
+
+<!--
+Causes the installer to send log messages to a remote syslog on the
+specified host and port as well as to a local file. If not specified, the
+port defaults to the standard syslog port 514.
+-->
+
+Servono per inviare i messaggi di log verso un log di sistema remoto
+sull'host e porta specificati oltre che sul file locale. Se non si
+impostata la porta, viene usata la porta predefinita per il log di
+sistema cioè la 514.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>lowmem</term>
+<listitem><para>
+
+<!--
+Can be used to force the installer to a lowmem level higher than the one
+the installer sets by default based on available memory. Possible values
+are 1 and 2. See also <xref linkend="lowmem"/>.
+-->
+
+Può essere usato per forzare l'installatore a un livello di soglia per
+il modulo <quote>low memory</quote> più alto di quello predefinito in
+base alla memoria disponibile. I valori possibili sono 1 e 2. Consultare
+<xref linkend="lowmem"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>noshell</term>
+<listitem><para>
+
+<!--
+Prevents the installer from offering interactive shells on tty2 and tty3.
+Useful for unattended installations where physical security is limited.
+-->
+
+Impedisce all'Installatore di fornire le shell interattive su tty2 e
+tty3. Utile durante le installazioni non sorvegliate e con scarsa
+sicurezza fisica.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/framebuffer (fb)</term>
+<listitem><para>
+
+<!--
+Some architectures use the kernel framebuffer to offer installation in
+a number of languages. If framebuffer causes a problem on your system
+you can disable the feature using the parameter
+<userinput arch="x86">vga=normal</userinput> <userinput>fb=false</userinput>.
+Problem symptoms are error messages about bterm or bogl, a blank screen,
+or a freeze within a few minutes after starting the install.
+-->
+
+Su alcune architetture si usa il framebuffer del kernel per fornire
+l'installazione in più lingue. Se sul proprio sistema il framebuffer
+crea problemi è possibile disabilitarlo usando il parametro
+<userinput arch="x86">vga=normal</userinput> <userinput>fb=false</userinput>.
+Dei sintomi di questo problema sono dei messaggi d'errore riguardo bterm
+o bogl, lo schermo nero oppure un blocco entro pochi minuti dall'inizio
+dell'installazione.
+
+</para><para arch="hppa">
+
+<!--
+Such problems have been reported on hppa.
+-->
+
+Problemi di questo tipo sono stati segnalati su hppa.
+
+</para><note arch="sparc"><para>
+
+<!--
+Because of display problems on some systems, framebuffer support is
+<emphasis>disabled by default</emphasis> for &arch-title;. This can result
+in ugly display on systems that do properly support the framebuffer, like
+those with ATI graphical cards.
+If you see display problems in the installer, you can try booting with
+parameter <userinput>debian-installer/framebuffer=true</userinput> or
+<userinput>fb=true</userinput> for short.
+-->
+
+Visti i problemi con il display su alcuni sistemi il supporto per il
+framebuffer è <emphasis>disattivato</emphasis> su &arch-title;. Questo
+comporta che l'output sui sistemi che supportano correttamente il
+framebuffer (come quelli con schede video ATI) sia brutto. Se si
+riscontrano dei problemi di visualizzazione con l'installatore si può
+provare a usare il parametro
+<userinput>debian-installer/framebuffer=true</userinput> o la forma
+abbreviata <userinput>fb=true</userinput>.
+
+</para></note></listitem>
+</varlistentry>
+
+<varlistentry arch="not-s390">
+<term>debian-installer/theme (theme)</term>
+<listitem><para>
+
+<!--
+A theme determines how the user interface of the installer looks (colors,
+icons, etc.). What themes are available differs per frontend.  Currently
+both the newt and gtk frontends only have a <quote>dark</quote> theme that was
+designed for visually impaired users. Set the theme by booting with 
+<userinput>theme=<replaceable>dark</replaceable></userinput>.
+-->
+
+Un tema determina l'aspetto dell'interfaccia utente dell'installatore (colori,
+icone, ecc.); i temi disponibili variano al variare dell'interfaccia.
+Attualmente entrambe le interfacce newt e gtk dispongono solo del tema
+<quote>dark</quote>, adatto agli utenti con problemi visivi. L'impostazione
+usando il parametro
+<userinput>theme=<replaceable>dark</replaceable></userinput> all'avvio del
+sistema.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>netcfg/disable_dhcp</term>
+<listitem><para>
+
+<!--
+By default, the &d-i; automatically probes for network configuration
+via DHCP. If the probe succeeds, you won't have a chance to review and
+change the obtained settings. You can get to the manual network setup
+only in case the DHCP probe fails.
+-->
+
+Normalmente il &d-i; tenta di configurare la rete via DHCP. Se il tentativo
+ha successo non si ha la possibilità di verificare ed eventualmente
+modificare le impostazioni, è possibile fare la configurazione manuale
+della rete solo se DHCP fallisce.
+
+</para><para>
+
+<!--
+If you have a DHCP server on your local network, but want to avoid it
+because e.g. it gives wrong answers, you can use the parameter
+<userinput>netcfg/disable_dhcp=true</userinput> to prevent configuring
+the network with DHCP and to enter the information manually.
+-->
+
+Se nella propria rete locale è presente un server DHCP ma si vuole evitare
+di usarlo, per esempio perché fornisce risposte sbagliate, si può usare il
+parametro <userinput>netcfg/disable_dhcp=true</userinput> per evitare la
+configurazione della rete con DHCP e inserire le informazioni manualmente.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>hw-detect/start_pcmcia</term>
+<listitem><para>
+
+<!--
+Set to <userinput>false</userinput> to prevent starting PCMCIA
+services, if that causes problems. Some laptops are well known for
+this misbehavior.
+-->
+
+Da impostare a <userinput>false</userinput> per evitare l'avvio dei servizi
+PCMCIA che, in qualche caso, possono causare dei problemi. Alcuni portatili
+sono famosi per questo malfunzionamento.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>disk-detect/dmraid/enable (dmraid)</term>
+<listitem><para>
+
+<!--
+Set to <userinput>true</userinput> to enable support for Serial ATA RAID
+(also called ATA RAID, BIOS RAID or fake RAID) disks in the installer.
+Note that this support is currently experimental. Additional information
+can be found on the <ulink url="&url-d-i-wiki;">&debian; Installer Wiki</ulink>.
+-->
+
+Da impostare a <userinput>true</userinput> per attivare il supporto per i
+dischi Serial ATA RAID (conosciuti anche come ATA RAID, BIOS RAID o falsi
+RAID) nell'installatore. Notare che attualmente questo supporto è
+sperimentale, ulteriori informazioni possono essere trovate nel
+<ulink url="&url-d-i-wiki;">&debian; Installer Wiki</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/url (url)</term>
+<listitem><para>
+
+<!--
+Specify the url to a preconfiguration file to download and use for
+automating the install. See <xref linkend="automatic-install"/>.
+-->
+
+Specifica l'url del file di preconfigurazione da scaricare e da usare
+nelle installazioni automatiche. Si veda <xref linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/file (file)</term>
+<listitem><para>
+
+<!--
+Specify the path to a preconfiguration file to load for
+automating the install. See <xref linkend="automatic-install"/>.
+-->
+
+Specifica il percorso del file di preconfigurazione da caricare e da usare
+nelle installazioni automatiche. Si veda <xref linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/interactive</term>
+<listitem><para>
+
+<!--
+Set to <userinput>true</userinput> to display questions even if they have
+been preseeded. Can be useful for testing or debugging a preconfiguration
+file. Note that this will have no effect on parameters that are passed as
+boot parameters, but for those a special syntax can be used.
+See <xref linkend="preseed-seenflag"/> for details.
+-->
+
+Da impostare a <userinput>true</userinput> per visualizzare le domande
+anche se preconfigurate, può essere utile per effettuare delle prove e
+per il debug di un file di preconfigurazione. Notare che non influenza
+i parametri passati come parametri d'avvio, per questi parametri occorre
+usare una sintassi speciale. Si veda <xref linkend="preseed-seenflag"/>
+per maggiori dettagli.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>auto-install/enable (auto)</term>
+<listitem><para>
+
+<!--
+Delay questions that are normally asked before preseeding is possible until
+after the network is configured.
+See <xref linkend="preseed-auto"/> for details about using this to
+automate installs.
+-->
+
+Rimanda le domande che normalmente sono poste prima che sia possibile
+fare la preconfigurazione fino a quando non viene configurata la rete.
+Si vedano in <xref linkend="preseed-auto"/> i dettagli su come usare
+questo parametro per automatizzare l'installazione.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>finish-install/keep-consoles</term>
+<listitem><para>
+
+<!--
+During installations from serial or management console, the regular
+virtual consoles (VT1 to VT6) are normally disabled in
+<filename>/etc/inittab</filename>.
+Set to <userinput>true</userinput> to prevent this.
+-->
+
+Durante le installazioni da console seriale o di gestione, normalmente
+le console virtuali (da VT1 a VT6) vengono disabilitate in
+<filename>/etc/inittab</filename>. Impostare questa opzione a
+<userinput>true</userinput> per evitare che questo accada.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>cdrom-detect/eject</term>
+<listitem><para>
+
+<!--
+By default, before rebooting, &d-i; automatically ejects the optical
+media used during the installation. This can be unnecessary if the system
+does not automatically boot off the CD. In some cases it may even be
+undesirable, for example if the optical drive cannot reinsert the media
+itself and the user is not there to do it manually. Many slot loading,
+slim-line, and caddy style drives cannot reload media automatically.
+-->
+
+Normalmente, prima di riavviare, &d-i; espelle automaticamente il supporto
+ottico usato durante l'installazione. Questa operazione può essere superflua
+nel caso in cui il sistema non faccia l'avvio automatico da CD e in alcuni
+casi può essere addirittura inopportuna, per esempio quando il lettore non è in
+grado di richiudere il carrello da solo e l'utente non può farlo manualmente
+perché non è fisicamente presente. Molti dei lettori sottili con caricatore
+a slot non possono ricaricare automaticamente il supporto.
+
+</para><para>
+
+<!--
+Set to <userinput>false</userinput> to disable automatic ejection, and
+be aware that you may need to ensure that the system does not
+automatically boot from the optical drive after the initial
+installation.
+-->
+
+Da impostare a <userinput>false</userinput> per disattivare l'espulsione
+automatica, però si deve fare attenzione che il sistema non faccia
+nuovamente l'avvio dal lettore CD dopo l'installazione iniziale.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>base-installer/install-recommends (recommends)</term>
+<listitem><para>
+
+<!--
+By setting this option to <userinput>false</userinput>, the package
+management system will be configured to not automatically install
+<quote>Recommends</quote>, both during the installation and for the
+installed system. See also <xref linkend="di-install-base"/>.
+-->
+
+Impostando questa opzione a <userinput>false</userinput>, il sistema di
+gestione dei pacchetti verrà configurato per non installare automaticamente
+i <quote>Raccomandati</quote>, sia durante l'installazione che sul sistema
+finale. Vedere anche <xref linkend="di-install-base"/>.
+
+</para><para>
+
+<!--
+Note that this option allows to have a leaner system, but can also result
+in features being missing that you might normally expect to be available.
+You may have to manually install some of the recommended packages to
+obtain the full functionality you want. This option should therefore only
+be used by very experienced users.
+-->
+
+Notare che questa opzione permette di avere un sistema più snello, ma può
+comportare la perdita di alcune delle funzionalità che sono solitamente
+disponibili. Potrebbe essere necessario installare manualmente alcuni dei
+pacchetti raccomandati per avere tutte le funzionalità desiderate. Questa
+opzione dovrebbe essere usata solo dagli utenti molto esperti.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/allow_unauthenticated</term>
+<listitem><para>
+
+<!--
+By default the installer requires that repositories be authenticated
+using a known gpg key. Set to <userinput>true</userinput> to 
+disable that authentication. 
+<emphasis role="bold">Warning: insecure, not recommended.</emphasis>
+-->
+
+Normalmente l'installatore richiede che i repository siano autenticati con
+una chiave gpg conosciuta. Per disabilitare questa autenticazione si può
+impostare questo parametro a <userinput>true</userinput>.
+<emphasis role="bold">Attenzione: insicuro, non raccomandato.</emphasis>
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry arch="mips;mipsel">
+<term>ramdisk_size</term>
+<listitem><para>
+
+<!--
+This parameter should already be set to a correct value where needed;
+set it only it you see errors during the boot that indicate the ramdisk
+could not be loaded completely. The value is in kB.
+-->
+
+Quando è necessario, questo parametro dovrebbe già essere impostato con
+un valore corretto; impostarlo solo se durante l'avvio si verificano degli
+errori che indicano che il ramdisk non può essere completamente caricato.
+Il valore è in kB.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>rescue/enable</term>
+<listitem><para>
+
+<!--
+Set to <userinput>true</userinput> to enter rescue mode rather than
+performing a normal installation. See <xref linkend="rescue"/>.
+-->
+
+Da impostare a <userinput>true</userinput> per entrare in modalità di
+ripristino anziché effettuare una normale installazione. Si consulti
+<xref linkend="rescue"/>.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+  </sect2>
+
+  <sect2 id="preseed-args">
+  <!-- <title>Using boot parameters to answer questions</title> -->
+  <title>Uso dei parametri di avvio per rispondere alle domande</title>
+<para>
+
+<!--
+With some exceptions, a value can be set at the boot prompt for any question
+asked during the installation, though this is only really useful in specific
+cases. General instructions how to do this can be found in
+<xref linkend="preseed-bootparms"/>. Some specific examples are listed below.
+-->
+
+Eccetto alcune eccezioni, la risposta a qualsiasi domanda posta durante
+l'installazione può essere impostata dal prompt boot, però questo è realmente
+utile solo in casi particolari. Le istruzioni su come impostare queste
+risposte possono essere trovate in <xref linkend="preseed-bootparms"/>;
+seguono anche alcuni esempi.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term>debian-installer/language (language)</term>
+<term>debian-installer/country (country)</term>
+<term>debian-installer/locale (locale)</term>
+<listitem><para>
+
+<!--
+There are two ways to specify the language, country and locale to use for
+the installation and the installed system.
+-->
+
+Esistono due modi per specificare quali sono lingua, nazione e locale da
+usare per l'installazione e sul sistema installato.
+
+</para><para>
+
+<!--
+The first and easiest is to pass only the parameter <literal>locale</literal>.
+Language and country will then be derived from its value. You can for example
+use <userinput>locale=de_CH</userinput> to select German as language and
+Switzerland as country (<literal>de_CH.UTF-8</literal> will be set as default
+locale for the installed system). Limitation is that not all possible
+combinations of language, country and locale can be achieved this way.
+-->
+
+Il primo (più semplice) è passare solo il parametro
+<literal>locale</literal>. Lingua e nazione sono impostati a partire da
+questo valore. Per esempio è possibile usare
+<userinput>locale=de_CH</userinput> per scegliere il tedesco come lingua
+e la Svizzera come nazione (il locale predefinito sul sistema installato
+sarà <literal>de_CH.UTF-8</literal>). Questa modalità ha il limite che
+non sono possibili tutte le combinazioni di lingua, nazione e locale.
+
+</para><para>
+
+<!--
+The second, more flexible option is to specify <literal>language</literal>
+and <literal>country</literal> separately. In this case
+<literal>locale</literal> can optionally be added to specify a specific
+default locale for the installed system. Example:
+<userinput>language=en country=DE locale=en_GB.UTF-8</userinput>.
+-->
+
+Il secondo (più flessibile) è specificare separatamente i valori per
+<literal>language</literal> (lingua) e <literal>country</literal>
+(nazione). In questo caso è possibile aggiungere anche
+<literal>locale</literal> per indicare il locale predefinito sul sistema
+installato. Per esempio: <userinput>language=en country=DE
+locale=en_GB.UTF-8</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>anna/choose_modules (modules)</term>
+<listitem><para>
+
+<!--
+Can be used to automatically load installer components that are not loaded
+by default.
+Examples of optional components that may be useful are
+<classname>openssh-client-udeb</classname> (so you can use
+<command>scp</command> during the installation)<phrase arch="not-s390"> and
+<classname>ppp-udeb</classname> (see <xref linkend="pppoe"/>)</phrase>.
+-->
+
+Può essere usato per forzare il caricamento automatico dei componenti
+dell'installatore che normalmente non sono caricati. Per esempio,
+alcuni dei moduli opzionali che possono risultare utili sono
+<classname>openssh-client-udeb</classname> (per poter usare
+<command>scp</command> durante l'installazione)<phrase arch="not-s390"> e
+<classname>ppp-udeb</classname> (si veda <xref linkend="pppoe"/>)</phrase>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>netcfg/disable_dhcp</term>
+<listitem><para>
+
+<!--
+Set to <userinput>true</userinput> if you want to disable DHCP and instead
+force static network configuration.
+-->
+
+Da impostare a <userinput>true</userinput> per disabilitare il DHCP e
+forzare la configurazione statica della rete.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>mirror/protocol (protocol)</term>
+<listitem><para>
+
+<!--
+By default the installer will use the http protocol to download files from
+&debian; mirrors and changing that to ftp is not possible during installations
+at normal priority. By setting this parameter to <userinput>ftp</userinput>,
+you can force the installer to use that protocol instead. Note that you
+cannot select an ftp mirror from a list, you have to enter the hostname
+manually.
+-->
+
+Normalmente l'installatore usa il protocollo http per scaricare i file
+dai mirror &debian; e non è possibile cambiare protocollo in ftp quando
+l'installazione avviene con priorità normale. Se si imposta questo parametro
+con il valore <userinput>ftp</userinput>, si forza l'installatore a usare
+questo protocollo. Notare che non si può scegliere un mirror ftp dall'elenco,
+il nomehost deve essere inserito manualmente.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>tasksel:tasksel/first (tasks)</term>
+<listitem><para>
+
+<!--
+Can be used to select tasks that are not available from the interactive task
+list, such as the <literal>kde-desktop</literal> task.
+See <xref linkend="pkgsel"/> for additional information.
+-->
+
+Può essere usato per scegliere task che non sono disponibili nel normale
+elenco dei task, per esempio il task <literal>kde-desktop</literal>. Per
+ulteriori informazioni si veda <xref linkend="pkgsel"/>.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+  </sect2>
+
+  <sect2 id="module-parms">
+  <!-- <title>Passing parameters to kernel modules</title> -->
+  <title>Passaggio di parametri ai moduli del kernel</title>
+<para>
+
+<!--
+If drivers are compiled into the kernel, you can pass parameters to them
+as described in the kernel documentation. However, if drivers are compiled
+as modules and because kernel modules are loaded a bit differently during
+an installation than when booting an installed system, it is not possible
+to pass parameters to modules as you would normally do. Instead, you need
+to use a special syntax recognized by the installer which will then make
+sure that the parameters are saved in the proper configuration files and
+will thus be used when the modules are actually loaded. The parameters
+will also be propagated automatically to the configuration for the installed
+system.
+-->
+
+Se i driver sono compilati nel kernel, il passaggio dei parametri
+avviene come descritto nella documentazione del kernel. Invece, se i
+driver sono compilati come moduli, ciò non è possibile in quanto la
+modalità con cui questi vengono caricati durante l'installazione è
+leggermente diversa rispetto a come vengono caricati da un sistema
+installato. Per ovviare a ciò si deve usare una sintassi particolare
+riconosciuta dall'installatore, il quale assicura il salvataggio dei
+parametri nei file di configurazione corretti e quindi il loro uso
+nel momento in cui i moduli vengono caricati. Oltre a ciò, i parametri
+vengono propagati automaticamente anche nella configurazione del sistema
+installato.
+
+</para><para>
+
+<!--
+Note that it is now quite rare that parameters need to be passed to modules.
+In most cases the kernel will be able to probe the hardware present in a
+system and set good defaults that way. However, in some situations it may
+still be needed to set parameters manually.
+-->
+
+Oggigiorno la necessità di passare dei parametri ai moduli è molto rara;
+infatti nella maggioranza dei casi il kernel è in grado di riconoscere
+l'hardware presente e di usare dei valori predefiniti corretti. Purtroppo,
+in alcune situazioni, potrebbe ancora esserci il bisogno di impostare
+manualmente i parametri.
+
+</para><para>
+
+<!--
+The syntax to use to set parameters for modules is:
+-->
+
+La sintassi da usare per impostare i parametri dei moduli è:
+
+<informalexample><screen>
+<!--
+<replaceable>module_name</replaceable>.<replaceable>parameter_name</replaceable>=<replaceable>value</replaceable>
+--><replaceable>nome_modulo</replaceable>.<replaceable>nome_parametro</replaceable>=<replaceable>valore</replaceable>
+</screen></informalexample>
+
+<!--
+If you need to pass multiple parameters to the same or different modules,
+just repeat this. For example, to set an old 3Com network interface card
+to use the BNC (coax) connector and IRQ 10, you would pass:
+-->
+
+Se è necessario passare più parametri a uno stesso modulo o a più moduli
+diversi, è sufficiente ripetere la stessa sintassi. Per esempio, per
+impostare una vecchia scheda di rete 3Com in modo che usi il connettore
+BNC (coassiale) e l'IRQ 10 si deve passare:
+
+<informalexample><screen>
+3c509.xcvr=3 3c509.irq=10
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 id="module-blacklist">
+  <!-- <title>Blacklisting kernel modules</title> -->
+  <title>Moduli del kernel in blacklist</title>
+<para>
+
+<!--
+Sometimes it may be necessary to blacklist a module to prevent it from
+being loaded automatically by the kernel and udev. One reason could be that
+a particular module causes problems with your hardware. The kernel also
+sometimes lists two different drivers for the same device. This can cause
+the device to not work correctly if the drivers conflict or if the wrong
+driver is loaded first.
+-->
+
+Potrebbe essere necessario mettere in blacklist un modulo per impedire che
+venga caricato automaticamente dal kernel o da udev. Un motivo per questa
+operazione può essere l'incompatibilità fra il modulo e l'hardware. Inoltre,
+alcune volte, il kernel elenca due driver diversi per lo stesso device,
+questo può causare il cattivo funzionamento del device se c'è un conflitto
+fra i driver o se viene caricato prima quello sbagliato.
+
+</para><para>
+
+<!--
+You can blacklist a module using the following syntax:
+<userinput><replaceable>module_name</replaceable>.blacklist=yes</userinput>.
+This will cause the module to be blacklisted in
+<filename>/etc/modprobe.d/blacklist.local</filename> both during the
+installation and for the installed system.
+-->
+
+Si può aggiungere un modulo alla blacklist con questa sintassi:
+<userinput><replaceable>nome_modulo</replaceable>.blacklist=yes</userinput>.
+Questo causa l'inserimento del modulo nella blacklist
+<filename>/etc/modprobe.d/blacklist.local</filename> sia durante
+l'installazione che nel sistema al termine dell'installazione.
+
+</para><para>
+
+<!--
+Note that a module may still be loaded by the installation system itself.
+You can prevent that from happening by running the installation in expert
+mode and unselecting the module from the list of modules displayed during
+the hardware detection phases.
+-->
+
+Si noti che un modulo potrebbe essere caricato comunque dal sistema
+d'installazione. Si può evitare che questo avvenga eseguendo l'installazione
+in modalità esperto e deselezionando il modulo nell'elenco dei moduli che
+viene mostrato durante le fasi di riconoscimento dell'hardware.
+
+</para>
+  </sect2>
+ </sect1>

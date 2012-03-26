@@ -1,0 +1,102 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65193 -->
+
+ <sect1 id="minimum-hardware-reqts">
+<title>Satisfer els requisits mínims de maquinari</title>
+<para>
+
+Un cop hàgiu recollit la informació necessària sobre el maquinari del
+vostre ordinador, comproveu que aquest us permet fer el tipus d'instal·lació
+que voleu.
+
+</para><para arch="not-s390">
+
+Depenent de les vostres necessitats, podeu aconseguir-ho amb menys
+maquinari del que es recomana a la taula que trobareu a continuació. De
+tota manera, la majoria d'usuaris s'arrisquen a tenir frustracions si
+ignoren aquests suggeriments.
+
+</para><para arch="any-x86">
+
+Un Pentium 4 a 1GHz és el mínim recomanat per a un sistema d'escriptori.
+
+</para><para arch="powerpc">
+
+Qualsevol PowerPC OldWorld o NewWorld pot servir com a sistema
+d'escriptori.
+
+</para>
+
+<table>
+<title>Requisits mínims del sistema recomanats</title>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Tipus d'instal·lació</entry>
+  <entry>RAM (mínim)</entry>
+  <entry>RAM (recomanada)</entry>
+  <entry>Disc dur</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Sense escriptori</entry>
+  <entry>64 MiB</entry>
+  <entry>256 MiB</entry>
+  <entry>1 GiB</entry>
+</row><row arch="not-s390">
+  <entry>Amb escriptori</entry>
+  <entry>128 MiB</entry>
+  <entry>512 MiB</entry>
+  <entry>5 GiB</entry>
+</row>
+
+</tbody></tgroup></table>
+
+<para>
+
+Els actuals requeriments mínims de memòria són molt menys que els nombres
+que són a la taula. Depenent de l'arquitectura, és possible instal·lar
+&debian; amb tan sols 20 MiB (per s390) fins 60 MiB (per amd64).
+El mateix va pels requeriments de espai en disc, especialment si escolliu
+quines aplicacions voleu instal·lar; podeu trobar informació addicional
+sobre els requeriments de disc a <xref linkend="tasksel-size-list"/>.
+
+</para><para arch="not-s390">
+
+És possible executar un entorn gràfic d'escriptori a sistemes més vells,
+però en aquest cas es recomana que instal·leu un gestor de finestres amb
+menys requeriments que GNOME o KDE; les alternatives pasen per utilitzar
+<classname>xfce4</classname>, <classname>icewm</classname> i
+<classname>wmaker</classname>, però hi d'altres per escollir.
+
+</para><para>
+
+És casi impossible donar els requeriments d'espai o memòria de forma general
+per una instal·lació de servidor ja que depenen molt de l'ús que se li done.
+
+</para><para>
+
+Recordeu que aquestes mides no inclouen tota la resta de materials que
+s'acostumen a trobar, com ara fitxers d'usuaris, correu i dades. Sempre
+és millor ser generós quan s'està considerant l'espai per als propis
+fitxers i dades.
+
+</para><para>
+
+L'espai de disc que es necessita per un funcionament suau de &debian-gnu; es
+té en compte en els requeriments recomanats del sistema. Notablement, la
+partició <filename>/var</filename> conté molta informació d'estat
+específica de &debian;, a més del contingut habitual, com els fitxers de
+registre. Els fitxers de l'ordre <command>dpkg</command> (amb informació
+de tots els paquets instal·lats) fàcilment poden ocupar 40 MiB. A més,
+<command>apt-get</command> hi posa els paquets descarregats abans
+d'instal·lar-los. Hauríeu d'assignar com a mínim 200 MiB per a
+<filename>/var</filename>, i molt més si instal·leu un entorn gràfic
+d'escriptori.
+
+</para>
+
+ </sect1>
+

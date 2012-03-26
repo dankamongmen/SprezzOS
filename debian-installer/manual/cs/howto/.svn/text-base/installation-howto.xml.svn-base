@@ -1,0 +1,387 @@
+<!-- $Id$ -->
+<!-- original version: 66212 -->
+
+<appendix id="installation-howto">
+<title>Jak na instalaci</title>
+<para>
+
+Tento dokument popisuje, jak nainstalovat &debian-gnu; &releasename; pro
+architekturu &arch-title; (<quote>&architecture;</quote>) pomocí
+nového instalačního programu. Jedná se o rychlého průvodce instalačním
+procesem, který by měl pokrýt většinu typických
+instalací. V případech, kdy je vhodné sdělit více informací, se
+odkazujeme do ostatních částí tohoto dokumentu.
+
+</para>
+
+ <sect1 id="howto-preliminaries">
+ <title>Příprava</title>
+<para>
+
+<phrase condition="unofficial-build">
+&d-i; je stále ve fázi testování.
+</phrase>
+
+Zaznamenáte-li během instalace nějaké chyby, podívejte se do <xref
+linkend="submit-bug"/>, kde naleznete instrukce, jak je
+nahlásit. Pokud máte otázky, na které nemůžete nalézt odpovědi v tomto
+dokumentu, ptejte se v diskuzní skupině debian-boot
+(&email-debian-boot-list;) nebo na IRC (kanál #debian-boot v síti
+OFTC).
+
+</para>
+ </sect1>
+
+ <sect1 id="howto-getting-images">
+ <title>Zavedení instalačního programu</title>
+<para>
+
+<phrase condition="unofficial-build">
+Chcete-li rychle stáhnout obrazy CD, podívejte se na
+<ulink url="&url-d-i;">domovskou stánku &d-i;u</ulink>.
+</phrase>
+
+Tým debian-cd nabízí obrazy CD s &d-i;em na stránce <ulink
+url="&url-debian-cd;">Debian CD</ulink>.  Více informací o získání CD
+naleznete v kapitole <xref linkend="official-cdrom"/>.
+
+</para><para>
+
+Některé metody instalace vyžadují jiné soubory než obrazy CD.
+
+<phrase condition="unofficial-build">
+Odkazy na jiné soubory naleznete na <ulink url="&url-d-i;">domovské
+stránce &d-i;u</ulink>.
+</phrase>
+
+Kapitola <xref linkend="where-files"/> vysvětluje, jak najít na
+zrcadlech &debian;u ty správné obrazy.
+
+</para><para>
+
+Následující podkapitoly osvětlují, které obrazy byste měli použít pro
+který typ instalace.
+
+</para>
+
+  <sect2 id="howto-getting-images-cdrom">
+  <title>CDROM</title>
+<para>
+
+Pro instalaci &releasename; existují dva různé obrazy <quote>síťových</quote>
+CD. Tyto obrazy mají sloužit k zavedení instalačního systému z CD
+a k instalaci zbytku ze sítě (proto jim říkáme <quote>síťové</quote>).
+Rozdíl mezi oběma obrazy spočívá v tom, že na plném síťovém obrazu
+jsou i balíčky se základním systémem, zatímco u menšího síťového CD je
+musíte stáhnout ze sítě. Pokud byste raději nepoužili síť, můžete si
+stáhnout i plné (650 MB) CD, které k instalaci síť nepotřebuje. (Z celé sady
+vám bude stačit pouze první obraz.)
+
+</para><para>
+
+Stáhněte si preferovaný obraz a vypalte jej na CD.
+
+<phrase arch="any-x86">
+
+Pro zavedení z CD možná budete muset změnit nastavení v BIOSu, viz
+<xref linkend="bios-setup"/>.
+
+</phrase><phrase arch="powerpc">
+
+Pro zavedení PowerMacu z CD stiskněte během zavádění klávesu
+<keycap>c</keycap>. Další možnosti zavádění z CD naleznete v <xref
+linkend="boot-cd"/>.
+
+</phrase>
+</para>
+  </sect2>
+
+  <sect2 condition="supports-floppy-boot" id="howto-getting-images-floppy">
+  <title>Diskety</title>
+<para>
+
+Nemůžete-li zavádět z CD, můžete si stáhnout obrazy disket. Budete
+potřebovat soubor <filename>floppy/boot.img</filename>,
+<filename>floppy/root.img</filename> a některý z obrazů s ovladači.
+
+</para><para>
+
+Zaváděcí disketa bude ta, na kterou zapíšete
+<filename>boot.img</filename>. Po zavedení jádra z této diskety budete
+požádáni o vložení druhé diskety (je na ní obraz
+<filename>root.img</filename>).
+
+</para><para>
+
+Chystáte-li se instalovat ze sítě, budete potřebovat i disketu
+<filename>floppy/net-drivers-1.img</filename>. Pro méně rozšířené
+síťové karty nebo pro síťování přes PCMCIA nebo USB budete potřebovat
+i druhou disketu s ovladači
+<filename>floppy/net-drivers-2.img</filename>.
+
+</para><para>
+
+Máte-li CD, ale nemůžete z něj zavádět, zaveďte instalační systém
+z disket a s pomocí ovladačů na
+<filename>floppy/cd-drivers.img</filename> připojte instalační
+CD. Dále postupujte jako u běžné instalace z CD.
+
+</para><para>
+
+Diskety jsou jedním z nejnespolehlivějších dostupných médií, takže
+buďte připraveni na možné problémy (viz <xref
+linkend="unreliable-floppies"/>). Každý soubor s příponou
+<filename>.img</filename> zapište na jednu disketu. K tomu můžete
+použít příkaz <command>dd</command>, nebo nějaký jiný způsob - viz
+<xref linkend="create-floppy"/>.  Protože budete mít nejméně dvě
+diskety, je dobré si je popsat.
+
+</para>
+  </sect2>
+
+  <sect2 condition="bootable-usb" id="howto-getting-images-usb">
+  <title>USB Memory Stick</title>
+<para>
+
+Instalovat můžete také z výměnných USB zařízení. Například USB
+klíčenka je šikovným instalačním zařízením, které můžete nosit stále
+s sebou a velmi rychle tak rozšiřovat řady počítačů s &debian;em.
+
+</para><para condition="isohybrid-supported">
+
+Nejjednodušší cestou k vytvoření USB klíčenky s instalačním systémem
+je stáhnout libovolný CD/DVD obraz s instalací Debianu, který se na
+klíčenku vejde a nakopírovat ho přímo na klíčenku. Tím samozřejmě
+zrušíte všechna data, která na ní byla. Celé to funguje proto, že
+obrazy instalačních CD jsou <quote>hybridní</quote> a umožňují
+zavádění jak z CD, tak z USB.
+
+</para><para condition="isohybrid-unsupported">
+
+USB klíčenku připravíte jednoduše. Nejprve stáhněte soubor
+<filename>hd-media/boot.img.gz</filename>, rozbalte jej a výsledný
+obraz zapište přímo na 256 MB klíčenku. Tím samozřejmě zrušíte všechna
+data, která na ní byla &mdash; na jejich místě se nyní usadil
+souborový systém FAT obsahující několik souborů. Souborový systém
+připojte a nakopírujte na něj obraz síťového CD. Na jméně obrazu
+nezáleží, jediná podmínka je, že musí končit na
+<filename>.iso</filename>.
+
+</para><para>
+
+Funkční klíčenku s instalačním programem lze vyrobit více cestami,
+z nichž některé jsou popsány v kapitole <xref
+linkend="boot-usb-files"/>. (Například návod, jak použít klíčenku
+menší než 256 MB.)
+
+</para><para arch="any-x86">
+
+Některé BIOSy umí zavádět přímo z USB, jiným je třeba pomoci. Hledejte
+menu, které povolí zavádění z <quote>removable drive</quote> nebo
+<quote>USB-ZIP</quote>. Užitečné tipy naleznete v kapitole <xref
+linkend="usb-boot"/>.
+
+</para><para arch="powerpc">
+
+Zavádění systémů Macintosh z USB zařízení vyžaduje ruční zásah do
+Open Firmwaru. Postup naleznete v <xref linkend="usb-boot"/>.
+
+</para>
+  </sect2>
+
+  <sect2 id="howto-getting-images-netboot">
+  <title>Zavedení ze sítě</title>
+<para>
+
+Další z možností, jak zavést &d-i; je pomocí sítě. Konkrétní postup
+závisí na vaší architektuře a síťovém prostředí.  Obecně budete
+potřebovat soubory z adresáře <filename>netboot/</filename>.
+
+</para><para arch="x86">
+
+Nejjednodušší cesta je asi přes PXE. Do adresáře
+<filename>/srv/tftp</filename> (nebo jiného podle vašeho tftp
+serveru) rozbalte soubor
+<filename>netboot/pxeboot.tar.gz</filename>. Nastavte DHCP server, aby
+klientům předal název souboru <filename>/pxelinux.0</filename>
+a s trochou štěstí bude vše fungovat samo. Podrobnější informace
+naleznete v kapitole <xref linkend="install-tftp"/>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="linux-any" id="howto-getting-images-hard-disk">
+  <title>Zavedení z pevného disku</title>
+<para>
+
+Také je možné spustit instalační systém z pevného disku. Stáhněte si soubory
+<filename>hd-media/initrd.gz</filename>,
+<filename>hd-media/vmlinuz</filename> a obraz instalačního CD do
+kořenového adresáře pevného disku. Ujistěte se, že obraz CD má příponu
+<filename>.iso</filename>. Nyní již jen stačí zavést stažené jádro
+vmlinuz spolu s jeho ramdiskem initrd.
+
+<phrase arch="x86">
+Postup naleznete v kapitole <xref linkend="boot-initrd"/>.
+</phrase>
+
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="howto-installation">
+ <title>Instalace</title>
+<para>
+
+Po startu instalačního programu budete uvítáni úvodní obrazovkou. Nyní
+si můžete buď přečíst návod pro různé způsoby zavádění (viz <xref
+linkend="boot-parms"/>), nebo jednoduše stisknout &enterkey; a zavést
+instalaci.
+
+</para><para>
+
+Za chvíli budete vyzváni k výběru jazyka, ve kterém má instalace
+probíhat. Po seznamu se můžete pohybovat šipkami, pro pokračování
+stiskněte &enterkey;. Dále budete dotázáni na výběr země. Pokud není
+požadovaná země v zobrazené nabídce, můžete přejít do úplného seznamu
+zemí světa.
+
+</para><para>
+
+Můžete být vyzváni na potvrzení klávesnicového rozložení. Pokud si
+nejste jisti, ponechte výchozí návrh.
+
+</para><para>
+
+Nyní se pohodlně usaďte a nechte &d-i;, aby rozpoznal základní
+hardware a nahrál zbytek sebe sama z CD, disket, USB, apod.
+
+</para><para>
+
+Instalační program se pokusí rozpoznat síťová zařízení a nastavit
+síťování přes DHCP. Pokud nejste připojeni k síti, nebo pokud
+nepoužíváte DHCP, budete mít možnost nastavit síť ručně.
+
+</para><para>
+
+Dalším krokem je nastavení hodin a časového pásma. Instalátor se
+pokusí spojit s časovým serverem na Internetu a nastavit přesný
+čas. Časové pásmo je vybráno automaticky podle země, kterou jste
+zvolili dříve. Leží-li země v několika časových pásmech, dostanete na
+výběr.
+
+</para><para>
+
+Nyní je správný čas pro rozdělení disků. Nejprve vám bude nabídnuta
+možnost automaticky rozdělit celý disk nebo dostupné volné místo na
+disku (viz kapitola <xref linkend="partman-auto" />). Toto je
+doporučený způsob rozdělení disku pro začátečníky nebo pro lidi
+ve spěchu. Pokud nechcete využít této možnosti, vyberte
+z menu <guimenuitem>Ruční</guimenuitem> rozdělení.
+
+</para><para arch="any-x86">
+
+Máte-li stávající DOSové nebo windowsové oblasti, které chcete
+zachovat, buďte s automatickým dělením velmi opatrní. Pokud vyberete
+ruční dělení, můžete přímo v instalačním programu měnit velikost
+stávajících NTFS a FAT oblastí a vytvořit tak místo pro &debian;;
+jednoduše vyberte oblast a zadejte její novou velikost.
+
+</para><para>
+
+Na další obrazovce uvidíte svou tabulku oblastí s informacemi o tom,
+jak budou oblasti formátovány a kam budou připojeny. Pro změnu
+nastavení nebo pro smazání oblasti ji jednoduše vyberte a proveďte
+požadovanou akci. Pokud jste využili automatické dělení, mělo by
+stačit vybrat <guimenuitem>Ukončit rozdělování a zapsat změny na
+disk</guimenuitem>. Nezapomeňte vytvořit alespoň jednu oblast pro
+odkládací prostor a připojit kořenovou oblast na
+<filename>/</filename>. Více informací o dělení disku naleznete v
+kapilote <xref linkend="di-partition" />, obecnější informace se
+nachází v dodatku <xref linkend="partitioning"/>.
+
+</para><para>
+
+Nyní &d-i; naformátuje oblasti a zahájí instalaci základního systému,
+což může chvíli trvat. Následovat bude instalace jádra.
+
+</para><para>
+
+Základní systém je nyní funkční, avšak značně minimalistický. Další
+krok vám tedy umožní doinstalovat další software pomocí
+předpřipravených úloh. Aby systém věděl, odkud se mají balíky se
+softwarem nainstalovat, musí se nejprve nastavit nástroj
+<classname>apt</classname>, který je za instalaci balíků zodpovědný.
+Ve výchozím nastavení bude k instalaci vybrána úloha <quote>Standardní
+systém</quote>, která doinstaluje užitečný software pro textovou
+konzolu. Jestliže budete chtít nainstalovat grafické prostředí, zvolte
+úlohu <quote>Desktopové prostředí</quote>. Více o tomto kroku
+naleznete v kapitole <xref linkend="pkgsel"/>.
+
+</para><para>
+
+Následovat bude vytvoření uživatelských účtů, které po vás obvykle
+chce zadat heslo pro správce systému (uživatel
+<quote>root</quote>) a několik informací nutných pro vytvoření účtu
+běžného uživatele.
+
+</para><para>
+
+Posledním krokem je instalace zavaděče. Pokud instalátor rozpozná na
+počítači jiné operační systémy, přidá je do zaváděcího menu.
+
+<phrase arch="any-x86">
+Implicitně se GRUB nainstaluje do hlavního zaváděcího záznamu prvního
+disku. K dispozici však máte i možnost instalovat zavaděč kamkoliv
+jinam.
+</phrase>
+
+</para><para>
+
+&d-i; vám oznámí, že instalace skončila. Vyjměte zaváděcí média
+(např. CD) a restartujte počítač klávesou &enterkey;. Měl by se
+spustit váš nově nainstalovaný systém. Tato část je popsaná v <xref
+linkend="boot-new"/>.
+
+</para><para>
+
+Pokud potřebujete k instalaci více informací, přečtěte si <xref
+linkend="d-i-intro"/>.
+
+</para>
+ </sect1>
+
+ <sect1 id="howto-installation-report">
+ <title>Pošlete nám zprávu o instalaci</title>
+<para>
+
+Pokud jste zdárně dokončili instalaci &debian;u, najděte si chvilku
+a pošlete nám o tom krátkou zprávu.
+Nejjednodušší možností je nainstalovat si balík
+<classname>reportbug</classname> (<command>aptitude install
+reportbug</command>), nastavit jej podle <xref
+linkend="mail-outgoing"/> a spustit příkaz <command>reportbug
+installation-reports</command>.
+
+</para><para>
+
+Pokud instalaci nedokončili, pravděpodobně jste
+narazili na chybu v &d-i;u. Abychom mohli tuto chybu odstranit
+a instalátor vylepšit, potřebujeme o problémech vědět. Najděte si
+prosím chvilku a nalezené chyby nahlaste (viz <xref
+linkend="problem-report"/>).
+
+</para>
+ </sect1>
+
+ <sect1 id="howto-installation-finally">
+ <title>A na závěr&hellip;</title>
+<para>
+
+Doufáme, že se vám instalace &debian;u líbí a že shledáváte &debian;
+užitečným. Nyní byste si možná chtěli přečíst kapitolu <xref
+linkend="post-install"/>.
+
+</para>
+ </sect1>
+</appendix>

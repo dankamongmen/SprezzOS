@@ -1,0 +1,179 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id$ -->
+
+ <sect1 id="install-overview">
+ <title>Overview of the Installation Process</title>
+<para>
+
+First, just a note about re-installations. With &debian;, a
+circumstance that will require a complete re-installation of your
+system is very rare; perhaps mechanical failure of the hard disk would
+be the most common case.
+
+</para><para>
+
+Many common operating systems may require a complete installation to
+be performed when critical failures take place or for upgrades to new
+OS versions. Even if a completely new installation isn't required,
+often the programs you use must be re-installed to operate properly in
+the new OS.
+
+</para><para>
+
+Under &debian-gnu;, it is much more likely that your OS can be repaired
+rather than replaced if things go wrong. Upgrades never require a
+wholesale installation; you can always upgrade in-place. And the
+programs are almost always compatible with successive OS releases.  If
+a new program version requires newer supporting software, the &debian;
+packaging system ensures that all the necessary software is
+automatically identified and installed. The point is, much effort has
+been put into avoiding the need for re-installation, so think of it as
+your very last option. The installer is <emphasis>not</emphasis>
+designed to re-install over an existing system.
+
+</para><para>
+
+Here's a road map for the steps you will take during the installation
+process.
+
+</para>
+
+<orderedlist>
+<listitem><para>
+
+Back up any existing data or documents on the hard disk where you
+plan to install.
+
+</para></listitem>
+<listitem><para>
+
+Gather information about your computer and any needed documentation,
+before starting the installation.
+
+</para></listitem>
+<listitem><para>
+
+Create partitionable space for &debian; on your hard disk.
+
+</para></listitem>
+<listitem><para>
+
+Locate and/or download the installer software and any specialized
+driver files your machine requires (except &debian; CD users).
+
+</para></listitem>
+<listitem><para>
+
+Set up boot tapes/floppies/USB sticks, or place boot files (most &debian;
+CD users can boot from one of the CDs).
+
+</para></listitem>
+<listitem><para>
+
+Boot the installation system.
+
+</para></listitem>
+<listitem arch="not-s390"><para>
+
+Select the installation language.
+
+</para></listitem>
+<listitem arch="not-s390"><para>
+
+Activate the ethernet network connection, if available.
+
+</para></listitem>
+
+<listitem arch="s390"><para>
+
+Configure one network interface.
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+Open an ssh connection to the new system.
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+Attach one or more DASDs (Direct Access Storage Device).
+
+</para></listitem>
+
+<listitem><para>
+
+Create and mount the partitions on which &debian; will be installed.
+
+</para></listitem>
+<listitem><para>
+
+Watch the automatic download/install/setup of the
+<firstterm>base system</firstterm>.
+
+</para></listitem>
+<listitem><para>
+
+Install a <firstterm>boot loader</firstterm>
+which can start up &debian-gnu; and/or your existing system.
+
+</para></listitem>
+<listitem><para>
+
+Load the newly installed system for the first time.
+
+</para></listitem>
+</orderedlist>
+
+<para condition="gtk">
+
+For &arch-title; you have the option of using
+<phrase arch="any-x86">a</phrase>
+<phrase arch="powerpc">an experimental</phrase>
+graphical version of the installation system. For more information about
+this graphical installer, see <xref linkend="graphical"/>.
+
+</para><para>
+
+If you have problems during the installation, it helps to know which
+packages are involved in which steps. Introducing the leading software
+actors in this installation drama:
+
+</para><para>
+
+The installer software, <classname>debian-installer</classname>, is
+the primary concern of this manual. It detects hardware and loads
+appropriate drivers, uses <classname>dhcp-client</classname> to set up the
+network connection, runs <classname>debootstrap</classname> to install
+the base system packages, and runs <classname>tasksel</classname> to allow
+you to install certain additional software.
+Many more actors play smaller parts in this process,
+but <classname>debian-installer</classname> has completed its task when
+you load the new system for the first time.
+
+</para><para>
+
+To tune the system to your needs, <classname>tasksel</classname> allows you
+to choose to install various predefined bundles of software like a Web
+server or a Desktop environment.
+
+</para><para>
+
+One important option during the installation is whether or not to install
+a graphical desktop environment, consisting of the X Window System and
+one of the available graphical desktop environments.
+If you choose not to select the <quote>Desktop environment</quote> task,
+you will only have a relatively basic, command line driven system.
+Installing the Desktop environment task is optional because it requires a
+fairly large amount of disk space, and because many &debian-gnu; systems are
+servers which don't really have any need for a graphical user interface
+to do their job.
+
+</para><para arch="not-s390">
+
+Just be aware that the X Window System is completely separate from
+<classname>debian-installer</classname>, and in fact is much more
+complicated. Installation and troubleshooting of the X Window
+System is not within the scope of this manual.
+
+</para>
+ </sect1>

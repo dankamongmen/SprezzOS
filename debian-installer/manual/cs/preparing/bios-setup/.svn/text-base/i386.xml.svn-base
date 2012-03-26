@@ -1,0 +1,310 @@
+<!-- $Id$ -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="any-x86" id="bios-setup">
+  <title>Vyvolání menu systému BIOS</title>
+
+<para>
+
+BIOS zabezpečuje základní funkce nutné pro zavedení operačního
+systému. Váš počítač patrně umožňuje vyvolání menu, ze kterého lze
+BIOS nastavit. Před instalací si <emphasis>ověřte</emphasis>, že máte
+BIOS správně nastaven. Vynechání tohoto kroku se může projevit
+záhadnými pády systému, nebo, v nejhorším případě, vám &debian; nepůjde
+nainstalovat vůbec.
+
+</para><para>
+
+Následující řádky jsou převzaty z
+<ulink url="&url-pc-hw-faq;"></ulink> z odpovědi na otázku, jak
+vyvolat menu systému BIOS (nebo též <quote>CMOS</quote>). Podoba menu
+není jednotná, záleží, kdo je autorem softwaru BIOSu.
+
+</para>
+
+<!-- From: burnesa@cat.com (Shaun Burnet) -->
+<variablelist>
+
+<varlistentry>
+ <term>AMI BIOS</term>
+ <listitem><para>
+
+klávesa <keycap>Delete</keycap> při úvodní obrazovce (probíhá
+automatický test)
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+ <term>Award BIOS</term>
+ <listitem><para>
+
+<keycombo>
+  <keycap>Ctrl</keycap> <keycap>Alt</keycap> <keycap>Esc</keycap>
+</keycombo>, nebo <keycap>Delete</keycap> při úvodní obrazovce
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry><term>DTK BIOS</term>
+ <listitem><para>
+
+klávesa <keycap>Esc</keycap> při úvodní obrazovce
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry><term>IBM PS/2 BIOS</term>
+ <listitem><para>
+
+kombinace
+<keycombo>
+  <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Delete</keycap>
+</keycombo>
+následovaná
+<keycombo>
+  <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</keycap>
+</keycombo>
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+ <term>Phoenix BIOS</term>
+ <listitem><para>
+
+<keycombo>
+  <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap>
+</keycombo>
+nebo
+<keycombo>
+  <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>S</keycap>
+</keycombo>
+nebo
+<keycap>F1</keycap>
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Další informace o vyvolání menu BIOSu jsou třeba v
+<ulink url="&url-invoking-bios-info;"></ulink>.
+
+</para><para>
+
+Některé počítače řady &arch-title; menu systému BIOS nemají. Nastavení
+CMOS se pak provádí speciálním programem.
+Pokud takovým programem pro svůj počítač nedisponujete, můžete zkusit
+nějaký najít na <ulink url="&url-simtel;"></ulink>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="any-x86" id="boot-dev-select">
+  <title>Výběr zaváděcího zařízení</title>
+
+<para>
+
+V systémech BIOS si obvykle můžete vybrat médium, ze kterého bude
+zaveden operační systém. Nastavte zaváděcí pořadí
+<filename>A:</filename> (první disketová jednotka), CD-ROM
+(pravděpodobně se objevuje jako <filename>D:</filename> nebo
+<filename>E:</filename>) a nakonec <filename>C:</filename> (první
+pevný disk). Tím umožníte zavedení operačního systému buď z diskety
+nebo z CD, ze kterých se &debian; instaluje nejčastěji.
+
+</para><para>
+
+Pokud máte novější SCSI řadič a máte k němu připojenou CD mechaniku,
+s největší pravděpodobností z ní budete moci nastartovat.
+Jediné, co musíte udělat, je povolit zavádění z CD-ROM v BIOSu
+vašeho SCSI řadiče.
+
+</para><para>
+
+Další populární možnost je instalace z úložného USB zařízení (také
+nazývaného klíčenka). Některé BIOSy umí zavádět systém přímo z USB
+zařízení. Tato volba bývá ukrytá v menu pod názvem <quote>Removable
+drive</quote> nebo dokonce <quote>USB-ZIP</quote>.
+
+</para><para>
+
+V další části naleznete postup, jak změnit pořadí zavádění. Po
+instalaci nezapomeňte vrátit pořadí na původní hodnoty, abyste mohli
+zavést systém z pevného disku.
+
+</para>
+
+   <sect3 id="ctbooi">
+   <title>Změna pořadí zavádění na počítačích s IDE</title>
+
+<orderedlist>
+<listitem><para>
+
+Během startu počítače stiskněte příslušné klávesy pro vstup do BIOSu
+(obvykle to bývá klávesa <keycap>Delete</keycap>).
+
+</para></listitem>
+<listitem><para>
+
+V nastavení najděte položku <computeroutput>boot
+sequence</computeroutput>. Její umístění závisí na BIOSu, ale obecně
+hledáte položku se seznamem zařízení.
+
+</para><para>
+
+Obvyklé položky bývají: <computeroutput>C, A, cdrom</computeroutput>
+nebo <computeroutput>A, C, cdrom</computeroutput>.
+
+</para><para>
+
+C je pevný disk, A bývá disketová mechanika.
+
+</para></listitem>
+<listitem><para>
+
+Změňte pořadí tak, aby na prvním místě byla CD-ROM, nebo disketová
+mechanika.
+(Seznamem obvykle listujete klávesami <keycap>Page Up</keycap> a
+<keycap>Page Down</keycap>.)
+
+</para></listitem>
+<listitem><para>
+
+Uložte změny. (Návod bývá přímo v BIOSu.)
+
+</para></listitem>
+</orderedlist>
+   </sect3>
+
+   <sect3 id="ctboos">
+   <title>Změna pořadí zavádění na počítačích se SCSI</title>
+<para>
+
+<orderedlist>
+<listitem><para>
+
+Během startu počítače stiskněte příslušné klávesy pro vstup do
+programu pro nastavení SCSI řadiče. (Často to bývá kombinace
+<keycombo><keycap>Ctrl</keycap> <keycap>F2</keycap></keycombo>.)
+
+</para></listitem>
+<listitem><para>
+
+Najděte položku pro změnu zaváděcího pořadí.
+
+</para></listitem>
+<listitem><para>
+
+Nastavte ji tak, aby SCSI ID CD-ROM mechaniky bylo v seznamu první.
+
+</para></listitem>
+<listitem><para>
+
+Uložte změny. (Obvykle musíte stisknout klávesu <keycap>F10</keycap>.)
+
+</para></listitem>
+</orderedlist>
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="any-x86">
+  <title>Různá nastavení BIOSu</title>
+
+   <sect3 id="cd-settings"><title>Nastavení CD-ROM</title>
+<para>
+
+Některé BIOSy (jako třeba Award BIOS) obsahují možnost <quote>automaticky
+nastavit rychlost otáčení CD</quote>, což nemusí být nejlepší volba. Pokud
+od jádra dostáváte chybové hlášky <userinput>seek failed</userinput>,
+může to být váš problém. Raději byste měli rychlost otáčení nastavit
+na nějakou menší hodnotu.
+
+</para>
+   </sect3>
+
+   <sect3><title>Paměti Extended a Expanded</title>
+<para>
+
+Pokud máte v počítači oba druhy paměti, nastavte co nejvíce ve
+prospěch paměti <emphasis>extended</emphasis>. &arch-kernel; neumí pracovat
+s ex<emphasis>pan</emphasis>dovanou pamětí.
+
+</para>
+   </sect3>
+
+   <sect3><title>Ochrana proti virům</title>
+<para>
+
+Zakažte v BIOSu varování o výskytu virů. Máte-li speciální desku
+s antivirovou ochranou, deaktivujte ji, nebo kartu z počítače fyzicky
+odstraňte. Její funkce není slučitelná s během systému GNU/&arch-kernel;.
+Navíc díky přístupovým právům k souborům a chráněné paměti jádra o
+virech v systému &arch-kernel; skoro neuslyšíte.
+
+<footnote>
+<para>
+
+Po instalaci můžete ochranu zaváděcího sektoru (MBR) obnovit, protože
+pak již není nutné do této části disku zapisovat. Z pohledu systému
+&arch-kernel; nemá ochrana velký význam, ale ve Windows může zabránit
+katastrofě.
+
+</para>
+</footnote>
+
+</para>
+   </sect3>
+
+   <sect3><title>Stínová paměť (Shadow RAM)</title>
+<para>
+
+Vaše základní deska zřejmě nabízí volbu <emphasis>shadow
+RAM</emphasis> nebo nastavení typu <quote>BIOS caching</quote>,
+<quote>Video BIOS Shadow</quote>, <quote>C800-CBFF
+Shadow</quote>. <emphasis>Deaktivujte</emphasis> tato
+nastavení. Shadow RAM zrychluje přístup do ROM pamětí na základní
+desce a některých řadičích. &arch-kernel; místo této optimalizace používá
+vlastní 32 bitový přístup a poskytuje tuto paměť programům jako běžnou
+paměť. Při zapnuté volbě shadow RAM může docházet ke konfliktu při
+přístupu k zařízením.
+
+</para>
+   </sect3>
+
+   <sect3><title>Díra v paměti</title>
+<para>
+
+Najdete-li v menu BIOS položku <quote>15-16 MB Memory Hole</quote>,
+prosím, zakažte tuto funkci. &arch-kernel; očekává, že tam ta paměť je.
+
+</para><para>
+
+Základní deska Intel Endeavor má volbu <quote>LFB</quote> neboli
+<quote>Linear Frame Buffer</quote> obsahující dvě položky
+<quote>Disabled</quote> a <quote>1 Megabyte</quote>.  Nastavte ji na
+<quote>1 Megabyte</quote>. Při druhé alternativě nešlo správně načíst
+instalační disketu a systém se zhroutil. V době psaní příručky nebylo
+zřejmé, co je příčinou &mdash; instalace byla prostě možná jen s tímto
+nastavením.
+
+</para>
+   </sect3>
+
+<!-- no other platforms other than x86 provide this sort of thing, AFAIK -->
+
+   <sect3><title>Pokročilá správa napájení (APM)</title>
+<para>
+
+Pokud vaše základní deska nabízí podporu správy napájení, nastavte
+úsporný režim na volbu APM a zakažte režimy doze, standby, suspend,
+nap a sleep, stejně jako časovač pro uspání disku. &arch-kernel; dokáže uvést
+počítač do úsporného stavu i bez služeb BIOSu.
+
+</para>
+   </sect3>
+  </sect2>

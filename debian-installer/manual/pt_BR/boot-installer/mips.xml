@@ -1,0 +1,63 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 59840 -->
+<!-- revised by Herbert Parentes Fortes Neto (hpfn) 2006.04.17 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.04.20 -->
+<!-- updated 35613:59840 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+  <sect2 arch="mips" id="boot-tftp"><title>Inicialização através de TFTP</title>
+
+   <sect3>
+   <title>Inicialização através de TFTP na SGI</title>
+
+<para>
+
+Após entrar no monitor de comando use
+<informalexample><screen>
+bootp():
+</screen></informalexample>
+
+para inicializar o Linux nas máquinas SGI e iniciar a instalação do
+sistema &debian;. Para fazer isso funcionar, você pode ter que
+retirar a variável de ambiente <envar>netaddr</envar>. Digite
+no monitor de comandos
+<informalexample><screen>
+unsetenv netaddr
+</screen></informalexample>
+para fazer isto.
+
+</para>
+  </sect3>
+
+  </sect2>
+
+  <sect2 arch="mips"><title>Parâmetros de Inicialização</title>
+
+   <sect3>
+   <title>Inicialização através de TFTP na SGI</title>
+<para>
+
+Nas máquinas SGI você poderá adicionar parâmetros de
+inicialização ao comando
+<command>bootp():</command> no monitor de comando.
+
+</para><para>
+
+Seguindo o comando <command>bootp():</command> você poderá fornecer o caminho
+e o nome do arquivo de partida caso não fizer isso explicitamente
+usando o servidor bootp/dhcp server - Exemplo:
+
+<informalexample><screen>
+bootp():/boot/tftpboot.img
+</screen></informalexample>
+
+Parâmetros de kernel adicionais podem ser passados via
+<command>append</command>:
+
+<informalexample><screen>
+bootp(): append="root=/dev/sda1"
+</screen></informalexample>
+
+</para>
+  </sect3>
+
+  </sect2>

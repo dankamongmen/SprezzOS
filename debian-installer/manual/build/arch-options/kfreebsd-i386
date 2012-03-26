@@ -1,0 +1,28 @@
+# This file contains architecture specific variables for
+# the 'kfreebsd-i386' architecture
+# It is sourced by the build scripts
+
+archspec="kfreebsd-i386;any-i386;any-x86;not-x86;not-s390;not-powerpc"
+arch_listname="bsd"
+arch_porturl="kfreebsd-gnu"
+# TODO: update
+minimum_memory=44
+minimum_memory_gtk=96
+# These two options should be set if condition 'smp' is set below
+# TODO: update
+smp_config_section="Processor type and features"
+smp_config_option="Symmetric multi-processing support"
+
+# Options below are assembled into one variable 'condition'
+# in the build scripts
+# TODO: update
+fdisk="fdisk.txt;cfdisk.txt"
+network="supports-tftp;supports-bootp;supports-nfsroot"
+# For Lenny i386 does not have floppy images
+#boot="supports-floppy-boot;bootable-disk;bootable-usb"
+boot="bootable-disk;bootable-usb;isohybrid-unsupported"
+frontend="newt;not-gtk"
+other="supports-wireless;supports-pcmcia;supports-serial-console"
+smp="supports-smp-somtimes"
+goodies="supports-lang-chooser"
+status="new-arch;not-checked"

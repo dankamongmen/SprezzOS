@@ -1,0 +1,84 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64743 -->
+
+<para>
+
+<!--
+During installation of the base system, package unpacking and setup
+messages are redirected to <userinput>tty4</userinput>.
+You can access this terminal by pressing
+<keycombo><keycap>Left Alt</keycap><keycap>F4</keycap></keycombo>;
+get back to the main installer process with
+<keycombo><keycap>Left Alt</keycap><keycap>F1</keycap></keycombo>.
+-->
+
+Durante l'installazione del sistema di base i messaggi relativi
+all'estrazione e alla configurazione dei pacchetti sono rediretti su
+<userinput>tty4</userinput>. È possibile accedere a questo terminale premendo
+<keycombo><keycap>Alt</keycap><keycap>F4</keycap></keycombo>; per tornare
+al terminale con il processo d'installazione principale premere
+<keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo>.
+
+</para><para>
+
+<!--
+The unpack/setup messages generated during this phase are also saved in
+<filename>/var/log/syslog</filename>. You can check them there if the
+installation is performed over a serial console.
+-->
+
+I messaggi relativi all'estrazione e alla configurazione dei pacchetti
+generati durante questa fase sono salvati anche in
+<filename>/var/log/syslog</filename>. Quando l'installazione avviene
+tramite una console seriale questo è l'unico posto in cui è possibile
+vederli.
+
+</para><para>
+
+<!--
+As part of the installation, a &arch-kernel; kernel will be installed. At the default
+priority, the installer will choose one for you that best matches your
+hardware. In lower priority modes, you will be able to choose from a list
+of available kernels.
+-->
+
+Come parte dell'installazione viene installato un kernel &arch-kernel;. Usando la
+priorità predefinita il programma d'installazione sceglie il kernel che
+meglio si adatta al proprio hardware. Nelle modalità con priorità più bassa
+è possibile scegliere uno dei kernel fra quelli disponibili.
+
+</para><para>
+
+<!--
+When packages are installed using the package management system, it will
+by default also install packages that are recommended by those packages.
+Recommended packages are not strictly required for the core functionality
+of the selected software, but they do enhance that software and should,
+in the view of the package maintainers, normally be installed together
+with that software.
+-->
+
+Quando i pacchetti sono installati tramite il sistema di gestione
+dei pacchetti e con la configurazione predefinita, vengono installati
+anche i pacchetti raccomandati dai pacchetti da installare. I pacchetti
+raccomandati non sono strettamente necessari per le funzionalità
+principali del programma scelto, ma lo migliorano e, secondo i
+manutentori del pacchetto, normalmente si dovrebbero installare al
+programma.
+
+</para>
+<note><para>
+
+<!--
+For technical reasons packages installed during the installation of the
+base system are installed without their <quote>Recommends</quote>. The
+rule described above only takes effect after this point in the installation
+process.
+-->
+
+Per motivi tecnici i pacchetti installati durante l'installazione del
+sistema di base sono installati senza i relativi <quote>Raccomandati</quote>.
+La regola descritta in precedenza ha effetto solo dopo questo punto del
+processo d'installazione.
+
+</para></note>

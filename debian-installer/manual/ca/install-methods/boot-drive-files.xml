@@ -1,0 +1,174 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 39614 -->
+
+ <sect1 condition="bootable-disk" id="boot-drive-files">
+ <title>Preparació dels fitxers per arrencar des del disc dur</title>
+<para>
+
+L'instal·lador es pot arrencar fent ús de fitxers que són a una
+partició d'un disc dur: o bé llençat des d'un altre sistema operatiu,
+o bé cridant directament un carregador des de la BIOS.
+
+</para><para>
+
+Es pot aconseguir una instal·lació completa amb <quote>xarxa pura</quote>
+utilitzant aquesta tècnica. Açò evita tota la confusió de mitjans extraïbles,
+com trobar i gravar imatges de CD o barallar-se amb nombrosos i poc fiables
+disquets.
+
+</para><para arch="x86">
+
+L'instal·lador no pot arrencar des d'un sistema de fitxers NTFS.
+
+</para><para arch="powerpc">
+
+L'instal·lador no pot arrencar des d'un sistema de fitxers HFS+.  Els
+MacOS System 8.1 i posteriors poden utilitzar el sistema de fitxers HFS+;
+tots els NewWorld PowerMacs utilitzen HFS+. Per determinar si el vostre
+sistema de fitxers és HFS+, seleccioneu <userinput>Get Info</userinput> pel
+volum en qüestió. El sistema de fitxers HFS apareix com
+<userinput>Mac OS Standard</userinput>, mentre que al HFS+ diu
+<userinput>Mac OS Extended</userinput>. Hauríeu de tenir una partició HFS
+per poder intercanviar fitxers entre MacOS i Linux, en particular els fitxers
+d'instal·lació que descarregueu.
+
+</para><para arch="powerpc">
+
+S'utilitzen programes diferents pel sistema d'arrencada amb disc dur
+depenent de si el sistema és un model <quote>NewWorld</quote> o un
+<quote>OldWorld</quote>.
+
+</para>
+
+  <sect2 arch="x86" id="files-lilo">
+  <title>Arrencada de l'instal·lador des de disc dur fent ús de
+         <command>LILO</command> o <command>GRUB</command></title>
+<para>
+
+Aquesta secció explica com afegir o com reemplaçar una instal·lació existent
+utilitzant <command>LILO</command> o <command>GRUB</command>.
+
+</para><para>
+
+Al moment d'arrencar, ambdós carregadors suporten carregar a memòria no
+tan sols el nucli, sinó també una imatge del disc. Aquest disc RAM pot ser
+utilitzat pel nucli com el sistema de fitxers arrel.
+
+</para><para>
+
+Copieu els fitxers següents des dels arxius de &debian; a un lloc
+còmode al vostre disc dur, per exemple a
+<filename>/boot/newinstall/</filename>.
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinuz</filename> (imatge del nucli)
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename> (imatge del disc RAM)
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Finalment, per configurar el carregador continueu a
+<xref linkend="boot-initrd"/>.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="powerpc" id="files-oldworld">
+  <title>Arrencar l'instal·lador des de disc dur per a Macs OldWorld</title>
+<para>
+
+El disquet <filename>boot-floppy-hfs</filename> utilitza
+<application>miBoot</application> per arrencar la instal·lació, però
+<application>miBoot</application> no és fàcil d'utilitzar per arrencar
+des de disc dur. <application>BootX</application>, llençat des de MacOS,
+suporta arrencar des de fitxers al disc dur. També es pot utilitzar
+<application>BootX</application> per arrencada dual MacOS i Linux després
+d'haver completat la instal·lació del vostre &debian;. Pel Performa 6360,
+pareix que el <command>quik</command> no pot fer el disc arrencable. Així
+que per aquest model el <application>BootX</application> és imprescindible.
+
+</para><para>
+
+Descarregueu i desempaqueteu el <application>BootX</application>,
+disponible a <ulink url="&url-powerpc-bootx;"></ulink>, o al directori
+<filename>dists/woody/main/disks-powerpc/current/powermac</filename>
+a les rèpliques http/ftp oficials i als CD oficials de &debian;. Utilitzeu
+<application>Stuffit Expander</application> per extraure aquest arxiu.
+Dins el paquet, hi ha una carpeta buida amb el nom
+<filename>Linux Kernels</filename>. Descarregueu el
+<filename>linux.bin</filename> i el
+<filename>ramdisk.image.gz</filename> des del directori
+<filename>disks-powerpc/current/powermac</filename>, i poseu-los a la carpeta
+<filename>Linux Kernels</filename>. Aleshores poseu la carpeta
+<filename>Linux Kernels</filename> al Sistema de Carpetes actiu.
+
+</para>
+  </sect2>
+
+  <sect2 arch="powerpc" id="files-newworld">
+  <title>Arrencar l'instal·lador des de disc dur per a Macs NewWorld</title>
+<para>
+
+Els PowerMacs NewWorld suporten arrencar des d'una xarxa o un
+CD-ROM ISO9660, així com carregar els binaris ELF directament des
+del disc dur. Aquestes màquines arrenquen directament Linux utilitzant
+<command>yaboot</command>, que suporta la càrrega d'un nucli i un disc RAM
+directament des de una partició ext2, així com l'arrencada dual amb MacOS.
+Arrencar l'instal·lador des de disc dur és apropiat particularment per
+màquines noves sense disquetera. El <command>BootX</command> no està
+suportat i no s'hauria d'utilitzar a PowerMacs NewWorld.
+
+</para><para>
+
+<emphasis>Copieu</emphasis> (no mogueu) els quatre fitxers següents que
+heu descarregat anteriorment des de l'arxiu de &debian;, a l'arrel del vostre
+disc dur (açò podria aconseguir-se amb <keycap>option</keycap>-arrossegar
+cada fitxer a la icona del disc dur).
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinux</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot.conf</filename>
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Anoteu el nombre de la partició del MacOS on poseu aquests fitxers.
+Si teniu el programa de MacOS <command>pdisk</command>, podeu fer servir
+l'ordre <command>L</command> per comprovar el nombre de la partició. Necessitareu aquest
+nombre de partició per l'ordre que escriureu a la sol·licitud de l'Open
+Firmware quan arrenqueu l'instal·lador.
+
+</para><para>
+
+Per arrencar l'instal·lador, continueu a <xref linkend="boot-newworld"/>.
+
+</para>
+  </sect2>
+ </sect1>

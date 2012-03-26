@@ -1,0 +1,55 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 59840 -->
+
+  <sect2 arch="mipsel" id="boot-tftp"><title>Arrencada amb TFTP</title>
+
+   <sect3>
+   <title>Arrencada amb TFTP en Cobalt</title>
+<para>
+
+Estricament parlant, Cobalt utilitza NFS per arrencar en comptes de TFTP.
+Necessitareu instal·lar un servidor NFS i posar els fitxers de l'instal·lador
+a <filename>/nfsroot</filename>.  Quan arrenqueu el vostre Cobalt, heu de
+pitjar els botons del cursor de la dreta i l'esquerre al mateix temps i la
+màquina arrencarà via xarxa des de NFS. Aleshores mostrarà algunes opcions
+a la pantalla.  Hi ha dos mètodes d'instal·lació:
+
+<itemizedlist>
+<listitem><para>
+
+Via SSH (per defecte): En aquest cas, l'instal·lador configurarà la xarxa
+fent servir DHCP i arrencant un servidor SSH. Mostrarà una contrasenya
+aleatòria i altra informació de l'entrada (com la adreça IP) al LCD Cobalt.
+Aleshores podeu connectar a la màquina amb un client SSH i podeu començar
+amb la instal·lació.
+
+</para></listitem>
+<listitem><para>
+
+Via la consola sèrie: Utilitzant un cable de mòdem nul, podeu connectar
+al port sèrie de la vostra màquina Cobalt (utilitzant 115200 bps) i fent
+la instal·lació d'aquesta forma.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect3>
+
+  </sect2>
+
+  <sect2 arch="mipsel"><title>Paràmetres d'arrencada</title>
+
+   <sect3>
+   <title>Arrencada amb TFTP en Cobalt</title>
+<para>
+
+No podeu passar cap paràmetre d'arrencada directament. En comptes d'això,
+heu d'editar el fitxer <filename>/nfsroot/default.colo</filename> al
+servidor NFS i afegir els vostres paràmetres a la variable
+<replaceable>args</replaceable>.
+
+</para>
+  </sect3>
+
+  </sect2>

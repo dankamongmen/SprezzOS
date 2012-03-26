@@ -1,0 +1,262 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="powerpc" id="boot-cd"><title>Arrencada des d'un CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<para>
+
+Actualment, les úniques subarquitectures de &arch-title; que suporten
+arrencada des de CD-ROM són els PowerMac PReP (tot i que no tots els
+sistemes) i New World. Als PowerMac, premeu la tecla <keycap>c</keycap>,
+o la combinació de <keycap>Command</keycap>, <keycap>Option</keycap>,
+<keycap>Shift</keycap>, i <keycap>Delete</keycap> a l'hora durant
+l'arrencada per a fer-ho des de CD-ROM.
+
+</para><para>
+
+Els PowerMac OldWorld no arrencaran un CD de &debian;, perquè els ordinadors
+OldWorld necessiten d'un controlador d'arrencada de CD ROM del Mac OS present
+al CD, i no hi ha una versió lliure d'aquest controlador. Tots els sistemes
+OldWorld tenen disqueteres, així que utilitzeu la disquetera per iniciar
+l'instal·lador, i després utilitzeu el CD per a que l'instal·lador obtinga
+els fitxers requerits.
+
+</para><para>
+
+Si el vostre sistema no arrenca directament des de CD-ROM, podeu encara
+necessitar el CD-ROM per instal·lar el sistema. Als NewWorlds, podeu
+utilitzar una ordre OpenFirmware per arrencar manualment des del CD-ROM.
+Seguiu les instruccions a <xref linkend="boot-newworld"/> per arrencar des
+del disc dur, excepte que utilitzant el camí a <command>yaboot</command>
+en el CD a l'indicador OF, així
+
+<informalexample><screen>
+0 &gt; boot cd:,\install\yaboot
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 arch="powerpc" id="install-drive">
+  <title>Arrencada des del disc dur</title>
+
+&boot-installer-intro-hd.xml;
+
+<!--
+  <sect3><title>Arrencada del CHRP des de l'OpenFirmware</title>
+
+<para>
+
+  <emphasis>Encara no s'ha escrit.</emphasis>
+
+</para>
+   </sect3>
+-->
+
+   <sect3><title>Arrencada dels PowerMac OldWorld des de MacOS</title>
+<para>
+
+Si configureu el BootX a <xref linkend="files-oldworld"/>, podeu
+utilitzar-lo per arrencar des del sistema d'instal·lació. Feu doble clic
+a la icona de l'aplicació <guiicon>BootX</guiicon>. Feu clic al botó
+<guibutton>Options</guibutton> i seleccioneu <guilabel>Use Specified RAM
+Disk</guilabel>. Açò us donarà l'oportunitat de seleccionar el fitxer
+<filename>ramdisk.image.gz</filename>. Podríeu necessitar seleccionar
+el quadre de verificació <guilabel>No Video Driver</guilabel>, depenent del
+vostre maquinari. Aleshores cliqueu al botó <guibutton>Linux</guibutton>
+per aturar el MacOS i engegar l'instal·lador.
+
+</para>
+   </sect3>
+
+
+   <sect3 id="boot-newworld">
+  <title>Arrencada els Mac NewWorld des de l'OpenFirmware</title>
+<para>
+
+Necessitareu tenir els fitxers <filename>vmlinux</filename>,
+<filename>initrd.gz</filename>, <filename>yaboot</filename>, i
+<filename>yaboot.conf</filename> a l'arrel del la vostra partició
+HFS a <xref linkend="files-newworld"/>.
+Ara heu d'arrencar l'OpenFirmware (vegeu <xref linkend="invoking-openfirmware"/>).
+A l'arrencada, escriviu
+
+<informalexample><screen>
+0 &gt; boot hd:<replaceable>x</replaceable>,yaboot
+</screen></informalexample>
+
+canviant la <replaceable>x</replaceable> pel número de la partició HFS on
+són els fitxers del nucli i el yaboot, seguit de &enterkey;. A algunes
+màquines necessitareu utilitzar <userinput>ide0:</userinput> en comptes
+de <userinput>hd:</userinput>. En uns segons veureu l'indicador del yaboot
+
+<informalexample><screen>
+boot:
+</screen></informalexample>
+
+A l'indicador del yaboot <prompt>boot:</prompt>, escriviu
+<userinput>install</userinput> o <userinput>install video=ofonly</userinput>
+seguit de &enterkey;. L'argument <userinput>video=ofonly</userinput> és
+per donar una compatibilitat màxima; podeu intentar-ho si
+<userinput>install</userinput> no funciona. El programa d'instal·lació
+de &debian; s'hauria d'engegar.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="powerpc" condition="bootable-usb" id="usb-boot">
+  <title>Arrencada des d'un llapis de memòria USB</title>
+<para>
+
+En aquest moment, es sap que els sistemes PowerMac NewWorld suporten
+arrencada des d'USB.
+
+</para>
+
+<para>
+
+Assegureu-vos de tenir preparat tot des de <xref linkend="boot-usb-files"/>.
+Per arrencar un sistema Macintosh des d'un llapis USB, necessitareu
+utilitzar l'indicador de l'Open Firmware, ja que l'Open Firmware no
+utilitza dispositius d'emmagatzemament USB predeterminat.
+<!-- TODO: although it could be made to; watch this space -->
+Vegeu <xref linkend="invoking-openfirmware"/>.
+
+</para><para>
+
+Necessitareu treballar fora del dispositiu d'emmagatzemament USB que
+apareix a l'arbre del dispositiu, ja que en aquest moment el
+<command>ofpath</command> no ho pot fer automàticament. Escriviu
+<userinput>dev / ls</userinput> i <userinput>devalias</userinput> a
+l'indicador de l'Open Firmware per aconseguir una llista de tots els
+dispositius coneguts i els seus àlies. Al sistema de l'autor, amb
+diferents tipus de llapis USB, funcionen camins del tipus
+<filename>usb0/disk</filename>, <filename>usb0/hub/disk</filename>,
+<filename>/pci@f2000000/usb@1b,1/disk@1</filename> i
+<filename>/pci@f2000000/usb@1b,1/hub@1/disk@1</filename>.
+
+</para><para>
+
+Havent treballat fora del camí del dispositiu, utilitzeu una ordre com
+aquesta per arrencar l'instal·lador:
+
+<informalexample><screen>
+boot <replaceable>usb0/disk</replaceable>:<replaceable>2</replaceable>,\\:tbxi
+</screen></informalexample>
+
+El <replaceable>2</replaceable> coincideix amb la partició «Apple_HFS» o
+«Apple_Bootstrap» a la qual heu copiat la imatge anteriorment, i la part
+<userinput>,\\:tbxi</userinput> li diu a l'Open Firmware que arrenqui des
+del fitxer amb fitxer HFS de tipus «tbxi» (és a dir
+<command>yaboot</command>) en el directori prèviament beneit amb
+<command>hattrib -b</command>.
+
+</para><para>
+
+El sistema hauria d'arrencar ara, i hauríeu de tenir l'indicador
+<prompt>boot:</prompt>. Ací podreu introduir arguments d'arrencada
+opcionals o bé &enterkey;.
+
+</para><warning><para>
+
+Aquest mètode és nou, i podríeu tenir problemes a alguns sistemes NewWorld.
+Si teniu problemes, per favor envieu un informe d'instal·lació, com
+s'explica a <xref linkend="submit-bug"/>.
+
+</para></warning>
+  </sect2>
+
+  <sect2 arch="powerpc" id="boot-tftp"><title>Arrencada amb el TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+En aquest moment els sistemes PReP i els PowerMac New World suporten
+l'arrencada des de xarxa.
+
+</para><para>
+
+A les màquines amb Open Firmware, com els Power Mac NewWorld, entreu al
+monitor d'arrencada (vegeu <xref linkend="invoking-openfirmware"/>) i
+utilitzeu l'ordre 
+
+<informalexample><screen>
+0 &gt; boot enet:0
+</screen></informalexample>
+
+Si açò no funciona, hauríeu d'afegir el nom del fitxer tal com:
+
+<informalexample><screen>
+0 &gt; boot enet:0,yaboot
+</screen></informalexample>
+
+Les màquines PReP i CHRP
+poden tenir diferent maneres d'adreçar-se a la xarxa. A les màquines PReP,
+hauríem d'intentar
+
+<informalexample><screen>
+boot net:<replaceable>server_ipaddr</replaceable>,<replaceable>file</replaceable>,<replaceable>client_ipaddr</replaceable>
+</screen></informalexample>
+
+En alguns sistemes PReP (ex. maquines Motorola PowerStack) l'ordre
+<userinput>help boot</userinput> pot donar una descripció de sintaxis
+i opcions disponibles.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="powerpc" condition="supports-floppy-boot">
+  <title>Arrencada des de disquets</title>
+<para>
+
+L'arrencada des de disquets està suportada per &arch-title;, encara que
+normalment tan sols es aplicable als sistemes OldWorld. Els sistemes
+NewWorld no venen equipats amb disquetera, i les unitats de disquet
+USB no suporten l'arrencada des d'aquests.
+
+</para><para>
+
+Heu de tenir ja descarregades les imatges que necessiteu i creats els
+disquets amb les imatges a <xref linkend="create-floppy"/>.
+
+</para><para>
+
+Per arrencar des del disquet <filename>boot-floppy-hfs.img</filename>,
+poseu-lo a la disquetera després d'apagar el sistema i abans de prémer
+el botó d'arrencada.
+
+</para><note><para>
+
+Per aquells que no estiguen familiaritzats amb les operacions amb disquet
+de Macintosh: un disquet que estigui a la màquina abans d'arrencar tindrà
+la prioritat màxima a l'hora d'arrencar. Un disquet que no tinga un sistema
+d'arrencada vàlid s'expulsarà, i aleshores la màquina provarà d'arrencar
+des de les particions arrencables del disc dur.
+
+</para></note><para>
+
+Després d'arrencar, se us demanarà el disquet <filename>root.bin</filename>.
+Inseriu el disquet root i premeu &enterkey;. El programa instal·lador
+s'engegarà automàticament després que el sistema arrel s'haja carregat a
+la memòria.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="powerpc"><title>Paràmetres d'arrencada al PowerPC</title>
+<para>
+
+Alguns monitors Apple vells utilitzen un mode 640x480 67Hz. Si el vostre
+vídeo apareix torçat a un monitor Apple vell, proveu d'afegir l'argument
+<userinput>video=atyfb:vmode:6</userinput>, que seleccionarà eixe mode a
+les màquines amb vídeo Mach64 i Rage. A les que tinguin Rage 128 canvieu-ho a
+<userinput>video=aty128fb:vmode:6</userinput> .
+
+</para>
+  </sect2>

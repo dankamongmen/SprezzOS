@@ -1,0 +1,106 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="arm"><title>Suport de CPU, plaques base i vídeo</title>
+
+<para>
+
+Cada arquitectura ARM diferent necessita del seu propi nucli. Per açò
+la distribució de &debian; estàndard tan sols suporta la instal·lació a
+uns quants dels sistemes més comuns. El mode d'usuari de &debian; però,
+es pot utilitzar per <emphasis>qualsevol</emphasis> CPU ARM, incloent
+xscale.
+
+</para>
+
+<para>
+
+Quasi totes les CPU ARM poden funcionar amb els dos modes endian (big o
+little). Tanmateix, la majoria de les implementacions de sistemes
+actuals utilitzen el mode little endian. En aquest moment, &debian; tan
+sols suporta sistemes ARM en mode little endian.
+
+</para>
+
+<para>
+
+Els sistemes suportats són:
+
+<variablelist>
+
+<varlistentry>
+<term>IOP32x</term>
+<listitem><para>
+
+La línia de processadors d'E/S d'Intel (IOP) és en nombrosos productes
+relacionats amb l'emmagatzemament i processament de dades. &debian;
+suporta actualment la plataforma IOP32x, representada pels xips IOP
+80219 i 32x localitzats normalment als dispositius Network Attached
+Storage (NAS). &debian; suporta explícitament dos d'aquests dispositius:
+el <ulink url="&url-arm-cyrius-glantank;">GLAN Tank</ulink>
+d'IO-Data i el <ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>IXP4xx</term>
+<listitem><para>
+
+La plataforma IXP4xx està basada en el nucli XScale ARM d'Intel. Actualment,
+només un sistema basat en IXP4xx està suportat: el Linksys NSLU2.
+El Linksys NSLU2 (Network Storage Link per a dispositius de disc USB 2.0)
+és un petit dispositiu que permet fàcilment l'emmagatzemament utilitzant
+la xarxa. Ve amb una connexió Ethernet i dos ports USB per a connectar
+els discs durs. Hi ha una pàgina externa amb les <ulink
+url="&url-arm-cyrius-nslu2;">instruccions d'instal·lació</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Kirkwood</term>
+<listitem><para>
+
+Kirkwood és un sistema en un xip (o SoC, de l'anglès <emphasis>system on a
+chip</emphasis>) de Marvell que integra una CPU ARM, Ethernet, SATA, USB, i
+altra funcionalitat en un xip. Actualment són suportats els següents
+dispositius Kirkwood: OpenRD (OpenRD-Base and OpenRD-Client),
+<ulink url="&url-arm-cyrius-sheevaplug;">SheevaPlug</ulink> i
+<ulink url="&url-arm-cyrius-qnap-kirkwood;">QNAP Turbo Station</ulink>
+(TS-110, TS-119, TS-210, TS-219 i TS-219; TS-410 i TS-419P encara no són
+suportats).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Orion5x</term>
+<listitem><para>
+
+Orion és un sistema en un xip (o SoC, de l'anglès <emphasis>system on a
+chip</emphasis> de Marvell que integra una CPU ARM, Ethernet, SATA, USB i
+altres en un mateix xip. Hi ha molts dispositius d'emmagatzematge en xarxa
+(NAS) al mercat que es basen en Orion. Actualment estan suportats els següents
+dispositius Orion: <ulink url="&url-arm-cyrius-kuroboxpro;">Buffalo
+Kurobox</ulink>, <ulink url="&url-arm-cyrius-mv2120;">HP mv2120</ulink>,
+<ulink url="&url-arm-cyrius-qnap;">QNAP Turbo Station</ulink> (TS-109, TS-209
+i TS-409).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Versatile</term>
+<listitem><para>
+
+Versatile és una plataforma emulada utilitzant QEMU i per tant una bona manera
+de provar i executar &debian; sobre ARM si no disposeu de maquinari adequat.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</para>
+  </sect2>

@@ -1,0 +1,348 @@
+<!-- original version: 65939 -->
+
+ <sect1 arch="linux-any" id="linuxdevices"><title>Périphériques Linux</title>
+<para>
+
+Sous Linux, vous disposez de fichiers spéciaux dans le répertoire
+<filename>/dev</filename>. Ces fichiers sont appelés fichiers de 
+périphérique et ils se comportent différemment des fichiers ordinaires.
+Les types les plus courants de ces fichiers concernent les périphériques
+de type bloc et les périphériques de type caractère. Ces fichiers sont des interfaces
+au pilote réel qui fait partie du noyau et qui accède au périphérique.
+Un autre type, moins courant, de fichier de périphérique est <firstterm>pipe</firstterm>.
+Ci-dessous sont repris les fichiers de périphérique les plus importants.
+
+</para><para>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>fd0</filename></entry>
+  <entry>1er lecteur de disquette</entry>
+</row><row>
+  <entry><filename>fd1</filename></entry>
+  <entry>2e lecteur de disquette</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>hda</filename></entry>
+  <entry>Disque dur IDE ou cédérom sur le premier port IDE (maître)</entry>
+</row><row>
+  <entry><filename>hdb</filename></entry>
+  <entry>Disque dur IDE ou cédérom sur le premier port IDE (esclave)</entry>
+</row><row>
+  <entry><filename>hdc</filename></entry>
+  <entry>Disque dur IDE ou cédérom sur le second port IDE (maître)</entry>
+</row><row>
+  <entry><filename>hdd</filename></entry>
+  <entry>Disque dur IDE ou cédérom sur le second port IDE (esclave)</entry>
+</row><row>
+  <entry><filename>hda1</filename></entry>
+  <entry>1re partition sur le premier disque dur IDE</entry>
+</row><row>
+  <entry><filename>hdd15</filename></entry>
+  <entry>15e partition sur le quatrième disque dur IDE</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sda</filename></entry>
+  <entry>Disque SCSI avec l'identificateur SCSI le plus bas (p. ex. 0)</entry>
+</row><row>
+  <entry><filename>sdb</filename></entry>
+  <entry>Disque SCSI avec l'identificateur suivant (p. ex. 1)</entry>
+</row><row>
+  <entry><filename>sdc</filename></entry>
+  <entry>Disque SCSI avec l'identificateur suivant (p. ex. 2)</entry>
+</row><row>
+  <entry><filename>sda1</filename></entry>
+  <entry>1re partition du premier disque SCSI</entry>
+</row><row>
+  <entry><filename>sdd10</filename></entry>
+  <entry>10e partition du quatrième disque SCSI</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sr0</filename></entry>
+  <entry>cédérom SCSI avec l'identificateur SCSI le plus bas</entry>
+</row><row>
+  <entry><filename>sr1</filename></entry>
+  <entry>cédérom SCSI avec l'identificateur SCSI suivant</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>ttyS0</filename></entry>
+  <entry>Port série 0 (COM1: sous DOS)</entry>
+</row><row>
+  <entry><filename>ttyS1</filename></entry>
+  <entry>Port série 1 (COM2: sous DOS)</entry>
+</row><row>
+  <entry><filename>psaux</filename></entry>
+  <entry>port souris PS/2</entry>
+</row><row>
+  <entry><filename>gpmdata</filename></entry>
+  <entry>pseudo périphérique, répétiteur du démon GPM de souris</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>cdrom</filename></entry>
+  <entry>Lien symbolique vers le lecteur de cédérom</entry>
+</row><row>
+  <entry><filename>mouse</filename></entry>
+  <entry>Lien symbolique vers le fichier de périphérique de la souris</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>null</filename></entry>
+  <entry>tout ce qui est écrit vers ce fichier disparaît</entry>
+</row><row>
+  <entry><filename>zero</filename></entry>
+  <entry>fichier qui fabrique continuellement des zéros</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+  <sect2 arch="not-s390" id="device-mouse">
+<title>Régler la souris</title>
+
+<para>
+
+La souris peut être utilisée aussi bien dans une console Linux (avec gpm) 
+qu'en environnement X window. Il suffit normalement d'installer le fichier
+<filename>gpm</filename> et le serveur X. Les deux doivent utiliser 
+<filename>/dev/input/mice</filename> comme périphérique.
+Le protocole correct pour la souris est <userinput>exps2</userinput> pour gpm et
+<userinput>ExplorerPS/2</userinput> pour le serveur X. Les fichiers de configuration sont
+respectivement <filename>/etc/gpm.conf</filename> et <filename>/etc/X11/xorg.conf</filename>.
+
+</para>
+
+<para>
+Pour faire fonctionner la souris, il faut charger certains modules du noyau.
+Dans la plupart des cas, les modules corrects sont détectés mais certaines
+souris anciennes <footnote>
+<para>
+Les souris de type série ont un connecteur à 9 trous en forme de D&nbsp;; les souris
+bus ont un connecteur rond à 8 tiges, qu'il ne faut pas confondre avec le
+connecteur à 6 tiges d'une souris PS/2 ou avec le connecteur à 4 tiges d'une souris ADB.
+</para>
+</footnote> sur de vieux ordinateurs posent des problèmes. Voici les modules du noyau
+nécessaires aux différents types de souris&nbsp;:
+
+<informaltable><tgroup cols="2"><thead>
+<row>
+  <entry>Module</entry>
+  <entry>Description</entry>
+</row>
+</thead><tbody>
+<row>
+  <entry>psmouse</entry>
+  <entry>Souris PS/2 (devrait être détectée)</entry>
+</row>
+<row>
+  <entry>usbhid</entry>
+  <entry>Souris USB (devrait être détectée)</entry>
+</row>
+<row>
+  <entry>sermouse</entry>
+  <entry>Souris de type série</entry>
+</row>
+<row>
+  <entry>logibm</entry>
+  <entry>Souris Bus connectée à l'adaptateur Logitech</entry>
+</row>
+<row>
+  <entry>inport</entry>
+  <entry>Souris Bus connectée à des cartes ATI ou Microsoft</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+Pour charger le module d'un pilote souris, vous pouvez utiliser la
+commande <command>modconf</command> (paquet du même nom) et chercher dans la
+catégorie <userinput>kernel/drivers/input/mouse</userinput>.
+
+</para><para arch="powerpc">
+<!-- FJP 20070122: Unsure if this is still valid -->
+
+Les noyaux modernes offrent la possibilité d'émuler une souris 3 boutons 
+quand votre souris n'en a qu'un. Ajoutez simplement les lignes suivantes au 
+fichier <filename>/etc/sysctl.conf</filename>&nbsp;:
+
+<informalexample><screen>
+# émulation d'une souris à 3 boutons 
+# mettre en &oelig;uvre l'émulation
+/dev/mac_hid/mouse_button_emulation = 1
+# Envoyer le signal du bouton du milieu avec la touche F11
+/dev/mac_hid/mouse_button2_keycode = 87
+# Envoyer le signal du bouton de droite avec la touche F12
+/dev/mac_hid/mouse_button3_keycode = 88
+# Pour d'autres touches, utilisez showkey pour connaître les codes
+</screen></informalexample>  
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="tasksel-size-list">
+ <title>Espace disque nécessaire pour les tâches</title>
+
+<para>
+Une installation standard pour l'architecture amd64, avec le noyau 2.6 par défaut
+et tous les paquets standard, demande &std-system-size;&nbsp;Mo. Une installation minimale,
+sans la tâche <emphasis>Standard system</emphasis>, demande &base-system-size;&nbsp;Mo. 
+</para>
+<important><para>
+Dans ces deux cas, l'espace disque réellement utilisé est calculé <emphasis>après</emphasis>
+la fin de l'installation et tous les fichiers temporaires éliminés. Il ne prend pas
+en compte l'espace utilisé par le système de fichiers, par exemple par les 
+journaux. Il est donc clair qu'il faut plus d'espace disque à la fois
+<emphasis>pendant</emphasis> l'installation et en utilisation réelle du
+système.
+</para></important>
+<para>
+Le tableau suivant montre les tailles rapportées par aptitude pour les tâches 
+affichées dans tasksel. Certaines tâches ont des éléments
+communs, et donc la taille totale pour ces deux tâches peut être moindre que 
+la somme des deux tailles.
+</para>
+<para>
+
+L'installateur installe par défaut l'environnement de bureau GNOME, mais d'autres
+environnements sont possibles. Ils peuvent être sélectionnés soit en utilisant une image spécifique de CD,
+soit en indiquant l'environnement voulu au moment de l'amorçage de l'installateur.
+Veuillez consulter <xref linkend="pkgsel"/>.
+
+</para><para>
+Pour déterminer la dimension d'une partition, vous devez ajouter les tailles
+dans le tableau et la taille de l'installation de base. Ce que représente
+<quote>Taille installée</quote> va dans <filename>/usr</filename> et dans
+<filename>/lib</filename>&nbsp;; et ce que représente <quote>Taille à charger</quote>
+va (provisoirement) dans <filename>/var</filename>. 
+</para>
+<para>
+
+<informaltable><tgroup cols="4">
+<thead>
+<row>
+  <entry>Tâches</entry>
+  <entry>Taille Installée (Mo)</entry>
+  <entry>Taille à charger (Mo)</entry>
+  <entry>Espace à prendre (Mo)</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Desktop</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;GNOME (défault)</entry>
+  <entry>&task-desktop-gnome-inst;</entry>
+  <entry>&task-desktop-gnome-dl;</entry>
+  <entry>&task-desktop-gnome-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;KDE</entry>
+  <entry>&task-desktop-kde-inst;</entry>
+  <entry>&task-desktop-kde-dl;</entry>
+  <entry>&task-desktop-kde-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;Xfce</entry>
+  <entry>&task-desktop-xfce-inst;</entry>
+  <entry>&task-desktop-xfce-dl;</entry>
+  <entry>&task-desktop-xfce-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;LXDE</entry>
+  <entry>&task-desktop-lxde-inst;</entry>
+  <entry>&task-desktop-lxde-dl;</entry>
+  <entry>&task-desktop-lxde-tot;</entry>
+</row>
+
+<row>
+  <entry>Laptop <footnote>
+
+<para> Les tâches <emphasis>Laptop</emphasis> et <emphasis>Desktop environment</emphasis>
+se recoupent en partie. Si vous installez les deux, la tâche Laptop demandera
+seulement quelques Mo supplémentaires d'espace disque.
+</para> 
+</footnote></entry>
+  <entry>&task-laptop-inst;</entry>
+  <entry>&task-laptop-dl;</entry>
+  <entry>&task-laptop-tot;</entry>
+</row>
+
+<row>
+  <entry>Serveur web</entry>
+  <entry>&task-web-inst;</entry>
+  <entry>&task-web-dl;</entry>
+  <entry>&task-web-tot;</entry>
+</row>
+
+<row>
+  <entry>Serveur d'impression</entry>
+  <entry>&task-print-inst;</entry>
+  <entry>&task-print-dl;</entry>
+  <entry>&task-print-tot;</entry>
+</row>
+
+<row>
+  <entry>Serveur DNS</entry>
+  <entry>&task-dns-inst;</entry>
+  <entry>&task-dns-dl;</entry>
+  <entry>&task-dns-tot;</entry>
+</row>
+
+<row>
+  <entry>Serveur de fichiers</entry>
+  <entry>&task-file-inst;</entry>
+  <entry>&task-file-dl;</entry>
+  <entry>&task-file-tot;</entry>
+</row>
+
+<row>
+  <entry>Serveur de courrier</entry>
+  <entry>&task-mail-inst;</entry>
+  <entry>&task-mail-dl;</entry>
+  <entry>&task-mail-tot;</entry>
+</row>
+
+<row>
+  <entry>Base de données SQL</entry>
+  <entry>&task-sql-inst;</entry>
+  <entry>&task-sql-dl;</entry>
+  <entry>&task-sql-tot;</entry>
+</row>
+<row>
+  <entry>Serveur SSH</entry>
+  <entry>&task-ssh-inst;</entry>
+  <entry>&task-ssh-dl;</entry>
+  <entry>&task-ssh-tot;</entry>
+</row>
+
+</tbody>
+</tgroup></informaltable>
+
+</para>
+<para>
+Si vous faites une installation dans une langue autre que l'anglais,
+<command>tasksel</command> installera d'abord une <firstterm>locale</firstterm>
+s'il en existe une pour votre langue. Chaque langue demande un espace disque.
+Vous devriez accorder 350&nbsp;Mo pour l'installation et le téléchargement.
+</para>
+ </sect1>
+

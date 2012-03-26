@@ -1,0 +1,756 @@
+# translation of boot-new.po to Russian
+# Russian L10N Team <debian-l10n-russian@lists.debian.org>, 2004, 2005.
+# Yuri Kozlov <yuray@id.ru>, 2004, 2005.
+# Yuri Kozlov <kozlov.y@gmail.com>, 2006, 2007.
+# Yuri Kozlov <yuray@komyakino.ru>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: boot-new\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-10 12:35+0000\n"
+"PO-Revision-Date: 2010-10-24 14:58+0400\n"
+"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
+"Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. Tag: title
+#: boot-new.xml:5
+#, no-c-format
+msgid "Booting Into Your New &debian; System"
+msgstr "Загрузка только что установленной системы &debian;"
+
+#. Tag: title
+#: boot-new.xml:7
+#, no-c-format
+msgid "The Moment of Truth"
+msgstr "Момент истины"
+
+#. Tag: para
+#: boot-new.xml:8
+#, no-c-format
+msgid ""
+"Your system's first boot on its own power is what electrical engineers call "
+"the <quote>smoke test</quote>."
+msgstr ""
+"Первую самостоятельную загрузку системы инженеры-электрики называют "
+"<quote>smoke test</quote>."
+
+#. Tag: para
+#: boot-new.xml:13
+#, no-c-format
+msgid ""
+"If you did a default installation, the first thing you should see when you "
+"boot the system is the menu of the <classname>grub</classname><phrase arch="
+"\"x86\"> or possibly the <classname>lilo</classname> bootloader</phrase>. "
+"The first choices in the menu will be for your new &debian; system. If you "
+"had any other operating systems on your computer (like Windows) that were "
+"detected by the installation system, those will be listed lower down in the "
+"menu."
+msgstr ""
+"Если выполнялась установка по умолчанию, первое, что вы увидите при запуске "
+"системы &mdash; это меню системного загрузчика <classname>grub</classname> "
+"или, возможно, <classname>lilo</classname>. Под первым пунктом меню будет "
+"загрузка новой системы &debian;. Каждой имеющейся на компьютере другой "
+"операционной системе, обнаруженной во время установки, присвоен отдельный "
+"пункт в меню (расположены ниже)."
+
+#. Tag: para
+#: boot-new.xml:23
+#, no-c-format
+msgid ""
+"If the system fails to start up correctly, don't panic. If the installation "
+"was successful, chances are good that there is only a relatively minor "
+"problem that is preventing the system from booting &debian;. In most cases "
+"such problems can be fixed without having to repeat the installation. One "
+"available option to fix boot problems is to use the installer's built-in "
+"rescue mode (see <xref linkend=\"rescue\"/>)."
+msgstr ""
+"Если система не загружается, не волнуйтесь. Если установка завершилась "
+"успешно, то это всего лишь результат какой-то несущественной проблемы, "
+"которая не позволяет системе загрузить &debian;. В большинстве случаев такие "
+"проблемы решаются без повторной установки. Одним из методов решения проблем "
+"с загрузкой является встроенный в программу установки режим восстановления "
+"(<xref linkend=\"rescue\"/>)."
+
+#. Tag: para
+#: boot-new.xml:32
+#, no-c-format
+msgid ""
+"If you are new to &debian; and &arch-kernel;, you may need some help from "
+"more experienced users. <phrase arch=\"x86\">For direct on-line help you can "
+"try the IRC channels #debian or #debian-boot on the OFTC network. "
+"Alternatively you can contact the <ulink url=\"&url-list-subscribe;\">debian-"
+"user mailing list</ulink>.</phrase> <phrase arch=\"not-x86\">For less common "
+"architectures like &arch-title;, your best option is to ask on the <ulink "
+"url=\"&url-list-subscribe;\">debian-&arch-listname; mailing list</ulink>.</"
+"phrase> You can also file an installation report as described in <xref "
+"linkend=\"submit-bug\"/>. Please make sure that you describe your problem "
+"clearly and include any messages that are displayed and may help others to "
+"diagnose the issue."
+msgstr ""
+"Если вы новичок в &debian; и &arch-kernel;, вам может потребоваться помощь "
+"более опытных пользователей. <phrase arch=\"x86\">Чтобы получить помощь "
+"быстро, вы можете попробовать воспользоваться IRC каналами #debian или "
+"#debian-boot сети OFTC. Или же вы можете написать в<ulink url=\"&url-list-"
+"subscribe;\">в список рассылки debian-user</ulink>.</phrase> <phrase arch="
+"\"not-x86\">Для менее распространённых архитектур типа &arch-title;, лучше "
+"задать вопрос в <ulink url=\"&url-list-subscribe;\">список рассылки debian-"
+"&arch-listname;</ulink>.</phrase> Также вы можете отправить отчёт об "
+"установке как это описано в <xref linkend=\"submit-bug\"/>. Описывайте "
+"проблему как можно понятнее, добавьте все сообщения которые отображались, "
+"они могут помочь определить причину проблемы."
+
+#. Tag: para
+#: boot-new.xml:48
+#, no-c-format
+msgid ""
+"If you had any other operating systems on your computer that were not "
+"detected or not detected correctly, please file an installation report."
+msgstr ""
+"Если у вас на компьютере есть другие операционные системы, и они не "
+"определились или определились неправильно, отправьте отчёт об установке."
+
+#. Tag: title
+#: boot-new.xml:56
+#, no-c-format
+msgid "OldWorld PowerMacs"
+msgstr "OldWorld PowerMacs"
+
+#. Tag: para
+#: boot-new.xml:57
+#, no-c-format
+msgid ""
+"If the machine fails to boot after completing the installation, and stops "
+"with a <prompt>boot:</prompt> prompt, try typing <userinput>Linux</"
+"userinput> followed by &enterkey;. (The default boot configuration in "
+"<filename>quik.conf</filename> is labeled Linux). The labels defined in "
+"<filename>quik.conf</filename> will be displayed if you press the "
+"<keycap>Tab</keycap> key at the <prompt>boot:</prompt> prompt. You can also "
+"try booting back into the installer, and editing the <filename>/target/etc/"
+"quik.conf</filename> placed there by the <guimenuitem>Install Quik on a Hard "
+"Disk</guimenuitem> step. Clues for dealing with <command>quik</command> are "
+"available at <ulink url=\"&url-powerpc-quik-faq;\"></ulink>."
+msgstr ""
+"Если машина не загружается после завершения установки и останавливается с "
+"подсказкой <prompt>boot:</prompt>, попробуйте набрать <userinput>Linux</"
+"userinput> и нажать &enterkey;. (Конфигурация загрузки по умолчанию в "
+"<filename>quik.conf</filename> имеет метку Linux). Посмотреть возможные "
+"метки, заданные в <filename>quik.conf</filename>, если нажать клавишу "
+"<keycap>Tab</keycap> в строке с приглашением <prompt>boot:</prompt>. Также "
+"вы можете попробовать загрузиться обратно в программу установки и "
+"отредактировать <filename>/target/etc/quik.conf</filename>, который "
+"создаётся в шаге <guimenuitem>Установить Quik на жёсткий диск</guimenuitem>. "
+"Подсказки по работе с <command>quik</command> находятся здесь <ulink url="
+"\"&url-powerpc-quik-faq;\"></ulink>."
+
+#. Tag: para
+#: boot-new.xml:71
+#, no-c-format
+msgid ""
+"To boot back into MacOS without resetting the nvram, type <userinput>bye</"
+"userinput> at the OpenFirmware prompt (assuming MacOS has not been removed "
+"from the machine). To obtain an OpenFirmware prompt, hold down the "
+"<keycombo> <keycap>command</keycap> <keycap>option</keycap> <keycap>o</"
+"keycap> <keycap>f</keycap> </keycombo> keys while cold booting the machine. "
+"If you need to reset the OpenFirmware nvram changes to the MacOS default in "
+"order to boot back to MacOS, hold down the <keycombo> <keycap>command</"
+"keycap> <keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap> </"
+"keycombo> keys while cold booting the machine."
+msgstr ""
+"Чтобы загрузиться обратно в MacOS без сброса nvram, наберите <userinput>bye</"
+"userinput> в подсказке OpenFirmware (подразумевается, что MacOS не была "
+"удалена с машины). Чтобы получить подсказку OpenFirmware, нажмите "
+"клавиши<keycombo> <keycap>command</keycap> <keycap>option</keycap> "
+"<keycap>o</keycap> <keycap>f</keycap> </keycombo> во время холодного старта "
+"машины. Если вам надо сбросить изменения в OpenFirmware nvram по умолчанию "
+"MacOS, чтобы загрузиться обратно в MacOS, нажмите клавиши <keycombo> "
+"<keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap> "
+"<keycap>r</keycap> </keycombo> во время холодного старта машины."
+
+#. Tag: para
+#: boot-new.xml:84
+#, no-c-format
+msgid ""
+"If you use <command>BootX</command> to boot into the installed system, just "
+"select your desired kernel in the <filename>Linux Kernels</filename> folder, "
+"un-choose the ramdisk option, and add a root device corresponding to your "
+"installation; e.g. <userinput>/dev/hda8</userinput>."
+msgstr ""
+"Если вы используете <command>BootX</command> для загрузки в вашу "
+"установленную систему, просто выберите желаемое ядро в папке <filename>Linux "
+"Kernels</filename>, отмените выбор опции ramdisk и добавьте корневое "
+"устройство, соответствующее ваше установке; например, <userinput>/dev/hda8</"
+"userinput>."
+
+#. Tag: title
+#: boot-new.xml:96
+#, no-c-format
+msgid "NewWorld PowerMacs"
+msgstr "NewWorld PowerMacs"
+
+#. Tag: para
+#: boot-new.xml:97
+#, no-c-format
+msgid ""
+"On G4 machines and iBooks, you can hold down the <keycap>option</keycap> key "
+"and get a graphical screen with a button for each bootable OS, &debian-gnu; "
+"will be a button with a small penguin icon."
+msgstr ""
+"На машинах G4 и iBook, вы может нажать клавишу <keycap>option</keycap> и "
+"получить графический экран с кнопкой для каждой загружаемой ОС, &debian-gnu; "
+"будет кнопкой с иконкой маленького пингвина."
+
+#. Tag: para
+#: boot-new.xml:104
+#, no-c-format
+msgid ""
+"If you kept MacOS and at some point it changes the OpenFirmware <envar>boot-"
+"device</envar> variable you should reset OpenFirmware to its default "
+"configuration. To do this hold down the <keycombo> <keycap>command</keycap> "
+"<keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap> </keycombo> "
+"keys while cold booting the machine."
+msgstr ""
+"Если вы оставили MacOS и в какой-то момент она изменила переменную "
+"OpenFirmware <envar>boot-device</envar>, вы должны сбросить OpenFirmware в "
+"настройки по умолчанию. Чтобы сделать это, нажмите клавиши <keycombo> "
+"<keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap> "
+"<keycap>r</keycap> </keycombo> во время холодного старта машины."
+
+#. Tag: para
+#: boot-new.xml:112
+#, no-c-format
+msgid ""
+"The labels defined in <filename>yaboot.conf</filename> will be displayed if "
+"you press the <keycap>Tab</keycap> key at the <prompt>boot:</prompt> prompt."
+msgstr ""
+"Метки, заданные в <filename>yaboot.conf</filename> будут отображаться, если "
+"вы нажмёте клавишу<keycap>Tab</keycap> в подсказке <prompt>boot:</prompt>."
+
+#. Tag: para
+#: boot-new.xml:118
+#, no-c-format
+msgid ""
+"Resetting OpenFirmware on G3 or G4 hardware will cause it to boot &debian-"
+"gnu; by default (if you correctly partitioned and placed the Apple_Bootstrap "
+"partition first). If you have &debian-gnu; on a SCSI disk and MacOS on an "
+"IDE disk this may not work and you will have to enter OpenFirmware and set "
+"the <envar>boot-device</envar> variable, <command>ybin</command> normally "
+"does this automatically."
+msgstr ""
+"Сброс OpenFirmware на оборудовании G3 или G4 приведет к загрузке &debian-"
+"gnu; по умолчанию (если вы корректно разметили разделы и поместили раздел "
+"Apple_Bootstrap первым). Если &debian-gnu; у вас на SCSI-диске, а MacOS на "
+"IDE-диске, это может не сработать, и вам придётся зайти в OpenFirmware и "
+"установить переменную <envar>boot-device</envar>. В нормальной ситуации "
+"<command>ybin</command> делает это автоматически."
+
+#. Tag: para
+#: boot-new.xml:127
+#, no-c-format
+msgid ""
+"After you boot &debian-gnu; for the first time you can add any additional "
+"options you desire (such as dual boot options) to <filename>/etc/yaboot."
+"conf</filename> and run <command>ybin</command> to update your boot "
+"partition with the changed configuration. Please read the <ulink url=\"&url-"
+"powerpc-yaboot-faq;\">yaboot HOWTO</ulink> for more information."
+msgstr ""
+"После того, как вы загрузили &debian-gnu; в первый раз, вы можете добавить "
+"дополнительные опции, какие пожелаете (такие, как опции двойной загрузки) в "
+"<filename>/etc/yaboot.conf</filename> и запустить <command>ybin</command> "
+"чтобы обновить изменённую информацию в вашем загрузочном разделе. "
+"Пожалуйста, прочитайте <ulink url=\"&url-powerpc-yaboot-faq;\">yaboot HOWTO</"
+"ulink> для более подробной информации."
+
+#. Tag: title
+#: boot-new.xml:145
+#, no-c-format
+msgid "Mounting encrypted volumes"
+msgstr "Монтирование шифрованных томов"
+
+#. Tag: para
+#: boot-new.xml:147
+#, no-c-format
+msgid ""
+"If you created encrypted volumes during the installation and assigned them "
+"mount points, you will be asked to enter the passphrase for each of these "
+"volumes during the boot. The actual procedure differs slightly between dm-"
+"crypt and loop-AES."
+msgstr ""
+"Если вы создали шифрованные тома во время установки и назначили им точки "
+"монтирования, то во время загрузки машины вас попросят ввести ключевую фразу "
+"на каждый том. В процедуре ввода для dm-crypt и loop-AES есть некоторые "
+"различия."
+
+#. Tag: title
+#: boot-new.xml:157
+#, no-c-format
+msgid "dm-crypt"
+msgstr "dm-crypt"
+
+#. Tag: para
+#: boot-new.xml:159
+#, no-c-format
+msgid ""
+"For partitions encrypted using dm-crypt you will be shown the following "
+"prompt during the boot: <informalexample><screen>\n"
+"Starting early crypto disks... <replaceable>part</replaceable>_crypt"
+"(starting)\n"
+"Enter LUKS passphrase:\n"
+"</screen></informalexample> In the first line of the prompt, "
+"<replaceable>part</replaceable> is the name of the underlying partition, e."
+"g. sda2 or md0. You are now probably wondering <emphasis>for which volume</"
+"emphasis> you are actually entering the passphrase. Does it relate to your "
+"<filename>/home</filename>? Or to <filename>/var</filename>? Of course, if "
+"you have just one encrypted volume, this is easy and you can just enter the "
+"passphrase you used when setting up this volume. If you set up more than one "
+"encrypted volume during the installation, the notes you wrote down as the "
+"last step in <xref linkend=\"partman-crypto\"/> come in handy. If you did "
+"not make a note of the mapping between <filename><replaceable>part</"
+"replaceable>_crypt</filename> and the mount points before, you can still "
+"find it in <filename>/etc/crypttab</filename> and <filename>/etc/fstab</"
+"filename> of your new system."
+msgstr ""
+"Для разделов, зашифрованных dm-crypt, во время загрузки вы увидите следующее "
+"сообщение: <informalexample><screen>\n"
+"Starting early crypto disks... <replaceable>part</replaceable>_crypt"
+"(starting)\n"
+"Enter LUKS passphrase:\n"
+"</screen></informalexample> В первой строке приглашения, вместо "
+"<replaceable>part</replaceable> будет указано название используемого "
+"раздела, например sda2 или md0. Вы, вероятно, задумаетесь: <emphasis>для "
+"какого тома</emphasis> нужно вводить ключевую фразу? Для <filename>/home</"
+"filename>? Или для <filename>/var</filename>? Естественно, если у вас только "
+"один шифрованный том, это легко и вы можете просто ввести ключевую фразу, "
+"которую задали при настройке тома. Если же у вас несколько шифрованных "
+"томов, то пригодятся заметки, которые вы сделали на последнем этапе <xref "
+"linkend=\"partman-crypto\"/>. Если вы ранее не записали соответствие между "
+"<filename><replaceable>part</replaceable>_crypt</filename> и точкой "
+"монтирования, то можете выяснить это в файлах <filename>/etc/crypttab</"
+"filename> и <filename>/etc/fstab</filename> на новой системе."
+
+#. Tag: para
+#: boot-new.xml:182
+#, no-c-format
+msgid ""
+"The prompt may look somewhat different when an encrypted root file system is "
+"mounted. This depends on which initramfs generator was used to generate the "
+"initrd used to boot the system. The example below is for an initrd generated "
+"using <classname>initramfs-tools</classname>:"
+msgstr ""
+"При монтировании зашифрованного корневого раздела приглашение может "
+"выглядеть несколько иначе. Это зависит от генератора initramfs, который "
+"использовался при создании initrd для загрузки системы. Пример для initrd, "
+"созданного с помощью <classname>initramfs-tools</classname>:"
+
+#. Tag: screen
+#: boot-new.xml:189
+#, no-c-format
+msgid ""
+"Begin: Mounting <emphasis>root file system</emphasis>... ...\n"
+"Begin: Running /scripts/local-top ...\n"
+"Enter LUKS passphrase:"
+msgstr ""
+"Begin: Mounting <emphasis>root file system</emphasis>... ...\n"
+"Begin: Running /scripts/local-top ...\n"
+"Enter LUKS passphrase:"
+
+#. Tag: para
+#: boot-new.xml:191 boot-new.xml:216
+#, no-c-format
+msgid ""
+"No characters (even asterisks) will be shown while entering the passphrase. "
+"If you enter the wrong passphrase, you have two more tries to correct it. "
+"After the third try the boot process will skip this volume and continue to "
+"mount the next filesystem. Please see <xref linkend=\"crypto-troubleshooting"
+"\"/> for further information."
+msgstr ""
+"Во время ввода ключевой фразы символы не отображаются (даже звёздочками). "
+"Если вы введёте неверную ключевую фразу, то у вас ещё есть две попытки. "
+"После третьей попытки процесс загрузки пропустит этот том и начнётся "
+"монтирование следующей файловой системы. Подробней смотрите в <xref linkend="
+"\"crypto-troubleshooting\"/>."
+
+#. Tag: para
+#: boot-new.xml:199 boot-new.xml:224
+#, no-c-format
+msgid "After entering all passphrases the boot should continue as usual."
+msgstr "После ввода всех ключевых фраз загрузка продолжится как обычно."
+
+#. Tag: title
+#: boot-new.xml:207
+#, no-c-format
+msgid "loop-AES"
+msgstr "loop-AES"
+
+#. Tag: para
+#: boot-new.xml:209
+#, no-c-format
+msgid ""
+"For partitions encrypted using loop-AES you will be shown the following "
+"prompt during the boot:"
+msgstr ""
+"Для разделов, зашифрованных loop-AES, во время загрузки вы увидите следующее "
+"приглашение:"
+
+#. Tag: screen
+#: boot-new.xml:214
+#, no-c-format
+msgid ""
+"Checking loop-encrypted file systems.\n"
+"Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</"
+"replaceable>)\n"
+"Password:"
+msgstr ""
+"Checking loop-encrypted file systems.\n"
+"Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</"
+"replaceable>)\n"
+"Password:"
+
+#. Tag: title
+#: boot-new.xml:232
+#, no-c-format
+msgid "Troubleshooting"
+msgstr "Устранение неполадок"
+
+#. Tag: para
+#: boot-new.xml:234
+#, no-c-format
+msgid ""
+"If some of the encrypted volumes could not be mounted because a wrong "
+"passphrase was entered, you will have to mount them manually after the boot. "
+"There are several cases."
+msgstr ""
+"Если некоторые шифрованные тома не были смонтированы из-за ввода "
+"неправильной ключевой фразы, их можно смонтировать вручную после загрузки. "
+"Но есть несколько случаев."
+
+#. Tag: para
+#: boot-new.xml:243
+#, no-c-format
+msgid ""
+"The first case concerns the root partition. When it is not mounted "
+"correctly, the boot process will halt and you will have to reboot the "
+"computer to try again."
+msgstr ""
+"Первый случай касается корневого раздела. Если он не смонтирован, то процесс "
+"загрузки остановится, а вам придётся перезагрузить компьютер чтобы "
+"попробовать ещё раз."
+
+#. Tag: para
+#: boot-new.xml:250
+#, no-c-format
+msgid ""
+"The easiest case is for encrypted volumes holding data like <filename>/home</"
+"filename> or <filename>/srv</filename>. You can simply mount them manually "
+"after the boot. For loop-AES this is a one-step operation: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
+"userinput>\n"
+"<prompt>Password:</prompt>\n"
+"</screen></informalexample> where <replaceable>/mount_point</replaceable> "
+"should be replaced by the particular directory (e.g. <filename>/home</"
+"filename>). The only difference from an ordinary mount is that you will be "
+"asked to enter the passphrase for this volume."
+msgstr ""
+"Простейший случай &mdash; шифрованные тома с данными типа <filename>/home</"
+"filename> или <filename>/srv</filename>. Вы можете просто смонтировать их "
+"после загрузки. Для loop-AES это делается в одно действие: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>mount <replaceable>/точка_монтирования</"
+"replaceable></userinput>\n"
+"<prompt>Password:</prompt>\n"
+"</screen></informalexample>, где <replaceable>/точку_монтирования</"
+"replaceable> нужно заменить именем каталога (например, <filename>/home</"
+"filename>). Отличие от обычной операции монтирования только в запросе "
+"ключевой фразы для этого тома."
+
+#. Tag: para
+#: boot-new.xml:264
+#, no-c-format
+msgid ""
+"For dm-crypt this is a bit trickier. First you need to register the volumes "
+"with <application>device mapper</application> by running: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
+"</screen></informalexample> This will scan all volumes mentioned in "
+"<filename>/etc/crypttab</filename> and will create appropriate devices under "
+"the <filename>/dev</filename> directory after entering the correct "
+"passphrases. (Already registered volumes will be skipped, so you can repeat "
+"this command several times without worrying.) After successful registration "
+"you can simply mount the volumes the usual way:"
+msgstr ""
+"Для dm-crypt немного сложнее. Во-первых вам нужно зарегистрировать тома с "
+"помощью <application>device mapper</application>выполнив: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
+"</screen></informalexample> Эта операция просканирует все тома указанные в "
+"<filename>/etc/crypttab</filename> и создаст соответствующие устройства в "
+"каталоге <filename>/dev</filename> после ввода правильных ключевых фраз. "
+"(Тома зарегистрированные ранее будут пропущены, поэтому вы можете спокойно "
+"запускать эту команду несколько раз.) После успешной регистрации вы можете "
+"смонтировать тома как обычно:"
+
+#. Tag: screen
+#: boot-new.xml:279
+#, no-c-format
+msgid ""
+"<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
+"userinput>"
+msgstr ""
+"<prompt>#</prompt> <userinput>mount <replaceable>/точка_монтирования</"
+"replaceable></userinput>"
+
+#. Tag: para
+#: boot-new.xml:282
+#, no-c-format
+msgid ""
+"If any volume holding noncritical system files could not be mounted "
+"(<filename>/usr</filename> or <filename>/var</filename>), the system should "
+"still boot and you should be able to mount the volumes manually like in the "
+"previous case. However, you will also need to (re)start any services usually "
+"running in your default runlevel because it is very likely that they were "
+"not started. The easiest way to achieve this is by switching to the first "
+"runlevel and back by entering <informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>init 1</userinput>\n"
+"</screen></informalexample> at the shell prompt and pressing <keycombo> "
+"<keycap>Control</keycap> <keycap>D</keycap> </keycombo> when asked for the "
+"root password."
+msgstr ""
+"Если на любых несмонтированных томах содержатся некритичные системные файлы "
+"(<filename>/usr</filename> или <filename>/var</filename>), система должна "
+"загрузиться и вы сможете смонтировать тома вручную как в предыдущем случае. "
+"Однако, может потребоваться (пере)запуск каждого сервиса, который обычно "
+"запускается на уровне выполнения по умолчанию, так как скорее всего они не "
+"смогли запуститься. Самый простой способ сделать это &mdash; перейти на "
+"первый уровень выполнения и вернуться назад с помощью запуска "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>init 1</userinput>\n"
+"</screen></informalexample> в оболочке и нажать <keycombo> <keycap>Control</"
+"keycap> <keycap>D</keycap> </keycombo> когда попросят ввести пароль "
+"суперпользователя."
+
+#. Tag: title
+#: boot-new.xml:305
+#, no-c-format
+msgid "Log In"
+msgstr "Вход в систему"
+
+#. Tag: para
+#: boot-new.xml:307
+#, no-c-format
+msgid ""
+"Once your system boots, you'll be presented with the login prompt. Log in "
+"using the personal login and password you selected during the installation "
+"process. Your system is now ready for use."
+msgstr ""
+"После загрузки системы будет показано приглашение к входу в систему. Для "
+"входа используйте персональный логин и пароль, которые вы указали во время "
+"процесса установки. Система готова к работе."
+
+#. Tag: para
+#: boot-new.xml:313
+#, no-c-format
+msgid ""
+"If you are a new user, you may want to explore the documentation which is "
+"already installed on your system as you start to use it. There are currently "
+"several documentation systems, work is proceeding on integrating the "
+"different types of documentation. Here are a few starting points."
+msgstr ""
+"Если вы новичок, то начните с просмотра документации, которая уже "
+"установлена в системе. Есть несколько систем документации, продолжается "
+"работа над их объединением. Вот несколько мест, откуда можно начать."
+
+#. Tag: para
+#: boot-new.xml:321
+#, no-c-format
+msgid ""
+"Documentation accompanying programs you have installed can be found in "
+"<filename>/usr/share/doc/</filename>, under a subdirectory named after the "
+"program (or, more precise, the &debian; package that contains the program). "
+"However, more extensive documentation is often packaged separately in "
+"special documentation packages that are mostly not installed by default. For "
+"example, documentation about the package management tool <command>apt</"
+"command> can be found in the packages <classname>apt-doc</classname> or "
+"<classname>apt-howto</classname>."
+msgstr ""
+"Документация на установленные программы находится в <filename>/usr/share/doc/"
+"</filename> в подкаталоге с именем этой программы (точнее, с именем пакета "
+"&debian;, в котором содержится эта программа). Однако более полная "
+"документация часто упакована отдельно в специальные пакеты с документацией, "
+"которые по умолчанию не устанавливаются. Например, документацию на программу "
+"управления пакетами <command>apt</command> можно найти в пакетах "
+"<classname>apt-doc</classname> или <classname>apt-howto</classname>."
+
+#. Tag: para
+#: boot-new.xml:332
+#, no-c-format
+msgid ""
+"In addition, there are some special folders within the <filename>/usr/share/"
+"doc/</filename> hierarchy. Linux HOWTOs are installed in <emphasis>.gz</"
+"emphasis> (compressed) format, in <filename>/usr/share/doc/HOWTO/en-txt/</"
+"filename>. After installing <classname>dhelp</classname>, you will find a "
+"browsable index of documentation in <filename>/usr/share/doc/HTML/index."
+"html</filename>."
+msgstr ""
+"Также, <filename>/usr/share/doc/</filename> содержит несколько специальных "
+"каталогов. Linux HOWTO установлены в формате <emphasis>.gz</emphasis> в "
+"каталог <filename>/usr/share/doc/HOWTO/en-txt/</filename>. После установки "
+"<command>dhelp</command> появляется файл <filename>/usr/share/doc/HTML/index."
+"html</filename> со ссылками на документацию."
+
+#. Tag: para
+#: boot-new.xml:341
+#, no-c-format
+msgid ""
+"One easy way to view these documents using a text based browser is to enter "
+"the following commands: <informalexample><screen>\n"
+"$ cd /usr/share/doc/\n"
+"$ w3m .\n"
+"</screen></informalexample> The dot after the <command>w3m</command> command "
+"tells it to show the contents of the current directory."
+msgstr ""
+"Простой способ просмотреть эту документацию &mdash; запустить текстовый "
+"браузер с помощью команд: <informalexample><screen>\n"
+"$ cd /usr/share/doc/\n"
+"$ w3m .\n"
+"</screen></informalexample> Точка после команды <command>w3m</command> "
+"служит для показа содержимого текущего каталога."
+
+#. Tag: para
+#: boot-new.xml:351
+#, no-c-format
+msgid ""
+"If you have a graphical desktop environment installed, you can also use its "
+"web browser. Start the web browser from the application menu and enter "
+"<userinput>/usr/share/doc/</userinput> in the address bar."
+msgstr ""
+"Если у вас установлено графическое окружение рабочего стола, то также вы "
+"можете использовать веб-браузер. Запустите веб-браузер из меню приложений и "
+"введите <userinput>/usr/share/doc/</userinput> в строке адреса."
+
+#. Tag: para
+#: boot-new.xml:357
+#, no-c-format
+msgid ""
+"You can also type <userinput>info <replaceable>command</replaceable></"
+"userinput> or <userinput>man <replaceable>command</replaceable></userinput> "
+"to see documentation on most commands available at the command prompt. "
+"Typing <userinput>help</userinput> will display help on shell commands. And "
+"typing a command followed by <userinput>--help</userinput> will usually "
+"display a short summary of the command's usage. If a command's results "
+"scroll past the top of the screen, type <userinput>|&nbsp;more</userinput> "
+"after the command to cause the results to pause before scrolling past the "
+"top of the screen. To see a list of all commands available which begin with "
+"a certain letter, type the letter and then two tabs."
+msgstr ""
+"Также вы можете набрать <userinput>info <replaceable>команда</replaceable></"
+"userinput> или <userinput>man <replaceable>команда</replaceable></"
+"userinput>, чтобы получить документацию по большинству команд доступных в "
+"командной строке. Набрав <userinput>help</userinput>, вы увидите помощь по "
+"командам интерпретатора командной строки. А при вводе имени команды с "
+"параметром <userinput>--help</userinput> обычно выдаётся короткая справка по "
+"использованию программы. Если начало результата выполнения команды уехало за "
+"пределы экрана, добавьте <userinput>|&nbsp;more</userinput> после команды, и "
+"это включит паузу при заполнении всего экрана. Чтобы увидеть список всех "
+"доступных команд, начинающихся с определённого символа, введите символ и "
+"нажмите клавишу табуляции два раза."
+
+#~ msgid "BVME 6000 Booting"
+#~ msgstr "Загрузка BVME 6000"
+
+#~ msgid ""
+#~ "If you have just performed a diskless install on a BVM or Motorola VMEbus "
+#~ "machine: once the system has loaded the <command>tftplilo</command> "
+#~ "program from the TFTP server, from the <prompt>LILO Boot:</prompt> prompt "
+#~ "enter one of:"
+#~ msgstr ""
+#~ "Если вы только что закончили бездисковую установку на машину BVM или "
+#~ "Motorola VMEbus: после загрузки системой программы <command>tftplilo</"
+#~ "command> с TFTP сервера, в строке приглашения <prompt>LILO Boot:</prompt> "
+#~ "введите одно из:"
+
+#~ msgid ""
+#~ "<userinput>b6000</userinput> followed by &enterkey; to boot a BVME "
+#~ "4000/6000"
+#~ msgstr ""
+#~ "<userinput>b6000</userinput> и нажмите &enterkey;, чтобы загрузить BVME "
+#~ "4000/6000"
+
+#~ msgid ""
+#~ "<userinput>b162</userinput> followed by &enterkey; to boot an MVME162"
+#~ msgstr ""
+#~ "<userinput>b162</userinput> и нажмите &enterkey;, чтобы загрузить MVME162"
+
+#~ msgid ""
+#~ "<userinput>b167</userinput> followed by &enterkey; to boot an MVME166/167"
+#~ msgstr ""
+#~ "<userinput>b167</userinput> и нажмите &enterkey;, чтобы загрузить "
+#~ "MVME166/167"
+
+#~ msgid "Macintosh Booting"
+#~ msgstr "Загрузка Macintosh"
+
+#~ msgid ""
+#~ "Go to the directory containing the installation files and start up the "
+#~ "<command>Penguin</command> booter, holding down the <keycap>command</"
+#~ "keycap> key. Go to the <userinput>Settings</userinput> dialogue "
+#~ "(<keycombo> <keycap>command</keycap> <keycap>T</keycap> </keycombo>), and "
+#~ "locate the kernel options line which should look like <userinput>root=/"
+#~ "dev/ram ramdisk_size=15000</userinput> or similar."
+#~ msgstr ""
+#~ "Перейдите в каталог с файлами установки и запустите загрузчик "
+#~ "<command>Penguin</command>, нажав клавишу <keycap>command</keycap>. "
+#~ "Перейдите в диалоговое меню <userinput>Settings</userinput> (<keycombo> "
+#~ "<keycap>command</keycap> <keycap>T</keycap> </keycombo>), и найдите "
+#~ "строку с опциями ядра, которая выглядит как <userinput>root=/dev/ram "
+#~ "ramdisk_size=15000</userinput> или чуть иначе."
+
+#~ msgid ""
+#~ "You need to change the entry to <userinput>root=/dev/<replaceable>yyyy</"
+#~ "replaceable></userinput>. Replace the <replaceable>yyyy</replaceable> "
+#~ "with the Linux name of the partition onto which you installed the system "
+#~ "(e.g. <filename>/dev/sda1</filename>); you wrote this down earlier. For "
+#~ "users with tiny screens, adding <userinput>fbcon=font:VGA8x8</userinput> "
+#~ "(or <userinput>video=font:VGA8x8</userinput> on pre-2.6 kernels) may help "
+#~ "readability. You can change this at any time."
+#~ msgstr ""
+#~ "Вам нужно изменить <userinput>root=/dev/<replaceable>yyyy</replaceable></"
+#~ "userinput>. Замените <replaceable>yyyy</replaceable> на название "
+#~ "корневого раздела Linux установленной системы (например, <filename>/dev/"
+#~ "sda1</filename>). Опция <userinput>fbcon=font:VGA8x8</userinput>(или "
+#~ "<userinput>video=font:VGA8x8</userinput> для ядер до версии 2.6) может "
+#~ "улучшить читаемость на крошечных экранах. Вы можете изменить шрифт в "
+#~ "любое время."
+
+#~ msgid ""
+#~ "If you don't want to start GNU/Linux immediately each time you start, "
+#~ "uncheck the <userinput>Auto Boot</userinput> option. Save your settings "
+#~ "in the <filename>Prefs</filename> file using the <userinput>Save Settings "
+#~ "As Default</userinput> option."
+#~ msgstr ""
+#~ "Если вы не хотите запускать GNU/Linux каждый раз при включении питания, "
+#~ "то снимите флажок <userinput>Auto Boot</userinput>. Сохраните настройки в "
+#~ "файле <filename>Prefs</filename> выбрав опцию <userinput>Save Settings As "
+#~ "Default</userinput>."
+
+#~ msgid ""
+#~ "Now select <userinput>Boot Now</userinput> (<keycombo> <keycap>command</"
+#~ "keycap> <keycap>B</keycap> </keycombo>) to start your freshly installed "
+#~ "GNU/Linux instead of the RAMdisk installer system."
+#~ msgstr ""
+#~ "Теперь выберите <userinput>Boot Now</userinput> (<keycombo> "
+#~ "<keycap>command</keycap> <keycap>B</keycap> </keycombo>), чтобы запустить "
+#~ "установленную GNU/Linux, вместо установщика системы RAMdisk."
+
+#~ msgid ""
+#~ "Debian should boot, and you should see the same messages as when you "
+#~ "first booted the installation system, followed by some new messages."
+#~ msgstr ""
+#~ "Debian начнёт загружаться и вы увидите несколько сообщений, как при "
+#~ "первой загрузке системы установки, а затем новые сообщения."

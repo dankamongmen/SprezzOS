@@ -1,0 +1,35 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 11648 -->
+
+
+  <sect2 arch="sparc"><title>Particionar per a &arch-title;</title>
+<para>
+
+Assegureu-vos de crear un <quote> disc amb etiqueta Sun</quote> al vostre
+disc d'arrencada. Aquest és l'únic esquema de particions què entén la PROM
+del OpenBoot, i és l'únic esquema amb el que es pot arrencar. La tecla
+<keycap>s</keycap> s'utilitza al <command>fdisk</command> per crear
+etiquetes de disc de Sun.
+
+</para><para>
+
+És més, als discs &arch-title;, assegureu-vos que la vostra primera partició
+al vostre disc d'arrencada comença al cilindre 0. Mentre açò en necessite,
+també significarà que la primera partició contindrà la taula de particions i
+el bloc d'arrencada, que és als primers dos sectors del disc. La partició
+d'intercanvi <emphasis>no</emphasis> s'ha de posar a la primera partició
+del disc d'arrencada, ja que les particions d'intercanvi no conserven
+els dos primers sectors de la partició. Allí podeu utilitzar particions
+Ext2 o UFS; aquestes deixaran la taula de particions i el bloc d'arrencada
+sols.
+
+</para><para>
+
+També es recomana que la tercera partició ha de ser de tipus <quote>Disc
+complet</quote> (tipus 5), i contenir el disc complet (des del primer
+cilindre fins l'últim). És tan sols una convenció de les etiquetes dels
+discs de Sun, i ajuda al carregador <command>SILO</command> a tenir-ho
+present.
+
+</para>
+  </sect2>

@@ -1,0 +1,138 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 62714 -->
+<!-- updated 31173:56141 by Felipe Augusto van de Wiel (faw) 2008.11.10 -->
+<!-- updated 56141:62714 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+  <sect2 id="network-console">
+  <title>Instalação Pela Rede</title>
+
+<para arch="not-s390">
+
+Um dos componentes mais interessantes é o
+<firstterm>network-console</firstterm> (console de rede). Ele lhe
+permite fazer grande parte da instalação através da rede via SSH. 
+O uso da rede implica que você precisa fazer os primeiros passos
+da instalação à partir do console, pelo menos até o ponto de 
+configurar a rede. (Entretanto você pode automatizar esta parte
+com o <xref linkend="automatic-install"/>.)
+
+</para><para arch="not-s390">
+
+Este componente não é carregado no menu principal de instalação por
+padrão, então você deve chamar por ele explicitamente.
+
+Se você está instalando à partir do CD, você precisa iniciar (boot)
+com prioridade média ou invocar o menu principal de instalação e 
+selecionar <guimenuitem>Carregar componentes do instalador do CD
+</guimenuitem> e da lista de componentes adicionais selecionar 
+<guimenuitem>network-console: Continuar instalação remotamente usando SSH
+</guimenuitem>. O sucesso do carregamento é indicado por uma nova entrada no
+menu chamada <guimenuitem>Continuar instalação remotamente usando SSH
+</guimenuitem>.
+
+</para><para arch="s390">
+
+Para instalações em &arch-title;, este é o método padrão após 
+configurar a rede.
+
+</para><para>
+
+<phrase arch="not-s390">Após selecionar a nova entrada, você</phrase>
+<phrase arch="s390">Você</phrase> será perguntado sobre uma nova senha
+para ser usada para conectar ao sistema de instalação e pela sua
+confirmação. Isto é tudo. Você deve ver uma tela que o instruirá a
+fazer o login remotamente como usuário <emphasis>installer</emphasis>
+e com a senha que você forneceu anteriormente. Outro detalhe 
+importante a notar nesta tela é o fingerprint do sistema. Você precisa
+transferir o fingerprint de forma segura para a pessoa que continuará
+a instalação remotamente.
+
+</para><para>
+
+Se você decidir continuar com a instalação localmente, você sempre
+pode pressionar &enterkey;, que irá levá-lo de volta para o menu
+principal, onde você pode selecionar outro componente.
+
+</para><para>
+
+Agora vamos mudar para o outro lado do fio. Como pré-requisito, você
+precisa configurar seu terminal para codificação UTF-8, porque é esta
+que o sistema de instalação usa. Se não o fizer, a instalação remota
+continua sendo possível, mas você poderá encontrar artefatos estranhos
+na tela como bordas de diálogos destruídas ou caracteres não-ascii 
+ilegíveis. Estabelecer a conexão com o sistema de instalação é simples
+como digitar:
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>ssh -l installer <replaceable>install_host</replaceable></userinput>
+</screen></informalexample>
+
+Onde <replaceable>install_host</replaceable> pode ser tanto o nome como
+o endereço IP do computador que está sendo instalado. Antes de fazer o
+login o fingerprint do sistema remoto é exibido e você deve confirmar
+se está correto.
+
+</para><note><para>
+
+O servidor <command>ssh</command> no instalador usa uma configuração
+padrão que não envia pacotes <quote>keep-alive</quote>. Em princípio,
+uma conexão ao sistema sendo instalado deveria ser mantida aberta
+indefinidamente. No entanto, em algumas situações &mdash; dependendo
+da sua configuração de rede local &mdash; a conexão pode ser perdida
+após um período de inatividade. Um caso comum onde isso pode acontecer
+é quando há alguma forma de Tradução de Endereços de Rede (NAT &mdash;
+<quote>Network Address Translation</quote>) em algum lugar entre o cliente
+e o sistema sendo instalado. Dependendo do ponto da instalação no qual a
+conexão foi perdida, você pode ou não ser capaz de retomar a instalação
+após reconectar.
+
+</para><para>
+
+Você pode evitar que a conexão caia adicionando a opção
+<userinput>-o&nbsp;ServerAliveInterval=<replaceable>valor</replaceable></userinput>
+quando iniciar a conexão <command>ssh</command>, ou adicionando essa opção
+no arquivo de configuração do <command>ssh</command>. Note, no entanto, que
+em alguns casos, adicionar esta opção pode também <emphasis>causar</emphasis>
+quedas de conexão (por exemplo, se pacotes <quote>keep-alive</quote> são
+enviados durante uma breve queda na rede, da qual o <command>ssh</command>
+teria retomado), portanto só deverá ser usada quando necessário.
+
+</para></note>
+
+<note><para>
+
+Se você instalar vários computadores ao mesmo tempo e acontecer de ter
+o mesmo endereço IP ou nome de host, <command>ssh</command> recusará a
+conectar a este host. A razão é que ele terá um fingerprint diferente,
+o que geralmente é um sinal de ataque de spoofing. Se você estiver 
+certo de que este não é o caso, você precisa remover a linha relevante
+do <filename>~/.ssh/known_hosts</filename><footnote>
+
+<para>
+O seguinte comando removerá uma entrada existente para uma máquina:
+<command>ssh-keygen -R &lt;<replaceable>nome&nbsp;da&nbsp;máquina</replaceable>|<replaceable>endereço&nbsp;IP</replaceable>&gt;</command>.
+</para>
+
+</footnote> e tentar novamente.
+
+</para></note><para>
+
+Após o login você verá a tela inicial onde você tem duas possibilidades
+chamadas <guimenuitem>Iniciar menu</guimenuitem> e <guimenuitem>Iniciar 
+shell</guimenuitem>. O primeiro o levará para o menu principal do 
+instalador, onde você pode continuar com a instalação normalmente. O
+último inicia um shell de onde você pode examinar e possivelmente 
+reparar o sistema remoto. Você pode iniciar apenas uma sessão SSH pelo
+menu de instalação, mas pode iniciar múltiplas sessões pelos shells.
+
+</para><warning><para>
+
+Após iniciar a instalação remotamente por SSH, você não poderá voltar
+para a sessão de instalação rodando no console local.
+Fazer isso poderá corromper o banco de dados que mantém a configuração
+do novo sistema. Isto, por sua vez, pode resultar em falha na instalação
+ou problemas no sistema instalado.
+
+</para></warning>
+
+  </sect2>

@@ -1,0 +1,105 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id$ -->
+
+ <sect1 id="minimum-hardware-reqts">
+<title>Meeting Minimum Hardware Requirements</title>
+<para>
+
+Once you have gathered information about your computer's hardware,
+check that your hardware will let you do the type of installation
+that you want to do.
+
+</para><para arch="not-s390">
+
+Depending on your needs, you might manage with less than some of the
+recommended hardware listed in the table below. However, most users
+risk being frustrated if they ignore these suggestions.
+
+</para><para arch="any-x86">
+
+A Pentium 4, 1GHz system is the minimum recommended for a desktop
+system.
+
+</para><para arch="powerpc">
+
+Any OldWorld or NewWorld PowerPC can serve well as a desktop system.
+
+</para>
+
+<table>
+<title>Recommended Minimum System Requirements</title>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Install Type</entry>
+  <entry>RAM (minimal)</entry>
+  <entry>RAM (recommended)</entry>
+  <entry>Hard Drive</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>No desktop</entry>
+  <entry>64 megabytes</entry>
+  <entry>256 megabytes</entry>
+  <entry>1 gigabyte</entry>
+</row><row arch="not-s390">
+  <entry>With Desktop</entry>
+  <entry>128 megabytes</entry>
+  <entry>512 megabytes</entry>
+  <entry>5 gigabytes</entry>
+</row>
+
+</tbody></tgroup></table>
+
+<para>
+
+The actual minimum memory requirements are a lot less then the numbers
+listed in this table. Depending on the architecture, it is possible to
+install &debian; with as little as 20MB (for s390) to 60MB (for amd64).
+The same goes for the disk space requirements, especially if you
+pick and choose which applications to install; see
+<xref linkend="tasksel-size-list"/> for additional information on disk
+space requirements.
+
+</para><para arch="not-s390">
+
+It is possible to run a graphical desktop environment on older or
+low-end systems, but in that case it is recommended to install
+a window manager that is less resource-hungry than those of the
+GNOME or KDE desktop environments; alternatives include
+<classname>xfce4</classname>, <classname>icewm</classname> and
+<classname>wmaker</classname>, but there are others to choose from.
+
+</para><para>
+
+It is practically impossible to give general memory or disk space
+requirements for server installations as those very much depend on
+what the server is to be used for.
+
+</para><para>
+
+Remember that these sizes don't include all the other materials which
+are usually to be found, such as user files, mail, and data.  It is
+always best to be generous when considering the space for your own
+files and data.
+
+</para><para>
+
+Disk space required for the smooth operation of the &debian-gnu; system
+itself is taken into account in these recommended system requirements.
+Notably, the <filename>/var</filename> partition contains
+a lot of state information specific to &debian; in addition to its regular
+contents, like logfiles.  The
+<command>dpkg</command> files (with information on all installed
+packages) can easily consume 40MB. Also,
+<command>apt-get</command> puts downloaded packages here before they are
+installed. You should
+usually allocate at least 200MB for <filename>/var</filename>, and a lot
+more if you install a graphical desktop environment.
+
+</para>
+
+ </sect1>
+

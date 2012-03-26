@@ -1,0 +1,446 @@
+#!/bin/bash
+
+[ -f ~/.d-i_manual_daily ] || exit 1
+. ~/.d-i_manual_daily
+
+mainlog=$logdir/main.log
+
+ALIOTH_MAN_PATH=/srv/alioth.debian.org/chroot/home/groups/d-i/htdocs/manual
+
+usage() {
+    if [ "$@" ]; then
+        echo "Error: $@"
+        echo
+    fi
+    echo "Usage: $(basename $0) [-r|--retry|--restart] [language ...]"
+    echo "If any languages are specified, they will also be built if not updated."
+    exit 1
+}
+
+## Function to check result of executed programs and exit on error
+checkfatal() {
+    if [ ! "$1" = "0" ]; then
+        echo "Unexpected error $1 while $2" >>$mainlog
+        touch $ROOT/do_not_build
+        echo "!!!! Autobuilding has been disabled !!!!" >>$mainlog
+        rm -f $ROOT/lockfile
+        exit 999
+    fi
+}
+
+uses_po() {
+    local lang=$1
+
+    if [ -d "$source/po/$lang" ]; then
+        return 0
+    fi
+    return 1
+}
+
+is_updated() {
+    local lang=$1
+
+    if uses_po "$lang"; then
+        grepexp="^[UA].[[:space:]]*po/${lang}/.*\.po$"
+    else
+        grepexp="^[UA].[[:space:]]*${lang}/"
+    fi
+
+    if egrep -q $grepexp $logdir/svn_up.log; then
+        return 0
+    fi
+    return 1
+}
+
+do_extra() {
+    local lang
+    for lang in $EXTRA_LANGS; do
+        [ "$lang" = "$1" ] && return 0
+    done
+    return 1
+}
+
+update_templates() {
+    echo "Generating integrated XML files and POT files..."
+    ./scripts/merge_xml en
+    [ $? -ne 0 ] && return 1
+    ./scripts/update_pot
+    [ $? -ne 0 ] && return 1
+    return 0
+}
+
+update_po() {
+    ./scripts/update_po $1
+    return $?
+}
+generate_xml() {
+    ./scripts/create_xml $1
+    return $?
+}
+
+get_formats() {
+    formats=""
+    for format in html pdf ps txt; do
+        case $format in
+            html)  GETCOL=3;;
+            pdf)   GETCOL=4;;
+            ps)    GETCOL=5;;
+            txt)   GETCOL=6;;
+        esac
+        if [ "$(egrep "^$1[[:space:]]" $ROOT/bin/langlist | cut -f $GETCOL)" = "Y" ]; then
+            formats="$formats $format"
+        fi
+    done
+    echo "$(echo "$formats" | sed "s:^ ::")"
+}
+
+update_from_svn() {
+    echo >>$mainlog
+    echo "Performing SVN update..." >>$mainlog
+    svn --non-interactive up >>$logdir/svn_up.log 2>&1
+    RESULT=$?
+    if [ ! $RESULT = 0 ]; then
+        echo "SVN update failed with code $RESULT" >>$mainlog
+        echo >>$mainlog
+        cat $logdir/svn_up.log >>$mainlog
+        rm -f $ROOT/lockfile
+        exit 1
+    fi
+    if svn st 2>/dev/null | grep -q "^C"; then
+        checkfatal "C" "checking for conflicts after 'svn up'"
+    fi
+}
+
+commit_to_svn() {
+    echo "Committing changes in manual/po to SVN..." >>$mainlog
+    SVN_NEW_LIST=$(svn st po/pot/ 2>/dev/null | grep "^\?[[:space:]].*\.pot" | sed "s/^\?[[:space:]]*//")
+    if [ "$SVN_NEW_LIST" ]; then
+        echo "Adding new POT files:" >>$logdir/svn_ci.log
+        for SVN_NEW in $SVN_NEW_LIST; do
+            svn add $SVN_NEW >>$logdir/svn_ci.log 2>&1
+            checkfatal "$?" "running 'svn add' on $SVN_NEW"
+        done
+    fi
+    if svn st po/ 2>/dev/null | grep -q "^[AM]"; then
+#       echo "Actual commit disabled, showing svn st:" >>$logdir/svn_ci.log
+#       svn st po/ 2>/dev/null >>$logdir/svn_ci.log 2>&1
+        echo "Committing changed files:" >>$logdir/svn_ci.log
+        svn ci po/ -m "[SILENT_COMMIT] Update of POT and PO files for the manual" >>$logdir/svn_ci.log 2>&1
+        checkfatal "$?" "committing POT/PO files to SVN"
+        if svn st po/ 2>/dev/null | grep -q "^C"; then
+            checkfatal "C" "checking for conflicts in manual/po after 'svn ci'"
+        fi
+    else
+        echo "  No updates to commit" >>$mainlog
+    fi
+}
+
+build_lang() {
+    local lang=$1
+
+    BUILDRESULT=0
+    cd $source/build
+    if is_updated "$lang" || do_extra "$lang"; then
+        case "$(egrep "^$lang[[:space:]]" $ROOT/bin/langlist | cut -f 2)" in
+            Y)
+                formats=$(get_formats $lang)
+                echo "Language $lang - full build: $formats" >>$mainlog
+                buildarchs=$architectures
+                ;;
+            S)
+                formats=$(get_formats $lang)
+                echo "Language $lang - partial build: $formats" >>$mainlog
+                buildarchs="i386"
+                ;;
+            N)
+                echo "Language $lang - updated; not building" >>$mainlog
+                continue
+                ;;
+            *)
+                echo "Language $lang - invalid build indication $BUILDIND" >>$mainlog
+                continue
+                ;;
+        esac
+        if ! egrep -q $grepexp $logdir/svn_up.log; then
+            echo "NOTE: extra build!" >>$mainlog
+        fi
+
+        if [ -z "$formats" ]; then
+            echo "No output formats specified for $lang" >>$mainlog
+            continue
+        fi
+
+        langlog=$logdir/$lang.log
+        echo "Starting build for language $lang - $(date -u)" >>$langlog
+        echo >>$langlog
+
+        for arch in $buildarchs; do
+            destsuffix="${lang}.${arch}"
+            if [ $BUILDRESULT = 0 ]; then
+                echo "Building manual for $arch" >>$langlog
+                echo -n "  $arch" >>$mainlog
+
+                ./buildone.sh "$arch" "$lang" "$formats" &>$langlog.arch
+                RESULT=$?
+
+                cat $langlog.arch >>$langlog
+                echo >>$langlog
+                case $RESULT in
+                    0|2)
+                        if [ $RESULT = 2 ]; then
+                            # Check if at least html was built correctly; if not, we won't upload
+                            # As index.html is the last file created, we check that
+                            if [ -s build.out/html/index.html ]; then
+                                echo "Error: error building some output format(s) for '$arch'" >>$langlog
+                                echo "  Error: error building some output format(s) for '$lang.$arch'" >>$mainlog
+                            else
+                                BUILDRESULT=1
+                                echo "Error: error building html output for '$arch'" >>$langlog
+                                echo "  Error: error building html output format for '$lang.$arch'" >>$mainlog
+                            fi
+                        fi
+                        ;;
+                    *)
+                        BUILDRESULT=1
+                        echo "Errors while building manual for $arch" >>$langlog
+                        ;;
+                esac
+                if [ $BUILDRESULT = 0 ]; then
+                    mkdir "$destination/$destsuffix"
+                    # First copy placeholder docs for pdf and txt
+                    echo $formats | grep -q "pdf" && \
+                        cp $ROOT/bin/nopdf.pdf "$destination/$destsuffix/install.$lang.pdf"
+                    echo $formats | grep -q "txt" && \
+                        cp $ROOT/bin/notxt.txt "$destination/$destsuffix/install.$lang.txt"
+                    # Next copy the real documents
+                    mv ./build.out/html/* "$destination/$destsuffix"
+                    mv ./build.out/install.$lang.* "$destination/$destsuffix"
+                else
+                    echo "Note: remaining architectures will not be built" >>$langlog
+                    echo >>$langlog
+                    echo >>$mainlog
+                    echo "  Error: fatal error building manual for $lang.$arch" >>$mainlog
+                fi
+                ./clear.sh
+
+                # Sleep a bit to allow the system to cool down...
+                #sleep 30s
+            else
+                echo "*** Not building manual for $lang.$arch" >>$langlog
+            fi
+        done
+
+        rm $langlog.arch
+        [ $BUILDRESULT = 0 ] && echo >>$mainlog
+
+        if [ "$DI_LOCAL_BUILD" != 1 ]; then
+            # Upload logfile to alioth
+            scp $logdir/$lang.log alioth.debian.org:$ALIOTH_MAN_PATH/logs/
+            if [ $? = 0 ]; then
+                echo "  Upload of $lang.log success" >>$mainlog
+            else
+                echo "  Upload of $lang.log failed" >>$mainlog
+            fi
+	fi
+
+        # Check if any architectures have actually been built
+        if ls $destination | grep -q "$lang\."; then
+            NR_BUILDS=$(($NR_BUILDS + 1))
+        fi
+
+        # Sleep a bit to allow the system to cool down...
+        #sleep 1m
+    else
+        echo "No updates for $lang" >>$mainlog
+    fi
+    return $BUILDRESULT
+}
+
+# We want the manual files group writable
+umask 0002
+
+RETRY=""
+EXTRA_LANGS=""
+while true; do
+    case $1 in
+        "")
+            break ;;
+        -r|--retry|--restart)
+            RETRY=1 ;;
+        -*)
+            usage "unrecognized option '$1'" ;;
+        *)
+            EXTRA_LANGS="$EXTRA_LANGS $1" ;;
+    esac
+    shift
+done
+
+for lang in $EXTRA_LANGS; do
+    if ! grep -q "^${lang}[[:space:]]" $ROOT/bin/langlist; then
+        usage "unknown language '$lang'"
+    fi
+done
+
+if [ "$RETRY" ]; then
+    rm -f $ROOT/do_not_build
+fi
+
+[ -f $ROOT/do_not_build ] && exit 1
+[ -f $ROOT/lockfile ] && exit 1 || touch $ROOT/lockfile
+
+[ -e "$source" ] && cd $source || exit 1
+
+[ -f $ROOT/bin/langlist ] || exit 1
+[ -f $ROOT/bin/archlist ] || exit 1
+
+# Order of translations is order in list
+translations=$(egrep -v "^[[:space:]]*(|#.*)$" $ROOT/bin/langlist | cut -f 1 | \
+	grep -v "^en$")
+
+# Order of architectures is order in list
+architectures=$(egrep -v "^[[:space:]]*(|#.*)$" $ROOT/bin/archlist | cut -f 1)
+
+## Create directories
+[ -e "$destination" ] || mkdir -p "$destination"
+[ -e "$logdir" ] || mkdir -p "$logdir"
+
+## Clean old files
+rm -R $destination/* &>/dev/null
+
+export manual_release="squeeze"
+export manual_target="for_alioth"
+
+if [ "$DI_BUILDING_FROM_MAIN" ] && [ "$DI_BUILD_MANUAL" = 0 ]; then
+    echo "Not building D-I Manual (as per configuration settings)" >$mainlog
+    rm -f $ROOT/lockfile
+    exit 0
+elif [ -z "$RETRY" ]; then
+    : >$logdir/svn_up.log
+    : >$logdir/svn_ci.log
+    echo "Starting D-I Manual build -- $(date -u)" >$mainlog
+else
+    echo >>$mainlog
+    echo >>$mainlog
+    echo "Starting D-I Manual build (RETRY) -- $(date -u)" >>$mainlog
+fi
+
+update_from_svn
+echo >>$mainlog
+
+NR_BUILDS=0
+
+# Build the manual for English
+EN_UPDATED=""
+if is_updated en; then
+    EN_UPDATED=1
+    langlog=$logdir/en.log
+    : >$langlog
+    echo "Preparing build for language $lang - $(date -u)" >>$langlog
+    echo "Info: building manual from XML files" >>$langlog
+
+    build_lang en
+    checkfatal "$?" "build for English"
+    echo >>$mainlog
+fi
+
+# Do we need to merge the XML and update the POT files?
+cd $source
+if is_updated en || [ ! -d "$source/integrated/en" ]; then
+    update_templates >>$mainlog 2>&1
+    checkfatal "$?" "updating templates"
+    echo >>$mainlog
+
+    # Extract preconfiguration example from the manual
+    PRESEED="../en/appendix/preseed.xml"
+    if [ -f $PRESEED ] && [ -x preseed.pl ]; then
+        ./preseed.pl -r $manual_release $PRESEED >$destination/example-preseed.txt
+    fi
+fi
+
+# Prepare for the build of translations
+echo "Updating POT and PO files..." >>$mainlog
+for lang in $translations; do
+    langlog=$logdir/$lang.log
+    : >$langlog
+
+    if is_updated "$lang" || do_extra "$lang"; then
+        echo "Preparing build for language $lang - $(date -u)" >>$langlog
+    fi
+
+    # For translations, we may need to update PO and generate XML files
+    # PO files are updated for all translations if there was an update for English
+    if [ -d "./po/$lang" ]; then
+        if is_updated "$lang" || [ "$EN_UPDATED" ]; then
+            echo "Info: updating PO files for $lang" >>$mainlog
+            update_po $lang >>$langlog 2>&1
+            checkfatal "$?" "updating po for $lang"
+        fi
+    fi
+
+    if is_updated "$lang" || do_extra "$lang"; then
+        if uses_po "$lang"; then
+            echo "Info: building manual from PO files" >>$langlog
+            generate_xml $lang >>$langlog 2>&1
+            checkfatal "$?" "generating xml for $lang"
+            echo "Info: generation of XML files complete" >>$langlog
+        else
+            echo "Info: building manual from XML files" >>$langlog
+        fi
+        echo >>$langlog
+    fi
+done
+
+echo >>$mainlog
+# Commit updates to POT and PO files to SVN
+if [ "$DI_LOCAL_BUILD" = 1 ]; then
+    echo "Local build! Changes to POT/PO files are not committed to SVN." >>$mainlog
+else
+    commit_to_svn
+fi
+
+echo >>$mainlog
+# Build translations
+for lang in $translations; do
+    build_lang $lang
+done
+
+echo >>$mainlog
+# Copy the created files (if any) to alioth.debian.org
+if [ $NR_BUILDS -gt 0 ]; then
+    echo "$NR_BUILDS languages have been (partially) built." >>$mainlog
+
+    echo >>$mainlog
+    echo "Create index page:" >>$mainlog
+    $ROOT/bin/create-index
+
+    echo >>$mainlog
+    cd $destination
+
+    if [ "$DI_LOCAL_BUILD" = 1 ]; then
+        echo "Local build! No changes have been uploaded." >>$mainlog
+    else
+        echo "rsyncing files to alioth..." >>$mainlog
+        rsync -qz --perms * alioth.debian.org\:$ALIOTH_MAN_PATH/ >>$mainlog 2>&1
+        # rsync subdirectories individually so we can also delete obsolete files
+        for i in $(find . -type d | grep -v "^\.$"); do
+            rsync -qzr --perms --delete "$i" alioth.debian.org\:$ALIOTH_MAN_PATH/ >>$mainlog 2>&1
+            checkfatal "$?" "rsync of '$i'"
+        done
+    fi
+else
+    echo "No languages built." >>$mainlog
+fi
+
+# Clean up some
+find $source/po -name "*.po~" -exec rm {} +
+if [ "$DI_LOCAL_BUILD" = 1 ]; then
+	# Needed to avoid conflicts with next svn update
+        echo "Reverting changes in PO files..." >>$mainlog
+	svn revert -R $source/po >>$mainlog 2>&1
+fi
+
+echo >>$mainlog
+echo "Done -- $(date -u)" >>$mainlog
+rm -f $ROOT/lockfile
+
+exit 0

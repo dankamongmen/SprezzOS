@@ -1,0 +1,130 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 condition="gtk" id="graphical">
+ <title>Der Grafische Installer</title>
+<para>
+
+Die grafische Version des Installers ist nur für eine begrenzte Anzahl von
+Architekturen verfügbar, unter anderem für &arch-title;. Die Funktionalität
+des grafischen Installers ist grundsätzlich die gleiche wie die des normalen
+Installers, da er die gleichen Programme verwendet, nur mit einem anderen
+Frontend (Bedienoberfläche).
+
+</para><para>
+
+Obwohl die Funktionalität identisch ist, hat der grafische Installer trotzdem
+einige bedeutende Vorteile. Der hauptsächliche Vorteil ist, dass mehr Sprachen
+unterstützt werden, nämlich solche, die einen Zeichensatz verwenden, der mit
+dem normalen <quote>newt</quote>-Frontend nicht dargestellt werden kann.
+Außerdem gibt es einige weitere Vorteile bezüglich der Bedienung, zum Beispiel
+die Nutzung einer Maus sowie die Möglichkeit, in einigen Fällen mehrere Fragen
+in einem Bild darstellen zu können.
+
+</para><para arch="any-x86">
+
+Der grafische Installer ist auf allen CD-Images und sowie bei der
+hd-media-Installationsmethode verfügbar. Um den grafischen Installer zu
+booten, wählen Sie einfach die entsprechende Option aus dem Boot-Menü.
+Den Experten- und Rettungsmodus des grafischen Installers können Sie im
+Menü unter <quote>Advanced options</quote> (erweiterte Optionen) starten.
+Die früher benötigten Boot-Kommandos (<userinput>installgui</userinput>,
+<userinput>expertgui</userinput> und <userinput>rescuegui</userinput>)
+können immer noch verwendet werden, wenn der Boot-Prompt angezeigt wird;
+dies ist der Fall, wenn Sie im Boot-Menü die Option <quote>Help</quote>
+(Hilfe) auswählen.
+
+</para><para arch="any-x86">
+
+Es gibt auch ein Image für den grafischen Installer, das per Netboot
+gestartet werden kann. Außerdem existiert noch ein spezielles
+<quote>mini</quote>-ISO-Image<footnote id="gtk-miniiso">
+
+<para>
+Das mini-ISO-Image kann von einem &debian;-Spiegel-Server heruntergeladen werden
+(wie in <xref linkend="downloading-files"/> beschrieben). Suchen Sie nach
+<filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>, das hauptsächlich für Testzwecke verwendet wird.
+
+</para><para arch="powerpc">
+
+Für &arch-title; existiert zur Zeit lediglich ein experimentelles
+<quote>mini</quote> ISO-Image<footnote id="gtk-miniiso">
+
+<para>
+Das mini-ISO-Image kann von einem &debian;-Spiegel-Server heruntergeladen werden
+(wie in <xref linkend="downloading-files"/> beschrieben). Suchen Sie nach
+<filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>. Es sollte auf beinahe allen PowerPC-Systemen mit ATI-Grafikkarte
+funktionieren, wird aber wahrscheinlich auf anderen Systemen nicht laufen.
+
+</para><para>
+
+Wie auch bei dem normalen Installer ist es möglich, Boot-Parameter hinzuzufügen,
+wenn der grafische Installer gestartet wird.
+
+</para>
+<note><para>
+
+Der grafische Installer benötigt erheblich mehr Arbeitsspeicher als der
+normale Installer, und zwar mindestens &minimum-memory-gtk;. Falls nicht
+genügend Speicher verfügbar ist, wird automatisch das normale
+<quote>newt</quote>-Frontend gebootet.
+
+</para><para>
+
+Wenn der installierte Arbeitsspeicher in Ihrem System kleiner als
+&minimum-memory; ist, könnte der Start des grafischen Installers
+fehlschlagen, wobei jedoch der reguläre Installer korrekt booten würde.
+Es wird empfohlen, auf Systemen mit wenig Arbeitsspeicher den regulären
+Installer zu verwenden.
+
+</para></note>
+
+  <sect2 id="gtk-using">
+  <title>Den grafischen Installer verwenden</title>
+<para>
+
+Wie bereits erwähnt, funktioniert der grafische Installer genauso wie der
+normale Installer und deshalb kann Sie der Rest dieses Handbuchs auch durch
+den weiteren Installationsprozess leiten.
+
+</para><para>
+
+Wenn Sie es vorziehen, statt der Maus die Tastatur zu verwenden, gibt es zwei
+Dinge, die Sie wissen sollten. Um eine ausklappbare Liste (wie z.B. die zur
+Auswahl der Länder sortiert nach Kontinenten) ein- oder auszuklappen, können
+Sie die Tasten <keycap>+</keycap> und <keycap>-</keycap> benutzen. Bei Fragen,
+bei denen mehr als eine Option ausgewählt werden kann (z.B. bei der Auswahl der
+Programmgruppen), müssen Sie (wenn Sie Ihre Auswahl getroffen haben) zunächst
+mit der <keycap>Tab</keycap>-Taste der Tastatur den Fokus zur
+&BTN-CONT;-Schaltfläche wechseln, bevor Sie Enter drücken; einfach
+nur Enter zu drücken würde die gerade aktive Markierung umschalten, aber
+nicht den &BTN-CONT;-Knopf aktivieren.
+
+</para><para>
+
+Falls ein Dialog zusätzliche Hilfeinformationen anbietet, wird ein
+<guibutton>Hilfe</guibutton>-Button angezeigt. Sie können die Hilfe entweder
+über Betätigung des Buttons oder durch Drücken der <keycap>F1</keycap>-Taste
+erreichen.
+
+</para><para>
+
+Um auf eine andere Konsole umzuschalten, müssen Sie zusätzlich zur
+Tastenkombination im textbasierten Installer die
+<keycap>Strg</keycap>-Taste mit benutzen, wie beim X-Window-System. Um zum
+Beispiel auf VT2 (die erste Shell (Eingabeaufforderung), die Sie zur Fehlersuche
+benutzen können) umzuschalten, benutzen Sie: <keycombo> <keycap>Strg</keycap>
+<keycap>Alt</keycap> <keycap>F2</keycap> </keycombo>. Der grafische
+Installer selbst läuft auf VT5, Sie können also <keycombo>
+<keycap>Alt</keycap> <keycap>F5</keycap> </keycombo> verwenden, um
+wieder dorthin zurück zu gelangen.
+
+</para>
+  </sect2>
+ </sect1>

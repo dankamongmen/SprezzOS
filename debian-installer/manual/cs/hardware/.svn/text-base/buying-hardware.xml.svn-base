@@ -1,0 +1,97 @@
+<!-- $Id$ -->
+<!-- original version: 64916 -->
+
+ <sect1 arch="not-s390"><title>Hardware určený pro GNU/&arch-kernel;</title>
+
+<para arch="linux-any">
+
+V současnosti již někteří prodejci dodávají počítače s <ulink
+url="&url-pre-installed;">nainstalovaným</ulink> &debian;em, případně
+jinou distribucí GNU/Linuxu. Patrně si za tuto výhodu něco připlatíte,
+ale zbavíte se starostí, poněvadž máte jistotu, že hardware počítače
+je se systémem GNU/Linux plně kompatibilní.
+
+</para><para arch="any-x86">
+
+Budete-li nuceni zakoupit počítač se systémem Windows, přečtěte si
+pozorně jejich licenci, jestli můžete software odmítnout a zda vám
+budou vráceny peníze. Více najdete na Internetu, když budete hledat
+klíčová slova <quote>Windows refund</quote>.
+
+</para><para>
+
+Ať už zakoupíte počítač se systémem GNU/&arch-kernel; nebo bez něj, je
+důležité se přesvědčit, že je hardware podporován jádrem operačního
+systému. Zkontrolujte si, jestli jsou všechna zařízení v počítači
+uvedena ve výše zmíněných odkazech jako podporovaná. Při nákupu se
+netajte tím, že kupujete počítač, na kterém poběží &arch-kernel;.
+Dejte přednost zboží, jehož výrobci &arch-kernel; podporují.
+
+</para>
+
+  <sect2><title>Vyvarujte se uzavřených technologií</title>
+<para>
+
+Někteří výrobci hardwaru nám neposkytují informace potřebné k napsání
+ovladačů pro &arch-kernel;, případně požadují podepsat smlouvu
+o uchování těchto informací v tajnosti před třetími osobami, což
+znemožňuje uveřejnění zdrojového kódu pro takový ovladač.
+
+</para><para>
+
+Z důvodu nedostupnosti dokumentace pro tento hardware neexistují
+ovladače pro &arch-kernel;. Můžete výrobce požádat o uvolnění
+dokumentace a pokud se na něj obrátí více lidí, uvědomí si, že
+komunita okolo svobodného softwaru představuje důležitou skupinu
+zákazníků.
+
+</para>
+</sect2>
+
+
+  <sect2 arch="any-x86"><title>Zařízení určená speciálně pro Windows</title>
+<para>
+
+Znepokojivým trendem je rozšíření modemů a tiskáren určených pouze pro
+Windows. Takové periferie byly konstruovány speciálně pro používání
+s operačním systémem Microsoft Windows a nesou označení WinModem nebo
+<quote>Vyrobeno pro systémy s Windows</quote>. Obvykle tato zařízení
+postrádají vlastní procesor a jsou obsluhována ovladačem
+zaměstnávajícím hlavní procesor počítače.  Díky této strategii je
+jejich výroba levnější, ale tato úspora se <emphasis>nemusí</emphasis>
+projevit v koncové ceně zařízení, které může být dokonce dražší než
+obdobné řešení s vlastním procesorem.
+
+</para><para>
+
+Doporučujeme vyvarovat se těchto zařízení <quote>vyrobených pro
+Windows</quote> z následujících důvodů. Za prvé jejich výrobci
+zpravidla neposkytují informace pro napsání ovladače pro &arch-kernel; -
+obecně hardware i software pro tato zařízení je vlastnictvím výrobce
+a dokumentace není dostupná bez uzavření dohody o jejím nezveřejnění,
+pokud tedy vůbec dostupná je. Takový přístup k dokumentaci je
+neslučitelný s vytvořením volně šiřitelného ovladače, poněvadž jeho
+autor dává k dispozici zdrojový kód. Dalším důvodem je, že práci
+chybějícího vloženého procesoru musí odvádět operační systém často
+s <emphasis>real-time</emphasis> prioritou a na úkor běhu vašich
+programů, když se věnuje obsluze těchto zařízení. Jelikož typický
+uživatel Windows nespouští tolik souběžných procesů jako uživatel
+systému GNU/&arch-kernel;, doufají výrobci těchto zařízení, že si
+uživatelé nevšimnou, jakou
+zátěž klade jejich hardware na systém.  To nic nemění na faktu, že
+když výrobce ošidí výkon periferií, je tím výkon libovolného
+víceúlohového operačního systému (včetně Windows 2000 a XP)
+degradován.
+
+</para><para>
+
+V takovém případě můžete pomoci pobídnout výrobce k uvolnění
+potřebných materiálů, abychom mohli pro jejich zařízení napsat
+ovladače. Nejlepší však je vyhnout se hardwaru, který
+není uveden jako funkční v
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>.
+
+</para>
+</sect2>
+
+ </sect1>

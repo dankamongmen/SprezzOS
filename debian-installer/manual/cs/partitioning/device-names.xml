@@ -1,0 +1,122 @@
+<!-- $Id: device-names.xml 64781 2010-09-18 15:58:51Z mck-guest $ -->
+<!-- original version: 64772 -->
+
+ <sect1 arch="linux-any" id="device-names">
+ <title>Jak Linux pojmenovává pevné disky</title>
+<para>
+
+Disky a oddíly na nich mají v Linuxu odlišné názvy než v jiných
+operačních systémech. Tyto názvy budete potřebovat při rozdělování
+disku a připojování oblastí. Základní zařízení:
+
+</para>
+<itemizedlist arch="not-s390">
+<listitem><para>
+
+První disketová jednotka je nazvána <filename>/dev/fd0</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Druhá disketová jednotka je <filename>/dev/fd1</filename>.
+
+</para></listitem>
+<listitem><para>
+
+První disk na SCSI (podle čísel zařízení na sběrnici) je
+<filename>/dev/sda</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Druhý disk na SCSI (vyšší číslo na sběrnici) je
+<filename>/dev/sdb</filename> atd.
+
+</para></listitem>
+<listitem><para>
+
+První SCSI CD mechanice odpovídá <filename>/dev/scd0</filename> nebo
+také <filename>/dev/sr0</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Hlavní (master) disk na prvním IDE řadiči se jmenuje
+<filename>/dev/hda</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Podřízený (slave) disk na prvním IDE řadiči je
+<filename>/dev/hdb</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Master a slave diskům na druhém řadiči jsou postupně přiřazeny
+<filename>/dev/hdc</filename> a <filename>/dev/hdd</filename>. Novější
+IDE řadiče mají dva kanály, které se chovají jako dva řadiče.
+
+</para></listitem>
+</itemizedlist>
+
+<itemizedlist arch="s390">
+<listitem><para>
+
+První DASD zařízení se jmenuje <filename>/dev/dasda</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Druhé DASD zařízení se jmenuje <filename>/dev/dasdb</filename>, atd.
+
+</para></listitem>
+</itemizedlist>
+
+<para arch="not-s390">
+
+Oddíly na discích jsou rozlišeny připojením čísla k názvu zařízení:
+<filename>sda1</filename> a <filename>sda2</filename> představují
+první a druhý oddíl prvního SCSI disku.
+
+</para><para arch="not-s390">
+
+Například uvažujme počítač se dvěma disky na SCSI sběrnici na
+SCSI adresách 2 a 4. Prvnímu disku (na adrese 2) odpovídá zařízení
+<filename>sda</filename>, druhému <filename>sdb</filename>. Tři oddíly
+na disku <filename>sda</filename> by byly pojmenovány
+<filename>sda1</filename>, <filename>sda2</filename>,
+<filename>sda3</filename>. Stejné schéma značení platí i pro disk
+<filename>sdb</filename> a jeho oblasti.
+
+</para><para arch="not-s390">
+
+Máte-li v počítači dva SCSI řadiče, pořadí disků zjistíte ze
+zpráv, které Linux vypisuje při startu.
+
+</para><para arch="x86">
+
+Primární oddíly jsou v Linuxu reprezentovány názvem disku a číslem
+oddílu 1 až 4. Například <filename>/dev/hda1</filename> odpovídá
+prvnímu primárnímu oddílu na prvním IDE disku. Logické oddíly jsou
+číslovány od 5, takže na stejném disku má první logický oddíl označení
+<filename>/dev/hda5</filename>. Rozšířený oddíl, tj. primární oddíl
+obsahující logické oddíly, sám o sobě použitelný není.
+To platí jak pro IDE, tak SCSI disky.
+
+</para><para arch="sparc">
+
+Sunovské oblasti povolují mít 8 samostatných oblastí (nebo
+také plátků (slices)). Třetí oblast bývá obvykle (a je to tak
+doporučováno) oblast <quote>celého disku</quote> (Whole disk).
+Tato oblast obsahuje všechny sektory na disku a obvykle je používána
+zavaděčem systému (buď SILO nebo vlastním zavaděčem od Sunu).
+
+</para><para arch="s390">
+
+Na oblasti na disku se můžete odkazovat pomocí čísel přidaných za
+název disku: <filename>dasda1</filename> a <filename>dasda2</filename>
+představují první a druhou oblast na prvním DASD zařízení v systému.
+
+</para>
+ </sect1>

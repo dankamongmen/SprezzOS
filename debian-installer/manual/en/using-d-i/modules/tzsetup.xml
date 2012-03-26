@@ -1,0 +1,65 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id: tzsetup.xml 61447 2009-11-23 10:46:04Z fjp $ -->
+
+<!-- As tzsetup is invoked from inside clock-setup, this is not a
+     separate section -->
+
+<para>
+
+Depending on the location selected earlier in the installation process,
+you may be shown a list of time zones relevant for that location.
+If your location has only one time zone and you are doing a default
+installation, you will not be asked anything and the system will assume
+that time zone.
+
+</para><para>
+
+In expert mode or when installing at medium priority, you will have the
+additional option to select <quote>Coordinated Universal Time</quote> (UTC)
+as time zone.
+
+</para><para>
+
+If for some reason you wish to set a time zone for the installed system
+that does <emphasis>not</emphasis> match the selected location, there are
+two options.
+
+</para>
+
+<orderedlist>
+<listitem>
+
+<para>
+
+The simplest option is to just select a different time zone after the
+installation has been completed and you've booted into the new system.
+The command to do this is:
+
+<informalexample><screen>
+# dpkg-reconfigure tzdata
+</screen></informalexample>
+
+</para>
+
+</listitem><listitem>
+
+<para>
+
+Alternatively, the time zone can be set at the very start of the
+installation by passing the parameter
+<userinput>time/zone=<replaceable>value</replaceable></userinput>
+when you boot the installation system. The value should of course be a
+valid time zone, for example <userinput>Europe/London</userinput> or
+<userinput>UTC</userinput>.
+
+</para>
+
+</listitem>
+</orderedlist>
+
+<para>
+
+For automated installations the time zone can be set to any desired value
+using preseeding.
+
+</para>

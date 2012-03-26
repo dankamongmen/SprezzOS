@@ -1,0 +1,68 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="official-cdrom">
+ <title>El lot de CD-ROM oficials de &debian-gnu;</title>
+<para>
+
+Sens dubte la manera més senzilla d'instal·lar &debian-gnu; és fent servir un lot de
+CD-ROM oficials de &debian;. Podeu adquirir-ne un a un distribuïdor (vegeu la
+<ulink url="&url-debian-cd-vendors;">pàgina de venedors dels CD</ulink>).
+També podeu descarregar les imatges dels CD-ROM allotjades a una rèplica de &debian;
+i fer-vos el vostre lot propi, si teniu una connexió de xarxa ràpida i una gravadora
+de CD (vegeu la <ulink url="&url-debian-cd;">pàgina dels CD de Debian</ulink>
+per a instruccions detallades). Si ja disposeu d'un lot de CD de &debian; i podeu
+arrencar amb ells la vostra màquina, podeu anar a
+<xref linkend="boot-installer"/>; s'ha tingut molta cura a assegurar que els
+fitxers més importants són al primer CD. Tot i que un lot sencer de paquets
+binaris requereix nombrosos CD, és poc probable que us calguen paquets del
+tercer CD en endavant. També podeu considerar d'emprar la versió en DVD, la
+qual vos estalvia molt d'espai al calaix i vos evita el batibull del canvi de CD.
+
+</para><para>
+
+Si el vostre ordinador no permet l'arrencada des de CD i en teniu un lot,
+podeu utilitzar una estratègia alternativa, com per exemple
+
+<phrase condition="supports-floppy-boot">els disquets,</phrase>
+
+<phrase arch="s390">la cinta magnètica, la cinta magnètica emulada,</phrase>
+
+<phrase condition="bootable-disk">el disc dur,</phrase>
+
+<phrase condition="bootable-usb">el llapis usb,</phrase>
+
+<phrase condition="supports-tftp">l'arrencada en xarxa,</phrase>
+
+o la càrrega manual del nucli des del CD per arrencar inicialment
+l'instal·lador del sistema. Els fitxers que calen per arrencar d'altres
+maneres són també al CD; l'estructura de l'arxiu en xarxa de &debian; i la
+dels directoris dels CD és idèntica. Així, quan tot seguit s'indiquen
+els camins de fitxers específics que calen per arrencar, cerqueu-los als
+mateixos directoris i subdirectoris del CD.
+
+</para><para>
+
+Quan l'instal·lador s'haja arrencat, ja es podrà obtenir del CD la resta
+de fitxers necessaris.
+
+</para><para>
+
+Si no teniu cap lot de CD, haureu de descarregar els fitxers del sistema
+d'instal·lació i posar-los a
+
+<phrase arch="s390">la cinta d'instal·lació</phrase>
+
+<phrase condition="supports-floppy-boot">el disquet o</phrase>
+
+<phrase condition="bootable-disk">el disc dur o</phrase>
+
+<phrase condition="bootable-usb">el llapis usb o</phrase>
+
+<phrase condition="supports-tftp">un ordinador connectat</phrase>
+
+perquè puguen emprar-se per a arrencar l'instal·lador.
+
+</para>
+
+ </sect1>

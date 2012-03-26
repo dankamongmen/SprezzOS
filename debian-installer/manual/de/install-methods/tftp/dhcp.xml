@@ -1,0 +1,95 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65315 -->
+
+  <sect2 id="dhcpd">
+   <title>Einen DHCP-Server einrichten</title>
+<para>
+
+Ein Free-Software-DHCP-Server ist der ISC-<command>dhcpd</command>.
+Für &debian-gnu; wird das <classname>dhcp3-server</classname>-Paket empfohlen.
+Hier eine beispielhafte Konfigurationsdatei (siehe
+<filename>/etc/dhcp3/dhcpd.conf</filename>):
+
+<informalexample><screen>
+option domain-name "example.com";
+option domain-name-servers ns1.example.com;
+option subnet-mask 255.255.255.0;
+default-lease-time 600;
+max-lease-time 7200;
+server-name "servername";
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.200 192.168.1.253;
+  option routers 192.168.1.1;
+}
+
+host clientname {
+  filename "/tftpboot.img";
+  server-name "servername";
+  next-server servername;
+  hardware ethernet 01:23:45:67:89:AB;
+  fixed-address 192.168.1.90;
+}
+</screen></informalexample>
+
+</para><para>
+
+In diesem Beispiel gibt es einen Server <replaceable>servername</replaceable>,
+der alle Aufgaben von DHCP-Server, TFTP-Server und Netzwerk-Gateway
+übernimmt. Sie müssen natürlich die Domain-Namen-Einträge ändern wie
+auch den Servernamen und die Hardware-Adresse der Clients. Der Eintrag
+<replaceable>filename</replaceable> sollte der Name der Datei sein,
+die per TFTP abgerufen wird.
+
+</para><para>
+
+Nachdem Sie die Konfigurationsdatei des <command>dhcpd</command>
+verändert haben, starten Sie ihn mit
+<userinput>/etc/init.d/dhcp3-server restart</userinput> neu.
+
+</para>
+
+   <sect3 arch="x86">
+   <title>PXE-Boot aktivieren in der DHCP-Konfiguration</title>
+<para>
+Hier ist ein weiteres Beispiel der <filename>dhcpd.conf</filename>, das
+die Pre-Boot-Execution-Environment-(PXE)Methode von TFTP nutzt.
+
+<informalexample><screen>
+option domain-name "example.com";
+
+default-lease-time 600;
+max-lease-time 7200;
+
+allow booting;
+allow bootp;
+
+# Der nächste Abschnitt muss unter Umständen an Ihre
+# Situation angepasst werden.
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.200 192.168.1.253;
+  option broadcast-address 192.168.1.255;
+# die Gateway-Adresse, die bei Ihnen unterschiedlich sein kann
+# (z.B. für den Zugriff auf das Internet)
+  option routers 192.168.1.1;
+# Geben Sie die DNS an, die Sie nutzen möchten
+  option domain-name-servers 192.168.1.3;
+}
+
+group {
+  next-server 192.168.1.3;
+  host tftpclient {
+# Hardware-Adresse des tftp-Clients
+  hardware ethernet  00:10:DC:27:6C:15;
+  filename "/pxelinux.0";
+ }
+}
+</screen></informalexample>
+
+Beachten Sie, dass im Fall von PXE die Client-Datei <filename>pxelinux.0</filename>
+ein Bootloader ist, kein Kernel-Image (siehe <xref linkend="tftp-images"/>
+weiter unten).
+
+</para>
+   </sect3>
+  </sect2>

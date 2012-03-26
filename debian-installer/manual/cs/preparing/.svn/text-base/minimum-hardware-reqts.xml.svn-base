@@ -1,0 +1,100 @@
+<!-- $Id$ -->
+<!-- original version: 65193 -->
+
+ <sect1 id="minimum-hardware-reqts">
+<title>Splnění minimálních hardwarových požadavků</title>
+<para>
+
+Porovnejte seznam svého hardware s následující tabulkou, ve které
+zjistíte, zda můžete použít zamýšlený typ instalace.
+
+</para><para arch="not-s390">
+
+Skutečné minimální požadavky mohou být nižší než uvádí tabulka, ale
+většina uživatelů by asi nebyla spokojena s rychlostí systému. Vždy
+záleží na konkrétních požadavcích a možnostech.
+
+</para><para arch="any-x86">
+
+Pro pracovní stanice je minimální doporučený procesor Pentium 4 na
+1GHz.
+
+</para><para arch="powerpc">
+
+Všechny OldWorld nebo NewWorld PowerPC mohou velmi dobře posloužit
+jako pracovní stanice.
+
+</para>
+
+<table>
+<title>Doporučené minimální požadavky</title>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Typ instalace</entry>
+  <entry>RAM (minimální)</entry>
+  <entry>RAM (doporučená)</entry>
+  <entry>Pevný disk</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Bez kanc. aplikací</entry>
+  <entry>64 MB</entry>
+  <entry>256 MB</entry>
+  <entry>1 GB</entry>
+</row><row arch="not-s390">
+  <entry>Pracovní stanice</entry>
+  <entry>128 MB</entry>
+  <entry>512 MB</entry>
+  <entry>5 GB</entry>
+</row>
+
+</tbody></tgroup></table>
+
+<para>
+
+Konkrétní minimální paměťové požadavky jsou o něco nižší, čísla
+uváděná v tabulce. Podle architektury je možné instalovat &debian;
+s pouhými 20MB RAM (na s390) až po 60MB (amd64). Něco podobného
+platí i pro požadavky na diskový prostor a hodně závisí na tom, které
+aplikace si nainstalujete. Více informací naleznete v tabulce
+<xref linkend="tasksel-size-list"/>.
+
+</para><para arch="not-s390">
+
+I na starších systémech je možné provozovat grafické desktopové
+prostředí, ale v takovém případě je doporučeno nainstalovat méně
+náročné prostředí než KDE nebo GNOME. Mezi populární alternativy patří
+<classname>xfce4</classname>, <classname>icewm</classname> a
+<classname>wmaker</classname>, ale na výběr máte i přehršle dalších.
+
+</para><para>
+
+Pro serverové nasazení je téměř nemožné určit paměťové nebo diskové
+požadavky, protože ty se liší podle konkrétního nasazení.
+
+</para><para>
+
+Pamatujte, že všechny uvedené velikosti jsou orientační a že
+neobsahují další věci, které obvykle v systému bývají (jako třeba
+pošta, soubory uživatelů, data). Při přidělování místa pro své vlastní
+soubory a data je vždy lepší být velkorysý.
+
+</para><para>
+
+Dále je potřeba dávat pozor na oblast <filename>/var</filename>, která
+obsahuje hodně dat závislých na konkrétní situaci. Například soubory
+programu <command>dpkg</command> mohou klidně zabrat 40MB, ani nevíte
+jak.  Dále sem zapisuje třeba <command>apt-get</command>, který zde
+odkládá stažené balíky před samotnou instalací. Pokud přidáme velikost
+logovacích souborů (většinou v řádech MB) a ostatní proměnlivá data,
+měli byste pro <filename>/var</filename> uvažovat o alokování
+minimálně 200MB. Plánujete-li instalaci grafického desktopového
+prostředí, tak i mnohem více. Do <filename>/var</filename> také
+implicitně ukládají své databáze databázové systémy.
+
+</para>
+ </sect1>
+

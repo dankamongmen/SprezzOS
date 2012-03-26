@@ -1,0 +1,241 @@
+<!-- original version: 66718 -->
+
+  <sect2 arch="arm" id="boot-tftp"><title>Amorcer à partir de TFTP</title>
+&boot-installer-intro-net.xml;
+
+  </sect2>
+
+  <sect2 arch="arm"><title>Amorcer depuis un cédérom</title>
+
+&boot-installer-intro-cd.xml;
+
+  </sect2>
+
+  <sect2 arch="arm" id="boot-firmware"><title>Amorcer depuis un microprogramme</title>
+
+&boot-installer-intro-firmware.xml;
+
+   <sect3 arch="arm" id="boot-firmware-nslu2"><title>Amorcer un NSLU2</title>
+<para>
+
+Il y a trois façons d'installer le microprogramme en flash.
+
+</para>
+
+    <sect4 arch="arm"><title>Utiliser l'interface web du NSLU2</title>
+<para>
+
+Allez dans la section <quote>administration</quote> et choisissez l'élément <literal>Upgrade</literal>.
+Vous pouvez chercher l'image que vous venez de télécharger. Pressez le bouton
+<literal>Start Upgrade</literal>, confirmez, attendez quelques minutes puis
+confirmez à nouveau. Le système s'amorcera directement sur l'installateur.
+
+</para>
+    </sect4>
+
+    <sect4 arch="arm"><title>Par le réseau avec Linux/Unix</title>
+<para>
+
+Vous pouvez utiliser <command>upslug2</command> sur une machine Linux ou Unix
+pour mettre à jour la machine par le réseau. Ce logiciel est un paquet &debian;.
+
+D'abord mettez votre NSLU2 en mode upgrade :
+
+<orderedlist>
+<listitem><para>
+
+Déconnectez les disques des ports USB.
+
+</para></listitem>
+<listitem><para>
+
+Éteignez le NSLU2
+
+</para></listitem>
+<listitem><para>
+
+Gardez enfoncé le bouton reset (accessible par un petit trou à l'arrière,
+juste au dessus du bouton power).
+
+</para></listitem>
+<listitem><para>
+
+Pressez et relâchez le bouton power pour lancer le NSLU2.
+
+</para></listitem>
+<listitem><para>
+
+Attendez dix secondes en scrutant la LED « ready/status ». Après dix secondes
+elle passera au rouge. Relâchez immédiatement le bouton reset.
+
+</para></listitem>
+<listitem><para>
+
+La LED « ready/status » passera alternativement du vert au rouge
+(il y a une seconde de délai avant le premier vert). Le NSLU2 est maintenant
+en mode mise à jour.
+
+</para></listitem>
+</orderedlist>
+
+Voyez les <ulink
+url="http://www.nslu2-linux.org/wiki/OpenSlug/UsingTheBinary">pages sur NSLU2-Linux</ulink>
+si vous avez des problèmes.
+
+Une fois en mode mise à jour, vous pouvez mettre en mémoire la nouvelle image.
+
+<informalexample><screen>
+sudo upslug2 -i di-nslu2.bin
+</screen></informalexample>
+
+Remarquez que ce logiciel montre aussi l'adresse MAC du NSLU2, ce qui peut être
+pratique pour configurer le serveur DHCP. Après que l'image a été chargée et vérifiée,
+le système redémarre automatiquement. N'oubliez pas de rebrancher votre disque USB,
+sinon l'installateur ne pourra pas le trouver.
+
+</para>
+    </sect4>
+
+    <sect4 arch="arm"><title>Par le réseau avec Windows</title>
+<para>
+
+Il existe un <ulink
+url="http://www.everbesthk.com/8-download/sercomm/firmware/all_router_utility.zip">outil
+</ulink> pour Windows qui met à jour le microprogramme par le réseau.
+
+</para>
+    </sect4>
+   </sect3>
+
+  <sect3 arch="arm" id="boot-firmware-ss4000e">
+   <title>Amorcer une machine SS4000-E</title>
+<para>
+
+Pour l'instant, à cause de limitations du microprogramme, il n'est pas possible
+d'amorcer l'installateur sans un port série. Vous avez besoin d'un câble série
+nullmodem, d'un ordinateur avec un port série <footnote id="arm-s4ke-port">
+
+<para>
+Un convertisseur USB série fera aussi l'affaire.
+</para>
+
+</footnote>, d'un câble en nappe avec un connecteur DB9 mâle à un bout et d'un
+adaptateur IDC 10 broches à l'autre <footnote id="arm-s4k-rib">
+
+<para>
+On trouve souvent ce câble sur les vieilles machines de bureau
+avec des ports série intégrés de 9 broches.
+</para>
+
+</footnote>.
+</para>
+
+<para>
+
+Pour amorcer le SS4000-E, utilisez votre câble nullmodem et votre câble
+en nappe pour la connexion au port série du SS4000-E et réamorcez la machine.
+Vous avez besoin d'une application terminal série pour communiquer avec la
+machine. Sur un système &debian; GNU/Linux, vous pouvez utiliser le programme
+<command>cu</command> (paquet du même nom). En supposant que le port série
+de votre ordinateur se trouve sur <filename>/dev/ttyS0</filename>, utilisez la
+commande suivante :
+</para>
+
+<informalexample><screen>
+cu -lttyS0 -s115200
+</screen></informalexample>
+
+<para>
+
+Sur un système Windows, vous pouvez utiliser le programme <classname>hyperterminal</classname>.
+Utilisez un taux baud de 115200, une longueur de mot de 8 bits, aucun bit d'arrêt
+et un bit de parité.
+</para>
+
+<para>
+Quand la machine s'amorce, la ligne suivante apparaît :
+</para>
+
+<informalexample><screen>
+No network interfaces found
+
+EM-7210 ver.T04 2005-12-12 (For ver.AA)
+== Executing boot script in 1.000 seconds - enter ^C to abort
+</screen></informalexample>
+
+<para>
+
+Maintenant il faut saisir Control-C pour arrêter 
+le programme d'amorçage <footnote id="arm-s4ke-sec">
+
+<para>
+Vous n'avez qu'une seule seconde. Si vous ratez cette fenêtre
+éteignez la machine et recommencez.
+</para>
+
+</footnote>. L'invite RedBoot apparaît. Saisissez les commandes suivantes :
+
+<informalexample><screen>
+load -v -r -b 0x01800000 -m ymodem ramdisk.gz
+load -v -r -b 0x01008000 -m ymodem zImage
+exec -c "console=ttyS0,115200 rw root=/dev/ram mem=256M@0xa0000000" -r 0x01800000
+</screen></informalexample>
+
+</para>
+<para>
+
+Après chaque commande <command>load</command>, le système attend
+qu'un fichier soit transmis grâce au protocole YMODEM. Si vous utilisez
+cu, assurez vous que le paquet <classname>lrzsz</classname> est
+installé, appuyez sur la touche Entrée, suivi par la séquence
+d'échappement <quote>~&lt;</quote> pour lancer un programme externe,
+puis lancez <command>sb initrd.gz</command> ou <command>sb vmlinuz</command>.
+
+</para>
+<para>
+
+Il est aussi possible de charger un noyau et un disque mémoire
+(<emphasis>ramdisk</emphasis> par HTTP plutôt que YMODEM. C'est plus
+rapide mais cela demande une serveur HTTP sur le réseau. Pour cela,
+mettez le programme d'amorçage en mode RAM :
+
+<informalexample><screen>
+fis load rammode
+g
+</screen></informalexample>
+
+</para>
+<para>
+
+Cela semble relancer la machine mais en réalité redboot est mis en
+mémoire et c'est à partir de là que la machine est relancée. Si vous ne
+passez pas par cette étape, le système se bloquera à la prochaine étape,
+ip_address.
+
+</para>
+<para>
+
+Vous devez encore exécuter un Ctrl-C pour interrompre l'amorçage,
+puis :
+
+<informalexample><screen>
+ip_address -l <replaceable>192.168.2.249</replaceable> -h <replaceable>192.168.2.4</replaceable>
+load -v -r -b 0x01800000 -m http /initrd.gz
+load -v -r -b 0x01008000 -m http /zImage
+exec -c "console=ttyS0,115200 rw root=/dev/ram mem=256M@0xa0000000" -r 0x01800000
+</screen></informalexample>
+
+où <replaceable>192.168.2.249</replaceable> est l'adresse IP du
+système installé et <replaceable>192.168.2.4</replaceable> l'adresse IP
+du serveur HTTP qui possède le noyau et les fichiers pour le disque mémoire.
+
+</para>
+<para>
+
+L'installateur devrait maintenant se présenter normalement.
+
+</para>
+
+
+</sect3>
+  </sect2>

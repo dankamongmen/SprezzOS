@@ -1,0 +1,400 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66212 -->
+
+<appendix id="installation-howto">
+<title>Installations-HowTo</title>
+
+<para>
+
+Dieses Dokument beschreibt, wie man &debian-gnu; &releasename-cap; für
+&arch-title; (<quote>&architecture;</quote>) mit dem neuen
+&d-i; installiert. Es ist ein kurzer Durchmarsch durch den Installationsprozess,
+der für die meisten Installationen alle notwendigen Informationen enthalten sollte.
+Dort, wo mehr Infos nützlich sein könnten, werden wir auf detaillierte
+Anleitungen in anderen Teilen dieses Dokuments verweisen.
+
+</para>
+
+ <sect1 id="howto-preliminaries">
+ <title>Einleitung</title>
+<para>
+
+<phrase condition="unofficial-build">
+Der &debian;-Installer befindet sich noch im Entwicklungsstadium.
+</phrase>
+Falls Sie während der Installation auf Fehler stoßen, erhalten Sie im
+<xref linkend="submit-bug" /> Instruktionen, wie Sie diese an uns melden.
+Falls Sie Fragen haben, die in diesem Dokument nicht beantwortet werden,
+richten Sie sie bitte an die Debian-Boot-Mailingliste (&email-debian-boot-list;)
+oder fragen Sie im IRC (#debian-boot im OFTC-Netzwerk).
+
+</para>
+ </sect1>
+
+ <sect1 id="howto-getting-images">
+ <title>Den Installer booten</title>
+<para>
+
+<phrase condition="unofficial-build">
+Ein paar direkte Verweise zu den CD-Images finden Sie auf der
+<ulink url="&url-d-i;"> &d-i;-Homepage</ulink>.
+</phrase>
+Das &debian;-CD-Team stellt Ausgaben der CD-Images, die den &d-i;
+nutzen, auf der <ulink url="&url-debian-cd;">Debian GNU/Linux auf CD - Seite</ulink>
+zur Verfügung. Mehr Informationen, wo Sie die CDs bekommen, gibt es hier:
+<xref linkend="official-cdrom" />.
+
+</para><para>
+
+Einige Installationsmethoden erfordern andere Images als die der CDs.
+<phrase condition="unofficial-build">
+Auf der <ulink url="&url-d-i;">&d-i;-Homepage</ulink> gibt es Links zu
+anderen Images.
+</phrase>
+<xref linkend="where-files" /> gibt Infos, wo man Images auf den
+&debian;-Spiegel-Servern findet.
+
+</para><para>
+
+Die folgenden Abschnitte enthalten Details, welche Images Sie für die
+verschiedenen Installationsmethoden benötigen.
+
+</para>
+  
+  <sect2 id="howto-getting-images-cdrom">
+  <title>CD-ROM</title>
+  
+<para>
+
+Es gibt zwei verschiedene Netzwerkinstallations-CD-Images (<quote>netinst</quote>
+und <quote>businesscard</quote>),
+mit denen man &releasename-cap; mittels &d-i; installieren kann.
+Diese Images werden von CD gebootet und installieren zusätzliche Pakete
+per Netzwerk, daher auch der Name <quote>netinst</quote> (Netzwerkinstallation).
+Der Unterschied zwischen den beiden Images ist der, dass im kompletten
+<quote>netinst</quote>-Image die Basispakete bereits enthalten sind, während sie bei
+Verwendung des Businesscard-CD-Images aus dem Internet heruntergeladen
+werden müssen. Wenn Sie möchten, können Sie auch ein Komplett-CD-Image bekommen,
+das für die Installation überhaupt kein Netzwerk benötigt. Sie benötigen
+nur die erste CD aus dem Satz.
+
+</para><para>
+
+Laden Sie das Image herunter, das Sie bevorzugen, und brennen Sie es auf CD.
+<phrase arch="any-x86">Um von CD zu booten, müssen Sie unter Umständen die
+BIOS-Einstellungen ändern, wie in <xref linkend="bios-setup" />
+beschrieben.</phrase>
+<phrase arch="powerpc">Um einen PowerMac von CD zu starten, drücken Sie während
+des Boot-Vorgangs die Taste <keycap>c</keycap>. Lesen Sie <xref linkend="boot-cd" />, um
+Infos zu erhalten, wie Sie sonst noch von CD booten können.</phrase>
+
+</para>
+  </sect2>
+  
+  <sect2 condition="supports-floppy-boot" id="howto-getting-images-floppy">
+  <title>Disketten</title>
+<para>
+
+Wenn Sie nicht von CD starten können, haben Sie die Möglichkeit, sich
+Images für Floppy-Disks herunterzuladen, um &debian; zu installieren. Sie benötigen
+<filename>floppy/boot.img</filename>, <filename>floppy/root.img</filename>
+und eine oder mehrere der Treiber-Disketten-Images.
+
+</para><para>
+
+Die Boot-Floppy ist die, die <filename>boot.img</filename> enthält.
+Wenn Sie gebootet ist, werden Sie aufgefordert, eine zweite Diskette
+einzulegen &ndash; nehmen Sie die Root-Floppy, die
+<filename>root.img</filename> enthält.
+
+</para><para>
+
+Wenn Sie vorhaben, per Netzwerk zu installieren, werden Sie normalerweise
+die Diskette mit <filename>floppy/net-drivers-1.img</filename> benötigen.
+Für PCMCIA oder USB und einige weniger verbreitete Netzwerkkarten benötigen
+Sie zusätzlich noch eine zweite Treiberdiskette,
+<filename>floppy/net-drivers-2.img</filename>.
+
+</para><para>
+
+Wenn Sie ein CD-Laufwerk haben, jedoch nicht davon booten können, so starten
+Sie von Diskette und benutzen dann die <filename>floppy/cd-drivers.img</filename>
+auf einer der Treiberdisketten, um die Installation von CD zu fortzusetzen.
+
+</para><para>
+
+Disketten sind mit die unzuverlässigsten Medien überhaupt, also seien
+Sie auf viele nicht funktionierende Disketten vorbereitet (lesen Sie auch
+<xref linkend="unreliable-floppies" />). Jede <filename>.img</filename>-Datei
+passt auf eine einzelne Diskette; Sie können den <command>dd</command>-Befehl
+verwenden, um sie nach /dev/fd0 zu kopieren; andere Methoden werden im
+<xref linkend="create-floppy" /> beschrieben.
+Da Sie mehr als eine Floppy haben werden, ist es eine gute Idee, sie zu beschriften.
+
+</para>
+  </sect2>
+  
+  <sect2 condition="bootable-usb" id="howto-getting-images-usb">
+  <title>USB-Memory-Stick</title>
+<para>
+
+Es ist ebenfalls möglich, von austauschbaren USB-Speichern zu installieren.
+Zum Beispiel kann ein USB-Schlüsselanhänger ein handliches
+&debian;-Installationsmedium sein, das man leicht überall mit hinnehmen kann.
+
+</para><para condition="isohybrid-supported">
+
+Der einfachste Weg, um den USB-Memory-Stick für die Installation vorzubereiten,
+ist, irgendein Debian-CD- oder -DVD-Image herunterzuladen, dass auf den Stick
+passt, und es direkt auf den Memory-Stick zu schreiben. Hierdurch wird 
+natürlich alles andere auf dem Stick gelöscht! Dies funktioniert deshalb, weil
+die Debian-Images »isohybrid«-Images sind, die sowohl von CD-/DVD- wie auch von
+USB-Laufwerken booten können.
+
+</para><para condition="isohybrid-unsupported">
+
+Der einfachste Weg, um den USB-Memory-Stick für die Installation vorzubereiten,
+ist, die <filename>hd-media/boot.img.gz</filename>-Datei herunterzuladen und
+daraus mittels <command>gunzip</command> das 256 MB große Image zu extrahieren.
+Kopieren Sie dieses Image direkt auf Ihren Memory-Stick, der natürlich mindestens
+256 MB groß sein muss. Hierdurch wird alles andere auf dem Memory-Stick
+gelöscht! Hängen Sie dann den Memory-Stick ins Dateisystem ein, der jetzt ein
+FAT-Dateisystem enthält. Laden Sie als nächstes ein &debian; Netinst-CD-Image
+herunter und kopieren Sie es auf den Memory-Stick; als Dateiname ist alles ok,
+solange es auf <literal>.iso</literal> endet.
+
+</para><para>
+
+Es gibt andere, flexiblere Wege, um einen Memory-Stick für die Nutzung des
+&debian;-Installers einzurichten und es ist auch möglich, es mit kleineren
+Speicher-Sticks hinzubekommen. Details finden Sie im
+<xref linkend="boot-usb-files" />.
+
+</para><para arch="any-x86">
+
+Bei einigen Systemen kann das BIOS direkt vom USB-Speicher starten, bei
+anderen nicht. Eventuell müssen Sie das BIOS konfigurieren, von einem
+<quote>removable drive</quote> (Wechseldatenträger) oder sogar von einem
+<quote>USB-ZIP</quote> zu booten,
+um zu erreichen, dass es den Speicher-Stick als Boot-Medium nutzt.
+Hilfreiche Tipps und Details gibt es im
+<xref linkend="usb-boot" />.
+
+</para><para arch="powerpc">
+
+Macintosh-Systeme von einem USB-Speicher zu booten erfordert manuellen
+Eingriff in OpenFirmware. Genaue Anweisungen finden Sie in <xref linkend="usb-boot" />.
+
+</para>
+  </sect2>
+  
+  <sect2 id="howto-getting-images-netboot">
+  <title>Über das Netzwerk booten</title>
+<para>
+
+Es ist ebenfalls möglich, den &d-i; komplett über das Netzwerk zu starten.
+Die verschiedenen Varianten des Bootens per Netzwerk sind abhängig von der
+Architektur und den Netzwerk-Boot-Einstellungen. Sie können die Dateien unter
+<filename>netboot/</filename> nutzen, um den &d-i; per Netzwerk zu starten.
+
+</para><para arch="x86">
+
+Am einfachsten einzurichten ist wahrscheinlich PXE-Netzwerkboot.
+Entpacken Sie mittels <command>untar</command> die Datei
+<filename>netboot/pxeboot.tar.gz</filename> nach <filename>/srv/tftp</filename>
+oder wo auch immer Ihr TFTP-Server sie benötigt. Richten Sie Ihren DHCP-Server
+so ein, dass er die Datei <filename>/pxelinux.0</filename> an die Clients
+weiterleitet, und mit ein bisschen Glück funktioniert es dann.
+Detaillierte Informationen finden Sie im <xref linkend="install-tftp" />.
+
+</para>
+  </sect2>
+  
+  <sect2 arch="linux-any" id="howto-getting-images-hard-disk">
+  <title>Von Festplatte starten</title>
+<para>
+
+Es ist ebenfalls möglich, den Installer zu starten, indem Sie nicht ein
+auswechselbares Medium nutzen, sondern einfach eine vorhandene Festplatte,
+die sogar ein anderes Betriebssystem enthalten kann. Laden Sie
+<filename>hd-media/initrd.gz</filename>, <filename>hd-media/vmlinuz</filename>
+und ein &debian;-CD-Image in das Wurzelverzeichnis der Festplatte.
+Stellen Sie sicher, dass der Dateiname des CD-Images auf <literal>.iso</literal>
+endet. Jetzt ist es lediglich erforderlich, Linux mit der initrd zu starten.
+<phrase arch="x86">
+<xref linkend="boot-initrd" /> beschreibt einen Weg, wie dies funktioniert.
+</phrase>
+
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="howto-installation">
+<title>Installation</title>
+<para>
+
+Sobald der Installer startet, werden Sie mit einem Startbildschirm begrüßt.
+Drücken Sie &enterkey;, um zu starten oder lesen Sie die Instruktionen über
+andere Boot-Methoden und Parameter (siehe <xref linkend="boot-parms" />).
+
+</para><para>
+
+Nach einer Weile werden Sie aufgefordert, Ihre Sprache auszuwählen.
+Nutzen Sie die Pfeiltasten, um eine Sprache auszuwählen, und drücken Sie
+&enterkey;, um fortzufahren. Als nächstes müssen Sie Ihr Land auswählen,
+wobei die Auswahl die Länder enthält, in denen Ihre Sprache gesprochen wird.
+Wenn Ihr Land in dieser kurzen Liste nicht auftaucht, gibt es auch eine
+Liste mit allen Ländern der Erde.
+
+</para><para>
+
+Unter Umständen werden Sie aufgefordert, Ihr Tastaturlayout zu bestätigen.
+Wenn Sie es nicht besser wissen, wählen Sie die Voreinstellung.
+
+</para><para>
+
+Lehnen Sie sich zurück, während der &debian;-Installer jetzt die
+Hardware-Erkennung durchführt und sich selbst von CD, Floppy, USB etc.
+in den Speicher lädt.
+
+</para><para>
+
+Als nächstes versucht der Installer, Ihre Netzwerkkarte zu erkennen und
+die Netzwerkeinstellungen per DHCP einzurichten. Falls Ihr Rechner sich
+nicht in einem Netzwerk befindet oder Sie kein DHCP haben, haben Sie die
+Möglichkeit, das Netzwerk manuell zu konfigurieren.
+
+</para><para>
+
+In den nächsten Schritten werden Ihre Zeitzone und die Uhr eingestellt. Der
+Installer wird versuchen, einen Zeit-Server im Internet zu kontaktieren, um
+sicherzustellen, dass die Uhr korrekt gestellt ist. Die Einstellung für
+die Zeitzone basiert auf dem vorher ausgewählten Land; der Installer wird
+Sie lediglich dann auffordern, eine Zone auszuwählen, wenn ein Land mehrere
+Zeitzonen hat.
+
+</para><para>
+
+Jetzt ist die Zeit gekommen, Ihre Festplatten zu partitionieren.
+Als erstes haben Sie die Gelegenheit, automatisch entweder eine ganze
+Festplatte oder verfügbaren freien Speicher auf einer Platte zu
+partitionieren (siehe <xref linkend="partman-auto" />).
+Dies wird empfohlen für neue Benutzer oder alle, die es eilig haben.
+Wenn Sie keine automatische Partitionierung wünschen, wählen Sie im Menü
+<guimenuitem>Manuell</guimenuitem>.
+
+</para><para arch="any-x86">
+
+Wenn Sie eine vorhandene DOS- oder Windows-Partition auf dem Rechner
+haben und diese auch behalten möchten, seien Sie mit der automatischen
+Partitionierung vorsichtig. Sie können stattdessen die manuelle
+Partitionierung des Installers benutzen,
+um FAT- oder NTFS-Partitionen zu verkleinern und so Platz für die
+&debian;-Installation zu schaffen; wählen Sie einfach die entsprechende
+Partition aus und geben Sie die neue Größe an.
+
+</para><para>
+
+Im nächsten Bild sehen Sie Ihre Partitionstabelle, wie die Partitionen
+formatiert werden und wo Sie im Dateisystem eingebunden werden. Um eine
+Partition zu verändern oder zu löschen, markieren Sie sie. Wenn Sie
+vorher automatische Partitionierung gewählt haben, können Sie lediglich
+<guimenuitem>Partitionierung beenden und Änderungen
+übernehmen</guimenuitem>
+im Menü wählen, um die Einstellungen so zu nutzen, wie sie
+erstellt wurden. Denken Sie daran, zumindest
+eine Partition als Swap (um Arbeitsspeicher auszulagern) und eine als
+<filename>/</filename> einzurichten und einzuhängen.
+Weitergehende Informationen, wie Sie das Partitionierungsprogramm benutzen,
+finden Sie in <xref linkend="di-partition" />; <xref
+linkend="partitioning" /> enthält grundsätzliche Infos über das Thema
+Partitionierung.
+
+</para><para>
+
+Jetzt formatiert der &d-i; Ihre Partitionen und beginnt dann mit der
+Installation des Basissystems, was eine Weile dauern kann. Danach wird
+der Kernel installiert.
+
+</para><para>
+
+Das Grundsystem, das vorher installiert wurde, ist ein funktionierendes, wenn
+auch sehr minimalistisches System. Um es funktioneller zu machen, erlaubt Ihnen
+der nächste Schritt, zusätzliche Pakete zu installieren, indem Sie verschiedene
+Programmgruppen auswählen. Bevor Pakete installiert werden können, muss
+<classname>apt</classname> installiert werden; dabei wird festgelegt, woher die
+Pakete empfangen werden.
+Die Programmgruppe <quote>Standard-System</quote> ist standardmäßig bereits
+ausgewählt und sollte normalerweise immer installiert werden. Wählen Sie
+<quote>Arbeitsplatzrechner</quote>, wenn Sie nach der Installation eine
+grafische Desktopumgebung haben möchten. <xref linkend="pkgsel"/> enthält
+weitere Informationen über diesen Schritt.
+
+</para><para>
+
+Nach der Installation des Grundsystems folgt die Einrichtung der Benutzerzugänge.
+Standardmäßig müssen Sie ein Passwort für den <quote>root</quote>-Zugang
+(Administrator) angeben sowie Informationen zur Erstellung eines regulären
+Benutzers.
+
+</para><para>
+
+Der letzte Schritt ist die Installation des Bootloaders. Wenn der
+Installer ein anderes Betriebssystem auf Ihrem Rechner erkennt, wird es
+zum Boot-Menü hinzugefügt und Sie werden darüber informiert.
+<phrase arch="any-x86">Standardmäßig wird der Bootloader GRUB in den
+Master-Boot-Record der ersten Festplatte installiert, was meistens eine
+gute Wahl ist. Sie haben aber die Möglichkeit, diese Auswahl zu überschreiben
+und ihn anderswo zu installieren.
+</phrase>
+
+</para><para>
+
+Jetzt wird der &d-i; Ihnen mitteilen, dass die Installation abgeschlossen ist.
+Entfernen Sie die CD-ROM oder das jeweilige Boot-Medium und drücken Sie &enterkey;,
+um den Rechner neu zu booten. Es sollte das neu installierte System starten und
+Sie können sich einloggen. Dies ist in <xref linkend="boot-new" /> beschrieben.
+
+</para><para>
+
+Benötigen Sie weitere Informationen über den Installationsprozess, lesen Sie
+<xref linkend="d-i-intro" />.
+
+</para>
+ </sect1>
+
+ <sect1 id="howto-installation-report">
+ <title>Schicken Sie uns einen Installationsbericht</title>
+<para>
+
+Wenn Ihnen eine erfolgreiche Installation mit dem &d-i; gelungen ist,
+nehmen Sie sich bitte die Zeit, uns einen Bericht zu schicken.
+Am Einfachsten ist es, das Paket reportbug zu installieren
+(mit <command>aptitude install reportbug</command>), es wie in
+<xref linkend="mail-outgoing"/> beschrieben zu konfigurieren und dann
+<command>reportbug installation-reports</command> auszuführen.
+
+</para><para>
+
+Falls Sie die Installation nicht abschließen konnten, haben Sie
+möglicherweise einen Fehler im &debian;-Installer gefunden. Um den
+Installer zu verbessern, müssen wir davon erfahren; also nehmen Sie sich
+bitte die Zeit, uns Fehler mitzuteilen.
+Sie können die Vorlage des Installationsberichts dafür benutzen;
+wenn die Installation komplett fehlschlug, lesen Sie
+<xref linkend="problem-report" />.
+
+</para>
+ </sect1>
+
+ <sect1 id="howto-installation-finally">
+ <title>Zu guter Letzt &hellip;</title>
+<para>
+
+Wir hoffen, dass Ihre &debian;-Installation angenehm verlief und dass Sie
+&debian; nützlich finden. Vielleicht möchten Sie noch
+<xref linkend="post-install" /> lesen.
+
+</para>
+ </sect1>
+</appendix>

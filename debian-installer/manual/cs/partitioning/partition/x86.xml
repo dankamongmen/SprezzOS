@@ -1,0 +1,77 @@
+<!-- $Id: x86.xml 67081 2011-12-06 09:35:39Z mck-guest $ -->
+<!-- original version: 66973 -->
+
+  <sect2 arch="x86"><title>Dělení disku na &arch-title;</title>
+<para>
+
+BIOS osobních počítačů obvykle přidává další omezení na rozdělení
+disku. Je určeno, kolik můžete na disku připravit <quote>primárních</quote> a
+<quote>logických</quote> oddílů. Starší BIOSy z let 1994-1998 dokáží zavést
+systém jen z části disku. Informace na toto téma podávají dokumenty
+<ulink url="&url-partition-howto;">Linux Partition HOWTO</ulink>,
+zde uvádíme jen stručný přehled.
+
+</para><para>
+
+<quote>Primární</quote> oddíly jsou původní koncept rozdělení disku. Na disku
+mohou být maximálně čtyři. Toto omezení překonávají oddíly
+<quote>rozšířené</quote> a <quote>logické</quote>. Změníte-li primární oddíl na rozšířený,
+můžete tento prostor využít k vytvoření libovolného počtu (max. 60)
+logických částí. Na disku lze však vytvořit maximálně jeden rozšířený
+oddíl.
+
+</para><para arch="linux-any">
+
+Linux omezuje počet oddílů na disk takto: 255 oddílů pro disky SCSI
+(3 primární a 252 logických) a 63 oddílů na discích IDE
+(3 primární a 60 logických). Standardní &debian-gnu; nabízí na každém
+disku pouze 20 zařízení pro oblasti, takže pokud chcete využívat
+oblasti s číslem větším než 20, musíte odpovídající zařízení vytvořit
+ručně.
+
+</para><para>
+
+Jestliže máte velký IDE disk na kterém nepoužíváte ani LBA adresování,
+ani překládací ovladač od výrobce, pak musíte umístit zaváděcí oddíl
+(obsahující jádro) do prvních 1024 cylindrů na disku (obvykle prvních
+524 megabajtů).
+
+</para><para>
+
+Toto omezení neplatí pro novější BIOSy (podle výrobce 1995-98),
+které podporují <quote>Enhanced Disk Drive Support Specification</quote>.
+Lilo, linuxový zavaděč, i alternativní zavaděč
+<command>mbr</command> musí použít BIOS pro načtení jádra z disku do
+operační paměti. Jestliže jsou v BIOSu přítomna rozšíření pro přístup
+k velkým diskům (přes přerušení 0x13), pak budou použita. V opačném
+případě je použito původní rozhraní pro přístup k diskům, které
+bohužel neumí adresovat oblasti nad 1023. cylindrem.
+Avšak v okamžiku, kdy je &arch-kernel; zaveden, už nezáleží na omezeních
+BIOSu, protože &arch-kernel; k přístupu na disky BIOS nepoužívá.
+
+</para><para>
+
+Pokud máte velký disk, možná budete chtít využít techniku překladu
+cylindrů, kterou můžete zapnout v BIOSu (jako třeba LBA <quote>Logical
+Block Addressing</quote> nebo CHS <quote>Large</quote> módy).
+Více informací ohledně velkých disků najdete v
+<ulink url="&url-large-disk-howto;">Large Disk HOWTO</ulink>.
+Pokud používáte techniku překladu cylindrů a BIOS nepodporuje
+rozšíření pro přístup k velkým diskům, pak se vaše zaváděcí oblast
+musí vlézt do <emphasis>přeloženého</emphasis> ekvivalentu
+1024. cylindru.
+
+</para><para>
+
+Pro splnění těchto požadavků doporučujeme vytvořit malou oblast
+na začátku disku (25-50MB by mělo stačit), která se použije jako
+zaváděcí. Ostatní oblasti je pak možné vytvořit kdekoliv ve zbylém
+místu. Zaváděcí oblast <emphasis>musí</emphasis> být připojena jako
+<filename>/boot</filename>, protože v tomto adresáři se uchovávají
+jádra.
+Takovéto nastavení bude fungovat na libovolném počítači, bez ohledu
+na to, zda používá nebo nepoužívá LBA, CHS nebo zda podporuje
+rozšíření pro přístup k velkým diskům.
+
+</para>
+  </sect2>

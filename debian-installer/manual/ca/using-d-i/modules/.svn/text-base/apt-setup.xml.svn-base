@@ -1,0 +1,197 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+   <sect3 id="apt-setup">
+   <title>Configuració de l'apt</title>
+
+<para>
+
+Una de les eines més utilitzades per a instal·lar paquets en sistemes
+&debian-gnu; és un programa anomenat <command>apt-get</command>, que forma
+part de paquet <classname>apt</classname><footnote>
+
+<para>
+Fixeu-vos que el programa que realment instal·la els paquets és
+<command>dpkg</command>. Tanmateix, aquesta és una eina de més baix
+nivell. L'<command>apt-get</command> és una eina de més alt nivell que
+invoca <command>dpkg</command> com correspon. Permet obtenir paquets del
+CD, la xarxa, o qualsevol altre lloc. També facilita la instal·lació
+automàtica de les anomenades dependències, altres paquets que fan
+falta per a que el que estigueu instal·lant funcioni correctament.
+</para>
+
+</footnote>
+Altres entorns per a la gestió de paquets, com
+l'<command>aptitude</command> i el <command>synaptic</command> també
+s'utilitzen. Aquests entorns són més recomanables per a usuaris
+novells, ja que integren algunes característiques addicionals (cerca
+de paquets i comprovacions del seu estat) amb una interfície d'usuari
+més agradable. De fet, <command>aptitude</command> és ara la utilitat
+recomanada per a la gestió de paquets.
+
+</para><para>
+
+L'<command>apt</command> s'ha de configurar per saber d'on
+obtenir els paquets. El resultat d'aquesta configuració s'escriu al
+fitxer <filename>/etc/apt/sources.list</filename>. Podeu examinar-lo
+i editar-lo al vostre gust després de completar la instal·lació.
+
+</para><para>
+
+Si esteu instal·lant amb la prioritat predeterminada, l'instal·lador
+s'encarregarà de bona part de la configuració automàticament, depenent del
+mètode d'instal·lació i possiblement aprofitant les opcions indicades
+anteriorment durant la instal·lació. En la majoria de casos l'instal·lador
+afegirà una rèplica de seguretat i, si esteu instal·lant una distribució
+estable, una rèplica per al servei d'actualitzacions volàtils
+(<quote>volatile</quote>).
+
+</para><para>
+
+Si instal·leu amb una prioritat més baixa (p.ex. en mode expert), podreu
+prendre més decisions. Podreu triar si voleu utilitzar els serveis
+d'actualitzacions de seguretat i/o volàtils, o si voleu afegir paquets de les
+seccions <quote>contrib</quote> i <quote>non-free</quote> de l'arxiu.
+
+</para>
+
+    <sect4 id="apt-setup-cdset">
+    <title>Instal·lar des de més d'un CD o DVD</title>
+
+<para>
+
+Si esteu instal·lant des d'un CD o un DVD que és part de un joc més complet,
+l'instal·lador us preguntarà si voleu afegir nous CD o DVD.
+Si teniu CD o DVD addicionals a ma, possiblement voldreu fer-ho per tal
+que l'instal·lador pugui utilitzar-ne els paquets continguts.
+
+</para><para>
+
+Si no teniu CD o DVD addicionals, això no és un problema: no es requereix
+la seua utilització. Si tampoc utilitzeu una rèplica de xarxa (com s'explica
+en pròxima secció), això pot implicar que no tots els paquets que pertanyen
+a les tasques que seleccioneu al pròxim pas de la instal·lació podran
+instal·lar-se.
+
+</para>
+<note><para>
+
+Els paquets estan inclosos en CD (i DVD) ordenats per la seua popularitat.
+Açò vol dir que per la major part d'usos tan sols es necessiten els primers
+CD i que molt poca gent utilitza qualsevol dels paquets inclosos en els
+últims CD del joc.
+
+</para><para>
+
+Això també vol dir que comprar o descarregar i cremar un joc complet de CD és
+malbaratar els diners i que mai els utilitzareu. En la major part dels casos
+la millor opció és descarregar només dels primers 3 a 8 CD i instal·lar la
+resta dels paquets que necessiteu d'Internet utilitzant una rèplica.
+El mateix és valid pels DVD: el primer DVD o potser els dos primers DVD
+cobreixen la majoria de les necessitats.
+
+</para><para>
+
+La regla d'or és que per una instal·lació d'escriptori (que utilitze l'entorn
+d'escriptori GNOME) tan sols fan falta els tres primers CD. Pels escriptoris
+alternatius (KDE o Xfce), fan falta CD addicionals. El primer DVD fàcilment
+cobreix totes les necessitats dels tres entorns d'escriptori.
+
+</para></note>
+<para>
+
+Si afegiu múltiples CD o DVD, l'instal·lador us demanarà intercanviar-los
+quan necessite paquets d'un CD/DVD diferent al que estigui actualment a la
+unitat de disc. Tingueu en compte que tan sols es poden utilitzar CD o DVD
+que corresponguin al mateix joc. L'ordre en que es processen no té
+importància, però fer-ho en ordre ascendent reduirà les possibilitats d'error.
+
+</para>
+    </sect4>
+
+
+    <sect4 id="apt-setup-mirror">
+    <title>Utilitzar una rèplica de xarxa</title>
+
+<para>
+
+Una pregunta que es farà en la majoria de les instal·lacions és si s'ha
+d'utilitzar o no una rèplica de xarxa com a origen dels paquets. La resposta
+predeterminada normalment serà correcta, però hi ha certes excepcions.
+
+</para><para>
+
+Si <emphasis>no</emphasis> esteu instal·lant des d'un CD o DVD complet o
+utilitzant una imatge de CD/DVD, hauríeu de fer servir una rèplica de xarxa,
+altrament acabareu amb un sistema molt mínim. Tanmateix, si teniu una connexió
+a Internet limitada, és millor que <emphasis>no</emphasis> seleccioneu la
+tasca <literal>desktop</literal> en el següent pas de la instal·lació.
+
+</para><para>
+
+Si instal·leu des d'un CD o utilitzat una imatge de CD (no DVD), no és
+necessari utilitzar una rèplica de xarxa, però és molt recomanable ja que un
+sol CD només conté un nombre molt limitat de paquets. Si teniu una connexió
+d'Internet limitada, pot ser la millor opció és encara <emphasis>no</emphasis>
+triar una rèplica de xarxa ací, i acabar la instal·lació tan sols amb el que
+disposeu al CD i instal·lar de forma selectiva els paquets addicionals
+després de la instal·lació (és a dir, després d'haver reiniciat el nou
+sistema).
+
+</para><para>
+
+Si esteu instal·lant des de DVD o utilitzant una imatge de DVD, qualsevol
+paquet necessari per la instal·lació hauria de trobar-se al primer DVD. El
+mateix és cert si heu afegit múltiples CD com s'ha explicat a la secció
+anterior. L'ús d'una rèplica de xarxa és opcional.
+
+</para><para>
+
+Un dels avantatges d'afegir una rèplica de xarxa és que les actualitzacions
+que s'hagen produït des de que es van crear els CD/DVD i que s'han inclòs en
+un nou llançament, també estaran disponibles per la instal·lació, açò allarga
+la vida del vostre joc de CD/DVD sense comprometre la seguretat o la
+estabilitat del sistema instal·lat.
+
+</para><para>
+
+Resumint: seleccionar una rèplica de xarxa és normalment una molt bona idea,
+excepte si no teniu una bona connexió a Internet. Si la versió actual d'un
+paquet és als CD/DVD, l'instal·lador sempre l'utilitzarà. La quantitat de
+dades que es descarregarà si seleccioneu una rèplica depèn de
+
+<orderedlist>
+<listitem><para>
+
+les tasques que seleccioneu en el pròxim pas de la instal·lació,
+
+</para></listitem>
+<listitem><para>
+
+quins paquets fan falta per eixes tasques,
+
+</para></listitem>
+<listitem><para>
+ 
+quins d'eixos paquets estan presents als CD i DVD que heu afegit, i
+
+</para></listitem>
+<listitem><para>
+
+si qualsevol versió dels paquets inclosos als CD o DVD estan a la rèplica
+(tant en una rèplica de paquets normals, en una rèplica de seguretat o a les
+actualitzacions volàtils).
+
+</para></listitem>
+</orderedlist>
+
+</para><para>
+
+Tingueu en compte que l'últim punt vol dir que, encara que no trieu fer
+servir una rèplica de xarxa, alguns paquets encara es descarregaran des
+d'Internet si hi ha actualitzacions de seguretat o volàtils disponibles i
+aquests serveis s'han configurat.
+
+</para>
+</sect4>
+   </sect3>

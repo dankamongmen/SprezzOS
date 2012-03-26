@@ -1,0 +1,118 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+   <sect3 arch="x86">
+   <!-- <title>Install the <command>LILO</command> Boot Loader
+         on a Hard Disk</title> -->
+   <title>Installazione del boot loader <command>LILO</command> sul
+          disco fisso</title>
+<para>
+
+<!--
+The second &architecture; boot loader is called <quote>LILO</quote>.
+It is an old complex program which offers lots of functionality,
+including DOS, Windows, and OS/2 boot management.  Please carefully
+read the instructions in the directory
+<filename>/usr/share/doc/lilo/</filename> if you have special needs;
+also see the <ulink url="&url-lilo-howto;">LILO mini-HOWTO</ulink>.
+-->
+
+Il secondo boot loader per &architecture; è <quote>LILO</quote>. È un
+programma vecchio e molto complesso che offre parecchie funzionalità,
+compresa la gestione dell'avvio per DOS, Windows e OS/2. Se si hanno delle
+necessità particolari, leggere con attenzione le istruzioni nella directory
+<filename>/usr/share/doc/lilo/</filename>; si veda anche il
+<ulink url="&url-lilo-howto;">LILO mini-HOWTO</ulink>.
+
+</para>
+<note><para>
+
+<!--
+Currently the LILO installation will only create menu entries for other
+operating systems if these can be <firstterm>chainloaded</firstterm>.
+This means you may have to manually add a menu entry for operating
+systems like GNU/Linux and GNU/Hurd after the installation.
+-->
+
+Attualmente l'installazione di LILO crea nel menu solo le voci per gli
+altri sistemi operativi se questi possono essere <firstterm>caricati in
+catena</firstterm>. Questo vuol dire che potrebbe essere necessario
+aggiungere manualmente le voci di menu per avviare sistemi operativi
+come GNU/Linux e GNU/Hurd dopo l'installazione.
+
+</para></note>
+<para>
+
+<!--
+&d-i; offers you three choices where to install the
+<command>LILO</command> boot loader:
+-->
+
+Il &d-i; offre tre scelte su dove installare il boot loader
+<command>LILO</command>:
+
+<variablelist>
+<varlistentry>
+<term>Master Boot Record (MBR)</term><listitem><para>
+
+<!--
+This way the <command>LILO</command> will take complete control of the
+boot process.
+-->
+
+In questo modo <command>LILO</command> ha il completo controllo sul processo
+d'avvio.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term><!-- new &debian; partition -->nuova partizione &debian;</term><listitem><para>
+
+<!--
+Choose this if you want to use another boot
+manager. <command>LILO</command> will install itself at the beginning
+of the new &debian; partition and it will serve as a secondary boot
+loader.
+-->
+
+Scegliere questa voce se si vuole usare un altro boot manager.
+<command>LILO</command> viene installato all'inizio della nuova partizione
+per &debian; e funziona da boot loader secondario.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term><!-- Other choice -->Altra scelta</term><listitem><para>
+
+<!--
+Useful for advanced users who want to install <command>LILO</command>
+somewhere else. In this case you will be asked for desired
+location. You can use traditional device names such as
+<filename>/dev/hda</filename> or <filename>/dev/sda</filename>.
+-->
+
+Utile per gli utenti più esperti che vogliono installare
+<command>LILO</command> da qualche altra parte, infatti viene chiesto
+dove installare. Si possono usare i tradizionali nomi
+dei device come <filename>/dev/hda</filename> o
+<filename>/dev/sda</filename>.
+
+</para></listitem></varlistentry>
+</variablelist>
+
+</para><para>
+
+<!--
+If you can no longer boot into Windows 9x (or DOS) after this step,
+you'll need to use a Windows 9x (MS-DOS) boot disk and use the
+<userinput>fdisk /mbr</userinput> command to reinstall the MS-DOS
+master boot record &mdash; however, this means that you'll need to use
+some other way to get back into &debian;!
+-->
+
+Se dopo l'esecuzione di questo passo non è più possibile avviare Windows
+9x (o DOS), è necessario usare un dischetto d'avvio per Windows 9x (MS-DOS)
+ed eseguire il comando <userinput>fdisk /mbr</userinput> per reinstallare
+il master boot record di MS-DOS; purtroppo dopo questa operazione è necessario
+usare un metodo alternativo per avviare &debian;.
+
+</para>
+   </sect3>

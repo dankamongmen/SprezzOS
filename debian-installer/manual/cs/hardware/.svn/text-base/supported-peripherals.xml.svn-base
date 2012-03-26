@@ -1,0 +1,35 @@
+<!-- $Id$ -->
+<!-- original version: 64720 -->
+
+ <sect2 id="supported-peripherals">
+ <title>Ostatní zařízení</title>
+<para arch="not-s390">
+
+&arch-kernel; umožňuje používat nejrůznější hardwarové vybavení jako myši,
+tiskárny, scannery, televizní karty a zařízení PCMCIA a USB.
+Většina z nich však není pro instalaci nutná.
+
+<phrase arch="x86">
+Některé USB klávesnice mohou vyžadovat speciální nastavení (viz
+<xref linkend="hardware-issues"/>).
+</phrase>
+
+</para><para arch="x86">
+
+Znovu vás odkazujeme na <ulink url="&url-hardware-howto;">Linux
+Hardware Compatibility HOWTO</ulink>, kde zjistíte, zda pro
+vaše zařízení existuje linuxový ovladač.
+
+</para><para arch="s390">
+
+Instalace balíků z XPRAM a z pásky není tímto systémem podporována.
+Všechny balíky, které chcete instalovat, musí být dostupné na DASD
+nebo přes síť na NFS, HTTP nebo FTP.
+
+</para><para arch="mipsel">
+
+Cobalt RaQ bohužel nemá žádnou podporu pro přídavná zařízení, Qube má
+jeden PCI slot.
+
+</para>
+</sect2>

@@ -1,0 +1,81 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65994 -->
+
+
+ <sect1>
+ <title>Esquema de particions recomanat</title>
+<para>
+
+Per a usuaris novells, màquines &debian; personals, sistemes domèstics,
+i altres instal·lacions monousuari, el més fàcil i probablement
+més simple serà fer una única partició <filename>/</filename>
+(més la d'intercanvi). Tanmateix, si la vostra partició ocupa més
+d'aproximadament 6 GiB és preferible que la feu de tipus ext3. Les
+particions ext2 necessiten comprovacions d'integritat periòdiques,
+fet que pot arribar a alentir l'arrencada quan la partició és gran.
+
+</para><para>
+
+En sistemes multiusuari amb molt espai de disc, és millor
+col·locar <filename>/usr</filename>, <filename>/var</filename>,
+<filename>/tmp</filename>, i <filename>/home</filename> cadascun a la
+seva pròpia partició, i separats de la partició <filename>/</filename>.
+
+</para><para>
+
+Podríeu necessitar una partició a part per
+<filename>/usr/local</filename> si penseu instal·lar molts programes
+que no formen part de la distribució &debian;. Si la vostra màquina ha
+de ser un servidor de correu, potser caldria fer una partició a part
+per a <filename>/var/mail</filename>. Sovint també és una bona idea
+posar una partició per a <filename>/tmp</filename> tot sol, per exemple
+d'entre 20&ndash;50 MiB. D'altra banda, si esteu instal·lant un servidor
+amb molts comptes d'usuari, és bo tenir una partició gran independent
+per a <filename>/home</filename>. En general, l'esquema de particions
+varia d'una màquina a una altra, depenent de per a què es faci servir.
+
+</para><para>
+
+Per a sistemes més complexos llegiu el <ulink
+url="&url-multidisk-howto;">Multi Disk HOWTO</ulink>, que tracta més
+en profunditat aquest tema. Pot interessar especialment a proveïdors
+d'internet i a persones que es dediquin a configurar servidors.
+
+</para><para>
+
+Pel que fa a la mida de la partició d'intercanvi, hi ha molts punts
+de vista diferents. Un heurisme que va prou bé és fer-la tan gran com
+la memòria del sistema. Però en la majoria de casos no hauria de ser
+inferior a 16 MiB. És clar que hi ha excepcions a la regla. Si proveu
+de resoldre 10000 equacions simultàniament en una màquina amb 256 MiB
+de memòria, podeu necessitar fins a 1 GiB (o més) d'espai d'intercanvi.
+
+</para><para>
+
+En algunes arquitectures de 32 bits (m68k i PowerPC), la
+mida màxima d'una partició d'intercanvi és de 2 GiB. Amb això n'hi
+hauria d'haver prou per gairebé qualsevol instal·lació. Tanmateix,
+si teniu requeriments més grans, probablement hauríeu de mirar de
+repartir l'espai d'intercanvi entre diferents discs (també anomenats
+<quote>spindles</quote> o filoses) i, a ser possible, entre diferents
+canals SCSI o IDE. El nucli equilibrarà l'ús de l'espai d'intercanvi
+entre les múltiples particions i n'obtindrà un millor rendiment.
+
+</para><para>
+
+Com a exemple, una antiga màquina domèstica amb 32 MiB de RAM i un disc
+IDE de 1.7 GiB a <filename>/dev/hda</filename>. Podria tenir una partició
+de 500 MiB per un altre sistema operatiu a <filename>/dev/hda1</filename>,
+una partició d'intercanvi de 32 MiB a <filename>/dev/hda3</filename>
+i la resta, aproximadament 1.2 GiB a <filename>/dev/hda2</filename>,
+com a partició Linux.
+
+</para><para>
+
+Per tenir una idea de l'espai que ocupen altres paquets que us poden
+interessar una vegada la instal·lació del sistema ha estat completada,
+llegiu <xref linkend="tasksel-size-list"/>.
+
+</para>
+
+ </sect1>

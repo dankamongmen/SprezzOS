@@ -1,0 +1,574 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65994 -->
+
+ <sect1 condition="supports-tftp" id="install-tftp">
+ <!-- <title>Preparing Files for TFTP Net Booting</title> -->
+ <title>Preparazione dei file per l'avvio TFTP da rete</title>
+<para>
+
+<!--
+If your machine is connected to a local area network, you may be able
+to boot it over the network from another machine, using TFTP. If you
+intend to boot the installation system from another machine, the
+boot files will need to be placed in specific locations on that machine,
+and the machine configured to support booting of your specific machine.
+-->
+
+Se la propria macchina è connessa a una rete locale allora è possibile
+avviarla tramite TFTP da un'altra macchina. Se si vuole
+avviare il sistema d'installazione da un'altra macchina è necessario che
+i file d'avvio siano contenuti in particolari directory di questa macchina
+e che sia configurata per gestire l'avvio della propria macchina.
+
+</para><para>
+
+<!--
+You need to set up a TFTP server, and for many machines a DHCP 
+server<phrase condition="supports-rarp">, or RARP
+server</phrase><phrase condition="supports-bootp">, or BOOTP
+server</phrase>.
+-->
+
+È necessario attivare un server TFTP e, per più macchine un server
+DHCP<phrase condition="supports-rarp"> o un server
+RARP</phrase><phrase condition="supports-bootp"> o un server BOOTP</phrase>.
+
+</para><para>
+
+<!--
+<phrase condition="supports-rarp">The Reverse Address Resolution Protocol (RARP) is
+one way to tell your client what IP address to use for itself. Another
+way is to use the BOOTP protocol.</phrase>
+-->
+
+<phrase condition="supports-rarp">Il RARP (Reverse Address Resolution
+Protocol) è un metodo per comunicare ai client quale indirizzo IP usare.
+In alternativa è possibile usare il protocollo BOOTP.</phrase>
+
+<!--
+<phrase condition="supports-bootp">BOOTP is an IP protocol that
+informs a computer of its IP address and where on the network to obtain
+a boot image.</phrase>
+-->
+
+<phrase condition="supports-bootp">BOOTP è un protocollo IP che comunica a
+un computer qual è il proprio indirizzo IP e dove può recuperare dalla rete
+un'immagine per l'avvio.</phrase>
+
+<!--
+-->
+
+<!--
+The DHCP (Dynamic Host Configuration Protocol) is a more flexible,
+backwards-compatible extension of BOOTP.
+Some systems can only be configured via DHCP.
+-->
+
+Il DHCP (Dynamic Host Configuration
+Protocol) è una estensione più flessibile ma compatibile all'indietro di
+BOOTP. Alcuni sistemi possono essere configurati solo tramite DHCP.
+
+</para><para arch="powerpc">
+
+<!--
+For PowerPC, if you have a NewWorld Power Macintosh machine, it is a
+good idea to use DHCP instead of BOOTP.  Some of the latest machines
+are unable to boot using BOOTP.
+-->
+
+Su PowerPC, se si possiede una macchina Power Macintosh NewWorld, è
+consigliabile usare DHCP anziché BOOTP. Alcune delle macchine più recenti
+non sono capaci di fare l'avvio usando BOOTP.
+
+</para><para arch="hppa">
+
+<!--
+Some older HPPA machines (e.g. 715/75) use RBOOTD rather than BOOTP.
+There is an <classname>rbootd</classname> package available in &debian;.
+-->
+
+
+Alcune delle macchine HPPA più vecchie (p.e. 715/75) usano RBOOTD anziché
+BOOTP, in &debian; è disponibile il pacchetto <classname>rbootd</classname>.
+
+</para><para>
+
+<!--
+The Trivial File Transfer Protocol (TFTP) is used to serve the boot
+image to the client.  Theoretically, any server, on any platform,
+which implements these protocols, may be used.  In the examples in
+this section, we shall provide commands for SunOS 4.x, SunOS 5.x
+(a.k.a. Solaris), and GNU/Linux.
+-->
+
+Il TFTP (Trivial File Transfer Protocol) è usato per fornire l'immagine di
+avvio al client. Teoricamente si può usare un qualsiasi server, su qualsiasi
+architettura che implementi questo protocollo. Negli esempi di questa
+sezione sono presentati i comandi per SunOS 4.x, SunOS 5.x (noti come
+Solaris) e GNU/Linux.
+
+<note arch="x86"><para>
+
+<!--
+For a &debian-gnu; server we recommend <classname>tftpd-hpa</classname>.
+It's written by the same author as the <classname>syslinux</classname>
+bootloader and is therefore least likely to cause issues.
+A good alternative is <classname>atftpd</classname>.
+-->
+
+Su un server &debian-gnu; è raccomandato <classname>tftpd-hpa</classname>.
+È scritto dallo stesso autore del bootloader <classname>syslinux</classname>
+e quindi è poco probabile che crei dei problemi. Una buona alternativa è
+<classname>atftpd</classname>.
+
+</para></note>
+
+</para>
+
+&tftp-rarp.xml;
+&tftp-dhcp.xml;
+&tftp-bootp.xml;
+
+  <sect2 id="tftpd">
+  <!-- <title>Enabling the TFTP Server</title> -->
+  <title>Attivazione di un server TFTP</title>
+<para>
+
+<!--
+To get the TFTP server ready to go, you should first make sure that
+<command>tftpd</command> is enabled.
+-->
+
+Per avere un server TFTP pronto all'uso è necessario assicurarsi che
+<command>tftpd</command> sia attivo.
+
+</para><para>
+
+<!--
+In the case of <classname>tftpd-hpa</classname> there are two ways the
+service can be run. It can be started on demand by the system's
+<classname>inetd</classname> daemon, or it can be set up to run as an
+independent daemon. Which of these methods is used is selected when the
+package is installed and can be changed by reconfiguring the package.
+-->
+
+Il servizio <classname>tftpd-hpa</classname> può funzionare in due
+modalità. Può essere avviato su richiesta dal demone di sistema
+<classname>inetd</classname> oppure come demone indipendente. La scelta
+della modalità di esecuzione è fatta durante l'installazione del
+pacchetto e può essere modificata riconfigurando il pacchetto.
+
+</para>
+<note><para>
+
+<!--
+Historically, TFTP servers used <filename>/tftpboot</filename> as directory
+to serve images from. However, &debian-gnu; packages may use other directories
+to comply with the <ulink url="&url-fhs-home;">Filesystem Hierarchy
+Standard</ulink>. For example, <classname>tftpd-hpa</classname> by default
+uses <filename>/srv/tftp</filename>. You may have to adjust the
+configuration examples in this section accordingly.
+-->
+
+Storicamente i server TFTP hanno usato <filename>/tftpboot</filename> come
+directory dalla quale servire le immagini. Invece, i pacchetti &debian-gnu;
+potrebbero usare una directory diversa in modo da essere conformi al
+<ulink url="&url-fhs-home;">Filesystem Hierarchy Standard</ulink>. Per esempio
+<classname>tftpd-hpa</classname> usa <filename>/srv/tftp</filename>;
+potrebbe essere necessario modificare gli esempi presenti in questa sezione
+in base alla propria configurazione.
+
+</para></note>
+<para>
+
+<!--
+All <command>in.tftpd</command> alternatives available in &debian; should
+log TFTP requests to the system logs by default. Some of them support a
+<userinput>-v</userinput> argument to increase verbosity.
+It is recommended to check these log messages in case of boot problems
+as they are a good starting point for diagnosing the cause of errors.
+-->
+
+Tutte le versioni di <command>in.tftpd</command> disponibili in &debian;
+registrano le richieste TFTP sul log di sistema e alcune versioni supportano
+l'opzione <userinput>-v</userinput> per aumentare la verbosità. In caso di
+problemi d'avvio, si raccomanda di verificare i messaggi nel log poiché sono
+un ottimo punto di partenza per la diagnosi della causa degli errori.
+
+</para><para arch="mips">
+
+<!--
+If you intend to install &debian; on an SGI machine and your TFTP server is a
+GNU/Linux box running Linux 2.4, you'll need to set the following on your
+server:
+-->
+
+Se si intende installare &debian; su una macchina SGI e il server TFTP è su una
+macchina GNU/Linux con Linux 2.4 è necessario eseguire comando seguente sul
+server:
+
+<informalexample><screen>
+# echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc
+</screen></informalexample>
+
+<!--
+to turn off Path MTU discovery, otherwise the SGI's PROM can't
+download the kernel. Furthermore, make sure TFTP packets are sent from
+a source port no greater than 32767, or the download will stall after
+the first packet.  Again, it's Linux 2.4.X tripping this bug in the
+PROM, and you can avoid it by setting
+-->
+
+per disattivare il Path MTU discovery, in caso contrario la PROM delle SGI
+non può scaricare il kernel. Inoltre, assicurarsi che i pacchetti TFTP siano
+inviati da una porta inferiore alla 32767 altrimenti il trasferimento si
+interromperà dopo il primo pacchetto. Anche questo bug della PROM può essere
+aggirato con Linux 2.4.X eseguendo il comando seguente
+
+<informalexample><screen>
+# echo "2048 32767" &gt; /proc/sys/net/ipv4/ip_local_port_range
+</screen></informalexample>
+
+<!--
+to adjust the range of source ports the Linux TFTP server uses.
+-->
+
+per regolare l'intervallo delle porte sorgente usate sul server TFTP Linux.
+
+</para>
+  </sect2>
+
+  <sect2 id="tftp-images">
+  <!-- <title>Move TFTP Images Into Place</title> -->
+  <title>Posizionamento delle immagini TFTP</title>
+<para>
+
+<!--
+Next, place the TFTP boot image you need, as found in
+<xref linkend="where-files"/>, in the <command>tftpd</command>
+boot image directory.  You may have to make a link from that
+file to the file which <command>tftpd</command> will use for booting a
+particular client.  Unfortunately, the file name is determined by the
+TFTP client, and there are no strong standards.
+-->
+
+Spostare le immagini TFTP di cui si ha bisogno (come descritto in
+<xref linkend="where-files"/>) nella directory delle immagini di avvio per
+TFTP. Potrebbe essere necessario fare un link da questa directory al file che
+<command>tftpd</command> dovrà utilizzare per l'avvio di un particolare
+client. Sfortunatamente il nome del file è stabilito dal client TFTP e non
+esiste uno standard.
+
+</para><para arch="powerpc">
+
+<!--
+On NewWorld Power Macintosh machines, you will need to set up the
+<command>yaboot</command> boot loader as the TFTP boot image.
+<command>Yaboot</command> will then retrieve the kernel and RAMdisk
+images via TFTP itself. You will need to download the following files
+from the <filename>netboot/</filename> directory:
+-->
+
+Sulle macchine Power Machintosh NewWorld è necessario configurare il
+bootloader <command>yaboot</command> come immagine di avvio TFTP. Sarà poi
+<command>yaboot</command> a recuperare le immagini del kernel e del ramdisk
+sempre tramite TFTP. È necessario scaricare i seguenti file dalla directory
+<filename>netboot/</filename>:
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinux</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot.conf</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>boot.msg</filename>
+
+</para></listitem>
+</itemizedlist>
+
+</para><para arch="x86">
+
+<!--
+For PXE booting, everything you should need is set up in the
+<filename>netboot/netboot.tar.gz</filename> tarball. Simply extract this
+tarball into the <command>tftpd</command> boot image directory. Make sure
+your dhcp server is configured to pass <filename>pxelinux.0</filename>
+to <command>tftpd</command> as the filename to boot.
+-->
+
+Per l'avvio PXE tutte le operazioni necessarie sono già state fatte in
+<filename>netboot/netboot.tar.gz</filename>. Estrarre questo tarball nella
+directory delle immagini di avvio <command>tftpd</command>, assicurarsi che
+il server dhcp sia configurato per passare <filename>pxelinux.0</filename>
+come file da avviare a <command>tftpd</command>.
+
+</para><para arch="ia64">
+
+<!--
+For PXE booting, everything you should need is set up in the
+<filename>netboot/netboot.tar.gz</filename> tarball. Simply extract this
+tarball into the <command>tftpd</command> boot image directory. Make sure
+your dhcp server is configured to pass
+<filename>/debian-installer/ia64/elilo.efi</filename>
+to <command>tftpd</command> as the filename to boot.
+-->
+
+Per l'avvio PXE tutte le operazioni necessarie sono già state fatte in
+<filename>netboot/netboot.tar.gz</filename>. Estrarre questo tarball nella
+directory delle immagini di avvio di <command>tftpd</command>, assicurarsi
+che il server dhcp sia configurato per passare
+<filename>/debian-installer/ia64/elilo.efi</filename> come file da avviare
+a <command>tftpd</command>.
+
+</para>
+
+   <sect3 arch="sparc">
+   <!-- <title>SPARC TFTP Booting</title> -->
+   <title>Avvio di macchine SPARC con TFTP</title>
+<para>
+
+<!--
+Some SPARC architectures add the subarchitecture names, such as
+<quote>SUN4M</quote> or <quote>SUN4C</quote>, to the filename. Thus,
+if your system's subarchitecture is a SUN4C, and its IP is 192.168.1.3,
+the filename would be <filename>C0A80103.SUN4C</filename>. However,
+there are also subarchitectures where the file the client looks for is
+just <filename>client-ip-in-hex</filename>. An easy way to determine the
+hexadecimal code for the IP address is to enter the following command
+in a shell (assuming the machine's intended IP is 10.0.0.4).
+-->
+
+Alcune architetture SPARC aggiungono il nome della sottoarchitettura al
+nome del file, per esempio <quote>SUN4M</quote> o <quote>SUN4C</quote>.
+Di conseguenza se la sottoarchitettura del proprio sistema è SUN4C e
+il suo indirizzo IP è 192.168.1.3, il nome del file dovrebbe essere
+<filename>C0A80103.SUN4C</filename>. Purtroppo ci sono anche altre
+sottoarchitetture che usano file il cui nome è semplicemente
+<filename>ip-del-client-in-hex</filename>. Un  modo semplice per
+determinare il codice in esadecimale dell'indirizzo IP è eseguire il
+seguente comando nella shell (si suppone che l'IP della macchina sia
+10.0.0.4).
+
+<informalexample><screen>
+$ printf '%.2x%.2x%.2x%.2x\n' 10 0 0 4
+</screen></informalexample>
+
+<!--
+To get to the correct filename, you will need to change all letters to
+uppercase and if necessary append the subarchitecture name.
+-->
+
+Per ottenere il corretto nome del file è necessario cambiare tutte le
+lettere in maiuscole e, se necessario, aggiungere il nome della
+sottoarchitettura.
+
+</para><para>
+
+<!--
+If you've done all this correctly, giving the command <userinput>boot
+net</userinput> from the OpenPROM should load the image. If the image
+cannot be found, try checking the logs on your tftp server to see which
+image name is being requested.
+-->
+
+Se tutti i passi sono stati eseguiti correttamente, usando il comando
+<userinput>boot net</userinput> da OpenPROM dovrebbe iniziare il caricamento
+dell'immagine. Se non è possibile trovare l'immagine, controllare nei log
+del server tftp quale nome è stato usato per richiederla.
+
+</para><para>
+
+<!--
+You can also force some sparc systems to look for a specific file name
+by adding it to the end of the OpenPROM boot command, such as
+<userinput>boot net my-sparc.image</userinput>. This must still reside
+in the directory that the TFTP server looks in.
+-->
+
+È anche possibile forzare alcuni sistemi sparc a cercare un particolare file
+aggiungendone il nome alla fine del comando boot di OpenPROM, per esempio
+<userinput>boot net my-sparc.image</userinput>. Questo file deve essere
+nella directory in cui il server TFTP ricerca i file.
+
+</para>
+   </sect3>
+
+   <sect3 arch="mips">
+   <!-- <title>SGI TFTP Booting</title> -->
+   <title>Avvio di macchine SGI con TFTP</title>
+<para>
+
+<!--
+On SGI machines you can rely on the <command>bootpd</command> to supply
+the name of the TFTP file. It is given either as the
+<userinput>bf=</userinput> in <filename>/etc/bootptab</filename> or as
+the <userinput>filename=</userinput> option in
+<filename>/etc/dhcpd.conf</filename>.
+-->
+
+Sulle macchine SGI si può fare affidamento su <command>bootpd</command>
+per avere il nome del file TFTP; infatti può essere fornito con l'opzione
+<userinput>bf=</userinput> in <filename>/etc/bootptab</filename> oppure
+con l'opzione <userinput>filename=</userinput> in
+<filename>/etc/dhcpd.conf</filename>.
+
+</para>
+   </sect3>
+  </sect2>
+
+<!-- FIXME: commented out since it seems too old to be usable and a current
+            way is not known
+
+  <sect2 id="tftp-low-memory">
+  <title>TFTP Installation for Low-Memory Systems</title>
+  <title>Installazione TFTP su sistemi con poca memoria</title>
+<para>
+
+On some systems, the standard installation RAMdisk, combined with the
+memory requirements of the TFTP boot image, cannot fit in memory.  In
+this case, you can still install using TFTP, you'll just have to go
+through the additional step of NFS mounting your root directory over
+the network as well.  This type of setup is also appropriate for
+diskless or dataless clients.
+
+Su alcuni sistemi il normale RAMdisk di installazione insieme ai requisiti
+di memoria dell'immagine di avvio TFTP superano la quantità di memoria
+disponibile. In questo caso si può comunque effettuare una installazione
+con TFTP, è sufficiente seguire dei passi addizionali per montare con
+NFS la directory principale dalla rete. Questo tipo di impostazione è
+adatta anche ai client diskless o dataless.
+
+</para><para>
+
+First, follow all the steps above in <xref linkend="install-tftp"/>.
+
+Prima seguire tutti i passi in <xref linkend="install-tftp"/>.
+
+<orderedlist>
+<listitem><para>
+
+Copy the Linux kernel image on your TFTP server using the
+<userinput>a.out</userinput> image for the architecture you are
+booting.
+
+Copiare l'immagine del kernel Linux sul server TFTP usando l'immagine
+<userinput>a.out</userinput> per l'architettura che si vuole avviare.
+
+</para></listitem>
+<listitem><para>
+
+Untar the root archive on your NFS server (can be the same system as
+your TFTP server):
+
+Estrarre l'archivio root sul server NFS (può essere lo stesso sistema su cui
+è presente il server TFTP):
+
+<informalexample><screen>
+# cd /tftpboot
+# tar xvzf root.tar.gz
+</screen></informalexample>
+
+Be sure to use the GNU <command>tar</command> (other tar programs, like the
+SunOS one, badly handle devices as plain files).
+
+Assicurarsi di usare GNU <command>tar</command> (altri programmi tar, come
+quello per SunOS, gestiscono in modo errato i device come se fossero dei
+semplici file).
+
+</para></listitem>
+<listitem><para>
+
+Export your <filename>/tftpboot/debian-sparc-root</filename> directory
+with root access to your client.  E.g., add the following line to
+<filename>/etc/exports</filename> (GNU/Linux syntax, should be similar
+for SunOS):
+
+Esportare la directory <filename>/tftpboot/debian-sparc-root</filename>
+con accesso root sul client. Per esempio, aggiungere la seguente riga in
+<filename>/etc/exports</filename> (questa è la sintassi per GNU/Linux,
+quella per SunOS dovrebbe essere simile):
+
+<informalexample><screen>
+/tftpboot/debian-sparc-root <replaceable>client</replaceable>(rw,no_root_squash)
+</screen></informalexample>
+
+NOTE: <replaceable>client</replaceable> is the host name or IP address recognized
+by the server for the system you are booting.
+
+NOTA: <replaceable>client</replaceable> è il nome dell'host o l'indirizzo IP
+con cui il server riconosce il sistema da avviare.
+
+</para></listitem>
+<listitem><para>
+
+Create a symbolic link from your client IP address in dotted notation
+to <filename>debian-sparc-root</filename> in the
+<filename>/tftpboot</filename> directory.  For example, if the client
+IP address is 192.168.1.3, do
+
+Creare un link simbolico con l'indirizzo IP nel formato con i punti a
+<filename>debian-sparc-root</filename> nella directory
+<filename>/tftpboot</filename>. Per esempio se l'indirizzo IP del client
+è 192.168.1.3, eseguire
+
+<informalexample><screen>
+# ln -s debian-sparc-root 192.168.1.3
+</screen></informalexample>
+
+</para></listitem>
+</orderedlist>
+
+</para>
+
+  </sect2>
+
+  <sect2 condition="supports-nfsroot">
+  <title>Installing with TFTP and NFS Root</title>
+  <title>Installazione con TFTP e NFS Root</title>
+
+<para>
+
+Installing with TFTP and NFS Root is similar to
+<xref linkend="tftp-low-memory"/> because you don't want to
+load the RAMdisk anymore but boot from the newly created NFS-root file
+system.  You then need to replace the symlink to the tftpboot image by
+a symlink to the kernel image (for example,
+<filename>linux-a.out</filename>).
+
+L'installazione con TFTP e NFS Root è simile a
+<xref linkend="tftp-low-memory"/> perché non carica il ramdisk ma bensì il
+filesystem NFS appena creato. È necessario sostituire il link simbolico
+all'immagine tftpboot con un altro link simbolico all'immagine del kernel
+(per esempio <filename>linux-a.out</filename>).
+
+</para><para>
+
+RARP/TFTP requires all daemons to be running on the same server (the
+workstation is sending a TFTP request back to the server that replied
+to its previous RARP request).
+
+RARP/TFTP richiede che tutti i demoni siano in esecuzione sullo stesso
+server (la workstation invia la richiesta TFTP al server che ha risposto
+alla sua precedente richiesta RARP).
+
+</para>
+  </sect2>
+END FIXME -->
+ </sect1>

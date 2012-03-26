@@ -1,0 +1,57 @@
+<!-- $Id$ -->
+<!-- original version: 64916 -->
+
+ <sect1 id="pre-install-bios-setup">
+ <title>Než začnete s instalací &hellip;</title>
+<para>
+
+Tato část vás provede nastavením hardwaru, který je občas potřeba před
+vlastní instalací mírně připravit. Obecně se tím myslí kontrola
+a případná změna nastavení <firstterm>firmware</firstterm>
+systému. Firmware je nejnižší úroveň softwaru, který je využíván
+zařízeními v počítači, a rozhodujícím způsobem ovlivňuje start
+počítače po jeho zapnutí.  Také se zde dozvíte o některých známých
+hardwarových problémech ovlivňujících spolehlivost systému &debian;
+
+</para>
+
+&bios-setup-i386.xml;
+&bios-setup-powerpc.xml;
+&bios-setup-sparc.xml;
+&bios-setup-s390.xml;
+
+  <sect2 arch="x86;powerpc" id="hardware-issues">
+  <title>Různé hardwarové problémy</title>
+
+   <formalpara arch="x86">
+   <title>BIOS a USB klávesnice</title>
+<para>
+
+Pokud nemáte k dispozici standardní AT klávesnici, ale pouze USB
+model, je možné, že budete muset v BIOSu nastavit emulaci klasické AT
+klávesnice. (U některých systémů, obzvláště notebooků, je naopak
+potřeba tuto volbu vypnout.) Hledejte položky jako <quote>Legacy
+keyboard emulation</quote> nebo <quote>USB keyboard
+support</quote>. Toto nastavení změňte pouze v případě, že instalační
+program klávesnici nerozpozná.
+
+</para>
+   </formalpara>
+
+   <formalpara arch="powerpc">
+   <title>Viditelnost displeje na OldWorld Powermacích</title>
+<para>
+
+Některé OldWorld Powermacy, obzvláště ty s <quote>kontrolním</quote>
+displejem, pokud jsou nastaveny pro použití více než 256 barev, nemusí
+pod Linuxem použít barevnou mapu spolehlivě. Zaznamenáte-li po
+restartu následující problémy se zobrazením (občas můžete na monitoru
+vidět data, ale jindy není vidět nic), nebo pokud po zavedení
+instalačního systému obrazovka zčerná, místo aby se zobrazilo
+uživatelské rozhraní, zkuste v MacOS změnit nastavení zobrazení, aby
+se místo tisíců nebo milionů barev používalo pouze 256.
+
+</para>
+   </formalpara>
+  </sect2>
+ </sect1>

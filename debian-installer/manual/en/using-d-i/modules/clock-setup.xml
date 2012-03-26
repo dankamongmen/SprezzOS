@@ -1,0 +1,24 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id: clock-setup.xml 61405 2009-11-20 16:12:49Z fjp $ -->
+
+   <sect3 id="clock-setup">
+   <title>Configuring the Clock and Time Zone</title>
+
+<para arch="not-s390">
+
+The installer will first attempt to connect to a time server on the
+Internet (using the <firstterm>NTP</firstterm> protocol) in order to
+correctly set the system time. If this does not succeed, the installer
+will assume the time and date obtained from the system clock when the
+installation system was booted are correct. It is not possible to manually
+set the system time during the installation process.
+
+</para><para arch="s390"> 
+
+The installer does not modify the system clock on the s390 platform.
+
+</para>
+
+&module-tzsetup.xml;
+
+   </sect3>

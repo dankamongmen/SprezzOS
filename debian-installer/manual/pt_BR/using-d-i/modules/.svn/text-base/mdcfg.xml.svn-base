@@ -1,0 +1,325 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56427 -->
+<!-- updated 44026:56427 by Felipe Augusto van de Wiel (faw) 2008.11.10 -->
+
+   <sect3 id="mdcfg">
+   <title>Configurando dispositivos Multi-Discos (RAID via Software)</title>
+<para>
+
+Caso tenha mais de um disco rígido
+<footnote><para>
+
+Para ser honesto, você pode construir um dispositivo MD até mesmo dentro de
+partições residindo dentro de uma unidade física, mas isso não lhe trará
+nenhum benefício.
+
+</para></footnote>
+em seu computador, você poderá usar o <command>mdcfg</command> para configurar
+suas unidades para aumentar o desempenho e/ou melhorar a confiabilidade em
+seus dados. O resultado é chamado
+<firstterm>Dispositivo Multi-Discos</firstterm> (ou após isto, sua variante
+mais famosa: <firstterm>RAID via software</firstterm>).
+
+</para><para>
+
+Um dispositivo MD é basicamente um grupo de partições localizados em
+diferentes discos e combinadas para formar um dispositivo
+<emphasis>lógico</emphasis>.
+Este dispositivo pode então ser usado como uma partição ordinária  (i.e. você
+poderá formatá-la no <command>partman</command>, especificar um ponto de
+montagem, etc.).
+
+</para><para>
+
+Quais benefícios isto trará dependem do tipo de dispositivo MD que está
+criando. Os tipos suportados atualmente são:
+
+<variablelist>
+<varlistentry>
+
+<term>RAID0</term><listitem><para>
+
+Tem como objetivo principal a performance. O RAID0 divide todos os dados
+de entrada em <firstterm>stripes</firstterm> e os distribui igualmente através
+de cada disco do conjunto. Isto aumenta a performance das operações de
+leitura/gravação, mas quando um dos discos falham, você perderá
+<emphasis>TUDO</emphasis> (parte da informação ainda está no
+disco saudável e a outra parte <emphasis>estava</emphasis> no disco que ocorreu
+a falha).
+
+</para><para>
+
+Um uso tópico de uso para o RAID0 é uma partição para edição de vídeos.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>RAID1</term><listitem><para>
+
+É recomendável para configurações aonde a confiança é o objetivo
+principal. Ele consiste em diversas partições (geralmente duas) onde
+cada partição contém exatamente os mesmos dados. Isto essencialmente
+significa duas coisas. Primeiro, se um dos seus discos falham, você ainda
+terá os dados armazenado nos discos restantes. Segundo, você poderá
+usa somente uma fração da capacidade disponível (mais precisamente, ele
+será o tamanho da menor partição da RAID). Terceiro, o processo de
+leitura utiliza somente um disco, e se este disco estiver realmente
+ocupado, o sistema utilizará o outro disco (o disco livre) para obter os dados
+(enquanto o outro disco termina seu trabalho de leitura). Isto resulta em mais
+performance em servidores que utilizam mais operações de leitura que gravação
+(e.g. como um servidor de arquivos).
+
+</para><para>
+
+Opcionalmente você pode ter um disco reserve na array que tomará o lugar do
+disco problemático em caso de falha.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+
+<term>RAID5</term><listitem><para>
+
+É um meio termo entre a velocidade, confiança e redundância de
+dados. O RAID5 divide todos os dados de entrada em pedaços e os
+distribui igualmente em todos os discos exceto um (parecido com o
+RAID0). Ao contrário do RAID0, o RAID5 também utiliza informações
+de <firstterm>paridade</firstterm>, que são gravadas no disco
+restante. O disco de paridade não é estático (senão seria chamado
+de RAID4), mas é alterada periodicamente, assim as informações de
+paridade são distribuídas igualmente em todos os discos. Quando
+um dos discos falha, a parte faltante dos dados pode
+ser computada dos dados restantes junto com sua paridade. O RAID5 deve
+consistir de no mínimo três partições ativas. Opcionalmente você
+poderá ter um disco reserva na array que tomará lugar do disco defeituoso
+em caso de falha.
+
+</para><para>
+
+Como você pode notar, o RAID5 tem um grau de confiança parecido com
+o RAID1 enquanto mantém menos redundância. Por outro lado as operações
+de gravação são um pouco mais lentas que o RAID0 devido a computação
+das informações de paridade.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>RAID6</term><listitem><para>
+
+Similar ao RAID5 exceto que usa dois dispositivos de paridade ao invés de um.
+
+</para><para>
+
+Um <quote>array</quote> RAID6 pode sobreviver a até dois discos falhos.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>RAID10</term><listitem><para>
+
+RAID10 combinar <quote>striping</quote> (como no RAID0) com
+<quote>mirroring</quote> (como no RAID1). Ele cria <replaceable>n</replaceable>
+cópias dos dados entrantes e distribui-os nas partições de forma que nenhuma
+das cópias do mesmo dado fique no mesmo dispositivo.
+O valor padrão de <replaceable>n</replaceable> é 2, mas pode ser definido
+para algo diferente no modo expert. O número de partições usado deve ser
+pelo menos <replaceable>n</replaceable>.
+RAID10 tem layouts diferentes para distribuições das cópias. O padrão é
+cópias próximas. Cópias próximas têm todas as cópias ao redor do mesmo
+ponto em todos os discos. Cópias distantes têm cópias em diferentes
+pontos dos discos. Cópias <quote>offset</quote> copiam o trecho de dados,
+não as cópias individuais.
+
+</para><para>
+
+RAID10 pode ser usado para atingir confiança e redundância sem a
+contrapartida de ter que calcular paridade.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+Para configurar:
+
+<informaltable>
+<tgroup cols="5">
+<thead>
+<row>
+  <entry>Tipo</entry>
+  <entry>Dispositivos Mínimos</entry>
+  <entry>Dispositivo Reserva</entry>
+  <entry>Sobrevive a falha de disco?</entry>
+  <entry>Espaço Disponível</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>RAID0</entry>
+  <entry>2</entry>
+  <entry>não</entry>
+  <entry>não</entry>
+  <entry>Tamanho da partição mais pequena multiplicada pelo número de dispositivos na RAID</entry>
+</row>
+
+<row>
+  <entry>RAID1</entry>
+  <entry>2</entry>
+  <entry>opcional</entry>
+  <entry>sim</entry>
+  <entry>Tamanho da partição mais pequena dentro da RAID</entry>
+</row>
+
+<row>
+  <entry>RAID5</entry>
+  <entry>3</entry>
+  <entry>opcional</entry>
+  <entry>sim</entry>
+  <entry>
+    Tamanho da menos partição multiplicada pelo número de dispositivos no
+raid menos 1.
+  </entry>
+</row>
+
+<row>
+  <entry>RAID6</entry>
+  <entry>4</entry>
+  <entry>opcional</entry>
+  <entry>sim</entry>
+  <entry>
+    Tamanho da menor partição multiplicada pelo (número de dispositivos
+    no RAID menos dois)
+  </entry>
+</row>
+
+<row>
+  <entry>RAID10</entry>
+  <entry>2</entry>
+  <entry>opcional</entry>
+  <entry>sim</entry>
+  <entry>
+    Total de todas as partições divididas pelo número de cópias (que por padrão
+    é dois)
+  </entry>
+</row>
+
+</tbody></tgroup></informaltable>
+
+</para><para>
+
+Se quiser saber mais sobre o RAID via software, dê uma
+olhada no <ulink url="&url-software-raid-howto;">Software RAID HOWTO</ulink>.
+
+</para><para>
+
+Para criar um dispositivo MD, você precisará ter as partições especificadas
+marcadas para serem usadas como dispositivos RAID. (Isto é feito no
+<command>partman</command> no item de menu <guimenu>Configurações da
+Partição</guimenu> onde deverá selecionar <menuchoice>
+<guimenu>Usada como:</guimenu> <guimenuitem>Volume físico para a
+RAID</guimenuitem> </menuchoice>.)
+
+</para><note><para>
+
+Tenha certeza que o sistema pode ser inicializado com o esquema de
+particionamento que você está planejando. Geralmente será necessário criar
+um sistema de arquivos separado para o <filename>/boot</filename> quando
+usar RAID para o sistema de arquivos raiz (<filename>/</filename>).
+A maioria dos carregadores de inicialização <phrase arch="x86">(incluindo
+o lilo e o grub)</phrase> suportam RAID1 espelhado (modo <quote>mirror</quote>,
+mas não o modo <quote>strip</quote>!), portanto, usar por exemplo RAID5 para o
+<filename>/</filename> e RAID1 para o <filename>/boot</filename> pode ser uma
+opção.
+
+</para></note>
+<warning><para>
+
+O suporte a MD é uma adição relativamente nova no
+programa de instalação. Você pode ter problemas em alguns
+níveis de RAID e em combinação com alguns gerenciadores de
+partida se tentar usar o MD como sistema de arquivos
+(<filename>/</filename>). Para usuários experientes, é possível
+contornar estes problemas executando alguns passos de instalação
+ou configurações manualmente através do interpretador de comandos.
+
+</para></warning><para>
+
+Como próximo passo, você deverá selecionar <guimenuitem>Configurar o RAID via
+software</guimenuitem> através do menu principal do <command>partman</command>.
+(O menu só aparecerá após você marcar pelo menos uma partição para uso
+como <guimenuitem>Volume Físico para RAID</guimenuitem>).
+Na primeira tela do <command>mdcfg</command> selecione o item
+<guimenuitem>Criar um dispositivo MD</guimenuitem>. Você será presenteado com
+uma lista de tipos suportados de dispositivos MD, no qual poderá escolher um
+(e.g. RAID1). O que segue, depende do tipo de MD que selecionou.
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+O RAID0 é simples &mdash; você será perguntado pela lista de partições RAID
+disponíveis e sua única tarefa será selecionar as partições que formarão o MD.
+
+</para></listitem>
+<listitem><para>
+
+O RAID1 é um pouco mais detalhista. Primeiro, o sistema lhe perguntará
+para entrar com o número de dispositivos ativos e o número de dispositivos
+reserva que formarão o MD. Após isto, você precisará selecionar através de uma
+lista de dispositivos RAID as que se tornarão ativas e então escolher as que
+serão reserva. O número de partições selecionadas deverá ser igual ao número
+especificado anteriormente. Não se preocupe. Se cometer algum erro e
+selecionar um número de partições diferente, o &d-i; não permitirá que você
+continue até que o problema seja corrigido.
+
+</para></listitem>
+<listitem><para>
+
+O RAID5 possui um procedimento de configuração similar ao RAID1, exceto
+que são necessárias pelo menos <emphasis>três</emphasis> partições ativas.
+
+</para></listitem>
+<listitem><para>
+
+O RAID6 possui um procedimento de configuração similar ao RAID1, exceto
+que são necessárias pelo menos <emphasis>quatro</emphasis> partições ativas.
+
+</para></listitem>
+<listitem><para>
+
+O RAID10 também possui um procedimento de configuração similar ao RAID1,
+exceto no modo expert. No modo expert, o &d-i; perguntará a você qual o
+layout. O layout tem duas partes. A primeira parte é o tipo de layout.
+Ele pode ser <literal>n</literal> (cópias próximas &ndash; <quote>near
+copies</quote>), <literal>f</literal> (cópias distantes &ndash; <quote>far
+copies</quote>) ou <literal>o</literal> (cópias <quote>offset</quote>). A
+segunda parte é o número de cópias que serão feitas dos dados. Deve haver
+no mínimo uma quantidade de dispositivos ativos para que todas as cópias
+possam ser distribuídas em discos diferentes.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+É perfeitamente possível ter diversos tipos de MD de uma só vez. Por
+exemplo, se tiver três discos rígidos de 200GB dedicados ao MD, cada um
+contendo duas partições de 100GB, você poderá combinar as primeiras
+partições em todos os três discos no RAID0 (uma partição rápida
+de 300GB para edição de vídeos) e usar as outras três partições
+(2 ativas e 1 reserva) para o RAID1 (uma partição mais confiável de
+100GB para armazenar o sistema de arquivos <filename>/home</filename>).
+
+</para><para>
+
+Após configurar os dispositivos MD conforme suas necessidades, selecione
+<guimenuitem>Finalizar</guimenuitem> <command>mdcfg</command> para
+retornar ao <command>partman</command> e criar sistemas de arquivos em seus
+novos dispositivos MD e especificar opções como pontos desmontagem.
+
+</para>
+   </sect3>

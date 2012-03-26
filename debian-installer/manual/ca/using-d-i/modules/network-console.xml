@@ -1,0 +1,133 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65801 -->
+
+  <sect2 id="network-console">
+  <title>Instal·lació a través de la xarxa</title>
+
+<para arch="not-s390">
+
+Un dels components més interessants és
+<firstterm>network-console</firstterm>. Permet realitzar una bona part
+de la instal·lació per xarxa, via SSH. L'ús de la xarxa implica
+que haureu de seguir els primers passos de la instal·lació des de la
+consola, almenys fins a tenir configurada la xarxa (tot i que podeu
+automatitzar també aquesta part, <xref linkend="automatic-install"/>).
+
+</para><para arch="not-s390">
+
+Aquest component no es carrega al menú principal de la instal·lació
+predeterminada, s'ha de fer explícitament.
+
+Si esteu instal·lant des de CD, haureu d'arrencar amb prioritat mitja o
+bé triar <guimenuitem>Carrega components de l'instal·lador des d'un
+CD</guimenuitem> al menú principal d'instal·lació, i seleccionar
+<guimenuitem>network-console: Continua la instal·lació remotament
+utilitzant SSH</guimenuitem> a la llista de components addicionals.
+
+</para><para arch="s390">
+
+Per a instal·lacions a &arch-title;, aquest és el mètode predeterminat
+després de configurar la xarxa.
+
+</para><para>
+
+<phrase arch="not-s390">Després de seleccionar aquesta nova entrada,
+haureu</phrase><phrase arch="s390">Haureu</phrase> d'introduir
+una contrasenya nova, que s'utilitzarà per connectar al sistema
+d'instal·lació i per a la seva confirmació. Això és tot. A
+continuació veureu una pantalla d'entrada que us instruirà a entrar
+remotament com a usuari <emphasis>installer</emphasis> i la contrasenya
+que acabeu de proporcionar. Un altre detall important que s'ha de tenir
+en compte en aquest punt és l'empremta digital del sistema. Caldrà
+transferir-la de manera segura a la persona encarregada de continuar amb
+la instal·lació remota.
+
+</para><para>
+
+Si decidiu continuar la instal·lació localment, sempre podeu prémer
+&enterkey;, que us tornarà al menú principal, on novament podreu
+seleccionar un altre component.
+
+</para><para>
+
+Tornem ara a l'altra banda del cable. En primer lloc, és necessari
+que configureu el vostre terminal per a UTF-8, ja que aquesta és la
+codificació que utilitza el sistema d'instal·lació. Si no ho feu,
+la instal·lació remota encara serà possible, però segurament certs
+diàlegs o caràcters no es visualitzaran correctament. Establir una
+connexió amb el sistema d'instal·lació és tan fàcil com teclejar:
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>ssh -l installer <replaceable>ordinador_a_instal·lar</replaceable></userinput>
+</screen></informalexample>
+
+On <replaceable>ordinador_a_instal·lar</replaceable> és el nom o
+l'adreça IP de l'ordinador que s'està instal·lant. Abans de fer
+l'entrada de debò, es mostrarà l'empremta digital del sistema remot,
+i haureu de confirmar que és correcta.
+
+</para><note><para>
+
+El servidor <command>ssh</command> de l'instal·lador no envia paquets
+<quote>keep-alive</quote> en la seva configuració predeterminada. En principi
+una connexió al sistema que s'està instal·lant hauria de mantenir-se oberta
+indefinidament. Tanmateix, en certes situacions &mdash; depenent de la
+configuració de la xarxa local &mdash; és possible que es perdi la connexió
+després d'un cert període d'inactivitat. Un cas típic en que això pot passar
+és quan hi ha algun tipus de NAT (<quote>Network Address Translation</quote>,
+traducció de l'adreça de xarxa) entre el client i el sistema que s'està
+instal·lant. Depenent del punt de la instal·lació en que es perdi la connexió,
+podreu continuar o no després de tornar a connectar.
+
+</para><para>
+
+Podeu evitar aquest tipus de desconnexions afegint l'opció
+<userinput>-o&nbsp;ServerAliveInterval=<replaceable>valor</replaceable></userinput>
+quan comenceu la connexió <command>ssh</command>, o afegint la mateixa opció
+al fitxer de configuració de l'<command>ssh</command>. Fixeu-vos, però, que en
+alguns casos afegir aquesta opció també pot <emphasis>causar</emphasis> la
+pèrdua de la connexió (per exemple, si els paquets <quote>keep-alive</quote>
+s'envien durant un breu tall de la xarxa, del qual <command>ssh</command>
+s'hauria recuperat altrament), així que només s'hauria d'utilitzar quan sigui
+necessari.
+
+</para></note>
+
+<note><para>
+
+Si instal·leu molts ordinadors alhora i casualment tenen la mateixa
+adreça IP o el mateix nom, <command>ssh</command> rebutjarà la
+connexió. El problema és que hi haurà empremtes digitals diferents
+per a un mateix identificador, fet que normalment s'interpreta com un
+atac. Si esteu segurs que no és el cas, esborreu la línia corresponent
+del fitxer <filename>~/.ssh/known_hosts</filename><footnote>
+
+<para>
+L'ordre següent esborrarà una entrada existent corresponent a un ordinador:
+<command>ssh-keygen -R &lt;<replaceable>nom</replaceable>|<replaceable>adreça&nbsp;IP</replaceable>&gt;</command>.
+</para>
+
+</footnote> i torneu a intentar-ho.
+
+</para></note><para>
+
+Després d'entrar, veureu la pantalla inicial, des d'on teniu dos
+possibilitats anomenades <guimenuitem>Inicia el menú</guimenuitem>
+i <guimenuitem>Inicia un intèrpret d'ordres</guimenuitem>. La primera
+us durà al menú principal de l'instal·lador, on podreu continuar la
+instal·lació normalment. L'altra, iniciarà un intèrpret d'ordres des
+del que podreu examinar, i potser arreglar, el sistema remot. Només
+hauríeu de començar una sessió SSH per al menú d'instal·lació,
+però podeu iniciar més intèrprets d'ordres.
+
+</para><warning><para>
+
+Després d'iniciar la instal·lació remotament sobre SSH, no hauríeu
+de tornar a la sessió que hi ha a la consola local. Podria corrompre's
+la base de dades que manté la configuració del nou sistema. Això
+pot provocar alhora problemes al sistema instal·lat, o fins i tot que
+la instal·lació no finalitzi correctament.
+
+</para></warning>
+
+  </sect2>

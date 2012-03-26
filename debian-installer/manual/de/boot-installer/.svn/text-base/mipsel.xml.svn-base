@@ -1,0 +1,57 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 59840 -->
+
+  <sect2 arch="mipsel" id="boot-tftp"><title>Per TFTP booten</title>
+
+   <sect3>
+   <title>TFTP-Boot von Cobalt-Systemen</title>
+<para>
+
+Genauer gesagt benutzt ein Cobalt-System nicht TFTP, sondern NFS zum
+Booten. Sie müssen einen NFS-Server installieren und die Dateien des
+Installers in <filename>/nfsroot</filename> ablegen. Wenn Sie Ihren Cobalt
+starten, müssen Sie die linke und rechte Pfeiltaste gleichzeitig gedrückt
+halten, so dass das System per Netzwerk vom NFS bootet. Es werden dann
+mehrere Optionen auf dem Bildschirm angezeigt. Es gibt die folgenden
+beiden Installationsmethoden:
+
+<itemizedlist>
+<listitem><para>
+
+Per SSH (Voreinstellung): in diesem Fall wird der Installer das Netzwerk
+per DHCP konfigurieren und einen SSH-Server starten. Auf dem Cobalt-LCD
+werden dann ein zufällig gewähltes Passwort und andere Login-Informationen
+(wie die IP-Adresse) angezeigt. Wenn Sie sich mittels eines SSH-Klients mit
+dem Rechner verbinden, können Sie mit der Installation beginnen.
+
+</para></listitem>
+<listitem><para>
+
+Per serieller Konsole: mit einem Nullmodem-Kabel können Sie sich mit dem
+seriellen Anschluss der Cobalt-Maschine verbinden (benutzen Sie eine
+Geschwindigkeit von 115200 bps) und die Installation auf diesem Wege
+durchführen.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect3>
+
+  </sect2>
+
+  <sect2 arch="mipsel"><title>Boot-Parameter</title>
+
+   <sect3>
+   <title>Cobalt TFTP-Boot</title>
+<para>
+
+Sie können keine Boot-Parameter direkt angeben. Sie müssen
+stattdessen in der Datei <filename>/nfsroot/default.colo</filename> auf dem
+NFS-Server Ihre Parameter zur Variable
+<replaceable>args</replaceable> hinzufügen.
+
+</para>
+  </sect3>
+
+  </sect2>

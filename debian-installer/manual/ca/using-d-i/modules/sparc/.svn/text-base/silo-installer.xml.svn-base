@@ -1,0 +1,24 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 24582 -->
+
+  <sect3 arch="sparc">
+  <title>Instal·lar el carregador <command>SILO</command> al disc dur</title>
+<para>
+
+El carregador estàndard a &architecture; es diu <quote>silo</quote>. La
+documentació és a <filename>/usr/share/doc/silo/</filename>. La
+configuració de <command>SILO</command> és semblant a la utilitzada al
+<command>LILO</command>, amb poques excepcions. Primer,
+<command>SILO</command> permet que arrenqueu qualsevol imatge del nucli
+al vostre disc, independentment si és o no a la llista que hi ha al
+<filename>/etc/silo.conf</filename>. Açò és perquè <command>SILO</command>
+pot llegir particions Linux. També llegeix el
+<filename>/etc/silo.conf</filename> quan s'arrenca, així que no necessiteu
+tornar a executar el <command>silo</command> després d'instal·lar un nou
+nucli com es faria amb el <command>LILO</command>. El
+<command>SILO</command> també pot llegir particions UFS, que vol dir que
+pot arrencar particions SunOS/Solaris. Açò és útil si voleu instal·lar
+GNU/Linux al costat d'una instal·lació existent de SunOS/Solaris.
+
+</para>
+  </sect3>

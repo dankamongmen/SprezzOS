@@ -1,0 +1,25 @@
+# This file contains architecture specific variables for
+# the 'i386' architecture
+# It is sourced by the build scripts
+
+archspec="i386;any-i386;x86;any-x86;not-s390;not-powerpc"
+arch_listname="boot"
+arch_porturl="i386"
+minimum_memory=56
+minimum_memory_gtk=100
+# These two options should be set if condition 'smp' is set below
+smp_config_section="Processor type and features"
+smp_config_option="Symmetric multi-processing support"
+
+# Options below are assembled into one variable 'condition'
+# in the build scripts
+fdisk="fdisk.txt;cfdisk.txt"
+network="supports-tftp;supports-bootp;supports-nfsroot"
+# For Lenny i386 does not have floppy images
+#boot="supports-floppy-boot;bootable-disk;bootable-usb"
+boot="bootable-disk;bootable-usb;isohybrid-supported"
+frontend="newt;gtk"
+other="supports-wireless;supports-pcmcia;supports-serial-console"
+smp="smp-alternatives"
+goodies="supports-lang-chooser"
+status="checked"

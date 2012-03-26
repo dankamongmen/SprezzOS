@@ -1,0 +1,75 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="sparc" id="sparc-cpus">
+  <title>Unterstützte CPUs und Mainboards</title>
+<para>
+
+Sparc-basierte Hardware ist in eine Reihe von verschiedenen Unterarchitekturen
+aufgeteilt, die durch einen der folgenden Namen identifiziert werden: sun4,
+sun4c, sun4d, sun4m, sun4u oder sun4v. Die folgende Liste beschreibt, welche
+Maschinen enthalten sind und welches Maße an Unterstützung für sie erwartet
+werden kann.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>sun4, sun4c, sun4d, sun4m</term>
+
+<listitem><para>
+
+Keine dieser 32-Bit Sparc-Unterarchitekturen (sparc32) wird unterstützt.
+Eine vollständige Liste, welche Maschinen zu diesen Unterarchitekturen
+gehören, finden Sie auf der
+<ulink url="http://en.wikipedia.org/wiki/SPARCstation">Wikipedia
+SPARCstation-Seite</ulink>.
+
+</para><para>
+
+Die letzte &debian;-Veröffentlichung, die sparc32 unterstützte, war Etch,
+aber auch lediglich für sun4m-Systeme. Die Unterstützung für die anderen
+32-Bit-Architekturen wurde bereits in früheren Veröffentlichungen
+beendet.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4u</term>
+
+<listitem><para>
+
+Diese Unterarchitektur enthält alle 64-Bit-Rechner (sparc64), die auf dem
+UltraSparc-Prozessor oder dessen Klonen basieren. Die meisten dieser Maschinen
+werden gut unterstützt, obwohl Sie bei manchen aufgrund von Firmware- oder
+Bootloader-Fehlern Probleme haben könnten, von CD zu booten (dieses Problem
+kann eventuell durch das Booten per Netzwerk (netboot) umgangen werden).
+Verwenden Sie den sparc64- oder sparc64-smp-Kernel für UP- beziehungsweise
+SMP-Konfigurationen.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4v</term>
+
+<listitem><para>
+
+Dies ist der letzte Neuzugang in der Sparc-Familie und enthält Maschinen,
+die auf den Niagara Multi-Core-CPUs basieren. Im Moment sind solche CPUs
+nur in T1000- und T2000-Servern von Sun verfügbar und sie werden gut
+unterstützt. Nutzen Sie den sparc64-smp-Kernel.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Beachten Sie, dass Fujitsu's sparc64-CPUs, die in der PRIMEPOWER-Server-Familie
+Verwendung finden, nicht unterstützt werden, da im Linux-Kernel die
+entsprechende Unterstützung fehlt.
+
+</para>
+  </sect2>

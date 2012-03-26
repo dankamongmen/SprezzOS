@@ -1,0 +1,182 @@
+<!-- $Id$ -->
+<!-- original version: 64829 -->
+
+   <sect3 id="apt-setup">
+   <title>Nastavení apt</title>
+
+<para>
+
+Uživatelé obvykle instalují balíky programem <command>apt-get</command>
+z balíku <classname>apt</classname>, případně některou nadstavbou
+typu <command>aptitude</command>
+nebo <command>synaptic</command><footnote><para>
+
+Ve skutečnosti balíky instaluje program na nižší úrovni:
+<command>dpkg</command>.  <command>dpkg</command> je podle potřeby
+volán z nástroje <command>apt-get</command>, který se stará o získání
+potřebných balíků ze sítě, CD nebo jiného zdroje a také o vyřešení
+závislostí mezi nimi.
+
+</para></footnote>. Pravdou je, že <command>aptitude</command> je již
+nějakou dobu upřednostňovaným nástrojem pro správu balíků a uživatelé
+si ji velmi rychle oblíbili pro její pokročilé funkce jako je hledání
+dle různých kritérií nebo interaktivní řešení závislostí.
+
+</para><para>
+
+Aby <command>aptitude</command> nebo <classname>apt</classname>
+věděli, odkud mají získávat balíky, musí se nastavit. S tím pomůže
+komponenta <command>apt-setup</command>, která výsledky svého snažení
+zapíše do souboru <filename>/etc/apt/sources.list</filename> a který
+můžete po instalaci prozkoumat a v případě potřeby upravit.
+
+</para><para>
+
+Instalujete-li s výchozí prioritou otázek, instalátor nastaví většinu
+věcí automaticky na základě typu instalace (síťová, CD/DVD) a dříve
+zodpovězených otázek. Jestliže jste například zavedli instalaci ze
+sítě, zvolili jako výchozí jazyk češtinu a neměnili nastavení zrcadla,
+použije se pravděpodobně síťový zdroj
+<ulink url="http://ftp.cz.debian.org">ftp.cz.debian.org</ulink>. Ve
+většině případů se automaticky přidá zrcadlo s bezpečnostními
+aktualizacemi a v případě stabilní verze distribuce také archiv
+služby <quote>volatile</quote>, která poskytuje novější verze rychle
+se měnících balíků, jako jsou vzory a pravidla pro antivirové a
+antispamové programy.
+
+</para><para>
+
+Při instalaci s nižší prioritou otázek (např. v expertním režimu)
+můžete rozhodovat o více nastaveních. Můžete si sami vybrat, zda
+budete používat bezpečnostní aktualizace a službu volatile a také zda
+chcete mít přístupné balíky ze sekcí <quote>contrib</quote>
+a <quote>non-free</quote>.
+
+</para>
+
+    <sect4 id="apt-setup-cdset">
+    <title>Instalace z více CD/DVD</title>
+
+<para>
+
+Instalujete-li z CD nebo DVD, které je součástí celé sady, instalátor
+se zeptá, zda chcete prozkoumat dodatečná CD/DVD. Pokud taková média
+máte, doporučujeme souhlasit, protože pak můžete jednoduše instalovat
+balíky na nich uložené.
+
+</para><para>
+
+Nemáte-li další média, nic se neděje &mdash; jejich použití není
+nutné. Nepoužijete-li ani síťové zrcadlo (další kapitola), znamená to
+pouze, že se nemusí nainstalovat všechny balíky z úloh, které si
+vyberete v příštím kroku.
+
+</para><note><para>
+
+Balíky jsou na médiích uloženy podle popularity, což znamená, že pro
+nejběžnější instalace postačí pouze několik prvních CD. Balíky z
+posledního CD využije jen velmi málo uživatelů.
+
+</para><para>
+
+To také znamená, že zakoupení nebo stažení a vypálení celé sady CD je
+jen plýtvání, protože většinu médií stejně nevyužijete. Ve většině
+případů je rozumné stáhnout nejvýše prvních 8 CD (často postačí první
+3) a případné další balíky instalovat z Internetu. Pro DVD platí něco
+podobného &mdash; jedno nebo dvě DVD pokryjí většinu potřeb.
+
+</para><para>
+
+Zjednodušeně se dá říci, že pro standardní desktopovou instalaci s
+prostředím GNOME stačí první 3 CD. Pro alternativní desktopová
+prostředí (KDE nebo Xfce) jsou zapotřebí další CD. První DVD lehce
+pokryje všechna tři desktopová prostředí.
+
+</para></note><para>
+
+Pořadí, ve kterém necháte média prozkoumat, nehraje žádnou roli. Je
+ovšem vhodné nechat prozkoumat média pouze ze stejné sady, protože tak
+předejdete potenciálním problémům se závislostmi balíků.
+
+</para>
+    </sect4>
+
+    <sect4 id="apt-setup-mirror">
+    <title>Používání síťového zrcadla</title>
+
+<para>
+
+Jednou z otázek, která se zobrazí téměř ve všech případech, je použití
+síťového zrcadla. Většinou stačí použít výchozí možnost, ale existuje
+několik výjimek.
+
+</para><para>
+
+Pokud <emphasis>neinstalujete</emphasis> z velkého CD nebo DVD,
+případně z obrazu velkého CD/DVD, měli byste použití síťového zrcadla
+povolit, protože jinak skončíte pouze s minimálním systémem. Máte-li
+pomalé internetové připojení je lepší v dalším kroku instalace
+<emphasis>nevybírat</emphasis> úlohu <literal>Desktopové
+prostředí</literal>.
+
+</para><para>
+
+Instalujete-li z jediného velkého CD nebo obrazu CD (ne DVD), není
+použití síťového zrcadla nutné, ale rozhodně je doporučované, protože
+CD obsahuje jen omezené množství balíků. Máte-li pomalé internetové
+připojení, je lepší zde síťové zrcadlo <emphasis>nevybírat</emphasis>
+a dokončit instalaci jenom s tím, co je na prvním CD. Další balíky pak
+můžete doinstalovat po skončení instalace ze svého nového systému.
+
+</para><para>
+
+Jestliže instalujete z DVD, nebo k instalaci používáte obraz DVD, je
+potřeba síťového zrcadla mnohem menší, protože všechny balíky potřebné
+pro základní instalaci by se měly nacházet na DVD. To stejné platí
+v případě, že použijete sadu několika CD.
+
+</para><para>
+
+Jednou z výhod použití síťového zrcadla je, že pokud od vytvoření
+médií vyšla nová minoritní verze &debian;u, automaticky získáte
+aktualizované balíky z novějších vydání (r1, r2, r3, &hellip;).
+Můžete tak prodloužit životnost médií bez obav o bezpečnost nebo
+stabilitu systému.
+
+</para><para>
+
+Stručně: s výjimkou pomalého internetového připojení je použití
+síťového zrcadla dobrý nápad. Bude-li stejná verze balíku k dispozici
+na síti i na CD/DVD, instalátor vždy použije balík z CD/DVD. Množství
+stažených dat závisí na:
+
+<orderedlist>
+<listitem><para>
+
+úlohách vybraných v dalším kroku
+
+</para></listitem>
+<listitem><para>
+
+balících, které jsou k dispozici na CD/DVD
+
+</para></listitem>
+<listitem><para>
+
+zda se na síťových zrcadlech vyskytují novější verze balíků, než jsou
+na CD/DVD (opravy závažných chyb, bezpečnostní aktualizace)
+
+</para></listitem>
+</orderedlist>
+
+</para><para>
+
+Poslední bod znamená, že i když použití zrcadla zakážete, je možné, že
+se z Internetu stáhnou balíky, ve kterých byla nalezena bezpečnostní
+chyba, nebo pro které existuje novější verze na službě
+<quote>volatile</quote> (za předpokladu, že jste použití těchto služeb
+také nezakázali).
+
+</para>
+</sect4>
+   </sect3>

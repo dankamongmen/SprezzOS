@@ -1,0 +1,54 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64740 -->
+
+<chapter id="boot-installer"><title>Das Installationssystem booten</title>
+
+<!-- Include only archs that are documented to avoid build-errors -->
+<!-- The arch="..." condition can be deleted when all archs are present -->
+ <sect1 arch="arm;any-x86;ia64;mips;mipsel;s390;powerpc;sparc">
+ <title>Starten des Installers auf &arch-title;-Systemen</title>
+
+<!-- This info is so architecture dependent, that I have turned the   -->
+<!-- structure inside out for this chapter. Each arch has a document. -->
+<!-- Note: arch hppa is currently missing -->
+
+<warning arch="any-x86;powerpc"><para>
+
+Falls Sie andere Betriebssysteme auf Ihrem Rechner haben und diese auch
+behalten möchten (Dual-Boot-System), sollten Sie sicherstellen, dass diese
+korrekt heruntergefahren wurden, <emphasis>bevor</emphasis> Sie den Installer
+starten.
+Ein Betriebssytem zu installieren, während ein anderes auf dem gleichen
+Rechner sich in eingefrorenem Zustand befindet (bei Windows Ruhezustand
+genannt; Inhalt des Arbeitsspeichers auf die Festplatte gesichert), könnte
+zum Verlust oder zu einer Beschädigung des gesicherten Zustandes führen,
+was Probleme beim Start (Wiederaufwecken) dieses Betriebssystems zur Folge
+haben könnte.
+
+</para></warning>
+<note condition="gtk"><para>
+
+Informationen darüber, wie Sie den grafischen Installer booten, finden Sie im
+<xref linkend="graphical"/>.
+
+</para></note>
+
+&boot-installer-arm.xml;
+<!-- &boot-installer-hppa.xml; -->
+&boot-installer-x86.xml;
+&boot-installer-ia64.xml;
+&boot-installer-mips.xml;
+&boot-installer-mipsel.xml;
+&boot-installer-s390.xml;
+&boot-installer-powerpc.xml;
+&boot-installer-sparc.xml;
+
+ </sect1>
+
+&boot-installer-accessibility.xml;
+&boot-installer-parameters.xml;
+&boot-installer-trouble.xml;
+
+</chapter>
+
+

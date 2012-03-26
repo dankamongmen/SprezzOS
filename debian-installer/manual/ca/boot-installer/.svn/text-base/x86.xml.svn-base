@@ -1,0 +1,450 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 62896 -->
+
+  <sect2 arch="any-x86"><title>Arrencada des d'un CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<!-- We'll comment the following section until we know exact layout -->
+<!--
+CD #1 of official &debian; CD-ROM sets for &arch-title; will present a
+<prompt>boot:</prompt> prompt on most hardware. Press
+<keycap>F4</keycap> to see the list of kernel options available
+from which to boot. Just type your chosen flavor name (idepci,
+vanilla, compact, bf24) at the <prompt>boot:</prompt> prompt
+followed by &enterkey;.
+
+</para><para>
+
+If your hardware doesn't support booting of multiple images, put one
+of the other CDs in the drive. It appears that most SCSI CD-ROM drives
+do not support <command>isolinux</command> multiple image booting, so users
+with SCSI CD-ROMs should try either CD2 (vanilla) or CD3 (compact),
+or CD5 (bf2.4).
+
+</para><para>
+
+CD's 2 through 5 will each boot a
+different ``flavor'' depending on which CD-ROM is
+inserted. See <xref linkend="kernel-choice"/> for a discussion of the
+different flavors. Here's how the flavors are laid out on the
+different CD-ROMs:
+
+<variablelist>
+<varlistentry>
+<term>CD 1</term><listitem><para>
+
+Allows a selection of kernel images to boot from (the idepci flavor is
+the default if no selection is made).
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 2</term><listitem><para>
+
+Boots the <quote>vanilla</quote> flavor.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 3</term><listitem><para>
+
+Boots the <quote>compact</quote> flavor.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 4</term><listitem><para>
+
+Boots the <quote>idepci</quote> flavor.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 5</term><listitem><para>
+
+Boots the <quote>bf2.4</quote> flavor.
+
+</para></listitem></varlistentry>
+
+ </variablelist>
+
+</para><para>
+
+-->
+
+  </sect2>
+  <sect2 arch="any-x86" id="boot-win32">
+  <title>Com arrancar des de Windows</title>
+<para>
+
+Per iniciar l'instal·lador des de Windows, primer heu d'aconseguir un 
+CD-ROM/DVD-ROM o un llapis de memòria USB tal com es descriu a
+<xref linkend="official-cdrom"/> i <xref linkend="boot-usb-files"/>.
+
+</para><para>
+
+Si utilitzeu un CD o un DVD d'instal·lació, es llançarà un programa d'instal·lació
+automàticament quan inseriu el disc.
+Si el Windows no l'engega automàticament, o si esteu utilitzant un llapis de
+memòria USB, podeu executar-lo manualment accedint al dispositiu i executant
+<command>setup.exe</command>.
+
+</para><para>
+
+Després d'engegar el programa, es faran unes poques qüestions preliminars i
+el sistema estarà ja preparat per iniciar l'instal·lador de &debian-gnu;
+
+</para>
+  </sect2>
+
+<!-- FIXME the documented procedure does not exactly work, commented out
+     until fixes
+
+  <sect2 arch="x86" id="install-from-dos">
+  <title>Booting from a DOS partition</title>
+
+&boot-installer-intro-hd.xml;
+
+<para>
+
+Boot into DOS (not Windows) without any drivers being loaded.  To do
+this, you have to press <keycap>F8</keycap> at exactly the right
+moment (and optionally select the <quote>safe mode command prompt only</quote>
+option).  Enter the subdirectory for the flavor you chose, e.g.,
+
+<informalexample><screen>
+cd c:\install
+</screen></informalexample>.
+
+Next, execute <command>install.bat</command>.
+The kernel will load and launch the installer system.
+
+</para><para>
+
+Please note, there is currently a loadlin problem (#142421) which
+precludes <filename>install.bat</filename> from being used with the
+bf2.4 flavor. The symptom of the problem is an
+<computeroutput>invalid compressed format</computeroutput> error.
+
+</para>
+  </sect2>
+
+END FIXME -->
+
+  <sect2 arch="x86" id="boot-initrd">
+  <title>Arrencada des del Linux utilitzant el <command>LILO</command> o
+         el <command>GRUB</command></title>
+
+<para>
+
+Per arrencar l'instal·lador des d'un disc dur, primer heu de baixar
+els fitxers necessaris tal i com es descriu a
+<xref linkend="boot-drive-files"/>.
+
+</para>
+
+<para>
+
+Si voleu utilitzar el disc dur únicament per a l'arrencada i voleu
+baixar-ho tot des de la xarxa, hauríeu de baixar el fitxer
+<filename>netboot/debian-installer/&architecture;/initrd.gz</filename> i
+el nucli corresponent
+<filename>netboot/debian-installer/&architecture;/linux</filename>.
+Us permetrà tornar a partir el disc dur del qual heu arrencat
+l'instal·lador, tot i això, ho hauríeu de fer amb molt de compte.
+
+</para>
+
+<para>
+
+Si durant la instal·lació preteneu mantenir sense modificacions una
+partició existent al disc dur, podeu baixar el fitxer
+<filename>hd-media/initrd.gz</filename> i el nucli corresponent, i
+també copiar una imatge iso del CD o DVD al dispositiu (assegureu-vos
+que el nom del fitxer acaba amb <literal>.iso</literal>). En aquest
+cas l'instal·lador pot arrencar del dispositiu i instal·lar des de
+la imatge del CD o DVD sense necessitar la xarxa.
+
+</para>
+
+<para>
+
+Per utilitzar el <command>LILO</command> haureu de configurar
+dos punts essencials del fitxer <filename>/etc/lilo.conf</filename>:
+
+<itemizedlist>
+<listitem><para>
+
+carregar l'instal·lador <filename>initrd.gz</filename> a l'arrencada;
+
+</para></listitem>
+<listitem><para>
+
+obligar al nucli <filename>vmlinuz</filename> a utilitzar un disc
+de RAM com a partició arrel.
+
+</para></listitem>
+</itemizedlist>
+
+A continuació trobareu un exemple del fitxer
+<filename>/etc/lilo.conf</filename>:
+
+</para><para>
+
+<informalexample><screen>
+image=/boot/newinstall/vmlinuz
+       label=newinstall
+       initrd=/boot/newinstall/initrd.gz
+</screen></informalexample>
+
+Per a més informació vegeu les pàgines del manual
+<citerefentry><refentrytitle>initrd</refentrytitle>
+<manvolnum>4</manvolnum></citerefentry> i
+<citerefentry><refentrytitle>lilo.conf</refentrytitle>
+<manvolnum>5</manvolnum></citerefentry>. Executeu l'ordre
+<userinput>lilo</userinput> i reinicieu el sistema.
+
+</para><para>
+
+El procediment pel <command>GRUB</command> és similar. Cerqueu el fitxer
+<filename>menu.lst</filename> al directori <filename>/boot/grub/</filename>
+(en algunes ocasions <filename>/boot/boot/grub/</filename>) i afegiu-hi
+una entrada per a l'instal·lador, per exemple (assumint que
+<filename>/boot</filename> es troba a la primera partició del primer
+disc del sistema):
+
+<informalexample><screen>
+title  New Install
+root   (hd0,0)
+kernel /boot/newinstall/vmlinuz
+initrd /boot/newinstall/initrd.gz
+</screen></informalexample>
+
+</para><para>
+A partir d'aquí no hi hauria
+d'haver cap diferència entre el <command>GRUB</command> i el
+<command>LILO</command>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="any-x86" condition="bootable-usb" id="usb-boot">
+  <title>Arrencada des d'un llapis USB</title>
+<para>
+
+S'assumeix que heu seguit els passos descrits a
+<xref linkend="boot-dev-select"/> i <xref linkend="boot-usb-files"/>.
+Només heu de connectar el llapis USB a algun connector USB lliure i
+reiniciar l'ordinador. El sistema s'hauria d'arrencar i us hauria
+d'aparèixer l'indicador <prompt>boot:</prompt>. Podeu introduïr-hi
+els paràmetres d'arrencada opcionals o únicament prémer &enterkey;
+
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" condition="supports-floppy-boot" id="floppy-boot">
+  <title>Arrencada des dels disquets</title>
+<para>
+
+Haureu d'haver descarregat les imatges del disquet i haver-ne
+creat els disquets corresponents segons <xref linkend="create-floppy"/>.
+<!-- missing-doc FIXME If you need to, you can also modify the boot floppy; see
+<xref linkend="rescue-replace-kernel"/>. -->
+
+</para><para>
+
+Per arrencar des del disquet d'arrencada instal·lador, introduïu-lo
+a la disquetera, atureu el sistema i torneu-lo a engegar.
+
+</para><para>
+
+Per instal·lar des d'una unitat LS-120 (versió ATAPI) utilitzant
+un conjunt de disquets, heu d'especificar la ubicació virtual de la
+disquetera. Ho podeu fer a través del paràmetre d'arrencada
+<emphasis>root=</emphasis>, especificant que el controlador de la
+disquetera-ide mapeja el dispositiu. Per exemple, si la unitat LS-120
+està connectada al primer dispositiu IDE (master) del segon cable,
+hauríeu d'introduir <userinput>install root=/dev/hdc</userinput> a
+l'indicador d'arrencada.
+
+</para><para>
+
+Recordeu que en alguns ordinadors la combinació
+<keycombo><keycap>Control</keycap>
+<keycap>Alt</keycap> <keycap>Delete</keycap></keycombo>
+no reinicia correctament l'ordinador i es recomana
+reiniciar-lo manualment. Si ho esteu instal·lant des d'un sistema
+operatiu existent (ex. des d'un DOS) teniu l'opció. Si no és el cas
+reinicieu-lo manualment durant l'arrencada.
+
+</para><para>
+
+S'hauria d'accedir al disquet i hauria d'aparèixer una pantalla
+relacionada amb el disquet d'arrencada i que acaba amb
+l'indicador <prompt>boot:</prompt>.
+
+</para><para>
+
+Al prémer &enterkey; hauríeu de veure el missatge
+<computeroutput>Loading...</computeroutput>, seguit de
+<computeroutput>Uncompressing Linux...</computeroutput>, i
+a continuació una pàgina amb la informació del maquinari del sistema.
+Per a més informació d'aquesta fase del procés d'arrencada vegeu
+<xref linkend="kernel-msgs"/>.
+
+</para><para>
+
+Un cop arrencat des del disquet d'arrencada se us sol·licitarà
+el disquet arrel. Inseriu el disquet arrel i premeu &enterkey;,
+seguidament es carregaran els continguts a la memòria.
+El programa instal·lador <command>debian-installer</command>
+s'iniciarà automàticament. 
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" id="boot-tftp"><title>Arrencada amb el TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+Hi ha diversos mètodes per a arrencar via TFTP en i386.
+
+</para>
+
+   <sect3><title>Targeta de xarxa o placa mare que suporta PXE</title>
+<para>
+
+És possible que la vostra targeta de xarxa o la placa mare proporcionin
+la possibilitat d'arrencada via PXE. Es tracta d'una reimplementació
+d'<trademark class="trade">Intel</trademark> de l'arrencada via TFTP.
+Si és el vostre cas, podeu configurar la BIOS perquè arrenqui via la
+xarxa.
+
+</para>
+   </sect3>
+
+   <sect3><title>Targeta de xarxa amb una ROM d'arrencada via xarxa</title>
+<para>
+
+És possible que la vostra targeta de xarxa proporcioni la possibilitat
+d'arrencar via TFTP.
+
+</para><para condition="FIXME">
+
+Informeu-nos (<email>&email-debian-boot-list;</email>) de com us ha anat.
+
+</para>
+   </sect3>
+
+   <sect3><title>Etherboot</title>
+<para>
+
+El <ulink url="http://www.etherboot.org">projecte etherboot</ulink>
+proporciona disquets d'arrencada i fins hi tot roms d'arrencada
+que permeten l'arrencada via TFTP.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="x86" id="boot-screen">
+  <title>L'indicador d'arrencada</title>
+<para>
+
+Quan arrenqui l'instal·lador us apareixerà una pantalla gràfica
+amigable mostrant el logotip de &debian; i un menú:
+
+<informalexample><screen>
+Installer boot menu
+
+Install
+Graphical install
+Advanced options       >
+Help
+
+Press ENTER to boot or TAB to edit a menu entry
+</screen></informalexample>
+
+Depenent del mètode d'instal·lació que esteu utilitzant, la opció <quote>Graphical install</quote> podria no estar disponible.
+
+</para><para>
+
+Per una instal·lació normal, seleccioneu <quote>Install</quote> o bé l'entrada
+<quote>Graphical install</quote> &mdash; utilitzant les tecles de desplaçament
+o escrivint la primera lletra (ressaltada) &mdash; i prement &enterkey;
+a l'arrencada de l'instal·lador.
+
+</para><para>
+
+La entrada <quote>Advanced options</quote> dona accés a un segon menú que
+permet arrencar l'instal·lador en mode expert, en mode rescat i per 
+instal·lacions automatitzades.
+
+</para><para>
+
+Si voleu o necessiteu afegir paràmetres d'arrencada a l'instal·lador o al nucli,
+premeu &tabkey;. Açò mostrarà l'ordre per defecte d'arrencada de l'entrada de
+menú que tingueu seleccionada i us permetrà afegir opcions addicionals. Les
+pantalles d'ajuda (vegeu més avall) us mostren les opcions possibles més 
+habituals. Premeu &enterkey; per arrencar l'instal·lador amb les vostres opcions;
+si premeu &escapekey; tornareu al menú d'arrencada i es desfaran els canvis
+realitzats.
+
+</para><para>
+
+Si trieu l'entrada <quote>Help</quote> us mostrarà la primera pantalla d'ajuda
+que dona una visió general de totes les pantalles d'ajuda.
+Fixeu-vos que no és possible tornar al menú d'haver mostrat les pantalles
+d'ajuda. Per altra banda, la llista d'ordres de les pantalles d'ajuda F3 i F4
+són equivalents als mètodes d'arrencada que es mostren en el menú. Totes les
+pantalles d'ajuda tenen un indicador d'arrencada on podeu escriure l'ordre 
+d'arrencada :
+
+<informalexample><screen>
+Press F1 for the help index, or ENTER to boot:
+</screen></informalexample>
+
+En aquest punt podeu prémer &enterkey; per arrencar l'instal·lador amb les
+opcions per defecte, o bé introduir una ordre d'arrencada específica i,
+opcionalment, paràmetres d'arrencada addicionals. Podeu trobar alguns
+paràmetres d'arrencada prou comuns a les diferents pantalles d'ajuda. Si
+afegiu algun paràmetre a la línia d'ordres d'arrencada, recordeu escriure
+primer el mètode (per defecte és <userinput>install</userinput>) i un espai
+abans del primer paràmetre (p.e, <userinput>install fb=false</userinput>).
+
+<note><para>
+
+En aquest moment, el teclat per defecte és l'anglès americà. Açò vol dir
+que si el vostre teclat té una disposició diferent (específica d'un idioma),
+els caràcters que apareixen a la pantalla poden ser diferents dels que 
+esperàveu escriure. La Wikipedia té un <ulink url="&url-us-keymap;">esquema de
+teclat US</ulink> que es pot utilitzar com a referència per trobar les tecles
+correctes.
+ 
+</para></note>
+<note><para>
+
+Si utilitzeu un sistema que té la BIOS configurada per utilitzar la consola sèrie, 
+podria passar que no poguéreu vore la pantalla inicial d'arrencada fins que no
+tingueu l'instal·lador arrencat; podria ser que no veiéreu ni el menú 
+d'arrencada. El mateix pot passar quan esteu arrencant el sistema amb un 
+dispositiu de gestió remota que done una interfície de text a la consola VGA.
+Alguns exemples d'aquests dispositius són la consola text de Compaq 
+<quote>integrated Lights Out</quote> (iLO) i el 
+<quote>Integrated Remote Assistant</quote> d'HP (IRA).
+
+</para><para>
+
+Per a saltar-vos la pantalla gràfica d'arrencada podeu prémer a cegues 
+&escapekey; per obtenir un indicador d'arrencada en mode text o (igualment a
+cegues) prémer <quote>H</quote> seguit de &enterkey; per seleccionar l'opció 
+d'ajuda descrita abans. Després d'això les pulsacions de tecles es
+mostraran a l'indicador. Per a deshabilitar el framebuffer per a la resta de
+la instal·lació, haureu d'afegir també
+<userinput>vga=normal fb=false</userinput> a l'indicador
+d'arrencada com descriu el text d'ajuda.
+
+</para></note>
+</para>
+
+  </sect2>

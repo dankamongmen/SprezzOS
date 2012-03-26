@@ -1,0 +1,140 @@
+<!-- $Id: partition-programs.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+ <sect1 id="partition-programs">
+ <title>Dělící programy v &debian;u</title>
+<para>
+
+K rozdělení disku nabízí každá architektura různé programy.
+Pro váš typ počítače jsou k dispozici:
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term><command>partman</command></term>
+<listitem><para>
+
+Doporučený nástroj, který umí kromě dělení disků i měnit velikost
+oblastí, vytvářet souborové
+systémy <phrase arch="any-x86"> (v řeči Windows
+<quote>formátovat</quote>) </phrase> a přiřadit je k přípojným bodům.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdisk.txt">
+<term><command>fdisk</command></term>
+<listitem><para>
+
+Původní linuxový program pro správu oddílů, vhodný pro guru.
+
+</para><para>
+
+Obzvláště opatrní musíte být v případě, že máte na disku oblasti
+systému FreeBSD. Instalační jádra sice obsahují podporu pro tyto
+oblasti, ale způsob, jakým je <command>fdisk</command>
+(ne)reprezentuje, může změnit názvy zařízení. Viz
+<ulink url="&url-linux-freebsd;">Linux+FreeBSD HOWTO</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="cfdisk.txt">
+<term><command>cfdisk</command></term>
+<listitem><para>
+
+Jednoduchý, celoobrazovkový program pro správu oddílů se
+vyznačuje snadným ovládáním.
+
+</para><para>
+
+Poznamenejme, že <command>cfdisk</command> oblasti FreeBSD nerozpozná
+vůbec a tím pádem se názvy zařízení mohou změnit.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="atari-fdisk.txt">
+<term><command>atari-fdisk</command></term>
+<listitem><para>
+
+Atari verze programu <command>fdisk</command>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="amiga-fdisk.txt">
+<term><command>amiga-fdisk</command></term>
+<listitem><para>
+
+Amiga verze programu <command>fdisk</command>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="mac-fdisk.txt">
+<term><command>mac-fdisk</command></term>
+<listitem><para>
+
+Mac verze programu <command>fdisk</command>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="pmac-fdisk.txt">
+<term><command>pmac-fdisk</command></term>
+<listitem><para>
+
+PowerMac verze programu <command>fdisk</command>, používá se i pro
+systémy BVM a Motorola VMEbus.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdasd.txt">
+<term><command>fdasd</command></term>
+<listitem><para>
+
+&arch-title; verze programu <command>fdisk</command>. Popis naleznete
+v manuálové stránce programu fdasd nebo ve 13. kapitole dokumentu
+<ulink url="http://oss.software.ibm.com/developerworks/opensource/linux390/docu/l390dd08.pdf">
+Device Drivers and Installation Commands</ulink>.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Jeden z těchto programů se spustí automaticky, když vyberete krok
+<guimenuitem>Rozdělit disky</guimenuitem> (nebo podobný). Teoreticky
+je možné přepnout se na druhou konzoli (<userinput>tty2</userinput>)
+a použít jiný nástroj na dělení disku, avšak prakticky se to
+nedoporučuje.
+
+</para><para arch="any-x86">
+
+Nezapomeňte označit zaváděcí oddíl jako <quote>aktivní</quote>
+(bootable).
+
+</para><para condition="mac-fdisk.txt">
+
+Důležité je, že na macintoshích discích je odkládací oblast
+rozpoznána svým jménem: musí být nazvána <quote>swap</quote>.
+Všechny linuxové oblasti na macintoshích používají stejný typ oblasti
+Apple_UNIX_SRV2. Další užitečné čtení je
+<ulink url="&url-mac-fdisk-tutorial;">mac-fdisk Tutorial</ulink>,
+kde je krok za krokem popsán způsob sdílení disku s MacOS.
+
+</para>
+
+&partition-hppa.xml;
+&partition-x86.xml;
+&partition-ia64.xml;
+&partition-mips.xml;
+&partition-powerpc.xml;
+&partition-sparc.xml;
+
+ </sect1>

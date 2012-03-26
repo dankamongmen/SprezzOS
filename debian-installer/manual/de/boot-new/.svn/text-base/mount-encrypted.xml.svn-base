@@ -1,0 +1,193 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56326 -->
+
+ <sect1 id="mount-encrypted-volumes">
+ <title>Verschlüsselte Dateisysteme einbinden</title>
+
+<para>
+
+Wenn Sie während der Installation verschlüsselte Dateisysteme erstellt
+haben und diesen Einhängepunkte zugewiesen haben, werden Sie während des
+Startvorgangs aufgefordert, für jedes der Dateisysteme die korrekte Passphrase
+einzugeben. Die aktuelle Vorgehensweise unterscheidet sich geringfügig
+zwischen dm-crypt und loop-AES.
+
+</para>
+
+  <sect2 id="mount-dm-crypt">
+  <title>dm-crypt</title>
+
+<para>
+
+Für Partitionen, die mittels dm-crypt verschlüsselt sind, wird der
+folgende Prompt während des Bootens angezeigt:
+
+<informalexample><screen>
+Starting early crypto disks... <replaceable>part</replaceable>_crypt(starting)
+Enter LUKS passphrase:
+</screen></informalexample>
+
+Dabei entspricht hier das <replaceable>part</replaceable> in der ersten Zeile
+dem Namen der darunter liegenden Partition, z.B. sda2 oder md0.
+Jetzt fragen Sie sich vielleicht,
+<emphasis>für welches Dateisystem</emphasis> Sie eigentlich die Passphrase
+eingeben sollen. Geht es hier jetzt um <filename>/home</filename>?
+Oder vielleicht um <filename>/var</filename>? Wenn Sie nur ein
+verschlüsseltes Dateisystem haben, ist dies natürlich simpel und Sie
+können einfach die Passphrase eingeben, die Sie bei der Erstellung
+des Dateisystems benutzt haben. Haben Sie aber mehrere erstellt, sind
+die Notizen praktisch, die Sie sich im letzten Schritt von
+<xref linkend="partman-crypto"/> aufgeschrieben haben. Wenn Sie sich
+nicht notiert haben, wie die verschlüsselten Partitionen
+(<filename><replaceable>part</replaceable>_crypt</filename>) auf die
+Einhängepunkte abgebildet sind, finden Sie diese Infos auch in
+<filename>/etc/crypttab</filename> und
+<filename>/etc/fstab</filename> Ihres neuen Systems.
+
+</para><para>
+
+Der Prompt während des Bootens könnte ein wenig anders aussehen, während ein
+verschlüsseltes Root-Dateisystem eingebunden wird. Dies hängt davon ab, welcher
+initramfs-Generator verwendet wurde, um die zum Starten des Systems nötige
+initrd (Initial-Ram-Disk) zu erzeugen. Das folgende Beispiel gilt für eine
+initrd, die mittels <classname>initramfs-tools</classname> generiert wurde:
+
+<informalexample><screen>
+Begin: Mounting <emphasis>root file system</emphasis>... ...
+Begin: Running /scripts/local-top ...
+Enter LUKS passphrase:
+</screen></informalexample>
+
+</para><para>
+
+Es werden keinerlei Zeichen (nicht einmal Sternchen) angezeigt, während
+Sie die Passphrase eingeben. Wenn Sie eine falsche Passphrase
+eingeben, haben Sie noch zwei weitere Versuche, dies zu korrigieren. Nach
+dem dritten Versuch überspringt der Boot-Prozess den Schritt und fährt
+mit dem Einbinden des nächsten Dateisystems fort. Weitere Informationen
+hierzu finden Sie im <xref linkend="crypto-troubleshooting"/>.
+
+</para><para>
+
+Nachdem Sie alle Passphrasen eingegeben haben, sollte der
+Boot-Prozess wie üblich fortgesetzt werden.
+
+</para>
+  </sect2>
+
+  <sect2 id="mount-loop-aes">
+  <title>loop-AES</title>
+
+<para>
+
+Für Partitionen, die via loop-AES verschlüsselt sind, wird der
+folgende Prompt während des Bootens angezeigt:
+
+<informalexample><screen>
+Checking loop-encrypted file systems.
+Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</replaceable>)
+Password:
+</screen></informalexample>
+
+</para><para>
+
+Es werden keinerlei Zeichen (nicht einmal Sternchen) angezeigt, während
+Sie die Passphrase eingeben. Wenn Sie eine falsche Passphrase
+eingeben, haben Sie noch zwei weitere Versuche, dies zu korrigieren. Nach
+dem dritten Versuch überspringt der Boot-Prozess den Schritt und fährt
+mit dem Einbinden des nächsten Dateisystems fort. Weitere Informationen
+hierzu finden Sie im <xref linkend="crypto-troubleshooting"/>.
+
+</para><para>
+
+Nachdem Sie alle Passphrasen eingegeben haben, sollte der
+Boot-Prozess wie üblich fortgesetzt werden.
+
+</para>
+  </sect2>
+
+  <sect2 id="crypto-troubleshooting">
+  <title>Fehlersuche und -behebung</title>
+
+<para>
+
+Falls eines der Dateisysteme nicht eingebunden werden konnte, weil eine
+falsche Passphrase eingegeben wurde, müssen Sie es nach dem Systemstart
+manuell einbinden. Es gibt unterschiedliche Situationen:
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+Die erste betrifft die Root-Partition. Wenn diese nicht korrekt eingebunden
+werden konnte, stoppt der Boot-Prozess und Sie müssen den Rechner neu
+starten, um den nächsten Versuch machen zu können.
+
+</para></listitem>
+<listitem><para>
+
+Der einfachste Fall ist der, wenn verschlüsselte Dateisysteme
+<filename>/home</filename> oder <filename>/srv</filename>
+beherbergen. Diese können Sie nach dem Systemstart manuell einbinden.
+Bei loop-AES ist dies mit einem Schritt erledigt:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
+<prompt>Password:</prompt>
+</screen></informalexample>
+
+... wobei <replaceable>/mount_point</replaceable> durch den entsprechenden
+Verzeichnisnamen (z.B. <filename>/home</filename>) ersetzt werden muss. 
+Der einzige Unterschied zu einer normalen mount-Aktion ist, dass Sie
+nach der Passphrase für das Dateisystem gefragt werden.
+
+</para><para>
+
+Bei dm-crypt ist dies ein bisschen verzwickter. Sie müssen zunächst
+die Dateisysteme mit dem <application>device mapper</application>
+registrieren, indem Sie Folgendes ausführen:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>
+</screen></informalexample>
+
+Dadurch werden alle Dateisysteme überprüft, die in
+<filename>/etc/crypttab</filename> aufgeführt sind, und es werden
+entsprechende Gerätedateien im <filename>/dev</filename>-Verzeichnis
+erzeugt, wenn die korrekte Passphrase eingegeben wurde. (Bereits
+eingebundene Dateisysteme werden übersprungen, so dass Sie diesen
+Befehl ohne Sorge mehrfach hintereinander ausführen können.) Nach
+erfolgreicher Registrierung können Sie die Dateisysteme ganz normal
+einbinden:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
+</screen></informalexample>
+
+</para></listitem>
+<listitem><para>
+
+Falls Dateisysteme, welche unkritische Systemdateien beinhalten, beim
+Start nicht eingebunden werden konnten (wie <filename>/usr</filename>
+oder <filename>/var</filename>), sollte das System trotzdem booten
+und Sie müssten die Dateisysteme wie oben beschrieben manuell einbinden
+können. Allerdings werden Sie wohl alle Dienste (neu) starten müssen,
+die normalerweise beim Wechsel in den Standard-Runlevel bei Ihnen aktiviert
+werden, da sie wahrscheinlich nicht erfolgreich gestartet werden konnten.
+Der einfachste Weg, dies zu bewerkstelligen ist, in den ersten Runlevel
+zu wechseln und wieder zurück, indem Sie 
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>init 1</userinput>
+</screen></informalexample>
+
+am Shell-Prompt eingeben und dann, wenn nach dem root-Passwort gefragt wird,
+drücken Sie <keycombo> <keycap>Strg</keycap>
+<keycap>D</keycap> </keycombo>.
+
+</para></listitem>
+</itemizedlist>
+
+  </sect2>
+ </sect1>

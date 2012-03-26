@@ -1,0 +1,269 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56248 -->
+<!-- updated 33886:56248 by Felipe Augusto van de Wiel (faw) 2008.11.10 -->
+
+  <sect2 arch="powerpc" id="boot-cd"><title>Inicializando através de um CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<para>
+
+Atualmente, as únicas sub-arquiteturas &arch-title; que dão suporte à
+inicialização através de CD-ROM são a PReP (embora não sejam todos os
+sistemas) e as máquinas New World PowerMac. Nas máquinas PowerMac, segure
+pressionada a tecla <keycap>c</keycap> ou então a combinação de
+<keycap>Command</keycap>, <keycap>Option</keycap>, <keycap>Shift</keycap> e
+<keycap>Delete</keycap> juntas enquanto inicializa para inicializar pelo
+CD-ROM.
+
+</para><para>
+
+Máquinas PowerMac OldWorld não inicializarão usando um CD do &debian;, porque
+os computadores OldWorld confiam que o driver de inicialização Mac OSR OM
+esteja presente no CD e uma versão em software livre deste driver não está
+disponível. Todos os sistemas OldWorld possuem unidades de disquetes,
+portanto, use o disquete para iniciar o programa de instalação e aponte o
+instalador para o CD para os arquivos necessários.
+
+</para><para>
+
+Se seu sistema não inicializar diretamente a partir de um CD-ROM, você
+ainda poderá usar o CD-ROM para instalar o sistema. Em máquinas NewWorld,
+você também poderá usar um comando do OpenFirmware para inicializar
+manualmente através de uma unidade de CD-ROM. Siga as instruções em
+<xref linkend="boot-newworld"/> para inicializar através de um disco rígido,
+mas use o caminho para o <command>yaboot</command> no CD no prompt OF, tal
+como
+
+<informalexample><screen>
+0 &gt; boot cd:,\install\yaboot
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 arch="powerpc" id="install-drive">
+  <title>Inicializando a partir do Disco Rígido</title>
+
+&boot-installer-intro-hd.xml;
+
+<!--
+  <sect3><title>Inicializando o CHRP a partir do OpenFirmware</title>
+
+<para>
+
+  <emphasis>Ainda não escrito.</emphasis>
+
+</para>
+   </sect3>
+-->
+
+   <sect3><title>Inicializando máquinas PowerMac OldWorld através do MacOS</title>
+<para>
+
+Se você configurou o BootX em <xref linkend="files-oldworld"/>, você
+poderá usá-lo para inicializar o sistema de instalação. Dê um clique
+duplo no ícone da aplicação <guiicon>BootX</guiicon>. Clique no botão
+<guibutton>Options</guibutton> e selecione <guilabel>Use Specified RAM
+Disk</guilabel>. Isto lhe dará a chance de selecionar o arquivo
+<filename>ramdisk.image.gz</filename>. Talvez você precise selecionar a
+caixa de checagem <guilabel>No Video Driver</guilabel>, dependendo do
+seu hardware. Então clique no botão <guibutton>Linux</guibutton> para
+desligar o MacOS e carregar o programa de instalação.
+
+</para>
+   </sect3>
+
+
+  <sect3 id="boot-newworld">
+  <title>Inicializando máquinas Mac NewWorld a partir do OpenFirmware</title>
+<para>
+
+Você já terá colocado os arquivos <filename>vmlinux</filename>,
+<filename>initrd.gz</filename>, <filename>yaboot</filename> e
+<filename>yaboot.conf</filename> no diretório raiz da partição HFS como
+descrito em <xref linkend="files-newworld"/>.
+Agora, você terá que inicializar no OpenFirmware
+(veja <xref linkend="invoking-openfirmware"/>).
+No prompt, digite:
+
+<informalexample><screen>
+0 &gt; boot hd:<replaceable>x</replaceable>,yaboot
+</screen></informalexample>
+
+trocando <replaceable>x</replaceable> pelo número da partição HFS
+onde os arquivos kernel e o yaboot estão localizados, seguidos por
+um &enterkey;. Em algumas máquinas, você poderá usar
+<userinput>ide0:</userinput> ao invés de <userinput>hd:</userinput>.
+Após mais alguns segundos você verá o prompt de comandos do yaboot
+
+<informalexample><screen>
+boot:
+</screen></informalexample>
+
+No prompt de comandos <prompt>boot:</prompt> do yaboot, você poderá digitar
+<userinput>install</userinput> ou <userinput>install video=ofonly</userinput>
+seguido de um &enterkey;. O argumento <userinput>video=ofonly</userinput>
+é para compatibilidade máxima; você poderá tentá-lo caso o
+<userinput>install</userinput> não funcione. O programa de instalação
+da &debian; também deverá iniciar.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="powerpc" condition="bootable-usb" id="usb-boot">
+  <title>Inicialização a partir de pendrive USB</title>
+<para>
+
+Atualmente, máquinas PowerMac NewWorld possuem suporte à
+inicialização através de USB.
+
+</para>
+
+<para>
+
+Tenha certeza de ter preparado tudo de acordo com <xref
+linkend="boot-usb-files"/>. Para inicializar em um sistema
+Macintosh através de um pendrive USB, você precisará usar o prompt do
+Open Firmware, pois o Open Firmware não pesquisa em dispositivos de
+armazenamento USB por padrão.
+<!-- TODO: embora isto possa ser feito; observe este espaço -->
+Veja <xref linkend="invoking-openfirmware"/>.
+
+</para><para>
+
+Você precisará alterar o local onde o dispositivo de armazenamento USB
+aparece na árvore de dispositivos, pois no momento o <command>ofpath</command>
+não pode descobrir isso automaticamente. Digite
+<userinput>dev / ls</userinput> e <userinput>devalias</userinput> no prompt
+do Open Firmware para obter uma lista de todos os dispositivos conhecidos
+e apelidos de cada um. No sistema do autor com vários tipos de pendrive USB,
+caminhos como <filename>usb0/disk</filename>,
+<filename>usb0/hub/disk</filename>,
+<filename>/pci@f2000000/usb@1b,1/disk@1</filename> e
+<filename>/pci@f2000000/usb@1b,1/hub@1/disk@1</filename> funcionam.
+
+</para><para>
+
+Tendo descoberto o caminho do dispositivo, use um comando como este
+para inicializar o instalador:
+
+<informalexample><screen>
+boot <replaceable>usb0/disk</replaceable>:<replaceable>2</replaceable>,\\:tbxi
+</screen></informalexample>
+
+O <replaceable>2</replaceable> bate com a partição Apple_HFS ou
+Apple_Bootstrap na qual você copiou a imagem de inicialização
+anteriormente e a parte <userinput>,\\:tbxi</userinput> instrui o
+Open Firmware para inicializar através do arquivo com <quote>tbxi</quote>
+como tipo do arquivo HFS (i.e. <command>yaboot</command>) no diretório
+anteriormente abençoado com o <command>hattrib -b</command>.
+
+</para><para>
+
+O sistema deverá inicializar agora, e será apresentado a você um prompt
+<prompt>boot:</prompt>. Aqui você poderá entrar com parâmetros de
+inicialização ou simplesmente pressionar &enterkey;.
+
+</para><warning><para>
+
+Este método de inicialização é novo e pode ser difícil para fazê-lo
+funcionar em sistemas NewWorld. Se tiver problemas, por favor, envie um
+relatório de instalação como explicado em <xref linkend="submit-bug"/>.
+
+</para></warning>
+  </sect2>
+
+  <sect2 arch="powerpc" id="boot-tftp"><title>Inicializando com o TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+Atualmente, sistemas PReP e PowerMac New World suportam a inicialização
+através da rede.
+
+</para><para>
+
+Em máquinas com a Open Firmware, tal como Power Macs NewWorld, entre
+no monitor de inicialização (veja <xref linkend="invoking-openfirmware"/>) e
+use o comando
+
+<informalexample><screen>
+0 &gt; boot enet:0
+</screen></informalexample>
+
+Se isto não funcionar, você pode ter que adicionar o nome do arquivo
+desta maneira:
+
+<informalexample><screen>
+0 &gt; boot enet:0,yaboot
+</screen></informalexample>
+
+Máquinas PReP e CHRP também podem ter métodos diferentes de endereçar
+a rede. Em uma máquina PReP, você deverá tentar
+
+<informalexample><screen>
+boot net:<replaceable>endereço_ip_do_servidor</replaceable>,<replaceable>arquivo</replaceable>,<replaceable>endereço_ip_do_cliente</replaceable>
+</screen></informalexample>
+
+Em alguns sistemas PReP (e.g. máquinas Motorola PowerStack) o comando
+<userinput>help boot</userinput> pode dar uma descrição da sintaxe e
+das opções disponíveis.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="powerpc" condition="supports-floppy-boot">
+  <title>Inicializando a partir de Disquetes</title>
+<para>
+
+Há suporte para a inicialização a partir de disquetes para &arch-title;,
+no entanto ela só é aplicável para sistemas OldWorld. Sistemas NewWorld
+não são equipados com unidades de disquete e não há suporte para a
+inicialização através de controladores de disquetes USB conectados à máquina.
+
+</para><para>
+
+Você terá que ter baixado as imagens de disquetes que precisa e
+criado os disquetes a partir destas imagens como descrito em
+<xref linkend="create-floppy"/>.
+
+</para><para>
+
+Para inicializar através do disquete <filename>boot-floppy-hfs.img</filename>,
+coloque-o na unidade de disquete após desligar o computador e antes
+de pressionar o botão power-on.
+
+</para><note><para>
+Para aqueles que não estão familiarizados com as operações de disquetes
+no Macintosh: um disquete colocado na máquina antes da inicialização
+será a prioridade número um a partir da qual o sistema pode inicializar.
+Um disquete sem um sistema válido de inicialização será ejetado e a máquina
+então procurará por partições inicializáveis no disco rígido.
+
+</para></note><para>
+
+Após a inicialização, o disquete <filename>root.bin</filename> será
+requisitado. Insira o disquete e pressione &enterkey;. O programa de
+instalação será automaticamente carregado após o sistema de arquivos
+raiz ser carregado na memória.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="powerpc"><title>Parâmetros de Inicialização no PowerPC</title>
+<para>
+
+Muitos monitores Apple antigos usavam o modo 640x480 67Hz. Se seu
+vídeo aparece distorcido em um monitor antigo da Apple, tente adicionar
+o argumento de inicialização <userinput>video=atyfb:vmode:6</userinput>,
+que selecionará aquele modo para a maioria dos hardwares de vídeo Mach64
+e Rage. Para o hardware Rage 128, isto muda para
+<userinput>video=aty128fb:vmode:6</userinput>.
+
+</para>
+  </sect2>

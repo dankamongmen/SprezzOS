@@ -1,0 +1,474 @@
+<!-- $Id$ -->
+<!-- original version: 66988 -->
+
+  <sect2 arch="any-x86"><title>Zavedení z CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<!-- We'll comment the following section until we know exact layout -->
+<!--
+
+<para>
+
+Disk 1 z oficiální sady debianích CD-ROM pro &arch-title; se vám na
+většině počítačů ohlásí promptem <prompt>boot:</prompt>. Klávesou
+<keycap>F4</keycap> si můžete zobrazit seznam variant jádra, které
+můžete zavést. Do promptu <prompt>boot:</prompt> pak stačí napsat
+název varianty (idepci, vanilla, compact, bf24) následovaný klávesou
+&enterkey;.
+
+</para><para>
+
+Pokud váš počítač neumožňuje zavedení různých jader z prvního CD
+(programem <command>isolinux</command>), vložte do mechaniky jiný
+disk. Vypadá to, že do této kategorie spadá většina SCSI mechanik,
+takže jejich majitelé musí použít některé ze zbývajících CD.
+
+</para><para>
+
+Každé z CD 2 až 5 obsahuje jinou variantu jádra. (Výběrem vhodného
+jádra se zabývá <xref linkend="kernel-choice"/>.)
+
+<variablelist>
+<varlistentry>
+<term>CD 1</term><listitem><para>
+
+Umožní výběr jádra (pokud žádné nevyberete, standardně se zavede
+varianta <quote>idepci</quote>).
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 2</term><listitem><para>
+
+Zavede jádro <quote>vanilla</quote>.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 3</term><listitem><para>
+
+Zavede jádro <quote>compact</quote>.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 4</term><listitem><para>
+
+Zavede jádro <quote>idepci</quote>.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 5</term><listitem><para>
+
+Zavede jádro <quote>bf2.4</quote>.
+
+</para></listitem></varlistentry>
+
+ </variablelist>
+
+</para>
+
+-->
+
+  </sect2>
+
+  <sect2 arch="any-x86" id="boot-win32">
+  <title>Zavedení z Windows</title>
+<para>
+
+Pro zavedení instalátoru z Windows můžete buď
+
+<itemizedlist>
+<listitem><para>
+
+získat instalační CD/DVD, případně USB klíčenku, jak popisují kapitoly
+<xref linkend="official-cdrom"/> a <xref linkend="boot-usb-files"/>,
+nebo
+
+</para></listitem>
+<listitem><para>
+
+stáhnout samostatnou Windows aplikaci dostupnou na zrcadlech &debian;u
+jako <filename>tools/win32-loader/stable/win32-loader.exe</filename>
+
+</para></listitem>
+</itemizedlist>
+
+
+</para><para>
+
+Při použití instalačního CD nebo DVD, by se měl příslušný program
+spustit automaticky při vložení média do mechaniky. Pokud jej Windows
+nespustí, nebo pokud používáte USB klíčenku, můžete (před)instalační
+program spustit ručně tak, že se přepnete na příslušné zařízení
+a spustíte <command>setup.exe</command>.
+
+</para><para>
+
+Po spuštění programu budete dotázáni na několik předběžných otázek a
+následně bude váš systém upraven pro zavedení instalačního systému
+&debian;u.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" id="install-from-dos">
+  <title>Zavedení z DOSu</title>
+<para>
+
+Zaveďte operační systém DOS (ne Windows) například ze záchranného nebo
+diagnostického média.
+
+</para><para>
+
+Pokud z DOSu můžete přistupovat na CD mechaniku, vložte do ní
+instalační CD a přepněte se na ni příkazem
+
+<informalexample><screen>
+<userinput><replaceable>d</replaceable>:</userinput>
+</screen></informalexample>
+
+kde <replaceable>d</replaceable> je označení vaší CD mechaniky. Pokud
+CD mechaniku nemáte, nebo není z DOSu dostupná, nachystejte si předem
+příslušné soubory podle <xref linkend="files-loadlin"/> a přepněte se
+na disk, kam jste soubory umístili.
+
+</para><para>
+
+Přesuňte se do podadresáře s preferovanou variantou jádra, např.
+
+<informalexample><screen>
+<userinput>cd \&x86-install-dir;</userinput>
+</screen></informalexample>.
+
+Preferujete-li grafickou instalaci, přejděte ještě do podadresáře
+<filename>gtk</filename>
+
+<informalexample><screen>
+<userinput>cd gtk</userinput>
+</screen></informalexample>.
+
+Nyní spusťte dávku <command>install.bat</command>. Zavede se jádro,
+které automaticky spustí instalační systém.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" id="boot-initrd">
+  <title>Zavedení z Linuxu programem <command>LILO</command> nebo
+  <command>GRUB</command></title>
+<para>
+
+Pro zavedení instalátoru z pevného disku musíte nejprve stáhnout
+potřebné soubory a umístit je podle kapitoly <xref
+linkend="boot-drive-files"/>.
+
+</para><para>
+
+Plánujete-li z disku jenom nastartovat a poté již všechno stáhnout ze
+sítě, měli byste použít soubor
+<filename>netboot/debian-installer/&architecture;/initrd.gz</filename>
+a odpovídající jádro
+<filename>netboot/debian-installer/&architecture;/linux</filename>. To vám
+umožní přerozdělit disk, ze kterého jste instalaci spustili.
+
+</para><para>
+
+Pokud během instalace nebudete upravovat diskovou oblast, na které jsou
+soubory instalačního systému, můžete použít
+<filename>hd-media/initrd.gz</filename>, příslušné jádro a také obraz
+CD nebo DVD (musí končit na <literal>.iso</literal>). Instalační
+systém pak nebude vyžadovat připojení k síti.
+
+</para><para>
+
+Pro zavaděč <command>LILO</command> musíte v souboru
+<filename>/etc/lilo.conf</filename> nastavit dvě důležité věci:
+
+<itemizedlist>
+<listitem><para>
+
+říci zavaděči, že má při zavádění použít soubor
+<filename>initrd.gz</filename> jako RAMdisk,
+
+</para></listitem>
+<listitem><para>
+
+říci jádru <filename>vmlinuz</filename>, že má tento RAMdisk
+použít jako svou kořenovou oblast.
+
+</para></listitem>
+</itemizedlist>
+
+Následuje příklad <filename>/etc/lilo.conf</filename>:
+
+</para><para>
+
+<informalexample><screen>
+image=/boot/newinstall/vmlinuz
+       label=newinstall
+       initrd=/boot/newinstall/initrd.gz
+</screen></informalexample>
+
+Pokud vás zajímají pikantní detaily, prozkoumejte manuálové stránky
+<citerefentry> <refentrytitle>initrd</refentrytitle>
+<manvolnum>4</manvolnum> </citerefentry> a <citerefentry>
+<refentrytitle>lilo.conf</refentrytitle> <manvolnum>5</manvolnum>
+</citerefentry>. Nyní stačí spustit <userinput>lilo</userinput>
+a restartovat počítač.
+
+</para><para>
+
+Postup pro <command>GRUB1</command> je velmi podobný. Do souboru
+<filename>menu.lst</filename> v adresáři
+<filename>/boot/grub/</filename> (občas též
+<filename>/boot/boot/grub/</filename>) přidejte následující záznam
+(předpokládejme, že <filename>/boot</filename> leží na první oblasti
+prvního disku):
+
+<informalexample><screen>
+title  Instalace Debianu
+root   (hd0,0)
+kernel /boot/newinstall/vmlinuz
+initrd /boot/newinstall/initrd.gz
+</screen></informalexample>
+
+a restartujte počítač.
+
+</para><para>
+
+Postup pro <command>GRUB2</command> je podobný jako u předchůdce,
+jenom soubor se místo <filename>menu.lst</filename> jmenuje
+<filename>grub.cfg</filename> a změnil se jeho formát:
+
+<informalexample><screen>
+menuentry 'Instalace Debianu' {
+  insmod part_msdos
+  insmod ext2
+  set root='(hd0,msdos1)'
+  linux  /boot/newinstall/vmlinuz
+  initrd /boot/newinstall/initrd.gz
+}
+</screen></informalexample>
+
+</para><para>
+
+Od teď by neměl být mezi jednotlivými zavaděči žádný rozdíl.
+
+</para>
+  </sect2>
+
+  <sect2 arch="any-x86" condition="bootable-usb" id="usb-boot">
+  <title>Zavedení z USB <quote>klíčenky</quote></title>
+<para>
+
+Předpokládejme, že jste si připravili vše nezbytné z <xref
+linkend="boot-dev-select"/> a <xref linkend="boot-usb-files"/>. Nyní
+jednoduše zapojte klíčenku do volného USB portu a restartujte
+počítač. Systém by měl nastartovat a měl by zobrazit úvodní obrazovku
+s výzvou <prompt>boot:</prompt>, kde můžete zadat volitelné parametry,
+nebo prostě zmáčknout &enterkey;.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" condition="supports-floppy-boot" id="floppy-boot">
+  <title>Zavedení z disket</title>
+<para>
+
+Předpokládáme, že jste si již potřebné obrazy stáhli a podle
+<xref linkend="create-floppy"/> vytvořili příslušné diskety.
+<!--
+Jestliže je to nutné, můžete si zaváděcí disketu přizpůsobit,
+viz <xref linkend="rescue-replace-kernel"/>.
+-->
+</para><para>
+
+Zavedení z diskety je jednoduché. Zasuňte disketu do první disketové
+jednotky a normálně systém vypněte a znovu zapněte.
+
+</para><para>
+
+Instalace z mechaniky LS-120 (ATAPI verze) je podporovaná, ovšem
+musíte jádru zadat umístění virtuální
+disketové mechaniky. Docílíte toho zaváděcím parametrem
+<emphasis>root=</emphasis>, kterému zadáte zařízení, na které
+ovladač ide-floppy připojí mechaniku LS-120. Například pokud ji
+máte připojenou jako první IDE zařízení na druhém kabelu, zadáte
+<userinput>install root=/dev/hdc</userinput>.
+
+</para><para>
+
+Poznamenejme, že na některých stanicích kombinace kláves
+<keycombo><keycap>Control</keycap> <keycap>Alt</keycap>
+<keycap>Delete</keycap></keycombo> neprovede korektní reset počítače a
+je nutné použít <quote>tvrdý restart</quote>. Pokud instalujete z
+existujícího operačního systému (např. na stanici, kde je nainstalován
+DOS), pak nemáte na výběr. V ostatních případech použijte <quote>tvrdý
+restart</quote> během zavádění.
+
+</para><para>
+
+Po stisknutí &enterkey; se objeví hlášení
+<computeroutput>Loading...</computeroutput> následované
+<computeroutput>Uncompressing Linux...</computeroutput> a několika
+stranami o hardwaru vašeho počítače. O této fázi zavádění pojednává
+<xref linkend="kernel-msgs"/>.
+
+</para><para>
+
+Po zavedení ze zaváděcí diskety je požadována kořenová
+disketa. Vložte ji do mechaniky, zmáčkněte &enterkey; a počkejte, až
+se její obsah natáhne do paměti a automaticky se spustí program
+&d-i;.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" id="boot-tftp"><title>Zavedení z TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+Na architektuře &architecture; existuje několik možností zavedení
+z TFTP.
+
+</para>
+
+   <sect3><title>Síťová karta s podporou PXE</title>
+<para>
+
+Novější síťové karty podporují zavádění metodou PXE, což je
+reimplementace TFTP od <trademark class="trade">Intel</trademark>u.
+Zde by mělo stačit příslušně nastavit BIOS.
+
+</para>
+   </sect3>
+
+   <sect3><title>Síťová karta s bootROM</title>
+<para>
+
+Je možné, že vaše síťová karta nabízí možnost zavedení z TFTP.
+
+</para><para condition="FIXME">
+
+Pokud máte zkušenosti s tímto typem zavádění, neváhejte nám poslat
+vaše poznatky na adresu <email>&email-debian-boot-list;</email>.
+Text pište anglicky a odkažte v něm se na tento dokument.
+
+</para>
+   </sect3>
+
+   <sect3><title>Etherboot</title>
+<para>
+
+Projekt <ulink url="http://www.etherboot.org">Etherboot</ulink> nabízí
+kromě zaváděcích disket také paměti do síťových karet, které umí
+zavádět z TFTP.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="x86" id="boot-screen">
+  <title>Zaváděcí obrazovka</title>
+<para>
+
+Při zavádění instalačního programu se objeví grafická obrazovka
+s logem &debian;u a nabídkou:
+
+<informalexample><screen>
+Installer boot menu
+
+Install
+Graphical install
+Advanced options             >
+Help
+Install with speech synthesis
+
+Press ENTER to boot or TAB to edit a menu entry
+</screen></informalexample>
+
+V závislosti na zvoleném způsobu instalace nemusí být dostupná
+možnost grafické instalace (<quote>Graphical install</quote>).
+Obrazy pro duální architektury navíc obsahují položky pro 64 bitové
+varianty, což téměř zdvojnásobuje počet položek v nabídce.
+
+</para><para>
+
+Pro běžnou instalaci vyberte šipkami buď položku <quote>Install</quote>
+(instalace v textovém režimu), nebo <quote>Graphical install</quote>
+(instalace v grafickém režimu) a potvrďte klávesou &enterkey;. Na
+položku se také můžete dostat stiskem prvního zvýrazněného písmena.
+
+</para><para>
+
+Položka <quote>Advanced options</quote> otevře další nabídku, kde si
+můžete zvolit pokročilé způsoby instalace, jako je expertní režim,
+záchranný režim a automatizovaná instalace.
+
+</para><para>
+
+Pokud potřebujete jádru nebo instalačnímu systému předat nějaké
+zaváděcí parametry, stiskněte na zvolené položce klávesu &tabkey;.
+Zobrazí se výzva <prompt>boot:</prompt>, na které bude vypsán celý
+příkaz k zavedení instalace. Sem můžete přidat požadované parametry
+(nejběžnější parametry jsou zmíněny v nápovědě - viz níže). Ze
+zaváděcího řádku můžete zavést instalaci klávesou &enterkey;, případně
+se klávesou &escapekey; vrátit na úvodní obrazovku a vrátit tak
+provedené změny.
+
+</para><para>
+
+Položka <quote>Help</quote> zobrazí první obrazovku nápovědy se
+stručným přehledem nápovědných obrazovek. Zde se můžete porozhlédnout
+po nápovědě, která se skrývá pod klávesami <keycap>F1</keycap> až
+<keycap>F10</keycap>, nebo můžete stisknout &enterkey; a zavést systém
+s výchozími hodnotami. Pamatujte, že z nápovědy se nelze vrátit zpět
+do hlavní nabídky. Obrazovky F3 a F4 popisují příkazy, které jsou
+ekvivalentní položkám v menu. Tyto příkazy můžete zadat do příkazového
+řádku, který se nachází na každé nápovědné obrazovce:
+
+<informalexample><screen>
+<prompt>Press F1 for the help index, or ENTER to boot:</prompt>
+</screen></informalexample>
+
+Za příkazem pro zavedení instalace (výchozí je
+<userinput>install</userinput>) můžete zadat volitelné parametry,
+které jsou popsány v nápovědě. Celý řádek by tedy vypadal třeba
+takto: <userinput>install fb=false</userinput>. Jestliže stisknete
+pouze &enterkey;, je to stejné, jako kdyby jste zadali
+<userinput>install</userinput> bez dalších parametrů.
+
+<note><para>
+
+Klávesnice se nyní chová podle standardního rozložení americké
+angličtiny, což by v našich krajích neměl být problém, protože
+základní rozložení je až na prohozené Y/Z stejné, liší se pouze horní
+řada a pomocné znaky, které bývají na klávesnicích předtištěny v obou
+variantách. Horší to mají třeba Francouzi s jejich rozložením AZERTY
+&mdash; v takovém případě snad pomůže článek z Wikipedie zabývající se
+<ulink url="&url-us-keymap;">US rozložením</ulink>.
+
+</para></note><note><para>
+
+Instalujete-li na systému, který má v BIOSu nastaveno použití sériové
+konzole, je možné že neuvidíte grafickou část obrazovky a někdy
+dokonce ani zaváděcí nabídku. To stejné vás může potkat v případech,
+kdy instalujete přes zařízení pro vzdálenou správu, jež nabízí textové
+rozhraní k VGA konzoli (např. Compaq <quote>integrated Lights
+Out</quote> (iLO), nebo HP <quote>Integrated Remote Assistant</quote>
+(IRA)).
+
+</para><para>
+
+Můžete se pokusit naslepo stisknout klávesu &escapekey;, a přepnout se
+na textovou zaváděcí výzvu, případně stisknout <quote>H</quote> a
+následně &enterkey;, což by vás mělo přepnout na (textovou) obrazovku
+s nápovědou popsanou výše. Zde by už mělo fungovat echo, tj. znaky,
+které na klávesnici napíšete, by měly být normálně vidět na řádku se
+zaváděcí výzvou. Chcete-li instalačnímu systému zakázat použití
+grafického framebufferu ve zbytku instalace, přidejte na řádek
+parametr <userinput>vga=normal fb=false</userinput>.
+
+</para></note></para>
+  </sect2>

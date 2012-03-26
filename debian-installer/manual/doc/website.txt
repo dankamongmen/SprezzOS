@@ -1,0 +1,55 @@
+This document describes how the Installation Guide gets built for the
+official www.debian.org website.
+
+For each Debian release a version of the Installation Guide (manual) is
+available at: http://www.debian.org/releases/<codename>/installmanual.
+
+For the current "testing" release of Debian, builds for the website are
+triggered automatically when a new version of the installation-guide
+package is uploaded to unstable. The builds take place on the www-master
+server which is maintained by the website admins.
+
+It is in theory also possible to have builds triggered by uploads to
+stable, but this is currently not implemented.
+
+The check for a new version in unstable is done by the 'lessoften' script.
+This will fetch the source tarball for the new version, extract that and
+then calls the build/buildweb.sh script. The latter script uses the same
+lists from the debian dir to determine valid architectures and languages.
+After the build has been completed, the lessoften script will move the
+generated files into the correct place for the website and its mirrors.
+
+Relevant logs for the build are available at:
+http://www-master.debian.org/build-logs/webwml/lessoften.log
+http://www-master.debian.org/build-logs/webwml/installmanual/
+
+The table with available architectures/languages that is included on
+http://www.debian.org/releases/<codename>/installmanual is defined in
+the VCS for the website itself (currently cvs.debian.org/webwml).
+The relevant files are:
+- english/releases/<codename>/installmanual.wml
+- english/releases/<codename>/release.data
+
+The second file contains the list of architectures (%arches; shared with
+the Release Notes) and languages (%langsinstall) to include in the table
+and may need to be updated after an upload.
+
+The direct links to the variants for the individual architectures
+(http://www.debian.org/releases/<codename>/installmanual/<arch>) support
+content negitiation to determine the default language to be shown to a
+particular user (based on his browser settings).
+
+This means that it is very important that, if a translation is dropped
+(i.e. if the language was enabled in the previous upload, but is disabled
+or removed in the current upload), the old files for that language are
+removed from the webserver. This does not happen automatically, but must
+be done by sending a request to remove the files to the website admins.
+
+If this does not happen, some users may still be presented with the old
+version of the manual.
+
+---
+Changelog:
+
+2008-11-08 Frans Pop
+Initial version

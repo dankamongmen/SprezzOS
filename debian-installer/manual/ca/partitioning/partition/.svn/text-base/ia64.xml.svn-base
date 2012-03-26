@@ -1,0 +1,123 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 43254 -->
+
+
+  <sect2 arch="ia64"><title>Fer particions per a &arch-title;</title>
+<para>
+
+El partidor de disc <command>partman</command> és l'eina per fer
+particions per omissió de l'instal·lador. És capaç de gestionar el
+conjunt de particions i els seus punts de muntatge per tal d'assegurar
+que els discs i els sistemes de fitxers estan correctament configurats
+per una correcta instal·lació. Internament fa ús de
+<command>parted</command> per partir el disc.
+
+</para>
+
+   <note>
+   <title>Formats reconeguts per l'EFI</title>
+<para>
+
+El microprogramari de l'EFI de l'IA-64 suporta dos formats de
+taula de particions (o etiqueta de disc), GPT i MS-DOS.  MS-DOS, el
+format usat típicament en PC i386, està desaconsellat pels sistemes
+IA-64. Malgrat que l'instal·lador permet també emprar el programa
+<command>cfdisk</command>, hauríeu d'usar únicament el <ulink
+url="parted.txt"><command>parted</command></ulink> perquè només
+ell pot gestionar correctament tant les taules MS-DOS com les GPT.
+
+</para></note>
+
+<para>
+
+Les receptes per partir automàticament del <command>partman</command>
+creen una partició EFI com a primera partició del disc. També podeu
+crear aquesta partició en l'apartat <guimenuitem>Fer particions de forma
+guiada</guimenuitem> del menú principal de manera similar a crear una
+partició d'<emphasis>intercanvi</emphasis>.
+
+</para><para>
+
+El partidor <command>partman</command> és capaç de
+gestionar la major part de disposicions de discs.
+Per aquells casos rars en què calgui configurar un disc manualment,
+podeu emprar la utilitat <command>parted</command> directament a
+través de la seva interfície de línia d'ordres.
+Assumint que voleu esborrar completament el vostre disc i crear
+una taula GPT i algunes particions, aleshores podeu usar quelcom
+similar a la següent seqüència d'ordres:
+
+<informalexample><screen>
+      mklabel gpt
+      mkpartfs primary fat 0 50
+      mkpartfs primary linux-swap 51 1000
+      mkpartfs primary ext2 1001 3000
+      set 1 boot on
+      print
+      quit
+</screen></informalexample>
+
+Això crea una nova taula de particions, i tres particions per a
+ésser emprades com a partició d'arrencada EFI, espai d'intercanvi i un
+sistema de fitxers arrel. Per acabar, activa el bit d'arrencada a
+la partició EFI. Les particions s'especifiquen en MiB, amb
+desplaçaments d'inici i final des del principi del disc.
+Així, per exemple, al damunt hem creat un sistema de fitxers ext2
+de 1999 MiB que comença 1001 MiB enllà de l'inici del disc. Noteu
+que formatar l'espai d'intercanvi amb l'ordre <command>parted</command>
+pot trigar alguns minuts a acabar, perquè explora el disc a la
+recerca de blocs malmesos.
+
+</para>
+  </sect2>
+
+  <sect2 arch="ia64"><title>Requeriments per la partició del carregador
+  d'arrencada</title>
+<para>
+
+ELILO, el carregador d'arrencada de l'IA-64, necessita una
+partició que contingui un sistema de fitxers FAT amb el bit d'arrencada
+(<userinput>boot</userinput>) activat. Cal que la partició sigui prou
+gran com per contenir el carregador i tots els nuclis i discs RAM que
+desitgeu arrencar. Una mida mínima podria ser 20 MiB, però si preveieu
+treballar amb múltiples nuclis, aleshores 128 MiB podria ser una mida
+més encertada.
+
+</para><para>
+
+El gestor d'arrencada i l'intèrpret d'ordres de l'EFI suporten
+completament la taula GPT, per la qual cosa no cal que la partició
+d'arrencada sigui la primera del disc, ni tan sols que resideixi al
+mateix disc. Això és útil si oblideu de crear aquesta partició i no
+ho descobriu fins que teniu creades i formatades les altres particions
+dels vostres discs. El partidor <command>partman</command> cerca
+una partició EFI al mateix temps que cerca una partició
+<emphasis>arrel</emphasis> correctament configurada. Això us dóna
+una oportunitat de corregir la disposició del disc abans que comenci
+la instal·lació de paquets. La manera més senzilla de corregir l'error
+és reduir la mida de la darrera partició del disc per tal de deixar
+espai per afegir una partició EFI.
+
+</para><para>
+
+Es recomana fermament que ubiqueu la partició d'arrencada EFI al
+mateix disc on hi teniu el sistema de fitxers <emphasis>arrel</emphasis>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="ia64"><title>Particions de diagnòstic de l'EFI</title>
+<para>
+
+El microprograma de l'EFI és força més sofisticat que la BIOS que es
+troba tradicionalment en molts PC. Alguns fabricants empren les
+capacitats de l'EFI per accedir a fitxers i executar programes per tal
+de desar al disc dur informació de diagnòstic i/o utilitats de gestió
+del sistema basades en l'EFI. Això necessita un sistema de fitxers
+FAT addicional en el disc de sistema. Consulteu la documentació del
+sistema i els accessoris que l'acompanyen per a més detalls. La manera
+més senzilla de configurar una partició de diagnòstic és fer-ho al
+mateix temps que configureu la partició d'arrencada de l'EFI.
+
+</para>
+  </sect2>

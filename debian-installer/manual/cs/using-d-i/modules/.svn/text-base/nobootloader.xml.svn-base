@@ -1,0 +1,27 @@
+<!-- $Id: nobootloader.xml 14975 2004-05-08 13:28:15Z mck-guest $ -->
+<!-- original version: 61133 -->
+
+  <sect3>
+  <title>Pokračovat bez zavaděče</title>
+<para>
+
+Pomocí této komponenty můžete získat zaveditelný systém, i když se
+nenainstaluje žádný zavaděč &mdash; ať už proto, že na této
+architektuře žádný neexistuje, nebo proto, že jej nechcete
+nainstalovat (třeba chcete použít stávající zavaděč).  <phrase
+arch="m68k">Tato možnost je obzvláště užitečná na systémech Macintosh,
+Atari a Amiga, kde musíte zachovat původní operační systém a použít
+jej pro zavedení GNU/Linuxu.</phrase>
+
+</para><para>
+
+V tomto okamžiku je vhodné prozkoumat obsah adresáře
+<filename>/target/boot</filename> a poznačit si název jádra
+a případného ramdisku (<firstterm>initrd</firstterm>), protože je
+budete muset sdělit svému zavaděči spolu s dalšími důležitými
+informacemi, jako je oblast s kořenovým souborovým systémem a oblast
+pro <filename>/boot</filename> (pokud máte <filename>/boot</filename>
+na samostatné oblasti).
+
+</para>
+  </sect3>

@@ -1,0 +1,173 @@
+<!-- original version: 64829 -->
+
+   <sect3 id="apt-setup">
+   <title>La configuration d'apt</title>
+
+<para>
+
+Le principal outil utilisé pour installer des paquets sur les systèmes &debian;
+est un programme appelé <command>apt-get</command> qui se trouve dans le
+paquet <classname>apt</classname> <footnote>
+<para>
+Notez que le programme effectivement utilisé pour installer des paquets est
+<command>dpkg</command>. Toutefois, ce paquet est un outil de bas niveau
+qu'<command>apt-get</command> appelle lorsqu'il en a besoin.
+Ce dernier est un outil de plus haut niveau car il sait aussi bien installer
+les paquets nécessaires à l'installation du paquet que vous essayez
+d'installer, que récupérer le paquet à partir d'un cédérom, du réseau, etc.
+Il sait aussi installer automatiquement les paquets nécessaires au bon fonctionnement
+des paquets qu'il installe.</para></footnote>.
+
+D'autres paquets, comme <command>aptitude</command>,
+<command>synaptic</command> ou l'ancien <command>dselect</command> dépendent
+d'<command>apt</command> et l'utilisent. Ces programmes de gestion des
+paquets, avec de belles interfaces pour l'utilisateur, offrent des fonctions
+supplémentaires comme la recherche de paquets ou la vérification des statuts.
+Le programme <command>aptitude</command> est maintenant recommandé pour la gestion des
+paquets.
+</para><para>
+
+<command>Apt</command> doit être configuré pour qu'il sache où récupérer les paquets.
+Les résultats de cette configuration sont transcrits dans
+le fichier <filename>/etc/apt/sources.list</filename>. Vous pouvez le consulter et le modifier
+à votre guise quand l'installation est terminée.
+
+</para>
+
+<para>
+Quand la priorité de l'installation est la priorité par défaut, l'installateur prend
+automatiquement en charge cette configuration, en fonction de la méthode d'installation
+et des choix précédemment faits. Dans la plupart des cas, il installe automatiquement un miroir
+pour les mises à jour de sécurité et, si vous installez la distribution stable, un miroir pour le service de
+mise à jour <quote>volatile</quote>.
+</para>
+<para>
+Quand la priorité de l'installation est une priorité plus basse (en mode expert par exemple),
+vous pourrez prendre davantage de décisions. Vous pouvez choisir d'utiliser ou non les services
+de mise à jour (<quote>security</quote> ou <quote>volatile</quote>), vous pouvez choisir d'ajouter
+des paquets appartenant aux sections <quote>contrib</quote> ou <quote>non-free</quote> de la distribution.
+</para> 
+ 
+    <sect4 id="apt-setup-cdset">
+    <title>Installation avec plusieurs CD/DVD</title>
+
+<para>
+
+Si l'installation se fait à partir d'un CD/DVD, l'installateur demandera si
+vous voulez faire analyser d'autres CD/DVD. Si vous possédez plusieurs CD/DVD, c'est une bonne idée.
+L'installateur pourra installer les paquets ainsi mis à disposition.
+
+</para><para>
+
+Il n'est pas nécessaire de posséder d'autres CD/DVD. Cependant, si vous n'utilisez pas non plus
+de miroir réseau (cf. la section suivante), il se peut que certains paquets appartenant aux tâches
+que vous sélectionnerez dans la prochaine étape de l'installation ne puissent pas être installés.
+
+</para>
+<note><para>
+
+Les paquets sont classés sur les CD/DVD par ordre de popularité. Ainsi,
+pour la plupart des utilisations, seuls les premiers CD/DVD sont nécessaires.
+Très peu de personnes utilisent les derniers CD/DVD d'un ensemble.
+</para>
+<para>
+C'est pourquoi acheter ou graver un ensemble complet de CD/DVD n'est qu'une perte d'argent car
+vous n'utiliserez jamais tous les CD/DVD de cet ensemble. Il vaut mieux ne prendre que les
+trois premiers CD (ou les huit premiers) et installer les autres paquets souhaités à partir
+d'un miroir réseau. De même, pour les ensembles de DVD, le premier (ou les deux premiers)
+satisfera tous les besoins usuels.
+</para>
+<para>
+Si vous voulez par exemple installer un environnement graphique de bureau comme GNOME,
+seuls les trois premiers CD sont nécessaires. Pour les environnements KDE ou Xfce, d'autres
+CD sont nécessaires. Le premier DVD couvre facilement les trois environnements.
+</para></note>
+
+<para>
+Si vous faites analyser plusieurs CD/DVD, l'installateur vous demandera de changer
+le disque quand il aura besoin d'installer un paquet se trouvant sur un autre disque.
+Il est recommandé de ne faire analyser que les disques d'un même ensemble. L'ordre dans
+lequel ils sont analysés n'a pas d'importance. Cependant une analyse faite selon l'ordre ascendant réduit
+les risques d'erreur.
+</para>
+</sect4>
+
+   <sect4 id="apt-setup-mirror">
+    <title>Utiliser un miroir réseau</title>
+
+<para>
+
+Dans la plupart des installations, la question concernant l'utilisation ou non d'un
+miroir réseau est posée et, dans la plupart des cas, la réponse par défaut
+est correcte. Cependant il existe des exceptions.
+
+</para>
+<para>
+
+Si l'installation n'est pas faite à partir d'un disque complet ou d'une image de disque complet, l'utilisation
+d'un miroir réseau est conseillée. En effet, sans miroir réseau, vous n'installerez qu'un système
+réduit au minimum. Cependant, si vous ne possédez pas une bonne connexion internet, il vaut
+mieux ne pas choisir la tâche <literal>desktop</literal>.
+</para>
+
+<para>
+
+Si vous faites une installation à partir d'un disque complet ou d'une image de disque complet,
+le miroir réseau n'est pas nécessaire&nbsp;; cependant il est recommandé car un cédérom ne contient
+que peu de paquets. 
+Si vous ne possédez pas une bonne connexion internet, il reste préférable
+de ne pas choisir un miroir réseau et de terminer l'installation avec ce qui
+se trouve sur le cédérom. Après l'installation, c'-à-d après le lancement
+du nouveau système, vous pourrez ajouter d'autres paquets.
+
+</para>
+<para>
+
+Si vous faites une installation à partir d'un DVD ou d'une image DVD,
+tous les paquets nécessaires à l'installation doivent être présents sur le premier disque.
+L'utilisation d'un miroir réseau est facultative.
+
+</para>
+<para>
+L'un des avantages du miroir réseau est qu'il rend disponibles les mises à jour
+apparues depuis la création des CD/DVD et intégrées dans une version intermédiaire de la distribution.
+La durée de vie des CD/DVD est ainsi allongée sans compromettre la sécurité et la stabilité
+du système installé.
+
+</para>
+<para>
+
+En résumé, choisir un miroir réseau est une bonne idée, sauf si votre
+connexion internet n'est pas de bonne qualité. Si la version courante d'un paquet
+est présente sur le CD/DVD, l'installateur l'utilisera.
+La quantité de données téléchargées à partir d'un miroir dépend
+
+<orderedlist>
+<listitem><para>
+des tâches choisies lors de la prochaine étape de l'installation,
+</para></listitem>
+<listitem><para>
+des paquets nécessaires à ces tâches,
+</para></listitem>
+
+<listitem><para>
+ 
+de la présence de ces paquets sur les CD/DVD analysés et
+</para></listitem>
+
+<listitem><para>
+
+de l'existence de nouvelles versions de ces paquets sur un miroir réseau, que ce miroir offre
+la distribution standard ou les services de mises à jour <quote>security</quote> et <quote>volatile</quote>.
+
+</para></listitem>
+</orderedlist>
+</para>
+<para>
+Il faut noter que même si vous avez choisi de ne pas utiliser de miroir,
+certains paquets peuvent être téléchargés sur internet, par exemple, s'il existe de nouvelles
+versions des paquets et que les services de mises à jour <quote>security</quote> ou <quote>volatile</quote>
+ont été installés.
+</para>
+</sect4>
+     </sect3>

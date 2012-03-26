@@ -1,0 +1,280 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66212 -->
+
+ <sect1 condition="bootable-usb" id="boot-usb-files">
+ <!-- <title>Preparing Files for USB Memory Stick Booting</title> -->
+ <title>Preparazione dei file per l'avvio da chiavetta USB</title>
+<para>
+
+<!--
+To prepare the USB stick, you will need a system where GNU/Linux is
+already running and where USB is supported. With current GNU/Linux systems
+the USB stick should be automatically recognized when you insert it. If
+it is not you should check that the usb-storage kernel module is loaded.
+When the USB stick is inserted, it will be mapped to a device named
+<filename>/dev/sdX</filename>, where the <quote>X</quote> is a letter
+in the range a-z. You should be able to see to which device the USB
+stick was mapped by running the command <command>dmesg</command> after
+inserting it. To write to your stick, you may have to turn off its write
+protection switch.
+-->
+
+Per preparare la chiavetta USB è necessario un sistema GNU/Linux con
+supporto USB già funzionante. Con gli attuali sistemi GNU/Linux la
+chiavetta USB dovrebbe essere riconosciuta non appena inserita. Se
+questo non accade, controllare che il modulo del kernel usb-storage sia
+stato caricato. All'inserimento, la chiavetta USB viene mappata su un
+device con nome <filename>/dev/sdX</filename>, dove <quote>X</quote> è
+una lettera nell'intervallo a-z. È possibile vedere su quale device è
+stata mappata la chiavetta USB usando il comando <command>dmesg</command>
+dopo averla inserita. Per scrivere sulla chiavetta potrebbe essere
+necessario disattivare la protezione dalla scrittura.
+
+</para><warning><para>
+
+<!--
+The procedures described in this section will destroy anything already
+on the device! Make very sure that you use the correct device name for
+your USB stick. If you use the wrong device the result could be that all
+information on for example a hard disk could be lost.
+-->
+
+La procedura descritta in questa sezione distrugge qualunque cosa sia
+presente sul device, fare attenzione a usare il nome corretto per il
+device della chiavetta USB. Se si usa il device sbagliato, potrebbe
+accadere, per esempio, di perdere tutte le informazioni su un disco
+fisso.
+
+</para></warning>
+
+  <sect2 id="usb-copy-isohybrid" condition="isohybrid-supported">
+  <!-- <title>Preparing a USB stick using a hybrid CD or DVD image</title> -->
+  <title>Preparazione di una chiavetta USB con un'immagini ibride di CD o DVD</title>
+<para>
+
+<!--
+Debian CD and DVD images can now be written directly a USB stick,
+which is a very easy way to make a bootable USB stick. Simply choose
+a CD or DVD image that will fit on your USB stick. See
+<xref linkend="official-cdrom"/> to get a CD or DVD image.
+-->
+
+Adesso è possibile scrivere le immagini dei CD o DVD Debian direttamente
+sulla chiavetta USB, questo è un metodo estremamente semplice per creare
+una chiavetta USB dalla quale è possibile avviare il sistema. È sufficiente
+scegliere un'immagine di dimensione adatta alla capacità della chiavetta
+USB. Si veda <xref linkend="official-cdrom"/> per procurarsi l'immagine
+di un CD o DVD.
+
+</para><para>
+
+<!--
+Alternatively, 
+for very small USB sticks, only a few megabytes in size, you can download
+the <filename>mini.iso</filename> image from the <filename>netboot</filename>
+directory (at the location mentioned in <xref linkend="where-files"/>).
+<footnote>
+-->
+
+In alternativa per le chiavette USB estremamente piccole, con capacità di
+pochi megabyte, è possibile scaricare l'immagine <filename>mini.iso</filename>
+dalla directory <filename>netboot</filename> (nella posizione specificata
+in <xref linkend="where-files"/>)<footnote>
+
+<para>
+
+<!--
+A special method can be used to add firmware to the
+<filename>mini.iso</filename>. First, write the
+<filename>mini.iso</filename> to the USB stick.
+Next obtain the necessary firmware files.
+See <xref linkend="loading-firmware"/> for more information about firmware.
+Now unplug and replug the USB stick, and two partitions should now be visible on it.
+You should mount the second of the two partitions, and unpack the firmware onto it.
+-->
+
+C'è un metodo speciale per aggiungere il firmware a
+<filename>mini.iso</filename>. Prima scrivere <filename>mini.iso</filename>
+sulla chiavetta USB, poi recuperare i file con il firmware.
+Vedere <xref linkend="loading-firmware"/> per maggiori informazioni.
+Scollegare
+e poi ricollegare la chiavetta USB, adesso dovrebbe avere due partizioni.
+È necessario montare la seconda delle due partizioni e scompattare il
+firmware al suo interno.
+
+<informalexample><screen>
+# mount /dev/<replaceable>sdX2</replaceable> /mnt
+# cd /mnt
+# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz
+# cd /
+# umount
+</screen></informalexample>
+
+</para>
+
+</footnote>.
+
+</para><para>
+
+<!--
+The CD or DVD image you choose should be written directly to the USB stick,
+overwriting its current contents. For example, when using an existing
+GNU/Linux system, the CD or DVD image file can be written to a USB stick
+as follows:
+-->
+
+È possibile scrivere l'immagine di un CD o DVD direttamente sulla chiavetta
+USB sovrascrivendone il contenuto attuale. Per esempio, con un sistema
+GNU/Linux, è possibile scrivere il file con l'immagine del CD o DVD sulla
+chiavetta USB eseguendo:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>dd if=<replaceable>debian.iso</replaceable> of=/dev/<replaceable>sdX</replaceable></userinput>
+<prompt>#</prompt> <userinput>sync</userinput>
+</screen></informalexample>
+
+</para>
+
+  </sect2>
+
+  <sect2 id="usb-copy-easy">
+  <!-- <title>Manually copying files to the USB stick</title> -->
+  <title>Copia manuale dei file sulla chiavetta USB</title>
+<para>
+
+<!--
+An alternative way to set up your USB stick is to manually copy
+the installer files, and also a CD image to it.
+Note that the USB stick should be at least 256 MB in size (smaller
+setups are possible if you follow <xref linkend="usb-copy-flexible"/>).
+-->
+
+Un metodo alternativo per preparare la chiavetta USB è copiare manualmente
+i file dell'installatore e l'immagine del CD sulla chiavetta.
+Notare che la chiavetta USB deve essere da almeno 256&nbsp;MB (è possibile
+fare anche installazioni più piccole seguendo
+<xref linkend="usb-copy-flexible"/>).
+
+</para><para>
+
+<!--
+There is an all-in-one file <filename>hd-media/boot.img.gz</filename>
+which contains all the installer files (including the kernel)
+<phrase arch="x86">as well as <classname>syslinux</classname> and its
+configuration file</phrase>
+<phrase arch="powerpc">as well as <classname>yaboot</classname> and its
+configuration file</phrase>.
+-->
+
+C'è un file all-in-one <filename>hd-media/boot.img.gz</filename> che
+contiene non solo tutti i file dell'installatore (kernel compreso)
+<phrase arch="x86">ma anche <classname>syslinux</classname> e il suo
+file di configurazione.</phrase>
+<phrase arch="powerpc">ma anche <classname>yaboot</classname> e il suo
+file di configurazione.</phrase>
+
+</para><para>
+
+<!--
+Note that, although convenient, this method does have one major
+disadvantage: the logical size of the device will be limited to 256 MB,
+even if the capacity of the USB stick is larger. You will need to
+repartition the USB stick and create new file systems to get its full
+capacity back if you ever want to use it for some different purpose.
+A second disadvantage is that you cannot copy a full CD image onto
+the USB stick, but only the smaller businesscard or netinst CD images.
+-->
+
+Notare che, nonostante la sua comodità, questo metodo ha lo svantaggio
+che la dimensione logica del device è limitata a 256&nbsp;MB anche
+quando la capacità della chiavetta USB è superiore. Per poter ripristinare
+la capacità reale della chiavetta USB è necessario ripartizionarla e creare
+dei nuovi filesystem. Un altro svantaggio è che sulla chiavetta USB non è
+possibile copiare l'immagine di un CD completo, si possono copiare solo
+le immagini businesscard e netinst.
+
+</para><para arch="x86">
+
+<!--
+To use this image simply extract it directly to your USB stick:
+-->
+
+Per utilizzare questa immagine è sufficiente estrarla direttamente sulla
+chiavetta USB:
+
+<informalexample><screen>
+# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>
+</screen></informalexample>
+
+</para><para arch="powerpc">
+
+<!--
+Create a partition of type "Apple_Bootstrap" on your USB stick using
+<command>mac-fdisk</command>'s <userinput>C</userinput> command and
+extract the image directly to that:
+-->
+
+Creare una partizione di tipo <quote>Apple_Bootstrap</quote> sulla
+chiavetta USB usando il comando <userinput>C</userinput> di
+<command>mac-fdisk</command> ed estrarre l'immagine direttamente sulla
+chiavetta USB:
+
+<informalexample><screen>
+# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>
+</screen></informalexample>
+
+</para><para>
+
+<!--
+After that, mount the USB memory stick
+<phrase arch="x86">(<userinput>mount
+/dev/<replaceable>sdX</replaceable> /mnt</userinput>),</phrase>
+<phrase arch="powerpc">(<userinput>mount
+/dev/<replaceable>sdX2</replaceable> /mnt</userinput>),</phrase>
+which will now have
+<phrase arch="x86">a FAT filesystem</phrase>
+<phrase arch="powerpc">an HFS filesystem</phrase>
+on it, and copy a &debian; netinst or businesscard ISO image to it.
+Unmount the stick (<userinput>umount /mnt</userinput>) and you are done.
+-->
+
+Poi montare la chiavetta USB
+<phrase arch="x86">(<userinput>mount
+/dev/<replaceable>sdX</replaceable> /mnt</userinput>),</phrase>
+<phrase arch="powerpc">(<userinput>mount
+/dev/<replaceable>sdX2</replaceable> /mnt</userinput>),</phrase>
+che adesso avrà
+<phrase arch="x86">un filesystem FAT,</phrase>
+<phrase arch="powerpc">un filesystem HFS,</phrase>
+e copiarci l'immagine ISO netinst o businesscard &debian;. Infine
+smontare la chiavetta (<userinput>umount /mnt</userinput>).
+
+</para>
+  </sect2>
+
+  <sect2 id="usb-copy-flexible">
+  <!-- <title>Manually copying files to the USB stick &mdash; the flexible way</title> -->
+  <title>Copia manuale dei file sulla chiavetta USB &mdash; il modo flessibile</title>
+<para>
+
+<!--
+If you like more flexibility or just want to know what's going on, you
+should use the following method to put the files on your stick. One
+advantage of using this method is that &mdash; if the capacity of your
+USB stick is large enough &mdash; you have the option of copying a
+full CD ISO image to it.
+-->
+
+Se si preferisce avere più flessibilità o semplicemente si vuole capire
+cosa si sta facendo si deve usare questo metodo per scrivere i file sulla
+chiavetta. Uno dei vantaggi di questo metodo è quello che se la chiavetta
+USB è sufficientemente capiente, è possibile copiarci l'immagine di un CD
+completo.
+
+</para>
+
+&usb-setup-x86.xml;
+&usb-setup-powerpc.xml;
+
+  </sect2>
+ </sect1>

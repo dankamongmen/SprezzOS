@@ -1,0 +1,148 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 58649 -->
+
+   <sect3 id="pkgsel">
+   <title>Selecció i instal·lació de programari</title>
+
+<para>
+
+Al llarg del procés d'instal·lació, tindreu l'oportunitat de
+seleccionar programari addicional per a instal·lar. En comptes d'escollir
+paquets de programari individualment d'entre els &num-of-distrib-pkgs;
+que hi ha disponibles, aquesta fase del procés d'instal·lació es centra
+en seleccionar i instal·lar col·leccions predefinides de programes per
+configurar de forma ràpida el vostre ordinador per fer tasques diverses.
+
+</para><para>
+
+<!-- TODO: Should explain popcon first -->
+
+Així, primer tindreu la possibilitat d'escollir les
+<emphasis>tasques</emphasis>, i afegir després més paquets de
+forma individual. Aquestes tasques representen de forma aproximada un
+nombre de feines o coses diferents que pot fer el vostre ordinador, com
+<quote>Entorn d'escriptori</quote>, <quote>Servidor Web</quote> o
+<quote>Servidor d'impressió</quote><footnote>
+
+<para>
+
+Hauríeu de saber que per mostrar aquesta llista, l'instal·lador tan
+sols executa el programa <command>tasksel</command>. Es pot executar
+en qualsevol moment després de la instal·lació per instal·lar (o esborrar)
+més paquets, o podeu utilitzar eines més acurades com
+l'<command>aptitude</command>. Si esteu buscant un paquet específic,
+senzillament executeu <userinput>aptitude install
+<replaceable>paquet</replaceable></userinput>, on
+<replaceable>paquet</replaceable> és el nom del paquet que us interessa.
+
+</para>
+
+</footnote>. <xref linkend="tasksel-size-list"/> llista els requeriments
+d'espai de les tasques disponibles.
+
+</para><para>
+
+Algunes tasques poden estar preseleccionades basant-se en les
+característiques del ordinador on esteu instal·lant. Si no esteu d'acord amb
+aquestes seleccions, podeu desseleccionar les tasques. Fins i tot podeu optar
+per no instal·lar cap tasca en aquest punt.
+
+</para>
+<tip><para>
+
+En la interfície d'usuari estàndard de l'instal·lador, podeu emprar la barra
+espaiadora per a canviar l'estat de selecció d'una tasca.
+
+</para></tip>
+<note><para>
+
+A no ser que estigueu utilitzant els CD especials per a KDE o Xfce/LXDE, la
+tasca <quote>Entorn d'escriptori</quote> instal·larà l'entorn d'escriptori
+GNOME.
+
+</para><para>
+
+No és possible seleccionar de forma interactiva un escriptori diferent durant
+la instal·lació. Per altra banda, <emphasis>podeu</emphasis> fer que el %d-i;
+instal·li un entorn d'escriptori KDE en comptes de GNOME utilitzant la
+configuració prèvia (vegeu <xref linkend="preseed-pkgsel"/>) o afegint el
+paràmetre <literal>desktop=kde</literal> a l'indicador d'arrencada quan
+s'inicia l'instal·lador. Alternativament els entorns d'escriptori més lleugers
+Xfce i LXDE es poden seleccionar utilitzant <literal>desktop=xfce</literal> o
+<literal>desktop=lxde</literal>.
+
+</para><para arch="x86">
+
+Algunes imatges de CD (businesscard, netinst i DVD) també permeten escollir
+l'entorn d'escriptori desitjat des del menú d'arrencada gràfic. Escolliu
+l'entrada <quote>Opcions avançades</quote> del menú principal i busqueu
+<quote>Entorns d'escriptori alternatius</quote>.
+
+</para><para>
+
+D'altra banda, tan sols funcionarà si els paquets que calen per a l'entorn
+d'escriptori desitjat estan disponibles. Si esteu fent la instal·lació
+utilitzant una imatge completa del CD, aleshores necessitareu descarregar-los
+des d'una rèplica, ja que la majoria dels paquets estan inclosos als
+últims CD; aquesta forma d'instal·lar el KDE, Xfce o LXDE funcionarà bé
+si utilitzeu una imatge de DVD o qualsevol altre mètode d'instal·lació.
+
+</para></note>
+<para>
+
+Les diferents tasques de servidor instal·laran el programari mes o
+menys d'aquesta manera.
+Servidor DNS: <classname>bind9</classname>;
+Servidor de Fitxers: <classname>samba</classname>, <classname>nfs</classname>;
+Servidor de correu: <classname>exim4</classname>, <classname>spamassassin</classname>,
+<classname>uw-imap</classname>;
+Servidor d'impressió: <classname>cups</classname>;
+Base de dades SQL: <classname>postgresql</classname>;
+Servidor web: <classname>apache</classname>.
+
+</para><para>
+
+La tasca <quote>Sistema estàndard</quote> instal·larà tots els paquets que
+tinguen una prioritat <quote>estàndard</quote>. Açò inclou moltes utilitats
+comunes que es solen trobar a qualsevol sistema Linux o Unix. Hauríeu de
+mantenir seleccionada aquesta tasca excepte si sabeu el que feu i voleu un
+sistema realment mínim.
+
+</para><para>
+
+Si durant la selecció d'idioma heu escollit un locale predeterminat diferent
+de <quote>C</quote>, <command>tasksel</command> comprovarà si hi ha tasques
+de localització definides per a aqueix locale i provarà d'instal·lar
+automàticament els paquets de localització rellevants. Açò inclou, per
+exemple, els paquets que continguen llistes de paraules o tipus de lletra
+especials per al vostre idioma. Si heu seleccionat un entorn d'escriptori,
+també n'instal·larà els paquets de localització apropiats (si n'hi ha).
+
+</para><para>
+
+Una vegada seleccionades les tasques desitjades, premeu el botó &BTN-CONT;.
+En aquest punt, l'<command>aptitude</command> instal·larà els paquets
+necessaris per a les tasques seleccionades. Si algun programa en particular
+necessita més informació per part de l'usuari, aquesta es sol·licitarà
+durant el procés d'instal·lació.
+
+</para><para>
+
+Heu de ser conscients, que especialment, la tasca d'escriptori és molt gran.
+Especialment si esteu instal·lant des d'un CD-ROM normal en combinació amb
+una rèplica pels paquets que no estan al CD-ROM, l'instal·lador podria
+descarregar molts paquets des de la xarxa. Si teniu una connexió a Internet
+relativament lenta, pot trigar molt de temps. No es podrà cancel·lar la
+instal·lació de paquets una vegada s'hagi començat.
+
+</para><para>
+
+Inclús quan els paquets estan inclosos al CD-ROM, l'instal·lador pot ser que
+encara els descarregue de la rèplica si la versió que hi ha disponible
+és més recent que la inclosa al CD-ROM. Si esteu instal·lant la distribució
+«stable», açò pot passar després del llançament d'una revisió (una
+actualització de la distribució estable); si esteu instal·lant la
+distribució «testing» açò passarà si esteu utilitzant una imatge vella.
+
+</para>
+   </sect3>

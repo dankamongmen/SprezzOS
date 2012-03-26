@@ -1,0 +1,144 @@
+<!-- original version:  58649 -->
+
+   <sect3 id="pkgsel">
+   <title>Sélection et installation des paquets</title>
+
+<para>
+
+Pendant l'installation, il vous est proposé de choisir des logiciels à installer.
+Plutôt que de choisir les paquets un par un parmi les &num-of-distrib-pkgs; paquets
+disponibles, vous pourrez, pendant cette phase de l'installation, sélectionner et
+installer un certain nombre de configurations logicielles prédéfinies.
+
+</para><para>
+
+<!-- TODO: Should explain popcon first -->
+
+Autrement dit, vous pouvez choisir des <emphasis>tâches</emphasis>, et ensuite
+ajouter des paquets individuellement. Ces tâches représentent
+grosso modo les différents travaux qu'on peut faire avec son ordinateur,
+par exemple de la <quote>bureautique</quote>, du <quote>service web</quote>
+ou encore du <quote>service d'impression</quote> <footnote>
+
+<para>
+
+Il faut savoir que pour présenter cette liste, l'installateur
+appelle simplement le programme <command>tasksel</command>. Ce programme peut être 
+utilisé à tout moment une fois l'installation terminée pour installer ou supprimer
+des paquets. Vous pouvez aussi utiliser un outil plus sophistiqué comme
+<command>aptitude</command>. Une fois que l'installation est terminée,
+si vous voulez un paquet particulier, 
+exécutez simplement <userinput>aptitude install <replaceable>paquet</replaceable></userinput>,
+où <replaceable>paquet</replaceable> est le nom du paquet voulu.
+
+</para>
+
+</footnote>. L'espace nécessaire pour chaque tâche est indiqué dans
+<xref linkend="tasksel-size-list"/>.
+
+</para><para>
+
+Certaines tâches peuvent avoir été présélectionnées en fonction
+de la machine sur laquelle vous faites l'installation. Si vous n'êtes pas d'accord
+avec ces sélections, vous pouvez déselectionner ces tâches&nbsp;; vous pouvez même
+n'installer aucune tâche.
+</para>
+<tip><para>
+
+Dans l'interface standard de l'installateur, vous pouvez utiliser la barre
+d'espace pour sélectionner une tâche.
+
+</para></tip>
+<note><para>
+
+À moins d'utiliser des cédéroms conçus avec KDE ou Xfce/LXDE,
+la tâche <quote>Environnement graphique de bureau</quote>
+installe l'environnement Gnome.
+</para>
+
+<para>
+L'installateur n'offre pas d'option pour sélectionner un environnement différent.
+Cependant, en utilisant la préconfiguration (voyez <xref linkend="preseed-pkgsel"/>)
+ou en utilisant un paramètre d'amorçage, <literal>desktop=kde</literal> au moment de l'amorçage
+de l'installateur, il est possible d'installer KDE.
+Il est possible de choisir un environnement plus léger, comme l'environnement Xfce
+ou l'environnement LXDE, en utilisant le paramètre <literal>desktop=xfce</literal> ou
+le paramètre <literal>desktop=lxde</literal>.
+</para>
+
+<para arch="x86">
+
+Certaines images de CD (businesscard, netinst et DVD) permettent aussi de choisir
+l'environnement voulu à partir du menu de l'installateur graphique. Sélectionnez l'option
+<quote>Options avancées</quote> dans le menu principal et cherchez
+<quote>Autres environnements de bureau</quote>.
+
+</para>
+
+<para>
+Il est aussi nécessaire que les paquets composant les environnements soient
+disponibles. Si vous faites une installation à partir d'une image sur un seul disque, il faudra
+télécharger les paquets d'un miroir car ils ne sont pas sur le premier cédérom.
+Avec une image DVD ou une autre méthode d'installation, les environnements KDE, Xfce ou LXDE
+s'installent parfaitement.
+</para></note>
+
+<para>
+Les différentes tâches <emphasis>serveur</emphasis> installent les logiciels
+suivants&nbsp;:
+
+Serveur DNS : <classname>bind9</classname>;
+Serveur de fichiers : <classname>samba</classname>, <classname>nfs</classname>;
+Serveur de courrier : <classname>exim4</classname>, <classname>spamassassin</classname>,
+<classname>uw-imap</classname>;
+Serveur d'impression : <classname>cups</classname>;
+Bases de données SQL : <classname>postgresql</classname>;
+Serveur web : <classname>apache2</classname>.
+</para>
+
+<para>
+
+La tâche <quote>Standard system</quote> installe tous les paquets dont la priorité
+est <quote>standard</quote>. Beaucoup d'utilitaires habituellement disponibles sur les systèmes
+Linux ou Unix sont dans ce cas. Vous devez laisser cette tâche à moins de ne vouloir
+réellement qu'un système minimal.
+
+</para>
+<para>
+
+Si pendant la phase de choix de la langue, une <quote>locale</quote> autre que <quote>C</quote>
+a été choisie, le programme <command>tasksel</command> recherchera s'il existe une tâche
+de localisation pour cette locale et installera tous les paquets relatifs à cette tâche,
+comme par exemple les paquets contenant des dictionnaires ou des polices spéciales.
+Si un environnement de bureau a été choisi, il installera aussi les paquets
+nécessaires à la localisation du système.
+
+</para>
+<para>
+
+Une fois les tâches sélectionnées, choisissez &BTN-CONT;.
+<command>Aptitude</command> installera les paquets qui font partie des tâches demandées.
+Quand un programme a besoin d'informations, l'utilisateur est interrogé.
+
+</para>
+<para>
+
+Il est important de savoir que la tâche <emphasis>Environnement graphique de bureau</emphasis>
+comprend beaucoup de paquets. En particulier, si vous faites une installation à partir
+d'un cédérom en combinaison avec un miroir pour les paquets qui ne sont pas sur le cédérom,
+l'installateur téléchargera beaucoup de paquets. Si votre connexion à internet
+est relativement lente, cela peut prendre beaucoup de temps. Il n'existe pas
+d'option pour interrompre l'installation des paquets une fois qu'elle a commencé.
+</para>
+<para>
+
+Même quand les paquets sont sur le cédérom, l'installateur peut les télécharger
+sur le miroir si la version sur le miroir est plus récente que celle sur le
+cédérom. Si vous installez la distribution <emphasis>stable</emphasis>, cela peut
+arriver après une mise à jour de cette distribution (<emphasis>point release</emphasis>).
+Si vous installez la distribution <emphasis>testing</emphasis>, cela peut arriver
+si vous utilisez une image plus ancienne.
+</para>
+
+</sect3>
+

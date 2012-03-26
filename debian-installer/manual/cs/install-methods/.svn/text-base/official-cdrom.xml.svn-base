@@ -1,0 +1,68 @@
+<!-- $Id$ -->
+<!-- original version: 64916 -->
+
+ <sect1 id="official-cdrom">
+ <title>Oficiální sada CD-ROM</title>
+<para>
+
+Nejsnazší cesta k instalaci &debian;u vede přes oficiální sadu
+CD s &debian;em (viz <ulink url="&url-debian-cd-vendors;">seznam
+dodavatelů</ulink>).
+Pokud máte rychlé připojení k síti a vypalovací mechaniku, můžete si
+stáhnout obrazy CD z debianího zrcadla a vyrobit si vlastní sadu.
+(Postup naleznete na webové stránce
+<ulink url="&url-debian-cd;">debianích CD</ulink>.)
+Jestliže již CD máte a váš počítač z nich umí zavést systém, můžete
+přeskočit rovnou na <xref linkend="boot-installer"/>.
+Přestože &debian; zabírá několik CD, je nepravděpodobné, že byste
+potřebovali všechny disky, protože balíky jsou na nich seřazeny
+podle oblíbenosti, takže většinu programů nainstalujete z prvního CD.
+Také můžete použít DVD verzi, která vám ušetří místo na poličce
+a navíc se vyhnete diskžokejské práci s hromadou CD.
+
+</para><para>
+
+Pokud sice CD máte, ale váš počítač nepodporuje zavádění z CD-ROM,
+můžete zahájit instalaci zavedením instalačního systému z
+
+<phrase condition="supports-floppy-boot">diskety,</phrase>
+
+<phrase arch="s390">pásky, emulované pásky,</phrase>
+
+<phrase condition="bootable-disk">pevného disku,</phrase>
+
+<phrase condition="bootable-usb">usb klíčenky,</phrase>
+
+<phrase condition="supports-tftp">ze sítě,</phrase>
+
+nebo ručním zavedením jádra z CD. Soubory, které potřebujete k
+zavedení instalačního systému alternativními cestami, se rovněž
+nachází na CD. Organizace adresářů na CD je shodná se strukturou
+debianího archívu na Internetu, takže cesty k souborům uváděné dále
+v dokumentu můžete jednoduše vyhledat jak na CD, tak i na síti.
+
+</para><para>
+
+Po zavedení instalačního systému do paměti se již budou všechny
+potřebné soubory kopírovat z CD.
+
+</para><para>
+
+Pokud sadu CD nemáte, budete si muset stáhnout soubory instalačního
+sytému a nakopírovat je na
+
+<phrase arch="s390">instalační pásku</phrase>
+
+<phrase condition="supports-floppy-boot">diskety nebo na</phrase>
+
+<phrase condition="bootable-usb">usb klíčenku nebo na</phrase>
+
+<phrase condition="bootable-disk">pevný disk nebo na</phrase>
+
+<phrase condition="supports-tftp">připojený počítač</phrase>
+
+tak, aby se z nich mohl zavést instalační systém.
+
+</para>
+
+ </sect1>

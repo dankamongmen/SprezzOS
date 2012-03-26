@@ -1,0 +1,105 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 arch="not-s390"><title>Hardware speziell für GNU/&arch-kernel; kaufen</title>
+
+<para arch="linux-any">
+
+Es gibt einige Anbieter, die Systeme mit &debian; oder anderen
+GNU/Linux-Distributionen vorinstalliert anbieten, siehe
+<ulink url="&url-pre-installed;">Computerhersteller mit vorinstalliertem Debian
+</ulink>.
+Sie bezahlen möglicherweise mehr für dieses Privileg, aber Sie kaufen sich
+auch ein Stück Seelenfrieden, denn Sie können dadurch sicher gehen, dass
+Ihre Hardware von GNU/Linux gut unterstützt wird.
+
+</para><para arch="any-x86"> 
+
+Wenn Sie ein Gerät mit mitgeliefertem Windows kaufen müssen, lesen Sie die
+Software-Lizenz aufmerksam durch, die Sie mit Windows erhalten; es ist
+durchaus möglich, dass Sie die Lizenz ablehnen und dafür eine
+Rückvergütung vom Händler erhalten können. Wenn Sie das Internet nach
+dem Stichwort <quote>windows refund</quote> durchsuchen, finden Sie
+vielleicht hilfreiche Informationen hierzu.
+
+</para><para>
+
+Ob Sie nun ein System mit mitgeliefertem &arch-kernel; kaufen oder ohne, oder
+gar gebrauchte Hardware, es ist immer wichtig, zu kontrollieren, ob Ihre Hardware
+vom &arch-kernel;-Kernel unterstützt wird. Überprüfen Sie, ob Ihre Hardware
+in den oben angegebenen Referenzen aufgelistet ist. Lassen Sie Ihren
+Verkäufer wissen, dass Sie für ein &arch-kernel;-System einkaufen. Unterstützen
+Sie &arch-kernel;-freundliche Hardware-Verkäufer!
+
+</para>
+
+  <sect2><title>Vermeiden Sie proprietäre oder <quote>Closed</quote> Hardware</title>
+<para>
+
+Einige Hardware-Hersteller werden uns einfach nicht mitteilen, wie Treiber für
+ihre Hardware zu schreiben sind. Andere gewähren keinen Zugriff auf die
+Dokumentation ohne einen Geheimhaltungsvertrag, was uns davon abhalten würde,
+den &arch-kernel;-Quellcode zu veröffentlichen.
+
+</para><para>
+
+Da wir keinen Zugang zu den Dokumentationen dieser Geräte erhalten haben,
+werden Sie einfach unter &arch-kernel; nicht funktionieren. Sie können helfen, indem Sie
+die Hersteller solcher Hardware bitten, die Dokumentation zu veröffentlichen.
+Wenn genügend Leute fragen, werden sie begreifen, dass die Free Software
+Community einen wichtigen Markt darstellt.
+
+</para>
+</sect2>
+
+
+  <sect2 arch="any-x86"><title>Windows-spezifische Hardware</title>
+<para>
+
+Ein beunruhigender Trend ist die Verbreitung von Windows-spezifischen
+Modems und Druckern. In einigen Fällen werden sie speziell konstruiert,
+um mit dem Microsoft Windows-Betriebssystem zusammen zu arbeiten und tragen
+den Hinweis <quote>WinModem</quote> oder <quote>Made especially for
+Windows-based computers (speziell für Windows-basierte Computer
+entwickelt)</quote>. Das wird im Allgemeinen erreicht, indem integrierte
+Prozessoren aus der Hardware entfernt werden und die Arbeit an einen
+Windows-Treiber übergeben wird, der vom Prozessor des Rechners ausgeführt wird. Diese
+Strategie macht Hardware ein wenig billiger, aber die Einsparungen werden oft
+<emphasis>nicht</emphasis> an den Benutzer weitergegeben oder diese
+Hardware kann sogar teurer sein als gleichwertige Geräte, die ihre
+eingebettete Intelligenz behalten.
+
+</para><para>
+
+Sie sollten Windows-spezifische Hardware aus zwei Gründen meiden. Der
+erste ist, dass die Hersteller grundsätzlich nicht die Ressourcen zur Verfügung
+stellen, um einen &arch-kernel;-Treiber zu schreiben. Im Allgemeinen sind
+die Hardware- und Software-Schnittstellen des Geräts proprietär und
+Dokumentation ist, wenn überhaupt, nicht ohne einen Geheimhaltungsvertrag
+verfügbar. Das verhindert die Verwendung für Freie Software,
+da Programmierer freier Software den Quellcode ihrer Software offen
+legen. Der zweite Grund ist, dass das Betriebssystem die Arbeit des
+eingebetteten Prozessors übernehmen muss, oftmals mit
+<emphasis>Echtzeit</emphasis>-Priorität, und der Prozessor für
+den Betrieb Ihrer Programme nicht verfügbar ist, während er diese
+Geräte ansteuert. Da der typische Windows-Benutzer nicht so intensiv
+Multi-Tasking betreibt wie ein &arch-kernel;-Benutzer, hoffen die Hersteller,
+dass der Windowsbenutzer die Belastung einfach nicht bemerkt, die
+diese Hardware der CPU auferlegt. Jedes Multi-Tasking-Betriebssystem,
+sogar Windows 2000 oder XP, leidet aber unter reduzierter Performance, wenn
+Peripherie-Hersteller mit der eingebetteten Rechenleistung ihrer Hardware
+geizen.
+
+</para><para>
+
+Sie können helfen, diese Situation zu verbessern, indem Sie die Hersteller
+ermuntern, die Dokumentation und andere zur Programmierung ihrer
+Hardware notwendigen Ressourcen zu veröffentlichen, aber die beste Strategie
+ist einfach, diese Art Hardware zu meiden<phrase arch="linux-any">, bis
+sie im
+<ulink url="&url-hardware-howto;">Linux-Hardware-Compatibility-HowTo</ulink>
+als funktionierend aufgelistet ist</phrase>.
+
+</para>
+</sect2>
+ </sect1>

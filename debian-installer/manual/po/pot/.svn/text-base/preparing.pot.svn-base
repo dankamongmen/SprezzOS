@@ -1,0 +1,1618 @@
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-29 05:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-xml2pot; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#: preparing.xml:5
+#, no-c-format
+msgid "Before Installing &debian-gnu;"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:6
+#, no-c-format
+msgid "This chapter deals with the preparation for installing &debian; before you even boot the installer. This includes backing up your data, gathering information about your hardware, and locating any necessary information."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:19
+#, no-c-format
+msgid "Overview of the Installation Process"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:20
+#, no-c-format
+msgid "First, just a note about re-installations. With &debian;, a circumstance that will require a complete re-installation of your system is very rare; perhaps mechanical failure of the hard disk would be the most common case."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:27
+#, no-c-format
+msgid "Many common operating systems may require a complete installation to be performed when critical failures take place or for upgrades to new OS versions. Even if a completely new installation isn't required, often the programs you use must be re-installed to operate properly in the new OS."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:35
+#, no-c-format
+msgid "Under &debian-gnu;, it is much more likely that your OS can be repaired rather than replaced if things go wrong. Upgrades never require a wholesale installation; you can always upgrade in-place. And the programs are almost always compatible with successive OS releases. If a new program version requires newer supporting software, the &debian; packaging system ensures that all the necessary software is automatically identified and installed. The point is, much effort has been put into avoiding the need for re-installation, so think of it as your very last option. The installer is <emphasis>not</emphasis> designed to re-install over an existing system."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:48
+#, no-c-format
+msgid "Here's a road map for the steps you will take during the installation process."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:56
+#, no-c-format
+msgid "Back up any existing data or documents on the hard disk where you plan to install."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:62
+#, no-c-format
+msgid "Gather information about your computer and any needed documentation, before starting the installation."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:68
+#, no-c-format
+msgid "Create partitionable space for &debian; on your hard disk."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:73
+#, no-c-format
+msgid "Locate and/or download the installer software and any specialized driver files your machine requires (except &debian; CD users)."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:79
+#, no-c-format
+msgid "Set up boot tapes/floppies/USB sticks, or place boot files (most &debian; CD users can boot from one of the CDs)."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:85
+#, no-c-format
+msgid "Boot the installation system."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:90
+#, no-c-format
+msgid "Select the installation language."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:95
+#, no-c-format
+msgid "Activate the ethernet network connection, if available."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:101
+#, no-c-format
+msgid "Configure one network interface."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:106
+#, no-c-format
+msgid "Open an ssh connection to the new system."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:111
+#, no-c-format
+msgid "Attach one or more DASDs (Direct Access Storage Device)."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:117
+#, no-c-format
+msgid "Create and mount the partitions on which &debian; will be installed."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:122
+#, no-c-format
+msgid "Watch the automatic download/install/setup of the <firstterm>base system</firstterm>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:128
+#, no-c-format
+msgid "Install a <firstterm>boot loader</firstterm> which can start up &debian-gnu; and/or your existing system."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:134
+#, no-c-format
+msgid "Load the newly installed system for the first time."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:141
+#, no-c-format
+msgid "For &arch-title; you have the option of using <phrase arch=\"any-x86\">a</phrase> <phrase arch=\"powerpc\">an experimental</phrase> graphical version of the installation system. For more information about this graphical installer, see <xref linkend=\"graphical\"/>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:149
+#, no-c-format
+msgid "If you have problems during the installation, it helps to know which packages are involved in which steps. Introducing the leading software actors in this installation drama:"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:155
+#, no-c-format
+msgid "The installer software, <classname>debian-installer</classname>, is the primary concern of this manual. It detects hardware and loads appropriate drivers, uses <classname>dhcp-client</classname> to set up the network connection, runs <classname>debootstrap</classname> to install the base system packages, and runs <classname>tasksel</classname> to allow you to install certain additional software. Many more actors play smaller parts in this process, but <classname>debian-installer</classname> has completed its task when you load the new system for the first time."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:167
+#, no-c-format
+msgid "To tune the system to your needs, <classname>tasksel</classname> allows you to choose to install various predefined bundles of software like a Web server or a Desktop environment."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:173
+#, no-c-format
+msgid "One important option during the installation is whether or not to install a graphical desktop environment, consisting of the X Window System and one of the available graphical desktop environments. If you choose not to select the <quote>Desktop environment</quote> task, you will only have a relatively basic, command line driven system. Installing the Desktop environment task is optional because it requires a fairly large amount of disk space, and because many &debian-gnu; systems are servers which don't really have any need for a graphical user interface to do their job."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:185
+#, no-c-format
+msgid "Just be aware that the X Window System is completely separate from <classname>debian-installer</classname>, and in fact is much more complicated. Installation and troubleshooting of the X Window System is not within the scope of this manual."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:200
+#, no-c-format
+msgid "Back Up Your Existing Data!"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:201
+#, no-c-format
+msgid "Before you start, make sure to back up every file that is now on your system. If this is the first time a non-native operating system has been installed on your computer, it's quite likely you will need to re-partition your disk to make room for &debian-gnu;. Anytime you partition your disk, you run a risk of losing everything on the disk, no matter what program you use to do it. The programs used in installation are quite reliable and most have seen years of use; but they are also quite powerful and a false move can cost you. Even after backing up, be careful and think about your answers and actions. Two minutes of thinking can save hours of unnecessary work."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:214
+#, no-c-format
+msgid "If you are creating a multi-boot system, make sure that you have the distribution media of any other present operating systems on hand. Especially if you repartition your boot drive, you might find that you have to reinstall your operating system's boot loader, or in many cases the whole operating system itself and all files on the affected partitions."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:232
+#, no-c-format
+msgid "Information You Will Need"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:235
+#, no-c-format
+msgid "Documentation"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:238
+#, no-c-format
+msgid "Installation Manual"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:240
+#, no-c-format
+msgid "This document you are now reading, in plain ASCII, HTML or PDF format."
+msgstr ""
+
+#. Tag: itemizedlist
+#: preparing.xml:246
+#, no-c-format
+msgid "&list-install-manual-files;"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:252
+#, no-c-format
+msgid "The document you are now reading, which is the official version of the Installation Guide for the &releasename; release of &debian;; available in <ulink url=\"&url-release-area;/installmanual\">various formats and translations</ulink>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:261
+#, no-c-format
+msgid "The document you are now reading, which is a development version of the Installation Guide for the next release of &debian;; available in <ulink url=\"&url-d-i-alioth-manual;\">various formats and translations</ulink>."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:273
+#, no-c-format
+msgid "Hardware documentation"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:274
+#, no-c-format
+msgid "Often contains useful information on configuring or using your hardware."
+msgstr ""
+
+#. Tag: ulink
+#: preparing.xml:285
+#, no-c-format
+msgid "Linux Hardware Compatibility HOWTO"
+msgstr ""
+
+#. Tag: ulink
+#: preparing.xml:291
+#, no-c-format
+msgid "Linux for SPARC Processors FAQ"
+msgstr ""
+
+#. Tag: ulink
+#: preparing.xml:297
+#, no-c-format
+msgid "Linux/Mips website"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:306
+#, no-c-format
+msgid "&arch-title; Hardware References"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:307
+#, no-c-format
+msgid "Documentation of &arch-title;-specific boot sequence, commands and device drivers (e.g. DASD, XPRAM, Console, OSA, HiperSockets and z/VM interaction)"
+msgstr ""
+
+#. Tag: ulink
+#: preparing.xml:318
+#, no-c-format
+msgid "Device Drivers, Features, and Commands (Linux Kernel 2.6.32)"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:323
+#, no-c-format
+msgid "IBM Redbook describing how Linux can be combined with z/VM on zSeries and &arch-title; hardware."
+msgstr ""
+
+#. Tag: ulink
+#: preparing.xml:333
+#, no-c-format
+msgid "Linux for &arch-title;"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:339
+#, no-c-format
+msgid "IBM Redbook describing the Linux distributions available for the mainframe. It has no chapter about &debian; but the basic installation concepts are the same across all &arch-title; distributions."
+msgstr ""
+
+#. Tag: ulink
+#: preparing.xml:350
+#, no-c-format
+msgid "Linux for IBM eServer zSeries and &arch-title;: Distributions"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:360
+#, no-c-format
+msgid "Finding Sources of Hardware Information"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:361
+#, no-c-format
+msgid "In many cases, the installer will be able to automatically detect your hardware. But to be prepared, we do recommend familiarizing yourself with your hardware before the install."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:367
+#, no-c-format
+msgid "Hardware information can be gathered from:"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:374
+#, no-c-format
+msgid "The manuals that come with each piece of hardware."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:379
+#, no-c-format
+msgid "The BIOS setup screens of your computer. You can view these screens when you start your computer by pressing a combination of keys. Check your manual for the combination. Often, it is the <keycap>Delete</keycap> key."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:386
+#, no-c-format
+msgid "The cases and boxes for each piece of hardware."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:392
+#, no-c-format
+msgid "The System window in the Windows Control Panel."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:398
+#, no-c-format
+msgid "System commands or tools in another operating system, including file manager displays. This source is especially useful for information about RAM and hard drive memory."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:405
+#, no-c-format
+msgid "Your system administrator or Internet Service Provider. These sources can tell you the settings you need to set up your networking and e-mail."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:417
+#, no-c-format
+msgid "Hardware Information Needed for an Install"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:421
+#, no-c-format
+msgid "Hardware"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:421
+#, no-c-format
+msgid "Information You Might Need"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:427
+#, no-c-format
+msgid "Hard Drives"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:428
+#, no-c-format
+msgid "How many you have."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:430
+#, no-c-format
+msgid "Their order on the system."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:432
+#, no-c-format
+msgid "Whether IDE (also known as PATA), SATA or SCSI."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:434 preparing.xml:486
+#, no-c-format
+msgid "Available free space."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:435
+#, no-c-format
+msgid "Partitions."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:437
+#, no-c-format
+msgid "Partitions where other operating systems are installed."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:441
+#, no-c-format
+msgid "Monitor"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:442 preparing.xml:462 preparing.xml:468 preparing.xml:474
+#, no-c-format
+msgid "Model and manufacturer."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:444
+#, no-c-format
+msgid "Resolutions supported."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:445
+#, no-c-format
+msgid "Horizontal refresh rate."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:446
+#, no-c-format
+msgid "Vertical refresh rate."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:448
+#, no-c-format
+msgid "Color depth (number of colors) supported."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:450
+#, no-c-format
+msgid "Screen size."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:453
+#, no-c-format
+msgid "Mouse"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:454
+#, no-c-format
+msgid "Type: serial, PS/2, or USB."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:456
+#, no-c-format
+msgid "Port."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:457
+#, no-c-format
+msgid "Manufacturer."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:458
+#, no-c-format
+msgid "Number of buttons."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:461 preparing.xml:489
+#, no-c-format
+msgid "Network"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:464 preparing.xml:490
+#, no-c-format
+msgid "Type of adapter."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:467
+#, no-c-format
+msgid "Printer"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:470
+#, no-c-format
+msgid "Printing resolutions supported."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:473
+#, no-c-format
+msgid "Video Card"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:476
+#, no-c-format
+msgid "Video RAM available."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:478
+#, no-c-format
+msgid "Resolutions and color depths supported (these should be checked against your monitor's capabilities)."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:483
+#, no-c-format
+msgid "DASD"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:484
+#, no-c-format
+msgid "Device number(s)."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:492
+#, no-c-format
+msgid "Device numbers."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:493
+#, no-c-format
+msgid "Relative adapter number for OSA cards."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:501
+#, no-c-format
+msgid "Hardware Compatibility"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:503
+#, no-c-format
+msgid "Many brand name products work without trouble on &arch-kernel;. Moreover, hardware support in &arch-kernel; is improving daily. However, &arch-kernel; still does not run as many different types of hardware as some operating systems."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:509
+#, no-c-format
+msgid "In particular, &arch-kernel; usually cannot run hardware that requires a running version of Windows to work."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:514
+#, no-c-format
+msgid "Although some Windows-specific hardware can be made to run on Linux, doing so usually requires extra effort. In addition, Linux drivers for Windows-specific hardware are usually specific to one Linux kernel. Therefore, they can quickly become obsolete."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:521
+#, no-c-format
+msgid "So called win-modems are the most common type of this hardware. However, printers and other equipment may also be Windows-specific."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:526
+#, no-c-format
+msgid "You can check hardware compatibility by:"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:531
+#, no-c-format
+msgid "Checking manufacturers' web sites for new drivers."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:536
+#, no-c-format
+msgid "Looking at web sites or manuals for information about emulation. Lesser known brands can sometimes use the drivers or settings for better-known ones."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:543
+#, no-c-format
+msgid "Checking hardware compatibility lists for &arch-kernel; on web sites dedicated to your architecture."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:549
+#, no-c-format
+msgid "Searching the Internet for other users' experiences."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:560
+#, no-c-format
+msgid "Network Settings"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:562
+#, no-c-format
+msgid "If your computer is connected to a network 24 hours a day (i.e., an Ethernet or equivalent connection &mdash; not a PPP connection), you should ask your network's system administrator for this information."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:569
+#, no-c-format
+msgid "Your host name (you may be able to decide this on your own)."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:574
+#, no-c-format
+msgid "Your domain name."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:579
+#, no-c-format
+msgid "Your computer's IP address."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:584
+#, no-c-format
+msgid "The netmask to use with your network."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:589
+#, no-c-format
+msgid "The IP address of the default gateway system you should route to, if your network <emphasis>has</emphasis> a gateway."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:595
+#, no-c-format
+msgid "The system on your network that you should use as a DNS (Domain Name Service) server."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:603
+#, no-c-format
+msgid "On the other hand, if your administrator tells you that a DHCP server is available and is recommended, then you don't need this information because the DHCP server will provide it directly to your computer during the installation process."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:610
+#, no-c-format
+msgid "If you use a wireless network, you should also find out:"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:615
+#, no-c-format
+msgid "ESSID of your wireless network."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:620
+#, no-c-format
+msgid "WEP security key (if applicable)."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:637
+#, no-c-format
+msgid "Meeting Minimum Hardware Requirements"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:638
+#, no-c-format
+msgid "Once you have gathered information about your computer's hardware, check that your hardware will let you do the type of installation that you want to do."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:644
+#, no-c-format
+msgid "Depending on your needs, you might manage with less than some of the recommended hardware listed in the table below. However, most users risk being frustrated if they ignore these suggestions."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:650
+#, no-c-format
+msgid "A Pentium 4, 1GHz system is the minimum recommended for a desktop system."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:655
+#, no-c-format
+msgid "Any OldWorld or NewWorld PowerPC can serve well as a desktop system."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:662
+#, no-c-format
+msgid "Recommended Minimum System Requirements"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:666
+#, no-c-format
+msgid "Install Type"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:667
+#, no-c-format
+msgid "RAM (minimal)"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:668
+#, no-c-format
+msgid "RAM (recommended)"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:669
+#, no-c-format
+msgid "Hard Drive"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:675
+#, no-c-format
+msgid "No desktop"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:676
+#, no-c-format
+msgid "64 megabytes"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:677
+#, no-c-format
+msgid "256 megabytes"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:678
+#, no-c-format
+msgid "1 gigabyte"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:680
+#, no-c-format
+msgid "With Desktop"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:681
+#, no-c-format
+msgid "128 megabytes"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:682
+#, no-c-format
+msgid "512 megabytes"
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:683
+#, no-c-format
+msgid "5 gigabytes"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:688
+#, no-c-format
+msgid "The actual minimum memory requirements are a lot less then the numbers listed in this table. Depending on the architecture, it is possible to install &debian; with as little as 20MB (for s390) to 60MB (for amd64). The same goes for the disk space requirements, especially if you pick and choose which applications to install; see <xref linkend=\"tasksel-size-list\"/> for additional information on disk space requirements."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:698
+#, no-c-format
+msgid "It is possible to run a graphical desktop environment on older or low-end systems, but in that case it is recommended to install a window manager that is less resource-hungry than those of the GNOME or KDE desktop environments; alternatives include <classname>xfce4</classname>, <classname>icewm</classname> and <classname>wmaker</classname>, but there are others to choose from."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:707
+#, no-c-format
+msgid "It is practically impossible to give general memory or disk space requirements for server installations as those very much depend on what the server is to be used for."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:713
+#, no-c-format
+msgid "Remember that these sizes don't include all the other materials which are usually to be found, such as user files, mail, and data. It is always best to be generous when considering the space for your own files and data."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:720
+#, no-c-format
+msgid "Disk space required for the smooth operation of the &debian-gnu; system itself is taken into account in these recommended system requirements. Notably, the <filename>/var</filename> partition contains a lot of state information specific to &debian; in addition to its regular contents, like logfiles. The <command>dpkg</command> files (with information on all installed packages) can easily consume 40MB. Also, <command>apt-get</command> puts downloaded packages here before they are installed. You should usually allocate at least 200MB for <filename>/var</filename>, and a lot more if you install a graphical desktop environment."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:744
+#, no-c-format
+msgid "Pre-Partitioning for Multi-Boot Systems"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:745
+#, no-c-format
+msgid "Partitioning your disk simply refers to the act of breaking up your disk into sections. Each section is then independent of the others. It's roughly equivalent to putting up walls inside a house; if you add furniture to one room it doesn't affect any other room."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:752
+#, no-c-format
+msgid "Whenever this section talks about <quote>disks</quote> you should translate this into a DASD or VM minidisk in the &arch-title; world. Also a machine means an LPAR or VM guest in this case."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:758
+#, no-c-format
+msgid "If you already have an operating system on your system <phrase arch=\"any-x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, &hellip;) </phrase> and want to stick &debian; on the same disk, you will need to repartition the disk. &debian; requires its own hard disk partitions. It cannot be installed on Windows or MacOS partitions. It may be able to share some partitions with other Unix systems, but that's not covered here. At the very least you will need a dedicated partition for the &debian; root."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:777
+#, no-c-format
+msgid "You can find information about your current partition setup by using a partitioning tool for your current operating system<phrase arch=\"any-x86\">, such as fdisk or PartitionMagic</phrase><phrase arch=\"powerpc\">, such as Drive Setup, HD Toolkit, or MacTools</phrase><phrase arch=\"s390\">, such as the VM diskmap</phrase>. Partitioning tools always provide a way to show existing partitions without making changes."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:786
+#, no-c-format
+msgid "In general, changing a partition with a file system already on it will destroy any information there. Thus you should always make backups before doing any repartitioning. Using the analogy of the house, you would probably want to move all the furniture out of the way before moving a wall or you risk destroying it."
+msgstr ""
+
+#. Tag: emphasis
+#: preparing.xml:796
+#, no-c-format
+msgid "FIXME: write about HP-UX disks?"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:798
+#, no-c-format
+msgid "If your computer has more than one hard disk, you may want to dedicate one of the hard disks completely to &debian;. If so, you don't need to partition that disk before booting the installation system; the installer's included partitioning program can handle the job nicely."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:805
+#, no-c-format
+msgid "If your machine has only one hard disk, and you would like to completely replace the current operating system with &debian-gnu;, you also can wait to partition as part of the installation process (<xref linkend=\"di-partition\"/>), after you have booted the installation system. However this only works if you plan to boot the installer system from tapes, CD-ROM or files on a connected machine. Consider: if you boot from files placed on the hard disk, and then partition that same hard disk within the installation system, thus erasing the boot files, you'd better hope the installation is successful the first time around. At the least in this case, you should have some alternate means of reviving your machine like the original system's installation tapes or CDs."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:820
+#, no-c-format
+msgid "If your machine already has multiple partitions, and enough space can be provided by deleting and replacing one or more of them, then you too can wait and use the &debian; installer's partitioning program. You should still read through the material below, because there may be special circumstances like the order of the existing partitions within the partition map, that force you to partition before installing anyway."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:830
+#, no-c-format
+msgid "If your machine has a FAT or NTFS filesystem, as used by DOS and Windows, you can wait and use &debian; installer's partitioning program to resize the filesystem."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:836
+#, no-c-format
+msgid "If none of the above apply, you'll need to partition your hard disk before starting the installation to create partitionable space for &debian;. If some of the partitions will be owned by other operating systems, you should create those partitions using native operating system partitioning programs. We recommend that you do <emphasis>not</emphasis> attempt to create partitions for &debian-gnu; using another operating system's tools. Instead, you should just create the native operating system's partitions you will want to retain."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:848
+#, no-c-format
+msgid "If you are going to install more than one operating system on the same machine, you should install all other system(s) before proceeding with &debian; installation. Windows and other OS installations may destroy your ability to start &debian;, or encourage you to reformat non-native partitions."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:856
+#, no-c-format
+msgid "You can recover from these actions or avoid them, but installing the native system first saves you trouble."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:861
+#, no-c-format
+msgid "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-parttype; partitions should appear before all other partitions on the disk, especially MacOS boot partitions. This should be kept in mind when pre-partitioning; you should create a &arch-parttype; placeholder partition to come <emphasis>before</emphasis> the other bootable partitions on the disk. (The small partitions dedicated to Apple disk drivers are not bootable.) You can delete the placeholder with the &debian; partition tools later during the actual install, and replace it with &arch-parttype; partitions."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:873
+#, no-c-format
+msgid "If you currently have one hard disk with one partition (a common setup for desktop computers), and you want to multi-boot the native operating system and &debian;, you will need to:"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:880
+#, no-c-format
+msgid "Back up everything on the computer."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:885
+#, no-c-format
+msgid "Boot from the native operating system installer media such as CD-ROM or tapes. <phrase arch=\"powerpc\">When booting from a MacOS CD, hold the <keycap>c</keycap> key while booting to force the CD to become the active MacOS system.</phrase>"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:895
+#, no-c-format
+msgid "Use the native partitioning tools to create native system partition(s). Leave either a place holder partition or free space for &debian-gnu;."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:902
+#, no-c-format
+msgid "Install the native operating system on its new partition."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:907
+#, no-c-format
+msgid "Boot back into the native system to verify everything's OK, and to download the &debian; installer boot files."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:913
+#, no-c-format
+msgid "Boot the &debian; installer to continue installing &debian;."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:927
+#, no-c-format
+msgid "Partitioning From DOS or Windows"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:928
+#, no-c-format
+msgid "If you are manipulating existing FAT or NTFS partitions, it is recommended that you either use the scheme below or native Windows or DOS tools. Otherwise, it is not really necessary to partition from DOS or Windows; the &debian; partitioning tools will generally do a better job."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:936
+#, no-c-format
+msgid "But if you have a large IDE disk, and are not using LBA addressing, overlay drivers (sometimes provided by hard disk manufacturers), or a new (post 1998) BIOS that supports large disk access extensions, then you must locate your &debian; boot partition carefully. In this case, you will have to put the boot partition into the first 1024 cylinders of your hard disk (usually around 524 megabytes, without BIOS translation). This may require that you move an existing FAT or NTFS partition."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:950
+#, no-c-format
+msgid "Lossless Repartitioning When Starting From DOS, Win-32 or OS/2"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:953
+#, no-c-format
+msgid "One of the most common installations is onto a system that already contains DOS (including Windows 3.1), Win32 (such as Windows 95, 98, Me, NT, 2000, XP, 2003, Vista, 7), or OS/2, and it is desired to put &debian; onto the same disk without destroying the previous system. Note that the installer supports resizing of FAT and NTFS filesystems as used by DOS and Windows. Simply start the installer and when you get to the partitioning step, select the option for <menuchoice> <guimenuitem>Manual</guimenuitem> </menuchoice> partitioning, select the partition to resize, and specify its new size. So in most cases you should not need to use the method described below."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:965
+#, no-c-format
+msgid "Before going any further, you should have decided how you will be dividing up the disk. The method in this section will only split a partition into two pieces. One will contain the original OS and the other will be used for &debian;. During the installation of &debian;, you will be given the opportunity to use the &debian; portion of the disk as you see fit, i.e., as swap or as a file system."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:974
+#, no-c-format
+msgid "The idea is to move all the data on the partition to the beginning, before changing the partition information, so that nothing will be lost. It is important that you do as little as possible between the data movement and repartitioning to minimize the chance of a file being written near the end of the partition as this will decrease the amount of space you can take from the partition."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:983
+#, no-c-format
+msgid "The first thing needed is a copy of <command>fips</command>. Unzip the archive and copy the files <filename>RESTORRB.EXE</filename>, <filename>FIPS.EXE</filename> and <filename>ERRORS.TXT</filename> to a bootable floppy. A bootable floppy can be created using the command <filename>sys a:</filename> under DOS. <command>fips</command> comes with very good documentation which you may want to read. You will definitely need to read the documentation if you use a disk compression driver or a disk manager. Create the disk and read the documentation <emphasis>before</emphasis> you defragment the disk."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:995
+#, no-c-format
+msgid "The next thing needed is to move all the data to the beginning of the partition. <command>defrag</command>, which comes standard with DOS 6.0 and later, can easily do the job. See the <command>fips</command> documentation for a list of other software that may do the trick. Note that if you have Windows 9x, you must run <command>defrag</command> from there, since DOS doesn't understand VFAT, which is used to support for long filenames, used in Windows 95 and higher."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1005
+#, no-c-format
+msgid "After running the defragmenter (which can take a while on a large disk), reboot with the <command>fips</command> disk you created in the floppy drive. Simply type <filename>a:\\fips</filename> and follow the directions."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1011
+#, no-c-format
+msgid "Note that there are many other partition managers out there, in case <command>fips</command> doesn't do the trick for you."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1019
+#, no-c-format
+msgid "Partitioning for DOS"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1021
+#, no-c-format
+msgid "If you are partitioning for DOS drives, or changing the size of DOS partitions, using &debian; tools, many people experience problems working with the resulting FAT partitions. For instance, some have reported slow performance, consistent problems with <command>scandisk</command>, or other weird errors in DOS or Windows."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1029
+#, no-c-format
+msgid "Apparently, whenever you create or resize a partition for DOS use, it's a good idea to fill the first few sectors with zeros. You should do this prior to running DOS's <command>format</command> command by executing the following command from &debian;:"
+msgstr ""
+
+#. Tag: screen
+#: preparing.xml:1036
+#, no-c-format
+msgid "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1047
+#, no-c-format
+msgid "Partitioning from SunOS"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1049
+#, no-c-format
+msgid "It's perfectly fine to partition from SunOS; in fact, if you intend to run both SunOS and &debian; on the same machine, it is recommended that you partition using SunOS prior to installing &debian;. The Linux kernel understands Sun disk labels, so there are no problems there. SILO supports booting Linux and SunOS from any of EXT2 (Linux), UFS (SunOS), romfs or iso9660 (CDROM) partitions."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1061
+#, no-c-format
+msgid "Partitioning from Linux or another OS"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1063
+#, no-c-format
+msgid "Whatever system you are using to partition, make sure you create a <quote>Sun disk label</quote> on your boot disk. This is the only kind of partition scheme that the OpenBoot PROM understands, and so it's the only scheme from which you can boot. In <command>fdisk</command>, the <keycap>s</keycap> key is used to create Sun disk labels. You only need to do this on drives that do not already have a Sun disk label. If you are using a drive that was previously formatted using a PC (or other architecture) you must create a new disk label, or problems with the disk geometry will most likely occur."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1075
+#, no-c-format
+msgid "You will probably be using <command>SILO</command> as your boot loader (the small program which runs the operating system kernel). <command>SILO</command> has certain requirements for partition sizes and location; see <xref linkend=\"partitioning\"/>."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1090
+#, no-c-format
+msgid "MacOS/OSX Partitioning"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1092
+#, no-c-format
+msgid "The <application>Apple Drive Setup</application> application can be found in the <filename>Utilities</filename> folder on the MacOS CD. It will not adjust existing partitions; it is limited to partitioning the entire disk at once. The disk driver partitions don't show up in <application>Drive Setup</application>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1099
+#, no-c-format
+msgid "Remember to create a placeholder partition for GNU/Linux, preferably positioned first in the disk layout. it doesn't matter what type it is, it will be deleted and replaced later inside the &debian-gnu; installer."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1105
+#, no-c-format
+msgid "If you are planning to install both MacOS 9 and OS X, it is best to create separate partitions for OS 9 and OS X. If they are installed on the same partition, <application>Startup Disk</application> (and reboot) must be used to select between the two; the choice between the two systems can't be made at boot time. With separate partitions, separate options for OS 9 and OS X will appear when holding the <keycap>option</keycap> key at boot time, and separate options can be installed in the <application>yaboot</application> boot menu as well. Also, Startup Disk will de-bless all other mountable partitions, which can affect GNU/Linux booting. Both OS 9 and OS X partitions will be accessible from either OS 9 or OS X."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1118
+#, no-c-format
+msgid "GNU/Linux is unable to access information on UFS partitions, but does support HFS+ (aka MacOS Extended) partitions. OS X requires one of these two types for its boot partition. MacOS 9 can be installed on either HFS (aka MacOS Standard) or HFS+. To share information between the MacOS and GNU/Linux systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT partitions are supported by both MacOS and Linux."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1138
+#, no-c-format
+msgid "Pre-Installation Hardware and Operating System Setup"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1139
+#, no-c-format
+msgid "This section will walk you through pre-installation hardware setup, if any, that you will need to do prior to installing &debian;. Generally, this involves checking and possibly changing firmware settings for your system. The <quote>firmware</quote> is the core software used by the hardware; it is most critically invoked during the bootstrap process (after power-up). Known hardware issues affecting the reliability of &debian-gnu; on your system are also highlighted."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1161
+#, no-c-format
+msgid "Invoking the BIOS Set-Up Menu"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1163
+#, no-c-format
+msgid "BIOS provides the basic functions needed to boot your machine to allow your operating system to access your hardware. Your system probably provides a BIOS setup menu, which is used to configure the BIOS. Before installing, you <emphasis>must</emphasis> ensure that your BIOS is set up correctly; not doing so can lead to intermittent crashes or an inability to install &debian;."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1172
+#, no-c-format
+msgid "The rest of this section is lifted from the <ulink url=\"&url-pc-hw-faq;\"></ulink>, answering the question, <quote>How do I enter the CMOS configuration menu?</quote>. How you access the BIOS (or <quote>CMOS</quote>) configuration menu depends on who wrote your BIOS software:"
+msgstr ""
+
+#. Tag: term
+#: preparing.xml:1186
+#, no-c-format
+msgid "AMI BIOS"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1187
+#, no-c-format
+msgid "<keycap>Delete</keycap> key during the POST (power on self test)"
+msgstr ""
+
+#. Tag: term
+#: preparing.xml:1195
+#, no-c-format
+msgid "Award BIOS"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1196
+#, no-c-format
+msgid "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </keycombo>, or <keycap>Delete</keycap> key during the POST"
+msgstr ""
+
+#. Tag: term
+#: preparing.xml:1205
+#, no-c-format
+msgid "DTK BIOS"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1206
+#, no-c-format
+msgid "<keycap>Esc</keycap> key during the POST"
+msgstr ""
+
+#. Tag: term
+#: preparing.xml:1213
+#, no-c-format
+msgid "IBM PS/2 BIOS"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1214
+#, no-c-format
+msgid "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</keycap> </keycombo> after <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Delete</keycap> </keycombo>"
+msgstr ""
+
+#. Tag: term
+#: preparing.xml:1228
+#, no-c-format
+msgid "Phoenix BIOS"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1229
+#, no-c-format
+msgid "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </keycombo> or <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>S</keycap> </keycombo> or <keycap>F1</keycap>"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1245
+#, no-c-format
+msgid "Information on invoking other BIOS routines can be found in <ulink url=\"&url-invoking-bios-info;\"></ulink>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1250
+#, no-c-format
+msgid "Some &arch-title; machines don't have a CMOS configuration menu in the BIOS. They require a software CMOS setup program. If you don't have the Installation and/or Diagnostics diskette for your machine, you can try using a shareware/freeware program. Try looking in <ulink url=\"&url-simtel;\"></ulink>."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1261 preparing.xml:1579
+#, no-c-format
+msgid "Boot Device Selection"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1263
+#, no-c-format
+msgid "Many BIOS setup menus allow you to select the devices that will be used to bootstrap the system. Set this to look for a bootable operating system on <filename>A:</filename> (the first floppy disk), then optionally the first CD-ROM device (possibly appearing as <filename>D:</filename> or <filename>E:</filename>), and then from <filename>C:</filename> (the first hard disk). This setting enables you to boot from either a floppy disk or a CD-ROM, which are the two most common boot devices used to install &debian;."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1274
+#, no-c-format
+msgid "If you have a newer SCSI controller and you have a CD-ROM device attached to it, you are usually able to boot from the CD-ROM. All you have to do is enable booting from a CD-ROM in the SCSI-BIOS of your controller."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1281
+#, no-c-format
+msgid "Another popular option is to boot from a USB storage device (also called a USB memory stick or USB key). Some BIOSes can boot directly from a USB storage device, but some cannot. You may need to configure your BIOS to boot from a <quote>Removable drive</quote> or even from <quote>USB-ZIP</quote> to get it to boot from the USB device."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1289
+#, no-c-format
+msgid "Here are some details about how to set the boot order. Remember to reset the boot order after &arch-kernel; is installed, so that you restart your machine from the hard drive."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1298
+#, no-c-format
+msgid "Changing the Boot Order on IDE Computers"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1301
+#, no-c-format
+msgid "As your computer starts, press the keys to enter the BIOS utility. Often, it is the <keycap>Delete</keycap> key. However, consult the hardware documentation for the exact keystrokes."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1308
+#, no-c-format
+msgid "Find the boot sequence in the setup utility. Its location depends on your BIOS, but you are looking for a field that lists drives."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1313
+#, no-c-format
+msgid "Common entries on IDE machines are C, A, cdrom or A, C, cdrom."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1318
+#, no-c-format
+msgid "C is the hard drive, and A is the floppy drive."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1324
+#, no-c-format
+msgid "Change the boot sequence setting so that the CD-ROM or the floppy is first. Usually, the <keycap>Page Up</keycap> or <keycap>Page Down</keycap> keys cycle through the possible choices."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1332
+#, no-c-format
+msgid "Save your changes. Instructions on the screen tell you how to save the changes on your computer."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1342
+#, no-c-format
+msgid "Changing the Boot Order on SCSI Computers"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1346
+#, no-c-format
+msgid "As your computer starts, press the keys to enter the SCSI setup utility."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1351
+#, no-c-format
+msgid "You can start the SCSI setup utility after the memory check and the message about how to start the BIOS utility displays when you start your computer."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1357
+#, no-c-format
+msgid "The keystrokes you need depend on the utility. Often, it is <keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>. However, consult your hardware documentation for the exact keystrokes."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1365
+#, no-c-format
+msgid "Find the utility for changing the boot order."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1370
+#, no-c-format
+msgid "Set the utility so that the SCSI ID of the CD drive is first on the list."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1376
+#, no-c-format
+msgid "Save your changes. Instructions on the screen tell you how to save the changes on your computer. Often, you must press <keycap>F10</keycap>."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1390
+#, no-c-format
+msgid "Miscellaneous BIOS Settings"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1392
+#, no-c-format
+msgid "CD-ROM Settings"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1393
+#, no-c-format
+msgid "Some BIOS systems (such as Award BIOS) allow you to automatically set the CD speed. You should avoid that, and instead set it to, say, the lowest speed. If you get <userinput>seek failed</userinput> error messages, this may be your problem."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1403
+#, no-c-format
+msgid "Extended vs. Expanded Memory"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1404
+#, no-c-format
+msgid "If your system provides both ex<emphasis>ten</emphasis>ded and ex<emphasis>pan</emphasis>ded memory, set it so that there is as much extended and as little expanded memory as possible. &arch-kernel; requires extended memory and cannot use expanded memory."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1414
+#, no-c-format
+msgid "Virus Protection"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1415
+#, no-c-format
+msgid "Disable any virus-warning features your BIOS may provide. If you have a virus-protection board or other special hardware, make sure it is disabled or physically removed while running GNU/&arch-kernel;. These aren't compatible with GNU/&arch-kernel;; moreover, due to the file system permissions and protected memory of the &arch-kernel; kernel, viruses are almost unheard of<footnote> <para> After installation you can enable Boot Sector protection if you want. This offers no additional security in &arch-kernel; but if you also run Windows it may prevent a catastrophe. There is no need to tamper with the Master Boot Record (MBR) after the boot manager has been set up. </para> </footnote>."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1436
+#, no-c-format
+msgid "Shadow RAM"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1437
+#, no-c-format
+msgid "Your motherboard may provide <emphasis>shadow RAM</emphasis> or BIOS caching. You may see settings for <quote>Video BIOS Shadow</quote>, <quote>C800-CBFF Shadow</quote>, etc. <emphasis>Disable</emphasis> all shadow RAM. Shadow RAM is used to accelerate access to the ROMs on your motherboard and on some of the controller cards. &arch-kernel; does not use these ROMs once it has booted because it provides its own faster 32-bit software in place of the 16-bit programs in the ROMs. Disabling the shadow RAM may make some of it available for programs to use as normal memory. Leaving the shadow RAM enabled may interfere with &arch-kernel; access to hardware devices."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1454
+#, no-c-format
+msgid "Memory Hole"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1455
+#, no-c-format
+msgid "If your BIOS offers something like <quote>15&ndash;16 MB Memory Hole</quote>, please disable that. &arch-kernel; expects to find memory there if you have that much RAM."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1461
+#, no-c-format
+msgid "We have a report of an Intel Endeavor motherboard on which there is an option called <quote>LFB</quote> or <quote>Linear Frame Buffer</quote>. This had two settings: <quote>Disabled</quote> and <quote>1 Megabyte</quote>. Set it to <quote>1 Megabyte</quote>. When disabled, the installation floppy was not read correctly, and the system eventually crashed. At this writing we don't understand what's going on with this particular device &mdash; it just worked with that setting and not without it."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1477
+#, no-c-format
+msgid "Advanced Power Management"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1478
+#, no-c-format
+msgid "If your motherboard provides Advanced Power Management (APM), configure it so that power management is controlled by APM. Disable the doze, standby, suspend, nap, and sleep modes, and disable the hard disk's power-down timer. &arch-kernel; can take over control of these modes, and can do a better job of power-management than the BIOS."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1496
+#, no-c-format
+msgid "Invoking OpenFirmware"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1497
+#, no-c-format
+msgid "There is normally no need to set up the BIOS (called OpenFirmware) on &arch-title; systems. PReP and CHRP are equipped with OpenFirmware, but unfortunately, the means you use to invoke it vary from manufacturer to manufacturer. You'll have to consult the hardware documentation which came with your machine."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1505
+#, no-c-format
+msgid "On &arch-title; Macintoshes, you invoke OpenFirmware with <keycombo><keycap>Command (cloverleaf/Apple)</keycap><keycap>Option</keycap><keycap>o</keycap><keycap>f</keycap></keycombo> while booting. Generally it will check for these keystrokes after the chime, but the exact timing varies from model to model. See <ulink url=\"&url-netbsd-powerpc-faq;\"></ulink> for more hints."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1513
+#, no-c-format
+msgid ""
+      "The OpenFirmware prompt looks like this: <informalexample><screen>\n"
+      "ok\n"
+      "0 &gt;\n"
+      "</screen></informalexample> Note that on older model &arch-title; Macs, the default and sometimes hardwired I/O for OpenFirmware user interaction is through the serial (modem) port. If you invoke OpenFirmware on one of these machines, you will just see a black screen. In that case, a terminal program running on another computer, connected to the modem port, is needed to interact with OpenFirmware."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1526
+#, no-c-format
+msgid "The OpenFirmware on OldWorld Beige G3 machines, OF versions 2.0f1 and 2.4, is broken. These machines will most likely not be able to boot from the hard drive unless the firmware is patched. A firmware patch is included in the <application>System Disk 2.3.1</application> utility, available from Apple at <ulink url=\"ftp://ftp.apple.com/developer/macosxserver/utilities/SystemDisk2.3.1.smi.bin\"></ulink>. After unpacking the utility in MacOS, and launching it, select the <guibutton>Save</guibutton> button to have the firmware patches installed to nvram."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1546
+#, no-c-format
+msgid "Invoking OpenBoot"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1548
+#, no-c-format
+msgid "OpenBoot provides the basic functions needed to boot the &arch-title; architecture. This is rather similar in function to the BIOS in the x86 architecture, although much nicer. The Sun boot PROMs have a built-in forth interpreter which lets you do quite a number of things with your machine, such as diagnostics and simple scripts."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1556
+#, no-c-format
+msgid "To get to the boot prompt you need to hold down the <keycap>Stop</keycap> key (on older type 4 keyboards, use the <keycap>L1</keycap> key, if you have a PC keyboard adapter, use the <keycap>Break</keycap> key) and press the <keycap>A</keycap> key. The boot PROM will give you a prompt, either <userinput>ok</userinput> or <userinput>&gt;</userinput>. It is preferred to have the <userinput>ok</userinput> prompt. So if you get the old style prompt, hit the <keycap>n</keycap> key to get the new style prompt."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1568
+#, no-c-format
+msgid "If you are using a serial console, send a break to the machine. With Minicom, use <keycap>Ctrl-A F</keycap>, with cu, hit <keycap>Enter</keycap>, then type <userinput>%~break</userinput>. Consult the documentation of your terminal emulator if you are using a different program."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1581
+#, no-c-format
+msgid "You can use OpenBoot to boot from specific devices, and also to change your default boot device. However, you need to know some details about how OpenBoot names devices; it's considerably different from Linux device naming, described in <xref linkend=\"device-names\"/>. Also, the command will vary a bit, depending on what version of OpenBoot you have. More information about OpenBoot can be found in the <ulink url=\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1591
+#, no-c-format
+msgid ""
+      "Typically, with newer revisions, you can use OpenBoot devices such as <quote>floppy</quote>, <quote>cdrom</quote>, <quote>net</quote>, <quote>disk</quote>, or <quote>disk2</quote>. These have the obvious meanings; the <quote>net</quote> device is for booting from the network. Additionally, the device name can specify a particular partition of a disk, such as <quote>disk2:a</quote> to boot disk2, first partition. Full OpenBoot device names have the form: <informalexample> <screen>\n"
+      "<replaceable>driver-name</replaceable>@\n"
+      "<replaceable>unit-address</replaceable>:\n"
+      "<replaceable>device-arguments</replaceable>\n"
+      "</screen></informalexample> In older revisions of OpenBoot, device naming is a bit different: the floppy device is called <quote>/fd</quote>, and SCSI disk devices are of the form <quote>sd(<replaceable>controller</replaceable>, <replaceable>disk-target-id</replaceable>, <replaceable>disk-lun</replaceable>)</quote>. The command <userinput>show-devs</userinput> in newer OpenBoot revisions is useful for viewing the currently configured devices. For full information, whatever your revision, see the <ulink url=\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1614
+#, no-c-format
+msgid ""
+      "To boot from a specific device, use the command <userinput>boot <replaceable>device</replaceable></userinput>. You can set this behavior as the default using the <userinput>setenv</userinput> command. However, the name of the variable to set changed between OpenBoot revisions. In OpenBoot 1.x, use the command <userinput>setenv boot-from <replaceable>device</replaceable></userinput>. In later revisions of OpenBoot, use the command <userinput>setenv boot-device <replaceable>device</replaceable></userinput>. Note, this is also configurable using the <command>eeprom</command> command on Solaris, or modifying the appropriate files in <filename>/proc/openprom/options/</filename>, for example under Linux: <informalexample><screen>\n"
+      "# echo disk1:1 &gt; /proc/openprom/options/boot-device\n"
+      "</screen></informalexample> and under Solaris:"
+msgstr ""
+
+#. Tag: screen
+#: preparing.xml:1633
+#, no-c-format
+msgid "eeprom boot-device=disk1:1"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1643
+#, no-c-format
+msgid "BIOS Setup"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1644
+#, no-c-format
+msgid "In order to install &debian-gnu; on a &arch-title; or zSeries machine you have first boot a kernel into the system. The boot mechanism of this platform is inherently different to other ones, especially from PC-like systems: there are no floppy devices available at all. You will notice another big difference while you work with this platform: most (if not all) of the time you will work remote, with the help of some client session software like telnet, or a browser. This is due to that special system architecture where the 3215/3270 console is line-based instead of character-based."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1656
+#, no-c-format
+msgid "Linux on this platform runs either natively on the bare machine, in a so-called LPAR (Logical Partition) or in a virtual machine supplied by the VM system. You can use a boot tape on all of those systems; you may use some other boot media, too, but those may not be generally available. For example, you can use the virtual card reader of a virtual machine, or boot from the HMC (Hardware Management Console) of an LPAR if the HMC and this option is available for you."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1666
+#, no-c-format
+msgid "Before you actually perform an installation, you have to go over some design and preparation steps. IBM has made documentation available about the whole process, e.g. how to prepare an installation medium and how actually to boot from that medium. Duplicating that information here is neither possible nor necessary. However, we will describe here which kind of &debian;-specific data is needed and where to find it. Using both sources of information, you have to prepare your machine and the installation medium before you can perform a boot from it. When you see the welcome message in your client session, return to this document to go through the &debian;-specific installation steps."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1683
+#, no-c-format
+msgid "Native and LPAR installations"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1684
+#, no-c-format
+msgid "Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook and chapter 3.2 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink> Redbook on how to set up an LPAR for Linux."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1698
+#, no-c-format
+msgid "Installation as a VM guest"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1700
+#, no-c-format
+msgid "Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook and chapter 3.1 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink> Redbook on how to set up a VM guest for running Linux."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1710
+#, no-c-format
+msgid "You need to copy all the files from the <filename>generic</filename> sub-directory to your CMS disk. Be sure to transfer <filename>kernel.debian</filename> and <filename>initrd.debian</filename> in binary mode with a fixed record length of 80 characters. <filename>parmfile.debian</filename> can be in either ASCII or EBCDIC format. A sample <filename>debian.exec</filename> script, which will punch the files in the proper order, is included with the images."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1726
+#, no-c-format
+msgid "Setting up an installation server"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1728
+#, no-c-format
+msgid "If you don't have a connection to the Internet (either directly or via a web proxy) you need to create a local installation server that can be accessed from your S/390. This server keeps all the packages you want to install and must make them available using NFS, HTTP or FTP."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1736
+#, no-c-format
+msgid "The installation server needs to copy the exact directory structure from any &debian-gnu; mirror, but only the s390 and architecture-independent files are required. You can also copy the contents of all installation CDs into such a directory tree."
+msgstr ""
+
+#. Tag: emphasis
+#: preparing.xml:1745
+#, no-c-format
+msgid "FIXME: more information needed &mdash; from a Redbook?"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1752
+#, no-c-format
+msgid "Hardware Issues to Watch Out For"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1755
+#, no-c-format
+msgid "USB BIOS support and keyboards"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1756
+#, no-c-format
+msgid "If you have no AT-style keyboard and only a USB model, you may need to enable legacy AT keyboard emulation in your BIOS setup. Only do this if the installation system fails to use your keyboard in USB mode. Conversely, for some systems (especially laptops) you may need to disable legacy USB support if your keyboard does not respond. Consult your main board manual and look in the BIOS for <quote>Legacy keyboard emulation</quote> or <quote>USB keyboard support</quote> options."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1770
+#, no-c-format
+msgid "Display-visibility on OldWorld Powermacs"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1772
+#, no-c-format
+msgid "Some OldWorld Powermacs, most notably those with the <quote>control</quote> display driver, may not reliably produce a colormap under Linux when the display is configured for more than 256 colors. If you are experiencing such issues with your display after rebooting (you can sometimes see data on the monitor, but on other occasions cannot see anything) or, if the screen turns black after booting the installer instead of showing you the user interface, try changing your display settings under MacOS to use 256 colors instead of <quote>thousands</quote> or <quote>millions</quote>."
+msgstr ""
+

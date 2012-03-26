@@ -1,0 +1,42 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64743 -->
+
+<para>
+
+Al llarg de la instal·lació del sistema base, els missatges del
+desempaquetat dels paquets i de la instal·lació es redirigeixen a
+<userinput>tty4</userinput>. Podeu accedir a aquesta terminal prement
+<keycombo><keycap>Alt esquerra</keycap><keycap>F4</keycap></keycombo>;
+torneu al procés principal de l'instal·lador amb
+<keycombo><keycap>Alt esquerra</keycap><keycap>F1</keycap></keycombo>.
+
+</para><para>
+
+Els missatges de desempaquetat i configuració que genera la instal·lació
+del sistema base es guarden a <filename>/var/log/syslog</filename>. Podeu
+comprovar-los allà, si la instal·lació es realitza a través d'una consola
+sèrie.
+
+</para><para>
+
+Com a part de la instal·lació, s'instal·larà un nucli del &arch-kernel;. A la prioritat
+per defecte, l'instal·lador elegirà aquell que es correspongui millor amb el
+maquinari. En modes de prioritat més baixa, podreu elegir a partir d'una
+llista dels nuclis disponibles.
+
+</para><para>
+
+Quan el sistema de gestió de paquets instal·le el programari, inclourà per
+defecte també els paquets recomanats per aquest. Els paquets recomanats no
+són estrictament necessaris per al funcionament essencial del programari
+escollit, però el milloren i normalment haurien, en l'opinió dels
+mantenidors dels seus paquets, de ser instal·lats amb aquests.
+
+</para>
+<note><para>
+
+Per motius tècnics, la instal·lació dels paquets del sistema base no inclou
+la de llurs paquets recomanats. Les indicacions de dalt només s'aplicaran a
+partir d'aquest punt del procés d'instal·lació.
+
+</para></note>

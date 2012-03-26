@@ -1,0 +1,195 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61147 -->
+<!-- updated 43965:56257 by Felipe Augusto van de Wiel (faw) 2008.11.10 -->
+
+ <sect1 id="module-details">
+ <title>Usando os componentes individuais</title>
+<para>
+
+Nesta seção nós descreveremos cada componente do programa de
+instalação em detalhes. Os componentes tem sido agrupados em
+estágios que devem ser reconhecíveis por usuários. Eles são
+mostrados na ordem que aparecem durante a instalação. Note que
+nem todos os módulos são usados para cada instalação; os módulos
+que são usados dependem do método de instalação que usa e seu
+hardware.
+
+</para>
+
+  <sect2 id="di-setup">
+  <title>Configurando o programa de instalação da &debian; e configuração de hardware</title>
+<para>
+
+Iremos assumir que o programa de instalação da &debian; já foi iniciado
+e que você está vendo sua primeira tela. Neste momento, as capacidades
+do &d-i; ainda são muito limitadas. Ele ainda não sabe muito sobre seu
+hardware, idioma preferido ou até mesmo tarefa que deve fazer. Não se
+preocupe. Porque o &d-i; é muito inteligente e irá automaticamente detectar
+seu hardware, localizar o resto de seus componentes e atualizar a si mesmo
+para um sistema de instalação mais capaz.
+
+No entanto, nós ainda precisamos ajudar o &d-i; com algumas informações que
+ele não pode determinar automaticamente (como a seleção de seu idioma preferido,
+tipo de teclado ou mirror preferido da rede).
+
+</para><para>
+
+Você verá que o &d-i; realiza a <firstterm>detecção de hardware</firstterm>
+diversas vezes durante este estágio. A primeira vez é focada especificamente
+no hardware necessário para carregar os componentes da instalação
+(e.g. seu CD-ROM ou placa dd rede). Como nem todos os drivers podem estar
+disponíveis durante esta primeira execução, a detecção de hardware precisa ser
+repetida depois durante este processo.
+
+</para><para arch="not-s390">
+
+Durante a detecção de hardware o &d-i; verifica se algum dos drivers
+para os dispositivos de hardware no seu sistema requer que um firmware
+seja carregado. Se qualquer firmware é requisitado mas não está
+disponível, uma tela será exibida permitindo que você o firmware que
+está faltando seja carregando a partir de uma mídia removível. Veja
+<xref linkend="loading-firmware"/> para mais detalhes.
+
+</para>
+
+&module-lowmem.xml;
+&module-localechooser.xml;
+&module-kbd-chooser.xml;
+&module-s390-netdevice.xml;
+&module-ddetect.xml;
+&module-cdrom-detect.xml;
+&module-iso-scan.xml;
+&module-anna.xml;
+&module-netcfg.xml;
+&module-choose-mirror.xml;
+<!-- tzsetup is included in clock-setup -->
+&module-clock-setup.xml;
+
+  </sect2>
+
+  <sect2 id="di-partition">
+  <title>Particionamento e seleção do ponto de montagem</title>
+<para>
+
+Durante este tempo, após a detecção de hardware ser executada pela
+última vez, o &d-i; deverá estar em seu pleno poder, personalizado para
+a necessidade do usuário e pronto para fazer algum trabalho real.
+
+Como o título desta seção indica, a tarefa principal dos próximos poucos
+componentes se resume em particionar seus discos, criar sistemas de
+arquivos, especificar pontos de montagem e opcionalmente configurar opções
+mais diretamente relacionadas como dispositivos RAID, LVM ou criptografados.
+
+</para>
+
+&module-s390-dasd.xml;
+&module-partman.xml;
+&module-autopartkit.xml;
+&module-partitioner.xml;
+&module-partconf.xml;
+&module-mdcfg.xml;
+&module-partman-lvm.xml;
+&module-partman-crypto.xml;
+  </sect2>
+
+  <sect2 id="di-install-base">
+  <title>Instalando o sistema básico</title>
+<para>
+
+Embora este estágio seja o menos problemático, ele consome uma fração 
+significante da instalação pois ele baixa, verifica e descompacta todo
+o sistema básico. Se você tem uma conexão de rede ou computador lento(s),
+isto pode levar algum tempo.
+
+</para>
+
+&module-base-installer.xml;
+  </sect2>
+
+  <sect2 id="di-user-setup">
+  <title>Configurando Usuários e Senhas</title>
+<para>
+
+Após o sistema básico estar instalado, o instalador abrirá opção para você
+configurar a conta do <quote>root</quote> e/ou uma conta para o primeiro
+usuário. Outras contas de usuário podem ser criadas após a instalação ter
+sido completada.
+
+</para>
+
+&module-user-setup.xml;
+  </sect2>
+
+  <sect2 id="di-install-software">
+  <title>Instalando Programas Adicionais</title>
+<para>
+
+Neste momento, você tem um sistema usável mas limitado.
+A maioria dos usuários vai querer instalar programas adicionais no sistema para
+personalizá-lo às suas necessidades, e o instalador permite que você faça isso.
+Este passo posso ser ainda mais demorado do que a instalação do sistema básico
+se você tem uma conexão de rede ou computador lento(s).
+
+</para>
+
+&module-apt-setup.xml;
+&module-pkgsel.xml;
+  </sect2>
+    
+  <sect2 id="di-make-bootable">
+  <title>Tornando seu sistema inicializável</title>
+
+<para condition="supports-nfsroot">
+
+Caso estiver instalando através de uma estação sem disco rígido, obviamente,
+a inicialização através de um disco local não é uma opção disponível e este
+passo será ignorado. <phrase arch="sparc">Você pode querer configurar o
+OpenBoot para inicializar através da rede por padrão, veja
+<xref linkend="boot-dev-select-sun"/>.</phrase>
+
+</para>
+
+&module-os-prober.xml;
+&module-hppa-palo-installer.xml;
+&module-x86-grub-installer.xml;
+&module-x86-lilo-installer.xml;
+&module-ia64-elilo-installer.xml;
+&module-mips-arcboot-installer.xml;
+&module-mipsel-colo-installer.xml;
+&module-powerpc-yaboot-installer.xml;
+&module-powerpc-quik-installer.xml;
+&module-s390-zipl-installer.xml;
+&module-sparc-silo-installer.xml;
+&module-nobootloader.xml;
+  </sect2>
+
+  <sect2 id="di-finish">
+  <title>Finalizando a Instalação</title>
+<para>
+
+Esta é a última etapa do processo de instalação do &debian; durante o qual
+o instalador fará quaisquer tarefas restantes.
+Ela consiste, em sua maioria, de ajustes dos últimos detalhes pós &d-i;.
+
+</para>
+
+&module-clock-setup-finish.xml;
+&module-finish-install.xml;
+  </sect2>
+
+  <sect2 id="di-miscellaneous">
+  <title>Diversos</title>
+<para>
+
+Os componentes listados nesta seção normalmente não estão envolvidos no
+processo de instalação, mas estão em segundo plano aguardando para ajudar
+o usuário em caso de algo dar errado.
+
+</para>
+
+&module-save-logs.xml;
+&module-cdrom-checker.xml;
+&module-shell.xml;
+  </sect2>
+&module-network-console.xml;
+ </sect1>

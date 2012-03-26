@@ -1,0 +1,372 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65939 -->
+
+
+ <sect1 arch="linux-any" id="linuxdevices"><title>Dispositius del Linux</title>
+<para>
+
+En el Linux teniu diversos fitxers especials que podeu trobar al
+directori <filename>/dev</filename>. Aquests fitxers s'anomenen
+fitxers de dispositiu i no es comporten com fitxers normals. Els
+tipus més comuns de fitxers de dispositiu són els de bloc i els
+de caracter. Aquests fitxers actuen d'interfície amb el controlador
+real (que forma part del nucli de Linux) que és el que accedeix
+al maquinari. Un altre tipus de fitxer de dispositiu menys habitual
+és el que s'anomena <firstterm>pipe</firstterm>. Podeu vore els
+fitxers de dispositiu més important a la taula de baix.
+
+</para><para>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>fd0</filename></entry>
+  <entry>Disquetera primera</entry>
+</row><row>
+  <entry><filename>fd1</filename></entry>
+  <entry>Disquetera segona</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>hda</filename></entry>
+  <entry>Disc dur IDE / CD-ROM al primer port IDE (Mestre)</entry>
+</row><row>
+  <entry><filename>hdb</filename></entry>
+  <entry>Disc dur IDE / CD-ROM al primer port IDE (Esclau)</entry>
+</row><row>
+  <entry><filename>hdc</filename></entry>
+  <entry>Disc dur IDE / CD-ROM al segon port IDE (Mestre)</entry>
+</row><row>
+  <entry><filename>hdd</filename></entry>
+  <entry>Disc dur IDE / CD-ROM al segon port IDE (Esclau)</entry>
+</row><row>
+  <entry><filename>hda1</filename></entry>
+  <entry>Primera partició del primer disc dur IDE</entry>
+</row><row>
+  <entry><filename>hdd15</filename></entry>
+  <entry>Quinzena partició del quart disc dur IDE</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sda</filename></entry>
+  <entry>Disc dur SCSI amb la ID d'SCSI més baixa (p.ex. 0)</entry>
+</row><row>
+  <entry><filename>sdb</filename></entry>
+  <entry>Disc dur SCSI amb la ID d'SCSI immediatament posterior (p.ex. 1)</entry>
+</row><row>
+  <entry><filename>sdc</filename></entry>
+  <entry>Disc dur SCSI amb la ID d'SCSI immediatament posterior (p.ex. 2)</entry>
+</row><row>
+  <entry><filename>sda1</filename></entry>
+  <entry>Primera partició del primer disc dur SCSI</entry>
+</row><row>
+  <entry><filename>sdd10</filename></entry>
+  <entry>Desena partició del quart disc dur SCSI</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sr0</filename></entry>
+  <entry>CD-ROM SCSI amb la ID d'SCSI més baixa</entry>
+</row><row>
+  <entry><filename>sr1</filename></entry>
+  <entry>CD-ROM SCSI amb la ID d'SCSI immediatament posterior</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>ttyS0</filename></entry>
+  <entry>Port sèrie 0, COM1 sota l'MS-DOS</entry>
+</row><row>
+  <entry><filename>ttyS1</filename></entry>
+  <entry>Port sèrie 1, COM2 sota l'MS-DOS</entry>
+</row><row>
+  <entry><filename>psaux</filename></entry>
+  <entry>dispositiu de ratolí PS/2</entry>
+</row><row>
+  <entry><filename>gpmdata</filename></entry>
+  <entry>Pseudodispositiu, repetidor de dades procedents del dimoni GPM (ratolí)</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>cdrom</filename></entry>
+  <entry>Enllaç simbòlic a la unitat de CD-ROM</entry>
+</row><row>
+  <entry><filename>mouse</filename></entry>
+  <entry>Enllaç simbòlic al fitxer de dispositiu del ratolí</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>null</filename></entry>
+  <entry>Qualsevol cosa escrita a aquest dispositiu desapareixerà</entry>
+</row><row>
+  <entry><filename>zero</filename></entry>
+  <entry>Aquest dispositiu produeix sempre zeros</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+  <sect2 arch="not-s390" id="device-mouse">
+  <title>Configuració del ratolí</title>
+<para>
+
+EL ratolí pot emprar-se tant a la consola del Linux (amb el gpm) com a
+l'entorn de finestres X. Normalment, això és qüestió d'instal·lar el
+<filename>gpm</filename> i el servidor X. Ambdós s'han de configurar
+per a fer server <filename>/dev/input/mice</filename> com al dispositiu
+de ratolí. El nom correcte del protocol del ratolí a gpm és
+<userinput>exps2</userinput>, i a X <userinput>ExplorerPS/2</userinput>.
+Els fitxers de configuració són <filename>/etc/gpm.conf</filename> i
+<filename>/etc/X11/xorg.conf</filename>, respectivament.
+
+</para><para>
+
+Alguns mòduls del nucli s'han de carregar per tal que el vostre ratolí
+funcioni. En la majoria dels casos els mòduls adients s'autodetectaran,
+però no sempre per a ratolins antics sèrie i de bus<footnote>
+
+<para>
+Els ratolins sèrie tenen normalment un connector de 9 forats en forma
+de D; els ratolins de bus tenen un connector rodó de 8 pins, no confondre
+amb el connector rodó de 6 pins dels ratolins PS/2 o el connector rodó
+de 4 pins d'un ratolí ADB.
+</para>
+
+</footnote>, els quals són força estranys excepte en ordinadors molt
+antics. Sumari dels mòduls del nucli Linux per diferents tipus de ratolí:
+
+<informaltable><tgroup cols="2"><thead>
+<row>
+  <entry>Modul</entry>
+  <entry>Descripció</entry>
+</row>
+</thead><tbody>
+<row>
+  <entry>psmouse</entry>
+  <entry>Ratolí PS/2 (s'hauria d'autodetectar)</entry>
+</row>
+<row>
+  <entry>usbhid</entry>
+  <entry>Ratolí USB (s'hauria d'autodetectar)</entry>
+</row>
+<row>
+  <entry>sermouse</entry>
+  <entry>La major part de ratolins sèrie</entry>
+</row>
+<row>
+  <entry>logibm</entry>
+  <entry>Ratolí de bus connectat a una targeta adaptadora Logitech</entry>
+</row>
+<row>
+  <entry>inport</entry>
+  <entry>Ratolí de bus connectat a una targeta ATI o Microsoft InPort</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+Per carregar un mòdul d'un controlador de ratolí, podeu emprar l'ordre
+<command>modconf</command> (del paquet amb el mateix nom) i mirar a la
+categoria <userinput>kernel/drivers/input/mouse</userinput>.
+
+</para><para arch="powerpc">
+<!-- FJP 20070122: Unsure if this is still valid -->
+
+Els nuclis moderns permeten l'emulació d'un ratolí de tres botons per a
+aquells que només en tenen un. Només cal afegir aquestes línies al fitxer
+<filename>/etc/sysctl.conf</filename> file.
+
+<informalexample><screen>
+# emulació del ratolí de 3 botons
+# activa l'emulació
+/dev/mac_hid/mouse_button_emulation = 1
+# Envia un senyal de botó d'enmig amb la tecla F11
+/dev/mac_hid/mouse_button2_keycode = 87
+# Envia un senyal de botó dret amb la tecla F12
+/dev/mac_hid/mouse_button3_keycode = 88
+# Per a tecles diferents, empreu el showkey per obtenir-ne el codi.
+</screen></informalexample>
+
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="tasksel-size-list">
+ <title>Espai requerit per a les tasques</title>
+<para>
+
+Una instal·lació estàndard per l'arquitectura amd64 amb el nucli 2.6,
+incloent-hi tots els paquets estàndard, requere &std-system-size; MiB d'espai de disc.
+Una instal·lació bàsica mínima, amb la tasca <quote>estàndard</quote> no
+seleccionada, ocuparà &base-system-size; MiB.
+
+</para>
+<important><para>
+
+En els dos casos és l'espai en disc utilitzat <emphasis>després</emphasis>
+d'acabar la instal·lació i esborrar tots els fitxers temporals. Açò també
+te en compte les necessitats del sistema de fitxers, per exemple els fitxers
+de «journal». Açò vol dir que farà falta prou més espai al disc
+<emphasis>durant</emphasis> la instal·lació i per l'ús normal del sistema.
+
+</para></important>
+<para>
+
+La següent taula enumera les mides indicades per l'aptitude que calen per a
+les tasques llistades en el tasksel. Tingueu en compte que algunes d'aquestes
+comparteixen components, per tant la mida total de la instal·lació conjunta
+de dues d'elles pot resultar inferior al total de la suma indicat.
+
+</para><para>
+
+Per defecte s'instal·larà l'entorn d'ecriptori GNOME, però podeu escollir
+un entorn d'escriptori alternatiu emprant una de les imatges de CD especials,
+o especificant l'entorn d'escriptori desitjat en iniciar l'instal·lador
+(vegeu <xref linkend="pkgsel"/>).
+
+</para><para>
+
+Tingueu en compte que cal afegir les mides de la taula a la de la
+instal·lació estàndard a l'hora de determinar la mida de les particions.
+La  major part de la mida identificada com a <quote>Mida de la
+instal·lació</quote> l'ocuparà <filename>/usr</filename> i a
+<filename>/lib</filename>; la mida identificada com a <quote>Mida de la
+descàrrega</quote> cal tenir-la a l'abast (temporalment) a
+<filename>/var</filename>.
+
+</para><para>
+
+<informaltable><tgroup cols="4">
+<thead>
+<row>
+  <entry>Tasca</entry>
+  <entry>Mida de la instal·lació (MiB)</entry>
+  <entry>Mida de la descàrrega (MiB)</entry>
+  <entry>Espai requerit per a la instal·lació (MiB)</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Entorn d'escriptori</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;GNOME (per defecte)</entry>
+  <entry>&task-desktop-gnome-inst;</entry>
+  <entry>&task-desktop-gnome-dl;</entry>
+  <entry>&task-desktop-gnome-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;KDE</entry>
+  <entry>&task-desktop-kde-inst;</entry>
+  <entry>&task-desktop-kde-dl;</entry>
+  <entry>&task-desktop-kde-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;Xfce</entry>
+  <entry>&task-desktop-xfce-inst;</entry>
+  <entry>&task-desktop-xfce-dl;</entry>
+  <entry>&task-desktop-xfce-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;LXDE</entry>
+  <entry>&task-desktop-lxde-inst;</entry>
+  <entry>&task-desktop-lxde-dl;</entry>
+  <entry>&task-desktop-lxde-tot;</entry>
+</row>
+
+<row>
+  <entry>Portàtil<footnote>
+
+  <para>
+  Hi ha alguns paquets comuns a la tasca Portàtil amb la tasca Entorn
+  d'escriptori. Si les instal·leu les dos, la tasca «Laptop» tan sols
+  necessitarà uns MiB addicionals d'espai en disc.
+  </para>
+
+  </footnote></entry>
+  <entry>&task-laptop-inst;</entry>
+  <entry>&task-laptop-dl;</entry>
+  <entry>&task-laptop-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor web</entry>
+  <entry>&task-web-inst;</entry>
+  <entry>&task-web-dl;</entry>
+  <entry>&task-web-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor d'impressió</entry>
+  <entry>&task-print-inst;</entry>
+  <entry>&task-print-dl;</entry>
+  <entry>&task-print-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor del DNS</entry>
+  <entry>&task-dns-inst;</entry>
+  <entry>&task-dns-dl;</entry>
+  <entry>&task-dns-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor de fitxers</entry>
+  <entry>&task-file-inst;</entry>
+  <entry>&task-file-dl;</entry>
+  <entry>&task-file-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor de correu</entry>
+  <entry>&task-mail-inst;</entry>
+  <entry>&task-mail-dl;</entry>
+  <entry>&task-mail-tot;</entry>
+</row>
+
+<row>
+  <entry>Base de dades SQL</entry>
+  <entry>&task-sql-inst;</entry>
+  <entry>&task-sql-dl;</entry>
+  <entry>&task-sql-tot;</entry>
+</row>
+
+<row>
+  <entry>Servidor de SSH</entry>
+  <entry>&task-ssh-inst;</entry>
+  <entry>&task-ssh-dl;</entry>
+  <entry>&task-ssh-tot;</entry>
+</row>
+
+</tbody>
+</tgroup></informaltable>
+
+<note><para>
+
+La tasca <emphasis>Desktop</emphasis> instal·larà l'entorn d'escriptori
+GNOME.
+
+</para></note>
+
+</para><para>
+
+Si la llengua emprada no és l'anglès, el <command>tasksel</command>
+potser instal·larà automàticament una <firstterm>tasca de
+localització</firstterm> si n'hi ha cap a l'abast per a la vostra
+llengua. Les necessitats d'espai canvien segons la llengua; heu de
+reservar uns 350 MiB en total per a la descàrrega i la instal·lació.
+
+</para>
+ </sect1>

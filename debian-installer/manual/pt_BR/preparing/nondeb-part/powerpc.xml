@@ -1,0 +1,49 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 28672 -->
+<!-- reviewed by Felipe Augusto van de Wiel (faw) 2005.12.31 -->
+
+
+  <sect2 arch="powerpc"><title>Particionamento no MacOS/OSX</title>
+
+<para>
+
+A aplicação <application>Apple Drive Setup</application> pode ser encontrada
+na pasta <filename>Utilities</filename> do CD do MacOS. Ele não ajustará
+partições existentes pois é limitado ao particionamento de disco de uma
+só vez. As partições do controlador de disco não são mostradas no
+<application>Drive Setup</application>.
+
+</para><para>
+
+Lembre-se de criar uma partição que armazenará o conteúdo para o
+GNU/Linux, preferivelmente posicionada como primeira no esquema de
+discos. Não importa que tipo seja, ela será apagada e substituída
+depois dentro do programa de instalação da &debian-gnu;.
+
+</para><para>
+
+Se estiver planejando instalar ambos o MacOS 9 e o OS X, é melhor criar
+partições separadas para o OS 9 e OS X. Caso sejam instalados na mesma
+partição, o <application>Startup Disk</application> (e reinício)
+devem ser usados para seleção entre os dois; a escolha entre os dois
+sistemas não pode ser feita em tempo de inicialização. Com
+partições separadas, opções separadas para o OS 9 e OS X aparecerão quando
+pressionar a tecla <keycap>option</keycap> durante a inicialização e opções
+separadas poderão ser instaladas no menu de inicialização do
+<application>yaboot</application>.
+Também, o disco de inicialização afetará todas as partições montáveis,
+que pode afetar a inicialização do GNU/Linux. Ambas as partições do
+OS 9 e OS X podem ser acessíveis através de ambos o OS 9 ou OS X.
+
+</para><para>
+
+O GNU/Linux é incapaz de acessar informações em uma partição UFS, mas
+suporta partições HFS+ (também conhecidas como MacOS Extended). OS X
+requer um destes dois tipos para a sua partição de boot. MasOS 9 pode
+ser instalado tanto em HFS (também conhecida como MacOS Standard) ou
+HFS+. PAra compartilhar informações entre o MacOS e sistemas GNU/Linux,
+uma partição de troca é útil. Partições HFS, HFS+ e MS-DOS FAT são
+suportadas tanto pelo MacOS quanto pelo Linux.
+
+</para>
+  </sect2>

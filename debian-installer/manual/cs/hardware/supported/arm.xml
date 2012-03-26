@@ -1,0 +1,107 @@
+<!-- $Id: arm.xml 66744 2011-08-04 17:57:06Z mck-guest $ -->
+<!-- original version: 66548 -->
+
+  <sect2 arch="arm">
+  <title>Procesory, základní desky a grafické karty</title>
+<para>
+
+Protože každá ARM podarchitektura vyžaduje speciální jádro, podporuje
+&debian; instalaci pouze na nejběžnější platformy. Mimo jádra jsou všechny
+ostatní balíky společné a můžete je používat na
+<emphasis>libovolném</emphasis> ARM procesoru včetně
+<firstterm>xscale</firstterm>.
+
+</para><para>
+
+Většina ARM procesorů může běžet v obou režimech adresování
+(<quote>little-endian</quote> i <quote>big-endian</quote>), avšak
+&debian; podporuje pouze  ARM  procesory používající adresování
+<quote>little-endian</quote>.
+
+</para><para>
+
+Podporované platformy jsou
+
+<variablelist>
+<varlistentry>
+<term>IOP32x</term>
+<listitem><para>
+
+Intelovskou řadu I/O procesorů (IOP) můžete nalézt v řadě produktů
+spojených s ukládáním a zpracováváním dat. &debian; momentálně podporuje
+platformu IOP32x zahrnující čipy IOP 80219 a 32x běžně používané v
+síťově připojených úložných zařízeních (NAS). debian momentálně
+podporuje dvě taková zařízení:
+<ulink url="&url-arm-cyrius-glantank;">GLAN Tank</ulink>
+od IO-Data a
+<ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>IXP4xx</term>
+<listitem><para>
+
+Platforma IXP4xx je založená na Intelovském ARM jádře
+XScale. Momentálně jediným podporovaným systémem této platformy je
+Linksys NSLU2.
+Linksys NSLU2 (Network Storage Link for USB 2.0 Disk Drives) je malé
+zařízení umožňující jednoduché sdílení diskové kapacity přes
+síť. Součástí je ethernetová přípojka a dva USB porty, do kterých se
+dají připojit pevné disky. Návod k instalaci naleznete na <ulink
+url="&url-arm-cyrius-nslu2;">externích stránkách</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Kirkwood</term>
+<listitem><para>
+
+Orion je řešení typu vše v jednom (SoC &mdash; System on a Chip) od
+Marvelu, které v jediném čipu integruje procesor ARM, ethernet, SATA,
+USB a další funkcionalitu. V současné době podporujeme následující
+zařízení založené na Kirkwoodu:
+OpenRD (OpenRD-Base, OpenRD-Client a OpenRD-Ultimate),
+<ulink url="&url-arm-cyrius-sheevaplug;">SheevaPlug</ulink> a
+<ulink url="&url-arm-cyrius-qnap-kirkwood;">QNAP Turbo Station</ulink>
+(TS-110, TS-112, TS-119, TS-119P+, TS-210, TS-212, TS-219, TS-219P;
+TS-219P+, TS-410, TS-410U, TS-419P, TS-419P+ a TS-419U).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Orion5x</term>
+<listitem><para>
+
+Orion je řešení typu vše v jednom (SoC &mdash; System on a Chip) od
+Marvelu, které v jediném čipu integruje procesor ARM, ethernet, SATA,
+USB a další funkcionalitu. Na trhu existuje mnoho NAS zařízení
+(Network Attached Storage) založených právě na tomto čipu. V současné
+době podporujeme
+<ulink url="&url-arm-cyrius-kuroboxpro;">Buffalo Kurobox</ulink>,
+<ulink url="&url-arm-cyrius-dns323;">D-Link DNS-323</ulink>,
+<ulink url="&url-arm-cyrius-mv2120;">HP mv2120</ulink> a
+<ulink url="&url-arm-cyrius-qnap;">QNAP Turbo Station</ulink> (TS-109,
+TS-209 a TS-409).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Versatile</term>
+<listitem><para>
+
+Platforma Versatile je emulovaná v QEMU a je tudíž příjemnou možností,
+jak testovat/používat &debian; na platformě ARM v případě, že
+nedisponujete příslušným hardwarem.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+</para>
+  </sect2>
+

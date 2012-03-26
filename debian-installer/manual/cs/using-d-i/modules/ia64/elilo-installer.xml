@@ -1,0 +1,116 @@
+<!-- $Id: elilo-installer.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 65000 -->
+
+  <sect3 arch="ia64">
+  <title>Instalovat zavaděč <command>ELILO</command> na pevný disk</title>
+<para>
+
+Zavaděč na architektuře &architecture; se nazývá
+<quote>elilo</quote>. Elilo se velmi podobá svému vzoru na
+architektuře i386 - zavaděči <quote>lilo</quote>. Jediný podstatný
+rozdíl spočívá v tom, že místo zápisu do zaváděcího sektoru se
+zkopírují potřebné soubory na samostatnou oblast typu FAT a upraví se
+menu ve firmwaru zavaděče EFI, aby ukazovalo na soubory v EFI oblasti.
+<command>elilo</command> se skládá ze dvou částí.  Příkaz
+<filename>/usr/sbin/elilo</filename> spravuje oblast a kopíruje do ní
+soubory, zatímco program <filename>elilo.efi</filename> (ležící na
+této oblasti) provádí samotné zavádění linuxového jádra.
+
+</para><para>
+
+Nastavení a instalace elila se provádí jako poslední krok instalace
+základního systému. &d-i; vám nabídne seznam potenciálních oblastí,
+které se hodí pro použití jako zaváděcí EFI oblast. Vyberte oblast,
+kterou jste nastavili dříve v instalaci. Obvykle to bude oblast na
+stejném disku, kde leží <emphasis>kořenová</emphasis> oblast.
+
+</para>
+
+<warning><title>Výběr správné oblasti</title>
+<para>
+
+Kritéria pro výběr EFI oblasti jsou jednoduchá: oblast formátovaná
+systémem FAT s nastaveným příznakem zavádění. &d-i; může zobrazit
+několik vyhovujících oblastí, včetně těch, které patří jinému
+operačnímu systému.  Mějte na paměti, že <command>elilo</command> může
+během instalace oblast zformátovat a smazat tak z ní všechna data!
+
+</para></warning>
+  </sect3>
+
+  <sect3 arch="ia64">
+  <title>Obsah EFI oblasti</title>
+<para>
+
+Elilo uchovává své soubory na EFI oblasti v adresáři
+<filename>efi/debian</filename>. Tato oblast nemusí být v běžícím
+systému připojena, protože se používá pouze pro zavádění a zavaděč ji
+čte přímo. Pokud na oblasti leží jiné, než zde popsané soubory, ničemu
+to nevadí. Zavaděč se na tento adresář odkazuje jako na
+<filename>fs<replaceable>n</replaceable>:\efi\debian</filename>.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term><filename>elilo.conf</filename></term>
+<listitem><para>
+
+Je konfigurační soubor, který je čten při startu zavaděče. Je to
+vlastně kopie souboru <filename>/etc/elilo.conf</filename>, ve které
+jsou přepsány cesty k souborům tak, aby ukazovaly na EFI oblast.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><filename>elilo.efi</filename></term>
+<listitem><para>
+
+Je samotný zavaděč, který EFI spustí při startu počítače. (Toto je ta
+magie schovaná za položkou <guimenuitem>&debian; GNU/Linux</guimenuitem>
+v menu EFI zavaděče.)
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><filename>initrd.img</filename></term>
+<listitem><para>
+
+Toto je počáteční kořenový souborový systém, který se používá při
+zavádění jádra. Jedná se o kopii souboru zmiňovaného
+v <filename>/etc/elilo.conf</filename>.  Ve standardním &debian;u by to
+byl soubor v adresáři <filename>/boot</filename>, na který by ukazoval
+symbolický odkaz <filename>/initrd.img</filename>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><filename>readme.txt</filename></term>
+<listitem><para>
+
+Malý textový soubor, který vás varuje, že obsah adresáře je spravován
+<command>elilem</command> a že všechny změny budou při příštím
+spuštění <filename>/usr/sbin/elilo</filename> ztraceny.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><filename>vmlinuz</filename></term>
+<listitem><para>
+
+Toto je samotné komprimované jádro. Opět se jedná o kopii souboru
+odkazovaného v <filename>/etc/elilo.conf</filename>.  Ve standardním
+&debian;u by to byl soubor v adresáři <filename>/boot</filename>, na
+který by ukazoval symbolický odkaz <filename>/vmlinuz</filename>.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+  </sect3>

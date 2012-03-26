@@ -1,0 +1,376 @@
+<!-- original version: 64991 -->
+
+ <sect1 id="needed-info">
+ <title>Informations à connaître</title>
+
+  <sect2>
+  <title>La documentation</title>
+
+   <sect3>
+   <title>Le manuel d'installation</title>
+
+<para  condition="for_cd">
+Le document que vous lisez, au format texte, HTML ou PDF.
+</para>
+<itemizedlist condition="for_cd">
+&list-install-manual-files;
+</itemizedlist>
+
+<para condition="for_wdo">
+
+Le document que vous lisez est la version officielle du manuel d'installation
+pour la distribution &debian; &releasename;&nbsp;;
+Des <ulink url="&url-release-area;/installmanual">traductions</ulink> sont disponibles 
+dans différents formats.
+
+</para>
+
+<para condition="for_alioth">
+
+Le document que vous lisez est la version de développement du manuel d'installation
+pour la prochaine distribution &debian;. 
+Des <ulink url="&url-d-i-alioth-manual;">traductions</ulink> sont disponibles 
+dans différents formats.
+
+</para>
+
+</sect3>
+
+   <sect3><title>La documentation du matériel</title>
+<para>
+
+Elle contient souvent des informations utiles pour l'utilisation et la 
+configuration de votre matériel.
+</para>
+
+<!-- We need the arch dependence for the whole list to ensure proper xml
+      as long as not architectures have a paragraph -->
+ <itemizedlist arch="x86;sparc;mips;mipsel">
+
+<listitem arch="x86"><para>
+
+<ulink url="&url-hardware-howto;">HOWTO sur la compatibilité des matériels avec Linux</ulink>
+
+</para></listitem>
+
+<listitem arch="sparc"><para>
+
+<ulink url="&url-sparc-linux-faq;">FAQ pour les processeurs SPARC sous Linux</ulink>
+
+</para></listitem>
+
+<listitem arch="mips;mipsel"><para>
+
+<ulink url="&url-linux-mips;">site web Linux/Mips</ulink>
+
+</para></listitem>
+
+</itemizedlist>
+   </sect3>
+
+   <sect3 arch="s390">
+   <title>Références pour le matériel &arch-title;</title>
+<para>
+Documentation sur la séquence de démarrage spécifique à &arch-title;, ainsi que
+sur les commandes et pilotes de périphériques (par exemple, DASD, XPRAM, Console, 
+OSA, HiperSockets et z/VM interaction)  
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://public.dhe.ibm.com/software/dw/linux390/docu/lk32dd04.pdf">Pilotes de périphériques et commandes (noyau Linux 2.6.32)</ulink>
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+Le livre rouge d'IBM décrit comment combiner Linux avec z/VM
+sur matériel zSeries et &arch-title;.
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+Linux pour &arch-title;</ulink>
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+Le livre rouge d'IBM indique les distributions Linux disponibles
+sur ce matériel. Il n'a pas de chapitre spécifique à &debian;, mais
+les concepts de base pour l'installation sont les mêmes pour
+toutes les distributions sur &arch-title;&nbsp;;
+
+</para>
+
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux pour IBM eServer zSeries et distributions &arch-title;</ulink>
+
+</para></listitem>
+</itemizedlist>
+   </sect3>
+
+</sect2>
+  <sect2 id="fsohi">
+  <title>Comment trouver les sources d'informations sur le matériel ?</title>
+
+<para>
+La plupart du temps, l'installateur détectera automatiquement votre matériel.
+Mais nous vous conseillons de bien connaître votre matériel avant de
+commencer l'installation.
+</para>
+
+<para>
+On peut trouver des informations sur plusieurs sources&nbsp;:
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+les manuels accompagnant chaque élément&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+les informations sur la configuration du BIOS de votre ordinateur.
+Vous pouvez accéder à ces écrans pendant le démarrage de l'ordinateur
+en appuyant sur une combinaison de touches. Consultez votre manuel
+pour connaître cette combinaison. Il s'agit souvent de la touche
+<keycap>Suppr</keycap>&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+les boîtes et cartons de chaque élément&nbsp;;
+
+</para></listitem>
+<listitem arch="any-x86"><para>
+
+la fenêtre «&nbsp;Système&nbsp;» dans le panneau de configuration
+    de Windows&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+les commandes système ou les outils d'un autre système d'exploitation,
+incluant les affichages d'un gestionnaire de fichiers.
+Cette source est particulièrement utile pour trouver des informations
+sur la mémoire vive et les disques durs&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+votre administrateur système ou votre fournisseur d'accès à internet.
+Ces sources peuvent vous indiquer les réglages nécessaires à la
+configuration du réseau et du courrier.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+<table>
+<title>Informations sur le matériel nécessaire pour l'installation</title>
+<tgroup cols="2">
+<thead>
+<row>
+  <entry>Matériel</entry><entry>Informations dont vous pouvez avoir besoin</entry>
+</row>
+</thead>
+<tbody>
+<row arch="not-s390">
+  <entry morerows="5">Disques durs</entry>
+  <entry>Leur nombre</entry>
+</row>
+<row arch="not-s390"><entry>Leur ordre dans le système</entry></row>
+<row arch="not-s390">
+  <entry>S'ils sont IDE (PATA), SATA ou SCSI (la plupart sont IDE)</entry>
+</row>
+<row arch="not-s390"><entry>L'espace disponible</entry></row>
+<row arch="not-s390"><entry>Les partitions</entry></row>
+<row arch="not-s390">
+  <entry>Les partitions contenant d'autres systèmes d'exploitation</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="5">Écran</entry>
+  <entry>Le modèle et la marque</entry>
+</row>
+<row arch="not-s390"><entry>Les résolutions acceptées</entry></row>
+<row arch="not-s390"><entry>Le taux de rafraîchissement horizontal</entry></row>
+<row arch="not-s390"><entry>Le taux de rafraîchissement vertical</entry></row>
+<row arch="not-s390">
+  <entry>Les profondeurs de couleurs (nombre de couleurs) acceptées</entry>
+</row>
+<row arch="not-s390"><entry>La taille de l'écran</entry></row>
+
+<row arch="not-s390">
+  <entry morerows="3">Souris</entry>
+  <entry>Le type&nbsp;: série, PS/2, ou USB</entry>
+</row>
+<row arch="not-s390"><entry>Le port</entry></row>
+<row arch="not-s390"><entry>La marque</entry></row>
+<row arch="not-s390"><entry>Le nombre de boutons</entry></row>
+
+<row arch="not-s390">
+  <entry morerows="1">Carte réseau</entry>
+  <entry>Le modèle et la marque</entry>
+</row>
+<row arch="not-s390"><entry>Le type d'interface</entry></row>
+
+<row arch="not-s390">
+  <entry morerows="1">Imprimante</entry>
+  <entry>Le modèle et la marque</entry>
+</row>
+<row arch="not-s390"><entry>Les résolutions d'impression acceptées</entry></row>
+
+<row arch="not-s390">
+  <entry morerows="2">Carte vidéo</entry>
+  <entry>Le modèle et la marque</entry>
+</row>
+<row arch="not-s390"><entry>La mémoire vidéo disponible</entry></row>
+<row arch="not-s390">
+  <entry>Les résolutions et les profondeurs de couleurs acceptées (à choisir parmi 
+   celles reconnues par le moniteur)</entry>
+</row>
+
+<row arch="s390">
+  <entry morerows="1">DASD</entry>
+  <entry>Numéro du périphérique</entry>
+</row>
+<row arch="s390"><entry>L'espace disponible</entry></row>
+
+<row arch="s390">
+  <entry morerows="2">Carte réseau</entry>
+  <entry>Le type d'interface</entry>
+</row>
+<row arch="s390"><entry>Numéros des périphériques</entry></row>
+<row arch="s390"><entry>Numéro de l'adaptateur associé pour les cartes OSA</entry></row>
+
+</tbody></tgroup></table>
+
+</para>
+  </sect2>
+
+
+  <sect2>
+  <title>Compatibilité matérielle</title>
+
+<para>
+
+Beaucoup de produits de marques fonctionnent sans problème sous &arch-kernel;.
+Et la gestion des matériels est améliorée chaque jour. Cependant,
+&arch-kernel; ne peut pas utiliser autant de matériels que d'autres
+systèmes d'exploitation.
+
+</para><para arch="any-x86">
+
+En particulier, &arch-kernel; n'est pas compatible avec le matériel
+qui nécessite Windows pour fonctionner.
+
+</para><para arch="x86">
+
+Bien que Linux puisse faire fonctionner certains matériels spécifiques à
+Windows, cela demande un effort supplémentaire. D'autre part, les
+pilotes Linux pour ce type de matériel sont souvent dépendants d'une
+version du noyau et deviennent rapidement obsolètes.
+
+</para><para arch="any-x86">
+
+Les dénommés <quote>win-modems</quote> sont le cas le plus courant de ce type de
+matériel. Mais des imprimantes et d'autres périphériques peuvent
+aussi être spécifiques à Windows.
+
+</para><para>
+
+Voici quelques pistes pour vérifier la compatibilité de votre matériel&nbsp;:
+<itemizedlist>
+<listitem><para>
+
+chercher de nouveaux pilotes sur le site web des fabricants&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+chercher des informations concernant une possible émulation sur les sites web ou dans
+les manuels. Des marques moins connues peuvent parfois fournir des pilotes ou des réglages
+pour des marques plus connues&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+vérifier les listes de matériel compatible avec &arch-kernel; sur les
+sites web dédiés à votre architecture&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+chercher sur internet l'expérience des autres utilisateurs.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+
+  <sect2>
+  <title>Configuration du réseau</title>
+
+<para>
+Si votre machine est connectée à un réseau 24h/24 &mdash; avec une connexion Ethernet ou 
+équivalente (pas une connexion PPP) &mdash;, vous devriez demander
+à votre administrateur système les éléments suivants&nbsp;:
+
+<itemizedlist>
+<listitem><para>
+le nom de votre machine (à choisir vous-même)&nbsp;;
+</para></listitem>
+<listitem><para>
+le nom du domaine&nbsp;;
+</para></listitem>
+<listitem><para>
+l'adresse IP de votre machine&nbsp;;
+</para></listitem>
+<listitem><para>
+le masque réseau à utiliser&nbsp;;
+</para></listitem>
+<listitem><para>
+l'adresse IP de la passerelle qui sert de routeur, <emphasis>si</emphasis>
+votre réseau possède une passerelle&nbsp;;
+</para></listitem>
+<listitem><para>
+la machine de votre réseau qui servira de serveur DNS (Domain Name Service).
+</para></listitem>
+</itemizedlist>
+</para>
+<para>
+Si votre administrateur système vous a informé qu'un serveur DHCP était
+disponible, vous n'avez pas besoin de toutes ces informations. Le serveur
+DHCP les fournira directement pendant le processus d'installation.
+</para>
+<para>
+Pour un réseau sans fil, vous aurez besoin des informations suivantes&nbsp;:
+
+<itemizedlist>
+<listitem><para>
+
+l'ESSID du réseau sans fil&nbsp;;
+</para></listitem>
+<listitem><para>
+la clé WEP (si nécessaire).
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+ </sect1>

@@ -1,0 +1,204 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 51744 -->
+<!-- updated 33820:43573 by Felipe Augusto van de Wiel (faw) 2007.01.20 -->
+<!-- updated 43573:51744 by Felipe Augusto van de Wiel (faw) 2007.02.09 -->
+
+   <sect3 id="apt-setup">
+   <title>Configurando o apt</title>
+
+<para>
+
+Uma das ferramentas usadas para instalar pacotes em um sistema &debian-gnu;
+é o programa chamado <command>apt-get</command>, do pacote
+<classname>apt</classname><footnote>
+
+<para>
+Note que o programa que realmente instala os pacotes se chama
+<command>dpkg</command>.  Contudo, esse programa é mais uma ferramenta de
+baixo nível.  <command>apt-get</command> é uma ferramenta de alto nível
+que irá invocar o <command>dpkg</command> de forma apropriada. Ele sabe
+como obter pacotes do seu CD, de sua rede, ou de onde for necessário. Ele
+também é capaz de instalar automaticamente outros pacotes que são requeridos
+para fazer o pacote que você está tentando instalar funcionar corretamente.
+</para>
+
+</footnote>.
+Outras interfaces para o gerenciador de pacotes, como
+<command>aptitude</command> e <command>synaptic</command> também estão
+em uso.
+Essas interfaces são recomendadas para usuários novos, já que elas integram
+algumas características adicionais (procura de pacotes e checagem de estado)
+com uma boa interface de usuário. De fato, <command>aptitude</command> é
+agora o utilitário recomendado para o gerenciamento de pacotes.
+
+</para><para>
+
+<command>apt</command> deve ser configurado de forma que ele saiba de onde
+obter os pacotes. Os resultados desta configuração são escritos no arquivo
+<filename>/etc/apt/sources.list</filename>.  Você pode examinar e editar
+esse arquivo de acordo com seu gosto, após a instalação ter sido completada.
+
+</para><para>
+
+Se você está instalando na prioridade padrão, o instalador cuidará
+automaticamente da configuração na maioria dos casos, baseado no método
+de instalação que você está usando e possivelmente usando as escolhas que
+você fez anteriormente na instalação. Na maioria dos casos, o instalador
+adicionará, automaticamente, um espelho de segurança e, se você estiver
+instalando a distribuição estável (<quote>stable</quote>), um espelho para
+o serviço de atualização volátil (<quote>volatile</quote>).
+
+</para><para>
+
+Se você está instalando em uma prioridade mais baixa (e.g. modo expert), você
+poderá tomar mais decisões por conta própria. Você pode escolher se quer ou
+não usar os serviços de atualização de segurança e ou volátil
+(<quote>volatile</quote>), e você pode optar por adicionar pacotes das seções
+<quote>contrib</quote> e <quote>non-free</quote> (não-livre) do repositório.
+
+</para>
+
+    <sect4 id="apt-setup-cdset">
+    <title>Instalando a partir de mais de um CD ou DVD</title>
+
+<para>
+
+Se você está instalando a partir de um CD ou de um DVD que é parte de um
+conjunto maior, o instalador perguntará se você quer analisar CDs ou DVDs
+adicionais. Se você tiver CDs ou DVDs adicionais disponíveis, você
+provavelmente quer fazer isso para que o instalador possa usar os pacotes
+incluídos nas mídias adicionais.
+
+</para><para>
+
+Se você não possui nenhum CD ou DVD adicional, não há problema: usá-los não
+é obrigatório. Se você também não usar um espelho de rede (como explicado
+na próxima seção), isto pode significar que nem todos os pacotes pertencentes
+às tarefas que você selecionar no próximo passo da instalação poderão ser
+instalados.
+
+</para>
+<note><para>
+
+Pacote são incluídos nos CDs (e DVDs) por ordem de popularidade. Isto
+significa que para a maioria dos casos somente os primeiros CDs de um conjunto
+são necessário e que somente algumas pessoas realmente usarão os pacotes
+incluídos nos últimos CDs do conjunto.
+
+</para><para>
+
+Isso também significa que comprar ou baixar e gravar um conjunto completo de
+CDs é um desperdício de dinheiro pois você nunca usará a maioria deles. Na
+maioria dos casos, você ficará bem com os primeiros 3 a 8 CDs e instalando
+quaisquer pacotes adicionais que você precise a partir da Internet usando um
+espelho.
+O mesmo vale para os conjuntos de DVDs: o primeiro DVD, ou talvez os primeiros
+dois DVDs cobrirão a maioria das suas necessidades.
+
+</para><para>
+
+Uma boa regra geral é que para uma instalação tradicional de desktop (usando
+o ambiente de área de trabalho GNOME) somente os primeiros três CDs são
+necessários. Para ambientes de área de trabalho alternativos (KDE ou Xfce),
+CDs adicionais são necessários. O primeiro DVD facilmente cobre todos estes
+três ambientes de área de trabalho.
+
+</para></note>
+<para>
+
+Se você analisar múltiplos CDs ou DVDs, o instalador pedirá que você mude-os
+quando ele precisar dos pacotes de um outro CD/DVD que não seja o que está
+atualmente na unidade. Note que somente CDs ou DVDs que pertençam ao mesmo
+conjunto deverão ser analisados. A ordem em que eles são analisados não
+importa, mas analisá-los em ordem crescente reduzirá a chance de erros.
+
+</para>
+    </sect4>
+
+    <sect4 id="apt-setup-mirror">
+    <title>Usando um espelho de rede</title>
+
+<para>
+
+Uma questão que será feita na maioria das instalações é usar ou não um espelho
+de rede como uma origem para os pacotes. Na maioria dos casos a resposta
+padrão deverá ser o bastante, mas há algumas exceções.
+
+</para><para>
+
+Se você <emphasis>não</emphasis> está instalando a partir de um CD ou DVD
+completo ou usando uma imagem CD/DVD completa, você realmente deveria usar
+um espelho de rede, caso contrário você acabará com um sistema realmente
+mínimo. No entanto, se você possui uma conexão limitada com a Internet é
+melhor <emphasis>não</emphasis> selecionar a tarefa <literal>área de
+trabalho</literal> na próxima etapa da instalação.
+
+</para><para>
+
+Se você está instalando a partir de um único CD completo ou usando uma imagem
+de CD completo, usar um espelho de rede não é necessário, mas ainda assim
+fortemente recomendado porque um único CD contém somente um número limitado de
+pacotes. Se você possui uma conexão com a Internet limitada, pode ser
+que seja melhor <emphasis>não</emphasis> escolher um espelho de rede neste
+momento, ao invés disso, finalize a instalação usando somente o que está
+disponível no CD e instale pacotes adicionais após a instalação (i.e. após
+você ter reinicializado em seu novo sistema).
+
+</para><para>
+
+Se você está instalando a partir de um DVD ou usando uma imagem de DVD, 
+quaisquer pacotes necessários durante a instalação deveriam estar presentes
+no primeiro DVD. O mesmo é verdade se você analisou múltiplos CDs como
+explicado na seção anterior. Usar um espelho de rede é opcional.
+
+</para><para>
+
+Uma vantagem de adicionar um espelho de rede é que atualizações que ocorreram
+desde que o conjunto de CDs/DVDs foi criado e foram incluídas em um lançamento
+pontual, estarão disponíveis para instalação, estendendo assim a vida do seu
+conjunto cd CDs/DVDs sem comprometer a segurança ou estabilidade do sistema
+instalado.
+
+</para><para>
+
+Em resumo: selecionar um espelho de rede é geralmente uma boa idéia, exceto
+se você não tem uma boa conexão com a Internet. Se a versão atual de um
+pacote está disponível a partir do CD/DVD, o instalador sempre usará esta
+versão. A quantidade de dados que serão baixados se você selecionar um
+espelho de rede dependerá
+
+<orderedlist>
+<listitem><para>
+
+das tarefas que você selecionar na próxima etapa da instalação,
+
+</para></listitem>
+<listitem><para>
+
+de quais pacotes são necessários para essas tarefas,
+
+</para></listitem>
+<listitem><para>
+ 
+de quais destes pacotes estão presentes nos CDs ou DVDs que você analisou, e
+
+</para></listitem>
+<listitem><para>
+
+se há versões atualizadas dos pacotes incluídos nos CDs ou DVDs disponíveis
+a partir de um espelho (tanto um espelho de pacotes tradicionais quanto um
+espelho de atualizações de segurança ou <quote>volatile</quote>).
+
+</para></listitem>
+</orderedlist>
+
+</para><para>
+
+Note que o último ponto significa que, mesmo que você tenha escolhido não
+usar um espelho de rede, alguns pacotes ainda podem ser baixados da Internet
+se há uma atualização de segurança ou <quote>volatile</quote> disponível para
+eles e se estes serviços foram configurados.
+
+</para>
+</sect4>
+   </sect3>

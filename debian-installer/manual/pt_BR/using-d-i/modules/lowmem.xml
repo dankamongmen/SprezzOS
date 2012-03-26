@@ -1,0 +1,65 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 49849 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2007.07.28 -->
+<!-- updated 47209:49849 by Felipe Augusto van de Wiel (faw) 2008.02.06 -->
+
+  <sect3 id="lowmem">
+  <title>Verificando a memória disponível / modo pouca memória</title>
+
+<para>
+
+Uma das primeiras coisas que o &d-i; faz é checar a memória disponível.
+Se a memória disponível é limitada, este componente fará algumas mudanças
+no processo de instalação na esperança de permitir que você instale o
+&debian-gnu; no seu sistema.
+
+</para><para>
+
+A primeira medida tomada para reduzir o consumo de memória pelo instalador
+é desabilitar as traduções, o que significa que a instalação só pode ser
+feita em inglês. É claro que você pode localizar o sistema instalado após
+a instalar ter sido completada.
+
+</para><para>
+
+Se isto não for suficiente, o instalador irá reduzir o consumo de memória
+carregando apenas os componentes essenciais para completar a instalação
+básica. Isto reduz a funcionalidade do sistema de instalação. Você terá
+a oportunidade de carregar componentes adicionais manualmente, mas você
+deveria estar avisado que cada componente que você selecionar usará
+memória adicional e pode fazer com que a instalação falhe.
+
+</para><para>
+
+Se o instalador é executado no modo pouca memória, é recomendado criar
+uma partição de área de troca (<quote>swap</quote>) relativamente grande
+(64&ndash;128MB). A partição de área de troca será usada como memória
+virtual e com isso aumenta o total de memória disponível para o sistema.
+O instalador ativará a partição de área de troca o mais cedo possível no
+processo de instalação. Note que o uso intenso de área de troca pode
+reduzir a performance do seus sistema e pode resultar em alta atividade
+de disco.
+
+</para><para>
+
+Apesar destas medidas, ainda é possível que o seu sistema congele, que
+erros inesperados ocorram ou que processos sejam mortos pelo núcleo
+(<quote>kernel</quote>) porque o sistema fica sem memória (o que
+resultará em mensagens <quote>Out of memory</quote> no VT4 e no syslog).
+
+</para><para>
+
+Por exemplo, foi reportado que criar um grande sistema de arquivos ext3
+falha no modo de pouca memória quando há espaço insuficiente para a área
+de troca. Se uma área de troca maior não ajudar, tente criar um sistema
+de arquivos ext2 (que é um componente essencial do instalador). É possível
+mudar uma partição ext2 para ext3 após a instalação.
+
+</para><para>
+
+É possível forçar o instalador a usar um nível mais alto de baixa memória
+do que o baseado na memória disponível usando o parâmetro de inicialização
+<quote>lowmem</quote> como descrito em <xref linkend="installer-args"/>.
+
+</para>
+   </sect3>

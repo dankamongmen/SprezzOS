@@ -1,0 +1,75 @@
+<!-- original version: 50618 -->
+
+
+    <sect3 id="user-setup-root">
+    <title>Mot de passe pour <quote>Root</quote></title>
+
+<!-- TODO: Document sudo setup (no root password); medium/low prio only -->
+
+<para>
+
+Le compte <emphasis>root</emphasis> est aussi appelé le
+<emphasis>superutilisateur</emphasis>; c'est un utilisateur qui
+peut outrepasser toutes les protections de sécurité de votre
+système. Le compte root ne devrait être utilisé que pour administrer le système,
+et le moins longtemps possible.
+
+</para><para>
+
+Tout mot de passe devrait faire au moins 6 caractères, et devrait
+contenir tant des minuscules que des majuscules ainsi que des
+caractères de ponctuation. Soyez particulièrement soigneux lors
+du choix de votre mot de passe root en raison des privilèges qui
+sont associés à ce compte. Évitez les mots du dictionnaire ou toutes
+les informations personnelles qui pourraient être devinées.
+
+</para><para>
+
+Si jamais quelqu'un vous dit qu'il a besoin de votre mot de passe
+root, soyez sur vos gardes. Vous ne devriez normalement
+jamais avoir besoin de le donner, à moins que vous
+n'administriez une machine avec plusieurs administrateurs.
+
+</para>
+   </sect3>
+
+   <sect3 id="make-normal-user">
+   <title>Création d'un utilisateur ordinaire</title>
+
+<para>
+
+Le système vous demande à ce stade si vous désirez créer un
+compte utilisateur ordinaire. Ce compte devrait être votre
+compte personnel principal. Vous ne devriez <emphasis>pas</emphasis> 
+utiliser le compte root pour un usage quotidien ou comme votre compte personnel.
+
+<!-- Note: it only _asks_ at medium/low priority -->
+
+</para><para>
+
+Pourquoi&nbsp;? Et bien, une raison d'éviter l'utilisation des
+privilèges du superutilisateur est qu'il est très aisé de faire des dommages
+irréparables en tant que root. Une autre raison est que vous
+pourriez lancer, sans le savoir, un programme de type
+<emphasis>Cheval de Troie</emphasis> &mdash; qui utilise
+avantageusement vos pouvoirs de superutilisateur pour
+compromettre, à votre insu, la sécurité de votre
+système. Tout bon livre sur l'administration d'un système Unix couvre
+ce sujet en détails &mdash; envisagez la lecture d'un tel livre
+si tout cela est nouveau pour vous.
+
+</para><para>
+
+On vous demandera d'abord le nom et le prénom de l'utilisateur. Puis
+vous choisirez un mot pour nommer le compte de l'utilisateur. En général,
+c'est votre prénom ou quelque chose d'approchant. Vous indiquerez enfin le
+mot de passe pour ce compte.
+
+</para><para>
+
+Si vous désirez créer un nouveau compte après l'installation, utilisez
+la commande <command>adduser</command>.
+
+</para>
+
+   </sect3>

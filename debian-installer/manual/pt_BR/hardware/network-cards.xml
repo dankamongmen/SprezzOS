@@ -1,0 +1,179 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61133 -->
+<!-- updated 43693:56450 by Felipe Augusto van de Wiel (faw) 2008.11.11 -->
+
+ <sect2 id="network-cards">
+ <title>Placas de rede</title>
+<para>
+
+Quase qualquer placa de rede (NIC) suportada pelo kernel &arch-kernel; também
+deveria ser suportada pelo sistema de instalação, drivers modulares
+deveriam normalmente serem automaticamente carregados.
+
+<phrase arch="x86">Isto inclui a maioria das placas PCI e PCMCIA.</phrase>
+<phrase arch="i386">Muitas placas ISA antigas também são suportadas.</phrase>
+
+</para><para arch="sparc">
+Isto inclui várias placas PCI genéricas (para sistemas que têm PCI) e as
+seguintes placas da Sun:
+
+<itemizedlist>
+<listitem><para>
+
+Sun LANCE
+
+</para></listitem>
+<listitem><para>
+
+Sun Happy Meal
+
+</para></listitem>
+<listitem><para>
+
+Sun BigMAC
+
+</para></listitem>
+<listitem><para>
+
+Sun QuadEthernet
+
+</para></listitem>
+<listitem><para>
+
+MyriCOM Gigabit Ethernet
+
+</para></listitem>
+</itemizedlist>
+
+</para><para arch="s390">
+
+A lista de dispositivos de rede suportados é:
+
+<itemizedlist>
+ <listitem><para>
+
+Canal para Canal (CTC) e conexão ESCON (real ou emulada)
+
+</para></listitem>
+ <listitem><para>
+
+OSA-2 Token Ring/Ethernet e OSA-Express Fast Ethernet
+          (não-QDIO)
+
+</para></listitem>
+<listitem><para>
+
+OSA-Express em modo QDIO / HiperSockets
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+
+<para arch="arm">
+
+Em &arch-title;, a maioria dos dispositivos Ethernet <quote>built-in</quote>
+são suportadas e módulos para dispositivos PCI e USB adicionais são fornecidos.
+A maior exceção é a plataforma XP4xx (presente em dispositivos como o Linksys
+NSLU2) que precisa de um microcódigo proprietário para a operação de seu
+dispositivo Ethernet <quote>built-in</quote>. Imagens não-oficiais para o
+Linksys NSLU2 com o microcódigo proprietário podem ser obtidas a partir do
+<ulink url="&url-slug-firmware;">site Slug-Firmware</ulink>.
+
+</para><para arch="x86">
+
+Há suporte para ISDN, mas não durante a instalação.
+
+</para>
+
+  <sect3 condition="supports-wireless" id="nics-wireless">
+  <title>Placas de rede sem fio</title>
+<para>
+
+Em geral, há suporte para redes sem fio e um número cada vez maior de
+adaptadores de rede sem fio sendo suportados pelo kernel &arch-kernel; oficial,
+embora vários deles requeiram o carregamento de firmwares.
+Placas de rede sem fio para as quais não há suporte no kernel &arch-kernel;
+oficial podem geralmente ser configuradas sob &debian-gnu; mas não há suporte
+para elas durante a instalação.
+
+</para><para>
+
+O uso de rede sem fio durante a instalação ainda está em desenvolvimento
+e se funcionará ou não, depende do tipo de adaptador e da configuração do
+seu ponto de acesso sem fio.
+Se não há outras placas de rede que você possa usar durante a instalação,
+ainda é possível instalar o &debian-gnu; usando uma imagem de CD-ROM ou DVD
+completa. Selecione a opção de não configurar a rede e instalar usando
+apenas os pacotes disponíveis a partir do CD/DVD. Você pode então instalar
+o driver e firmware que você precisa após a instalação estar completa (após
+a reinicialização) e configurar sua rede manualmente.
+
+</para><para>
+
+Em alguns casos o driver que você precisa pode não estar disponível como um
+pacote &debian;. Você então terá que olhar se há código fonte disponível na
+internet e compilar o driver você mesmo. Como fazer isto está fora do escopo
+deste manual.
+
+<phrase arch="x86">Se nenhum driver Linux está disponível, seu último recurso
+é usar o pacote <classname>ndiswrapper</classname>, que permite que você use
+um driver Windows.</phrase>
+
+</para>
+  </sect3>
+
+  <sect3 arch="sparc" id="nics-sparc-trouble">
+  <title>Problemas Conhecidos para &arch-title;</title>
+<para>
+
+Existem alguns problemas conhecidos para algumas placas de rede específicas
+que merecem ser mencionados aqui.
+
+</para>
+
+   <sect4><title>Conflito entre os drivers tulip e dfme</title>
+<!-- BTS: #334104; may also affect other arches, but most common on sparc -->
+<para>
+
+<!-- BTS: #334104; may also affect other arches, but most common on sparc -->
+Há várias placas de rede PCI que possuem a mesma identificação PCI, mas são
+suportadas por drivers relacionados, mas diferentes. Algumas placas funcionam
+com o driver <literal>tulip</literal>, outras com o <literal>dfme</literal>.
+Por elas terem a mesma identificação, o kernel não consegue fazer distinção
+entre elas e não é certeza qual driver será carregado. Se acontecer do driver
+errado ser carregado, a placa de rede pode não funcionar, ou funcional mal.
+
+</para><para>
+
+Este é um problema comum em sistema Netra com uma Davicom (DEC-Tulip
+compatível). Neste caso o driver <literal>tulip</literal> é provavelmente
+o correto.
+Você pode se prevenir deste problema adicionando o módulo do driver errado na
+<quote>blacklist</quote> como descrito em <xref linkend="module-blacklist"/>.
+
+</para><para>
+
+Uma solução alternativa durante a instalação é trocar para um shell e
+descarregar o módulo do driver errado usando
+<userinput>modprobe -r <replaceable>módulo</replaceable></userinput> (ou
+ambos, se ambos foram carregados). Depois disso você pode carregar o
+módulo correto usando
+<userinput>modprobe <replaceable>módulo</replaceable></userinput>.
+Note que o módulo errado ainda pode ser carregado quando o sistema for
+reinicializado.
+
+</para>
+   </sect4>
+
+   <sect4><title>Sun B100 blade</title>
+<!-- BTS: #384549; should be checked for kernels >2.6.18 -->
+<para>
+
+O driver de rede <literal>cassini</literal> não funciona com sistemas
+Sun B100 blade.
+
+</para>
+   </sect4>
+  </sect3>
+ </sect2>

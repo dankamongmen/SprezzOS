@@ -1,0 +1,125 @@
+<!-- original version: 65195 -->
+
+
+  <sect2 arch="any-x86"><title>Partitionnement depuis DOS ou Windows</title>
+<para>
+
+Si vous manipulez des partitions FAT ou NTFS existantes, il est
+recommandé de suivre la méthode ci-dessous ou d'utiliser des produits
+DOS ou Windows. Il n'est pas utile de partitionner à partir de
+DOS ou Windows&nbsp;; les outils de partitionnement &debian; sont généralement
+meilleurs.
+
+</para><para>
+
+Si vous avez un grand disque IDE, et si vous n'utilisez ni l'adressage LBA,
+ni des pilotes de recouvrement (parfois fournis par les constructeurs de
+disques durs), ni un BIOS récent (après 1998) qui accepte les extensions
+d'accès pour disques de grande capacité, vous devez faire attention
+à la position de la partition de démarrage de &debian;&nbsp;: vous
+devez la placer dans les 1024&nbsp;premiers cylindres de votre disque dur
+(habituellement aux alentours de 524&nbsp;Mo, sans conversion par le
+BIOS). Et il faudra peut-être déplacer une partition FAT ou NTFS
+existante.
+
+</para>
+
+   <sect3 id="lossless">
+   <title>Repartitionnement sans perte sous DOS, Windows-32 ou OS/2
+   </title>
+
+<para>
+
+Il est très courant de vouloir installer &debian; sur un système qui contient
+déjà DOS (y compris Windows 3.1), Win32 (Windows 95, 98, Me, NT, 2000, 
+XP, 2003, Vista, 7) ou OS/2, sans détruire l'ancien système. L'installateur &debian; sait
+redimensionner les systèmes de fichiers FAT et NTFS utilisés par DOS et Windows.
+Lancez simplement l'installateur. Quand vous êtes à l'étape <quote>partitionnement</quote>,
+choisissez l'option <menuchoice> <guimenuitem>Manuel</guimenuitem> </menuchoice>,
+puis choisissez la partition à redimensionner et indiquez la 
+taille voulue. Dans la plupart des cas, vous n'aurez pas besoin de la méthode 
+décrite plus bas. 
+
+</para><para>
+
+Avant d'aller plus loin, vous devez avoir décidé comment vous allez
+diviser le disque. La méthode présentée dans ce chapitre ne vise qu'à
+diviser une partition en deux parties. L'une contiendra l'OS original
+et l'autre sera utilisée pour &debian;.
+Pendant l'installation de &debian;, vous aurez l'occasion de terminer la division
+de la partie &debian; du disque comme vous le souhaitez (partition d'échange ou
+partition avec système de fichiers).
+
+</para><para>
+
+L'idée est de déplacer toutes les données au début de la partition, avant de
+changer les caractéristiques de la partition&nbsp;: ainsi rien ne sera perdu.
+Il est important de ne rien faire entre le déplacement des données et le repartitionnement,
+pour minimiser le risque qu'un fichier soit écrit près de la fin de la partition,
+puisque cela diminuerait la quantité d'espace pouvant être pris sur la partition.
+
+</para><para>
+
+Il faut tout d'abord une copie de <command>fips</command>
+Décompressez l'archive et copiez les fichiers 
+<filename>RESTORRB.EXE</filename>,
+<filename>FIPS.EXE</filename> et <filename>ERRORS.TXT</filename> sur une 
+disquette amorçable. Une disquette amorçable peut être créée en utilisant la
+commande <filename>sys a:</filename> sous DOS. <command>Fips</command> est 
+fourni avec une très bonne documentation qu'il est conseillé de lire. Vous devrez la 
+lire si vous utilisez un pilote de compression de disque ou un gestionnaire 
+de disque. Créez la disquette et lisez la documentation 
+<emphasis>avant</emphasis> de défragmenter le disque.
+
+</para><para>
+
+L'étape suivante consiste à déplacer toutes les données au début de
+la partition. L'utilitaire <command>defrag</command>, qui est livré en 
+standard avec DOS 6.0 et les versions supérieures, est parfaitement approprié à cette
+tâche. Consultez la documentation de <command>fips</command> pour une liste des autres 
+logiciels qui peuvent faire l'affaire. Notez que si vous avez Windows95, vous 
+devez lancer <command>defrag</command> depuis celui-ci, puisque DOS ne 
+comprend pas le système de fichiers VFAT qui est utilisé pour gérer 
+les noms longs depuis Windows 95 et les versions supérieures.
+
+</para><para>
+
+Après la défragmentation (ce qui peut prendre du temps),
+réamorcez avec la disquette <command>fips</command> que vous avez 
+créée dans le lecteur de disquette. Saisissez simplement 
+<filename>a:\fips</filename> et suivez les instructions.
+
+</para><para>
+
+Il existe beaucoup d'autres utilitaires de partitionnement
+au cas où <command>fips</command> ne conviendrait pas.
+
+</para>
+   </sect3>
+
+   <sect3 id="partitioning-for-dos"><title>Partitionnement sous DOS</title>
+
+<para>
+
+Si vous partitionnez des disques DOS, ou si vous changez la taille de
+partitions DOS, en utilisant des outils &debian;, sachez que beaucoup de
+problèmes ont été constatés avec
+les partitions FAT obtenues. Par exemple, on a remarqué des problèmes de
+performance ou des problèmes de cohérence avec <command>scandisk</command>, et
+d'autres erreurs bizarres sous DOS ou Windows.
+
+</para><para>
+
+Apparemment, chaque fois que vous créez ou que vous redimensionnez une
+partition destinée à être utilisée sous DOS, c'est une bonne idée de
+remplir avec des zéros quelques-uns des premiers secteurs. Vous pouvez exécuter
+la commande suivante depuis &debian; avant de lancer
+la commande DOS <command>format</command>&nbsp;:
+
+<informalexample><screen>
+# dd if=/dev/zero of=/dev/hdXX bs=512 count=4
+</screen></informalexample>
+
+</para>
+   </sect3>
+  </sect2>

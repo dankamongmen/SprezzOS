@@ -1,0 +1,148 @@
+<!-- $Id$ -->
+<!-- original version: 64916 -->
+
+ <sect1 id="directory-tree">
+ <title>Strom adresářů</title>
+<para>
+
+&debian-gnu; dodržuje standard pro pojmenování souborů a adresářů
+(<ulink url="&url-fhs-home;">Filesystem Hierarchy Standard</ulink>),
+což zaručuje, že uživatelé či programy mohou odhadnout umístění
+souborů či adresářů. Kořenový adresář je reprezentován lomítkem
+<filename>/</filename> a na všech &debian;ích systémech obsahuje tyto
+adresáře:
+
+<informaltable>
+<tgroup cols="2">
+<thead>
+<row>
+  <entry>Adresář</entry><entry>Obsah</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry><filename>bin</filename></entry>
+  <entry>Důležité programy</entry>
+</row><row>
+  <entry><filename>boot</filename></entry>
+  <entry>Statické soubory zavaděče</entry>
+</row><row>
+  <entry><filename>dev</filename></entry>
+  <entry>Soubory zařízení</entry>
+</row><row>
+  <entry><filename>etc</filename></entry>
+  <entry>Konfigurační soubory závislé na systému</entry>
+</row><row>
+  <entry><filename>home</filename></entry>
+  <entry>Domovské adresáře uživatelů</entry>
+</row><row>
+  <entry><filename>lib</filename></entry>
+  <entry>Podstatné sdílené knihovny a moduly jádra</entry>
+</row><row>
+  <entry><filename>media</filename></entry>
+  <entry>Obsahuje přípojné body pro výměnná média</entry>
+</row><row>
+  <entry><filename>mnt</filename></entry>
+  <entry>Místo pro dočasné připojování souborových systémů</entry>
+</row><row>
+  <entry><filename>proc</filename></entry>
+  <entry>Virtuální adresář obsahující systémové informace</entry>
+</row><row>
+  <entry><filename>root</filename></entry>
+  <entry>Domovský adresář správce systému</entry>
+</row><row>
+  <entry><filename>sbin</filename></entry>
+  <entry>Důležité systémové programy</entry>
+</row><row>
+  <entry><filename>srv</filename></entry>
+  <entry>Data nabízená systémem</entry>
+</row><row>
+  <entry><filename>sys</filename></entry>
+  <entry>Virtuální adresář pro systémové informace (od jader 2.6)</entry>
+</row><row>
+  <entry><filename>tmp</filename></entry>
+  <entry>Dočasné soubory</entry>
+</row><row>
+  <entry><filename>usr</filename></entry>
+  <entry>Druhá úroveň hierarchie</entry>
+</row><row>
+  <entry><filename>var</filename></entry>
+  <entry>Proměnlivá data</entry>
+</row><row>
+  <entry><filename>opt</filename></entry>
+  <entry>Softwarové balíky třetích stran</entry>
+</row>
+</tbody></tgroup></informaltable>
+</para>
+
+<para>
+
+Následující seznam by vám měl pomoci při rozhodování o rozdělení disku
+na oblasti. Berte prosím na vědomí, že využití disku se velmi liší
+podle způsobu používání systému a proto jsou následující doporučení
+pouze obecné a měly by sloužit jen jako možný základ pro dělení disku.
+
+</para>
+<itemizedlist>
+<listitem><para>
+
+<filename>/</filename>: kořenový adresář musí vždy fyzicky obsahovat
+adresáře <filename>/etc</filename>, <filename>/bin</filename>,
+<filename>/sbin</filename>, <filename>/lib</filename> a
+<filename>/dev</filename>, protože jinak byste nemohli zavést systém.
+Typicky je potřeba 150&ndash;250 MB, ale v konkrétních podmínkách se
+požadavky mohou lišit.
+
+</para></listitem>
+<listitem><para>
+
+<filename>/usr</filename>: obsahuje všechny uživatelské programy
+(<filename>/usr/bin</filename>), knihovny
+(<filename>/usr/lib</filename>), dokumentaci
+(<filename>/usr/share/doc</filename>), atd.
+Protože tato část souborového systému spotřebuje nejvíce místa,  měli
+byste jí na disku poskytnout alespoň 500 MB. Pokud budete instalovat
+hodně balíčků, měli byste tomuto adresáři vyhradit ještě více
+místa. Velkoryse pojatá instalace pracovní stanice nebo serveru může
+klidně zabrat i 4&ndash;6 GB.
+
+</para></listitem>
+<listitem><para>
+
+<filename>/var</filename>: v tomto adresáři budou uložena všechna
+proměnlivá data jako příspěvky news, e-maily, webové stránky,
+vyrovnávací paměť pro balíčkovací software, atd. Velikost tohoto
+adresáře velmi závisí na způsobu používání vašeho počítače, ale pro
+většinu lidí bude velikost dána režijními náklady správce balíčků.
+Pokud se chystáte nainstalovat najednou vše, co &debian; nabízí, mělo by
+stačit pro <filename>/var</filename> vyhradit dva až tři gigabajty.
+V případě, že budete instalovat systém po částech (nejprve služby a
+utility, potom textové záležitosti, následně X, ...), bude stačit 300
+až 500 megabajtů. Jestliže je vaší prioritou volné místo na disku a
+neplánujete žádné velké aktualizace systému, lze vyjít se 30 až 40
+megabajty.
+
+</para></listitem>
+<listitem><para>
+
+<filename>/tmp</filename>: sem programy většinou zapisují dočasná data.
+Obvykle by mělo stačit 40&ndash;100 MB. Některé aplikace &mdash; včetně
+nadstaveb archivačních programů, authoringových CD/DVD nástrojů
+a multimediálních programů &mdash; mohou <filename>/tmp</filename>
+využívat pro uložení celých obrazů. Plánujete-li využívat takovéto
+programy, měli byste dostupné místo příslušně zvýšit.
+
+</para></listitem>
+<listitem><para>
+
+<filename>/home</filename>: každý uživatel si bude ukládat data do
+svého podadresáře v tomto adresáři. Jeho velikost závisí na tom, kolik
+uživatelů bude systém používat a jaké soubory se v jejich adresářích
+budou uchovávat. Pro každého uživatele byste měli počítat alespoň
+100 MB místa, ale opět závisí na konkrétní situaci.
+
+</para></listitem>
+</itemizedlist>
+
+ </sect1>

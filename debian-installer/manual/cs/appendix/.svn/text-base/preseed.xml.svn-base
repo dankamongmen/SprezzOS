@@ -1,0 +1,1757 @@
+<!-- $Id$ -->
+<!-- original version: 66810 -->
+
+<!--
+Be carefull with the format of this file as it is parsed to generate
+the example preconfiguration file.
+In that file all text between <informalexample> tags that have the
+attribute 'role="example"' set is included, except if a 'condition'
+attribute is in force that does not match the specified release or if an
+'arch' attribute is in force that does not match the specified architecture.
+
+Currently only a single variant of the example file is generated (for i386).
+-->
+
+<appendix id="appendix-preseed">
+<title>Automatizování instalací pomocí přednastavení</title>
+
+<para>
+
+Tento dodatek vysvětluje taje a záludnosti přednastavení odpovědí na
+otázky &d-i;u za účelem zautomatizování instalačního procesu.
+
+</para><para>
+
+Útržky konfigurace použité v této části jsou také dostupné jako
+samostatný soubor na &urlset-example-preseed;.
+
+</para>
+
+ <sect1 id="preseed-intro">
+ <title>Úvod</title>
+<para>
+
+Přednastavení nabízí možnost předem odpovědět na otázky, které se ptá
+instalační program. Díky tomu pak nemusíte do většiny instalací
+zasahovat a dokonce můžete využít některých vlastností, které jinak
+nejsou dostupné.
+
+</para><para>
+
+Přednastavení není povinné. Použijete-li prázdný soubor s odpověďmi,
+instalace bude probíhat úplně stejně jako při běžné instalaci. Každá
+otázka, kterou přednastavíte, jistým způsobem odchýlí instalaci od
+standardní cesty.
+
+</para>
+
+  <sect2 id="preseed-methods">
+  <title>Způsoby přednastavení</title>
+<para>
+
+Přednastavení existuje ve třech variantách:
+<firstterm>initrd</firstterm>, <firstterm>soubor</firstterm>
+a <firstterm>síť</firstterm>. Initrd funguje s každým typem instalace,
+podporuje přednastavení více odpovědí, ovšem vyžaduje nejvíce příprav.
+Přednastavení přes lokální soubor nebo přes síť se používají pro různé
+typy instalací.
+
+</para><para>
+
+Následující tabulka ukazuje, které způsoby přednastavení fungují
+s kterými způsoby instalací.
+
+<informaltable>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Způsob instalace</entry>
+  <entry>initrd</entry>
+  <entry>soubor</entry>
+  <entry>síť</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>CD/DVD</entry>
+  <entry>ano</entry>
+  <entry>ano</entry>
+  <entry>ano<footnote id='apx-ps-net'><para>
+
+     Ovšem pouze pokud máte přístup k síti a správně nastavíte
+     <literal>preseed/url</literal>.
+
+  </para></footnote></entry>
+</row><row>
+  <entry>zavedení ze sítě</entry>
+  <entry>ano</entry>
+  <entry>ne</entry>
+  <entry>ano</entry>
+</row><row>
+  <entry>z pevného disku <phrase condition="bootable-usb">(včetně usb klíčenky)</phrase></entry>
+  <entry>ano</entry>
+  <entry>ano</entry>
+  <entry>ano<footnoteref linkend='apx-ps-net'/></entry>
+</row><row condition="supports-floppy-boot">
+  <entry>z disket (cd ovladače)</entry>
+  <entry>ano</entry>
+  <entry>ano</entry>
+  <entry>ano<footnoteref linkend='apx-ps-net'/></entry>
+</row><row condition="supports-floppy-boot">
+  <entry>z disket (síťové ovladače)</entry>
+  <entry>ano</entry>
+  <entry>ne</entry>
+  <entry>ano</entry>
+</row><row arch="s390">
+  <entry>obecná/páska</entry>
+  <entry>ano</entry>
+  <entry>ne</entry>
+  <entry>ano</entry>
+</row>
+</tbody>
+
+</tgroup></informaltable>
+
+</para><para>
+
+U jednotlivých způsobů přednastavení je významný okamžik, kdy je
+soubor nahrán a zpracován. Pro initrd to je okamžitě po startu
+instalace, ještě před první otázkou. Přednastavení v lokálním souboru
+se načte po připojení CD nebo jeho obrazu. Přednastavení ze sítě je
+evidentně dostupné až po nastavení sítě.
+
+</para><para>
+
+Prakticky to znamená, že přednastavení pomocí souboru a sítě se
+nahraje zobrazí až po zodpovězení otázek ohledně jazyka, země
+a klávesnice. (V případě přednastavení ze sítě navíc až po všech
+otázkách týkajících se síťového nastavení.) Instalujete-li se střední
+nebo nízkou prioritou, do cesty se vám připletou ještě otázky ohledně
+rozpoznávání hardwaru.
+
+</para><para>
+
+Abyste mohli přednastavit i otázky, které se zobrazují před nahráním
+souboru s přednastavením, můžete využít zaváděcí parametry jádra, viz
+část <xref linkend="preseed-bootparms"/>.
+
+</para><para>
+
+Jinou možností, jak se vyhnout otázkám, které se zobrazují před
+nahráním souboru s přednastavením, je spustit instalátor
+v <quote>automatickém</quote> režimu. Tím se odsunou všechny brzké
+otázky až za okamžik nahození sítě a navíc se zobrazí jen otázky s
+kritickou prioritou, což odfiltruje několik zbytečných
+otázek. Podrobnosti naleznete v <xref linkend="preseed-auto"/>.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-limitations">
+  <title>Omezení</title>
+<para>
+
+Přestože takto můžete přednastavit většinu otázek &d-i;u, existuje
+několik výjimek. Při dělení disku musíte rozdělit buď celý disk, nebo
+použít stávající volné místo &mdash; není možné použít existující
+oblasti.
+
+</para>
+  </sect2>
+
+<!-- Joeyh feels this is too technical, so leave it out for now
+  <sect2 id="preseed-debconf">
+  <title>Základy debconfu</title>
+<para>
+
+Přednastavení využívá možností <classname>debconf</classname>u, což je
+v &debian;u preferovaný způsob interakce balíků s uživatelem a tvoří
+jádro instalačního systému. V <classname>debconf</classname>u jsou
+otázky a dialogy založeny na <firstterm>šablonách</firstterm>. Pro
+různé typu otázek existují různé typy šablon. Samotné otázky se
+<quote>generují</quote> z šablon přímo za běhu a několik otázek může
+sdílet stejnou šablonu.
+
+</para><para>
+
+Pro přednastavení jsou relevantní následující typy šablon.
+
+</para>
+
+<itemizedlist spacing="compact">
+<listitem><para>
+  string: umožňuje uživateli zadat libovolnou hodnotu
+</para></listitem>
+<listitem><para>
+  password: podobné jako string, ovšem zadaná hodnota se nezobrazuje
+</para></listitem>
+<listitem><para>
+  boolean: pro typ otázek ano/ne nebo pravda/nepravda
+</para></listitem>
+<listitem><para>
+  select: umožňuje uživateli vybrat hodnotu ze seznamu
+</para></listitem>
+<listitem><para>
+  multiselect: umožňuje uživateli vybrat ze seznamu více hodnot
+</para></listitem>
+<listitem><para>
+  note: používá se pro zobrazení nějaké zprávy
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+V &d-i;u jsou šablony uloženy v čitelném souboru
+<filename>/var/cache/debconf/templates.dat</filename>. Tento soubor
+obsahuje původní text a všechny překlady. Volitelně též může obsahovat
+výchozí hodnotu šablony. Text může obsahovat proměnné, které se za
+běhu nahradí příslušnou hodnotou.
+
+</para><para>
+
+Dalším čitelným souborem je
+<filename>/var/cache/debconf/questions.dat</filename>, který se
+používá pro uložení hodnot proměnných a zadaných odpovědí. Otázka se
+vždy odkazuje na šablonu, která se používá pro dotaz. Ze zřejmých
+bezpečnostních důvodů se odpovědi na otázky typu
+<quote>password</quote> ukládají do samostatného souboru (ve stejném
+adresáři), který ovšem může číst pouze uživatel root.
+
+</para>
+  </sect2>
+-->
+<!--
+  <sect2 id="preseed-hooks">
+  <title>Spouštění vlastních příkazů během instalace</title>
+<para>
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+  <userinput>preseed/early_command</userinput>: spustí se okamžitě po
+  načtení souboru s přednastavením
+</para></listitem>
+<listitem><para>
+  <userinput>preseed/late_command</userinput>: spustí se na závěr
+  instalace těsně před restartem, ale ještě před odpojením souborového
+  systému <filename>/target</filename>
+</para></listitem>
+</itemizedlist>
+
+  </sect2>
+
+-->
+ </sect1>
+
+ <sect1 id="preseed-using">
+ <title>Použití</title>
+<para>
+
+Nejprve samozřejmě musíte vytvořit soubor s přednastavením a umístit
+jej na vhodné místo, odkud jej budete používat. O vytvoření souboru se
+dočtete dále v této příručce. Umístění souboru na vhodné místo je
+různě složité podle použitého způsobu. V případě, že budete soubor
+s přednastavením načítat ze sítě, z diskety nebo usb klíčenky, je jeho
+umístění zřejmé. Chcete-li soubor umístit na CD nebo DVD, budete muset
+znovu sestavit celý ISO obraz. Umístění souboru s přednastavením přímo
+do initrd je mimo rozsah tohoto dokumentu a musíme vás odkázat na
+vývojářskou dokumentaci k &d-i;u.
+
+</para><para>
+
+Ukázkový soubor s přednastavením, jež můžete využít jako základ pro
+své pokusy, naleznete na &urlset-example-preseed;. Tento soubor je
+poskládán z ukázek prezentovaných v tomto dodatku.
+
+</para>
+
+  <sect2 id="preseed-loading">
+  <title>Nahrání souboru s přednastavením</title>
+<para>
+
+Používáte-li přednastavení z initrd, musíte zajistit, aby se soubor
+jmenoval <filename>preseed.cfg</filename> a aby se nacházel
+v kořenovém adresáři initrd. O vše ostatní se postará instalační
+program. Ten se podívá, zda je soubor přítomen, a pokud ano, tak jej
+nahraje.
+
+</para><para>
+
+U zbývajících způsobů přednastavení musíte instalátoru říci, který
+soubor má použít. Toho dosáhnete parametrem, který předáte jádru buď
+ručně při zavádění, nebo skrze soubor zavaděče
+<phrase arch="linux-any">(např. <filename>syslinux.cfg</filename>),
+kde na konec řádku append přidáte příslušný parametr.</phrase>
+<phrase arch="kfreebsd-any">(např. <filename>grub.cfg</filename>),
+kde u definice jádra přidáte příslušný parametr na nový řádek
+<literal>set</literal>.</phrase>
+<phrase arch="hurd-any">(např. <filename>grub.cfg</filename>),
+kde přidáte příslušný parametr na konec řádku
+<filename>gnumach.gz</filename>.</phrase>
+
+</para><para>
+
+Pokud to váš zavaděč umožňuje, nemusí být od věci jej nastavit tak,
+aby nečekal se zavedením instalačního systému na stisk klávesy
+&enterkey;, ale aby dále pokračoval automaticky.
+
+<phrase arch="linux-any">
+
+V případě syslinuxu to znamená nastavit v souboru
+<filename>syslinux.cfg</filename> parametr
+<userinput>timeout</userinput> na hodnotu <userinput>1</userinput>.
+
+</phrase><phrase arch="kfrebsd-any;hurd-any">
+
+V případě grubu to znamená nastavit v souboru
+<filename>grub.cfg</filename> parametr <userinput>timeout</userinput>
+na hodnotu <userinput>0</userinput>.
+
+</phrase>
+
+</para><para>
+
+Abyste měli jistotu, že instalátor dostane správný soubor, můžete
+zadat jeho kontrolní součet. V současnosti to musí být md5 součet.
+Pokud zadaný součet a vypočítaný součet souboru nebudou souhlasit,
+instalátor odmítne tento soubor použít.
+
+</para>
+
+<informalexample><screen>
+Zaváděcí parametry:
+- pro zavádění ze sítě:
+  preseed/url=http://host/path/to/preseed.cfg
+  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d
+
+- pro zavádění z upraveného CD:
+  preseed/file=/cdrom/preseed.cfg
+  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d
+
+- pro zavádění z USB média (soubor s přednastavením je
+  v kořenovém adresáři USB média):
+  preseed/file=/hd-media/preseed.cfg
+  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d
+</screen></informalexample>
+
+<para>
+
+Pokud zadáte <filename>preseed/url</filename>
+nebo <filename>preseed/file</filename> jako zaváděcí parametr, můžete
+použít zkrácenou verzi <filename>url</filename>, resp.
+<filename>file</filename>. Obdobně lze zkrátit
+<filename>preseed/file/checksum</filename> na pouhé
+<filename>preseed-md5</filename>.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-bootparms">
+  <title>Použití zaváděcích parametrů jako formy přednastavení</title>
+<para>
+
+I když nemůžete přednastavit některé kroky připravenými odpověďmi v
+souboru, stále můžete dosáhnout plně automatické instalace, protože
+můžete zadat hodnoty pro přednastavení jako zaváděcí parametry jádra.
+Zaváděcí parametry jádra můžete též využít v případě, kdy nechcete
+použít celé přednastavení, ale jen předodpovědět nějakou konkrétní
+otázku.
+
+</para><para>
+
+Pro nastavení hodnoty libovolné proměnné zmíněné v tomto dodatku stačí
+zadat
+<userinput><replaceable>cesta/k/proměnné</replaceable>=<replaceable>hodnota</replaceable></userinput>. Jestliže
+se má hodnota použít k přednastavení balíku v cílovém systému, musíte
+předřadit ještě <firstterm>vlastníka</firstterm><footnote>
+
+<para>
+
+Vlastníkem debconf proměnné (nebo šablony) je obvykle jméno balíku,
+který obsahuje odpovídající debconf šablonu. U proměnných používaných
+přímo v instalačním systému je vlastníkem <quote>d-i</quote>. Šablony
+a proměnné mohou mít více vlastníků, což pomáhá při rozhodování, zda
+je možné je při odinstalování balíku odstranit z databáze debconfu.
+
+</para>
+
+</footnote> proměnné
+<userinput><replaceable>vlastník</replaceable>:<replaceable>cesta/k/proměnné</replaceable>=<replaceable>hodnota</replaceable></userinput>.
+Nezadáte-li vlastníka, hodnota proměnné se nezkopíruje do databáze
+debconfu v cílovém systému a tudíž zůstane při konfiguraci daného
+balíku nevyužita.
+
+</para><para>
+
+Předzodpovězení otázky popsaným způsobem způsobí, že se tato otázka
+nezobrazí. Chcete-li otázce přednastavit konkrétní odpověď, ale přesto
+chcete, aby se otázka zobrazila, použijte místo <quote>=</quote>
+operátor <quote>?=</quote>. Více též
+<xref linkend="preseed-seenflag"/>.
+
+</para><para>
+
+Některé často používané proměnné mohou mít i kratší variantu, Pokud je
+tato varianta dostupná, upřednostňujeme ji zde před úplnou formou.
+Konkrétně proměnnou <literal>preseed/url</literal> zde zkracujeme na
+<literal>url</literal>. Jiným příkladem je alias
+<literal>tasks</literal>, který vlastně znamená
+<literal>tasksel:tasksel/first</literal>.
+
+</para><para>
+
+Dvě pomlčky <quote>--</quote> mají u zaváděcích parametrů jádra
+speciální význam. Všechny parametry nacházející se za posledními
+pomlčkami budou zkopírovány do konfigurace zavaděče v instalovaném
+systému. (Pokud to instalátor pro daný zavaděč umožňuje.) Parametry,
+které instalátor rozpozná (např. volby pro přednastavení), budou
+automaticky odfiltrovány.
+
+</para><note arch="linux-any"><para>
+
+Aktuální jádra (2.6.9 a novější) akceptují nejvýše 32 parametrů a 32
+proměnných prostředí (včetně standardních voleb pro instalační
+program). Pokud tento limit překročíte, jádro zpanikaří. (Dřívější
+jádra měla tyto limity ještě menší.)
+
+</para></note><para>
+
+Pro většinu instalací můžete celkem bez problémů odstranit implicitní
+volby jako <userinput>vga=normal</userinput>, což vám umožní přidat
+další volby pro přednastavení.
+
+</para><note><para>
+
+V některých případech není možné zadat hodnotu obsahující mezeru, a to
+i v případě, kdy hodnotu obklopíte uvozovkami.
+
+</para></note>
+  </sect2>
+
+  <sect2 id="preseed-auto">
+  <title>Automatický režim</title>
+<para>
+
+Díky několika pokročilým (někteří říkají zmateným) vlastnostem
+instalačního systém &debian;u je možné, aby se poměrně jednoduchý
+zaváděcí parametr rozvinul do komplexní a na míru upravené automatické
+instalace. Pro ilustraci uvádíme několik příkladů, které můžete zadat
+na zaváděcí výzvě.
+
+<informalexample><screen>
+auto url=autoserver
+</screen></informalexample>
+
+Toto spoléhá na fakt, že na síti existuje DHCP server, který dostane
+počítač do bodu, kdy bude možné přes DNS přeložit jméno
+<literal>autoserver</literal>. Pokud DHCP server poskytnul i název
+domény, tak se zkusí i varianta, kdy se za název počítače přidá právě
+poskytnutá doména. Například pokud je přes DHCP poskytnuta doména
+<literal>priklad.cz</literal>, vyústí to ve stažení souboru s
+přednastavením z adresy
+<literal>http://autoserver.priklad.cz/d-i/&releasename;/./preseed.cfg</literal>.
+
+</para><para>
+
+Poslední část url (<literal>d-i/&releasename;/./preseed.cfg</literal>) pochází
+z proměnné <literal>auto-install/defaultroot</literal>. Proměnná
+implicitně obsahuje adresář <literal>&releasename;</literal>, aby jste s
+příchodem novějších verzí &debian;u a nových kódových označení
+nemigrovali na nové verze automaticky, ale kontrolovaněji (po
+explicitním zadání nového kódového jména).
+
+Část <literal>/./</literal> indikuje kořen, vůči kterému můžete
+zadávat relativní cesty (používá se v
+<literal>preseed/include</literal> a <literal>preseed/run</literal>).
+To umožňuje zadávat cesty k souborům jako kompletní URL, cesty
+začínající na <literal>/</literal> jsou připojeny ke kořenu, nebo jako
+cesty relativní k umístění, kde byl nalezen poslední soubor s
+přednastavením. To umožňuje vytvářet přenositelnější skripty, kde
+můžete přesouvat celé hierarchie skriptů na nová umístění, aniž by se
+co pokazilo. Například můžete na USB klíčenku přesunout soubory, které
+se dříve používaly na webovém serveru. Předpokládejme, že je v souboru
+s přednastavením nastavena proměnná <literal>preseed/run</literal> na
+hodnotu <literal>/scripts/late_command.sh</literal>. Pak v naší ukázce
+bude zmíněný soubor stažen z
+<literal>http://autoserver.priklad.cz/d-i/&releasename;/./scripts/late_command.sh</literal>.
+
+</para><para>
+
+Pokud na dané síti není vybudovaná vhodná DHCP a DNS infrastruktura,
+nebo pokud nechcete použít výchozí cestu k souboru
+<filename>preseed.cfg</filename>, můžete zadat explicitní
+URL. Nebude-li URL obsahovat prvek <filename>/./</filename>, bude
+automaticky připojen na začátek cesty, tj. za třetí lomítko URL.
+Příklad vyžadující jen minimální podporu od místní síťové
+infrastruktury:
+
+<informalexample><screen>
+auto url=<replaceable>http://192.168.1.2/cesta/k/preseed.souboru</replaceable>
+</screen></informalexample>
+
+Celé to funguje tak, že
+<itemizedlist spacing="compact">
+<listitem><para>
+
+pokud v URL chybí protokol, předpokládá se http,
+
+</para></listitem>
+<listitem><para>
+
+pokud název počítače neobsahuje tečky, připojí se k němu doména
+odvozená z DHCP a
+
+</para></listitem>
+<listitem><para>
+
+pokud za názvem počítače není žádné lomítko, přidá se výchozí cesta.
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Kromě zadávání URL můžete zadat i parametry, které přímo neovlivňují
+chování &d-i;u samotného, ale které mohou být předány do skriptů
+spouštěných z nahraného souboru s přednastavením pomocí
+<literal>preseed/run</literal>. V současnosti to je pouze
+<literal>auto-install/classes</literal>, ve zkrácené verzi
+<literal>classes</literal>. Příklad použití:
+
+<informalexample><screen>
+auto url=<replaceable>autoserver</replaceable> classes=<replaceable>trida_A;trida_B</replaceable>
+</screen></informalexample>
+
+Třídy mohou například označovat typ systému, který se má instalovat,
+nebo jazykové prostředí, které se má nastavit.
+
+</para><para>
+
+Tento koncept je možné dále rozšiřovat. Pokud toho ve svých skriptech
+využijete, je rozumné použít jmenný prostor
+<literal>auto-install</literal>, například
+<literal>auto-install/style</literal>. Jestliže si myslíte, že máte
+pro další parametr vhodné využití, zmiňte se o něm v diskusní skupině
+<email>debian-boot@lists.debian.org</email>, abychom předešli
+konfliktům v jmenném prostoru (a případně vám přidali kratší alias).
+
+</para><para>
+
+Příkaz <literal>auto</literal> zatím není definován všude. Stejného
+výsledku však můžete dosáhnout přidáním dvou
+parametrů <literal>auto=true priority=critical</literal> k parametrům
+jádra. Parametr <literal>auto</literal> je vlastně alias pro
+<literal>auto-install/enable</literal> a potlačuje zobrazení otázek
+ohledně místního prostředí a nastavení klávesnice až do bodu, kdy je
+bude možné přednastavit. Parametr <literal>priority</literal> je alias
+pro <literal>debconf/priority</literal> a nastavením na hodnotu
+<literal>critical</literal> zajistíte, aby se zobrazovaly pouze otázky
+s kritickou prioritou, kterých při instalaci moc není.
+
+</para><para>
+
+Další parametry, které se mohou hodit při automatizaci instalací přes
+DHCP, jsou <literal>interface=auto netcfg/dhcp_timeout=60</literal>,
+které způsobí, že se k instalaci použije první funkční síťové rozhraní
+a že instalátor bude trpělivější při čekání na odpovědi od DHCP
+serveru.
+
+</para><tip><para>
+
+Rozsáhlý příklad použití této infrastruktury naleznete na <ulink
+url="http://hands.com/d-i/">webových stránkách</ulink> autora. Kromě
+ukázkových skriptů a tříd tam také naleznete zajímavé výsledky
+kreativního použití přednastavení.
+
+</para></tip>
+  </sect2>
+
+  <sect2 id="preseed-aliases">
+  <title>Užitečné aliasy</title>
+<para>
+
+Při použití (automatického) přednastavení se mohou hodit následující
+aliasy. Poznamenejme, že aliasy zkracují pouze jméno otázky. Vždy je
+třeba přidat ještě hodnotu, například <literal>auto=true</literal>
+nebo <literal>interface=eth0</literal>.
+
+</para>
+
+<!-- Setting column width does not seem to work; use non-breaking spaces
+     to separate columns a bit -->
+<informaltable frame="none">
+<tgroup cols="2"><tbody>
+<row><entry>auto</entry><entry>auto-install/enable</entry></row>
+<row><entry>classes</entry><entry>auto-install/classes</entry></row>
+<row><entry>fb</entry><entry>debian-installer/framebuffer</entry></row>
+<row><entry>language</entry><entry>debian-installer/language</entry></row>
+<row><entry>country</entry><entry>debian-installer/country</entry></row>
+<row><entry>locale</entry><entry>debian-installer/locale</entry></row>
+<row><entry>priority</entry><entry>debconf/priority</entry></row>
+<row><entry>file</entry><entry>preseed/file</entry></row>
+<row><entry>url</entry><entry>preseed/url</entry></row>
+<row><entry>interface</entry><entry>netcfg/choose_interface</entry></row>
+<row><entry>hostname&nbsp;&nbsp;&nbsp;</entry><entry>netcfg/get_hostname</entry>
+</row>
+<row><entry>domain</entry><entry>netcfg/get_domain</entry></row>
+<row><entry>protocol</entry><entry>mirror/protocol</entry></row>
+<row><entry>suite</entry><entry>mirror/suite</entry></row>
+</tbody></tgroup>
+</informaltable>
+
+  </sect2>
+
+  <sect2 id="preseed-dhcp">
+  <title>Použití DHCP serveru pro určení souboru s přednastavením</title>
+<para>
+
+Jelikož DHCP umí předávat jméno souboru, je možné toho zneužít pro
+určení souboru s přednastavením. Obvykle se totiž tato možnost používá
+pro určení souboru, kterým se zavede systém ze sítě. Pokud ale bude
+soubor ve formě URL, instalace to rozpozná a pokusí se soubor stáhnout
+a použít jako soubor s přednastavením. Následující příkaz ukazuje, jak
+upravit konfigurační soubor <filename>dhcpd.conf</filename> serveru
+ISC DHCP verze 3 (balík dhcp3-server).
+
+</para>
+
+<informalexample><screen>
+if substring (option vendor-class-identifier, 0, 3) = "d-i" {
+    filename "http://pocitac/preseed.cfg";
+}
+</screen></informalexample>
+
+<para>
+
+Všimněte si, že předchozí příklad omezuje použití na DHCP klienty,
+kteří se identifikují jako <quote>d-i</quote>, takže by to nemělo
+ovlivnit běžné DHCP klienty, ale pouze instalace. Direktivu
+<userinput>filename</userinput> můžete zadat například i do sekce pro
+jediný počítač, takže neovlivníte ostatní instalace na síti.
+
+</para><para>
+
+K dobrým zvykům při přednastavování přes DHCP patří přednastavení
+pouze hodnot, které jsou specifické pro vaši síť, jako je
+např. lokální zrcadlo. Tím se při instalaci automaticky vybere správné
+zrcadlo, ale zbytek instalace probíhá interaktivně. Kompletní
+přednastavení přes DHCP byste měli provádět pouze s nejvyšší
+opatrností.
+
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="preseed-creating">
+ <title>Vytvoření souboru s přednastavením</title>
+<para>
+
+Soubor s přednastavením soubor má stejný formát jako používá příkaz
+<command>debconf-set-selections</command>. Běžný řádek pak má tvar
+
+<informalexample><screen>
+&lt;vlastník&gt; &lt;jméno otázky&gt; &lt;typ otázky&gt; &lt;hodnota&gt;
+</screen></informalexample>
+
+</para><para>
+
+Při vytváření souboru s přednastavením byste měli mít na paměti
+několik pravidel.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+  Mezi typ a hodnotu vkládejte pouze jednu mezeru nebo tabulátor
+  &mdash; případné další bílé znaky budou považovány za součást
+  hodnoty.
+</para></listitem>
+<listitem><para>
+  Dlouhý řádek můžete pro lepší čitelnost rozdělit na několik řádků
+  tak, že na konec řádku přidáte znak pro pokračování řádku
+  <quote><literal>\</literal></quote> (zpětné lomítko). Je vhodné
+  rozdělit řádek mezi názvem a typem otázky, ne mezi typem
+  a hodnotou. Po spojení řádků bude bílé místo ze začátku/konce řádku
+  spojeno do jediné mezery.
+</para></listitem>
+<listitem><para>
+  Pro debconf proměnné (šablony), které jsou součástí samotného
+  instalačního programu, by měl být vlastník nastaven
+  na <quote>d-i</quote>. Pro přednastavení ostatních proměnných
+  používaných během instalace by se měl jako vlastník používat název
+  balíku, který obsahuje příslušnou šablonu. Do debconf databáze
+  v nainstalovaném systému se přenesou pouze proměnné, které mají jako
+  vlastníka nastaveno něco jiného než <quote>d-i</quote>.
+</para></listitem>
+<listitem><para>
+  Většina otázek vyžaduje zadání hodnot v angličtině, avšak existují
+  výjimky jako třeba <classname>partman</classname>, kde musíte použít
+  přeložené hodnoty.
+</para></listitem>
+<listitem><para>
+  Dále pak některé otázky vyžadují hodnotu formou kódu (a ne text,
+  který se zobrazuje během instalace).
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+Nejjednodušší způsob vytvoření souboru s přednastavením je použít
+ukázkový soubor z <xref linkend="preseed-contents"/> jako základ
+a upravit si jej dle potřeb.
+
+</para><para>
+
+Jiná možnost je provést ruční instalaci a po restartu do nového
+systému použít příkaz <command>debconf-get-selections</command> (z
+balíku <classname>debconf-utils</classname>) a uložit databázi
+debconfu i cdebconfu do jediného souboru:
+
+<informalexample><screen>
+$ debconf-get-selections --installer &gt; <replaceable>soubor</replaceable>
+$ debconf-get-selections &gt;&gt; <replaceable>soubor</replaceable>
+</screen></informalexample>
+
+</para><para>
+
+Tento přístup má tu nevýhodu, že vytvořený soubor bude obsahovat
+i položky, které by se neměly přednastavovat. Z tohoto pohledu je pro
+většinu uživatelů vhodnější použití ukázkového souboru.
+
+</para><note><para>
+
+Tento způsob se spoléhá na fakt, že se na konci instalace uloží
+databáze cdebconfu do instalovaného systému do souboru
+<filename>/var/log/installer/cdebconf</filename>. Protože tato
+databáze může obsahovat důvěrné informace, jsou tyto soubory čitelné
+pouze pro uživatele root.
+
+</para><para>
+
+Pokud ze systému vyčistíte balík
+<classname>installation-report</classname>, bude smazán také adresář
+<filename>/var/log/installer</filename>.
+
+</para></note><para>
+
+Seznam možných hodnot pro otázky můžete zjistit během instalace ze
+souborů umístěných v adresáři <filename>/var/lib/cdebconf</filename>
+(např. pomocí editoru <command>nano</command>). Samotné šablony se
+nachází v souboru <filename>templates.dat</filename>, aktuální hodnoty
+naleznete v souboru <filename>questions.dat</filename>.
+
+</para><para>
+
+Ještě před instalací je vhodné zkontrolovat formát předkonfiguračního
+souboru příkazem <command>debconf-set-selections -c
+<replaceable>preseed.cfg</replaceable></command>.
+
+</para>
+ </sect1>
+
+ <sect1 id="preseed-contents">
+ <title>Obsah souboru s přednastavením (pro &releasename;)</title>
+<para>
+
+Útržky konfigurace použité v této části jsou také dostupné jako
+samostatný soubor na &urlset-example-preseed;.
+
+</para><para>
+
+Tento příklad je založen na instalaci pro architekturu Intel
+x86. Jestliže instalujete na jinou architekturu, nemusí některá
+nastavení odpovídat těm uvedeným (výběr klávesnice, instalace
+zavaděče) a budete je muset nahradit adekvátními hodnotami.
+
+</para><para>
+
+Podrobnosti o tom, jak jednotlivé komponenty instalačního systému
+pracují, naleznete v kapitole <xref linkend="module-details"/>.
+
+</para>
+
+  <sect2 id="preseed-l10n">
+  <title>Lokalizace</title>
+<para>
+
+Nastavení lokalizačních proměnných bude fungovat pouze v případě,
+když používáte přednastavení přes initrd. U ostatních způsobů se totiž
+soubor s přednastavením nahraje až po zobrazení těchto otázek.
+
+</para><para>
+
+Místní prostření (locale) slouží k současnému zadání jazyka
+i země. Například pomocí zaváděcího parametru jádra můžete zadat
+<userinput>locale=<replaceable>cs_CZ</replaceable></userinput>.
+
+</para><para>
+
+Tento způsob je velice jednoduchý, ale neumožňuje přednastavit všechny
+možné kombinace jazyka, země a místního prostředí<footnote><para>
+
+Například přednastavením <literal>locale</literal> na hodnotu
+<userinput>en_NL</userinput> by se jako výchozí locale pro instalovaný
+systém použilo <literal>en_US.UTF-8</literal>. Jestliže preferujete
+britský standard angličtiny (<literal>en_GB.UTF-8</literal>), musíte
+přednastavit jednotlivé proměnné.
+
+</para></footnote>. Volitelně tedy můžete přednastavit jednotlivé
+proměnné.
+
+<informalexample role="example"><screen>
+# Přednastavením locale se automaticky nastaví jazyk, země a locale.
+d-i debian-installer/locale string cs_CZ
+
+# Pro větší pružnost je též možno nastavit hodnoty samostatně.
+#d-i debian-installer/language string en
+#d-i debian-installer/country string NL
+#d-i debian-installer/locale string en_GB.UTF-8
+# Volitelně můžete zadat další locale, která se mají vygenerovat.
+#d-i localechooser/supported-locales multiselect cs_CZ.UTF-8, en_US.UTF-8
+</screen></informalexample>
+
+Zadat můžete libovolnou kombinaci jazyka podporovaného v &d-i;
+a země. Pokud kombinace netvoří platné prostředí, vybere instalační
+systém kombinaci tak, že se pokusí zachovat jazyk a k němu vybere
+platnou zemi.
+
+</para><para>
+
+Nastavení klávesnice se skládá z výběru typu klávesnice a z výběru
+klávesové mapy.
+
+<informalexample role="example"><screen>
+# Výběr klávesnice.
+# keymap je alias pro keyboard-configuration/xkb-keymap
+d-i keymap select cz
+# d-i keyboard-configuration/toggle select No toggling
+</screen></informalexample>
+
+</para><para>
+
+Nastavení klávesnice můžete přeskočit nastavením proměnné
+<classname>keymap</classname> na hodnotu
+<userinput>skip-config</userinput>. Tím se zachová výchozí klávesová
+mapa jádra.
+
+</para>
+
+  </sect2>
+
+  <sect2 id="preseed-network">
+  <title>Nastavení sítě</title>
+<para>
+
+Pokud nahráváte soubor s přednastavením ze sítě, pak následující
+samozřejmě nebude fungovat! V takovém případě zadejte potřebné
+parametry sítě zavaděči jádra. Zavádíte-li z CD nebo USB, bude
+nastavení fungovat bez problémů.
+
+</para><para>
+
+Potřebujete-li při zavádění ze sítě vybrat konkrétní síťové rozhraní
+ještě před nahráním souboru s přednastavením, použijte zaváděcí
+parametr
+<userinput>interface=<replaceable>eth1</replaceable></userinput>.
+
+</para><para>
+
+Přestože přednastavení síťování není běžně dostupné při přednastavení
+ze sítě (tj. při použití <quote>preseed/url</quote>), můžete to obejít
+následujícím hackem (např. pokud chcete síťovému rozhraní nastavit
+statickou adresu). Hack spočívá ve vynucení opětovné konfigurace sítě
+po načtení souboru s přednastavením. Stačí vytvořit skript pro
+<quote>preseed/run</quote> obsahující následující příkazy:
+
+<informalexample><screen>
+killall.sh; netcfg
+</screen></informalexample>
+
+</para><para>
+
+Pro nastavení sítě lze využít následující proměnné:
+
+</para>
+
+<informalexample role="example"><screen>
+# Kompletně zakáže nastavení sítě. Hodí se pro instalace z CD
+# na nezasíťovaných zařízeních, kde by byly síťové otázky,
+# varování o nedostupné síti a dlouhé čekací doby na obtíž.
+#d-i netcfg/enable boolean false
+
+# netcfg zkusí použít rozhraní, jehož druhý konec je aktivní
+# a tím pádem přeskočí výběr ze seznamu nalezených rozhraní.
+d-i netcfg/choose_interface select auto
+
+# Výběr konkrétního síťového rozhraní:
+#d-i netcfg/choose_interface select eth1
+
+# Máte-li pomalejší dhcp server a instalačnímu systému vyprší čas při
+# čekání na odpověď, bude užitečné následující.
+#d-i netcfg/dhcp_timeout string 60
+
+# Pokud dáváte přednost ručnímu nastavení sítě:
+#d-i netcfg/disable_dhcp boolean true
+
+# Má-li tento soubor s přednastavením fungovat na systémech s i bez
+# dhcp serveru, odkomentujte následující řádky a také statické
+# nastavení sítě níže.
+#d-i netcfg/dhcp_failed note
+#d-i netcfg/dhcp_options select Configure network manually
+
+# Statické nastavení sítě.
+#d-i netcfg/get_nameservers string 192.168.1.1
+#d-i netcfg/get_ipaddress string 192.168.1.42
+#d-i netcfg/get_netmask string 255.255.255.0
+#d-i netcfg/get_gateway string 192.168.1.1
+#d-i netcfg/confirm_static boolean true
+
+# Název počítače a domény přiřazené přes DHCP mají větší prioritu než
+# hodnoty nastavené zde, nicméně takto máte jistotu, že tato otázka
+# nezobrazí (ať už nastavení z DHCP obdržíme nebo ne).
+d-i netcfg/get_hostname string nenastavene-jmeno
+d-i netcfg/get_domain string nenastavena-domena
+
+# Zakáže otravný dialog o WEP klíči.
+d-i netcfg/wireless_wep string
+# Praštěné DHCP jméno počítače, které používají někteří ISP jako heslo.
+#d-i netcfg/dhcp_hostname string radish
+
+# Pokud síťová karta nebo jiný hardware vyžaduje nesvobodný firmware,
+# můžete říct instalátoru, aby se vždy pokusil firmware nahrát bez
+# dalšího dotazování. Chcete-li nahrávání i dotazování zakázat,
+# nastavte na hodnotu false.
+#d-i hw-detect/load_firmware boolean true
+</screen></informalexample>
+
+<para>
+
+Pokud není proměnná <classname>netcfg/get_netmask</classname>
+přednastavená, <command>netcfg</command> si síťovou masku dopočítá
+automaticky. Pro plně automatické instalace musíte v takovém případě
+nastavit proměnnou jako <literal>seen</literal>, aby instalace
+nečekala na potvrzení spočítané masky. Obdobně je možné
+nepřednastavovat proměnnou <classname>netcfg/get_gateway</classname> a
+nechat <command>netcfg</command>, aby automaticky  automaticky odhadl
+adresu brány. Jako speciální případ je možné nastavit proměnnou
+<classname>netcfg/get_gateway</classname> na hodnotu <quote>none</quote>,
+což znamená, že se brána nemá použít vůbec.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-network-console">
+  <title>Síťová konzole</title>
+
+<informalexample role="example"><screen>
+# Následující nastavení se hodí v situacích, kdy chcete instalovat
+# vzdáleně přes SSH pomocí komponenty network-console.
+# Toto přednastavení má smysl pouze pokud plánujete dokončit
+# instalaci ručně.
+#d-i anna/choose_modules string network-console
+#d-i network-console/password password r00tme
+#d-i network-console/password-again password r00tme
+</screen></informalexample>
+
+  </sect2>
+
+  <sect2 id="preseed-mirror">
+  <title>Nastavení zrcadla</title>
+<para>
+
+V závislosti na způsobu instalace můžete zrcadlo použít pro stažení
+dodatečných komponent instalačního systému, stažení základního systému
+a pro nastavení souboru <filename>/etc/apt/sources.list</filename>.
+
+</para><para>
+
+Parametr <classname>mirror/suite</classname> určuje verzi
+instalovaného systému.
+
+</para><para>
+
+Parametr <classname>mirror/udeb/suite</classname> určuje verzi
+&debian;u, ze které se stáhnou dodatečné komponenty instalačního
+systému. Nastavení této proměnné má smysl pouze v případě, že
+komponenty stahujete ze sítě a potřebujete, aby odpovídaly verzi
+initrd, který se používá pro instalaci. Instalační systém obvykle
+zvolí správnou hodnotu, takže by neměl být důvod tuto proměnnou
+měnit.
+
+</para>
+
+<informalexample role="example"><screen>
+# Zvolíte-li ftp, nemusíte nastavovat mirror/country
+#d-i mirror/protocol string ftp
+d-i mirror/country string manual
+d-i mirror/http/hostname string &archive-mirror;
+d-i mirror/http/directory string /debian
+d-i mirror/http/proxy string
+
+# Verze pro instalaci.
+#d-i mirror/suite string testing
+# Verze, ze které nahrát komponenty instalátoru (volitelné).
+#d-i mirror/udeb/suite string testing
+</screen></informalexample>
+
+  </sect2>
+
+  <sect2 id="preseed-account">
+  <title>Nastavení účtů</title>
+<para>
+
+Instalační systém umožňuje přednastavit jak heslo uživatele root, tak
+jméno a heslo prvního běžného uživatele systému. Heslo můžete zadat
+buď v nešifrované podobě, nebo jako MD5 <emphasis>hash</emphasis>.
+
+</para><warning><para>
+
+Přednastavení hesel není bezpečné, protože kdokoliv s přístupem
+k souboru s přednastavením si tato hesla může přečíst. Z pohledu
+bezpečnosti je použití MD5 hashů lepší, ovšem poskytují pouze falešný
+pocit bezpečí, protože přístup k MD5 hashi znamená možnost útoků
+hrubou silou.
+
+</para></warning>
+
+<informalexample role="example"><screen>
+# Přeskočí vytvoření účtu pro roota (běžný uživatel bude moci použít
+# sudo).
+#d-i passwd/root-login boolean false
+# Volitelně přeskočí vytvoření běžného uživatelského účtu.
+#d-i passwd/make-user boolean false
+
+# Rootovo heslo v čitelném tvaru
+#d-i passwd/root-password password r00tme
+#d-i passwd/root-password-again password r00tme
+# nebo šifrované pomocí MD5 hashe.
+#d-i passwd/root-password-crypted password [MD5 hash]
+
+# Vytvoření účtu běžného uživatele.
+#d-i passwd/user-fullname string Jan Novak
+#d-i passwd/username string jan
+# Heslo běžného uživatele v čitelném tvaru
+#d-i passwd/user-password password nebezpecne
+#d-i passwd/user-password-again password nebezpecne
+# nebo šifrované pomocí MD5 hashe.
+#d-i passwd/user-password-crypted password [MD5 hash]
+# Nastaví UID běžného uživatele (jinak se použije výchozí hodnota).
+#d-i passwd/user-uid string 1010
+# Uživatelský účet bude automaticky přidán do několika standardních
+# skupin. Chcete-li to změnit, zadejte seznam požadovaných skupin.
+#d-i passwd/user-default-groups string audio cdrom video
+</screen></informalexample>
+
+<para>
+
+Do proměnných <classname>passwd/root-password-crypted</classname> a
+<classname>passwd/user-password-crypted</classname> můžete jako
+hodnotu zadat znak vykřičník <quote>!</quote>, což znamená, že daný
+účet bude zakázán. To se může hodit například pro účet root, což ovšem
+předpokládá, že máte nastavenu nějakou jinou možnost, jak počítač
+spravovat (například pomocí <command>sudo</command> nebo autentizace
+přes SSH klíče).
+
+</para><para>
+
+MD5 hash hesla můžete vygenerovat následujícím příkazem:
+
+<informalexample><screen>
+$ printf "r00tme" | mkpasswd -s -m md5
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-time">
+  <title>Nastavení hodin a časového pásma</title>
+
+<informalexample role="example"><screen>
+# Určuje, zda jsou hardwarové hodiny nastaveny na UTC.
+d-i clock-setup/utc boolean true
+
+# Proměnnou můžete nastavit na libovolnou platnou hodnotu $TZ;
+# Seznam časových pásem naleznete v /usr/share/zoneinfo/.
+d-i time/zone string Europe/Prague
+
+# Určuje, zda se mají při instalaci nastavit hodiny pomocí NTP.
+d-i clock-setup/ntp boolean true
+# NTP server, který se má použít. Výchozí hodnota je většinou
+# dostačující.
+#d-i clock-setup/ntp-server string tak.cesnet.cz
+</screen></informalexample>
+
+  </sect2>
+
+  <sect2 id="preseed-partman">
+  <title>Rozdělení disku</title>
+<para>
+
+Dělení disku je víceméně omezeno možnostmi, které nabízí
+<classname>partman-auto</classname>. Můžete zvolit rozdělení buď
+stávajícího volného místa, nebo celého disku. Rozvržení oblastí můžete
+určit pomocí předdefinovaného schematu, vlastního schematu ze
+souboru nebo schematu obsaženém v souboru s přednastavením.
+
+</para><para>
+
+Přednastavení pokročilejších konfigurací s RAIDem, LVM a šifrováním je
+sice podporováno, ale ne s takovými možnostmi, jako při ručním dělení.
+
+</para><para>
+
+Příklady níže ukazují jen základní použití schemat. Podrobnější
+informace naleznete v souborech
+<filename>partman-auto-recipe.txt</filename> a
+<filename>partman-auto-raid-recipe.txt</filename>, které jsou součástí
+balíku <classname>debian-installer</classname>. Oba soubory jsou též
+dostupné
+ze <ulink url="&url-d-i-websvn;/trunk/installer/doc/devel/">zdrojového
+repositáře &d-i;</ulink>. Poznamenejme, že podporovaná funkcionalita
+se může mezi jednotlivými vydáními lišit.
+
+</para><warning><para>
+
+Označení disků závisí na pořadí, ve kterém jsou nahrány jejich
+ovladače. Jestliže se v systému nachází více disků, tak se ubezpečte,
+že jste vybrali ten správný.
+
+</para></warning>
+
+   <sect3 id="preseed-partman-example">
+   <title>Příklad dělení disku</title>
+
+<informalexample role="example"><screen>
+# Má-li systém nějaké volné místo, můžete si vybrat, zda chcete
+# automaticky rozdělit pouze toto volné místo. To však funguje pouze
+# pokud není nastavena proměnná partman-auto/method (níže).
+#d-i partman-auto/init_automatically_partition select biggest_free
+
+# Alternativně můžete zadat k automatickému dělení celý disk.
+# Obsahuje-li systém pouze jediný disk, použije se tento automaticky.
+# V opačném případě musíte zadat název příslušného zařízení
+# v tradičním formátu a ne ve formátu devfs (tj. musíte zadat něco
+# jako /dev/hda nebo /dev/sda, ne /dev/discs/disc0/disc).
+# Například pro použití prvního SCSI/SATA disku:
+#d-i partman-auto/disk string /dev/sda
+#
+# Dále musíte zvolit metodu, která se má použít. Momentálně jsou
+# dostupné metody
+# - regular: použije typ oblastí typický na vaší architektuře
+# - lvm:     pro rozdělení disku použije LVM
+# - crypto:  použije LVM nad zašifrovanou oblastí
+d-i partman-auto/method string lvm
+
+# Pokud některý z disků určených k automatickému rozdělení obsahuje
+# pozůstatek z předchozího LVM, zobrazí se varování. Tímto můžete
+# varování potlačit...
+d-i partman-lvm/device_remove_lvm boolean true
+# To stejné platí pro potvrzení při zápisu LVM oblastí.
+d-i partman-lvm/confirm boolean true
+# A platí i pro odstranění pozůstatků předchozího softwarového RAIDu:
+d-i partman-md/device_remove_md boolean true
+
+# Můžete vybrat jedno ze tří připravených schémat dělení.
+# - atomic: všechny soubory v jedné oblasti
+# - home:   samostatná oblast /home
+# - multi:  samostatné oblasti /home, /usr, /var a /tmp
+d-i partman-auto/choose_recipe select atomic
+
+# Nebo zadat váš vlastní návod na dělení...
+# Pokud umíte do prostředí d-i dostat soubor s návodem na dělení,
+# stačí na něj odkázat.
+#d-i partman-auto/expert_recipe_file string /hd-media/recipe
+
+# V opačném případě můžete zadat celý návod na jednu (logickou) řádku.
+# Například vytvoříme malou oblast /boot, vhodný swap a zbytek
+# použijeme jako kořenovou oblast:
+#d-i partman-auto/expert_recipe string                         \
+#      boot-root ::                                            \
+#              40 50 100 ext3                                  \
+#                      $primary{ } $bootable{ }                \
+#                      method{ format } format{ }              \
+#                      use_filesystem{ } filesystem{ ext3 }    \
+#                      mountpoint{ /boot }                     \
+#              .                                               \
+#              500 10000 1000000000 ext3                       \
+#                      method{ format } format{ }              \
+#                      use_filesystem{ } filesystem{ ext3 }    \
+#                      mountpoint{ / }                         \
+#              .                                               \
+#              64 512 300% linux-swap                          \
+#                      method{ swap } format{ }                \
+#              .
+
+# Kompletní formát je popsán v souboru partman-auto-recipe.txt
+# dostupném v balíku "debian-installer" nebo ve zdrojovém repositáři
+# D-I. Soubor demonstruje použití i takových věcí, jako je pojmenování
+# souborových systémů, pojmenování skupin svazků a určení, ze kterých
+# fyzických zařízení se má skupina svazků skládat.
+
+# Následujícím řeknete partmanu, aby disk rozdělil bez potvrzení.
+# (Za předpokladu, že jste partmanu v předchozích krocích řekli,
+# co má dělat.)
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+</screen></informalexample>
+
+   </sect3>
+
+   <sect3 id="preseed-partman-raid">
+   <title>Rozdělení při použití RAIDu</title>
+<para>
+
+Pomocí přednastavení též můžete nastavit oblasti na polích softwarového
+RAIDu. Podporovány jsou RAID úrovně 0, 1, 5, 6 a 10, vytváření
+degradovaných polí a určení rezervních zařízení.
+
+</para><para arch="any-x86">
+
+Používáte-li RAID 1,
+můžete podle části <xref linkend="preseed-bootloader"/> přednastavit
+grub, aby se nainstaloval do všech zařízení v poli použitých.
+
+</para><warning><para>
+
+U tohoto typu automatického rozdělení se dá velice lehce něco
+pokazit. Navíc se jedná o komponentu, kterou vývojáři &d-i; testují
+relativně málo. Odpovědnost za správné zapsání návodu pro rozdělení
+(aby dával smysl a nevytvářel konflikty) nese uživatel. V případě
+problémů zkontrolujte <filename>/var/log/syslog</filename>.
+
+</para></warning>
+
+<informalexample role="example"><screen>
+# Metoda by měla být nastavena na "raid".
+#d-i partman-auto/method string raid
+# Zadejte disky k rozdělení. Na všech bude nakonec stejné rozložení,
+# takže to bude fungovat pouze pokud mají disky stejnou velikost.
+#d-i partman-auto/disk string /dev/sda /dev/sdb
+
+# Dále musíte zadat fyzické oblasti, které se mají použít.
+#d-i partman-auto/expert_recipe string \
+#      multiraid ::                                         \
+#              1000 5000 4000 raid                          \
+#                      $primary{ } method{ raid }           \
+#              .                                            \
+#              64 512 300% raid                             \
+#                      method{ raid }                       \
+#              .                                            \
+#              500 10000 1000000000 raid                    \
+#                      method{ raid }                       \
+#              .
+
+# Na závěr musíte zadat, jakým způsobem se mají dříve definované oblasti
+# použít v nastavení RAIDu. Důležité je použít správná čísla logických
+# oblastí. Podporovány jsou RAID úrovně 0, 1, 5, 6 a 10; zařízení jsou
+# oddělena pomocí "#"
+# Parametry jsou:
+# &lt;typraidu&gt; &lt;početzařízení&gt; &lt;početrezerv&gt; &lt;typss&gt; &lt;přípbod&gt; \
+#          &lt;zařízení&gt; &lt;rezervnízařízení&gt;
+
+#d-i partman-auto-raid/recipe string \
+#    1 2 0 ext3 /                    \
+#          /dev/sda1#/dev/sdb1       \
+#    .                               \
+#    1 2 0 swap -                    \
+#          /dev/sda5#/dev/sdb5       \
+#    .                               \
+#    0 2 0 ext3 /home                \
+#          /dev/sda6#/dev/sdb6       \
+#    .
+
+# Více informací naleznete v souboru partman-auto-recipe.txt dostupném
+# v balíku "debian-installer" nebo ve zdrojovém repositáři D-I.
+
+# Toto zajistí, že se partman nebude při rozdělování ptát na potvrzení.
+d-i partman-md/confirm boolean true
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+</screen></informalexample>
+
+   </sect3>
+
+   <sect3 id="preseed-partman-mount-styles">
+   <title>Způsob připojení oblastí</title>
+<para>
+
+Souborové systémy se obvykle připojují pomocí jedinečného
+univerzálního identifikátoru, tzv. UUID. To umožňuje korektní
+připojení oblastí i v případech, kdy se změní jejich jména
+zařízení. UUID jsou dlouhé a špatně se čtou, takže pokud si budete
+přát, může instalátor připojit souborové systémy pomocí tradičních
+jmen zařízení, nebo pomocí názvů oblastí, které jim přidělíte.
+Zvolíte-li připojení pomocí názvů oblastí, budou oblasti bez
+nastaveného názvu připojeny pomocí UUID.
+
+</para><para>
+
+Zařízení se stabilními jmény, jako např. logické svazky LVM, budou
+místo UUID nadále používat připojení pomocí tradičních jmen zařízení.
+
+</para>
+
+<warning><para>
+
+Tradiční jména zařízení se mohou měnit v závislosti na pořadí, ve
+kterém jádro při zavádění zařízení objeví. To může způsobit připojení
+chybného souborového systému. Podobný problém existuje v případě
+použití názvů oblastí, protože při zapojení dalšího disku (i
+externího) mohou použité názvy oblastí kolidovat a tím pádem není
+zaručeno, která oblast se připojí.
+
+</para></warning>
+
+<informalexample role="example"><screen>
+# Výchozí je připojování pomocí UUID, ale můžete zvolit též "traditional"
+# pro použití tradičních jmen zařízení, nebo "label" pro použití názvů
+# oblastí (se záchytnou možností použití UUID).
+#d-i partman/mount_style select uuid
+</screen></informalexample>
+
+   </sect3>
+  </sect2>
+
+  <sect2 id="preseed-base-installer">
+  <title>Instalace základního systému</title>
+<para>
+
+V této fázi instalace se toho moc nastavit nedá. Jediné otázky se
+týkají instalace jádra.
+
+</para>
+
+<informalexample role="example"><screen>
+# Nastaví APT, aby implicitně neinstaloval doporučené balíky. Použití
+# této volby může znamenat instalaci nekompletního systému a měli by
+# ji používat pouze zkušení uživatelé.
+#d-i base-installer/install-recommends boolean false
+
+# (Meta) balík jádra, který se má nainstalovat; nechcete-li instalovat
+# žádné jádro, zadejte "none".
+#d-i base-installer/kernel/image string &kernelpackage;-2.6-486
+</screen></informalexample>
+
+  </sect2>
+
+  <sect2 id="preseed-apt">
+  <title>Nastavení APT</title>
+<para>
+
+Nastavení souboru <filename>/etc/apt/sources.list</filename>
+a několika základních parametrů je plně řízeno typem instalace
+a dříve zodpovězenými otázkami. Volitelně můžete přidat další
+(lokální) archivy.
+
+</para>
+
+<informalexample role="example"><screen>
+# Můžete si zvolit instalaci softwaru ze sekcí non-free a contrib.
+#d-i apt-setup/non-free boolean true
+#d-i apt-setup/contrib boolean true
+# Odkomentujte, pokud nechcete používat síťové zrcadlo.
+#d-i apt-setup/use_mirror boolean false
+# Vyberte, které aktualizační služby chcete využívat a zadejte
+# jejich zrcadla. Příklad ukazuje výchozí hodnoty.
+#d-i apt-setup/services-select multiselect security, volatile
+#d-i apt-setup/security_host string security.debian.org
+#d-i apt-setup/volatile_host string volatile.debian.org
+
+# Další archivy, k dispozici jsou local[0-9]
+#d-i apt-setup/local0/repository string \
+#       http://muj.server/debian stable main
+#d-i apt-setup/local0/comment string local server
+# Povolí řádky deb-src
+#d-i apt-setup/local0/source boolean true
+# URL k veřejnému klíči lokálního archivu; Klíč musíte zadat, protože
+# jinak si apt bude stěžovat na neautentizovaný archiv a příslušný
+# řádek v sources.list zůstane zakomentovaný
+#d-i apt-setup/local0/key string http://muj.server/klic
+
+# Instalace vyžaduje, aby byly všechny repositáře autentizovány
+# známým gpg klíčem. Tímto nastavením můžete autentizaci potlačit.
+# Varování: Nebezpečné, není doporučeno.
+#d-i debian-installer/allow_unauthenticated boolean true
+</screen></informalexample>
+
+  </sect2>
+
+  <sect2 id="preseed-pkgsel">
+  <title>Výběr balíků.</title>
+<para>
+
+Můžete nainstalovat libovolnou kombinaci dostupných úloh. V době psaní
+to zahrnuje:
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+  <userinput>standard</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>desktop</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>gnome-desktop</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>kde-desktop</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>web-server</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>print-server</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>dns-server</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>file-server</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>mail-server</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>sql-database</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>laptop</userinput>
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+Instalaci úloh můžete vynechat a instalovat balíky nějakou jinou
+cestou. Úlohu <userinput>standard</userinput> však doporučujeme
+instalovat vždy.
+
+</para><para>
+
+Chcete-li kromě balíků v úlohách instalovat také nějaké samostatné
+balíky, můžete použít parametr <classname>pkgsel/include</classname>.
+Hodnotou parametru je čárkami nebo mezerami oddělený seznam, takže jej
+můžete jednoduše použít i na příkazové řádce jádra.
+
+</para>
+
+<informalexample role="example"><screen>
+#tasksel tasksel/first multiselect standard, web-server
+# Pokud je vybrána desktopová úloha, nainstaluje místo výchozího GNOME
+# desktopy KDE a Xfce.
+#tasksel tasksel/desktop multiselect kde, xfce
+
+# Samostatné balíky pro instalaci.
+#d-i pkgsel/include string openssh-server build-essential
+# Zda se mají balíky po rozbalení debootstrapem aktualizovat.
+# Povolené hodnoty: none, safe-upgrade, full-upgrade
+#d-i pkgsel/upgrade select none
+
+# Některé verze instalačního systému mohou vývojářům &debian;u hlásit
+# seznam balíků, které jste nainstalovali, což pomáhá při
+# rozhodování, který software je oblíbený a proto by měl být zařazen
+# na CD. Výchozí hodnotou je zákaz posílání tohoto seznamu, ale měli
+# byste zvážit jeho povolení.
+#popularity-contest popularity-contest/participate boolean false
+</screen></informalexample>
+
+  </sect2>
+
+  <sect2 id="preseed-bootloader" arch="any-x86">
+  <title>Instalace zavaděče</title>
+
+<informalexample role="example"><screen>
+<phrase arch="linux-any">
+# Výchozím zavaděčem (pro x86) je Grub. Chcete-li místo něj instalovat
+# LILO, odkomentujte následující:
+#d-i grub-installer/skip boolean true
+# Jestliže chcete přeskočit také instalaci LILA a neinstalovat žádný
+# zavaděč, odkomentujte ještě toto:
+#d-i lilo-installer/skip boolean true
+</phrase>
+<phrase arch="kfreebsd-any;hurd-any">
+# Nechcete-li instalovat zavaděč, odkomentujte následující:
+#d-i grub-installer/skip boolean true
+</phrase>
+
+# Toto je bezpečné nastavení - pokud nenalezne jiný operační systém,
+# nainstaluje Grub do MBR.
+d-i grub-installer/only_debian boolean true
+
+# Toto nainstaluje Grub do MBR i když nalezne jiný operační systém,
+# což je méně bezpečné, protože se jiný systém nemusí zavést.
+d-i grub-installer/with_other_os boolean true
+
+# Alternativně můžete instalovat jinam než do MBR - odkomentujete
+# a upravte tyto řádky:
+#d-i grub-installer/only_debian boolean false
+#d-i grub-installer/with_other_os boolean false
+#d-i grub-installer/bootdev  string (hd0,0)
+# Pro instalaci Grubu na více disků:
+#d-i grub-installer/bootdev  string (hd0,0) (hd1,0) (hd2,0)
+# Pro instalaci na konkrétní zařízení:
+#d-i grub-installer/bootdev  string /dev/sda
+
+# Volitelné heslo pro Grub buď v čitelné podobě
+#d-i grub-installer/password password r00tme
+#d-i grub-installer/password-again password r00tme
+# nebo zašifrované pomocí MD5 hashe, viz grub-md5-crypt(8).
+#d-i grub-installer/password-crypted password [MD5 hash]
+
+# Následující volbou můžete přidat další zaváděcí parametry pro
+# nainstalovaný systém (pokud to podporuje instalátor zavaděče).
+# Poznámka: parametry předané instalátoru budou přidány automaticky.
+#d-i debian-installer/add-kernel-opts string nousb
+</screen></informalexample>
+
+<para>
+
+MD5 hash hesla pro <classname>grub</classname> můžete získat buď
+příkazem <command>grub-md5-crypt</command>, nebo příkazem uvedeným
+v příkladu v části <xref linkend="preseed-account"/>.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-finish">
+  <title>Dokončení instalace</title>
+
+<informalexample role="example"><screen>
+# Při instalaci skrze sériovou konzoli jsou tradiční virtuální konzoly
+# (VT1-VT6) v /etc/inittab zakázány. Chcete-li je nechat povolené,
+# odkomentujte následující řádek.
+#d-i finish-install/keep-consoles boolean true
+
+# Vynechá poslední hlášku, že je instalace kompletní.
+d-i finish-install/reboot_in_progress note
+
+# Zakáže vysunutí CD během restartu, což se občas může hodit.
+#d-i cdrom-detect/eject boolean false
+
+# Tímto se počítač po skončení instalace místo restartu do nového
+# systému zastaví, případně zcela vypne.
+#d-i debian-installer/exit/halt boolean true
+# Tímto se počítač nejen zastaví, ale i vypne.
+#d-i debian-installer/exit/poweroff boolean true
+</screen></informalexample>
+
+  </sect2>
+
+<!--
+
+  <sect2 id="preseed-mailer">
+  <title>Nastavení pošty</title>
+<para>
+
+Během normální instalace se exim ptá pouze několik otázek. (Je možné
+přednastavit i složitější nastavení.)
+
+</para>
+
+<informalexample role="example"><screen>
+exim4-config exim4/dc_eximconfig_configtype \
+       select no configuration at this time
+exim4-config exim4/no_config boolean true
+exim4-config exim4/no_config boolean true
+exim4-config exim4/dc_postmaster string
+</screen></informalexample>
+
+  </sect2>
+
+  <sect2 id="preseed-X">
+  <title>Nastavení X Window</title>
+<para>
+
+Přednastavení odpovědí pro systém X Window je možné, nicméně není
+zcela automatické a je velmi závislé na hardwaru každého počítače,
+tudíž byste si měli o přítomném hardwaru zjistit nějaké podrobnosti.
+
+</para>
+
+<informalexample role="example"><screen>
+# I když X rozpozná správný ovladač grafické karty, zde jej můžete
+# přepsat. Vesa bude fungovat ve většině případů.
+#xserver-xorg xserver-xorg/config/device/driver select vesa
+
+# Pokud se automatické rozpoznání myši nezdaří, dostanete se do
+# nekonečné smyčky, protože nástroj se bude ptát znovu a znovu
+# a pokaždé (ne)nalezne stejnou nefunkční myš.
+#xserver-xorg xserver-xorg/autodetect_mouse boolean true
+
+# Automatické rozpoznání monitoru je doporučeno.
+xserver-xorg xserver-xorg/autodetect_monitor boolean true
+# Odkomentujete, pokud máte LCD displej.
+#xserver-xorg xserver-xorg/config/monitor/lcd boolean true
+# X má tři metody nastavení monitoru. Ukážeme střední cestu
+# ("medium"), která je dostupná vždy. Možnost "simple" nemusí být
+# dostupná a "advanced" se ptá příliš mnoho otázek.
+xserver-xorg xserver-xorg/config/monitor/selection-method \
+       select medium
+xserver-xorg xserver-xorg/config/monitor/mode-list \
+       select 1024x768 @ 60 Hz
+</screen></informalexample>
+
+  </sect2>
+
+-->
+
+  <sect2 id="preseed-other">
+  <title>Přednastavení ostatních balíků</title>
+
+<informalexample role="example"><screen>
+# Je možné, že se objeví další otázky v závislosti na tom, jaký
+# software nainstalujete, nebo podle toho, co se během instalace
+# pokazí. Seznam všech možných otázek během instalace získáte
+# příkazy:
+#   debconf-get-selections --installer > soubor
+#   debconf-get-selections >> soubor
+</screen></informalexample>
+
+  </sect2>
+ </sect1>
+
+ <sect1 id="preseed-advanced">
+ <title>Pokročilé možnosti</title>
+
+  <sect2 id="preseed-hooks">
+  <title>Spouštění vlastních příkazů během instalace</title>
+<para>
+
+Nástroje pro přednastavení nabízí velice mocnou vlastnost, kterou je
+možnost spouštění libovolných příkazů nebo skriptů v určitých bodech
+instalace.
+
+</para>
+
+<informalexample role="example"><screen>
+# Přednastavení d-i není už ze své podstaty bezpečné. Nic
+# v instalačním systému nekontroluje pokusy kolem přetečení bufferu
+# ani zneužití hodnot v souboru s přednastaveními. Používejte tyto
+# soubory pouze z důvěryhodných zdrojů!
+# Následuje ukázka, jak v d-i spustit automaticky nějaký shellový příkaz.
+
+# První příkaz je spuštěn co nejdříve - hned po načtení přednastavení.
+#d-i preseed/early_command string anna-install nejaky-udeb
+
+# Tento příkaz je spuštěn těsně před vstupem do dělení disků. Může se
+# hodit pro dynamické přednastavení rozdělení disku, které závisí na
+# aktuálním stavu disků (které ještě nemusí být vidět v době spuštění
+# předchozího příkazu preseed/early_command).
+#d-i partman/early_command \
+#       string debconf-set partman-auto/disk "$(list-devices disk | head -n1)"
+
+# Tento příkaz je spuštěn těsně před koncem instalace, ale ještě je
+# připojen adresář /target. Buď můžete použít chroot na /target
+# a pracovat přímo v něm, nebo můžete použít příkaz apt-install
+# resp. in-target pro jednoduchou instalaci balíků resp. spouštění
+# příkazů v nově instalovaném systému
+#d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh
+</screen></informalexample>
+
+  </sect2>
+
+  <sect2 id="preseed-seenflag">
+  <title>Použití přednastavení pro změnu výchozích hodnot</title>
+<para>
+
+Pomocí přednastavení můžete dosáhnout i toho, že se otázka normálně
+zobrazí, ale změní se její výchozí odpověď. (Například na úvodní
+otázce ohledně jazyka můžete přednastavit místo angličtiny češtinu,
+takže uživateli stačí stisknout &enterkey;, ale stále mu necháváte
+možnost volby jiného jazyka.) Dosáhnete toho tak, že po nastavení
+proměnné změníte příznak <firstterm>seen</firstterm> na hodnotu
+<quote>false</quote>.
+
+<informalexample><screen>
+d-i foo/bar string hodnota
+d-i foo/bar seen false
+</screen></informalexample>
+
+Chcete-li stejného výsledku dosáhnout pro <emphasis>všechny</emphasis>
+otázky, můžete použít zaváděcí parametr
+<classname>preseed/interactive=true</classname>, což se může hodit pro
+testování a ladění konfiguračního souboru s přednastavením.
+
+</para><para>
+
+Zopakujme, že vlastník <quote>d-i</quote> by se měl používat pouze pro
+proměnné používané samotným instalačním systémem. Pro proměnné
+nacházející se v instalovaných balících byste měli jako vlastníka
+použít jméno příslušného balíku (viz poznámka pod čarou u
+<xref linkend="preseed-bootparms"/>).
+
+</para><para>
+
+Přednastavujete-li pomocí zaváděcích parametrů, můžete použít
+speciální operátor <quote>?=</quote>, kterým instalátor donutíte, aby
+danou otázku zobrazil. Například <userinput><replaceable>foo</replaceable>/<replaceable>bar</replaceable>?=<replaceable>hodnota</replaceable></userinput>
+(nebo <userinput><replaceable>vlastník</replaceable>:<replaceable>foo/bar</replaceable>?=<replaceable>hodnota</replaceable></userinput>).
+To samozřejmě funguje jen u parametrů, kterým odpovídá nějaká otázka
+zobrazená během instalace, tj. nefunguje to pro <quote>interní</quote>
+parametry.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-chainload">
+  <title>Zřetězené nahrávání souborů s přednastavením</title>
+<para>
+
+Přestože je použití jednoho velkého souboru s přednastavením
+jednoduché, zdaleka nemusí být přehledné a navíc postrádá
+flexibilitu. Z tohoto důvodu je možné nastavení rozdělit do několika
+samostatných souborů a ty pak skládat dohromady. Protože později
+uvedené volby přepisují volby zadané dříve, přímo se nabízí vytvoření
+hlavního (sdíleného) souboru s obecnými předvolbami a k němu několik
+dalších souborů se specifickým nastavením pro danou situaci.
+
+</para>
+
+<informalexample><screen>
+# Zadat můžete i více souborů najednou, stačí je oddělit mezerami.
+# Vložené soubory mohou obsahovat jak deklarace pro přednastavení,
+# tak příkazy pro zavedení dalších souborů. Pokud cestu zadáte
+# relativně, hledají se soubory ve stejném adresáři, jako nadřízený
+# soubor.
+#d-i preseed/include string x.cfg
+
+# d-i může volitelně kontrolovat kontrolní součty souborů
+# s přednastavením. V současnosti jsou podporovány pouze md5 součty.
+# Seznam součtů zadejte ve stejném pořadí, v jakém se budou načítat
+# soubory s přednastavením.
+#d-i preseed/include/checksum string 5da499872becccfeda2c4872f9171c3d
+
+# Mnohem pružnější je použití shellového příkazu, který vrátí názvy
+# souborů, jež se mají nahrát.
+#d-i preseed/include_command \
+#      string if [ "`hostname`" = bob ]; then echo bob.cfg; fi
+
+# Nejpružnější možnost stáhne program a spustí jej. Program může
+# používat příkazy pro manipulaci s databází debconfu jako např.
+# debconf-set. Pokud jsou názvy souborů relativní, berou se ze
+# stejného adresáře jako soubor s přednastavením, který je spouští.
+# Zadat můžete i více skriptů, stačí je oddělit mezerami.
+#d-i preseed/run string foo.sh
+</screen></informalexample>
+
+<para>
+
+Zřetězené nahrávání souborů s přednastavením funguje i mezi různými
+typy přednastavení. Například pokud používáte přednastavení z initrd
+nebo ze souboru, můžete v nich uvést proměnnou
+<classname>preseed/url</classname> a po naběhnutí sítě tak plynule
+přejít do souboru s přednastavením staženým ze sítě. Musíte však být
+opatrní, protože to také znamená, že se proces přednastavení spustí
+znovu a mimo jiné tím dostanete šanci na druhé spuštění příkazu
+<classname>preseed/early</classname>, tentokráte po naběhnutí sítě.
+
+</para>
+  </sect2>
+ </sect1>
+</appendix>

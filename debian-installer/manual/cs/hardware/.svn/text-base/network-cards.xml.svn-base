@@ -1,0 +1,182 @@
+<!-- $Id$ -->
+<!-- original version: 64916 -->
+
+ <sect2 id="network-cards">
+ <title>Hardware pro připojení k síti</title>
+
+<para>
+
+Libovolná síťová karta (NIC) podporovaná jádrem &arch-kernel; by měla být
+podporována i instalačním systémem. Ovladače dostupné jako moduly
+jádra by se měly zavádět automaticky.
+
+<phrase arch="x86">To zahrnuje většinu PCI a PCMCIA karet.</phrase>
+
+<phrase arch="i386">Podporováno je i mnoho starších karet pro sběrnici
+ISA.</phrase>
+
+</para><para arch="sparc">
+
+To zahrnuje mnoho obecných PCI karet (na systémech s podporou PCI),
+ale i následující karty od Sunu:
+
+<itemizedlist>
+<listitem><para>
+
+Sun LANCE
+
+</para></listitem>
+<listitem><para>
+
+Sun Happy Meal
+
+</para></listitem>
+<listitem><para>
+
+Sun BigMAC
+
+</para></listitem>
+<listitem><para>
+
+Sun QuadEthernet
+
+</para></listitem>
+ <listitem><para>
+
+MyriCOM Gigabit Ethernet
+
+</para></listitem>
+</itemizedlist>
+
+</para><para arch="s390">
+
+Podporovaná síťová zařízení jsou:
+
+<itemizedlist>
+<listitem><para>
+
+Channel to Channel (CTC) a ESCON spojení (reálné nebo emulované)
+
+</para></listitem>
+<listitem><para>
+
+OSA-2 Token Ring/Ethernet a OSA-Express Fast Ethernet (ne QDIO)
+
+</para></listitem>
+<listitem><para>
+
+OSA-Express v QDIO módu, HiperSockets a Guest-LAN
+
+</para></listitem>
+</itemizedlist>
+
+</para><para arch="arm">
+
+Na architektuře &arch-title; je podporována většina integrovaných
+ethernetových zařízení a dostupné jsou i moduly pro přídavná PCI a USB
+zařízení. Významnou výjimkou je platforma IPX4xx (obsahující zařízení
+jako Linksys NSLU2), která pro fungování zabudovaného ethernetového
+rozhraní potřebuje proprietární mikrokód. Neoficiální obrazy pro
+Linksys NSLU2 s integrovaným proprietárním mikrokódem můžete získat na
+stránce <ulink url="&url-slug-firmware;">Slug-Firmware</ulink>.
+
+</para><para arch="x86">
+
+ISDN je podporováno, ale ne během instalace.
+
+</para>
+
+  <sect3 condition="supports-wireless" id="nics-wireless">
+  <title>Bezdrátové síťové karty</title>
+<para>
+
+Bezdrátové síťové karty jsou obecně podporovány, nicméně mnoho
+bezdrátových síťových adaptérů vyžaduje (nesvobodný) firmware.
+Jestliže je vyžadován firmware, instalační systém vás během instalace
+vyzve k jeho nahrání. Více informací o nahrávání firmware během
+instalace naleznete v části <xref linkend="loading-firmware"/>.
+
+</para><para>
+
+Síťové karty, které nejsou podporovány oficiálním jádrem, lze obvykle
+pod &debian;em zprovoznit, avšak nejsou podporovány během instalace.
+
+</para><para>
+
+Ani použití podporované bezdrátové síťové karty pro instalaci
+nezaručuje automatický úspěch, protože podpora šifrovaného spojení je
+zatím omezena pouze na technologii WEP. Pokud váš přístupový bod (AP)
+používá silnější šifrování, nemůžete jej pro instalaci použít.
+
+</para><para>
+
+Jestliže bezdrátová karta zlobí a pro instalaci nemůžete použít jinou
+síťovou kartu, stále lze pro instalaci &debian;u použít obraz velkého
+CD nebo DVD. V takovém případě přeskočte konfiguraci sítě a instalujte
+pouze balíky z CD nebo DVD. Potřebný ovladač pak můžete spolu s
+firmwarem doinstalovat po dokončení instalace a následném restartu do
+nového systému.
+
+</para><para>
+
+Pokud ovladač pro kartu existuje, ale není dostupný jako debianí
+balík, můžete si stáhnout z Internetu jeho zdrojové kódy a následně
+zkompilovat, což však přesahuje rozsah této příručky.
+<phrase arch="x86">Neexistuje-li svobodný ovladač, je vaší poslední
+možností balík <classname>ndiswrapper</classname>, který umí použít
+ovladače z Windows.</phrase>
+
+</para>
+  </sect3>
+
+  <sect3 arch="sparc" id="nics-sparc-trouble">
+  <title>Známé problémy na &arch-title;</title>
+<para>
+
+U konkrétních síťových karet bylo hlášeno několik problémů, které je
+vhodné zde zmínit.
+
+</para>
+
+   <sect4>
+   <title>Konflikt mezi ovladači tulip a dfme</title>
+<para>
+
+Existuje několik síťových PCI karet, které se identifikují stejně, ale
+jsou jsou podporovány různými ovladači. Některé karty pracují s
+ovladačem <literal>tulip</literal>, jiné s ovladačem
+<literal>dfme</literal>. Protože se karty identifikují stejně, jádro
+mezi nimi nemůže rozlišit a neví, který ovladač má nahrát. Pokud to
+bude zrovna ten špatný, karta může fungovat špatně, nebo dokonce
+nemusí fungovat vůbec.
+
+</para><para>
+
+Jedná se o běžný problém na systémech Netra s kartami Davicom
+(kompatibilní s DEC-Tulip). V tomto případě je nejspíš ten správný
+ovladač <literal>tulip</literal>. Řešením je umístit nefunkční ovladač
+na černou listinu, jak popisuje část <xref linkend="module-blacklist"/>.
+
+</para><para>
+
+Jinou možností je se během instalace přepnout do shellu, odebrat
+chybný modul (nebo moduly, pokud jich je nahráno víc) příkazem
+<userinput>modprobe -r <replaceable>modul</replaceable></userinput>
+a následně zavést správný modul příkazem
+<userinput>modprobe <replaceable>module</replaceable></userinput>. Je
+možné, že po restartu do nového systému se opět zavede ten chybný
+ovladač.
+
+</para>
+   </sect4>
+
+   <sect4><title>Sun B100 blade</title>
+<para>
+
+Síťový ovladač <literal>cassini</literal> nefunguje na systémech Sun
+B100 blade.
+
+ </para>
+   </sect4>
+  </sect3>
+ </sect2>

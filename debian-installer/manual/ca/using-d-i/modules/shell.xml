@@ -1,0 +1,73 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56326 -->
+
+   <sect3 id="shell">
+   <title>Utilització de l'intèrpret d'ordres i visualització dels
+   fitxers de registre</title>
+
+<para>
+
+Hi ha diversos mètodes que podeu utilitzar per obtenir un
+intèrpret d'ordres mentre executeu l'instal·lador. En la
+majoria de sistemes, i si no esteu instal·lant sobre consola
+sèrie, el més fàcil és canviar a la segona <emphasis>consola
+virtual</emphasis> prement <keycombo><keycap>Alt Esquerre</keycap>
+<keycap>F2</keycap></keycombo><footnote>
+
+<para>
+És a dir: premeu la tecla <keycap>Alt</keycap> que hi ha a la part
+esquerra de la <keycap>barra espaiadora</keycap> i la tecla de funció
+<keycap>F2</keycap> al mateix temps.
+</para>
+
+</footnote> (en un teclat Mac, <keycombo><keycap>Option</keycap>
+<keycap>F2</keycap></keycombo>). Utilitzeu <keycombo><keycap>Alt
+Esquerre</keycap> <keycap>F1</keycap></keycombo> per tornar a
+l'instal·lador.
+
+</para><para condition="gtk">
+
+Per a l'instal·lador gràfic vegeu també  <xref linkend="gtk-using"/>.
+
+</para><para>
+
+Si no podeu canviar de consola, també teniu l'opció <guimenuitem>Executa
+un intèrpret d'ordres</guimenuitem> al menú principal, que serveix
+precisament per a iniciar un intèrpret d'ordres. Podeu tornar al menú
+principal des de la major part dels quadres de diàleg emprant el botó
+&BTN-GOBACK; una o més vegades. Introduïu <userinput>exit</userinput> per
+tancar l'intèrpret i tornar a l'instal·lador.
+
+</para><para>
+
+En aquest moment heu arrencat des del disc RAM, per tant el conjunt
+d'utilitats Linux que teniu disponibles és limitat. Podeu veure
+els programes a que hi ha amb l'ordre <command>ls /bin /sbin /usr/bin
+/usr/sbin</command> o bé teclejant <command>help</command>. L'intèrpret
+d'ordres és un clon de Bourne shell anomenat <command>ash</command> i
+disposa d'algunes característiques molt pràctiques, com l'autocompleció
+i l'historial.
+
+</para><para>
+
+Per editar i veure fitxers, utilitzeu l'editor de text
+<command>nano</command>. Podeu trobar els fitxers de registre del sistema
+d'instal·lació al directori <filename>/var/log</filename>.
+
+</para>
+<note><para>
+
+Encara que des d'un intèrpret podeu fer pràcticament qualsevol cosa
+que les ordres us permetin, aquesta opció està disponible només per
+si alguna cosa surt malament o per a depuració.
+
+</para><para>
+
+Fer coses manualment des de l'intèrpret pot interferir en el
+procés d'instal·lació, i això pot produir errors o acabar en una
+instal·lació incompleta. En particular, hauríeu de deixar sempre que
+sigui l'instal·lador qui activi la partició d'intercanvi i no fer-ho
+vosaltres manualment.
+
+</para></note>
+   </sect3>

@@ -1,0 +1,104 @@
+<!-- $Id: pppoe.xml 65024 2010-10-17 08:16:11Z mck-guest $ -->
+<!-- original version: 64829 -->
+
+ <sect1 id="pppoe" arch="not-s390">
+ <title>Jak nainstalovat &debian-gnu; pomocí PPP přes Ethernet (PPPoE)</title>
+
+<para>
+
+V některých zemích (např. v České republice) se mezi poskytovatelem
+širokopásmového připojení k Internetu pomocí ADSL nebo kabelové
+televize a koncovým zákazníkem běžně používá protokol PPP přes
+Ethernet (PPPoE). Použití PPPoE během instalace není v běžném
+instalátoru podporováno, ale podpora existuje a stačí ji zapnout. Tato
+kapitola vysvětluje jak.
+
+</para><para>
+
+PPPoE spojení vytvořené během instalace bude k dispozici i po restartu
+do nového systému (viz <xref linkend="boot-new"/>).
+
+</para><para>
+
+Abyste mohli během instalace nastavit a využít PPPoE, musíte k
+instalaci použít obraz některého z dostupných CD/DVD. Ostatní způsoby
+instalace (zavádění ze sítě<phrase condition="supports-floppy-boot">
+nebo z disket</phrase>) PPPoE nepodporují.
+
+</para><para>
+
+Instalace pomocí PPPoE je téměř shodná s ostatními instalacemi, drobné
+rozdíly jsou zachyceny v následujících bodech.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+Instalační systém zaveďte se zaváděcím parametrem
+<userinput>modules=ppp-udeb</userinput><footnote arch="x86"><para>
+
+Více informací o použití zaváděcích parametrů naleznete v části
+<xref linkend="boot-screen"/>.
+
+</para></footnote>. Tímto zajistíte, aby se automaticky zavedla
+komponenta zodpovědná za nastavení PPPoE
+(<classname>ppp-udeb</classname>).
+
+</para></listitem>
+<listitem><para>
+
+Stejně jako v běžné instalaci projděte nastavením jazyka, země,
+klávesnice a zavedením dodatečných komponent instalačního
+systému<footnote><para>
+
+V tomto kroku se nahraje komponenta
+<classname>ppp-udeb</classname>. Instalujete-li se střední nebo nízkou
+prioritou (expertní režim), můžete zde ručně zvolit
+<classname>ppp-udeb</classname> a nemusíte používat zaváděcí parametr
+<quote>modules</quote> z předchozího kroku.
+
+</para></footnote>.
+
+</para></listitem>
+<listitem><para>
+
+Dalším krokem je rozpoznání síťového hardwaru v systému.
+
+</para></listitem>
+<listitem><para>
+
+Poté se spustí vlastní nastavení PPPoE. Instalační systém postupně
+zkusí na každém rozpoznaném ethernetovém rozhraní nalézt PPPoE
+koncentrátor (to je typ serveru, který se stará o PPPoE spojení).
+
+</para><para>
+
+Je možné, že se koncentrátor nepodaří nalézt na první pokus. To se
+občas stává na pomalých nebo hodně zatížených sítích, případně u
+porouchaných serverů. Opakovaný pokus o nalezení koncentrátoru
+většinou bývá úspěšný. Pro opakování vyberte z hlavního menu instačního
+systému
+položku <guimenuitem>Nastavit a spustit PPPoE spojení</guimenuitem>.
+
+</para></listitem>
+<listitem><para>
+
+Po nalezení koncentrátoru budete dotázáni na přihlašovací informace
+(PPPoE jméno uživatele a heslo).
+
+</para></listitem>
+<listitem><para>
+
+V tomto okamžiku se instalační systém pokusí navázat PPPoE
+spojení. Jestliže byly zadané informace správné, PPPoE spojení se
+nastaví a bude k dispozici po zbytek instalace. Pokud jste zadali
+chybné přihlašovací informace, nebo pokud se vyskytne nějaká jiná
+chyba, instalace se zastaví, ale stále budete mít možnost se vrátit do
+hlavního menu a zkusit krok zopakovat; stačí znovu vybrat možnost
+<guimenuitem>Nastavit a spustit PPPoE spojení</guimenuitem>.
+
+</para></listitem>
+</itemizedlist>
+
+ </sect1>

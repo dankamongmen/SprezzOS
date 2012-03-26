@@ -1,0 +1,188 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 43043 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.12.25 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2008.02.09 -->
+
+<appendix id="administrivia">
+ <title>Considerações Finais</title>
+
+ <sect1 id="about">
+ <title>Sobre Este Documento</title>
+
+<para>
+
+Este manual foi criado para o instalador do Debian do Sarge, baseado
+no manual de instalação do Woody para os <quote>boot-floppies</quote>,
+que foi baseado em manuais de instalações antigos do Debian e
+no manual de distribuição da Progeny que foi lançado sob GPL em 2003.
+
+</para><para>
+
+Este documento foi escrito em DocBook XML. Os formatos de saída são
+gerados a partir de programas usando informação dos pacotes
+<classname>docbook-xml</classname> e
+<classname>docbook-xsl</classname>.
+
+</para><para>
+
+Para aumentar a capacidade de manutenção deste documento, nós usamos vários
+recursos do XML, tais como entidades (<quote>entities</quote>) e atributos
+de perfil. Eles exercem um papel similar ao das variáveis e condicionais
+nas linguagens de programação. O código fonte XML deste documento contém
+informações para cada diferente arquitetura &mdash; atributos de perfil são
+usados para isolar certas partes do texto como específicas de uma arquitetura.
+
+</para><para condition="about-langteam">
+<!--
+Translators can use this paragraph to acknowledge the people responsible
+for the translation of the manual.
+Translation teams are advised to just mention the coordinator and maybe
+major contributors and thank everybody else in a phrase like "all
+translators and reviewers from the translation team for {your language}
+at {your l10n mailinglist}".
+
+See build/lang-options/README on how to enable this paragraph.
+Its condition is "about-langteam".
+-->
+A tradução inicial para o idioma Português do Brasil foi feita por
+Gleydson Mazioli da Silva <email>gleydson@debian.org</email>, ele
+esteve à frente das traduções deste manual de 1999 a 2005, sendo
+parte dos esforços de tradução e localização da dedicada equipe da
+debian-l10n-portuguese <email>debian-l10n-portuguese@lists.debian.org</email>.
+
+Desde 2005, Felipe Augusto van de Wiel <email>faw@debian.org</email> tem
+sido o responsável pelo manual, coordenando os esforços de tradução, revisão
+e atualização.
+
+Durante este período, diversas pessoas estiveram envolvidas colaborando com
+a tradução e localização deste manual:
+
+<itemizedlist>
+<listitem><para>
+
+Andre Luis Lopes <email>andrelop@debian.org</email>, 2004-2006.
+
+</para></listitem>
+<listitem><para>
+
+Herbert P Fortes Neto <email>listasdebian@terra.com.br</email>, 2006.
+
+</para></listitem>
+<listitem><para>
+
+Marco Carvalho <email>marcocarvalho@gmail.com</email>, 2005.
+
+</para></listitem>
+</itemizedlist>
+
+Se você tem tempo disponível, conhecimento do idioma inglês ou simplesmente
+atenção e paciência para achar erros em documentos, junte-se a nós, sua ajuda
+será fundamental para a melhoria deste e de outros trabalhos coordenados pela
+lista.
+
+</para>
+ </sect1>
+
+ <sect1 id="contributing">
+ <title>Contribuindo com Este Documento</title>
+
+<para>
+
+Se você tiver problemas ou sugestões relacionados a este documento, você
+poderá enviá-los como um relatório de bug para o pacote
+<classname>installation-guide</classname>. Olhe o pacote
+<classname>reportbug</classname> ou leia a documentação on-line do
+<ulink url="http://bugs.debian.org/">Sistemas de Acompanhamento de Bugs
+do Debian (BTS)</ulink>. Seria bom se você desse uma olhada nos
+<ulink url="&url-bts;installation-guide">bugs abertos para o pacote
+installation-guide</ulink> para ver se o seu problema já foi reportado.
+Caso tenha sido, você poderá oferecer informações adicionais ou colaborações
+para <email><replaceable>XXXX</replaceable>@bugs.debian.org</email>,
+onde<replaceable>XXXX</replaceable> é o número do bug já reportado.
+
+</para><para>
+
+Ou ainda melhor, obtenha uma cópia do código fonte DocBook deste documento
+e produza patches contendo as alterações. O código fonte DocBook pode ser
+encontrado no <ulink url="&url-d-i-websvn;">WebSVN do
+debian-installer</ulink>. Se não estiver familiarizado com o DocBook, não se
+preocupe: existe um arquivo simples chamado cheatsheet no diretório dos
+manuais que poderá lhe ajudar como ponto de partida. É como o formato html,
+mas é orientado mais ao significado do texto do que sua apresentação. Os
+patches enviados para a lista de discussão debian-boot (veja abaixo) serão
+bem vindos. Para instruções de como obter o código fonte via SVN, veja o
+<ulink url="&url-d-i-readme;">README</ulink>
+a partir do diretório raiz dos fontes.
+
+</para><para>
+
+Por favor, <emphasis>não</emphasis> contacte diretamente os autores deste
+documento. Também existe uma lista de discussão sobre o &d-i;, o que inclui
+discussões sobre este manual. A lista de discussão é
+<email>debian-boot@lists.debian.org</email>. As instruções para inscrição
+nesta lista podem ser encontradas na página de <ulink
+url="&url-debian-lists-subscribe;">Inscrição nas Listas de Discussão do
+Debian</ulink>; ou você poderá navegar on-line nos <ulink
+url="&url-debian-list-archives;">Arquivos das Listas de Discussão do
+Debian</ulink>.
+
+</para>
+
+ </sect1>
+
+ <sect1 id="contributors">
+ <title>Grandes Contribuições</title>
+
+<para>
+
+Este documento foi originalmente escrito por Bruce Perens, Sven Rudolph, Igor
+Grobman, James Treacy, e Adam Di Carlo. Sebastian Ley escreveu o
+<quote>Installation HOWTO</quote>.
+Muitos, muitos usuários Debian e desenvolvedores contribuíram com este
+documento. Agradecimentos em particular devem ser feitos para
+Michael Schmitz (suporte a m68k), Frank Neumann (autor original do <ulink
+url="&url-m68k-old-amiga-install;">manual de instalação do Amiga</ulink>),
+Arto Astala, Eric Delaunay/Ben Collins (informações sobre SPARC), Tapio
+Lehtonen, e Stéphane Bortzmeyer por várias edições e textos.
+Nós queremos agradecer a Pascal Le Bail por informações úteis sobre a
+inicialização através da sticks de memória USB. Miroslav Ku documentou
+várias novas funcionalidades do instalador do Debian do Sarge.
+
+</para><para>
+
+Textos extremamente úteis e informações foram encontradas no HOWTO de Jim
+Mintha sobre inicialização via rede (sem URL disponível), o <ulink
+url="&url-debian-faq;">FAQ do Debian</ulink>, o <ulink
+url="&url-m68k-faq;">FAQ do Linux/m68k</ulink>, o <ulink
+url="&url-sparc-linux-faq;">FAQ do Linux para Processadores
+SPARC</ulink>, o <ulink
+url="&url-alpha-faq;">FAQ do Linux/Alpha</ulink>,
+entre outros. Os mantenedores destas ricas fontes de informações
+livremente disponibilizadas devem ser reconhecidos.
+
+</para><para>
+
+A seção de instalações em chroot neste manual
+(<xref linkend="linux-upgrade"/>) foi derivada em parte de
+documentos sob copyright de Kersten M. Self.
+
+</para><para arch="x86">
+
+A seção de instalações sobre plip neste manual
+<xref linkend="plip"/>) foi baseada no
+<ulink url="&url-plip-install-howto;">PLIP-Install-HOWTO</ulink>
+de Gilles Lamiral.
+
+</para>
+ </sect1>
+
+ <sect1 id="trademarks">
+ <title>Reconhecimento de Marcas Registradas</title>
+<para>
+
+Todas as marcas registradas são propriedades de seus respectivos donos.
+
+</para>
+ </sect1>
+</appendix>
+

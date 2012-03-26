@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# This script is used for translations using .po files.
+# It creates .xml files from the translated .po files.
+
+if [ "$1" = "--help" ] ; then
+    echo "Usage: $0 <language>"
+    exit 0
+fi
+
+language=${1:-pl}
+
+BUILDDIR="./build"
+if [ -z "$PO_USEBUILD" ] ; then
+    WORKDIR="./integrated"
+    PODIR="./po"
+else
+    WORKDIR="$BUILDDIR/build.po"
+    PODIR="$BUILDDIR/build.po"
+fi
+SOURCEDIR="$WORKDIR/en"
+# Don't overwrite XML translations committed to SVN
+if svn info "./$language/" >/dev/null 2>&1; then
+    TARGETDIR="./$language.new"
+else
+    TARGETDIR="./$language"
+fi
+RET=0
+
+[ -d "$SOURCE" -o -d "$PODIR" ] || exit 1
+
+[ -d "$TARGETDIR" ] && rm -r $TARGETDIR
+
+echo "Creating XML files for language '$language':"
+for ORIGXML in `find $SOURCEDIR -name "*.xml"` ; do
+    BASEDIR=$(dirname $ORIGXML | sed "s:$SOURCEDIR::" | sed "s:^/::")
+    BASENAME=$(basename $ORIGXML .xml)
+    PO=$PODIR/$language/$BASENAME.po
+    XML=$TARGETDIR/$BASEDIR/$BASENAME.xml
+
+    mkdir -p $TARGETDIR/$BASEDIR
+
+    if [ -f $PO ] ; then
+        echo "- creating $BASENAME.xml"
+        # Make sure po file is UTF8 encoded; po2xml does no conversion
+        msgconv -t utf-8 $PO >/tmp/tmp.po.$$
+        RC=$?
+        if [ $RC -ne 0 ] ; then
+            RET=$RC
+            echo "Error: error $RC while executing msgconv"
+            continue
+        fi
+        po2xml $ORIGXML /tmp/tmp.po.$$ > $XML
+        RC=$?
+        if [ $RC -ne 0 ] ; then
+            RET=$RC
+            echo "Error: error $RC while executing po2xml"
+            continue
+        fi
+    else
+        echo "Warning: no PO file found for '$BASENAME'; copying English original"
+        cp $ORIGXML $TARGETDIR/$BASEDIR
+    fi
+done
+
+rm -f /tmp/tmp.po.$$
+exit $RET

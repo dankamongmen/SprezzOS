@@ -1,0 +1,183 @@
+<!-- original version: 64916 -->
+
+ <sect1 arch="linux-any" id="kernel-baking"><title>Compiler un nouveau noyau</title>
+<para>
+
+Pourquoi vouloir compiler un nouveau noyau&nbsp;?
+Ce n'est en général pas nécessaire, car le noyau par défaut de
+&debian; reconnaît la plupart des configurations. En outre différents noyaux sont
+disponibles. Vous devriez chercher s'il n'existe pas de paquet contenant un noyau
+qui corresponde à votre matériel. Cependant, il peut être
+utile de compiler un nouveau noyau dans les cas suivants&nbsp;:
+
+<itemizedlist>
+<listitem><para>
+
+gérer des périphériques spéciaux, ou des conflits de périphériques dans
+les noyaux par défaut&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+activer des options qui ne sont pas incluses dans le noyau par défaut, 
+permettre la gestion de la mémoire haute par exemple&nbsp;;
+
+</para></listitem>
+
+<listitem><para>
+
+optimiser le noyau en enlevant les pilotes inutiles, ce qui peut
+accélérer le démarrage de la machine&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+créer un noyau monolithique à la place d'un noyau modulaire&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+utiliser une version de développement du noyau&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+mieux connaître le noyau Linux.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+
+  <sect2><title>Gestion des images du noyau</title>
+<para>
+
+N'ayez pas peur de compiler un nouveau noyau. C'est amusant et très instructif.
+
+</para><para>
+
+Pour compiler un noyau <emphasis>façon &debian;</emphasis>, vous avez besoin des 
+paquets suivants&nbsp;:
+<classname>fakeroot</classname>, <classname>kernel-package</classname>,
+<classname>linux-source-2.6</classname>
+et quelques autres qui sont probablement déjà installés sur votre machine 
+(pour la liste complète, voyez
+<filename>/usr/share/doc/kernel-package/README.gz</filename>).
+
+</para><para>
+
+Cette méthode crée un .deb à partir des sources du noyau&nbsp;; si
+vous utilisez des modules non standard, elle incorpore aussi ces dépendances
+dans le .deb. C'est une bonne solution pour gérer les images du noyau&nbsp;;
+le répertoire <filename>/boot</filename> contiendra le noyau, le fichier
+<filename>System.map</filename> 
+et une sauvegarde du fichier de configuration utilisé pour ce paquet.
+
+</para><para>
+
+Il faut remarquer qu'il n'est pas <emphasis>obligatoire</emphasis> de 
+compiler votre noyau <emphasis>façon &debian;</emphasis> mais vous vous rendrez compte 
+qu'utiliser le système de gestion des paquets pour
+gérer les noyaux rend leur installation plus simple et plus sûre.
+De même, vous pouvez simplement télécharger les sources telles qu'elles sont
+proposées par Linus et non pas
+<classname>linux-source-2.6</classname>,
+tout en utilisant la méthode de compilation <classname>kernel-package</classname>.
+
+</para><para>
+
+Notez que vous trouverez une documentation complète sur l'utilisation de
+<classname>kernel-package</classname> dans le répertoire
+<filename>/usr/share/doc/kernel-package</filename>. Cette section ne 
+contient qu'un bref didacticiel.
+
+</para>
+<para>
+
+Dans ce qui suit, nous supposerons que vous pouvez tout faire sur votre 
+machine et que vous allez extraire les sources du noyau dans votre répertoire
+personnel <footnote>
+<para> D'autres endroits sont possibles pour extraire les sources et construire
+le noyau, mais c'est le plus facile car aucun droit spécial n'est demandé.
+</para></footnote>.
+Nous supposerons aussi que la version du noyau est &kernelversion;. Allez 
+dans le répertoire où vous voulez désarchiver 
+les sources et désarchivez-les avec
+<userinput>tar xjf /usr/src/linux-source-&kernelversion;.tar.bz2</userinput>, 
+et déplacez-vous dans le répertoire 
+<filename>linux-source-&kernelversion;</filename> qui vient d'être créé.
+
+</para><para>
+
+Maintenant, vous pouvez configurer votre noyau. Exécutez 
+<userinput>make xconfig</userinput> si X11 est installé, configuré et lancé. 
+Exécutez <userinput>make menuconfig</userinput> dans le cas contraire 
+(vous aurez alors besoin du paquet <classname>libncurses5-dev</classname>). 
+Prenez le temps 
+de lire l'aide en ligne et de choisir judicieusement les options à activer.
+En cas de doute, il est souvent préférable d'inclure les pilotes de 
+périphériques (tels que les contrôleurs SCSI, cartes Ethernet, etc.) que vous 
+ne connaissez pas bien.
+Faites attention&nbsp;: les autres options, non spécifiques au matériel, 
+doivent être laissées à leur valeur par défaut si vous ne les comprenez pas.
+N'oubliez pas de sélectionner «&nbsp;Kernel module loader&nbsp;» dans la 
+section «&nbsp;Loadable module support&nbsp;»
+(elle n'est pas sélectionnée par défaut), sinon votre système &debian; risque 
+d'avoir des problèmes.
+
+</para><para>
+
+Nettoyez l'arborescence des sources et réinitialisez les paramètres
+de <classname>kernel-package</classname>. Pour ce faire, tapez
+<userinput>make-kpkg clean</userinput>.
+
+</para><para>
+
+Maintenant, compilez votre noyau&nbsp;: 
+<userinput>fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image</userinput>.
+Bien sûr, le numéro de version «&nbsp;1.0&nbsp;» peut être changé&nbsp;; 
+il s'agit juste d'un moyen de suivre vos différentes
+versions du noyau. De la même façon, vous pouvez remplacer le mot 
+<quote>custom</quote> par ce que vous voulez (par exemple le nom d'une 
+machine). La compilation d'un noyau peut être plus ou moins longue, selon la puissance 
+de votre machine.
+
+</para><para>
+
+Une fois la compilation terminée, vous pouvez installer votre noyau
+personnalisé comme n'importe quel autre paquet. En tant que superutilisateur,
+exécutez la commande
+<userinput>dpkg -i
+../&kernelpackage;-&kernelversion;-<replaceable>sous-architecture</replaceable>_custom.1.0_&architecture;.deb</userinput>.
+La partie <replaceable>sous-architecture</replaceable> est une 
+sous-architecture optionnelle,
+<phrase arch="x86"> telle que <quote>686</quote>, </phrase>
+suivant les options de compilation que vous avez définies.
+<userinput>dpkg -i</userinput> installera votre noyau ainsi 
+que les autres fichiers qui lui seront nécessaires.
+Par exemple, le fichier <filename>System.map</filename> sera installé 
+correctement (très utile pour le débogage des problèmes de noyau) et un 
+fichier <filename>/boot/config-&kernelversion;</filename> sera installé, qui 
+contiendra votre configuration noyau.
+Le nouveau paquet est assez évolué pour utiliser automatiquement le programme d'amorçage de
+votre plateforme et mettre à jour l'information sur l'image de noyau utilisée.
+Si vous avez créé un paquet pour les modules, vous devrez installer ce paquet également.
+
+</para><para>
+
+Vous devez maintenant redémarrer votre système&nbsp;: lisez attentivement les 
+éventuels avertissements produits par les étapes précédentes, puis exécutez
+<userinput>shutdown -r now</userinput>.
+
+</para><para>
+
+D'autres informations sur la compilation des noyaux &debian;
+se trouvent dans le 
+<ulink url="&url-kernel-handbook;"><quote>Debian Linux Kernel Handbook</quote></ulink>.
+
+Pour plus d'informations sur <classname>kernel-package</classname>, lisez
+la documentation dans <filename>/usr/share/doc/kernel-package</filename>.
+
+</para>
+  </sect2>
+ </sect1>

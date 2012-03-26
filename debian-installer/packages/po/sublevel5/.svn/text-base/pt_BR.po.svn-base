@@ -1,0 +1,948 @@
+# translation of Debian Installer templates to Brazilian Portuguese.
+# This file is distributed under the same license as debian-installer.
+#
+# Felipe Augusto van de Wiel (faw) <faw@debian.org>, 2008-2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-27 22:51+0000\n"
+"PO-Revision-Date: 2010-07-01 03:17-0300\n"
+"Last-Translator: Felipe Augusto van de Wiel (faw) <faw@debian.org>\n"
+"Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
+"org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:60001
+#, no-c-format
+msgid "ZFS pool %s, volume %s"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:62001
+#, no-c-format
+msgid "DASD %s (%s)"
+msgstr "DASD %s (%s)"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:63001
+#, no-c-format
+msgid "DASD %s (%s), partition #%s"
+msgstr "DASD %s (%s), partição #%s"
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Setting to reserve a small part of the disk for use by BIOS-based bootloaders
+#. such as GRUB.
+#: ../partman-partitioning.templates:36001
+msgid "Reserved BIOS boot area"
+msgstr "Área reservada de inicialização do BIOS"
+
+#. Type: text
+#. Description
+#. :sl5:
+#. short variant of 'Reserved BIOS boot area'
+#. Up to 10 character positions
+#: ../partman-partitioning.templates:37001
+msgid "biosgrub"
+msgstr "biosgrub"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:1001
+msgid ""
+"In order to start your new system, the firmware on your Itanium system loads "
+"the boot loader from its private EFI partition on the hard disk.  The boot "
+"loader then loads the operating system from that same partition.  An EFI "
+"partition has a FAT16 file system formatted on it and the bootable flag set. "
+"Most installations place the EFI partition on the first primary partition of "
+"the same hard disk that holds the root file system."
+msgstr ""
+"Para que seja possível iniciar seu novo sistema, o firmware em seu sistema "
+"Itanium carrega o carregador de inicialização de sua partição EFI privada no "
+"disco rígido. Daí, o carregador de inicialização carrega o sistema "
+"operacional da mesma partição. Uma partição EFI possui um sistema de "
+"arquivos formatado como FAT16 e a \"flag\" de inicialização definida. A "
+"maioria das instalações colocam a partição EFI na primeira partição primária "
+"do mesmo disco rígido que contém o sistema de arquivos raiz."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:2001 ../partman-efi.templates:4001
+msgid "EFI boot partition"
+msgstr "Partição de inicialização EFI"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:3001
+msgid "No EFI partition was found."
+msgstr "Nenhuma partição EFI foi encontrada."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. short variant of 'EFI boot partition'
+#. Up to 10 character positions
+#: ../partman-efi.templates:5001
+msgid "EFIboot"
+msgstr "EFIboot"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:7001
+msgid "EFI-fat16"
+msgstr "EFI-fat16"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:1001
+msgid ""
+"No partitions were found in your system. You may need to partition your hard "
+"drives or load additional kernel modules."
+msgstr ""
+"Nenhuma partição foi encontrada em seu sistema. Você pode precisar "
+"particionar seus discos rígidos ou carregar módulos de kernel adicionais."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:2001
+msgid "No file systems found"
+msgstr "Nenhuma sistema de arquivos encontrado"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:2001
+msgid ""
+"No usable file systems were found. You may need to load additional kernel "
+"modules."
+msgstr ""
+"Nenhum sistema de arquivo utilizável foi encontrado. Você pode precisar "
+"carregar módulos de kernel adicionais."
+
+#. Type: select
+#. Choices
+#. :sl5:
+#: ../partconf.templates:3001
+msgid "Abort"
+msgstr "Abortar"
+
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#: ../partconf.templates:4001
+msgid "Leave the file system intact"
+msgstr "Deixar o sistema de arquivos intacto"
+
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#: ../partconf.templates:4001 ../partconf.templates:5001
+msgid "Create swap space"
+msgstr "Criar área de troca (swap)"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:4002 ../partconf.templates:5002
+msgid "Action on ${PARTITION}:"
+msgstr "Agir em ${PARTITION}:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:4002
+msgid ""
+"This partition seems to already have a file system (${FSTYPE}). You can "
+"choose to leave this file system intact, create a new file system, or create "
+"swap space."
+msgstr ""
+"Esta partição parece já possuir um sistema de arquivos (${FSTYPE}). Você "
+"pode escolher entre deixar o sistema de arquivos intacto, criar um sistema "
+"de arquivos ou criar uma área de troca (swap)."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:5002
+msgid ""
+"This partition does not seem to have a file system. You can create a file "
+"system or swap space on it."
+msgstr ""
+"Esta partição não parece possuir um sistema de arquivos. Você pode criar um "
+"sistema de arquivos ou uma área de troca (swap) nela."
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl5:
+#. "it" is a partition
+#: ../partconf.templates:6001
+msgid "Don't mount it"
+msgstr "Não montar"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: string
+#. Description
+#. :sl5:
+#: ../partconf.templates:6002 ../partconf.templates:7001
+msgid "Mount point for ${PARTITION}:"
+msgstr "Ponto de montagem para ${PARTITION}:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:6002
+msgid ""
+"When a partition is mounted, it is available to the users of the system. You "
+"always need a root (\"/\") partition, and it's often good to have a separate "
+"partition for /home."
+msgstr ""
+"Quando uma partição está montada a mesma fica disponível para os usuários do "
+"sistema. Você sempre precisará de uma partição raiz (\"/\") e é sempre bom "
+"possuir uma partição separada para o ponto de montagem /home."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../partconf.templates:7001
+msgid "Please enter where the partition should be mounted."
+msgstr "Por favor, informe onde a partição deverá ser montada."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:8001
+msgid "Do you want to unmount the partitions so you can make changes?"
+msgstr "Deseja desmontar as partições para que você possa fazer mudanças?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:8001
+msgid ""
+"Since the partitions have already been mounted, you cannot do any changes."
+msgstr ""
+"Uma vez que as partições já foram montadas, você não pode fazer nenhuma "
+"mudança."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "Failed to unmount partitions"
+msgstr "Falha ao desmontar partições"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "An unexpected error occurred while unmounting the partitions."
+msgstr ""
+"Um erro inesperado ocorreu enquanto as partições estavam sendo desmontadas."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "The partition configuration process has been aborted."
+msgstr "O processo de configuração da partição foi abortado."
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partconf.templates:10001
+#, no-c-format
+msgid "Create %s file system"
+msgstr "Criar sistema de arquivos %s"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:11001
+msgid "No root partition (/)"
+msgstr "Sem partição raiz (/)"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:11001
+msgid ""
+"You need a root partition. Please assign a partition to the root mount point "
+"before continuing."
+msgstr ""
+"Você precisa de uma partição raiz. Por favor, atribua uma partição para o "
+"ponto de montagem raiz antes de continuar."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:12001
+msgid "Partition assigned to ${MOUNT}"
+msgstr "Partição atribuída para ${MOUNT}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:12001
+msgid "Mounting a partition on ${MOUNT} makes no sense. Please change this."
+msgstr "Montar uma partição em ${MOUNT} não faz sentido. Por favor mude isso."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:13001
+msgid "Several partitions assigned to ${MOUNT}"
+msgstr "Diversas partições atribuídas para ${MOUNT}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:13001
+msgid ""
+"You cannot assign several partitions to the same mount point. Please change "
+"all but one of them."
+msgstr ""
+"Você não pode atribuir diversas partições para o mesmo ponto de montagem. "
+"Por favor, mude todas as atribuições das partições menos uma."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid "Ready to create file systems and mount partitions?"
+msgstr "Pronto para criar sistemas de arquivos e montar partições?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid "File systems will be created and partitions mounted."
+msgstr "Os sistemas de arquivos serão criados e as partições serão montadas."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid ""
+"WARNING: This will destroy all data on the partitions you have assigned file "
+"systems to."
+msgstr ""
+"AVISO: Isto destruirá todos os dados nas partições para as quais você "
+"atribuiu sistemas de arquivos."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001
+msgid "Failed to create swap space on ${PARTITION}"
+msgstr "Falha ao criar a área de troca (swap) em ${PARTITION}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001
+msgid "An error occurred when the swap space was created on ${PARTITION}."
+msgstr ""
+"Um erro ocorreu quando a área de troca (swap) foi criada em ${PARTITION}."
+
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001 ../partconf.templates:16001
+#: ../partconf.templates:17001 ../partconf.templates:18001
+msgid ""
+"Please check the error log on the third console or /var/log/messages for "
+"more information."
+msgstr ""
+"Por favor confira o log de erros no terceiro console ou o arquivo /var/log/"
+"messages para mais informações."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:16001
+msgid "Failed to activate the swap space on ${PARTITION}"
+msgstr "Falha ao ativar a área de troca (swap) em ${PARTITION}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:16001
+msgid "An error occurred when the swap space on ${PARTITION} was activated."
+msgstr ""
+"Um erro ocorreu quando a área de troca (swap) em ${PARTITION} foi ativada."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:17001
+msgid "Failed to create ${FS} file system on ${PARTITION}"
+msgstr "Falha ao criar sistema de arquivos ${FS} em ${PARTITION}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:17001
+msgid ""
+"An error occurred when the ${FS} file system was created on ${PARTITION}."
+msgstr ""
+"Um erro ocorreu quando o sistema de arquivos ${FS} foi criado em "
+"${PARTITION}."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:18001
+msgid "Failed to mount ${PARTITION} on ${MOUNT}"
+msgstr "Falha ao montar a partição ${PARTITION} em ${MOUNT}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:18001
+msgid "An error occurred when ${PARTITION} was mounted on ${MOUNT}."
+msgstr ""
+"Um erro ocorreu quando a partição ${PARTITION} foi montada em ${MOUNT}."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../partconf.templates:19001
+msgid "Configure and mount partitions"
+msgstr "Configurar e montar partições"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002
+msgid "Disk to partition:"
+msgstr "Disco a ser particionado:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002
+msgid "Please choose one of the listed disks to create partitions on it."
+msgstr "Por favor, selecione um dos discos listados para criar partições nele."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002 ../s390-dasd.templates:1002
+msgid "Select \"Finish\" at the bottom of the list when you are done."
+msgstr "Selecione \"Finalizar\" no fim da lista quando tiver terminado."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:2001
+msgid "No disk found"
+msgstr "Nenhum disco encontrado"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:2001
+msgid ""
+"Unable to find any disk in your system. Maybe some kernel modules need to be "
+"loaded."
+msgstr ""
+"Impossível encontrar qualquer disco em seu sistema. Talvez alguns módulos do "
+"kernel precisem ser carregados."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:3001
+msgid "Partitioning error"
+msgstr "Erro de particionamento"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:3001
+msgid "Failed to partition the disk ${DISC}."
+msgstr "Falha ao particionar o disco ${DISC}."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Main menu item
+#: ../partitioner.templates:4001
+msgid "Partition a hard drive"
+msgstr "Particionar um disco rígido"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "ctc: Channel to Channel (CTC) or ESCON connection"
+msgstr "ctc: Conexões Canal a Canal (CTC) ou ESCON"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "qeth: OSA-Express in QDIO mode / HiperSockets"
+msgstr "qeth: OSA-Espress em modo QDIO / HiperSockets"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "iucv: Inter-User Communication Vehicle - available for VM guests only"
+msgstr ""
+"iucv: Veículo de Comunicação Inter-Usuário - disponível somente para "
+"convidados (\"guests\") VM"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "virtio: KVM VirtIO"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:1002
+msgid "Network device type:"
+msgstr "Tipo de dispositivo de rede:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:1002
+msgid ""
+"Please choose the type of your primary network interface that you will need "
+"for installing the Debian system (via NFS or HTTP). Only the listed devices "
+"are supported."
+msgstr ""
+"Por favor, escolha o tipo de sua interface de rede primária, a qual será "
+"usada para instalar o sistema Debian (via NFS ou HTTP). Só há suporte para "
+"os dispositivos listados."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:2001
+msgid "CTC read device:"
+msgstr "Dispositivo CTC de leitura:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:2001 ../s390-netdevice.templates:3001
+msgid "The following device numbers might belong to CTC or ESCON connections."
+msgstr ""
+"Os números de dispositivos a seguir podem pertencer a conexões CTC ou ESCON."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:3001
+msgid "CTC write device:"
+msgstr "Dispositivo CTC de escrita:"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#. Type: boolean
+#. Description
+#. :sl5:
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:4001 ../s390-netdevice.templates:8001
+#: ../s390-netdevice.templates:13001
+msgid "Do you accept this configuration?"
+msgstr "Você aceita esta configuração?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:4001
+msgid ""
+"The configured parameters are:\n"
+" read channel  = ${device_read}\n"
+" write channel = ${device_write}\n"
+" protocol      = ${protocol}"
+msgstr ""
+"Os parâmetros configurados são:\n"
+" canal de leitura = ${device_read}\n"
+" canal de escrita = ${device_write}\n"
+" protocolo        = ${protocol}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:5001
+msgid "No CTC or ESCON connections"
+msgstr "Nenhuma conexão CTC ou ESCON"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:5001
+msgid "Please make sure that you have set them up correctly."
+msgstr "Por favor, certifique-se de tê-las configurado corretamente."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:6001
+msgid "Protocol for this connection:"
+msgstr "Protocolo para esta conexão:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:7001
+msgid "Device:"
+msgstr "Dispositivo:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:7001
+msgid "Please select the OSA-Express QDIO / HiperSockets device."
+msgstr "Por favor, selecione o dispositivo OSA-Express QDIO / HiperSockets."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:8001
+msgid ""
+"The configured parameters are:\n"
+" channels = ${device0}, ${device1}, ${device2}\n"
+" port     = ${port}\n"
+" portname = ${portname}\n"
+" layer2   = ${layer2}"
+msgstr ""
+"Os parâmetros configurados são:\n"
+" canais        = ${device0}, ${device1}, ${device2}\n"
+" porta         = ${port}\n"
+" nome-da-porta = ${portname}\n"
+" camada2       = ${layer2}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:9001
+msgid "No OSA-Express QDIO cards / HiperSockets"
+msgstr "Nenhuma placa OSA-Express QDIO / HiperSockets"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:9001
+msgid ""
+"No OSA-Express QDIO cards / HiperSockets were detected. If you are running "
+"VM please make sure that your card is attached to this guest."
+msgstr ""
+"Nenhuma placa OSA-Express QDIO / HiperSockets foi detectada. Se você está "
+"executando VM, por favor, certifique-se de que sua placa esteja conectada a "
+"este cliente (\"guest\")."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid "Portname:"
+msgstr "Nome da porta:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid ""
+"Please enter the portname of your OSA-Express card. This name must be 1 to 8 "
+"characters long and must be equal on all systems accessing the same card."
+msgstr ""
+"Por favor, informe o nome de porta de sua placa OSA-Express. Este nome deve "
+"ter de 1 a 8 caracteres de comprimento e ser igual em todos os sistemas "
+"acessando a mesma placa."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid ""
+"Leave it empty if you want to use HiperSockets. This parameter is required "
+"for cards with microcode level 2.10 or later or when you want to share a "
+"card."
+msgstr ""
+"Deixe em branco se você quer usar HiperSockets. Esse parâmetro é requerido "
+"para placas com microcódigo nível 2.10 ou posterior ou quando você quiser "
+"compartilhar uma placa."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid "The name will automatically be converted to uppercase."
+msgstr "O nome será automaticamente convertido para maiúsculas."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:11001
+msgid "Port:"
+msgstr "Porta:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:11001
+msgid "Please enter a relative port for this connection."
+msgstr "Por favor, informe uma porta relativa para esta conexão."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:12001
+msgid "Use this device in layer2 mode?"
+msgstr "Usar este dispositivo no modo camada2 (\"layer2\")?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:12001
+msgid ""
+"By default OSA-Express cards use layer3 mode. In that mode LLC headers are "
+"removed from incoming IPv4 packets. Using the card in layer2 mode will make "
+"it keep the MAC addresses of IPv4 packets."
+msgstr ""
+"Por padrão, placas OSA-Express usam modo camada3 (\"layer3\"). Neste modo "
+"cabeçalhos LLC são removidos dos pacotes IPv4 que chegam. Usar a placa no "
+"modo camada2 (\"layer2\") fará com que os endereços MAC sejam mantidos nos "
+"pacotes IPv4."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:13001
+msgid ""
+"The configured parameter is:\n"
+" peer  = ${peer}"
+msgstr ""
+"O parâmetro configurado é:\n"
+" peer  = ${peer}"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid "VM peer:"
+msgstr "Ponto VM:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid "Please enter the name of the VM peer you want to connect to."
+msgstr ""
+"Por favor, informe o nome do ponto (peer) VM ao qual você quer se conectar."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid ""
+"If you want to connect to multiple peers, separate the names by colons, e."
+"g.  tcpip:linux1."
+msgstr ""
+"Se você quer se conectar a múltiplos pontos, separe-os por dois pontos, por "
+"exemplo, tcpip:linux1."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid ""
+"The standard TCP/IP server name on VM is TCPIP; on VIF it's $TCPIP. Note: "
+"IUCV must be enabled in the VM user directory for this driver to work and it "
+"must be set up on both ends of the communication."
+msgstr ""
+"O nome do servidor TCP/IP padrão em VM é TCPIP, em VIF é $TCPIP. Nota: IUCV "
+"deve estar habilitado no diretório do usuário VM para que este controlador "
+"funcione e o mesmo deve ser configurado em ambas as pontas da comunicação."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../s390-netdevice.templates:15001
+msgid "Configure the network device"
+msgstr "Configurar dispositivo de rede"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:1002
+msgid "Available devices:"
+msgstr "Dispositivos disponíveis:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:1002
+msgid ""
+"The following direct access storage devices (DASD) are available. Please "
+"select each device you want to use one at a time."
+msgstr ""
+"Os seguintes dispositivos de armazenamento de acesso direto (DASD) estão "
+"disponíveis. Por favor, selecione cada dispositivo que você deseja usar, um "
+"de cada vez."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:2001
+msgid "Choose device:"
+msgstr "Escolha o dispositivo:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:2001
+msgid ""
+"Please choose a device. You have to specify the complete device number, "
+"including leading zeros."
+msgstr ""
+"Por favor, escolha um dispositivo. Você precisa especificar o número "
+"completo do dispositivo, incluindo os zeros à esquerda."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:3001
+msgid "Invalid device"
+msgstr "Dispositivo inválido"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:3001
+msgid "An invalid device number has been chosen."
+msgstr "Um número de dispositivo inválido foi escolhido."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid "Format the device?"
+msgstr "Formatar o dispositivo?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid ""
+"The installer is unable to detect if the device ${device} has already been "
+"formatted or not. Devices need to be formatted before you can create "
+"partitions."
+msgstr ""
+"O instalador não foi capaz de detectar se o dispositivo ${device} já foi "
+"formatado ou não. Dispositivos precisam ser formatados antes que você possa "
+"criar partições."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid ""
+"If you are sure the device has already been correctly formatted, you don't "
+"need to do so again."
+msgstr ""
+"Se você tem certeza que o dispositivo já foi corretamente formatado, você "
+"não precisa formatá-lo novamente."
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:5001
+msgid "Formatting ${device}..."
+msgstr "Formatando ${device}..."
+
+#. Type: text
+#. Description
+#. Main menu item. Keep translations below 55 columns
+#. :sl5:
+#: ../s390-dasd.templates:6001
+msgid "Configure direct access storage devices (DASD)"
+msgstr "Configurar disp. de armazen. de acesso direto (DASD)"
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../zipl-installer.templates:1001
+msgid "Install the ZIPL boot loader on a hard disk"
+msgstr "Instalar o carreg. inicializ. ZIPL em um disco rígido"

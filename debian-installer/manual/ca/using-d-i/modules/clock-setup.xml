@@ -1,0 +1,25 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61405 -->
+
+   <sect3 id="clock-setup">
+   <title>Configuració del rellotge i el fus horari</title>
+
+<para arch="not-s390">
+
+En primer lloc l'instal·lador intentarà connectar-se a un servidor d'hora
+d'Internet (utilitzant el protocol <firstterm>NTP</firstterm>) per tal de
+fixar l'hora del sistema correctament. Si no ho aconsegueix, assumirà que
+l'hora i data obtingudes del rellotge del sistema en el moment d'arrencar
+l'instal·lador són correctes. No és possible establir l'hora del sistema
+manualment durant el procés d'instal·lació.
+
+</para><para arch="s390"> 
+
+L'instal·lador no modificarà el rellotge del sistema a la plataforma s390.
+
+</para>
+
+&module-tzsetup.xml;
+
+   </sect3>
+

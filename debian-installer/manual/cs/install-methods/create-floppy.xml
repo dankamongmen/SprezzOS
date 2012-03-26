@@ -1,0 +1,93 @@
+<!-- $Id: create-floppy.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+ <sect1 condition="supports-floppy-boot" id="create-floppy">
+ <title>Zápis obrazů disků na diskety</title>
+<para>
+
+Zavádění z disket se obvykle používá jako poslední možnost na
+počítačích, které neumí zavést instalační systém jinými prostředky
+(např. z CD, USB nebo sítě).
+
+</para><para arch="powerpc">
+
+Na Macích s disketovými USB mechanikami zavádění selže.
+
+</para><para>
+
+Obrazy disků představují úplný obsah disket v
+<emphasis>syrové</emphasis> formě. Soubory, jako je
+např. <filename>boot.img</filename>, nelze na disketu jednoduše
+nakopírovat - jejich zápis se provádí speciálním programem
+<emphasis>přímo</emphasis> do sektorů na disketě.
+
+</para><para>
+
+Příprava disket se liší systém od systému. Tato kapitola se zabývá
+přípravou disket pod různými operačními systémy.
+
+</para><para>
+
+Před vytvořením disket si musíte stáhnout jejich obrazy z některého
+zrcadla &debian;u, jak je popsáno v <xref linkend="downloading-files"/>.
+<phrase arch="i386">Pokud již máte instalační CD nebo DVD, je možné,
+že jsou příslušné obrazy umístěny právě tam.</phrase>
+
+</para><para>
+
+Až budete mít diskety vytvořené, raději je ochraňte před neúmyslným
+přepsáním (nastavte mechanický přepínač do pozice zamknuto).
+
+</para>
+
+  <sect2>
+  <title>Zápis disket pod Linuxem nebo jiným unixovým systémem</title>
+<para>
+
+Přímý zápis na diskety může většinou provádět pouze uživatel root.
+Založte do mechaniky prázdnou disketu a příkazem
+
+<informalexample><screen>
+<prompt>dd</prompt> <userinput>if=<replaceable>soubor</replaceable> of=/dev/fd0 bs=1024 conv=sync ; sync</userinput>
+</screen></informalexample>
+
+zapište <replaceable>soubor</replaceable> na disketu.
+<filename>/dev/fd0</filename> bývá označení disketové jednotky. (Na
+systému Solaris je to <filename>/dev/fd/0</filename>).
+Disketu vyjměte až po zhasnutí kontrolky na mechanice, protože příkaz
+<command>dd</command> vám může vrátit příkazový řádek, ještě než
+systém dokončí zápis souboru. Na některých systémech lze
+vyjmout disketu z mechaniky pouze softwarově. (Solaris má pro tento
+účel příkaz <command>eject</command>.)
+
+</para><para>
+
+Některé systémy se snaží automaticky připojit disketu, jakmile ji
+vložíte do mechaniky. Abyste mohli na disketu zapisovat
+<emphasis>přímo</emphasis>, budete muset tuto funkci vypnout.
+Postup se bohužel liší systém od systému, takže se na podrobnosti
+vyptejte svého systémového administrátora. Například na Solarisu
+musíte pro přímý přístup k disketě obejít volume management: Nejprve
+se programem <command>volcheck</command> (nebo ekvivalentním příkazem
+ve správci souborů) ujistěte, že disketa je připojená. Poté normálně
+použijte výše zmíněný příklad s programem <command>dd</command>, pouze
+<filename>/dev/fd0</filename> nahraďte za
+<filename>/vol/rdsk/<replaceable>nazev_diskety</replaceable></filename>,
+kde <replaceable>nazev_diskety</replaceable> je jméno diskety, jaké
+jste jí přiřadili při formátování. (Nepojmenované diskety mají
+standardní jméno <filename>unnamed_floppy</filename>.)
+
+</para><para arch="powerpc">
+
+Na powerpc vysunete disketu příkazem <command>eject</command> (možná
+jej budete muset doinstalovat).
+
+</para>
+
+  </sect2>
+
+&floppy-i386.xml; <!-- can be used for other arches -->
+&floppy-powerpc.xml;
+
+ </sect1>
+

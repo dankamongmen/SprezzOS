@@ -1,0 +1,68 @@
+#! /bin/sh
+
+lang="$1"
+
+filter_preseed() {
+	awk '/^#~/ {
+		next
+	     }
+	     /^\"?#?d-i / {
+		print
+	        in_setting=1
+		if (/\\+[[:space:]]*(\\n\")?$/) {in_seq=1}
+		next
+	     }
+	     /\\+[[:space:]]*(\\n\")?$/ {
+		if (in_setting) {
+			print
+			in_seq=1
+			next
+		}
+	     }
+	     /.*/ {
+		if (in_seq) {
+			print
+			in_seq=0
+		}
+		in_setting=0
+             }'
+}
+
+if [ -z "$lang" ] || ([ ! -d po/"$lang" ] && [ ! -d "./$lang" ]); then
+	echo "Usage: $(basename $0) <language>"
+	exit 1
+fi
+
+echo "This script performs a very basic sanity check to see if nothing has"
+echo "been missed in the translation of the preconfiguration appendix."
+echo "It does this by counting the number of lines that start with 'd-i' or"
+echo "'#d-i' (plus any continuation lines) for both the original and the"
+echo "translation and printing the result. It will then print a diff between"
+echo "original and translation for a visual check."
+echo
+echo
+
+tmp_orig=$(mktemp -p /tmp preseed_orig.XXXXXX)
+tmp_trans=$(mktemp -p /tmp preseed_trans.XXXXXX)
+
+if [ -d "po/$lang" ]; then
+	cd po/$lang
+
+	msgattrib --no-wrap preseed.po | \
+		sed -n "/^msgid/,/^msgstr/ p" | grep -v msgstr | \
+		filter_preseed >$tmp_orig
+	msgattrib --no-wrap preseed.po | \
+		sed -n "/^msgstr/,/^$/ p" | \
+		filter_preseed >$tmp_trans
+else
+	filter_preseed <en/appendix/preseed.xml >$tmp_orig
+	filter_preseed <$lang/appendix/preseed.xml >$tmp_trans
+fi
+
+echo "Number of original lines:   $(wc -l <$tmp_orig)"
+echo "Number of translated lines: $(wc -l <$tmp_trans)"
+echo
+
+diff -U0 $tmp_orig $tmp_trans
+
+rm -f $tmp_orig $tmp_trans

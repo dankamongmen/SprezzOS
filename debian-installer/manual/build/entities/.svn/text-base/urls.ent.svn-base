@@ -1,0 +1,332 @@
+<!-- 
+  These are standard URLs for well-known resources on the Internet.
+  You can redefine these to your taste in your install.XX.xml.
+  The Debian URLs do content negotiation so it's not necessary there.
+ -->
+
+
+<!-- ******************************************
+  Standard Debian URLs
+  -->
+
+<!ENTITY www-debian-org "www.debian.org">
+<!ENTITY wiki-debian-org "wiki.debian.org">
+<!ENTITY url-debian-home "http://&www-debian-org;/">
+
+<!ENTITY ftp-debian-org "ftp.debian.org">
+<!-- The entity below is deprecated -->
+<!ENTITY url-debian-ftp "ftp://&ftp-debian-org;/">
+<!-- Use http.us.debian.org as ftp.debian.org does not have all arches -->
+<!ENTITY archive-mirror "http.us.debian.org">
+<!ENTITY url-archive "http://&archive-mirror;/">
+
+<!ENTITY url-d-i "http://&www-debian-org;/devel/debian-installer/">
+<!ENTITY url-d-i-wiki "http://&wiki-debian-org;/DebianInstaller/">
+
+<!ENTITY d-i-alioth-debian-org "d-i.alioth.debian.org">
+<!ENTITY url-d-i-alioth "http://&d-i-alioth-debian-org;/">
+<!ENTITY url-d-i-alioth-manual "&url-d-i-alioth;manual/">
+
+<!ENTITY url-social-contract "http://&www-debian-org;/social_contract">
+<!ENTITY url-dfsg "&url-social-contract;#guidelines">
+
+<!ENTITY url-debian-policy "http://&www-debian-org;/doc/debian-policy/">
+
+<!ENTITY url-new-maintainer "http://&www-debian-org;/doc/maint-guide/">
+
+<!ENTITY url-debian-faq "http://&www-debian-org;/doc/FAQ/">
+
+<!ENTITY url-bts "http://bugs.debian.org/">
+<!ENTITY url-bts-debian-installer "&url-bts;cgi-bin/pkgreport.cgi?maint=debian-boot@lists.debian.org">
+
+<!ENTITY url-d-i-sataraid "&url-d-i-wiki;SataRaid">
+<!ENTITY url-d-i-multipath "&url-d-i-wiki;MultipathSupport">
+
+<!ENTITY url-ports "http://&www-debian-org;/ports/&arch-porturl;/">
+
+<!ENTITY email-debian-boot-list "debian-boot@lists.debian.org">
+
+<!-- base for the current distribution -->
+<!ENTITY disturlftp "&url-debian-ftp;debian/dists/&releasename;/">
+<!ENTITY disturl    "&url-archive;debian/dists/&releasename;/">
+
+<!-- base for unstable -->
+<!ENTITY url-dist-unstable "&url-archive;debian/dists/unstable/">
+
+<!-- where to get the current debian-installer -->
+<!ENTITY url-debian-installer "&disturl;main/installer-&architecture;/current/">
+
+<!-- debian-installer WebSVN  -->
+<!ENTITY url-d-i-websvn "http://svn.debian.org/wsvn/d-i/">
+
+<!-- The doc/devel/ subdirectory of debian-installer in gitweb.  -->
+<!ENTITY url-d-i-gitweb-doc-devel "http://anonscm.debian.org/gitweb/?p=d-i/debian-installer.git;a=tree;f=doc/devel">
+
+<!-- debian-installer README -->
+<!ENTITY url-d-i-readme "http://svn.debian.org/wsvn/d-i/README?op=file">
+
+<!-- instructions on where to get Debian -->
+<!ENTITY url-debian-distrib "http://&www-debian-org;/distrib/">
+
+<!-- General Debian CD pages -->
+<!ENTITY url-debian-cd "http://&www-debian-org;/CD/">
+
+<!-- vendors that sell Debian CDs -->
+<!ENTITY url-debian-cd-vendors "http://&www-debian-org;/CD/vendors/">
+
+<!-- Debian mirrors -->
+<!ENTITY url-debian-mirrors "http://&www-debian-org;/distrib/ftplist">
+
+<!-- release area off the Debian web site -->
+<!ENTITY url-release-area "http://&www-debian-org;/releases/&releasename;/">
+
+<!-- location of tarballs with firmware packages -->
+<!ENTITY url-firmware-tarballs "http://cdimage.debian.org/cdimage/unofficial/non-free/firmware/">
+<!-- rough list of firmware packages -->
+<!ENTITY url-firmware-packages "http://packages.debian.org/search?keywords=firmware">
+<!-- iso images with firmware included -->
+<!ENTITY url-firmware-cds "http://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/">
+
+<!-- WNPP -->
+<!ENTITY url-wnpp "http://&www-debian-org;/devel/wnpp/">
+
+<!-- release notes for this release -->
+<!ENTITY url-release-notes "&url-release-area;&architecture;/release-notes/">
+
+<!-- official www.debian.org location of the install manual -->
+<!ENTITY url-install-manual "&url-release-area;&architecture;/">
+
+<!-- Example preseed file -->
+<!-- For unofficial builds we should use this, but no idea how to get it working...
+<![ %unofficial_build; [
+  <!ENTITY url-example-preseed   "&url-d-i-alioth-manual;example-preseed.txt">
+]]>
+-->
+  <!ENTITY url-example-preseed   "&url-release-area;example-preseed.txt">
+  <!ENTITY urlset-example-preseed
+  "<phrase condition='for_alioth'><ulink url='&url-d-i-alioth-manual;example-preseed.txt'></ulink></phrase><phrase condition='for_wdo'><ulink url='&url-release-area;example-preseed.txt'></ulink></phrase><phrase condition='for_cd'><ulink url='../example-preseed.txt'></ulink></phrase>">
+
+<!-- preinstalled debian -->
+<!ENTITY url-pre-installed "http://&www-debian-org;/distrib/pre-installed">
+
+<!ENTITY url-debian-list-archives "http://lists.debian.org/">
+
+<!ENTITY url-debian-lists-subscribe "http://&www-debian-org;/MailingLists/subscribe">
+<!ENTITY url-list-subscribe "&url-debian-lists-subscribe;">
+
+<!-- Debian Jr. project -->
+<!ENTITY url-debian-jr "http://&www-debian-org;/devel/debian-jr/">
+
+<!-- Debian Reference -->
+<!ENTITY url-debian-reference "http://&www-debian-org;/doc/user-manuals#quick-reference">
+
+<!-- Debian Linux Kernel Handbook -->
+<!ENTITY url-kernel-handbook "http://kernel-handbook.alioth.debian.org/">
+
+<!--
+  misc
+  -->
+<!ENTITY url-osd "http://opensource.org/docs/definition_plain.html">
+<!ENTITY url-debian-wiki-software "http://&wiki-debian-org;/DebianSoftware">
+
+<!-- GPL -->
+<!ENTITY url-gnu-copyleft "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">
+
+<!-- Linux Kernel entities -->
+<!ENTITY url-kernel-org "http://www.kernel.org/">
+<!ENTITY url-linux-kernel-list-faq "http://www.tux.org/lkml/">
+<!-- Next entity is no longer used; delete when translations are updated -->
+<!ENTITY url-kernel-traffic "http://www.kerneltraffic.org/kernel-traffic/index.html">
+
+<!-- Linux History page -->
+<!ENTITY url-linux-history "http://www.cs.cmu.edu/~awb/linux.history.html">
+
+<!-- Introductions to the FSF and GNU Project -->
+<!ENTITY url-fsf "http://www.fsf.org/">
+<!ENTITY url-gnu "http://www.gnu.org/">
+<!ENTITY url-gnu-intro "http://www.gnu.org/gnu/the-gnu-project.html">
+
+<!-- Kernel archives -->
+<!ENTITY url-kernel-org "http://www.kernel.org/">
+
+<!-- Linux Standard Base -->
+<!ENTITY url-lsb-org "http://www.linuxbase.org/">
+
+<!-- Filesystem Hierarchy Standard -->
+<!ENTITY url-fhs-home "http://www.pathname.com/fhs/">
+
+<!-- LUKS -->
+<!ENTITY url-luks "http://luks.endorphin.org/">
+
+<!-- US keyboard layout -->
+<!ENTITY url-us-keymap "http://en.wikipedia.org/wiki/Keyboard_layout#United_States">
+
+
+<!-- ******************************************
+  HOWTOs and FAQs (general)
+  -->
+
+<!ENTITY url-ldp "http://www.tldp.org/">
+
+<!ENTITY url-multidisk-howto "&url-ldp;HOWTO/Multi-Disk-HOWTO.html">
+
+<!ENTITY url-software-raid-howto "&url-ldp;HOWTO/Software-RAID-HOWTO.html">
+
+<!ENTITY url-lvm-howto "&url-ldp;HOWTO/LVM-HOWTO.html">
+
+<!ENTITY url-linux-freebsd "&url-ldp;HOWTO/Linux+FreeBSD-2.html">
+
+<!ENTITY url-unix-faq "http://www.faqs.org/faqs/unix-faq/">
+
+
+<!-- ******************************************
+  HOWTOs and FAQs (x86)
+  -->
+
+<!ENTITY url-installation-guide "&url-ldp;LDP/gs/gs.html">
+
+<!ENTITY url-installation-howto "&url-ldp;HOWTO/Installation-HOWTO.html">
+
+<!ENTITY url-cd-howto "&url-ldp;HOWTO/CDROM-HOWTO.html">
+
+<!ENTITY url-partition-howto "&url-ldp;HOWTO/Partition/">
+
+<!ENTITY url-lilo-howto "&url-ldp;HOWTO/LILO.html">
+
+<!ENTITY url-large-disk-howto "&url-ldp;HOWTO/Large-Disk-HOWTO.html">
+
+<!ENTITY url-phoenix-bios-faq-large-disk
+  "http://www.phoenix.com/en/Customer+Services/BIOS/BIOS+FAQ/default.htm">
+
+<!ENTITY url-invoking-bios-info "&url-ldp;HOWTO/Hard-Disk-Upgrade/install.html">
+
+<!ENTITY url-hardware-howto "&url-ldp;HOWTO/Hardware-HOWTO.html">
+
+<!ENTITY url-plip-install-howto "&url-ldp;HOWTO/PLIP-Install-HOWTO.html">
+
+<!ENTITY url-x86-laptop	"http://www.linux-laptop.net/">
+
+<!ENTITY url-pc-hw-faq "http://www.faqs.org/faqs/pc-hardware-faq/part1/">
+
+<!ENTITY url-xorg "http://xorg.freedesktop.org/">
+
+<!ENTITY url-simtel "ftp://ftp.simtel.net/pub/simtelnet/msdos/">
+
+<!ENTITY url-brltty "http://www.mielke.cc/brltty/">
+<!ENTITY url-brltty-manual "http://www.mielke.cc/brltty/doc/Manual-BRLTTY/English/BRLTTY.html">
+<!ENTITY url-brltty-driver-help "http://www.mielke.cc/brltty/doc/drivers/">
+
+<!ENTITY url-speakup "http://www.linux-speakup.org/">
+<!ENTITY url-speakup-driver-codes "http://www.linux-speakup.org/spkguide.txt">
+
+
+<!-- ****************************************** m68k links -->
+
+<!-- still used for credits in administrativa -->
+<!ENTITY url-m68k-faq "http://www.linux-m68k.org/faq/faq.html">
+
+<!ENTITY url-m68k-old-amiga-install "http://www.informatik.uni-oldenburg.de/~amigo/debian_inst.html">
+
+<!-- ****************************************** alpha links -->
+
+<!-- still used for credits in administrativa -->
+<!ENTITY url-alpha-faq "http://linux.iol.unh.edu/linux/alpha/faq/">
+
+
+<!-- ******************************************  arm links -->
+
+<!ENTITY url-slug-firmware "http://www.slug-firmware.net/">
+
+<!ENTITY url-arm-cyrius-dns323 "http://www.cyrius.com/debian/orion/d-link/dns-323">
+
+<!ENTITY url-arm-cyrius-glantank "http://www.cyrius.com/debian/iop/glantank/">
+
+<!ENTITY url-arm-cyrius-n2100 "http://www.cyrius.com/debian/iop/n2100/">
+
+<!ENTITY url-arm-cyrius-nslu2 "http://www.cyrius.com/debian/nslu2/">
+
+<!ENTITY url-arm-cyrius-kuroboxpro "http://www.cyrius.com/debian/orion/buffalo/kuroboxpro/">
+
+<!ENTITY url-arm-cyrius-mv2120 "http://www.cyrius.com/debian/orion/hp/mv2120">
+
+<!ENTITY url-arm-cyrius-qnap "http://www.cyrius.com/debian/orion/qnap/">
+
+<!ENTITY url-arm-cyrius-sheevaplug "http://www.cyrius.com/debian/kirkwood/sheevaplug/">
+
+<!ENTITY url-arm-cyrius-qnap-kirkwood "http://www.cyrius.com/debian/kirkwood/qnap/">
+
+<!-- ******************************************  sparc links -->
+<!--
+  http://www.netbsd.org/Documentation/network/netboot/index.html -
+    tftp setup for NetBSD
+  http://www.geog.ubc.ca/s_linux/howto/netboot.html
+  http://users.ai-lab.fh-furtwangen.de/~eble/sparclinux/installation-howto.html
+  -->
+
+<!ENTITY url-sparc-linux "http://www.ultralinux.org/">
+
+<!ENTITY url-sparc-linux-faq "&url-sparc-linux;faq.html">
+
+<!ENTITY url-openboot "http://docs.sun.com/app/docs/doc/805-4436">
+
+<!ENTITY url-sun-nvram-faq "http://www.squirrel.com/sun-nvram-hostid.faq.html">
+
+
+<!-- ****************************************** powerpc links -->
+
+<!ENTITY url-powerpc-yaboot-faq
+  "http://penguinppc.org/projects/yaboot/doc/yaboot-howto.shtml/">
+
+<!ENTITY url-powerpc-quik-faq
+  "http://penguinppc.org/projects/quik/">
+
+<!ENTITY url-netbsd-powerpc-faq 
+   "http://www.netbsd.org/Ports/macppc/faq.html">
+
+<!ENTITY url-mac-fdisk-tutorial
+  "http://penguinppc.org/projects/yaboot/doc/mac-fdisk-basics.shtml">
+
+<!ENTITY url-powerpc-of 
+   "http://debian-imac.sourceforge.net/">
+
+<!ENTITY url-powerpc-suntar 
+   "http://hyperarchive.lcs.mit.edu/HyperArchive/Archive/cmp/suntar-223.hqx">
+
+<!ENTITY url-powerpc-creator-changer 
+   "ftp://uiarchive.uiuc.edu/mirrors/ftp/ftp.info-mac.org/info-mac/disk/creator-changer-284.hqx">
+
+<!ENTITY url-powerpc-diskcopy 
+   "http://download.info.apple.com/Apple_Support_Area/Apple_Software_Updates/English-North_American/Macintosh/Utilities/Disk_Copy/Disk_Copy_6.3.3.smi.bin">
+
+<!ENTITY url-powerpc-bootx
+   "http://penguinppc.org/projects/bootx/">
+
+
+<!-- ****************************************** mips links -->
+
+<!ENTITY url-linux-mips "http://www.linux-mips.org/">
+
+<!ENTITY url-bcm91250a-hardware "http://www.cyrius.com/debian/bcm91250a/hardware.html">
+
+<!-- ****************************************** s390 links -->
+  
+<!ENTITY url-s390-distributions
+  "http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+
+<!ENTITY url-s390-linux
+  "http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+
+<!ENTITY url-s390-devices
+  "http://oss.software.ibm.com/developerworks/opensource/linux390/docu/l390dd08.pdf">
+
+<!ENTITY url-s390-tech
+  "http://oss.software.ibm.com/developerworks/opensource/linux390/documentation-2.4.shtml">
+
+<!ENTITY url-s390-developerworks
+  "http://oss.software.ibm.com/developerworks/opensource/linux390/index.shtml">
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+End:
+-->

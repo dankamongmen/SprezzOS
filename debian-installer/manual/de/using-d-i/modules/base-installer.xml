@@ -1,0 +1,47 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64743 -->
+
+<para>
+
+Während der Installation des Basissystems werden Meldungen über das Entpacken
+von Paketen und das Setup auf <userinput>tty4</userinput> umgeleitet.
+Sie können durch Drücken von
+<keycombo><keycap>Alt</keycap><keycap>F4</keycap></keycombo>
+auf dieses Terminal umschalten; um wieder zum Haupt-Installationsprozess
+zurückzukehren, drücken Sie
+<keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo>.
+
+</para><para>
+
+Die während dieser Phase erzeugten Meldungen über das Entpacken und das Setup
+werden auch in <filename>/var/log/syslog</filename> gespeichert. Sie können
+Sie auch dort beobachten, wenn die Installation über eine serielle Konsole
+erfolgt.
+
+</para><para>
+
+Als Teil der Installation wird ein &arch-kernel;-Kernel installiert. In der
+Standard-Prioritätseinstellung
+wählt der Installer einen für Sie aus, der am besten zu Ihrer Hardware passt.
+Bei niedrigeren Prioritätseinstellungen können Sie selbst aus einer Liste
+verfügbarer Kernel auswählen.
+
+</para><para>
+
+Wenn Pakete mittels dem Paketmanagementsystem installiert werden, wird dieses
+standardmäßig auch solche Pakete mit installieren, die von den ursprünglich
+zu installierenden vorgeschlagen werden (<quote>Recommends</quote>). Solche 
+vorgeschlagenen Pakete werden für die Kernfunktionalitäten der ausgewählten
+Software nicht unbedingt benötigt, aber sie werten die Software auf und sollten,
+aus der Sicht des Paketbetreuers, normalerweise mit installiert werden.
+
+</para>
+<note><para>
+
+Aus technischen Gründen werden für Pakete des Grundsystems die vorgeschlagenen
+Pakete (<quote>Recommends</quote>) nicht mit installiert. Die oben beschriebene
+Regel greift erst nach diesem Schritt des Installationsprozesses (nach der
+Installation des Grundsystems).
+
+
+</para></note>

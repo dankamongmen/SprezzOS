@@ -1,0 +1,66 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 35613 -->
+
+  <sect3 arch="mips">
+  <title>L'instal·lador <command>arcboot</command></title>
+<para>
+
+El carregador d'arrencada a les màquines SGI és <command>arcboot</command>.
+Ha d'instal·lar-se al mateix disc dur que el nucli (açò ho fa automàticament
+l'instal·lador). L'arcboot suporta diferents configuracions que són ja al
+<filename>/etc/arcboot.conf</filename>. Aquesta configuració té un nom únic,
+la configuració predeterminada que crea l'instal·lador és <quote>linux</quote>.
+Després de tenir instal·lat l'arcboot, el sistema ja es pot arrencar des del
+disc dur donant valors a algunes variables d'entorn del microprogramari fent:
+
+<informalexample><screen>
+<userinput> setenv SystemPartition scsi(<replaceable>scsi</replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</userinput>
+<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(<replaceable>nrpart</replaceable>)</userinput>
+<userinput> setenv OSLoader arcboot</userinput>
+<userinput> setenv OSLoadFilename <replaceable>config</replaceable></userinput>
+<userinput> setenv AutoLoad yes</userinput>
+</screen></informalexample>
+
+a l'indicador del microprogramari, i escrivint <command>boot</command>.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term> <replaceable>scsi</replaceable> </term>
+<listitem><para>
+
+és el bus SCSI des d'on arrencar, que és <userinput>0</userinput>
+per les controladores en placa base
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term> <replaceable>disk</replaceable> </term>
+<listitem><para>
+
+és l'ID SCSI del disc dur on es té instal·lat l'<command>arcboot</command>
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term> <replaceable>nrpart</replaceable> </term>
+<listitem><para>
+
+és el nombre de la partició on és l'<filename>/etc/arcboot.conf</filename>
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term> <replaceable>config</replaceable> </term>
+<listitem><para>
+
+és el nom de l'entrada a la configuració al
+<filename>/etc/arcboot.conf</filename>, on <quote>linux</quote> és
+l'opció predeterminada.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+  </sect3>

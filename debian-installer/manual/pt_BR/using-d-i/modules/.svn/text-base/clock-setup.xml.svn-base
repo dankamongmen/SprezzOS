@@ -1,0 +1,26 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61405 -->
+<!-- updated 39614:50618 by Felipe Augusto van de Wiel (faw) 2008.02.06 -->
+<!-- updated 50618:61405 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+   <sect3 id="clock-setup">
+   <title>Configurando o relógio e fuso horário</title>
+
+<para arch="not-s390">
+
+A primeira tentativa do instalador será conectar a um servidor de hora
+na Internet (usando o protocolo <firstterm>NTP</firstterm>) para configurar
+corretamente a hora do sistema. Se isso não funcionar, o instalador assumirá
+que a hora e a data obtidas do relógio do sistema quando o sistema de
+instalação foi inicializado estão corretas. Não é possível definir a hora
+do sistema manualmente durante o processo de instalação.
+
+</para><para arch="s390">
+
+O instalador não modifica o relógio do sistema na plataforma s390.
+
+</para>
+
+&module-tzsetup.xml;
+
+   </sect3>

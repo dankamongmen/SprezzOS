@@ -1,0 +1,93 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+
+  <sect2 arch="x86"><title>Fer particions per a &arch-title;</title>
+<para>
+
+Si teniu instal·lat un altre sistema operatiu com el DOS o el Windows i
+voleu conservar-lo, potser hàgeu de redimensionar-ne la partició a fi
+d'alliberar espai per a la instal·lació de &debian;. L'instal·lador pot
+redimensionar tant els sistemes de fitxers FAT com els NTFS; quan arribeu
+al moment de partir, escolliu l'opció <guimenuitem>Manual</guimenuitem>
+i només cal que seleccioneu una partició existent i li canvieu la mida.
+
+</para><para>
+
+Normalment, la BIOS del PC posa limitacions al fer particions del disc.
+El nombre de particions <quote>primàries</quote> i <quote>lògiques</quote>
+que pot contenir una unitat és limitat. A més a més, les BIOS anteriors a
+1994&ndash;98 tenen límits quant al lloc de la unitat des del qual es pot
+arrencar.  Hi ha més informació al
+<ulink url="&url-partition-howto;">Linux Partition HOWTO</ulink> i el
+<ulink url="&url-phoenix-bios-faq-large-disk;">Phoenix BIOS FAQ</ulink>,
+però aquesta secció inclou també un breu resum, útil en la majoria de
+situacions.
+
+</para><para>
+
+Les particions <quote>primàries</quote> constitueixen l'esquema original
+de fer particions dels discs de PC. Tanmateix, només n'hi pot haver quatre.
+Per evitar això, es van inventar les particions <quote>estesa</quote> i
+<quote>lògica</quote>. Si configureu una partició primària com a estesa,
+podeu subdividir-ne l'espai en particions lògiques. Es poden crear fins a
+60 particions lògiques per partició estesa; amb tot, sols podeu tenir una
+partició estesa per cada unitat física.
+
+</para><para arch="linux-any">
+
+El Linux limita les particions per unitat física a 255 en discs SCSI
+(3 de primàries, 252 de lògiques), i a 63 en una unitat IDE (3 de
+primàries, 60 de lògiques). Tanmateix el sistema &debian-gnu; normal sols
+proporciona 20 dispositius per a particions, de manera que no podreu
+instal·lar-ne més de 20 si abans no creeu manualment dispositius per
+a elles.
+
+</para><para>
+
+Si teniu un disc IDE gran i no esteu fent servir ni l'adreçament LBA
+ni controladors superposats (de vegades proporcionats pels fabricants),
+aleshores la partició d'arrencada (la que conté la imatge del nucli)
+s'ha de col·locar dins els primers 1024 cilindres del disc (normalment
+uns 524 MiB, sense traducció de la BIOS).
+
+</para><para>
+
+Aquesta restricció no s'aplica si la BIOS és posterior a 1995&ndash;1998
+(segons el fabricant) i conté l'<quote>Especificació de funcionalitat
+millorada d'unitats de disc</quote>. Tant el Lilo, el carregador del
+Linux, com l'<command>mbr</command>, l'alternativa de &debian;, han d'emprar
+la BIOS per traslladar el nucli del disc a la RAM. Si es troben a la BIOS
+les extensions int 0x13 d'accés a discs grans, s'empraran. Si no, es farà
+servir la interfície antiga d'accés al disc, i no es podrà emprar per
+adreçar-se a cap lloc del disc superior al cilindre 1023è. Una vegada
+s'ha arrencat el &arch-kernel;, independentment de la BIOS de l'ordinador,
+aquestes restriccions ja no s'apliquen, car el &arch-kernel; no fa servir la BIOS
+per accedir al disc.
+
+</para><para>
+
+Si teniu un disc gran, potser us caldrà emprar tècniques de traducció de
+cilindres, que podeu emprar des del programa de configuració de la BIOS,
+com ara l'LBA (Adreçament de blocs lògics) o el mode de traducció CHS
+(<quote>Gran</quote>). Trobareu més informació sobre discs grans al
+<ulink url="&url-large-disk-howto;">Large Disk HOWTO</ulink>. Si esteu
+fent servir un esquema de traducció de cilindres i la BIOS no permet l'ús
+d'extensions d'accés a discs grans, aleshores la partició d'arrencada ha
+d'ajustar-se a la representació <emphasis>traduïda</emphasis> del cilindre
+1024è.
+
+</para><para>
+
+La manera recomanada de fer això és crear una partició petita (25&ndash;50
+MiB són prou) al principi del disc, a fi d'emprar-la com a partició
+d'arrencada, i després crear les particions que vulgueu a l'espai restant.
+Aquesta partició d'arrencada <emphasis>s'ha de</emphasis> muntar a
+<filename>/boot</filename>, car aquest és el directori d'emmagatzematge
+del(s) nucli(s) del &arch-kernel;. Aquesta configuració funciona en qualsevol
+sistema, independentment de si es fa servir l'LBA o la traducció CHS de
+discs grans, i independentment també de si la BIOS permet l'ús
+d'extensions d'accés a discs grans.
+
+</para>
+  </sect2>

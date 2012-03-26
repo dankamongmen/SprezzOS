@@ -1,0 +1,2890 @@
+# KURASAWA Nozomu <nabetaro@debian.or.jp>, 2010.
+# Hideki Yamane <henrich@debian.org>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2012-03-18 02:29+0000\n"
+"PO-Revision-Date: 2011-05-15 18:14+0900\n"
+"Last-Translator: Hideki Yamane <henrich@debian.org>\n"
+"Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Virtaal 0.5.2\n"
+
+#. Tag: title
+#: install-methods.xml:5
+#, no-c-format
+msgid "Obtaining System Installation Media"
+msgstr "システムインストールメディアの入手"
+
+#. Tag: title
+#: install-methods.xml:12
+#, no-c-format
+msgid "Official &debian-gnu; CD-ROM Sets"
+msgstr "公式 &debian-gnu; CD-ROM セット"
+
+#. Tag: para
+#: install-methods.xml:13
+#, no-c-format
+msgid ""
+"By far the easiest way to install &debian-gnu; is from an Official &debian; "
+"CD-ROM Set. You can buy a set from a vendor (see the <ulink url=\"&url-"
+"debian-cd-vendors;\">CD vendors page</ulink>). You may also download the CD-"
+"ROM images from a &debian; mirror and make your own set, if you have a fast "
+"network connection and a CD burner (see the <ulink url=\"&url-debian-cd;"
+"\">Debian CD page</ulink> for detailed instructions). If you have a &debian; "
+"CD set and CDs are bootable on your machine, you can skip right to <xref "
+"linkend=\"boot-installer\"/>; much effort has been expended to ensure the "
+"files most people need are there on the CD. Although a full set of binary "
+"packages requires several CDs, it is unlikely you will need packages on the "
+"third CD and above. You may also consider using the DVD version, which saves "
+"a lot of space on your shelf and you avoid the CD shuffling marathon."
+msgstr ""
+"現在、&debian-gnu; をインストールする最も簡単な方法は、公式 &debian; CD-ROM "
+"セットを使うことです。ベンダからこのセットを購入できます (<ulink url=\"&url-"
+"debian-cd-vendors;\">CD ベンダページ</ulink>をご覧ください)。高速なネットワー"
+"ク接続と CD 書き込み装置があれば、 &debian; ミラーから CD-ROM イメージをダウ"
+"ンロードしてもかまいません (詳細説明は <ulink url=\"&url-debian-cd;\">Debian "
+"CD ページ</ulink> をご覧ください)。 &debian; CD セットを持っていて、マシンを"
+"この CD から起動できるなら、<xref linkend=\"boot-installer\"/> の項目までス"
+"キップできます。多くの人がそれぞれの環境で必要になるであろうファイルを CD に"
+"収めるには、たくさんの労力が費やされています。それでも、バイナリパッケージの"
+"フルセットには、CD が数枚必要です。3 枚以上 CD を使うのが嫌なら、棚の節約に"
+"なって CD 交換マラソンをしなくてすむ DVD 版を考えてもいいでしょう。"
+
+#. Tag: para
+#: install-methods.xml:30
+#, no-c-format
+msgid ""
+"If your machine doesn't support CD booting, but you do have a CD set, you "
+"can use an alternative strategy such as <phrase condition=\"supports-floppy-"
+"boot\">floppy disk,</phrase> <phrase arch=\"s390\">tape, emulated tape,</"
+"phrase> <phrase condition=\"bootable-disk\">hard disk,</phrase> <phrase "
+"condition=\"bootable-usb\">usb stick,</phrase> <phrase condition=\"supports-"
+"tftp\">net boot,</phrase> or manually loading the kernel from the CD to "
+"initially boot the system installer. The files you need for booting by "
+"another means are also on the CD; the &debian; network archive and CD folder "
+"organization are identical. So when archive file paths are given below for "
+"particular files you need for booting, look for those files in the same "
+"directories and subdirectories on your CD."
+msgstr ""
+"あなたのマシンが CD からの起動をサポートしていなくても、 CD セットを持ってい"
+"るのでしたら、 最初のシステムインストーラの起動に <phrase condition="
+"\"supports-floppy-boot\">フロッピーディスク、</phrase> <phrase arch=\"s390\">"
+"テープ、テープエミュレーション、</phrase> <phrase condition=\"bootable-disk"
+"\">ハードディスク、</phrase> <phrase condition=\"bootable-usb\">usb メモリ、"
+"</phrase> <phrase condition=\"supports-tftp\">ネットブート、</phrase> カーネ"
+"ルを CD から手動起動といった別の方法が使えます。 これらの別法による起動に必要"
+"なファイルも CD にあります。 &debian; ネットワークアーカイブと CD のフォルダ"
+"構成は同じです。 よって、起動に必要となる何らかのファイルの、 アーカイブ中で"
+"のファイルパスが (後述するように) わかっていれば、 CD の同じディレクトリやサ"
+"ブディレクトリからファイルを探せます。"
+
+#. Tag: para
+#: install-methods.xml:52
+#, no-c-format
+msgid ""
+"Once the installer is booted, it will be able to obtain all the other files "
+"it needs from the CD."
+msgstr ""
+"いったんインストーラが起動すれば、 ほかの必要なファイルはすべて CD から取得で"
+"きます。"
+
+#. Tag: para
+#: install-methods.xml:57
+#, no-c-format
+msgid ""
+"If you don't have a CD set, then you will need to download the installer "
+"system files and place them on the <phrase arch=\"s390\">installation tape</"
+"phrase> <phrase condition=\"supports-floppy-boot\">floppy disk or</phrase> "
+"<phrase condition=\"bootable-disk\">hard disk or</phrase> <phrase condition="
+"\"bootable-usb\">usb stick or</phrase> <phrase condition=\"supports-tftp\">a "
+"connected computer</phrase> so they can be used to boot the installer."
+msgstr ""
+"CD セットを持っていない場合は、インストーラのシステムファイルを ダウンロード"
+"して、 <phrase arch=\"s390\">インストール用テープ</phrase> <phrase condition="
+"\"supports-floppy-boot\">フロッピーディスク、</phrase> <phrase condition="
+"\"bootable-disk\">ハードディスク、</phrase> <phrase condition=\"bootable-usb"
+"\">usb メモリ、</phrase> <phrase condition=\"supports-tftp\">接続されたコン"
+"ピュータ</phrase> のいずれかに保存します。そしてそこからインストーラを起動し"
+"ます。"
+
+#. Tag: title
+#: install-methods.xml:83
+#, no-c-format
+msgid "Downloading Files from &debian; Mirrors"
+msgstr "&debian; ミラーサイトからのファイルのダウンロード"
+
+#. Tag: para
+#: install-methods.xml:85
+#, no-c-format
+msgid ""
+"To find the nearest (and thus probably the fastest) mirror, see the <ulink "
+"url=\"&url-debian-mirrors;\">list of &debian; mirrors</ulink>."
+msgstr ""
+"もっとも近い (そしておそらくもっとも速い) ミラーサイトを探すには、 <ulink "
+"url=\"&url-debian-mirrors;\">&debian; ミラーサイト一覧</ulink> を参照してくだ"
+"さい。"
+
+#. Tag: para
+#: install-methods.xml:90
+#, no-c-format
+msgid ""
+"When downloading files from a &debian; mirror using FTP, be sure to download "
+"the files in <emphasis>binary</emphasis> mode, not text or automatic mode."
+msgstr ""
+"&debian; ミラーサイトから FTP でファイルをダウンロードする際は、必ず "
+"<emphasis>バイナリ(binary)</emphasis> モードでファイルをダウンロードしてくだ"
+"さい。テキスト (text) モードや自動選択モードではだめです。"
+
+#. Tag: title
+#: install-methods.xml:98
+#, no-c-format
+msgid "Where to Find Installation Images"
+msgstr "どこでインストールイメージを探すか"
+
+#. Tag: para
+#: install-methods.xml:100
+#, no-c-format
+msgid ""
+"The installation images are located on each &debian; mirror in the directory "
+"<ulink url=\"&url-debian-installer;images\">debian/dists/&releasename;/main/"
+"installer-&architecture;/current/images/</ulink> &mdash; the <ulink url="
+"\"&url-debian-installer;images/MANIFEST\">MANIFEST</ulink> lists each image "
+"and its purpose."
+msgstr ""
+"インストールイメージは、各 &debian; ミラーサーバの <ulink url=\"&url-debian-"
+"installer;images\">debian/dists/&releasename;/main/installer-&architecture;/"
+"current/images/</ulink> にあります。各イメージとその用途が、<ulink url="
+"\"&url-debian-installer;images/MANIFEST\">MANIFEST</ulink> に記載されていま"
+"す。"
+
+#. Tag: title
+#: install-methods.xml:113
+#, no-c-format
+msgid "NSLU2 Installation Files"
+msgstr "NSLU2 のインストールファイル"
+
+#. Tag: para
+#: install-methods.xml:114
+#, no-c-format
+msgid ""
+"A firmware image is provided for the Linksys NSLU2 which will automatically "
+"boot <classname>debian-installer</classname>. This image can be uploaded via "
+"the Linksys web frontend or with upslug2. This firmware image can be "
+"obtained from &nslu2-firmware-img;."
+msgstr ""
+"<classname>debian-installer</classname> が自動的に起動する、Linksys NSLU2 向"
+"けのファームウェアイメージが提供されています。 このイメージを Linksys web "
+"frontend や upslug2 を用いてアップロードします。このファームウェアイメージ"
+"は、&nslu2-firmware-img; から得られます。"
+
+#. Tag: title
+#: install-methods.xml:126
+#, no-c-format
+msgid "Thecus N2100 Installation Files"
+msgstr "Thecus N2100 のインストールファイル"
+
+#. Tag: para
+#: install-methods.xml:127
+#, no-c-format
+msgid ""
+"A firmware image is provided for the Thecus N2100 which will automatically "
+"boot <classname>debian-installer</classname>. This image can be installed "
+"using the Thecus firmware upgrade process. This firmware image can be "
+"obtained from &n2100-firmware-img;."
+msgstr ""
+"<classname>debian-installer</classname> が自動的に起動する、Thecus N2100 向け"
+"のファームウェアイメージが提供されています。 このイメージを Thecus firmware "
+"upgrade process を用いてインストールできます。このファームウェアイメージは、"
+"&n2100-firmware-img; から得られます。"
+
+#. Tag: title
+#: install-methods.xml:138
+#, no-c-format
+msgid "GLAN Tank Installation Files"
+msgstr "GLAN Tank のインストールファイル"
+
+#. Tag: para
+#: install-methods.xml:139
+#, no-c-format
+msgid ""
+"The GLAN Tank requires a kernel and ramdisk on an ext2 partition on the disk "
+"on which you intend to install &debian;. These images can be obtained from "
+"&glantank-firmware-img;."
+msgstr ""
+"GLAN Tank では、&debian; をインストールする予定のディスクにある ext2 パーティ"
+"ションに、カーネルと RAM ディスクイメージが必要です。このイメージは、 "
+"&glantank-firmware-img; から取得できます。"
+
+#. Tag: title
+#: install-methods.xml:149
+#, no-c-format
+msgid "Kurobox Pro Installation Files"
+msgstr "玄箱 Pro のインストールファイル"
+
+#. Tag: para
+#: install-methods.xml:150
+#, no-c-format
+msgid ""
+"The Kurobox Pro requires a kernel and ramdisk on an ext2 partition on the "
+"disk on which you intend to install &debian;. These images can be obtained "
+"from &kuroboxpro-firmware-img;."
+msgstr ""
+"玄箱 Pro では、&debian; をインストールする予定のディスクにある ext2 パーティ"
+"ションに、カーネルと RAM ディスクイメージが必要です。このイメージは、 "
+"&kuroboxpro-firmware-img; から取得できます。"
+
+#. Tag: title
+#: install-methods.xml:160
+#, no-c-format
+msgid "HP mv2120 Installation Files"
+msgstr "HP mv2120 のインストールファイル"
+
+#. Tag: para
+#: install-methods.xml:161
+#, no-c-format
+msgid ""
+"A firmware image is provided for the HP mv2120 which will automatically boot "
+"<classname>debian-installer</classname>. This image can be installed with "
+"uphpmvault on Linux and other systems and with the HP Media Vault Firmware "
+"Recovery Utility on Windows. The firmware image can be obtained from &mv2120-"
+"firmware-img;."
+msgstr ""
+"<classname>debian-installer</classname> が自動的に起動する、HP mv2120 向けの"
+"ファームウェアイメージが提供されています。このイメージを、Linux では "
+"uphpmvault、Windows では HP Media Vault Firmware Recovery Utility でインス"
+"トールします。このファームウェアイメージは、&mv2120-firmware-img; から得られ"
+"ます。"
+
+#. Tag: title
+#: install-methods.xml:173
+#, no-c-format
+msgid "QNAP Turbo Station Installation Files"
+msgstr "QNAP Turbo Station のインストールファイル"
+
+#. Tag: para
+#: install-methods.xml:174
+#, no-c-format
+msgid ""
+"The installation files for the QNAP Turbo Station consist of a kernel and "
+"ramdisk as well as a script to write these images to flash. You can obtain "
+"the installation files for QNAP TS-109 and TS-209 from &qnap-orion-firmware-"
+"img; and for QNAP TS-110, TS-119, TS-210, TS-219, TS-219P from &qnap-"
+"kirkwood-firmware-img;."
+msgstr ""
+"QNAP Turbo Station 用のインストールファイルは、カーネルと RAM ディスク、これ"
+"らを flash メモリに書き込むスクリプトで構成されています。これらの QNAP "
+"TS-109 と TS-209 用ファイルは、&qnap-orion-firmware-img; から取得できます。ま"
+"た、QNAP TS-110, TS-119, TS-210, TS-219, TS-219P 用ファイルは、&qnap-"
+"kirkwood-firmware-img; から取得できます。"
+
+#. Tag: title
+#: install-methods.xml:186
+#, no-c-format
+msgid "SheevaPlug and OpenRD Installation Files"
+msgstr "SheevaPlug と OpenRD のインストールファイル"
+
+#. Tag: para
+#: install-methods.xml:187
+#, no-c-format
+msgid ""
+"The installation files for the Marvell SheevaPlug and OpenRD devices consist "
+"of a kernel and initrd for U-Boot. You can obtain these files from &kirkwood-"
+"marvell-firmware-img;."
+msgstr ""
+"Marvell SheevaPlug と OpenRD デバイス用のインストールファイルは、U-Boot 用の"
+"カーネルと initrd で構成されています。これらのファイルを &kirkwood-marvell-"
+"firmware-img; から取得できます。"
+
+#. Tag: title
+#: install-methods.xml:237
+#, no-c-format
+msgid "Creating an IPL tape"
+msgstr "IPL テープの作成"
+
+#. Tag: para
+#: install-methods.xml:239
+#, no-c-format
+msgid ""
+"If you can't boot (IPL) from the CD-ROM and you are not using VM you need to "
+"create an IPL tape first. This is described in section 3.4.3 in the <ulink "
+"url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux "
+"for IBM eServer zSeries and S/390: Distributions</ulink> Redbook. The files "
+"you need to write to the tape are (in this order): <filename>kernel.debian</"
+"filename>, <filename>parmfile.debian</filename> and <filename>initrd.debian</"
+"filename>. The files can be downloaded from the <filename>tape</filename> "
+"sub-directory, see <xref linkend=\"where-files\"/>."
+msgstr ""
+"CD-ROM から起動 (IPL) できず、かつ VM を使っていないときは、 まず最初に IPL "
+"テープを作成する必要があります。 これは <ulink url=\"http://www.redbooks.ibm."
+"com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and "
+"S/390: Distributions</ulink> Redbook の 3.4.3 で説明されています。 テープに書"
+"き込むファイルは、順番に <filename>kernel.debian</filename>, "
+"<filename>parmfile.debian</filename>, <filename>initrd.debian</filename> で"
+"す。 このファイルは <filename>tape</filename> サブディレクトリにあります。 "
+"<xref linkend=\"where-files\"/> をご覧ください。"
+
+#. Tag: title
+#: install-methods.xml:263
+#, no-c-format
+msgid "Creating Floppies from Disk Images"
+msgstr "ディスクイメージからのフロッピーの作成"
+
+#. Tag: para
+#: install-methods.xml:264
+#, no-c-format
+msgid ""
+"Bootable floppy disks are generally used as a last resort to boot the "
+"installer on hardware that cannot boot from CD or by other means."
+msgstr ""
+"CD から起動できないハードウェアやその他の理由の時に 通常最後の手段として、イ"
+"ンストーラを起動するのに起動可能なフロッピーディスクを用います。"
+
+#. Tag: para
+#: install-methods.xml:269
+#, no-c-format
+msgid ""
+"Booting the installer from floppy disk reportedly fails on Mac USB floppy "
+"drives."
+msgstr ""
+"Mac USB フロッピードライブでは、 フロッピーディスクからインストーラを起動でき"
+"ないそうです。"
+
+#. Tag: para
+#: install-methods.xml:274
+#, no-c-format
+msgid ""
+"Disk images are files containing the complete contents of a floppy disk in "
+"<emphasis>raw</emphasis> form. Disk images, such as <filename>boot.img</"
+"filename>, cannot simply be copied to floppy drives. A special program is "
+"used to write the image files to floppy disk in <emphasis>raw</emphasis> "
+"mode. This is required because these images are raw representations of the "
+"disk; it is required to do a <emphasis>sector copy</emphasis> of the data "
+"from the file onto the floppy."
+msgstr ""
+"ディスクイメージは、フロッピーディスクの完全な内容を <emphasis>そのまま</"
+"emphasis> の形式で含むファイルです。 <filename>boot.img</filename> のような"
+"ディスクイメージは、 フロッピーディスクに単純にコピーすることはできません。 "
+"イメージファイルをフロッピーディスクに <emphasis>そのまま</emphasis> の形式で"
+"書き込むには、 特別なプログラムを用います。 これらのイメージがディスクの内容"
+"の raw イメージであるためです。 これらのファイルからフロッピーへは、 データ"
+"の <emphasis>セクタコピー</emphasis> が必要になります。"
+
+#. Tag: para
+#: install-methods.xml:285
+#, no-c-format
+msgid ""
+"There are different techniques for creating floppies from disk images. This "
+"section describes how to create floppies from disk images on different "
+"platforms."
+msgstr ""
+"ディスクイメージからフロッピーを作成する方法には違いがあります。 この節では、"
+"それぞれのプラットフォームにおいて、 ディスクイメージからフロッピーを作成する"
+"方法を説明します。"
+
+#. Tag: para
+#: install-methods.xml:291
+#, no-c-format
+msgid ""
+"Before you can create the floppies, you will first need to download them "
+"from one of the &debian; mirrors, as explained in <xref linkend="
+"\"downloading-files\"/>. <phrase arch=\"i386\">If you already have an "
+"installation CD-ROM or DVD, the floppy images may also be included on the CD/"
+"DVD.</phrase>"
+msgstr ""
+"フロッピーを作成する前に、&debian; のミラーサイトから <xref linkend="
+"\"downloading-files\"/> で説明しているように、 ディスクイメージをダウンロード"
+"する必要があります。 <phrase arch=\"i386\">インストール CD-ROM/DVD が既にある"
+"場合、 フロッピーイメージは CD/DVD に含まれているはずです。</phrase>"
+
+#. Tag: para
+#: install-methods.xml:299
+#, no-c-format
+msgid ""
+"No matter which method you use to create your floppies, you should remember "
+"to flip the write-protect tab on the floppies once you have written them, to "
+"ensure they are not damaged unintentionally."
+msgstr ""
+"どの方法でフロッピーを作成するにせよ、 一旦イメージを書き込んだら、 忘れずに"
+"フロッピーの書き込み禁止タブをずらして書き込み禁止にし、 不注意で壊すことがな"
+"いようにしましょう。"
+
+#. Tag: title
+#: install-methods.xml:307
+#, no-c-format
+msgid "Writing Disk Images From a Linux or Unix System"
+msgstr "Linux や Unix システムでのディスクイメージの書き込み"
+
+#. Tag: para
+#: install-methods.xml:308
+#, no-c-format
+msgid ""
+"To write the floppy disk image files to the floppy disks, you will probably "
+"need root access to the system. Place a good, blank floppy in the floppy "
+"drive. Next, use the command <informalexample><screen>\n"
+"$ dd if=<replaceable>filename</replaceable> of=/dev/fd0 bs=1024 conv=sync ; "
+"sync\n"
+"</screen></informalexample> where <replaceable>filename</replaceable> is one "
+"of the floppy disk image files. <filename>/dev/fd0</filename> is a commonly "
+"used name of the floppy disk device, it may be different on your "
+"workstation<phrase arch=\"sparc\"> (on Solaris, it is <filename>/dev/fd/0</"
+"filename>)</phrase>. The command may return to the prompt before Unix has "
+"finished writing the floppy disk, so look for the disk-in-use light on the "
+"floppy drive and be sure that the light is out and the disk has stopped "
+"revolving before you remove it from the drive. On some systems, you'll have "
+"to run a command to eject the floppy from the drive <phrase arch=\"sparc\"> "
+"(on Solaris, use <command>eject</command>, see the manual page)</phrase>."
+msgstr ""
+"フロッピーディスクイメージをフロッピーディスクに書き込むためには、おそらくシ"
+"ステムの root 権限が必要になるでしょう。質の良い、空のフロッピーディスクをフ"
+"ロッピードライブに挿入し、次のコマンドを実行してください。"
+"<informalexample><screen>\n"
+"$ dd if=<replaceable>filename</replaceable> of=/dev/fd0 bs=1024 conv=sync ; "
+"sync\n"
+"</screen></informalexample> <replaceable>filename</replaceable> のところに"
+"は、フロッピーディスクイメージのどれかの名前を書きます。<filename>/dev/fd0</"
+"filename> はフロッピーディスク装置によく使われている名前ですが、あなたのワー"
+"クステーションでは異なるかもしれません<phrase arch=\"sparc\"> (Solaris では "
+"<filename>/dev/fd/0</filename> になります)</phrase>。このコマンドは、Unix が"
+"フロッピーディスクへの書き込みを終える前に終了してプロンプトを返す可能性があ"
+"ります。そのため、フロッピードライブのディスク使用中のランプを見て、ランプが"
+"消えていること、およびディスクの回転が止まっていることを確認した後で、フロッ"
+"ピーディスクをドライブから取り出してください。システムによっては、ドライブか"
+"らフロッピーディスクを取り出すため、なんらかのコマンド実行が必要となることも"
+"あります <phrase arch=\"sparc\">(Solaris では <command>eject</command> を実行"
+"してください。 詳細はマニュアルページをご覧ください)</phrase>。"
+
+#. Tag: para
+#: install-methods.xml:329
+#, no-c-format
+msgid ""
+"Some systems attempt to automatically mount a floppy disk when you place it "
+"in the drive. You might have to disable this feature before the workstation "
+"will allow you to write a floppy in <emphasis>raw mode</emphasis>. "
+"Unfortunately, how to accomplish this will vary based on your operating "
+"system. <phrase arch=\"sparc\"> On Solaris, you can work around volume "
+"management to get raw access to the floppy. First, make sure that the floppy "
+"is auto-mounted (using <command>volcheck</command> or the equivalent command "
+"in the file manager). Then use a <command>dd</command> command of the form "
+"given above, just replace <filename>/dev/fd0</filename> with <filename>/vol/"
+"rdsk/<replaceable>floppy_name</replaceable></filename>, where "
+"<replaceable>floppy_name</replaceable> is the name the floppy disk was given "
+"when it was formatted (unnamed floppies default to the name "
+"<filename>unnamed_floppy</filename>). On other systems, ask your system "
+"administrator. </phrase>"
+msgstr ""
+"システムによっては、ドライブに挿入されたフロッピーディスクを自動的にマウント"
+"しようとします。 そのようなワークステーションで、フロッピーディスクにイメージ"
+"を <emphasis>raw mode</emphasis> 形式で書き込むには、この自動マウント機能を無"
+"効にしなければならないかもしれません。残念ながら、これをどのように行うかは "
+"OS によって異なります。<phrase arch=\"sparc\">Solaris では、ボリューム管理を"
+"使わないようにすれば、フロッピーに raw mode でアクセスできます。まずフロッ"
+"ピーが自動マウントされていることを確認します (ファイルマネージャの "
+"<command>volcheck</command> などのプログラムを使ってください)。 つぎに "
+"<command>dd</command> コマンドを前述の形式で使います。 ただし <filename>/dev/"
+"fd0</filename> は <filename>/vol/rdsk/<replaceable>floppy_name</"
+"replaceable></filename> に置き換えます。ここで <replaceable>floppy_name</"
+"replaceable> は、 フロッピーディスクのフォーマット時に与えた名前です (名前を"
+"つけない場合のデフォルトは <filename>unnamed_floppy</filename> です)。 その他"
+"のシステムでは、システム管理者にお尋ねください。 </phrase>"
+
+#. Tag: para
+#: install-methods.xml:350
+#, no-c-format
+msgid ""
+"If writing a floppy on powerpc Linux, you will need to eject it. The "
+"<command>eject</command> program handles this nicely; you might need to "
+"install it."
+msgstr ""
+"powerpc Linux 上でフロッピーを書き込む場合、 フロッピーの取り出しが必要で"
+"す。 <command>eject</command> プログラムはこれをうまく扱いますが、 インストー"
+"ルしなければならないでしょう。"
+
+#. Tag: title
+#: install-methods.xml:368
+#, no-c-format
+msgid "Writing Disk Images From DOS, Windows, or OS/2"
+msgstr "DOS, Windows, OS/2 でのディスクイメージの書き込み"
+
+#. Tag: para
+#: install-methods.xml:370
+#, no-c-format
+msgid ""
+"If you have access to an i386 or amd64 machine, you can use one of the "
+"following programs to copy images to floppies."
+msgstr ""
+"i386 マシンや amd64 マシンが利用できる場合、 フロッピーへのイメージのコピーに"
+"は以下のプログラムのどれかが使えます。"
+
+#. Tag: para
+#: install-methods.xml:375
+#, no-c-format
+msgid ""
+"The <command>rawrite1</command> and <command>rawrite2</command> programs can "
+"be used under MS-DOS. To use these programs, first make sure that you are "
+"booted into DOS. Trying to use these programs from within a DOS box in "
+"Windows, or double-clicking on these programs from the Windows Explorer is "
+"<emphasis>not</emphasis> expected to work."
+msgstr ""
+"MS-DOS では <command>rawrite1</command>・<command>rawrite2</command> プログラ"
+"ムを使用できます。 このプログラムを使用するには、まず DOS で起動しているかど"
+"うか確認してください。 このプログラムを Windows 上の DOS ボックスで使用しよう"
+"としたり、 Windows の エクスプローラでダブルクリックしても、 <emphasis>動作し"
+"ない</emphasis>ことが予想されます。"
+
+#. Tag: para
+#: install-methods.xml:383
+#, no-c-format
+msgid ""
+"The <command>rwwrtwin</command> program runs on Windows 95, NT, 98, 2000, "
+"ME, XP and probably later versions. To use it you will need to unpack diskio."
+"dll in the same directory."
+msgstr ""
+"Windows 95, NT, 98, 2000, Me, XP そしておそらくそれ以降のバージョンでは、 "
+"<command>rwwrtwin</command> プログラムが動作します。 これを使用するには、同じ"
+"ディレクトリに diskio.dll を展開する必要があります。"
+
+#. Tag: para
+#: install-methods.xml:389
+#, no-c-format
+msgid ""
+"These tools can be found on the Official &debian; CD-ROMs under the "
+"<filename>/tools</filename> directory."
+msgstr ""
+"以上のツールは、 公式 &debian; CD-ROM の <filename>/tools</filename> にありま"
+"す。"
+
+#. Tag: title
+#: install-methods.xml:402
+#, no-c-format
+msgid "Writing Disk Images From MacOS"
+msgstr "MacOS からのディスクイメージの書き込み"
+
+#. Tag: para
+#: install-methods.xml:403
+#, no-c-format
+msgid ""
+"An AppleScript, <application>Make &debian; Floppy</application>, is "
+"available for burning floppies from the provided disk image files. It can be "
+"downloaded from <ulink url=\"ftp://ftp2.sourceforge.net/pub/sourceforge/d/de/"
+"debian-imac/MakeDebianFloppy.sit\"></ulink>. To use it, just unstuff it on "
+"your desktop, and then drag any floppy image file to it. You must have "
+"Applescript installed and enabled in your extensions manager. Disk Copy will "
+"ask you to confirm that you wish to erase the floppy and proceed to write "
+"the file image to it."
+msgstr ""
+"<application>Make Debian Floppy</application> という AppleScript を使えば、 "
+"提供されているディスクイメージファイルをフロッピーに書き込むことが出来ます。 "
+"この AppleScript は <ulink url=\"ftp://ftp2.sourceforge.net/pub/sourceforge/"
+"d/de/debian-imac/MakeDebianFloppy.sit\"></ulink> からダウンロードできます。デ"
+"スクトップに unstuff して、 フロッピーイメージファイルをその上にドラッグする"
+"だけです。 AppleScript をインストールし、 extensions manager で有効にしておく"
+"必要があります。 フロッピーの内容を消去してファイルイメージの書き込みを進めて"
+"良いかを Disk Copy から尋ねられます。"
+
+#. Tag: para
+#: install-methods.xml:414
+#, no-c-format
+msgid ""
+"You can also use the MacOS utility <command>Disk Copy</command> directly, or "
+"the freeware utility <command>suntar</command>. The <filename>root.bin</"
+"filename> file is an example of a floppy image. Use one of the following "
+"methods to create a floppy from the floppy image with these utilities."
+msgstr ""
+"MacOS のユーティリティ <command>Disk Copy</command> を直接使ったり、 フリー"
+"ウェアのユーティリティ <command>suntar</command> を使うこともできます。 "
+"<filename>root.bin</filename> ファイルをフロッピーイメージの例として、 これら"
+"のユーティリティでフロッピーイメージから フロッピーディスクを作製する方法を以"
+"下にいくつか紹介します。"
+
+#. Tag: title
+#: install-methods.xml:425
+#, no-c-format
+msgid "Writing Disk Images with <command>Disk Copy</command>"
+msgstr "<command>Disk Copy</command> を用いたディスクイメージの書き込み"
+
+#. Tag: para
+#: install-methods.xml:426
+#, no-c-format
+msgid ""
+"If you are creating the floppy image from files which were originally on the "
+"official &debian-gnu; CD, then the Type and Creator are already set "
+"correctly. The following <command>Creator-Changer</command> steps are only "
+"necessary if you downloaded the image files from a &debian; mirror."
+msgstr ""
+"公式 &debian-gnu; CD にあったファイルからフロッピーイメージを作る場合は、 "
+"Type と Creator は既に適切な値になっています。 ここに示す <command>Creator-"
+"Changer</command> の作業は、イメージファイルを &debian; ミラーからダウンロー"
+"ドした場合でのみ必要となります。"
+
+#. Tag: para
+#: install-methods.xml:435
+#, no-c-format
+msgid ""
+"Obtain <ulink url=\"&url-powerpc-creator-changer;\">Creator-Changer</ulink> "
+"and use it to open the <filename>root.bin</filename> file."
+msgstr ""
+"<ulink url=\"&url-powerpc-creator-changer;\">Creator-Changer</ulink> を取得"
+"し、これを用いて <filename>root.bin</filename> ファイルをオープンします。"
+
+#. Tag: para
+#: install-methods.xml:442
+#, no-c-format
+msgid ""
+"Change the Creator to <userinput>ddsk</userinput> (Disk Copy), and the Type "
+"to <userinput>DDim</userinput> (binary floppy image). The case is sensitive "
+"for these fields."
+msgstr ""
+"Creator を <userinput>ddsk</userinput> (Disk Copy) に変更し、 Type を "
+"<userinput>DDim</userinput> (バイナリフロッピーイメージ) に変更します。 これ"
+"らのフィールドでは大文字小文字が区別されますので注意してください。"
+
+#. Tag: para
+#: install-methods.xml:449
+#, no-c-format
+msgid ""
+"<emphasis>Important:</emphasis> In the Finder, use <userinput>Get Info</"
+"userinput> to display the Finder information about the floppy image, and "
+"<quote>X</quote> the <userinput>File Locked</userinput> check box so that "
+"MacOS will be unable to remove the boot blocks if the image is accidentally "
+"mounted."
+msgstr ""
+"<emphasis>重要:</emphasis> Finder から <userinput>Get Info</userinput> を用い"
+"て、 フロッピーイメージの Finder 情報を表示させてください。 ここで "
+"<userinput>File Locked</userinput> チェックボックスに <quote>X</quote> を入"
+"れ、 イメージを間違ってマウントしてしまった場合でも MacOS がブートブロックを"
+"消してしまわないようにしてください。"
+
+#. Tag: para
+#: install-methods.xml:458
+#, no-c-format
+msgid ""
+"Obtain <command>Disk Copy</command>; if you have a MacOS system or CD it "
+"will very likely be there already, otherwise try <ulink url=\"&url-powerpc-"
+"diskcopy;\"></ulink>."
+msgstr ""
+"<command>Disk Copy</command> を入手します。 MacOS システムや CD をお持ちな"
+"ら、既にその中にあるでしょう。 持っていなければ <ulink url=\"&url-powerpc-"
+"diskcopy;\"></ulink> を試してみてください。"
+
+#. Tag: para
+#: install-methods.xml:465
+#, no-c-format
+msgid ""
+"Run <command>Disk Copy</command>, and select <menuchoice> "
+"<guimenu>Utilities</guimenu> <guimenuitem>Make a Floppy</guimenuitem> </"
+"menuchoice>, then select the <emphasis>locked</emphasis> image file from the "
+"resulting dialog. It will ask you to insert a floppy, then ask if you really "
+"want to erase it. When done it should eject the floppy."
+msgstr ""
+"<command>Disk Copy</command> を実行します。<menuchoice> <guimenu>Utilities</"
+"guimenu> <guimenuitem>Make a Floppy</guimenuitem> </menuchoice> を選び、 現わ"
+"れたダイアログで <emphasis>locked</emphasis> イメージファイルを選んでくださ"
+"い。 フロッピーを挿入するよう求められ、 続いてその内容を本当に消していいかど"
+"うかを訊かれます。 書き込みが終わったらフロッピーはイジェクトされます。"
+
+#. Tag: title
+#: install-methods.xml:480
+#, no-c-format
+msgid "Writing Disk Images with <command>suntar</command>"
+msgstr "<command>suntar</command> を用いたディスクイメージの書き込み"
+
+#. Tag: para
+#: install-methods.xml:484
+#, no-c-format
+msgid ""
+"Obtain <command>suntar</command> from <ulink url=\"&url-powerpc-suntar;\"> </"
+"ulink>. Start the <command>suntar</command> program and select "
+"<quote>Overwrite Sectors...</quote> from the <userinput>Special</userinput> "
+"menu."
+msgstr ""
+"<command>suntar</command> を <ulink url=\"&url-powerpc-suntar;\"></ulink> か"
+"ら入手します。<command>suntar</command> プログラムを起動し、 "
+"<userinput>Special</userinput> メニューから <quote>Overwrite Sectors...</"
+"quote> を選びます。"
+
+#. Tag: para
+#: install-methods.xml:492
+#, no-c-format
+msgid ""
+"Insert the floppy disk as requested, then hit &enterkey; (start at sector 0)."
+msgstr ""
+"求められたところでフロッピーディスクを挿入し、 &enterkey; を押します (セクタ "
+"0 から始めます)。"
+
+#. Tag: para
+#: install-methods.xml:498
+#, no-c-format
+msgid ""
+"Select the <filename>root.bin</filename> file in the file-opening dialog."
+msgstr ""
+"file-opening ダイアログから <filename>root.bin</filename> ファイルを選びま"
+"す。"
+
+#. Tag: para
+#: install-methods.xml:503
+#, no-c-format
+msgid ""
+"After the floppy has been created successfully, select <menuchoice> "
+"<guimenu>File</guimenu> <guimenuitem>Eject</guimenuitem> </menuchoice>. If "
+"there are any errors writing the floppy, simply toss that floppy and try "
+"another."
+msgstr ""
+"フロッピーがうまく作成されたら、<menuchoice> <guimenu>File</guimenu> "
+"<guimenuitem>Eject</guimenuitem> </menuchoice> を選びます。フロッピーの書き込"
+"みでエラーが起こったら、 そのフロッピーは捨てて別のフロッピーを試してくださ"
+"い。"
+
+#. Tag: para
+#: install-methods.xml:511
+#, no-c-format
+msgid ""
+"Before using the floppy you created, <emphasis>set the write protect tab</"
+"emphasis>! Otherwise if you accidentally mount it in MacOS, MacOS will "
+"helpfully ruin it."
+msgstr ""
+"作成したフロッピーを使う前に、 <emphasis>ツメを動かして書き込み防止にしてくだ"
+"さい</emphasis> こうしておかないと、間違って MacOS にマウントされてしまった場"
+"合、 MacOS がフロッピーを壊してしまいます。"
+
+#. Tag: title
+#: install-methods.xml:530
+#, no-c-format
+msgid "Preparing Files for USB Memory Stick Booting"
+msgstr "USB メモリでの起動用ファイルの準備"
+
+#. Tag: para
+#: install-methods.xml:532
+#, no-c-format
+msgid ""
+"To prepare the USB stick, you will need a system where GNU/Linux is already "
+"running and where USB is supported. With current GNU/Linux systems the USB "
+"stick should be automatically recognized when you insert it. If it is not "
+"you should check that the usb-storage kernel module is loaded. When the USB "
+"stick is inserted, it will be mapped to a device named <filename>/dev/sdX</"
+"filename>, where the <quote>X</quote> is a letter in the range a-z. You "
+"should be able to see to which device the USB stick was mapped by running "
+"the command <command>dmesg</command> after inserting it. To write to your "
+"stick, you may have to turn off its write protection switch."
+msgstr ""
+"USB メモリの準備をするには、GNU/Linux が既に動いていて、USB をサポートしてい"
+"るシステムが必要になります。現在の GNU/Linux では、USB メモリを挿すと自動的に"
+"認識するでしょう。そうならない場合は、usb-storage カーネルモジュールをロード"
+"しているかを確認してください。USB メモリを挿すと、<filename>/dev/sdX</"
+"filename>  (<quote>X</quote> は a〜zの範囲の文字) というデバイスにマッピング"
+"されます。どのデバイスが USB メモリかは、挿した後で <command>dmesg</command> "
+"コマンドを実行すると見られます。USB メモリに書き込むには、ライトプロテクトス"
+"イッチを切る必要があります。"
+
+#. Tag: para
+#: install-methods.xml:545
+#, no-c-format
+msgid ""
+"The procedures described in this section will destroy anything already on "
+"the device! Make very sure that you use the correct device name for your USB "
+"stick. If you use the wrong device the result could be that all information "
+"on for example a hard disk could be lost."
+msgstr ""
+"この方法を使うとデバイス上の既存の物は破壊されてしまいます! USB メモリの正し"
+"いデバイス名を必ず確認して使用してください。間違ったデバイス名を使用すると、"
+"例えばハードディスク内のすべてのデータを失うといったことが起こります。"
+
+#. Tag: title
+#: install-methods.xml:555
+#, no-c-format
+msgid "Preparing a USB stick using a hybrid CD or DVD image"
+msgstr "ハイブリッド CD/DVD イメージを使った USB メモリの準備"
+
+#. Tag: para
+#: install-methods.xml:556
+#, no-c-format
+msgid ""
+"Debian CD and DVD images can now be written directly a USB stick, which is a "
+"very easy way to make a bootable USB stick. Simply choose a CD or DVD image "
+"that will fit on your USB stick. See <xref linkend=\"official-cdrom\"/> to "
+"get a CD or DVD image."
+msgstr ""
+"Debian の CD および DVD イメージは直接書き込めるようになりました。これは、起"
+"動可能な USB メモリを作るとても簡単な方法です。USB メモリに合う CD あるいは "
+"DVD イメージを選んでください。CD または DVD イメージの取得については <xref "
+"linkend=\"official-cdrom\"/> を参照してください。"
+
+#. Tag: para
+#: install-methods.xml:563
+#, no-c-format
+msgid ""
+"Alternatively, for very small USB sticks, only a few megabytes in size, you "
+"can download the <filename>mini.iso</filename> image from the "
+"<filename>netboot</filename> directory (at the location mentioned in <xref "
+"linkend=\"where-files\"/>)."
+msgstr ""
+"別の方法として、とても小さな、サイズが数メガしかない USB メモリ用に、"
+"<filename>netboot</filename> ディレクトリから <filename>mini.iso</filename> "
+"をダウンロードできます (場所については <xref linkend=\"where-files\"/> に記載"
+"があります)。"
+
+#. Tag: para
+#: install-methods.xml:571
+#, no-c-format
+msgid ""
+"A special method can be used to add firmware to the <filename>mini.iso</"
+"filename>. First, write the <filename>mini.iso</filename> to the USB stick. "
+"Next obtain the necessary firmware files. See <xref linkend=\"loading-"
+"firmware\"/> for more information about firmware. Now unplug and replug the "
+"USB stick, and two partitions should now be visible on it. You should mount "
+"the second of the two partitions, and unpack the firmware onto it."
+msgstr ""
+"<filename>mini.iso</filename> にファームウェアを追加するには、特殊な方法が使"
+"えます。まず、<filename>mini.iso</filename> を USB メモリに書き込みます。次"
+"に、必要なファームウェアファイルを追加します。ファームウェアに関する詳細な情"
+"報は、<xref linkend=\"loading-firmware\"/> を参照してください。ここで USB メ"
+"モリを抜き挿しすると、2 つのパーティションが見えるようになっているはずです。"
+"2 つのパーティションのうち 2 番目をマウントし、ファームウェアをその上に展開し"
+"ます。"
+
+#. Tag: screen
+#: install-methods.xml:581
+#, no-c-format
+msgid ""
+"# mount /dev/<replaceable>sdX2</replaceable> /mnt\n"
+"# cd /mnt\n"
+"# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz\n"
+"# cd /\n"
+"# umount"
+msgstr ""
+"# mount /dev/<replaceable>sdX2</replaceable> /mnt\n"
+"# cd /mnt\n"
+"# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz\n"
+"# cd /\n"
+"# umount"
+
+#. Tag: para
+#: install-methods.xml:587
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The CD or DVD image you choose should be written directly to the USB "
+#| "stick, overwriting its current contents. For example, when using an "
+#| "existing GNU/Linux system, the CD or DVD image file can be written to a "
+#| "USB stick as follows:"
+msgid ""
+"The CD or DVD image you choose should be written directly to the USB stick, "
+"overwriting its current contents. For example, when using an existing GNU/"
+"Linux system, the CD or DVD image file can be written to a USB stick as "
+"follows, after having made sure that the stick is unmounted:"
+msgstr ""
+"CD あるいは DVD イメージは、既存のコンテンツを上書きして直接 USB メモリに書き"
+"込む必要があります。例えば、既存の GNU/Linux システムを使っている場合には、"
+"CD または DVD イメージファイルは以下のようにすると直接書き込みができます:"
+
+#. Tag: screen
+#: install-methods.xml:594
+#, fuzzy, no-c-format
+#| msgid ""
+#| "<prompt>#</prompt> <userinput>dd if=<replaceable>debian.iso</replaceable> "
+#| "of=/dev/<replaceable>sdX</replaceable></userinput>\n"
+#| "<prompt>#</prompt> <userinput>sync</userinput>\n"
+msgid ""
+"<prompt>#</prompt> <userinput>dd if=<replaceable>debian.iso</replaceable> "
+"of=/dev/<replaceable>sdX</replaceable></userinput>\n"
+"<prompt>#</prompt> <userinput>sync</userinput>"
+msgstr ""
+"<prompt>#</prompt> <userinput>dd if=<replaceable>debian.iso</replaceable> "
+"of=/dev/<replaceable>sdX</replaceable></userinput>\n"
+"<prompt>#</prompt> <userinput>sync</userinput>\n"
+
+#. Tag: title
+#: install-methods.xml:601
+#, no-c-format
+msgid "Manually copying files to the USB stick"
+msgstr "USB メモリへのファイルの手動コピー"
+
+#. Tag: para
+#: install-methods.xml:602
+#, no-c-format
+msgid ""
+"An alternative way to set up your USB stick is to manually copy the "
+"installer files, and also a CD image to it. Note that the USB stick should "
+"be at least 256 MB in size (smaller setups are possible if you follow <xref "
+"linkend=\"usb-copy-flexible\"/>)."
+msgstr ""
+"USB メモリを設定するもう一つの方法は、インストーラーのファイルと CD イメージ"
+"を手動で書き込むやり方です。USB メモリは少なくとも 256 MB のサイズが必要なの"
+"に注意してください (<xref linkend=\"usb-copy-flexible\"/> のようにすれば、"
+"もっと少ないサイズでも設定が可能です)。"
+
+#. Tag: para
+#: install-methods.xml:609
+#, no-c-format
+msgid ""
+"There is an all-in-one file <filename>hd-media/boot.img.gz</filename> which "
+"contains all the installer files (including the kernel) <phrase arch="
+"\"x86\">as well as <classname>syslinux</classname> and its configuration "
+"file</phrase> <phrase arch=\"powerpc\">as well as <classname>yaboot</"
+"classname> and its configuration file</phrase>."
+msgstr ""
+"<phrase arch=\"x86\"><classname>syslinux</classname> や、その設定ファイルと共"
+"に、</phrase><phrase arch=\"powerpc\"><classname>yaboot</classname> や、その"
+"設定ファイルと共に、</phrase>インストーラの全ファイル (カーネル含む) が入っ"
+"た <filename>hd-media/boot.img.gz</filename> というオールインワンなファイルが"
+"あります。"
+
+#. Tag: para
+#: install-methods.xml:618
+#, no-c-format
+msgid ""
+"Note that, although convenient, this method does have one major "
+"disadvantage: the logical size of the device will be limited to 256 MB, even "
+"if the capacity of the USB stick is larger. You will need to repartition the "
+"USB stick and create new file systems to get its full capacity back if you "
+"ever want to use it for some different purpose. A second disadvantage is "
+"that you cannot copy a full CD image onto the USB stick, but only the "
+"smaller businesscard or netinst CD images."
+msgstr ""
+"これは便利ですが、この方法にはひとつの大きな欠点があることに注意してくださ"
+"い。USB メモリの容量がもっと大きかったとしても、デバイスの論理サイズが 256 "
+"MB に制限されます。他の用途にも使用したい場合は、全容量を確保し直すため、USB "
+"メモリをパーティション分割し直し、新しいファイルシステムを作成する必要があり"
+"ます。2 つめの欠点は、フル CD イメージを USB メモリにコピーはできず、もっと小"
+"さい businesscard や netinst の CD イメージしか使えないことです。"
+
+#. Tag: para
+#: install-methods.xml:628
+#, no-c-format
+msgid "To use this image simply extract it directly to your USB stick:"
+msgstr "このイメージを使用するには、単にUSB メモリに直接展開してください。"
+
+#. Tag: screen
+#: install-methods.xml:632
+#, no-c-format
+msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
+msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
+
+#. Tag: para
+#: install-methods.xml:634
+#, no-c-format
+msgid ""
+"Create a partition of type \"Apple_Bootstrap\" on your USB stick using "
+"<command>mac-fdisk</command>'s <userinput>C</userinput> command and extract "
+"the image directly to that:"
+msgstr ""
+"<command>mac-fdisk</command> の <userinput>C</userinput> コマンドで USB メモ"
+"リに \"Apple_Bootstrap\" タイプのパーティションを作成し、以下のように USB メ"
+"モリに直接展開してください。"
+
+#. Tag: screen
+#: install-methods.xml:640
+#, no-c-format
+msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
+msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
+
+#. Tag: para
+#: install-methods.xml:642
+#, no-c-format
+msgid ""
+"After that, mount the USB memory stick <phrase arch=\"x86\">"
+"(<userinput>mount /dev/<replaceable>sdX</replaceable> /mnt</userinput>),</"
+"phrase> <phrase arch=\"powerpc\">(<userinput>mount /dev/<replaceable>sdX2</"
+"replaceable> /mnt</userinput>),</phrase> which will now have <phrase arch="
+"\"x86\">a FAT filesystem</phrase> <phrase arch=\"powerpc\">an HFS "
+"filesystem</phrase> on it, and copy a &debian; netinst or businesscard ISO "
+"image to it. Unmount the stick (<userinput>umount /mnt</userinput>) and you "
+"are done."
+msgstr ""
+"その後、<phrase arch=\"x86\">FAT ファイルシステムの</phrase> <phrase arch="
+"\"powerpc\">HFS ファイルシステムの</phrase> USB メモリをマウントし <phrase "
+"arch=\"x86\">(<userinput>mount /dev/<replaceable>sdX</replaceable> /mnt</"
+"userinput>)</phrase> <phrase arch=\"powerpc\">(<userinput>mount /dev/"
+"<replaceable>sdX2</replaceable> /mnt</userinput>)</phrase>、そこに &debian; "
+"の netinst か businesscard の ISO イメージをコピーしてください。USB メモリを"
+"アンマウント (<userinput>umount /mnt</userinput>) すると完了です。"
+
+#. Tag: title
+#: install-methods.xml:659
+#, no-c-format
+msgid "Manually copying files to the USB stick &mdash; the flexible way"
+msgstr "USB メモリへのファイルの手動コピー &mdash; 柔軟な方法"
+
+#. Tag: para
+#: install-methods.xml:660
+#, no-c-format
+msgid ""
+"If you like more flexibility or just want to know what's going on, you "
+"should use the following method to put the files on your stick. One "
+"advantage of using this method is that &mdash; if the capacity of your USB "
+"stick is large enough &mdash; you have the option of copying a full CD ISO "
+"image to it."
+msgstr ""
+"もっと柔軟なものがよかったり、何が起きているか知りたいのなら、以下に説明する "
+"USB メモリにファイルを置く方法を使用すべきです。この方法の利点は、(USB メモリ"
+"の容量が十分大きければ) フル CD の ISO イメージをコピーするという選択しもある"
+"ということです。"
+
+#. Tag: title
+#: install-methods.xml:675 install-methods.xml:787
+#, no-c-format
+msgid "Partitioning the USB stick"
+msgstr "USB メモリのパーティション分割"
+
+#. Tag: para
+#: install-methods.xml:676
+#, no-c-format
+msgid ""
+"We will show how to set up the memory stick to use the first partition, "
+"instead of the entire device."
+msgstr ""
+"デバイス全体ではなく、USB メモリの最初のパーティションを セットアップする方法"
+"を示します。"
+
+#. Tag: para
+#: install-methods.xml:681
+#, no-c-format
+msgid ""
+"Since most USB sticks come pre-configured with a single FAT16 partition, you "
+"probably won't have to repartition or reformat the stick. If you have to do "
+"that anyway, use <command>cfdisk</command> or any other partitioning tool to "
+"create a FAT16 partition<footnote> <para> Don't forget to set the "
+"<quote>bootable</quote> bootable flag. </para> </footnote>, and then create "
+"the filesystem using: <informalexample><screen>\n"
+"# mkdosfs /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Take care that you use the correct device name "
+"for your USB stick. The <command>mkdosfs</command> command is contained in "
+"the <classname>dosfstools</classname> &debian; package."
+msgstr ""
+"ほとんどの USB メモリは、FAT16 パーティション 1 つであらかじめ設定されている"
+"ので、おそらく USB メモリのパーティション分割のやり直しや、再フォーマットは必"
+"要ありません。どうしてもしなければならない場合は、<command>cfdisk</command> "
+"や他のパーティション分割ツールを使って、FAT16 パーティションを作成し"
+"<footnote> <para><quote>bootable</quote> フラグを付け忘れないでください。</"
+"para> </footnote>、以下のようにファイルシステムを作成してください。"
+"<informalexample><screen>\n"
+"# mkdosfs /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> USB メモリの正確なデバイス名を使用する事に注意し"
+"てください。<command>mkdosfs</command> は、<classname>dosfstools</classname> "
+"&debian; パッケージに含まれています。"
+
+#. Tag: para
+#: install-methods.xml:700
+#, no-c-format
+msgid ""
+"In order to start the kernel after booting from the USB stick, we will put a "
+"boot loader on the stick. Although any boot loader (e.g. <classname>lilo</"
+"classname>) should work, it's convenient to use <classname>syslinux</"
+"classname>, since it uses a FAT16 partition and can be reconfigured by just "
+"editing a text file. Any operating system which supports the FAT file system "
+"can be used to make changes to the configuration of the boot loader."
+msgstr ""
+"USB メモリからブートしてカーネルを起動するには、USB メモリにブートローダを配"
+"置します。どのブートローダ (例: <classname>lilo</classname>) も動作しますが、"
+"FAT16 パーティションを使用し、テキストファイルを編集するだけで再設定できるの"
+"で、<classname>syslinux</classname> を使用するのが便利です。FAT ファイルシス"
+"テムをサポートするオペレーティングシステムなら、ブートローダの設定を変更する"
+"のに利用できます。"
+
+#. Tag: para
+#: install-methods.xml:710
+#, no-c-format
+msgid ""
+"To put <classname>syslinux</classname> on the FAT16 partition on your USB "
+"stick, install the <classname>syslinux</classname> and <classname>mtools</"
+"classname> packages on your system, and do: <informalexample><screen>\n"
+"# syslinux /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Again, take care that you use the correct device "
+"name. The partition must not be mounted when starting <command>syslinux</"
+"command>. This procedure writes a boot sector to the partition and creates "
+"the file <filename>ldlinux.sys</filename> which contains the boot loader "
+"code."
+msgstr ""
+"USB メモリの FAT16 パーティションに <classname>syslinux</classname> を置くに"
+"は、<classname>syslinux</classname> パッケージと <classname>mtools</"
+"classname> パッケージをシステムにインストールして、以下を実行してください。 "
+"<informalexample><screen>\n"
+"# syslinux /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> 繰り返しますが、正確なデバイス名を使用するよう注"
+"意してください。 <command>syslinux</command> の開始時には、このパーティション"
+"をマウントしてはなりません。この手順ではパーティションにブートセクタを書き込"
+"み、 ブートローダコードを含んでいるファイル <filename>ldlinux.sys</filename> "
+"を作成します。"
+
+#. Tag: title
+#: install-methods.xml:727 install-methods.xml:834
+#, no-c-format
+msgid "Adding the installer image"
+msgstr "インストーライメージの追加"
+
+#. Tag: para
+#: install-methods.xml:728
+#, no-c-format
+msgid ""
+"Mount the partition (<userinput>mount /dev/<replaceable>sdX1</replaceable> /"
+"mnt</userinput>) and copy the following installer image files to the stick: "
+"<itemizedlist> <listitem><para> <filename>vmlinuz</filename> or "
+"<filename>linux</filename> (kernel binary) </para></listitem> "
+"<listitem><para> <filename>initrd.gz</filename> (initial ramdisk image) </"
+"para></listitem> </itemizedlist> You can choose between either the regular "
+"version or the graphical version of the installer. The latter can be found "
+"in the <filename>gtk</filename> subdirectory. If you want to rename the "
+"files, please note that <classname>syslinux</classname> can only process DOS "
+"(8.3) file names."
+msgstr ""
+"このパーティションをマウントし (<userinput>mount /dev/<replaceable>sdX1</"
+"replaceable> /mnt</userinput>)、以下のインストーライメージファイルを USB メモ"
+"リへコピーしてください。<itemizedlist> <listitem><para> <filename>vmlinuz</"
+"filename> か <filename>linux</filename> (カーネルバイナリ) </para></"
+"listitem> <listitem><para> <filename>initrd.gz</filename> (初期化 RAM ディス"
+"クイメージ) </para></listitem> </itemizedlist>インストーラは、通常版とグラ"
+"フィカル版の選択ができます。後者は、<filename>gtk</filename> サブディレクトリ"
+"にあります。ファイル名を変更したければ、<classname>syslinux</classname> は "
+"DOS (8.3) のファイル名しか処理できないことに注意してください。"
+
+#. Tag: para
+#: install-methods.xml:752
+#, no-c-format
+msgid ""
+"Next you should create a <filename>syslinux.cfg</filename> configuration "
+"file, which at a bare minimum should contain the following two lines (change "
+"the name of the kernel binary to <quote><filename>linux</filename></quote> "
+"if you used a <filename>netboot</filename> image): "
+"<informalexample><screen>\n"
+"default vmlinuz\n"
+"append initrd=initrd.gz\n"
+"</screen></informalexample> For the graphical installer you should add "
+"<userinput>vga=788</userinput> to the second line."
+msgstr ""
+"次に、<filename>syslinux.cfg</filename> 設定ファイルを作成します。最低限必要"
+"なのは以下の 2 行です (<filename>netboot</filename> を使用している場合、カー"
+"ネルバイナリ名を <quote><filename>linux</filename></quote> に変更してくださ"
+"い)。<informalexample><screen>\n"
+"default vmlinuz\n"
+"append initrd=initrd.gz\n"
+"</screen></informalexample> グラフィカルインストーラ用には、2 行目に "
+"<userinput>vga=788</userinput> を追加すると良いでしょう。"
+
+#. Tag: para
+#: install-methods.xml:764 install-methods.xml:874
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you used an <filename>hd-media</filename> image, you should now copy a "
+#| "&debian; ISO image<footnote> <para> You can use either a businesscard, a "
+#| "netinst or a full CD image (see <xref linkend=\"official-cdrom\"/>). Be "
+#| "sure to select one that fits. Note that the <quote>netboot <filename>mini."
+#| "iso</filename></quote> image is not usable for this purpose. </para> </"
+#| "footnote> onto the stick. When you are done, unmount the USB memory stick "
+#| "(<userinput>umount /mnt</userinput>)."
+msgid ""
+"If you used an <filename>hd-media</filename> image, you should now copy the "
+"ISO file of a &debian; ISO image<footnote> <para> You can use either a "
+"businesscard, a netinst or a full CD image (see <xref linkend=\"official-"
+"cdrom\"/>). Be sure to select one that fits. Note that the <quote>netboot "
+"<filename>mini.iso</filename></quote> image is not usable for this purpose. "
+"</para> </footnote> onto the stick. When you are done, unmount the USB "
+"memory stick (<userinput>umount /mnt</userinput>)."
+msgstr ""
+"<filename>hd-media</filename> イメージを使用している場合、ここで &debian; の "
+"ISO イメージ<footnote> <para>businesscard, netinst, フル CD イメージのいずれ"
+"かを使用できます (<xref linkend=\"official-cdrom\"/> 参照)。必ず適合するもの"
+"を選択してください。<quote>netboot <filename>mini.iso</filename></quote> イ"
+"メージはこの用途に使用できないことにご注意ください。</para> </footnote>を "
+"USB メモリにコピーします。完了したら、USB メモリを アンマウントしてください "
+"(<userinput>umount /mnt</userinput>)。"
+
+#. Tag: para
+#: install-methods.xml:788
+#, no-c-format
+msgid ""
+"Most USB sticks do not come pre-configured in such a way that Open Firmware "
+"can boot from them, so you will need to repartition the stick. On Mac "
+"systems, run <userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></"
+"userinput>, initialise a new partition map using the <userinput>i</"
+"userinput> command, and create a new partition of type Apple_Bootstrap using "
+"the <userinput>C</userinput> command. (Note that the first \"partition\" "
+"will always be the partition map itself.) Then type "
+"<informalexample><screen>\n"
+"$ hformat /dev/<replaceable>sdX2</replaceable>\n"
+"</screen></informalexample> Take care that you use the correct device name "
+"for your USB stick. The <command>hformat</command> command is contained in "
+"the <classname>hfsutils</classname> &debian; package."
+msgstr ""
+"ほとんどの USB メモリは、Open Firmware で起動できるようにあらかじめ設定されて"
+"いません。Mac システムでは、<userinput>mac-fdisk /dev/<replaceable>sdX</"
+"replaceable></userinput> を起動して、<userinput>i</userinput> コマンドで新規"
+"パーティションマップを初期化し、<userinput>C</userinput> コマンドで "
+"Apple_Bootstrap タイプの パーティションを作成してください (注: 先頭の\"パー"
+"ティション\"はいつもパーティションマップそのものになっています)。その後、次の"
+"ように入力してください。<informalexample><screen>\n"
+"$ hformat /dev/<replaceable>sdX2</replaceable>\n"
+"</screen></informalexample> USB メモリの正確なデバイス名を使用する事に注意し"
+"てください。<command>hformat</command> コマンドは、<classname>hfsutils</"
+"classname> &debian; パッケージに含まれています。"
+
+#. Tag: para
+#: install-methods.xml:805
+#, no-c-format
+msgid ""
+"In order to start the kernel after booting from the USB stick, we will put a "
+"boot loader on the stick. The <command>yaboot</command> boot loader can be "
+"installed on an HFS filesystem and can be reconfigured by just editing a "
+"text file. Any operating system which supports the HFS file system can be "
+"used to make changes to the configuration of the boot loader."
+msgstr ""
+"USB メモリから起動してカーネルをスタートするには、 USB メモリにブートローダを"
+"配置します。 <command>yaboot</command> ブートローダは、 HFS ファイルシステム"
+"にインストールでき、 テキストファイルを編集するだけで再設定できます。 HFS "
+"ファイルシステムをサポートする OS であれば、 ブートローダの設定を変更できま"
+"す。"
+
+#. Tag: para
+#: install-methods.xml:814
+#, no-c-format
+msgid ""
+"The normal <command>ybin</command> tool that comes with <command>yaboot</"
+"command> does not yet understand USB storage devices, so you will have to "
+"install <command>yaboot</command> by hand using the <classname>hfsutils</"
+"classname> tools. Type <informalexample><screen>\n"
+"$ hmount /dev/<replaceable>sdX2</replaceable>\n"
+"$ hcopy -r /usr/lib/yaboot/yaboot :\n"
+"$ hattrib -c UNIX -t tbxi :yaboot\n"
+"$ hattrib -b :\n"
+"$ humount\n"
+"</screen></informalexample> Again, take care that you use the correct device "
+"name. The partition must not be otherwise mounted during this procedure. "
+"This procedure writes the boot loader to the partition, and uses the HFS "
+"utilities to mark it in such a way that Open Firmware will boot it. Having "
+"done this, the rest of the USB stick may be prepared using the normal Unix "
+"utilities."
+msgstr ""
+"<command>yaboot</command> とともにある通常の <command>ybin</command> ツール"
+"は、 USB ストレージデバイスを認識しません。そのため、<classname>hfsutils</"
+"classname> ツールを使って、<command>yaboot</command>を手動でインストールしな"
+"ければなりません。以下を入力してください。 <informalexample><screen>\n"
+"$ hmount /dev/<replaceable>sdX2</replaceable>\n"
+"$ hcopy -r /usr/lib/yaboot/yaboot :\n"
+"$ hattrib -c UNIX -t tbxi :yaboot\n"
+"$ hattrib -b :\n"
+"$ humount\n"
+"</screen></informalexample> 繰り返しますが、正確なデバイス名を使用するよう注"
+"意してください。この手順中でパーティションをマウントする必要はありません。こ"
+"の手順ではパーティションにブートローダを書き込み、Open Firmware が起動できる"
+"ように HFS ユーティリティを使って印を付けます。これが終われば、USB メモリに通"
+"常の Unix ユーティリティを使う準備ができたことになります。"
+
+#. Tag: para
+#: install-methods.xml:835
+#, no-c-format
+msgid ""
+"Mount the partition (<userinput>mount /dev/<replaceable>sdX2</replaceable> /"
+"mnt</userinput>) and copy the following installer image files to the stick:"
+msgstr ""
+"このパーティションをマウントし (<userinput>mount /dev/<replaceable>sdX2</"
+"replaceable> /mnt</userinput>)、以下のインストーライメージファイルを USB メモ"
+"リへコピーしてください。"
+
+#. Tag: para
+#: install-methods.xml:842
+#, no-c-format
+msgid "<filename>vmlinux</filename> (kernel binary)"
+msgstr "<filename>vmlinux</filename> (カーネルバイナリ)"
+
+#. Tag: para
+#: install-methods.xml:847
+#, no-c-format
+msgid "<filename>initrd.gz</filename> (initial ramdisk image)"
+msgstr "<filename>initrd.gz</filename> (初期 RAM ディスクイメージ)"
+
+#. Tag: para
+#: install-methods.xml:852
+#, no-c-format
+msgid "<filename>yaboot.conf</filename> (yaboot configuration file)"
+msgstr "<filename>yaboot.conf</filename> (yaboot 設定ファイル)"
+
+#. Tag: para
+#: install-methods.xml:857
+#, no-c-format
+msgid "<filename>boot.msg</filename> (optional boot message)"
+msgstr "<filename>boot.msg</filename> (追加起動メッセージ)"
+
+#. Tag: para
+#: install-methods.xml:864
+#, no-c-format
+msgid ""
+"The <filename>yaboot.conf</filename> configuration file should contain the "
+"following lines: <informalexample><screen>\n"
+"default=install\n"
+"root=/dev/ram\n"
+"\n"
+"message=/boot.msg\n"
+"\n"
+"image=/vmlinux\n"
+"        label=install\n"
+"        initrd=/initrd.gz\n"
+"        initrd-size=10000\n"
+"        read-only\n"
+"</screen></informalexample> Please note that the <userinput>initrd-size</"
+"userinput> parameter may need to be increased, depending on the image you "
+"are booting."
+msgstr ""
+"<filename>yaboot.conf</filename> 設定ファイルには、 以下の行を含まなければな"
+"りません。 <informalexample><screen>\n"
+"default=install\n"
+"root=/dev/ram\n"
+"\n"
+"message=/boot.msg\n"
+"\n"
+"image=/vmlinux\n"
+"        label=install\n"
+"        initrd=/initrd.gz\n"
+"        initrd-size=10000\n"
+"        read-only\n"
+"</screen></informalexample> 起動するイメージに応じて、<userinput>initrd-"
+"size</userinput> パラメータを、 増やす必要があることに注意してください。"
+
+#. Tag: title
+#: install-methods.xml:902
+#, no-c-format
+msgid "Preparing Files for Hard Disk Booting"
+msgstr "ハードディスク起動ファイルの準備"
+
+#. Tag: para
+#: install-methods.xml:903
+#, no-c-format
+msgid ""
+"The installer may be booted using boot files placed on an existing hard "
+"drive partition, either launched from another operating system or by "
+"invoking a boot loader directly from the BIOS."
+msgstr ""
+"このインストーラはハードディスクパーティションに配置したファイルから起動でき"
+"ます。別の OS から起動することもできますし、BIOS から直接ブートローダを起動す"
+"ることもできます。"
+
+#. Tag: para
+#: install-methods.xml:909
+#, no-c-format
+msgid ""
+"A full, <quote>pure network</quote> installation can be achieved using this "
+"technique. This avoids all hassles of removable media, like finding and "
+"burning CD images or struggling with too numerous and unreliable floppy "
+"disks."
+msgstr ""
+"この方法を使えば、完全な<quote>ネットワークのみ</quote>のインストールを行うこ"
+"とができます。これは、CD メディアを探して焼いたり、たくさんの信頼できないフ"
+"ロッピーディスクを相手に格闘したり、といったリムーバブルメディアに関する厄介"
+"事全てを避けることができます。"
+
+#. Tag: para
+#: install-methods.xml:916
+#, no-c-format
+msgid ""
+"The installer cannot boot from files on an HFS+ file system. MacOS System "
+"8.1 and above may use HFS+ file systems; NewWorld PowerMacs all use HFS+. To "
+"determine whether your existing file system is HFS+, select <userinput>Get "
+"Info</userinput> for the volume in question. HFS file systems appear as "
+"<userinput>Mac OS Standard</userinput>, while HFS+ file systems say "
+"<userinput>Mac OS Extended</userinput>. You must have an HFS partition in "
+"order to exchange files between MacOS and Linux, in particular the "
+"installation files you download."
+msgstr ""
+"インストーラは、HFS+ ファイルシステムにあるファイルから起動できます。MacOS "
+"System 8.1 以上ならば HFS+ ファイルシステムが使えます。NewWorld PowerMac はす"
+"べて HFS+ を使っています。現在のファイルシステムが HFS+ かどうかを調べるに"
+"は、調べたいボリュームに対して <userinput>情報をみる (Get Info)</userinput> "
+"を実行してください。HFS ファイルシステムなら <userinput>Mac OS Standard</"
+"userinput>、HFS+ ファイルシステムなら <userinput>Mac OS Extended</userinput> "
+"となります。MacOS と Linux の間でファイル (特にインストール用にダウンロードし"
+"たファイル) をやりとりするためには、HFS パーティションが必要です。"
+
+#. Tag: para
+#: install-methods.xml:927
+#, no-c-format
+msgid ""
+"Different programs are used for hard disk installation system booting, "
+"depending on whether the system is a <quote>NewWorld</quote> or an "
+"<quote>OldWorld</quote> model."
+msgstr ""
+"ハードディスクからのインストールシステムの起動には、 システムが "
+"<quote>NewWorld</quote> モデルか <quote>OldWorld</quote> モデルかによって、 "
+"別々のプログラムを使います。"
+
+#. Tag: title
+#: install-methods.xml:936
+#, no-c-format
+msgid ""
+"Hard disk installer booting using <command>LILO</command> or <command>GRUB</"
+"command>"
+msgstr ""
+"<command>LILO</command> や <command>GRUB</command> を使用したハードディスクか"
+"らのインストーラの起動"
+
+#. Tag: para
+#: install-methods.xml:938
+#, no-c-format
+msgid ""
+"This section explains how to add to or even replace an existing linux "
+"installation using either <command>LILO</command> or <command>GRUB</command>."
+msgstr ""
+"本節では、<command>LILO</command> や <command>GRUB</command> のどちらかを使用"
+"して、linux を追加したり、 既存の linux を交換する方法について説明します。"
+
+#. Tag: para
+#: install-methods.xml:944
+#, no-c-format
+msgid ""
+"At boot time, both bootloaders support loading in memory not only the "
+"kernel, but also a disk image. This RAM disk can be used as the root file-"
+"system by the kernel."
+msgstr ""
+"起動時に、カーネルだけでなくディスクイメージをメモリに読み込むのを、 どちらの"
+"ブートローダでもサポートしています。 この RAM ディスクは カーネルが root ファ"
+"イルシステムとして使うことができます。"
+
+#. Tag: para
+#: install-methods.xml:950
+#, no-c-format
+msgid ""
+"Copy the following files from the &debian; archives to a convenient location "
+"on your hard drive (note that LILO can not boot from files on an NTFS file "
+"system), for instance to <filename>/boot/newinstall/</filename>."
+msgstr ""
+"以下のファイルを、 &debian; アーカイブからあなたのハードディスクの適当な場所"
+"にコピーしてください (LILO は NTFS ファイルシステムから起動できないことに注意"
+"してください)。例えば <filename>/boot/newinstall/</filename> などです。"
+
+#. Tag: para
+#: install-methods.xml:958
+#, no-c-format
+msgid "<filename>vmlinuz</filename> (kernel binary)"
+msgstr "<filename>vmlinuz</filename> (カーネルバイナリ)"
+
+#. Tag: para
+#: install-methods.xml:963
+#, no-c-format
+msgid "<filename>initrd.gz</filename> (ramdisk image)"
+msgstr "<filename>initrd.gz</filename> (RAM ディスクイメージ)"
+
+#. Tag: para
+#: install-methods.xml:970
+#, no-c-format
+msgid ""
+"Finally, to configure the bootloader proceed to <xref linkend=\"boot-initrd"
+"\"/>."
+msgstr ""
+"最後に、ブートローダを設定するため、 <xref linkend=\"boot-initrd\"/> に進んで"
+"ください。"
+
+#. Tag: title
+#: install-methods.xml:980
+#, no-c-format
+msgid "Hard disk installer booting using <command>loadlin</command>"
+msgstr ""
+"<command>loadlin</command> を使用したハードディスクからのインストーラの起動"
+
+#. Tag: para
+#: install-methods.xml:981
+#, no-c-format
+msgid ""
+"This section explains how to prepare your hard drive for booting the "
+"installer from DOS using <command>loadlin</command>."
+msgstr ""
+"この節では、<command>loadlin</command> を使用して、DOS からインストーラを起動"
+"するようハードディスクを準備する方法を説明します。"
+
+#. Tag: para
+#: install-methods.xml:986
+#, no-c-format
+msgid ""
+"Copy the following directories from a &debian; CD image to <filename>c:\\</"
+"filename>."
+msgstr ""
+"以下のディレクトリを、 &debian; CD イメージから <filename>c:\\</filename> に"
+"コピーしてください。"
+
+#. Tag: para
+#: install-methods.xml:991
+#, no-c-format
+msgid ""
+"<filename>/&x86-install-dir;</filename> (kernel binary and ramdisk image)"
+msgstr ""
+"<filename>/&x86-install-dir;</filename> (カーネルバイナリと RAM ディスクイ"
+"メージ)"
+
+#. Tag: para
+#: install-methods.xml:996
+#, no-c-format
+msgid "<filename>/tools</filename> (loadlin tool)"
+msgstr "<filename>/tools</filename> (loadlin ツール)"
+
+#. Tag: title
+#: install-methods.xml:1009
+#, no-c-format
+msgid "Hard Disk Installer Booting for OldWorld Macs"
+msgstr "OldWorld Mac におけるハードディスクからのインストーラの起動"
+
+#. Tag: para
+#: install-methods.xml:1010
+#, no-c-format
+msgid ""
+"The <filename>boot-floppy-hfs</filename> floppy uses <application>miBoot</"
+"application> to launch Linux installation, but <application>miBoot</"
+"application> cannot easily be used for hard disk booting. "
+"<application>BootX</application>, launched from MacOS, supports booting from "
+"files placed on the hard disk. <application>BootX</application> can also be "
+"used to dual-boot MacOS and Linux after your &debian; installation is "
+"complete. For the Performa 6360, it appears that <command>quik</command> "
+"cannot make the hard disk bootable. So <application>BootX</application> is "
+"required on that model."
+msgstr ""
+"<filename>boot-floppy-hfs</filename> フロッピーは、Linux インストールシステム"
+"の 起動に <application>miBoot</application> を使います。 しかし "
+"<application>miBoot</application> をハードディスクからの起動に使うのは簡単で"
+"はありません。 MacOS から起動する <application>BootX</application> は、 ハー"
+"ドディスクに置かれたファイルからの起動をサポートしています。 "
+"<application>BootX</application> は、&debian; のインストールが完了した後に、 "
+"MacOS と Linux をデュアルブートさせるのにも使えます。 Performa 6360 では、"
+"<command>quik</command> はハードディスクを起動できるようにはできません。 その"
+"ためこのモデルでは <application>BootX</application> が必要です。"
+
+#. Tag: para
+#: install-methods.xml:1023
+#, no-c-format
+msgid ""
+"Download and unstuff the <application>BootX</application> distribution, "
+"available from <ulink url=\"&url-powerpc-bootx;\"></ulink>, or in the "
+"<filename>dists/woody/main/disks-powerpc/current/powermac</filename> "
+"directory on &debian; http/ftp mirrors and official &debian; CDs. Use "
+"<application>Stuffit Expander</application> to extract it from its archive. "
+"Within the package, there is an empty folder called <filename>Linux Kernels</"
+"filename>. Download <filename>linux.bin</filename> and <filename>ramdisk."
+"image.gz</filename> from the <filename>disks-powerpc/current/powermac</"
+"filename> folder, and place them in the <filename>Linux Kernels</filename> "
+"folder. Then place the <filename>Linux Kernels</filename> folder in the "
+"active System Folder."
+msgstr ""
+"<application>BootX</application> の配布パッケージを <ulink url=\"&url-"
+"powerpc-bootx;\"></ulink> から、 または &debian; http/ftp ミラーや 公式 "
+"&debian; CD の <filename>dists/woody/main/disks-powerpc/current/powermac</"
+"filename> ディレクトリから入手して、unstuff してください。 アーカイブから取り"
+"出すには <application>Stuffit Expander</application> を使ってください。 パッ"
+"ケージの中には、<filename>Linux Kernels</filename> という名前の空のフォルダが"
+"あります。 <filename>linux.bin</filename> と <filename>ramdisk.image.gz</"
+"filename> を <filename>disks-powerpc/current/powermac</filename> フォルダから"
+"ダウンロードし、 これらを <filename>Linux Kernels</filename> フォルダに置いて"
+"ください。 その後、<filename>Linux Kernels</filename> フォルダをアクティブな "
+"System Folder に置いてください。"
+
+#. Tag: title
+#: install-methods.xml:1043
+#, no-c-format
+msgid "Hard Disk Installer Booting for NewWorld Macs"
+msgstr "NewWorld Mac におけるハードディスクからのインストーラの起動"
+
+#. Tag: para
+#: install-methods.xml:1044
+#, no-c-format
+msgid ""
+"NewWorld PowerMacs support booting from a network or an ISO9660 CD-ROM, as "
+"well as loading ELF binaries directly from the hard disk. These machines "
+"will boot Linux directly via <command>yaboot</command>, which supports "
+"loading a kernel and RAMdisk directly from an ext2 partition, as well as "
+"dual-booting with MacOS. Hard disk booting of the installer is particularly "
+"appropriate for newer machines without floppy drives. <command>BootX</"
+"command> is not supported and must not be used on NewWorld PowerMacs."
+msgstr ""
+"NewWorld PowerMac は、ネットワークや ISO9660 CD-ROM からの起動をサポートして"
+"おり、 またハードディスクに置かれた ELF バイナリを直接ロードして起動すること"
+"も可能です。 これらのマシンでは <command>yaboot</command> を使って直接 Linux "
+"を起動できます。 <command>yaboot</command> はカーネルと RAM ディスクを直接 "
+"ext2 パーティションから ロードでき、MacOS とのデュアルブートにすることもでき"
+"ます。 ハードディスクからのインストーラの起動は、 特にフロッピードライブのな"
+"い最近のマシンには向いているでしょう。<command>BootX</command> は NewWorld "
+"PowerMac をサポートしておらず、 使うべきではありません。"
+
+#. Tag: para
+#: install-methods.xml:1055
+#, no-c-format
+msgid ""
+"<emphasis>Copy</emphasis> (not move) the following four files which you "
+"downloaded earlier from the &debian; archives, onto the root level of your "
+"hard drive (this can be accomplished by <keycap>option</keycap>-dragging "
+"each file to the hard drive icon)."
+msgstr ""
+"前に &debian; アーカイブからダウンロードした次に示すファイルを、ハードドライ"
+"ブの root 階層に<emphasis>コピー</emphasis> (移動では駄目) してください (各"
+"ファイルを、<keycap>option</keycap> を押しながらハードドライブアイコンにド"
+"ラッグします)。"
+
+#. Tag: filename
+#: install-methods.xml:1065 install-methods.xml:1391
+#, no-c-format
+msgid "vmlinux"
+msgstr "vmlinux"
+
+#. Tag: filename
+#: install-methods.xml:1070 install-methods.xml:1396
+#, no-c-format
+msgid "initrd.gz"
+msgstr "initrd.gz"
+
+#. Tag: filename
+#: install-methods.xml:1075 install-methods.xml:1401
+#, no-c-format
+msgid "yaboot"
+msgstr "yaboot"
+
+#. Tag: filename
+#: install-methods.xml:1080 install-methods.xml:1406
+#, no-c-format
+msgid "yaboot.conf"
+msgstr "yaboot.conf"
+
+#. Tag: para
+#: install-methods.xml:1085
+#, no-c-format
+msgid ""
+"Make a note of the partition number of the MacOS partition where you place "
+"these files. If you have the MacOS <command>pdisk</command> program, you can "
+"use the <command>L</command> command to check for the partition number. You "
+"will need this partition number for the command you type at the Open "
+"Firmware prompt when you boot the installer."
+msgstr ""
+"これらのファイルを置いた MacOS パーティションの パーティション番号を記録して"
+"おきましょう。 MacOS の <command>pdisk</command> プログラムがあれば、 "
+"<command>L</command> コマンドでパーティション番号を確認できます。 このパー"
+"ティション番号は、インストーラを起動させたときに Open Firmware プロンプトから"
+"入力するコマンドで必要となります。"
+
+#. Tag: para
+#: install-methods.xml:1093
+#, no-c-format
+msgid "To boot the installer, proceed to <xref linkend=\"boot-newworld\"/>."
+msgstr ""
+"To boot the installer, proceed to <xref linkend=\"boot-newworld\"/>. インス"
+"トーラを起動させるには、 <xref linkend=\"boot-newworld\"/> に進んでください。"
+
+#. Tag: title
+#: install-methods.xml:1106
+#, no-c-format
+msgid "Preparing Files for TFTP Net Booting"
+msgstr "TFTP ネットブート用ファイルの準備"
+
+#. Tag: para
+#: install-methods.xml:1107
+#, no-c-format
+msgid ""
+"If your machine is connected to a local area network, you may be able to "
+"boot it over the network from another machine, using TFTP. If you intend to "
+"boot the installation system from another machine, the boot files will need "
+"to be placed in specific locations on that machine, and the machine "
+"configured to support booting of your specific machine."
+msgstr ""
+"インストール対象のマシンが LAN に接続されている場合、TFTP を用いると、そのマ"
+"シンをネットワーク越しに他のマシンから起動できます。インストールシステムを別"
+"のマシンから起動するには、その「別のマシン」の特定の場所に起動ファイルを置"
+"き、またインストール対象のマシンの起動をサポートするよう設定しなければなりま"
+"せん。"
+
+#. Tag: para
+#: install-methods.xml:1115
+#, no-c-format
+msgid ""
+"You need to set up a TFTP server, and for many machines a DHCP server<phrase "
+"condition=\"supports-rarp\">, or RARP server</phrase><phrase condition="
+"\"supports-bootp\">, or BOOTP server</phrase>."
+msgstr ""
+"TFTP サーバをセットアップする必要があり、そして多くのマシンでは DHCP サーバ"
+"<phrase condition=\"supports-rarp\">、または RARP サーバ</phrase><phrase "
+"condition=\"supports-bootp\">、または BOOTP サーバ</phrase>のセットアップも必"
+"要です。"
+
+#. Tag: para
+#: install-methods.xml:1122
+#, no-c-format
+msgid ""
+"<phrase condition=\"supports-rarp\">The Reverse Address Resolution Protocol "
+"(RARP) is one way to tell your client what IP address to use for itself. "
+"Another way is to use the BOOTP protocol.</phrase> <phrase condition="
+"\"supports-bootp\">BOOTP is an IP protocol that informs a computer of its IP "
+"address and where on the network to obtain a boot image.</phrase> The DHCP "
+"(Dynamic Host Configuration Protocol) is a more flexible, backwards-"
+"compatible extension of BOOTP. Some systems can only be configured via DHCP."
+msgstr ""
+"<phrase condition=\"supports-rarp\">Reverse Address Resolution Protocol "
+"(RARP) は、 どの IP を用いるべきかをクライアントに伝える方法のひとつです。 同"
+"種の方法には BOOTP プロトコルがあります。</phrase> <phrase condition="
+"\"supports-bootp\">BOOTP は IP プロトコルのひとつです。 クライアントに対し"
+"て、使うべき IP アドレスと、 ブートイメージをネットワークのどこから取得するか"
+"を伝えます。</phrase> DHCP (Dynamic Host Configuration Protocol) は、 BOOTP "
+"との後方互換性を保ちつつ、より柔軟に拡張させたものです。 システムによっては "
+"DHCP でしか設定できないこともあります。"
+
+#. Tag: para
+#: install-methods.xml:1136
+#, no-c-format
+msgid ""
+"For PowerPC, if you have a NewWorld Power Macintosh machine, it is a good "
+"idea to use DHCP instead of BOOTP. Some of the latest machines are unable to "
+"boot using BOOTP."
+msgstr ""
+"PowerPC では、NewWorld Power Macintosh マシンを使っている場合は、 BOOTP では"
+"なく DHCP を使う方が良いです。 最近のマシンには、BOOTP では起動できないものが"
+"あります。"
+
+#. Tag: para
+#: install-methods.xml:1142
+#, no-c-format
+msgid ""
+"Some older HPPA machines (e.g. 715/75) use RBOOTD rather than BOOTP. There "
+"is an <classname>rbootd</classname> package available in &debian;."
+msgstr ""
+"古い HPPA マシンのいくつか (例えば 715/75) は、BOOTP ではなく RBOOTD を使いま"
+"す。 &debian; には <classname>rbootd</classname> パッケージが用意されていま"
+"す。"
+
+#. Tag: para
+#: install-methods.xml:1147
+#, no-c-format
+msgid ""
+"The Trivial File Transfer Protocol (TFTP) is used to serve the boot image to "
+"the client. Theoretically, any server, on any platform, which implements "
+"these protocols, may be used. In the examples in this section, we shall "
+"provide commands for SunOS 4.x, SunOS 5.x (a.k.a. Solaris), and GNU/Linux."
+msgstr ""
+"Trivial File Transfer Protocol (TFTP) は、 ブートイメージをクライアントに提供"
+"するために用います。 理論的には、どんなサーバでも、どんなプラットフォームで"
+"も、 これらのプロトコルを実装してさえいれば利用できます。 この節では、SunOS "
+"4.x, SunOS 5.x (Solaris), GNU/Linux での例を示します。"
+
+#. Tag: para
+#: install-methods.xml:1155
+#, no-c-format
+msgid ""
+"For a &debian-gnu; server we recommend <classname>tftpd-hpa</classname>. "
+"It's written by the same author as the <classname>syslinux</classname> "
+"bootloader and is therefore least likely to cause issues. A good alternative "
+"is <classname>atftpd</classname>."
+msgstr ""
+"&debian-gnu; のサーバでは、<classname>tftpd-hpa</classname> を推奨します。"
+"<classname>syslinux</classname> ブートローダの作者によって作られ、それ故にほ"
+"とんど問題を起こしそうにありません。<classname>atftpd</classname> のよい代替"
+"です。"
+
+#. Tag: title
+#: install-methods.xml:1171
+#, no-c-format
+msgid "Setting up RARP server"
+msgstr "RARP サーバの設定"
+
+#. Tag: para
+#: install-methods.xml:1172
+#, no-c-format
+msgid ""
+"To set up RARP, you need to know the Ethernet address (a.k.a. the MAC "
+"address) of the client computers to be installed. If you don't know this "
+"information, you can <phrase arch=\"sparc\"> pick it off the initial "
+"OpenPROM boot messages, use the OpenBoot <userinput>.enet-addr</userinput> "
+"command, or </phrase> boot into <quote>Rescue</quote> mode (e.g., from the "
+"rescue floppy) and use the command <userinput>ip addr show dev eth0</"
+"userinput>."
+msgstr ""
+"RARP を設定するには、クライアントコンピュータにインストールしているイーサネッ"
+"トのアドレス (MAC アドレス) を調べておく必要があります。この情報がわからなけ"
+"れば、<phrase arch=\"sparc\">OpenPROM の初期ブートメッセージに現われるものを"
+"メモするか、OpenBoot <userinput>.enet-addr</userinput> コマンドを使うか、</"
+"phrase>(例えば rescue フロッピーなどで) <quote>Rescue</quote> モードを起動し"
+"て <userinput>ip addr show dev eth0</userinput> コマンドを使ってください。"
+
+#. Tag: para
+#: install-methods.xml:1184
+#, no-c-format
+msgid ""
+"On a RARP server system using a Linux 2.4 or 2.6 kernel, or Solaris/SunOS, "
+"you use the <command>rarpd</command> program. You need to ensure that the "
+"Ethernet hardware address for the client is listed in the <quote>ethers</"
+"quote> database (either in the <filename>/etc/ethers</filename> file, or via "
+"NIS/NIS+) and in the <quote>hosts</quote> database. Then you need to start "
+"the RARP daemon. Issue the command (as root): <userinput>/usr/sbin/rarpd -a</"
+"userinput> on most Linux systems and SunOS 5 (Solaris 2), <userinput>/usr/"
+"sbin/in.rarpd -a</userinput> on some other Linux systems, or <userinput>/usr/"
+"etc/rarpd -a</userinput> in SunOS 4 (Solaris 1)."
+msgstr ""
+"Linux 2.4 カーネルないし 2.6 カーネルの RARP サーバシステムや、 Solaris/"
+"SunOS では、<command>rarpd</command> を使用します。 クライアントのイーサネッ"
+"トハードウェアアドレスを <quote>ethers</quote> データベースと <quote>hosts</"
+"quote> データベースに リストしておく必要があります (これらのデータベースは "
+"<filename>/etc/(ethers,hosts)</filename> ファイルか NIS/NIS+ のマップにしま"
+"す)。 次に RARP デーモンを起動します。 ほとんどの Linux システムと SunOS 5 "
+"(Solaris 2)では、 <userinput>/usr/sbin/rarpd -a</userinput> を、 いくつか他"
+"の Linux システムでは <userinput>/usr/sbin/in.rarpd -a</userinput>を、 SunOS "
+"4 (Solaris 1) では <userinput>/usr/etc/rarpd -a</userinput> を (ルート権限"
+"で) 実行してください。"
+
+#. Tag: title
+#: install-methods.xml:1205
+#, no-c-format
+msgid "Setting up a DHCP server"
+msgstr "DHCP サーバの設定"
+
+#. Tag: para
+#: install-methods.xml:1206
+#, no-c-format
+msgid ""
+"One free software DHCP server is ISC <command>dhcpd</command>. For &debian-"
+"gnu;, the <classname>dhcp3-server</classname> package is recommended. Here "
+"is a sample configuration file for it (see <filename>/etc/dhcp3/dhcpd.conf</"
+"filename>):"
+msgstr ""
+"フリーソフトウェアの DHCP サーバのひとつに、 ISC の <command>dhcpd</command> "
+"があります。 &debian-gnu; では、<classname>dhcp3-server</classname> パッケー"
+"ジをお勧めします。 以下に、設定ファイルの例を示します。 (<filename>/etc/"
+"dhcpd.conf</filename> を参照)"
+
+#. Tag: screen
+#: install-methods.xml:1213
+#, no-c-format
+msgid ""
+"option domain-name \"example.com\";\n"
+"option domain-name-servers ns1.example.com;\n"
+"option subnet-mask 255.255.255.0;\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"server-name \"servername\";\n"
+"\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option routers 192.168.1.1;\n"
+"}\n"
+"\n"
+"host clientname {\n"
+"  filename \"/tftpboot.img\";\n"
+"  server-name \"servername\";\n"
+"  next-server servername;\n"
+"  hardware ethernet 01:23:45:67:89:AB;\n"
+"  fixed-address 192.168.1.90;\n"
+"}"
+msgstr ""
+"option domain-name \"example.com\";\n"
+"option domain-name-servers ns1.example.com;\n"
+"option subnet-mask 255.255.255.0;\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"server-name \"servername\";\n"
+"\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option routers 192.168.1.1;\n"
+"}\n"
+"\n"
+"host clientname {\n"
+"  filename \"/tftpboot.img\";\n"
+"  server-name \"servername\";\n"
+"  next-server servername;\n"
+"  hardware ethernet 01:23:45:67:89:AB;\n"
+"  fixed-address 192.168.1.90;\n"
+"}"
+
+#. Tag: para
+#: install-methods.xml:1215
+#, no-c-format
+msgid ""
+"In this example, there is one server <replaceable>servername</replaceable> "
+"which performs all of the work of DHCP server, TFTP server, and network "
+"gateway. You will almost certainly need to change the domain-name options, "
+"as well as the server name and client hardware address. The "
+"<replaceable>filename</replaceable> option should be the name of the file "
+"which will be retrieved via TFTP."
+msgstr ""
+"この例では、<replaceable>servername</replaceable> というサーバがひとつあり、 "
+"DHCP サーバ, TFTP サーバ, ネットワークゲートウェイの仕事をすべて行っていま"
+"す。 domain-name オプション、サーバ名、クライアントのハードウェアアドレス"
+"は、 必ず変更する必要があります。 <replaceable>filename</replaceable> オプ"
+"ションは TFTP 経由で取得するファイルの名前です。"
+
+#. Tag: para
+#: install-methods.xml:1225
+#, no-c-format
+msgid ""
+"After you have edited the <command>dhcpd</command> configuration file, "
+"restart it with <userinput>/etc/init.d/dhcp3-server restart</userinput>."
+msgstr ""
+"<command>dhcpd</command> の設定ファイルの編集を終えたら、 <userinput>/etc/"
+"init.d/dhcp3-server restart</userinput> で <command>dhcpd</command> を再起動"
+"してください。"
+
+#. Tag: title
+#: install-methods.xml:1233
+#, no-c-format
+msgid "Enabling PXE Booting in the DHCP configuration"
+msgstr "DHCP 設定での PXE 起動の有効化"
+
+#. Tag: para
+#: install-methods.xml:1234
+#, no-c-format
+msgid ""
+"Here is another example for a <filename>dhcp.conf</filename> using the Pre-"
+"boot Execution Environment (PXE) method of TFTP. <informalexample><screen>\n"
+"option domain-name \"example.com\";\n"
+"\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"\n"
+"allow booting;\n"
+"allow bootp;\n"
+"\n"
+"# The next paragraph needs to be modified to fit your case\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option broadcast-address 192.168.1.255;\n"
+"# the gateway address which can be different\n"
+"# (access to the internet for instance)\n"
+"  option routers 192.168.1.1;\n"
+"# indicate the dns you want to use\n"
+"  option domain-name-servers 192.168.1.3;\n"
+"}\n"
+"\n"
+"group {\n"
+"  next-server 192.168.1.3;\n"
+"  host tftpclient {\n"
+"# tftp client hardware address\n"
+"  hardware ethernet  00:10:DC:27:6C:15;\n"
+"  filename \"/pxelinux.0\";\n"
+" }\n"
+"}\n"
+"</screen></informalexample> Note that for PXE booting, the client filename "
+"<filename>pxelinux.0</filename> is a boot loader, not a kernel image (see "
+"<xref linkend=\"tftp-images\"/> below)."
+msgstr ""
+"ここでは TFTP の Pre-boot Execution Environment (PXE) 法を用いた、 "
+"<filename>dhcp.conf</filename> の例を示します。<informalexample><screen>\n"
+"option domain-name \"example.com\";\n"
+"\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"\n"
+"allow booting;\n"
+"allow bootp;\n"
+"\n"
+"# The next paragraph needs to be modified to fit your case\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option broadcast-address 192.168.1.255;\n"
+"# the gateway address which can be different\n"
+"# (access to the internet for instance)\n"
+"  option routers 192.168.1.1;\n"
+"# indicate the dns you want to use\n"
+"  option domain-name-servers 192.168.1.3;\n"
+"}\n"
+"\n"
+"group {\n"
+"  next-server 192.168.1.3;\n"
+"  host tftpclient {\n"
+"# tftp client hardware address\n"
+"  hardware ethernet  00:10:DC:27:6C:15;\n"
+"  filename \"/pxelinux.0\";\n"
+" }\n"
+"}\n"
+"</screen></informalexample> PXE ブートでは、クライアントのファイル名 "
+"<filename>pxelinux.0</filename> は、カーネルイメージではなくブートローダであ"
+"ることに注意してください (後述の <xref linkend=\"tftp-images\"/> をご覧くださ"
+"い)。"
+
+#. Tag: title
+#: install-methods.xml:1254
+#, no-c-format
+msgid "Setting up a BOOTP server"
+msgstr "BOOTP サーバの設定"
+
+#. Tag: para
+#: install-methods.xml:1255
+#, no-c-format
+msgid ""
+"There are two BOOTP servers available for GNU/Linux. The first is CMU "
+"<command>bootpd</command>. The other is actually a DHCP server: ISC "
+"<command>dhcpd</command>. In &debian-gnu; these are contained in the "
+"<classname>bootp</classname> and <classname>dhcp3-server</classname> "
+"packages respectively."
+msgstr ""
+"GNU/Linux で使える BOOTP サーバは 2 つあります。 ひとつは CMU の "
+"<command>bootpd</command> です。 もう 1 つは実際は DHCP サーバですが、ISC の "
+"<command>dhcpd</command> です。 &debian-gnu; では、 <classname>bootp</"
+"classname> パッケージと <classname>dhcp3-server</classname> パッケージにそれ"
+"ぞれ入っています。"
+
+#. Tag: para
+#: install-methods.xml:1263
+#, no-c-format
+msgid ""
+"To use CMU <command>bootpd</command>, you must first uncomment (or add) the "
+"relevant line in <filename>/etc/inetd.conf</filename>. On &debian-gnu;, you "
+"can run <userinput>update-inetd --enable bootps</userinput>, then "
+"<userinput>/etc/init.d/inetd reload</userinput> to do so. Just in case your "
+"BOOTP server does not run &debian;, the line in question should look like: "
+"<informalexample><screen>\n"
+"bootps  dgram  udp  wait  root  /usr/sbin/bootpd  bootpd -i -t 120\n"
+"</screen></informalexample> Now, you must create an <filename>/etc/bootptab</"
+"filename> file. This has the same sort of familiar and cryptic format as the "
+"good old BSD <filename>printcap</filename>, <filename>termcap</filename>, "
+"and <filename>disktab</filename> files. See the <filename>bootptab</"
+"filename> manual page for more information. For CMU <command>bootpd</"
+"command>, you will need to know the hardware (MAC) address of the client. "
+"Here is an example <filename>/etc/bootptab</filename>: "
+"<informalexample><screen>\n"
+"client:\\\n"
+"  hd=/tftpboot:\\\n"
+"  bf=tftpboot.img:\\\n"
+"  ip=192.168.1.90:\\\n"
+"  sm=255.255.255.0:\\\n"
+"  sa=192.168.1.1:\\\n"
+"  ha=0123456789AB:\n"
+"</screen></informalexample> You will need to change at least the <quote>ha</"
+"quote> option, which specifies the hardware address of the client. The "
+"<quote>bf</quote> option specifies the file a client should retrieve via "
+"TFTP; see <xref linkend=\"tftp-images\"/> for more details. <phrase arch="
+"\"mips\"> On SGI machines you can just enter the command monitor and type "
+"<userinput>printenv</userinput>. The value of the <userinput>eaddr</"
+"userinput> variable is the machine's MAC address. </phrase>"
+msgstr ""
+"CMU <command>bootpd</command> を使う場合は、まず <filename>/etc/inetd.conf</"
+"filename> ファイルの 該当行をアンコメント (または追加) する必要があります。 "
+"&debian-gnu; では <userinput>update-inetd --enable bootps</userinput> を実行"
+"し、 続いて <userinput>/etc/init.d/inetd reload</userinput> とすれば OK で"
+"す。 BOOTP サーバが &debian; で動かない場合は、以下のようにします。 "
+"<informalexample><screen>\n"
+"bootps  dgram  udp  wait  root  /usr/sbin/bootpd  bootpd -i -t 120\n"
+"</screen></informalexample> ここで次に <filename>/etc/bootptab</filename> を"
+"作成します。 このファイルの書式は、 <filename>printcap</filename>, "
+"<filename>termcap</filename>, <filename>disktab</filename> ファイルなどでお馴"
+"染みの、 例のわかりにくい形式になっています。 詳細は <filename>bootptab</"
+"filename> マニュアルページを見てください。 CMU <command>bootpd</command> で"
+"は、 クライアントのハードウェア (MAC) アドレスを知っておかなければなりませ"
+"ん。 <filename>/etc/bootptab</filename> の例を示します。 "
+"<informalexample><screen>\n"
+"client:\\\n"
+"  hd=/tftpboot:\\\n"
+"  bf=tftpboot.img:\\\n"
+"  ip=192.168.1.90:\\\n"
+"  sm=255.255.255.0:\\\n"
+"  sa=192.168.1.1:\\\n"
+"  ha=0123456789AB:\n"
+"</screen></informalexample> 少なくともクライアントのハードウェアアドレスを指"
+"定している <quote>ha</quote> オプションは変更する必要があるでしょう。 "
+"<quote>bf</quote> オプションはクライアントが TFTP で取得するファイルを指定し"
+"ています。 詳細は <xref linkend=\"tftp-images\"/> を参照してください。 "
+"<phrase arch=\"mips\"> SGI のマシンでは、 コマンドモニタから "
+"<userinput>printenv</userinput> と入力してください。 <userinput>eaddr</"
+"userinput> 変数がマシンの MAC アドレスです。 </phrase>"
+
+#. Tag: para
+#: install-methods.xml:1296
+#, no-c-format
+msgid ""
+"By contrast, setting up BOOTP with ISC <command>dhcpd</command> is really "
+"easy, because it treats BOOTP clients as a moderately special case of DHCP "
+"clients. Some architectures require a complex configuration for booting "
+"clients via BOOTP. If yours is one of those, read the section <xref linkend="
+"\"dhcpd\"/>. Otherwise you will probably be able to get away with simply "
+"adding the <userinput>allow bootp</userinput> directive to the configuration "
+"block for the subnet containing the client in <filename>/etc/dhcp3/dhcpd."
+"conf</filename>, and restart <command>dhcpd</command> with <userinput>/etc/"
+"init.d/dhcp3-server restart</userinput>."
+msgstr ""
+"対照的に、ISC <command>dhcpd</command> を使っての BOOTP の設定は実に簡単で"
+"す。<command>dhcpd</command> では、BOOTP クライアントは やや特殊な DHCP クラ"
+"イアントとして取り扱われます。アーキテクチャによっては、BOOTP によるクライア"
+"ントの起動には複雑な設定が必要になります。これに該当してしまったら、<xref "
+"linkend=\"dhcpd\"/> の節をお読みください。そうでなければ、おそらく "
+"<filename>/etc/dhcp3/dhcpd.conf</filename> にある、クライアントの含まれるサブ"
+"ネットの設定ブロックに、<userinput>allow bootp</userinput> というディレクティ"
+"ブを追加し、 <userinput>/etc/init.d/dhcp3-server restart</userinput> で "
+"<command>dhcpd</command> を再起動するだけです。"
+
+#. Tag: title
+#: install-methods.xml:1315
+#, no-c-format
+msgid "Enabling the TFTP Server"
+msgstr "TFTP サーバの立ち上げ"
+
+#. Tag: para
+#: install-methods.xml:1316
+#, no-c-format
+msgid ""
+"To get the TFTP server ready to go, you should first make sure that "
+"<command>tftpd</command> is enabled."
+msgstr ""
+"TFTP サーバの準備をする際に、まず、<command>tftpd</command> が有効であること"
+"を確認してください。"
+
+#. Tag: para
+#: install-methods.xml:1321
+#, no-c-format
+msgid ""
+"In the case of <classname>tftpd-hpa</classname> there are two ways the "
+"service can be run. It can be started on demand by the system's "
+"<classname>inetd</classname> daemon, or it can be set up to run as an "
+"independent daemon. Which of these methods is used is selected when the "
+"package is installed and can be changed by reconfiguring the package."
+msgstr ""
+"<classname>tftpd-hpa</classname> の場合には、サービスを走らせるのに 2 種類の"
+"方法があります。システムの <classname>inetd</classname> デーモンにより必要に"
+"応じて起動する方法と、独立したサーバとして起動する方法です。どちらにするか"
+"は、パッケージのインストール時や再設定時に選択できます。"
+
+#. Tag: para
+#: install-methods.xml:1330
+#, no-c-format
+msgid ""
+"Historically, TFTP servers used <filename>/tftpboot</filename> as directory "
+"to serve images from. However, &debian-gnu; packages may use other "
+"directories to comply with the <ulink url=\"&url-fhs-home;\">Filesystem "
+"Hierarchy Standard</ulink>. For example, <classname>tftpd-hpa</classname> by "
+"default uses <filename>/srv/tftp</filename>. You may have to adjust the "
+"configuration examples in this section accordingly."
+msgstr ""
+"歴史的に TFTP サーバは、 イメージを提供するディレクトリに <filename>/"
+"tftpboot</filename> を使用します。 しかし &debian-gnu; のパッケージでは、 "
+"<ulink url=\"&url-fhs-home;\">Filesystem Hierarchy Standard</ulink> を満たす"
+"別のディレクトリを使用する可能性があります。 例えば、<classname>tftpd-hpa</"
+"classname> では <filename>/srv/tftp</filename> をデフォルトで使用します。 必"
+"要に応じて、本節の設定例を調整してください。"
+
+#. Tag: para
+#: install-methods.xml:1340
+#, no-c-format
+msgid ""
+"All <command>in.tftpd</command> alternatives available in &debian; should "
+"log TFTP requests to the system logs by default. Some of them support a "
+"<userinput>-v</userinput> argument to increase verbosity. It is recommended "
+"to check these log messages in case of boot problems as they are a good "
+"starting point for diagnosing the cause of errors."
+msgstr ""
+"&debian; で利用できる <command>in.tftpd</command> の代替はすべて、デフォルト"
+"で TFTP リクエストをシステムログに出力します。いくつかは、出力を冗長にする "
+"<userinput>-v</userinput> 引数をサポートしています。ブート時に問題がある場"
+"合、エラーの原因を診断する出発点として、ログメッセージをチェックすることをお"
+"勧めします。"
+
+#. Tag: para
+#: install-methods.xml:1348
+#, no-c-format
+msgid ""
+"If you intend to install &debian; on an SGI machine and your TFTP server is "
+"a GNU/Linux box running Linux 2.4, you'll need to set the following on your "
+"server: <informalexample><screen>\n"
+"# echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc\n"
+"</screen></informalexample> to turn off Path MTU discovery, otherwise the "
+"SGI's PROM can't download the kernel. Furthermore, make sure TFTP packets "
+"are sent from a source port no greater than 32767, or the download will "
+"stall after the first packet. Again, it's Linux 2.4.X tripping this bug in "
+"the PROM, and you can avoid it by setting <informalexample><screen>\n"
+"# echo \"2048 32767\" &gt; /proc/sys/net/ipv4/ip_local_port_range\n"
+"</screen></informalexample> to adjust the range of source ports the Linux "
+"TFTP server uses."
+msgstr ""
+"SGI マシンに &debian; をインストールする際、 TFTP サーバが Linux 2.4 で動作し"
+"ている GNU/Linux の場合は、 次の設定を行う必要があります。 "
+"<informalexample><screen>\n"
+"# echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc\n"
+"</screen></informalexample> これを行わないと、SGI の PROM はカーネルをダウン"
+"ロードできません。 さらに、TFTP パケットのソースポートは 32767 以上であっては"
+"いけません。 さもないと最初のパケットを受信しただけでダウンロードが停止しま"
+"す。 この PROM のバグに引っかかるのも Linux 2.4.X です。 これを避けるには "
+"<informalexample><screen>\n"
+"# echo \"2048 32767\" &gt; /proc/sys/net/ipv4/ip_local_port_range\n"
+"</screen></informalexample> を実行し、Linux TFTP サーバが用いるポートの範囲を"
+"調整してください。"
+
+#. Tag: title
+#: install-methods.xml:1370
+#, no-c-format
+msgid "Move TFTP Images Into Place"
+msgstr "TFTP イメージを適切な場所に配置する"
+
+#. Tag: para
+#: install-methods.xml:1371
+#, no-c-format
+msgid ""
+"Next, place the TFTP boot image you need, as found in <xref linkend=\"where-"
+"files\"/>, in the <command>tftpd</command> boot image directory. You may "
+"have to make a link from that file to the file which <command>tftpd</"
+"command> will use for booting a particular client. Unfortunately, the file "
+"name is determined by the TFTP client, and there are no strong standards."
+msgstr ""
+"次に行うことは、 <xref linkend=\"where-files\"/> の記述にある、必要な TFTP "
+"ブートイメージを、 <command>tftpd</command> のブートイメージディレクトリに置"
+"く作業です。 <command>tftpd</command> が特定のクライアントの起動に用いるファ"
+"イルへのリンクを、 ここに作成してください。 残念ながら、ファイルの名前は "
+"TFTP クライアントによって決まり、 強制力のある標準は存在しません。"
+
+#. Tag: para
+#: install-methods.xml:1380
+#, no-c-format
+msgid ""
+"On NewWorld Power Macintosh machines, you will need to set up the "
+"<command>yaboot</command> boot loader as the TFTP boot image. "
+"<command>Yaboot</command> will then retrieve the kernel and RAMdisk images "
+"via TFTP itself. You will need to download the following files from the "
+"<filename>netboot/</filename> directory:"
+msgstr ""
+"NewWorld Power Macintosh マシンでは、<command>yaboot</command> ブートローダ"
+"を TFTP ブートイメージに設定します。<command>yaboot</command> は次にカーネル"
+"と RAM ディスクイメージを、同じく TFTP によって取得します。以下のファイルを、"
+"<filename>netboot/</filename> ディレクトリからダウンロードする必要がありま"
+"す。"
+
+#. Tag: filename
+#: install-methods.xml:1411
+#, no-c-format
+msgid "boot.msg"
+msgstr "boot.msg"
+
+#. Tag: para
+#: install-methods.xml:1416
+#, no-c-format
+msgid ""
+"For PXE booting, everything you should need is set up in the "
+"<filename>netboot/netboot.tar.gz</filename> tarball. Simply extract this "
+"tarball into the <command>tftpd</command> boot image directory. Make sure "
+"your dhcp server is configured to pass <filename>pxelinux.0</filename> to "
+"<command>tftpd</command> as the filename to boot."
+msgstr ""
+"PXE 起動では、必要なことがすべて <filename>netboot/netboot.tar.gz</filename> "
+"tarball の中にセットアップされています。 単にこの tarball を、 "
+"<command>tftpd</command> ブートイメージディレクトリに展開してください。 "
+"<filename>pxelinux.0</filename> を、 起動するファイル名として "
+"<command>tftpd</command> へ渡すよう、 dhcp サーバが設定されていることを確認し"
+"てください。"
+
+#. Tag: para
+#: install-methods.xml:1424
+#, no-c-format
+msgid ""
+"For PXE booting, everything you should need is set up in the "
+"<filename>netboot/netboot.tar.gz</filename> tarball. Simply extract this "
+"tarball into the <command>tftpd</command> boot image directory. Make sure "
+"your dhcp server is configured to pass <filename>/debian-installer/ia64/"
+"elilo.efi</filename> to <command>tftpd</command> as the filename to boot."
+msgstr ""
+"PXE 起動では、必要なことがすべて <filename>netboot/netboot.tar.gz</filename> "
+"tarball の中にセットアップされています。 単にこの tarball を、 "
+"<command>tftpd</command> ブートイメージディレクトリに展開してください。 "
+"<filename>/debian-installer/ia64/elilo.efi</filename> を、 起動するファイル名"
+"として <command>tftpd</command> へ渡すよう、 dhcp サーバが設定されていること"
+"を確認してください。"
+
+#. Tag: title
+#: install-methods.xml:1436
+#, no-c-format
+msgid "SPARC TFTP Booting"
+msgstr "SPARC TFTP ブート"
+
+#. Tag: para
+#: install-methods.xml:1437
+#, no-c-format
+msgid ""
+"Some SPARC architectures add the subarchitecture names, such as "
+"<quote>SUN4M</quote> or <quote>SUN4C</quote>, to the filename. Thus, if your "
+"system's subarchitecture is a SUN4C, and its IP is 192.168.1.3, the filename "
+"would be <filename>C0A80103.SUN4C</filename>. However, there are also "
+"subarchitectures where the file the client looks for is just "
+"<filename>client-ip-in-hex</filename>. An easy way to determine the "
+"hexadecimal code for the IP address is to enter the following command in a "
+"shell (assuming the machine's intended IP is 10.0.0.4). "
+"<informalexample><screen>\n"
+"$ printf '%.2x%.2x%.2x%.2x\\n' 10 0 0 4\n"
+"</screen></informalexample> To get to the correct filename, you will need to "
+"change all letters to uppercase and if necessary append the subarchitecture "
+"name."
+msgstr ""
+"SPARC アーキテクチャでは、 <quote>SUN4M</quote> や <quote>SUN4C</quote> のよ"
+"うな サブアーキテクチャの名前をファイル名に追加します。 例えば、システムのサ"
+"ブアーキテクチャが SUN4C で IP アドレスが 192.168.1.3 の場合、 ファイル名は "
+"<filename>C0A80103.SUN4C</filename> となります。 しかし、クライアントが探す"
+"ファイルが <filename>client-ip-in-hex</filename> となるサブアーキテクチャもあ"
+"ります。 IP アドレスの 16 進表記を簡単に得るには、 以下のコマンドをシェルに入"
+"力してください。 (想定している IP アドレスは 10.0.0.4 です) "
+"<informalexample><screen>\n"
+"$ printf '%.2x%.2x%.2x%.2x\\n' 10 0 0 4\n"
+"</screen></informalexample> 正しいファイル名を取得するには、文字をすべて大文"
+"字に変更し、 (必要なら) サブアーキテクチャ名を追加しなければなりません。"
+
+#. Tag: para
+#: install-methods.xml:1453
+#, no-c-format
+msgid ""
+"If you've done all this correctly, giving the command <userinput>boot net</"
+"userinput> from the OpenPROM should load the image. If the image cannot be "
+"found, try checking the logs on your tftp server to see which image name is "
+"being requested."
+msgstr ""
+"すべて正しく行うと、 OpenPROM から <userinput>boot net</userinput> コマンドを"
+"与えて、 イメージをロードできます。 イメージが見つからない場合、tftp サーバの"
+"ログをチェックし、 どのような名前のイメージを要求されているかを確認してくださ"
+"い。"
+
+#. Tag: para
+#: install-methods.xml:1460
+#, no-c-format
+msgid ""
+"You can also force some sparc systems to look for a specific file name by "
+"adding it to the end of the OpenPROM boot command, such as <userinput>boot "
+"net my-sparc.image</userinput>. This must still reside in the directory that "
+"the TFTP server looks in."
+msgstr ""
+"OpenPROM の boot コマンドの末尾にファイル名を追加して、 sparc システムにその"
+"名前のファイルを探すよう指定することもできます (<userinput>boot net my-sparc."
+"image</userinput> のようになります)。 ただしこのファイルを置くのは、いずれに"
+"しても TFTP サーバが見るディレクトリの内部でなければいけません。"
+
+#. Tag: title
+#: install-methods.xml:1471
+#, no-c-format
+msgid "SGI TFTP Booting"
+msgstr "SGI の TFTP での起動"
+
+#. Tag: para
+#: install-methods.xml:1472
+#, no-c-format
+msgid ""
+"On SGI machines you can rely on the <command>bootpd</command> to supply the "
+"name of the TFTP file. It is given either as the <userinput>bf=</userinput> "
+"in <filename>/etc/bootptab</filename> or as the <userinput>filename=</"
+"userinput> option in <filename>/etc/dhcpd.conf</filename>."
+msgstr ""
+"SGI のマシンでは、TFTP ファイルの名前の指定を <command>bootpd</command> に行"
+"わせることができます。 これは <filename>/etc/bootptab</filename> の "
+"<userinput>bf=</userinput> に指定するか、 <filename>/etc/dhcpd.conf</"
+"filename> の <userinput>filename=</userinput> オプションに指定します。"
+
+#. Tag: title
+#: install-methods.xml:1580
+#, no-c-format
+msgid "Automatic Installation"
+msgstr "自動インストール"
+
+#. Tag: para
+#: install-methods.xml:1581
+#, no-c-format
+msgid ""
+"For installing on multiple computers it's possible to do fully automatic "
+"installations. &debian; packages intended for this include <classname>fai-"
+"quickstart</classname> (which can use an install server) and the &debian; "
+"Installer itself. Have a look at the <ulink url=\"http://fai-project.org"
+"\">FAI home page</ulink> for detailed information."
+msgstr ""
+"複数のコンピュータにインストールするため、完全自動インストールが可能です。こ"
+"のための &debian; パッケージは、<classname>fai-quickstart</classname> (インス"
+"トールサーバとして使用可能) と &debian; インストーラそのものです。詳細情報は "
+"<ulink url=\"http://fai-project.org\">FAI home page</ulink> をご覧ください。"
+
+#. Tag: title
+#: install-methods.xml:1593
+#, no-c-format
+msgid "Automatic Installation Using the &debian; Installer"
+msgstr "&debian; インストーラを用いた自動インストール"
+
+#. Tag: para
+#: install-methods.xml:1594
+#, no-c-format
+msgid ""
+"The &debian; Installer supports automating installs via preconfiguration "
+"files. A preconfiguration file can be loaded from the network or from "
+"removable media, and used to fill in answers to questions asked during the "
+"installation process."
+msgstr ""
+"&debian; インストーラは、 preconfiguration ファイルによる自動インストールをサ"
+"ポートしています。 preconfiguration ファイルは、ネットワークやリムーバブルメ"
+"ディアから読み込まれ、 インストール中の質問に対する回答を、埋めていくのに使わ"
+"れます。"
+
+#. Tag: para
+#: install-methods.xml:1601
+#, no-c-format
+msgid ""
+"Full documentation on preseeding including a working example that you can "
+"edit is in <xref linkend=\"appendix-preseed\"/>."
+msgstr ""
+"編集できる動作サンプルを含む preseed の完全なドキュメントは、 <xref linkend="
+"\"appendix-preseed\"/> にあります。"
+
+#~ msgid ""
+#~ "If you used an <filename>hd-media</filename> image, you should now copy a "
+#~ "&debian; ISO image (businesscard, netinst or full CD image; be sure to "
+#~ "select one that fits) onto the stick. When you are done, unmount the USB "
+#~ "memory stick (<userinput>umount /mnt</userinput>)."
+#~ msgstr ""
+#~ "<filename>hd-media</filename> イメージを使用している場合、ここで &debian; "
+#~ "の ISO イメージ (businesscard, netinst,  フル CD イメージの中から必要なも"
+#~ "のを選択してください) を USB メモリにコピーします。完了したら、USB メモリ"
+#~ "を アンマウントしてください (<userinput>umount /mnt</userinput>)。"
+
+#~ msgid ""
+#~ "There are two installation methods possible when booting from USB stick. "
+#~ "The first is to only use the USB stick to boot the installer, and then "
+#~ "install completely from the network. The second is to also copy a CD "
+#~ "image onto the USB stick and use that as a source for packages, possibly "
+#~ "in combination with a mirror."
+#~ msgstr ""
+#~ "USB メモリから起動した際に、利用できるインストール法が 2 つあります。ひと"
+#~ "つは、USB メモリをインストーラの起動にのみ使用し、完全にネットワークからイ"
+#~ "ンストールする方法、2 つめは、CD イメージを USB メモリにコピーし、パッケー"
+#~ "ジをそこから (可能であればミラーサイトも組み合わせて) インストールする方法"
+#~ "です。"
+
+#~ msgid ""
+#~ "To prepare a USB stick that only boots the installer, which then proceeds "
+#~ "to install entirely from the network, you'll need to download the "
+#~ "<filename>mini.iso</filename> image from the <filename>netboot</filename> "
+#~ "directory (at the location mentioned in <xref linkend=\"where-files\"/>), "
+#~ "and write this file directly to the USB stick, overwriting its current "
+#~ "contents. This method will work with very small USB sticks, only a few "
+#~ "megabytes in size."
+#~ msgstr ""
+#~ "インストーラの起動のみを行い、ネットワークからインストール全体を行う USB "
+#~ "メモリを用意するには、<filename>netboot</filename> ディレクトリ (場所は "
+#~ "<xref linkend=\"where-files\"/> で言及)から <filename>mini.iso</filename> "
+#~ "イメージをダウンロードし、USB メモリの既存の内容を上書きしてください。この"
+#~ "方法では数 MB しか使用しませんので、非常に小さな USB メモリでも動作しま"
+#~ "す。"
+
+#~ msgid ""
+#~ "To prepare a USB stick that installs packages from a CD image included on "
+#~ "the stick, use the installer images found in the <filename>hd-media</"
+#~ "filename> directory. Either the <quote>easy way</quote> or the "
+#~ "<quote>flexible way</quote> can be used to copy the image to the USB "
+#~ "stick. For this installation method you will also need to download a CD "
+#~ "image. The installation image and the CD image must be based on the same "
+#~ "release of &d-i;. If they do not match you are likely to get "
+#~ "errors<footnote> <para> The error message that is most likely to be "
+#~ "displayed is that no kernel modules can be found. This means that the "
+#~ "version of the kernel module udebs included on the CD image is different "
+#~ "from the version of the running kernel. </para> </footnote> during the "
+#~ "installation."
+#~ msgstr ""
+#~ "内部にある CD イメージからパッケージをインストールする USB メモリを用意す"
+#~ "るには、<filename>hd-media</filename> ディレクトリにあるインストーライメー"
+#~ "ジを使用してください。このイメージを USB メモリにコピーするには、<quote>簡"
+#~ "単な方法</quote> でも <quote>柔軟な方法</quote> でもかまいません。このイン"
+#~ "ストール法では、CD イメージもダウンロードする必要があるでしょう。インス"
+#~ "トールイメージと CD イメージは &d-i; の同じリリースのものでなければなりま"
+#~ "せん。同じものを使用しないと、おそらくインストール中にエラーになるでしょう"
+#~ "<footnote> <para> もっとも起こりそうなエラーは、カーネルモジュールが見つか"
+#~ "らないというものです。これは、CD イメージにあるカーネルモジュール udeb の"
+#~ "バージョンが、実行中のカーネルのバージョンと異なることを表しています。</"
+#~ "para> </footnote>。"
+
+#~ msgid "Copying the files &mdash; the easy way"
+#~ msgstr "ファイルのコピー &mdash; 簡単な方法"
+
+#~ msgid ""
+#~ "If your system refuses to boot from the memory stick, the stick may "
+#~ "contain an invalid master boot record (MBR). To fix this, use the "
+#~ "<command>install-mbr</command> command from the package <classname>mbr</"
+#~ "classname>:"
+#~ msgstr ""
+#~ "システムが USB メモリから起動できなければ、 この USB メモリには無効なマス"
+#~ "ターブートレコード (MBR) があります。 これを修正するために、"
+#~ "<classname>mbr</classname> パッケージの <command>install-mbr</command> コ"
+#~ "マンドを次のように実行してください。"
+
+#~ msgid "# install-mbr /dev/<replaceable>sdX</replaceable>"
+#~ msgstr "# install-mbr /dev/<replaceable>sdX</replaceable>"
+
+#~ msgid "The installer cannot boot from files on an NTFS file system."
+#~ msgstr "インストーラは NTFS ファイルシステムからは起動できません。"
+
+#~ msgid ""
+#~ "To use the Pre-boot Execution Environment (PXE) method of TFTP booting, "
+#~ "you will need a TFTP server with <userinput>tsize</userinput> support. On "
+#~ "a &debian-gnu; server, the <classname>atftpd</classname> and "
+#~ "<classname>tftpd-hpa</classname> packages qualify; we recommend "
+#~ "<classname>tftpd-hpa</classname>."
+#~ msgstr ""
+#~ "TFTP ブートで Pre-boot Execution Environment (PXE) 法を使用するには、 "
+#~ "<userinput>tsize</userinput>をサポートする TFTP サーバが必要になります。 "
+#~ "&debian-gnu; サーバでは、<classname>atftpd</classname> と "
+#~ "<classname>tftpd-hpa</classname> がその資格があります。 <classname>tftpd-"
+#~ "hpa</classname> をお奨めします。"
+
+#~ msgid ""
+#~ "To get the TFTP server ready to go, you should first make sure that "
+#~ "<command>tftpd</command> is enabled. This is usually enabled by having "
+#~ "something like the following line in <filename>/etc/inetd.conf</"
+#~ "filename>: <informalexample><screen>\n"
+#~ "tftp dgram udp wait nobody /usr/sbin/tcpd in.tftpd /tftpboot\n"
+#~ "</screen></informalexample> Debian packages will in general set this up "
+#~ "correctly by default when they are installed."
+#~ msgstr ""
+#~ "TFTP サーバを立ち上げるには、 まず <command>tftpd</command> が有効になって"
+#~ "いるか確認します。 <filename>/etc/inetd.conf</filename> に次のような行があ"
+#~ "ればおそらく大丈夫です。 <informalexample><screen>\n"
+#~ "tftp dgram udp wait nobody /usr/sbin/tcpd in.tftpd /tftpboot\n"
+#~ "</screen></informalexample> Debian パッケージは一般的にインストールする"
+#~ "際、 デフォルトで正しくセットアップできます。"
+
+#~ msgid ""
+#~ "Look in <filename>/etc/inetd.conf</filename> and remember the directory "
+#~ "which is used as the argument of <command>in.tftpd</command><footnote> "
+#~ "<para> All <command>in.tftpd</command> alternatives available in Debian "
+#~ "should log TFTP requests to the system logs by default. Some of them "
+#~ "support a <userinput>-v</userinput> argument to increase verbosity. It is "
+#~ "recommended to check these log messages in case of boot problems as they "
+#~ "are a good starting point for diagnosing the cause of errors. </para> </"
+#~ "footnote>; you'll need that below. If you've had to change <filename>/etc/"
+#~ "inetd.conf</filename>, you'll have to notify the running <command>inetd</"
+#~ "command> process that the file has changed. On a Debian machine, run "
+#~ "<userinput>/etc/init.d/inetd reload</userinput>; on other machines, find "
+#~ "out the process ID for <command>inetd</command>, and run <userinput>kill -"
+#~ "HUP <replaceable>inetd-pid</replaceable></userinput>."
+#~ msgstr ""
+#~ "<filename>/etc/inetd.conf</filename> を見て、<command>in.tftpd</command> "
+#~ "の引数に与えられているディレクトリを覚えておいてください<footnote> "
+#~ "<para>Debian で利用できる <command>in.tftpd</command> の代替では、デフォル"
+#~ "トで TFTP リクエストをシステムログに記録します。いくつかは詳細情報を出力す"
+#~ "るのに <userinput>-v</userinput> 引数をサポートしています。起動時に問題が"
+#~ "ある場合、エラーの原因を診断する出発点として、こういったログメッセージを"
+#~ "チェックすることをお勧めします。</para> </footnote>。後でこのディレクトリ"
+#~ "を使います。 <filename>/etc/inetd.conf</filename> を変更したら、 変更した"
+#~ "ことを <command>inetd</command> に伝えなければなりません。 Debian マシンで"
+#~ "は <userinput>/etc/init.d/inetd reload</userinput> を実行します。 他のマシ"
+#~ "ンでは、<command>inetd</command> のプロセス ID を見つけて、 "
+#~ "<userinput>kill -HUP <replaceable>inetd-pid</replaceable></userinput> を実"
+#~ "行します。"
+
+#~ msgid ""
+#~ "The QNAP Turbo Station (TS-109, TS-209 and TS-409) requires a kernel and "
+#~ "ramdisk which can be obtained from &qnap-orion-firmware-img;. A script is "
+#~ "provided to write these images to flash."
+#~ msgstr ""
+#~ "QNAP Turbo Station (TS-109, TS-209, TS-409)  では、&qnap-orion-firmware-"
+#~ "img; から取得できるカーネルと RAM ディスクが必要です。このイメージをフラッ"
+#~ "シュメモリに書き込むスクリプトを、提供しています。"
+
+#~ msgid "Alpha Installation Files"
+#~ msgstr "Alpha のインストールファイル"
+
+#~ msgid ""
+#~ "If you choose to boot from ARC console firmware using <command>MILO</"
+#~ "command>, you will also need to prepare a disk containing <command>MILO</"
+#~ "command> and <command>LINLOAD.EXE</command> from the provided disk "
+#~ "images. See <xref linkend=\"alpha-firmware\"/> for more information on "
+#~ "Alpha firmware and boot loaders. The floppy images can be found in the "
+#~ "<filename>MILO</filename> directory as "
+#~ "<filename>milo_<replaceable>subarchitecture</replaceable>.bin</filename>."
+#~ msgstr ""
+#~ "<command>MILO</command> を使って ARC コンソールファームウェアから 起動する"
+#~ "方法を選んだ場合、提供されているディスクイメージの中から、 <command>MILO</"
+#~ "command> と <command>LINLOAD.EXE</command> の入っているものを選ぶ必要があ"
+#~ "ります。 Alpha ファームウェアとブートローダに関するより詳細な情報について"
+#~ "は、 <xref linkend=\"alpha-firmware\"/> をご覧ください。フロッピーイメージ"
+#~ "は <filename>MILO</filename> ディレクトリにある "
+#~ "<filename>milo_<replaceable>サブアーキテクチャ</replaceable>.bin</"
+#~ "filename> です。"
+
+#~ msgid ""
+#~ "Unfortunately, these <command>MILO</command> images could not be tested "
+#~ "and might not work for all subarchitectures. If you find it doesn't work "
+#~ "for you, try copying the appropriate <command>MILO</command> binary onto "
+#~ "the floppy (<ulink url=\"&disturlftp;main/disks-alpha/current/MILO/\"></"
+#~ "ulink>). Note that those <command>MILO</command>s don't support ext2 "
+#~ "<quote>sparse superblocks</quote>, so you can't use them to load kernels "
+#~ "from newly generated ext2 file systems. As a workaround, you can put your "
+#~ "kernel onto the FAT partition next to the <command>MILO</command>."
+#~ msgstr ""
+#~ "残念ながら、これらの <command>MILO</command> イメージはあまりテストできて"
+#~ "いません。 そのため、すべてのサブアーキテクチャで動作するとは限りません。 "
+#~ "もし動かなかった場合は、適切な <command>MILO</command> のバイナリを フロッ"
+#~ "ピーにコピーしてみてください (<ulink url=\"&disturlftp;main/disks-alpha/"
+#~ "current/MILO/\"></ulink>)。 なおこれらの <command>MILO</command> は ext2 "
+#~ "の <quote>sparse superblocks</quote> をサポートしていません。 従ってこれら"
+#~ "の <command>MILO</command> バイナリを使って、 新しくつくった ext2 ファイル"
+#~ "システムからカーネルをロードすることはできません。 この問題を回避するに"
+#~ "は、<command>MILO</command> の次にある FAT パーティションにカーネルを置い"
+#~ "てください。"
+
+#~ msgid ""
+#~ "<command>MILO</command> binaries are platform-specific. See <xref linkend="
+#~ "\"alpha-cpus\"/> to determine the appropriate <command>MILO</command> "
+#~ "image for your Alpha platform."
+#~ msgstr ""
+#~ "<command>MILO</command> のバイナリはプラットフォームに依存します。 お使い"
+#~ "の Alpha プラットフォームで、 どの <command>MILO</command> イメージを使う"
+#~ "のが適切かは、 <xref linkend=\"alpha-cpus\"/> を見てください。"
+
+#~ msgid ""
+#~ "Unlike the Open Firmware found on Sparc and PowerPC machines, the SRM "
+#~ "console will <emphasis>not</emphasis> use RARP to obtain its IP address, "
+#~ "and therefore you must use BOOTP for net booting your Alpha<footnote> "
+#~ "<para> Alpha systems can also be net-booted using the DECNet MOP "
+#~ "(Maintenance Operations Protocol), but this is not covered here. "
+#~ "Presumably, your local OpenVMS operator will be happy to assist you "
+#~ "should you have some burning need to use MOP to boot Linux on your Alpha. "
+#~ "</para> </footnote>. You can also enter the IP configuration for network "
+#~ "interfaces directly in the SRM console."
+#~ msgstr ""
+#~ "Sparc や PowerPC マシンの Open Firmware とは異なり、 SRM コンソールは IP "
+#~ "アドレスの取得に RARP を使い<emphasis>ません</emphasis>。 従って Alpha を"
+#~ "ネットワークブートするには BOOTP を使う必要があります<footnote> <para> "
+#~ "Alpha システムは DECNet MOP (Maintenance Operations Protocol) を使っても"
+#~ "ネットワークブートできます。 しかしここでは詳細については扱いません。 MOP "
+#~ "を使って Alpha で Linux を起動する差し迫った必要が生じたら、 おそらくあな"
+#~ "たの部門の OpenVMS 管理者が助けてくれるでしょう。 </para> </footnote>。 "
+#~ "ネットワークインターフェースの IP の設定は、 直接 SRM コンソールから入力す"
+#~ "ることもできます。"
+
+#~ msgid "Alpha TFTP Booting"
+#~ msgstr "Alpha TFTP ブート"
+
+#~ msgid ""
+#~ "On Alpha, you must specify the filename (as a relative path to the boot "
+#~ "image directory) using the <userinput>-file</userinput> argument to the "
+#~ "SRM <userinput>boot</userinput> command, or by setting the "
+#~ "<userinput>BOOT_FILE</userinput> environment variable. Alternatively, the "
+#~ "filename can be given via BOOTP (in ISC <command>dhcpd</command>, use the "
+#~ "<userinput>filename</userinput> directive). Unlike Open Firmware, there "
+#~ "is <emphasis>no default filename</emphasis> on SRM, so you "
+#~ "<emphasis>must</emphasis> specify a filename by either one of these "
+#~ "methods."
+#~ msgstr ""
+#~ "Alpha では、SRM の <userinput>boot</userinput> コマンドの <userinput>-"
+#~ "file</userinput> 引数を使うか、 <userinput>BOOT_FILE</userinput> 環境変数"
+#~ "を使うかして、 ファイル名を (ブートイメージディレクトリからの相対パスとし"
+#~ "て) 与える必要があります。 あるいはファイル名は、BOOTP から (ISC "
+#~ "<command>dhcpd</command> なら <userinput>filename</userinput> ディレクティ"
+#~ "ブによって) 与えることもできます。 Open Firmware とは異なり、SRM には "
+#~ "<emphasis>デフォルトのファイル名はありません</emphasis>。 従って、これらの"
+#~ "方法のいずれかでファイル名を与えなければなりません。"
+
+#~ msgid "Choosing a Kernel"
+#~ msgstr "カーネルの選択"
+
+#~ msgid ""
+#~ "Some m68k subarchs have a choice of kernels to install. In general we "
+#~ "recommend trying the most recent version first. If your subarch or "
+#~ "machine needs to use a 2.2.x kernel, make sure you choose one of the "
+#~ "images that supports 2.2.x kernels (see the <ulink url=\"&disturl;/main/"
+#~ "installer-&architecture;/current/images/MANIFEST\">MANIFEST</ulink>)."
+#~ msgstr ""
+#~ "m68k サブアーキテクチャの中には、 インストールするのにカーネルを選択するも"
+#~ "のがあります。 たいていは、まず最新のカーネルを試すのをお奨めします。 サブ"
+#~ "アーキテクチャやそのマシンが 2.2.x カーネルを使う必要があるなら、 2.2.x "
+#~ "カーネルをサポートしているイメージを使用してください (<ulink url="
+#~ "\"&disturl;/main/installer-&architecture;/current/images/MANIFEST"
+#~ "\">MANIFEST</ulink> を参照してください)。"
+
+#~ msgid ""
+#~ "All of the m68k images for use with 2.2.x kernels, require the kernel "
+#~ "parameter &ramdisksize;."
+#~ msgstr ""
+#~ "2.2.x カーネルで使用する m68k のイメージはすべて、 カーネルパラメータに "
+#~ "&ramdisksize; が必要です。"
+
+#~ msgid ""
+#~ "Booting the installer from floppy disk is not supported on Amigas or 68k "
+#~ "Macs."
+#~ msgstr ""
+#~ "Amiga や 68k Mac では、 フロッピーからインストーラの起動をサポートしていま"
+#~ "せん。"
+
+#~ msgid "Writing Disk Images on Atari Systems"
+#~ msgstr "Atari システムでのディスクイメージの書き込み"
+
+#~ msgid ""
+#~ "You'll find the &rawwrite.ttp; program in the same directory as the "
+#~ "floppy disk images. Start the program by double clicking on the program "
+#~ "icon, and type in the name of the floppy image file you want written to "
+#~ "the floppy at the TOS program command line dialog box."
+#~ msgstr ""
+#~ "フロッピーディスクイメージと同じディレクトリに &rawwrite.ttp; プログラムが"
+#~ "あります。 そのアイコンをダブルクリックしてプログラムを起動し、 TOS プログ"
+#~ "ラムコマンドラインのダイアログボックスで、 フロッピーに書き込みたいフロッ"
+#~ "ピーイメージのファイル名を入力してください。"
+
+#~ msgid "Writing Disk Images on Macintosh Systems"
+#~ msgstr "Macintosh システムでのディスクイメージの書き込み"
+
+#~ msgid ""
+#~ "Since the current release does not yet support booting from floppies to "
+#~ "start the installation, there would be no point in doing this on "
+#~ "Macintosh Systems. However, these files are needed for the installation "
+#~ "of the operating system and modules, later in the process."
+#~ msgstr ""
+#~ "現在のリリースでは、フロッピーからのインストーラ起動をサポートしていないた"
+#~ "め、 Macintosh システムで行う意味はありません。 しかし、後の過程で OS やモ"
+#~ "ジュールをインストールするのに、 そのファイルが必要になります。"
+
+#~ msgid "BVM/Motorola TFTP Booting"
+#~ msgstr "BVM/Motorola TFTP ブート"
+
+#~ msgid ""
+#~ "For BVM and Motorola VMEbus systems copy the files &bvme6000-tftp-files; "
+#~ "to <filename>/tftpboot/</filename>."
+#~ msgstr ""
+#~ "BVM システムや Motorola VMEbus システムでは、 &bvme6000-tftp-files; を "
+#~ "<filename>/tftpboot/</filename> にコピーしてください。"
+
+#~ msgid ""
+#~ "Next, configure your boot ROMs or BOOTP server to initially load the "
+#~ "<filename>tftplilo.bvme</filename> or <filename>tftplilo.mvme</filename> "
+#~ "files from the TFTP server. Refer to the <filename>tftplilo.txt</"
+#~ "filename> file for your subarchitecture for additional system-specific "
+#~ "configuration information."
+#~ msgstr ""
+#~ "次に boot ROM や BOOTP サーバを設定して、 <filename>tftplilo.bvme</"
+#~ "filename> または <filename>tftplilo.mvme</filename> といったファイルを "
+#~ "TFTP サーバから最初にロードするようにしてください。 お使いのサブアーキテク"
+#~ "チャについてや、 システム特有の設定情報に関しては、 <filename>tftplilo."
+#~ "txt</filename> を参照してください。"
+
+#~ msgid "Broadcom BCM91250A and BCM91480B TFTP Booting"
+#~ msgstr "Broadcom BCM91250A, BCM91480B の TFTP ブート"
+
+#~ msgid ""
+#~ "You don't have to configure DHCP in a special way because you'll pass the "
+#~ "full path of the file to be loaded to CFE."
+#~ msgstr ""
+#~ "CFE にロードするファイルのフルパスを渡しているため、 特殊な DHCP の設定を"
+#~ "する必要はありません。"
+
+#~ msgid ""
+#~ "The easiest way to boot a Netwinder is over the network, using the "
+#~ "supplied TFTP image &netwinder-boot-img;."
+#~ msgstr ""
+#~ "Netwinder をネットワークブートする一番簡単なやり方は、 提供されている "
+#~ "TFTP イメージ &netwinder-boot-img; を使う方法です。"
+
+#~ msgid "CATS Installation Files"
+#~ msgstr "CATS のインストールファイル"
+
+#~ msgid ""
+#~ "CATS can be booted either via the network or from CD-ROM. The kernel and "
+#~ "initrd can be obtained from &cats-boot-img;."
+#~ msgstr ""
+#~ "CATS はネットワーク経由か CD-ROM から起動できます。 カーネルと initrd は "
+#~ "&cats-boot-img; から得られます。"
+
+#~ msgid "USB stick partitioning on &arch-title;"
+#~ msgstr "&arch-title; での USB メモリのパーティション分割"
+
+#~ msgid ""
+#~ "The <filename>syslinux.cfg</filename> configuration file should contain "
+#~ "the following two lines:"
+#~ msgstr ""
+#~ "<filename>syslinux.cfg</filename> 設定ファイルには、 以下の 2 行を含まなけ"
+#~ "ればなりません。"
+
+#~ msgid ""
+#~ "default vmlinuz\n"
+#~ "append initrd=initrd.gz"
+#~ msgstr ""
+#~ "default vmlinuz\n"
+#~ "append initrd=initrd.gz"
+
+#~ msgid "Optional kernel modules"
+#~ msgstr "追加カーネルモジュール"
+
+#~ msgid ""
+#~ "The installer will look for a Debian ISO image on the stick as its source "
+#~ "for additional data needed for the installation. So your next step is to "
+#~ "copy a Debian ISO image (businesscard, netinst or even a full CD image) "
+#~ "onto your stick (be sure to select one that fits). The file name of the "
+#~ "image must end in <filename>.iso</filename>."
+#~ msgstr ""
+#~ "インストーラは、USB メモリ上の Debian ISO イメージを探し、 インストールに"
+#~ "必要な追加データの取得元とします。 ですから次のステップは、 Debian ISO イ"
+#~ "メージ (名刺、netinst、完全版のいずれか) を、 USB メモリに (入るものを選ん"
+#~ "で) 入れることです。 ISO イメージのファイル名は <filename>.iso</filename> "
+#~ "で終わっていなければなりません。"
+
+#~ msgid ""
+#~ "If you want to install over the network, without using an ISO image, you "
+#~ "will of course skip the previous step. Moreover you will have to use the "
+#~ "initial ramdisk from the <filename>netboot</filename> directory instead "
+#~ "of the one from <filename>hd-media</filename>, because <filename>hd-media/"
+#~ "initrd.gz</filename> does not have network support."
+#~ msgstr ""
+#~ "ISO イメージを使わずネットワーク越しにインストールしたければ、 もちろん前"
+#~ "の手順をスキップしてください。 さらに、<filename>hd-media/initrd.gz</"
+#~ "filename> はネットワークをサポートしないので、 <filename>hd-media</"
+#~ "filename> のものの代わりに、 <filename>netboot</filename> ディレクトリにあ"
+#~ "る 初期 RAM ディスクを使わなければならないでしょう。"
+
+#~ msgid ""
+#~ "When you are done, unmount the USB memory stick (<userinput>umount /mnt</"
+#~ "userinput>) and activate its write protection switch."
+#~ msgstr ""
+#~ "終わったら、USB メモリをアンマウントし (<userinput>umount /mnt</"
+#~ "userinput>)、 ライトプロテクトスイッチを有効にしてください。"
+
+#~ msgid "DECstation TFTP Images"
+#~ msgstr "DECstation TFTP イメージ"
+
+#~ msgid ""
+#~ "For DECstations, there are tftpimage files for each subarchitecture, "
+#~ "which contain both kernel and installer in one file. The naming "
+#~ "convention is <filename><replaceable>subarchitecture</replaceable>/"
+#~ "netboot-boot.img</filename>. Copy the tftpimage file you would like to "
+#~ "use to <userinput>/tftpboot/tftpboot.img</userinput> if you work with the "
+#~ "example BOOTP/DHCP setups described above."
+#~ msgstr ""
+#~ "DECstation には、各サブアーキテクチャごとに tftp イメージがあり、 カーネル"
+#~ "とインストーラがひとつのイメージに収められています。 命名規則は "
+#~ "<filename><replaceable>subarchitecture</replaceable>/netboot-boot.img</"
+#~ "filename> です。 上述の例のように BOOTP/DHCP を設定したのでしたら、 使いた"
+#~ "い tftp イメージを <userinput>/tftpboot/tftpboot.img</userinput> にコピー"
+#~ "します。"
+
+#~ msgid ""
+#~ "The DECstation firmware boots by TFTP with the command <userinput>boot "
+#~ "<replaceable>#</replaceable>/tftp</userinput>, where <replaceable>#</"
+#~ "replaceable> is the number of the TurboChannel device from which to boot. "
+#~ "On most DECstations this is <quote>3</quote>. If the BOOTP/DHCP server "
+#~ "does not supply the filename or you need to pass additional parameters, "
+#~ "they can optionally be appended with the following syntax:"
+#~ msgstr ""
+#~ "DECstation ファームウェアから TFTP ブートするには、 <userinput>boot "
+#~ "<replaceable>#</replaceable>/tftp</userinput> というコマンドを使います。こ"
+#~ "こで <replaceable>#</replaceable> は起動元の TurboChannel デバイスの番号で"
+#~ "す。 ほとんどの DECstation では、これは <quote>3</quote> です。 BOOTP/"
+#~ "DHCP サーバがファイル名を与えない場合や、 パラメータを追加して渡したい場合"
+#~ "は、 次の書式に従ってこれらを追加できます。"
+
+#~ msgid "boot #/tftp/filename param1=value1 param2=value2 ..."
+#~ msgstr "boot #/tftp/filename param1=value1 param2=value2 ..."
+
+#~ msgid ""
+#~ "Several DECstation firmware revisions show a problem with regard to net "
+#~ "booting: the transfer starts, but after some time it stops with an "
+#~ "<computeroutput>a.out err</computeroutput>. This can have several "
+#~ "reasons: <orderedlist> <listitem><para> The firmware does not respond to "
+#~ "ARP requests during a TFTP transfer. This leads to an ARP timeout and the "
+#~ "transfer stops. The solution is to add the MAC address of the Ethernet "
+#~ "card in the DECstation statically to the ARP table of the TFTP server. "
+#~ "This is done by running <userinput>arp -s <replaceable>IP-address</"
+#~ "replaceable> <replaceable>MAC-address</replaceable></userinput> as root "
+#~ "on the machine acting as TFTP server. The MAC-address of the DECstation "
+#~ "can be read out by entering <command>cnfg</command> at the DECstation "
+#~ "firmware prompt. </para></listitem> <listitem><para> The firmware has a "
+#~ "size limit on the files that can be booted by TFTP. </para></listitem> </"
+#~ "orderedlist> There are also firmware revisions that cannot boot via TFTP "
+#~ "at all. An overview about the different firmware revisions can be found "
+#~ "at the NetBSD web pages: <ulink url=\"http://www.netbsd.org/Ports/pmax/"
+#~ "board-list.html#proms\"></ulink>."
+#~ msgstr ""
+#~ "DECstation ファームウェアのリビジョンによっては、 ネットワークブートに問題"
+#~ "があることがあります。 転送は開始するのですが、しばらく経つと "
+#~ "<computeroutput>a.out err</computeroutput> で停止してしまうのです。 これに"
+#~ "はいくつかの理由が考えられます。 <orderedlist> <listitem><para> ファーム"
+#~ "ウェアが TFTP 転送の最中に ARP リクエストに反応しない。 すると ARP タイム"
+#~ "アウトが起こり、転送が停止します。 これを解決するには、DEC station のイー"
+#~ "サネットカードの MAC アドレスを、 TFTP サーバの ARP テーブルに静的に追加す"
+#~ "ることです。 これを行うには TFTP サーバマシンの root 権限で "
+#~ "<userinput>arp -s <replaceable>IP-address</replaceable> <replaceable>MAC-"
+#~ "address</replaceable></userinput> とします。 DECstation の MAC-address "
+#~ "は、DECstation ファームウェアのプロンプトで <command>cnfg</command> と入力"
+#~ "すればわかります。 </para></listitem> <listitem><para> TFTP から起動できる"
+#~ "ファイルサイズの制限がファームウェアにある。 </para></listitem> </"
+#~ "orderedlist> そもそも全く TFTP からは起動できないファームウェアリビジョン"
+#~ "もあります。 ファームウェアリビジョンごとの違いについての概説は、 NetBSD "
+#~ "web ページ: <ulink url=\"http://www.netbsd.org/Ports/pmax/board-list."
+#~ "html#proms\"></ulink>. にあります。"

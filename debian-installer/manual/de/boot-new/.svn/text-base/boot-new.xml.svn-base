@@ -1,0 +1,219 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+<chapter id="boot-new">
+ <title>Das neue &debian;-System starten</title>
+
+ <sect1 id="base-boot"><title>Der Moment der Wahrheit</title>
+<para>
+
+Der erste Systemstart aus eigener Kraft ist das, was Elektroingenieure
+den <quote>smoke test</quote> nennen (testen ob's qualmt).
+
+</para><para arch="any-x86">
+
+Wenn Sie eine Standard-Installation durchgeführt haben, sollten Sie als erstes
+das Menü des Bootloaders <classname>grub</classname><phrase arch="x86"> oder eventuell
+<classname>lilo</classname></phrase> sehen, wenn Sie booten. Der erste Auswahlpunkt
+in dem Menü ist Ihr neues &debian;-System. Falls Sie weitere Betriebssysteme auf
+dem Rechner installiert haben (wie z.B. Windows), die vom Installationssystem
+erkannt wurden, sind diese weiter unten im Menü aufgelistet.
+
+</para><para>
+
+Falls das System nicht korrekt startet - keine Panik. Wenn die Installation
+erfolgreich verlaufen ist, stehen die Chancen gut, dass nur ein relativ kleiner
+Fehler vorhanden ist, der das System daran hindert, &debian; zu booten. In den
+meisten Fällen können solche Probleme behoben werden, ohne die Installation
+komplett wiederholen zu müssen. Eine mögliche Option, das Problem zu lösen,
+ist die Benutzung des eingebauten Rettungs-Modus' des Installers (siehe
+<xref linkend="rescue"/>).
+
+</para><para>
+
+Wenn Sie noch neu sind bei &debian; und &arch-kernel;, benötigen Sie vielleicht Hilfe
+von erfahreneren Benutzern. <phrase arch="x86">Direkte Online-Hilfe bekommen
+Sie vielleicht auf den IRC-Channels #debian oder #debian-boot im OFTC-Netzwerk.
+Alternativ können Sie die <ulink url="&url-list-subscribe;">debian-user
+Mailingliste</ulink> kontaktieren.</phrase>
+<phrase arch="not-x86">Für nicht ganz so gängige Architekturen wie &arch-title;
+ist es die beste Wahl, auf der
+<ulink url="&url-list-subscribe;">debian-&arch-listname;
+Mailingliste </ulink> nachzufragen.</phrase>
+Sie können auch einen Installationsbericht einschicken, wie im
+<xref linkend="submit-bug"/> beschrieben. Bitte achten Sie darauf, Ihr Problem
+klar und verständlich zu beschreiben und etwaige (Fehler-)Meldungen mit
+anzugeben, die anderen helfen könnten, das Problem zu diagnostizieren.
+
+</para><para arch="any-x86">
+
+Falls Sie ein weiteres Betriebssystem auf Ihrem Computer installiert haben, dieses
+aber nicht oder nicht korrekt erkannt wurde, senden Sie uns bitte ebenfalls einen
+Installationsbericht.
+
+</para>
+
+
+  <sect2 arch="powerpc"><title>OldWorld-PowerMacs</title>
+<para>
+
+Wenn der Start der Maschine nach dem Abschluss der Installation fehlschlägt
+und beim <prompt>boot:</prompt>-Prompt stoppt, versuchen Sie,
+<userinput>Linux</userinput> gefolgt von &enterkey; einzugeben.
+(Die Standard-Boot-Konfiguration in <filename>quik.conf</filename>
+heißt Linux). Die Einträge, die in <filename>quik.conf</filename>
+definiert sind, werden angezeigt, wenn Sie am <prompt>boot:</prompt>-Prompt
+<keycap>Tab</keycap> drücken. Sie können auch versuchen, noch einmal wieder den
+Installer zu booten und die Datei <filename>/target/etc/quik.conf</filename>
+zu editieren, die dort während des Schritts
+<guimenuitem>Quik auf einer Festplatte installieren</guimenuitem> erstellt wurde.
+Hinweise zum Umgang mit <command>quik</command> sind
+unter <ulink url="&url-powerpc-quik-faq;"></ulink> verfügbar.
+
+</para><para>
+
+Um wieder MacOS zu booten, ohne das nvram zurückzusetzen, tippen Sie am
+OpenFirmware-Prompt <userinput>bye</userinput> ein (vorausgesetzt, MacOS wurde
+nicht vom Rechner entfernt). Um zum OpenFirmware-Prompt zu gelangen, drücken
+Sie <keycombo> <keycap>Command</keycap>
+<keycap>Option</keycap> <keycap>o</keycap> <keycap>f</keycap>
+</keycombo> während des Rechner-Kaltstarts. Wenn Sie die OpenFirmware
+nvram-Änderungen auf die Standardwerte zurücksetzen müssen, um wieder
+MacOS starten zu können, drücken Sie <keycombo> <keycap>Command</keycap>
+<keycap>Option</keycap> <keycap>p</keycap> <keycap>r</keycap>
+</keycombo> während des Rechner-Kaltstarts.
+
+</para><para>
+
+Wenn Sie <command>BootX</command> benutzen, um das installierte System zu starten,
+wählen Sie den gewünschten Kernel im <filename>Linux Kernels</filename>-Verzeichnis
+aus, deaktivieren die RAM-Disk-Option und fügen einen Eintrag für das Root-Device
+hinzu, der zu Ihrer Installation passt (z.B. <userinput>/dev/hda8</userinput>).
+
+</para>
+   </sect2>
+
+
+  <sect2 arch="powerpc"><title>NewWorld-PowerMacs</title>
+<para>
+
+Auf G4-Maschinen und iBooks können Sie die Taste <keycap>Option</keycap> drücken,
+um ein grafisches Bild mit Buttons für jedes installierte Betriebssystem
+zu bekommen; &debian-gnu; hat einen Button mit einem kleinen Pinguin-Icon.
+
+</para><para>
+
+Wenn Sie MacOS behalten haben und es irgendwann einmal die
+OpenFirmware-Variable <envar>boot-device</envar> ändert, sollten Sie
+OpenFirmware auf die Standardwerte zurücksetzen. Dazu drücken Sie
+<keycombo> <keycap>Command</keycap> <keycap>Option</keycap> <keycap>p</keycap>
+<keycap>r</keycap> </keycombo> während des Rechner-Kaltstarts.
+
+</para><para>
+
+Die Einträge, die in <filename>yaboot.conf</filename> definiert sind,
+werden angezeigt, wenn Sie am <prompt>boot:</prompt>-Prompt
+die <keycap>Tab</keycap>-Taste drücken.
+
+</para><para>
+
+Das Zurücksetzen von OpenFirmware auf G3- und G4-Rechnern bewirkt,
+dass &debian-gnu; standardmäßig gebootet wird (wenn Sie korrekt partitioniert
+haben und die Apple_Bootstrap-Partition als erste angelegt haben).
+Wenn Sie &debian-gnu; auf einer SCSI-Platte installiert haben und MacOS
+auf einer IDE-Platte, funktioniert dies unter Umständen nicht und Sie
+müssen in OpenFirmware die <envar>boot-device</envar>-Variable passend setzen;
+<command>ybin</command> macht dies normalerweise automatisch.
+
+</para><para>
+
+Nachdem Sie &debian-gnu; das erste Mal gebootet haben, können Sie jegliche
+zusätzlichen Optionen (z.B. für Dual-Boot) zur Datei
+<filename>/etc/yaboot.conf</filename> hinzufügen und <command>ybin</command>
+ausführen, um die Boot-Partition mit der geänderten Konfiguration zu
+aktualisieren. Lesen Sie dazu das
+<ulink url="&url-powerpc-yaboot-faq;">yaboot-HowTo</ulink>.
+
+</para>
+   </sect2>
+ </sect1>
+
+&mount-encrypted.xml;
+
+ <sect1 id="login">
+ <title>Anmelden</title>
+
+<para>
+
+Sobald Ihr System gebootet ist, wird der Anmeldebildschirm angezeigt.
+Melden Sie sich mit Ihrem persönlichen Benutzernamen und Passwort an,
+das Sie während der Installation festgelegt haben. Das System ist jetzt
+bereit zur Benutzung.
+
+</para><para>
+
+Wenn Sie neu bei &debian; sind, sollten Sie vielleicht die Dokumentation lesen,
+die bereits auf dem System installiert ist, um erste Tipps zur Benutzung zu
+bekommen. Es gibt derzeit mehrere Dokumentationssysteme; es wird daran
+gearbeitet, diese zu vereinheitlichen. Hier ein paar Ausgangspunkte:
+
+</para><para>
+
+Dokumentation, die zu Anwendungsprogrammen gehört, finden Sie unter
+<filename>/usr/share/doc/</filename> in einem Unterverzeichnis mit dem
+Namen des Programms (oder genauer gesagt mit dem Namen des &debian;-Pakets,
+das das Programm enthält). Oft ist allerdings weitergehende Dokumentation auch
+in separaten Dokumentationspaketen enthalten, die meist standardmäßig nicht
+installiert werden. Zum Beispiel finden Sie Dokumentation zu dem
+Paketmanagement-Werkzeug <command>apt</command> in den Paketen
+<classname>apt-doc</classname> oder <classname>apt-howto</classname>.
+
+</para><para>
+
+Zusätzlich gibt es einige spezielle Verzeichnisse unterhalb von
+<filename>/usr/share/doc/</filename>: in
+<filename>/usr/share/doc/HOWTO/en-txt/</filename> sind Linux-HowTos im
+komprimierten <emphasis>.gz</emphasis>-Format installiert. Und nachdem
+das Paket <classname>dhelp</classname> installiert wurde, finden Sie
+in <filename>/usr/share/doc/HTML/index.html</filename> eine Übersicht
+über Dokumentationen, die Sie mit einem Webbrowser lesen können.
+
+</para><para>
+
+Ein einfacher Weg, diese Dokumente mit einem text-basierten Browser zu
+betrachten, ist, folgende Befehle einzugeben:
+
+<informalexample><screen>
+$ cd /usr/share/doc/
+$ w3m .
+</screen></informalexample>
+
+Der Punkt hinter <command>w3m</command> weist das Programm an, den Inhalt
+des aktuellen Verzeichnisses anzuzeigen.
+
+</para><para>
+
+Wenn Sie eine grafische Desktop-Umgebung wie GNOME oder KDE installiert haben,
+können Sie auch deren Webbrowser verwenden. Starten Sie den Browser aus dem
+Menü und geben Sie <userinput>/usr/share/doc/</userinput> in die Adresszeile
+ein.
+
+</para><para>
+
+Sie können auch <userinput>info <replaceable>Kommando</replaceable></userinput>
+oder <userinput>man <replaceable>Kommando</replaceable></userinput> eingeben,
+um Dokumentation zu den meisten Befehlen zu bekommen, die auf der Kommandozeile
+verfügbar sind. Indem Sie <userinput>help</userinput> eingeben, bekommen Sie
+eine Hilfe zu Shell-Befehlen, und wenn Sie ein Kommando gefolgt von
+<userinput>--help</userinput> eintippen, wird für gewöhnlich eine kurze
+Zusammenfassung angezeigt, wie das Kommando zu nutzen ist. Wenn die Ausgabe
+eines Befehls länger als die Seite ist, tippen Sie hinter dem Befehl
+<userinput>|&nbsp;more</userinput> ein; dadurch wird die Ausgabe seitenweise
+angezeigt. Um eine Liste aller verfügbaren Befehle zu bekommen, die mit einem
+bestimmten Buchstaben oder einer bestimmten Buchstabenkombination beginnen,
+tippen Sie den/die Anfangsbuchstaben ein und drücken zweimal TAB.
+
+</para>
+
+ </sect1>
+</chapter>

@@ -1,0 +1,163 @@
+<!-- $Id: administrivia.xml 65024 2010-10-17 08:16:11Z mck-guest $ -->
+<!-- original version: 64955 -->
+
+<appendix id="administrivia">
+ <title>Administrivia</title>
+
+
+ <sect1 id="about">
+ <title>O tomto dokumentu</title>
+
+<para>
+
+Tato příručka byla vytvořena pro instalaci distribuce Sarge
+(debian-installer). Příručka vychází z dřívějšího manuálu pro Woodyho
+(boot-floppies), který je zase založen na předchozích instalačních
+manuálech. Využili jsme i částí manálu distribuce Progeny, který byl
+v roce 2003 uvolněn pod licencí GNU GPL.
+
+</para><para>
+
+Tento dokument je napsán ve formátu XML DocBook.  Výstupní formáty
+jsou generovány různými programy využívající informace z balíků
+<classname>docbook-xml</classname>
+a <classname>docbook-xsl</classname>.
+
+</para><para>
+
+Aby byl dokument lépe udržovatelný, používáme různé výhody XML, jako
+jsou entity a profilovací atributy, které nahrazují proměnné
+a podmínky z programovacích jazyků.  Zdrojový text příručky například
+obsahuje pohromadě informace pro všechny podporované typy počítačových
+architektur. Pomocí profilovacích atributů jsou různé pasáže textu
+označeny jako závislé na dané architektuře a při překladu se zobrazí
+jenom v určitých verzích dokumentu.
+
+</para>
+
+ </sect1>
+
+
+ <sect1 id="contributing">
+ <title>Jak přispět k tomuto návodu</title>
+
+<para>
+
+Problémy a vylepšení týkající se tohoto dokumentu zasílejte formou bug
+reportu (hlášení o chybě) v balíku
+<classname>installation-guide</classname>.  (Viz popis v balíku
+<classname>reportbug</classname> nebo online dokumentace <ulink
+url="&url-bts;">Debian Bug Tracking System</ulink>.) Před nahlášením
+problému je vždy dobré nejprve zkontrolovat databázi <ulink
+url="&url-bts;installation-guide">otevřených chyb balíku
+installation-guide</ulink>, zda již chyba nebyla hlášena.  Pokud
+stejný problém najdete mezi neuzavřenými chybami, můžete doplnit
+existující popis o váš poznatek zasláním zprávy na adresu
+<email><replaceable>XXXX</replaceable>@bugs.debian.org</email>, kde
+<replaceable>XXXX</replaceable> je číslo již nahlášeného problému.
+
+</para><para>
+
+Ještě lepší je získat zdrojový text dokumentu ve formátu DocBook
+a vytvářet záplaty (patch) přímo proti němu. Pokud jste se s formátem
+DocBook ještě nesetkali, pro začátek vám pomůže soubor
+<filename>cheatsheet.txt</filename> nacházející se v adresáři se
+zdrojovými texty příručky. Ty můžete nalézt na stránce <ulink
+url="&url-d-i-websvn;">debian-installer WebSVN</ulink>.  Návod, jak
+získat soubory ze SVN, najdete v souboru <ulink
+url="&url-d-i-readme;">README</ulink>.
+
+</para><para>
+
+Prosíme vás, abyste <emphasis>nekontaktovali</emphasis> autory tohoto
+dokumentu přímo. Existuje emailová konference balíku &d-i;, která je
+zaměřena i na tento manuál. Její adresa je
+<email>debian-boot@lists.debian.org</email>.  Návod pro přihlášení do
+konference naleznete na stránce <ulink
+url="&url-debian-lists-subscribe;">Přihlášení do diskusních listů
+Debianu</ulink>. Starší zprávy jsou dostupné v <ulink
+url="&url-debian-list-archives;">archivu diskusních listů
+Debianu</ulink>.
+
+</para>
+
+ </sect1>
+
+ <sect1 id="contributors">
+ <title>Hlavní spoluautoři</title>
+
+<para>
+
+Tento dokument původně napsali Bruce Perens, Sven Rudolph, Igor
+Grobman, James Treacy a Adam Di Carlo. Sebastian Ley sepsal
+Installation Howto.
+
+</para><para>
+
+Miroslav Kuře zdokumentoval (prý velké) části funkcionality nového
+instalačního programu pro Sarge. Frans Pop byl hlavním editorem a
+release managerem během vydání Etche, Lennyho a Squeeze.
+
+</para><para>
+
+K tomuto dokumentu přispělo mnoho uživatelů a vývojářů Debianu.
+Zmiňme alespoň Michaela Schmitze (m68k), Franka Neumanna (je autorem
+<ulink url="&url-m68k-old-amiga-install;"> instalačního manuálu pro
+Amigu</ulink>). Dále to jsou Arto Astala, Eric Delaunay/Ben Collins
+(SPARC), Tapio Lehtonen a Stéphane Bortzmeyer (mnoho oprav a textu).
+Také je třeba poděkovat Pascalu Le Bailovi za užitečné informace
+o zavádění z USB zařízení.
+
+</para><para>
+
+Velmi užitečné informace jsme nalezli v dokumentech
+<quote>Jim Mintha's HOWTO for network booting</quote> (neznámá
+adresa),
+<ulink url="&url-debian-faq;">Debian FAQ</ulink>,
+<ulink url="&url-m68k-faq;">Linux/m68k FAQ</ulink>,
+<ulink url="&url-sparc-linux-faq;">Linux for SPARC Processors FAQ</ulink>,
+<ulink url="&url-alpha-faq;">Linux/Alpha FAQ</ulink>
+a dalších. Uznání samozřejmě patří i lidem, kteří tyto volně dostupné
+a bohaté zdroje informací spravují.
+
+</para><para>
+
+Část manuálu zabývající se chrootovanou instalací (<xref
+linkend="linux-upgrade"/>) je částečně odvozena z dokumentů na něž
+vlastní copyright Karsten M. Self.
+
+</para><para arch="x86">
+
+Kapitola zabývající se instalací přes (<xref linkend="plip"/>) je
+založena na <ulink
+url="&url-plip-install-howto;">PLIP-Install-HOWTO</ulink> od Gilla
+Lamirala.
+
+</para>
+ </sect1>
+
+ <sect1 id="translation-cs">
+ <title>Český překlad</title>
+
+<para>
+
+Tento dokument smí být šířen za podmínek uvedených v GNU General
+Public License. Vlastníkem autorských práv k překladu je
+Miroslav Kuře <email>kurem@debian.cz</email> a historicky též
+Jiří Mašík <email>masik@debian.cz</email> a
+Vilém Vychodil <email>vychodiv@debian.cz</email>.
+
+</para>
+
+ </sect1>
+
+
+ <sect1 id="trademarks">
+ <title>Ochranné známky</title>
+
+<para>
+Všechny ochranné známky jsou majetkem svých vlastníků.
+</para>
+
+ </sect1>
+</appendix>

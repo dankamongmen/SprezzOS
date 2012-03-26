@@ -1,0 +1,185 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="install-overview">
+ <title>Übersicht über den Installationsverlauf</title> 
+<para>
+
+Zuallererst ein kurzes Wort über Neuinstallationen. Unter &debian; sind
+Umstände, die eine komplette Neuinstallation notwendig machen, äußerst selten;
+ein mechanisches Versagen der Festplatte wäre vielleicht der häufigste
+Grund.
+
+</para><para>
+
+Viele gängige Betriebssysteme benötigen eventuell eine komplette Neuinstallation,
+wenn kritische Fehler vorkommen oder für Upgrades auf neuere Versionen des
+Betriebssystems. Selbst wenn keine komplette Neuinstallation notwendig ist,
+müssen oftmals die verwendeten Programme neu installiert werden, um unter der
+neuen Version des Betriebssystems korrekt zu funktionieren.
+
+</para><para>
+
+Unter &debian-gnu; ist es wahrscheinlicher, dass Sie, wenn etwas schief läuft, Ihr
+Betriebssystem reparieren können, als es neu installieren zu müssen.
+Upgrades erfordern niemals eine komplette Neuinstallation; Sie können
+stattdessen immer aktualisieren. Die Programme sind fast immer mit den
+nachfolgenden Betriebssystemversionen kompatibel. Benötigt die neue Version
+eines Programms neuere zu Grunde liegende Software, so stellt das
+&debian;-Paketsystem sicher, dass die benötigte Software automatisch
+identifiziert und installiert wird. Es wurde sehr viel Aufwand betrieben,
+die Notwendigkeit einer Neuinstallation zu vermeiden; Sie sollten es deshalb
+als allerletzte Möglichkeit ansehen. Der Installer ist
+<emphasis>nicht</emphasis> für die Neuinstallation über eine bestehende
+Version ausgelegt.
+
+</para><para>
+
+Hier ist eine Übersicht der Schritte, die Sie während der Installation
+durchführen werden.
+
+</para>
+
+<orderedlist> 
+<listitem><para>
+
+Sichern von bestehenden Daten oder Dokumenten auf der Festplatte, auf die Sie
+installieren wollen.
+
+</para></listitem>
+<listitem><para>
+
+Sammeln Sie Informationen über Ihren Computer und alle benötigten
+Dokumentationen, bevor Sie die Installation starten.
+
+</para></listitem>
+<listitem><para>
+
+Schaffen Sie Platz für &debian; auf Ihrer Festplatte, der dann partitioniert
+werden kann.
+
+</para></listitem>
+<listitem><para>
+
+Die Installations-Software und spezielle Treiber für Ihre Hardware herunterladen
+(betrifft nicht &debian;-CD-Benutzer).
+
+</para></listitem>
+<listitem><para>
+
+Boot-Bänder/-Disketten/-USB-Sticks erstellen oder Boot-Dateien anlegen
+(die meisten &debian;-CD-Benutzer können von einer der CDs starten).
+
+</para></listitem>
+<listitem><para>
+
+Starten des Installationssystems.
+
+</para></listitem>
+<listitem><para>
+
+Auswählen der Sprache, in der die Installation durchgeführt wird.
+
+</para></listitem>
+<listitem arch="not-s390"><para>
+
+Aktivieren der Netzwerkverbindung, falls verfügbar.
+
+</para></listitem>
+
+<listitem arch="s390"><para>
+
+Konfigurieren einer Netzwerkschnittstelle.
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+Herstellen einer SSH-Verbindung zum neuen System.
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+Hinzufügen eines oder mehrerer DASDs (Direct Access Storage Device).
+
+</para></listitem>
+
+<listitem><para>
+
+Erstellen und Mounten der Partitionen, auf denen &debian; installiert
+wird.
+
+</para></listitem>
+<listitem><para>
+
+Beobachten Sie den automatischen Download-/Installations- und Setupvorgang
+des <firstterm>Basissystems</firstterm>.
+
+</para></listitem>
+<listitem><para>
+
+Einen <firstterm>Bootloader</firstterm> installieren, der &debian-gnu;
+und/oder Ihr bereits vorhandenes Betriebssystem starten kann.
+
+</para></listitem>
+<listitem><para>
+
+Das neu installierte System zum ersten Mal starten.
+
+</para></listitem>
+</orderedlist>
+
+<para condition="gtk">
+
+Auf &arch-title;-Systemen haben Sie die Möglichkeit,
+<phrase arch="any-x86">eine</phrase><phrase
+arch="powerpc">eine experimentelle</phrase>
+grafische Version des Installationssystems zu benutzen. Mehr Informationen
+über den grafischen Installer finden Sie im <xref linkend="graphical"/>.
+
+</para><para>
+
+Wenn Sie Probleme während der Installation haben, hilft es, wenn Sie wissen,
+welche Pakete bei welchen Schritten beteiligt sind. Hier die wichtigsten
+Akteure in diesem Installations-Schauspiel:
+
+</para><para>
+
+Die Installer-Software (<classname>debian-installer</classname>) ist die
+wichtigste Angelegenheit dieses Handbuchs. Sie erkennt die Hardware und lädt
+dafür benötigte Treiber, benutzt den <classname>DHCP-Client</classname>, um die
+Netzwerkverbindung einzurichten, installiert die Basissystempakete mittels
+<classname>debootstrap</classname> und startet <classname>tasksel</classname>,
+um Ihnen zu erlauben, zusätzliche Software zu installieren. Etliche andere
+Akteure spielen noch kleinere Rollen in diesem Prozess, aber der
+<classname>debian-installer</classname> hat seine Aufgabe erfüllt, wenn Sie das
+neue System zum ersten Mal starten.
+
+</para><para>
+
+Um das System an Ihre Bedürfnisse anzupassen, erlaubt Ihnen
+<classname>tasksel</classname>, verschiedene vordefinierte
+Software-Zusammenstellungen zu installieren, wie z.B. <quote>Web-Server</quote>
+oder <quote>Arbeitsplatzsystem</quote>.
+
+</para><para>
+
+Eine wichtige Option während der Installation ist die Frage, ob eine
+grafische Benutzeroberfläche installiert werden soll oder nicht, bestehend
+aus dem X-Window-System und einer der verfügbaren grafischen
+Desktop-Umgebungen. Wenn Sie die Programmgruppe
+<quote>Arbeitsplatz-Umgebung</quote> nicht zur Installation ausgewählt haben,
+erhalten Sie nur ein relativ einfaches, kommandozeilen-basiertes System. Die
+Installation der Programmgruppe Arbeitsplatz-Umgebung ist optional, da sie
+einen sehr großen Bedarf an Festplattenplatz hat und außerdem sind viele
+&debian-gnu;-Systeme Server, die keinen echten Bedarf für eine grafische
+Benutzeroberfläche haben, um ihre Arbeit zu tun.
+
+</para><para arch="not-s390">
+
+Seien Sie sich dessen bewusst, dass das X-Window-System (die grafische
+Oberfläche) vom <classname>debian-installer</classname> komplett getrennt ist
+und auch erheblich komplizierter ist. Die Installation und Problembeseitigung
+der X-Window-Installation wird in diesem Handbuch nicht behandelt.
+
+</para>
+ </sect1>

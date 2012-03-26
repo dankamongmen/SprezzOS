@@ -1,0 +1,122 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+   <sect3 id="lowmem">
+   <!-- <title>Check available memory / low memory mode</title> -->
+   <title>Controllo della memoria disponibile e modalità
+   <quote>low memory</quote></title>
+<para>
+
+<!--
+One of the first things &d-i; does, is to check available memory.
+If the available memory is limited, this component will make some
+changes in the installation process which hopefully will allow
+you to install &debian-gnu; on your system.
+-->
+
+Una delle prime cosa che fa il &d-i; è controllare la quantità di memoria
+disponibile. Se la memoria è limitata questo componente effettua delle
+modifiche al processo d'installazione sperando che siano sufficienti per
+consentire l'installazione di &debian-gnu; sul proprio sistema.
+
+</para><para>
+
+<!--
+The first measure taken to reduce memory consumption by the installer
+is to disable translations, which means that the installation can
+only be done in English. Of course, you can still localize the installed
+system after the installation has completed.
+-->
+
+La prima misura che l'installatore prende per ridurre l'uso della memoria è
+la disabilitazione delle traduzioni, questo vuol dire che l'installazione
+può essere effettuata solo in lingua inglese. Ovviamente è possibile
+localizzare il sistema dopo aver completato l'installazione.
+
+</para><para>
+
+<!--
+If that is not sufficient, the installer will further reduce memory
+consumption by loading only those components essential to complete a basic
+installation. This reduces the functionality of the installation system.
+You will be given the opportunity to load additional components manually,
+but you should be aware that each component you select will use
+additional memory and thus may cause the installation to fail.
+-->
+
+Se questo non è sufficiente, l'installatore riduce ulteriormente l'uso
+della memoria caricando solo i componenti essenziali per completare
+un'installazione basilare. Questo riduce le funzionalità del sistema
+d'installazione, rimane comunque disponibile la funzione per caricare
+manualmente i componenti aggiuntivi, ma è necessario prestare attenzione
+al fatto che a ogni componente selezionato corrisponde un aumento
+dell'occupazione della memoria che potrebbe comportare il fallimento
+dell'installazione.
+
+</para><para>
+
+<!--
+If the installer runs in low memory mode, it is recommended to create
+a relatively large swap partition (64&ndash;128MB). The swap partition
+will be used as virtual memory and thus increases the amount of memory
+available to the system. The installer will activate the swap partition
+as early as possible in the installation process. Note that heavy use
+of swap will reduce performance of your system and may lead to high
+disk activity.
+-->
+
+Quando l'installatore funziona in modalità <quote>low memory</quote> si
+raccomanda la creazione di una partizione di swap relativamente grande
+(64&ndash;128&nbsp;MB). La partizione di swap viene usata come memoria
+virtuale e quindi aumenta la quantità di memoria disponibile sul sistema.
+L'installatore attiva la partizione di swap nelle primissime fasi del
+processo d'installazione. Notare che un uso pesante dello swap può ridurre
+le prestazioni del sistema e comporta un'elevata attività da parte del
+disco.
+
+</para><para>
+
+<!--
+Despite these measures, it is still possible that your system freezes,
+that unexpected errors occur or that processes are killed by the kernel
+because the system runs out of memory (which will result in <quote>Out
+of memory</quote> messages on VT4 and in the syslog).
+-->
+
+Nonostante queste misure problemi come blocchi del sistema, errori
+inaspettati o processi terminati dal kernel perché il sistema esaurisce
+la memoria (segnalato con messaggi <quote>Out of memory</quote> sul VT4
+e nel syslog), rimangono comunque possibili.
+
+</para><para>
+
+<!--
+For example, it has been reported that creating a big ext3 file system
+fails in low memory mode when there is insufficient swap space. If a
+larger swap doesn't help, try creating the file system as ext2 (which
+is an essential component of the installer) instead. It is possible to
+change an ext2 partition to ext3 after the installation.
+-->
+
+Per esempio, è noto che la creazione di un file system ext3 molto grande
+fallisce nella modalità <quote>low memory</quote> se l'area di swap non è
+sufficientemente grande. Se anche un'area di swap più grande non risolve,
+creare un file system ext2 (questo è uno dei componenti essenziali
+dell'installatore) e, dopo aver completato l'installazione, modificare la
+partizione da ext2 in ext3.
+
+</para><para>
+
+<!--
+It is possible to force the installer to use a higher lowmem level than
+the one based on available memory by using the boot parameter
+<quote>lowmem</quote> as described in <xref linkend="installer-args"/>.
+-->
+
+È possibile forzare l'installatore a utilizzare un livello di soglia
+più alto di quello calcolato in base alla memoria disponibile tramite
+il parametro d'avvio <quote>lowmem</quote> come descritto in
+<xref linkend="installer-args"/>.
+
+</para>
+   </sect3>

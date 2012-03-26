@@ -1,0 +1,70 @@
+INSTRUCTIONS FOR TRANSLATING ENTITIES
+=====================================
+
+It is possible to translate entities used in the installation guide.
+Note that only a few entities are suitable for translation. Others, for
+instance those refering to package names, should not be translated.
+
+There are several reasons for using entities in the manual. One is to
+improve consistency and to make it possible to maintain changing data in one
+central location; another is to make it easier for derived distributions to
+change the branding of the manual.
+Given these goals the intention is to increase the use of entities. 
+
+This also means that translators preferably should not replace entities by
+fixed text. However, the standard set of entities may not be sufficient for
+a good translation, for instance because a language needs different
+conjugations for a word while in English this is not needed.
+
+Translators are free to add additional entities if they need them for
+different conjugations. Try to keep the names of the entities you add
+logical. Examples:
+xxx-dat (for dative conjugation)
+
+If you feel some text in the English version of the manual could be replaced
+by an entity, please send a mail to the debian-i18n list for discussion.
+
+How to translate entities
+=========================
+- Look up the definition of the entity you want to translate in the relevant
+  entity file (e.g. ../common.ent) and copy it.
+- Add or edit a new file <your_language_code>.ent in this directory.
+- Add the definition of the entity you want to translate in this file.
+- Replace the English text in the entity with your translation. Do *not*
+  change any xml tags included in the entity.
+
+You can of course also copy the file for another language already in this
+directory as a starting point.
+
+Translatable entities
+=====================
+Please do not translate entities that are not listed below without discussing
+this first on the debian-boot list!
+Before the release of Etch, it is very unlikely that any new entities will be
+added. The infrastructure is mostly being added now to allow a few minor
+translations and to have it in place for the next release, Lenny.
+
+- enterkey
+- escapekey
+- tabkey
+- MSG-YES
+- MSG-NO
+- BTN-CONT
+- BTN-CANCEL
+- BTN-GOBACK
+
+Some other entities can be localized as well.
+
+- archive-mirror
+  The default value is http.us.debian.org (see ../urls.ent). You can replace
+  that by a closer mirror, but make sure that you only use a mirror that
+  carries *all* architectures!
+  Note that most mirrors are called _ftp_.<country>.debian.org.
+
+Non-translatable entities
+=========================
+The entities below should _not_ be translated. If you think an entity listed
+below is used in a way that it should be translated, this is possably a bug
+that should be fixed in the original text rather than a reason to translate it.
+
+- releasename

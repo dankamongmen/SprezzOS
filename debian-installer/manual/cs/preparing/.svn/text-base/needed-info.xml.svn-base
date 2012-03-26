@@ -1,0 +1,411 @@
+<!-- $Id$ -->
+<!-- original version: 64991 -->
+
+ <sect1 id="needed-info">
+ <title>Dále budete potřebovat</title>
+
+  <sect2>
+  <title>Dokumentace</title>
+
+   <sect3>
+   <title>Instalační manuál</title>
+
+<para condition="for_cd">
+
+(Právě čtete.) Manuál je k dispozici ve formátech ASCII, HTML nebo PDF.
+
+</para>
+
+<itemizedlist  condition="for_cd">
+
+&list-install-manual-files;
+
+</itemizedlist>
+
+<para condition="for_wdo">
+
+Dokument, který právě čtete, je oficiální verze instalační příručky
+pro vydání &debian;u &releasename; a je dostupný v <ulink
+url="&url-release-area;/installmanual">různých formátech a jazykových
+verzích</ulink>.
+
+</para>
+
+<para condition="for_alioth">
+
+Dokument, který právě čtete, je vývojová verze instalační příručky pro
+příští vydání &debian;u a je dostupný v <ulink
+url="&url-d-i-alioth-manual;">různých formátech a jazykových
+verzích</ulink>.
+
+</para>
+
+</sect3>
+
+
+   <sect3><title>Domumentace k hardwaru</title>
+<para>
+
+Obsahuje spousty užitečných informací o konfiguraci resp. provozování
+různého hardwaru.
+
+</para>
+
+<!-- Arch list needed for proper xml -->
+<itemizedlist arch="x86;sparc;mips;mipsel">
+<listitem arch="x86"><para>
+
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>
+
+</para></listitem>
+<listitem arch="sparc"><para>
+
+<ulink url="&url-sparc-linux-faq;">Linux for SPARC Processors FAQ</ulink>
+
+</para></listitem>
+<listitem arch="mips;mipsel"><para>
+
+<ulink url="&url-linux-mips;">Stránky Linux/Mips</ulink>
+
+</para></listitem>
+</itemizedlist>
+   </sect3>
+
+
+   <sect3 arch="s390">
+   <title>&arch-title; Hardware Reference</title>
+<para>
+
+Dokumentace zaváděcí sekvence na &arch-title;, příkazy a ovladače
+zařízení (např. DASD, XPRAM, Console, OSA, HiperSockets a z/VM)
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://public.dhe.ibm.com/software/dw/linux390/docu/lk32dd04.pdf">Device Drivers, Features, and Commands (Linux Kernel 2.6.32)</ulink>
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+Červená kniha firmy IBM popisující soužití Linuxu a z/VM na strojích
+zSeries a &arch-title;.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+Linux for &arch-title;</ulink>
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+Červená kniha firmy IBM popisující dostupné linuxové distribuce pro
+mainframy. Sice nemá kapitolu přímo o &debian;u, ale základní instalační
+strategie jsou stejné pro všechny distribuce.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink>
+
+</para></listitem>
+</itemizedlist>
+   </sect3>
+  </sect2>
+
+  <sect2 id="fsohi">
+  <title>Hledání zdrojů informací o hardwaru</title>
+<para>
+
+V mnoha případech umí instalační program rozpoznat hardware
+automaticky, ale podle hesla <quote>vždy připraven</quote>
+doporučujeme, abyste se před instalací se svým hardwarem seznámili
+poněkud důvěrněji.
+
+</para><para>
+
+Informace o hardwaru můžete získat:
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+Z manuálů, které jste získali spolu s příslušným hardwarem.
+
+</para></listitem>
+<listitem><para>
+
+Z BIOSu vašeho počítače. K těmto informacím se dostanete, když
+během startu počítače stisknete určitou kombinaci kláves. Často to
+bývá klávesa <keycap>Delete</keycap>.
+
+</para></listitem>
+<listitem><para>
+
+Z krabic, ve kterých byly části hardware zabaleny.
+
+</para></listitem>
+
+<listitem arch="any-x86"><para>
+
+Z Ovládacích panelů systému Windows.
+
+</para></listitem>
+
+<listitem><para>
+
+Ze systémových příkazů nebo nástrojů původního operačního systému.
+Zvláště užitečné informace jsou o pevném disku a paměti RAM.
+
+</para></listitem>
+<listitem><para>
+
+Od vašeho správce nebo poskytovatele Internetu. Tyto informace vám
+mohou pomoci při nastavení sítě a elektronické pošty.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+<table>
+<title>Hardwarové informace nutné pro instalaci</title>
+<tgroup cols="2">
+<thead>
+<row>
+  <entry>Hardware</entry><entry>užitečné informace</entry>
+</row>
+</thead>
+
+<tbody>
+<row arch="not-s390">
+  <entry morerows="5">Pevné disky</entry>
+  <entry>Počet.</entry>
+</row><row arch="not-s390">
+  <entry>Jejich pořadí v systému.</entry>
+</row><row arch="not-s390">
+  <entry>Typ IDE (též známé jako PATA), SATA nebo SCSI</entry>
+</row><row arch="not-s390">
+  <entry>Dostupné volné místo.</entry>
+</row><row arch="not-s390">
+  <entry>Diskové oddíly.</entry>
+</row><row arch="not-s390">
+  <entry>Oddíly, na kterých jsou nainstalovány jiné operační systémy</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="5">Monitor</entry>
+  <entry>Výrobce a model.</entry>
+</row>
+<row arch="not-s390">
+  <entry>Podporovaná rozlišení.</entry>
+</row><row arch="not-s390">
+  <entry>Horizontální obnovovací frekvence.</entry>
+</row><row arch="not-s390">
+  <entry>Vertikální obnovovací frekvence.</entry>
+</row><row arch="not-s390">
+  <entry>Podporovaná barevná hloubka (počet barev).</entry>
+</row><row arch="not-s390">
+  <entry>Velikost obrazovky.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="3">Myš</entry>
+  <entry>Typ: sériová, PS/2 nebo USB.</entry>
+</row><row arch="not-s390">
+  <entry>Port.</entry>
+</row><row arch="not-s390">
+  <entry>Výrobce.</entry>
+</row><row arch="not-s390">
+  <entry>Počet tlačítek.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="1">Síť</entry>
+  <entry>Výrobce a model</entry>
+</row><row arch="not-s390">
+  <entry>Typ adaptéru.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="1">Tiskárna</entry>
+  <entry>Výrobce a model.</entry>
+</row><row arch="not-s390">
+  <entry>Podporovaná tisková rozlišení.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="2">Grafická karta</entry>
+  <entry>Výrobce a model.</entry>
+</row><row arch="not-s390">
+  <entry>Dostupná videopaměť.</entry>
+</row><row arch="not-s390">
+  <entry>Podporovaná rozlišení a barevné hloubky (měli byste porovnat
+  se schopnostmi monitoru).</entry>
+</row>
+
+<row arch="s390">
+  <entry morerows="1">DASD</entry>
+  <entry>Čísla zařízení.</entry>
+</row><row arch="s390">
+  <entry>Dostupné volné místo.</entry>
+</row>
+
+<row arch="s390">
+  <entry morerows="2">Síť</entry>
+  <entry>Typ adaptéru.</entry>
+</row><row arch="s390">
+  <entry>Čísla zařízení</entry>
+</row><row arch="s390">
+  <entry>Relativní číslo adaptéru karet OSA</entry>
+</row>
+
+</tbody></tgroup></table>
+
+</para>
+  </sect2>
+
+  <sect2>
+  <title>Hardwarová kompatibilita</title>
+
+<para>
+
+Mnoho značkových výrobků pracuje v operačním systému &arch-kernel; bez
+problémů a podpora hardwaru pro něj se zlepšuje každým dnem. Přes to
+všechno &arch-kernel; nepodporuje tolik typů hardwaru jako některé
+jiné operační systémy.
+
+</para><para arch="any-x86">
+
+&arch-kernel; obvykle neumí používat hardware, který ke své činnosti
+vyžaduje některou verzi Windows.
+
+</para><para arch="x86">
+
+Přestože některý Windows-specifický hardware můžete pod Linuxem
+rozchodit, obvykle to vyžaduje spoustu další práce. Navíc linuxové
+ovladače pro windowsový hardware bývají svázány s konkrétním jádrem
+a tudíž mohou rychle zastarat, respektive vás nutí zůstat u
+staršího jádra (které třeba obsahuje bezpečnostní chybu).
+
+</para><para arch="any-x86">
+
+Nejrozšířenějšími ukázkami tohoto hardwaru jsou takzvané
+win-modemy. Windows-specifické však mohou být i tiskárny a jiná
+zařízení.
+
+</para><para>
+
+Možný postup při ověřování hardwarové kompatibility:
+
+<itemizedlist>
+<listitem><para>
+
+Zkontrolujte webové stránky výrobce, zda nemá nové ovladače.
+
+</para></listitem>
+<listitem><para>
+
+Hledejte na webových stránkách nebo v manuálech informace o emulaci.
+Je možné, že některé méně známé značky používají stejné ovladače nebo
+nastavení, jako jejich známější kolegové.
+
+</para></listitem>
+<listitem><para>
+
+Prohlejte seznamy hardwaru kompatibilního s jádrem &arch-kernel;.
+
+</para></listitem>
+<listitem><para>
+
+Hledejte na Internetu zkušenosti jiných uživatelů.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+
+  <sect2>
+  <title>Nastavení sítě</title>
+
+<para>
+
+Pokud bude váš počítač trvale připojen do sítě (myslí se ethernetové
+a obdobné připojení, ne PPP), zjistěte si od správce sítě následující
+informace.
+
+<itemizedlist>
+<listitem><para>
+
+Název počítače (možná si počítač pojmenujete sami).
+
+</para></listitem>
+<listitem><para>
+
+Název vaší domény.
+
+</para></listitem>
+<listitem><para>
+
+IP adresu vašeho počítače.
+
+</para></listitem>
+<listitem><para>
+
+Síťovou masku.
+
+</para></listitem>
+<listitem><para>
+
+IP adresu brány tj. počítače spojujícího vaši síť s další sítí (nebo
+Internetem), pokud na vaší síti brána <emphasis>je</emphasis>.
+
+</para></listitem>
+<listitem><para>
+
+IP adresu jmenného serveru, který zprostředkovává převod názvů
+počítačů na IP adresy (DNS).
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Pokud vám správce sítě doporučí použít DHCP server, nemusíte tyto
+informace zjišťovat, protože DHCP server nastaví váš počítač
+automaticky.
+
+</para><para arch="not-s390">
+
+Používáte-li bezdrátové připojení, měli byste navíc zjistit:
+
+<itemizedlist>
+<listitem><para>
+
+ESSID vaší bezdrátové sítě.
+
+</para></listitem>
+<listitem><para>
+
+Bezpečnostní WEP klíč (pokud jej používáte).
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+
+ </sect1>

@@ -1,0 +1,104 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 50619 -->
+
+   <sect3 id="netcfg">
+   <!-- <title>Configuring the Network</title> -->
+   <title>Configurazione della rete</title>
+<para>
+
+<!--
+As you enter this step, if the system detects that you have more than
+one network device, you'll be asked to choose which device will be
+your <emphasis>primary</emphasis> network interface, i.e. the one
+which you want to use for installation. The other interfaces won't be
+configured at this time. You may configure additional interfaces after
+installation is complete; see the <citerefentry>
+<refentrytitle>interfaces</refentrytitle> <manvolnum>5</manvolnum>
+</citerefentry> man page.
+-->
+
+Appena si accede a questo passo il sistema rileva se sono presenti più
+schede di rete e viene chiesto di scegliere quale device dovrà essere
+l'interfaccia di rete <emphasis>primaria</emphasis>, cioè quale si vuole
+usare per l'installazione. A questo punto le altre interfacce non vengono
+configurate, sarà possibile farlo una volta completata l'installazione; si
+veda la pagina man <citerefentry><refentrytitle>interfaces</refentrytitle>
+<manvolnum>5</manvolnum></citerefentry>.
+
+</para><para>
+
+<!--
+By default, &d-i; tries to configure your computer's network
+automatically via DHCP. If the DHCP probe succeeds, you are done. If the
+probe fails, it may be caused by many factors ranging from unplugged
+network cable, to a misconfigured DHCP setup. Or maybe you don't have
+a DHCP server in your local network at all.  For further explanation,
+check the error messages on the fourth console.  In any case, you will
+be asked if you want to retry, or if you want to perform a manual
+setup. DHCP servers are sometimes really slow in their responses, so
+if you are sure everything is in place, try again.
+-->
+
+Il &d-i; cerca di configurare l'interfaccia di rete automaticamente usando
+DHCP. Se il tentativo ha successo la configurazione è finita, un eventuale
+fallimento può essere causato da diversi fattori che vanno dal cavo di rete
+scollegato a una configurazione di DHCP sbagliata oppure all'assenza nella
+propria rete di un server DHCP. I messaggi d'errore nella quarta console
+possono essere utili per scoprire il motivo del fallimento. Comunque viene
+chiesto se si vuole riprovare oppure se si vuole procedere con la
+configurazione manuale. Capita che i server DHCP siano estremamente lenti
+nel rispondere, quindi se si è sicuri che il sistema funziona fare un nuovo
+tentativo.
+
+</para><para>
+
+<!--
+The manual network setup in turn asks you a number of questions about
+your network, notably
+<computeroutput>IP address</computeroutput>,
+<computeroutput>Netmask</computeroutput>,
+<computeroutput>Gateway</computeroutput>,
+<computeroutput>Name server addresses</computeroutput>, and a
+<computeroutput>Hostname</computeroutput>.
+Moreover, if you have a wireless network interface, you will be asked
+to provide your <computeroutput>Wireless ESSID</computeroutput> and
+a <computeroutput>WEP key</computeroutput>.  Fill in the answers from
+<xref linkend="needed-info"/>.
+-->
+
+La configurazione manuale della rete richiede parecchie informazioni
+sulla propria rete, le più importanti sono <computeroutput>indirizzo
+IP</computeroutput>, <computeroutput>maschera di rete</computeroutput>,
+<computeroutput>gateway</computeroutput>, <computeroutput>indirizzi dei
+name server</computeroutput> e <computeroutput>nome host</computeroutput>.
+Inoltre, se è presente un'interfaccia di rete wireless, sono richiesti
+<computeroutput>ESSID wireless</computeroutput> e una
+<computeroutput>chiave WEP</computeroutput>. Rispondere alle domande usando
+le informazioni in <xref linkend="needed-info"/>.
+
+</para><note><para>
+
+<!--
+Some technical details you might, or might not, find handy: the program
+assumes the network IP address is the bitwise-AND of your system's IP
+address and your netmask. The default broadcast address is calculated as
+the bitwise OR of your system's IP address with the bitwise negation of
+the netmask. It will also guess your gateway.  If you can't find any of
+these answers, use the offered defaults &mdash; if necessary, you can
+change them by editing <filename>/etc/network/interfaces</filename> once
+the system has been installed.
+-->
+
+Alcuni dettagli tecnici che potrebbero essere utili: il programma assume
+che l'indirizzo IP della rete sia il risultato dell'operazione AND fra i
+bit dell'indirizzo IP del sistema e la maschera di rete, che l'indirizzo
+di broadcast predefinito sia il risultato dell'operazione OR fra l'indirizzo
+IP del sistema e la negazione della maschera di rete e cerca anche di
+indovinare qual è il gateway. Se non si dispone di queste informazioni, si
+può provare a usare i valori presentati come predefiniti, comunque, se
+necessario, è possibile cambiarli modificando
+<filename>/etc/network/interfaces</filename> una volta completata
+l'installazione.
+
+</para></note>
+   </sect3>

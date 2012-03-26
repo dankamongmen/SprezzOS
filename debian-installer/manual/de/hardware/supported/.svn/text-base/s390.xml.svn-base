@@ -1,0 +1,37 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 67087 -->
+
+  <sect2 arch="s390"><title>zSeries- und System-z-Maschinentypen</title>
+<para>
+
+Mit &debian; Squeeze wurde die Unterstützung für das Booten im ESA/390-Modus
+entfernt. Ihre Maschine benötigt Unterstützung für die
+<quote>z/Architecture</quote>, 64-Bit-Unterstützung ist verbindlich.
+Die Userland-Anwendungen der s390-Portierung sind jedoch immer noch für
+ESA/390 kompiliert.
+Jegliche zSeries- und System-z-Hardware wird vollständig unterstützt.
+
+</para><para>
+
+&arch-title;-Support-Software wird von der Kernel-3.1-Entwicklung unterstützt.
+Die meisten aktuellen Informationen über IBMs Linux-Unterstützung finden Sie auf
+der
+<ulink url="http://www.ibm.com/developerworks/linux/linux390/development_technical.html">
+Linux on <trademark class="registered">System z</trademark>-Seite auf
+developerWorks</ulink>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390"><title>PAV und HyperPAV</title>
+<para>
+
+PAV und HyperPAV werden transparent unterstützt; Multipathing wird nicht benötigt,
+um die Vorteile dieser Speichersystem-Funktionalitäten nutzen zu können.
+Stellen Sie sicher, dass Sie die Geräte während der DASD-Geräteauswahl
+konfigurieren. Die Alias-Namen der Geräte werden Ihnen nicht angeboten, weder
+für Formatierung oder Partitionierung noch für die direkte Verwendung.
+
+</para>
+  </sect2>
+

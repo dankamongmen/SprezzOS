@@ -1,0 +1,73 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 39614 -->
+<!-- translated by Marco Carvalho (macs) 2005.12.30 -->
+<!-- reviewed by Felipe Augusto van de Wiel (faw) 2005.12.31 -->
+<!-- updated from 28732 to 33725 by André Luís Lopes (andrelp) 2006.04.20 -->
+
+ <sect1 id="rescue">
+ <title>Recuperando um Sistema Quebrado</title>
+<para>
+
+Algumas vezes, coisas dão errado, e o sistema que você cuidadosamente instalou
+não mais inicia. Talvez o carregador de inicialização tenha quebrado enquanto
+tentava uma mudança, ou talvez o novo kernel que você instalou não inicie, ou
+talvez raios cósmicos tenham atingido seus discos e trocado alguns bits no
+<filename>/sbin/init</filename>. Seja qual for a causa, você precisa ter um
+sistema para trabalhar enquanto corrige, e o modo de recuperação pode ser
+útil para isso.
+
+</para><para>
+
+<!-- TODO: describe what to do on arches where this isn't set up in the
+     bootloader -->
+
+Para acessar o modo de recuperação, digite <userinput>rescue</userinput> no
+prompt <prompt>boot:</prompt> ou inicie com o parâmetro de inicialização
+<userinput>rescue/enable=true</userinput>. Você verá as primeiras telas do
+instalador, com uma nota no canto da tela indicando que está no modo de
+recuperação, não numa instalação completa. Não se preocupe, seu sistema não
+será sobrescrito! O modo de recuperação simplesmente tira vantagem da detecção
+de hardware disponível no instalador para ter certeza que seu discos,
+dispositivos de rede, e tudo o mais estão disponíveis para você enquanto repara
+seu sistema.
+
+</para><para>
+
+Ao invés da ferramenta de particionamento, você verá uma lista da partições
+em seu sistema, e será convidado a escolher uma delas, Normalmente, você
+deverá escolher a partição que contém o sistema de arquivos raiz que você
+precisa reparar. Você poderá escolher partições em dispositivos em RAID e LVM
+bem como as criadas diretamente nos discos.
+
+</para><para>
+
+Se possível, o instalador irá apresentar agora um prompt shell no sistema de
+arquivos que você escolheu, onde você poderá fazer qualquer reparo necessário.
+
+<phrase arch="any-x86">
+Por exemplo, se você precisa reinstalar o carregador de inicialização GRUB no
+master boot record do primeiro disco rígido, você poderá usar o comando
+<userinput>grub-install '(hd0)'</userinput> para isso.
+</phrase>
+
+</para><para>
+
+Se o instalador não puder executar um shell usável no sistema de arquivos
+raiz que você selecionou, talvez porque o sistema de arquivos esteja corrompido,
+será dado um aviso e oferecerá para lhe dar um shell no ambiente do instalador
+no lugar, mas isso poderá ser suficiente para reparar seu sistema de qualquer
+forma. O sistema de arquivos raiz que você escolheu será montado no diretório
+<filename>/target</filename>.
+
+</para><para>
+
+Neste caso, após deixar o shell o sistema será reiniciado.
+
+</para><para>
+
+Finalmente, note que reparar sistemas quebrados pode ser difícil, e este manual
+não irá apresentar todas as coisas que podem ter saído errado ou como corrigir.
+Se você tiver problemas, consulte um especialista.
+
+</para>
+ </sect1>

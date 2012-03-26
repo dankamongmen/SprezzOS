@@ -1,0 +1,22 @@
+<!-- $Id$ -->
+<!-- original version: 36841 -->
+
+ <sect1 arch="s390" id="ipl-tape">
+ <title>Vytvoření IPL pásky</title>
+
+<para>
+
+Pokud nemůžete zavést systém (IPL) z CD-ROM a nepoužíváte VM, musíte
+nejprve vytvořit IPL pásku. To je popsáno v červené knize <ulink
+url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux for IBM eServer zSeries and S/390: Distributions</ulink> v sekci
+3.4.3. Na pásku musíte zapsat následující soubory (v tomto pořadí):
+<filename>kernel.debian</filename>,
+<filename>parmfile.debian</filename>
+a <filename>initrd.debian</filename>. Soubory si můžete stáhnout
+z podadresáře <filename>tape</filename>, viz <xref
+linkend="where-files"/>.
+
+</para>
+ </sect1>
+

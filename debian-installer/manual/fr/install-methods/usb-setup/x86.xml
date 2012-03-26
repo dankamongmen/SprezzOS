@@ -1,0 +1,124 @@
+<!-- original version: 66589 -->
+
+   <sect3 arch="x86">
+   <title>Partitionner un périphérique USB</title>
+<para>
+
+Nous montrerons comment n'utiliser que la première partition,
+au lieu de tout le périphérique.
+
+</para><note><para>
+
+La plupart des clés USB sont préconfigurées avec une seule partition FAT16.
+Vous n'aurez sans doute pas à partitionner ou à formater la clé. Si vous
+devez le faire, utilisez le programme <command>cfdisk</command> ou un autre
+programme de partitionnement pour créer cette partition <footnote>
+
+<para>
+N'oubliez pas de positionner le drapeau <quote>bootable</quote>.
+</para>
+
+</footnote>, et saisissez&nbsp;:
+
+<informalexample><screen>
+# mkdosfs /dev/<replaceable>sdX1</replaceable>
+</screen></informalexample>
+
+Faites attention à utiliser le périphérique correct pour la clé. Le programme
+<command>mkdosfs</command> se trouve dans le paquet &debian; <classname>dosfstools</classname>.
+
+</para></note><para>
+
+Pour pouvoir lancer le noyau après l'amorçage sur la clé, nous y installons
+un programme d'amorçage. Tous les programmes d'amorçage fonctionnent
+(p.&nbsp;ex. <command>LILO</command>), mais <command>SYSLINUX</command> est
+préférable car il utilise une partition FAT16 et peut être reconfiguré en
+modifiant un simple fichier texte. On peut modifier la configuration du
+programme d'amorçage avec tous les systèmes d'exploitation qui acceptent
+le système de fichiers FAT.
+
+</para><para>
+
+Pour mettre <command>SYSLINUX</command> sur la partition FAT16 de la clé,
+installez les paquets <classname>syslinux</classname> et
+<classname>mtools</classname> sur votre système et saisissez la commande&nbsp;:
+
+<informalexample><screen>
+# syslinux /dev/<replaceable>sdX1</replaceable>
+</screen></informalexample>
+
+Encore une fois, faites bien attention à utiliser le nom correct pour la clé.
+La partition ne doit pas être montée au lancement de
+<command>SYSLINUX</command>. Cette procédure écrit un secteur d'amorçage sur
+la partition et crée le fichier <filename>ldlinux.sys</filename> qui contient
+le code du programme d'amorçage.
+
+</para>
+</sect3>
+
+<sect3 arch="x86">
+   <title>Ajouter l'image d'installation</title>
+<para>
+
+Montez la partition (<userinput>mount /dev/sdX1 /mnt</userinput>) et
+copiez les fichiers suivants sur la clé&nbsp;:
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinuz</filename> ou <filename>linux</filename> (noyau binaire)
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename> (image du disque virtuel initial)
+
+</para></listitem>
+<listitem><para>
+
+<filename>syslinux.cfg</filename> (fichier de configuration de SYSLINUX)
+
+</para></listitem>
+<listitem><para>
+
+Modules optionnels du noyau
+
+</para></listitem>
+</itemizedlist>
+
+Si vous voulez modifier le nom des fichiers, remarquez que
+<command>SYSLINUX</command> ne peut traiter que des noms de type DOS (8.3).
+
+</para><para>
+
+Le fichier de configuration <filename>syslinux.cfg</filename> doit contenir
+les deux lignes suivantes (il faut modifier le nom du noyau,
+<quote><filename>linux</filename></quote>, si vous utilisez une image
+<filename>netboot</filename>)&nbsp;:
+
+<informalexample><screen>
+default vmlinuz
+append initrd=initrd.gz
+</screen></informalexample>
+
+Pour l'installateur graphique, vous devez ajouter à la deuxième ligne
+le paramètre <userinput>vga=788</userinput>.
+</para>
+
+<para>
+Si vous utilisez une image <filename>hd-media</filename>, vous devez copier
+maintenant le fichier ISO d'une image ISO de &debian; <footnote>
+
+<para>
+Vous pouvez aussi utiliser des images <quote>businesscard</quote>, 
+<quote>netinst</quote> ou l'image d'un disque complet sur la clé.
+Consultez <xref linkend="official-cdrom"/>. Sélectionnez celle qui va
+bien. L'image <quote>netboot <filename>mini.iso</filename></quote> n'est
+pas utilisable dans ce cas.
+</para>
+</footnote> sur la clé.
+Une fois l'image copiée, démontez la clé
+(<userinput>umount /mnt</userinput>).
+
+</para>
+   </sect3>

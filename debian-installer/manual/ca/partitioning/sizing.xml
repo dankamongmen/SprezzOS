@@ -1,0 +1,56 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+
+ <sect1 id="partition-sizing">
+ <title>Com decidir quines particions fer per a &debian; i llurs mides</title>
+<para>
+
+Com a mínim imprescindible, GNU/&arch-kernel; necessita una partició pròpia.
+Podeu tenir una única partició que contingui tot el sistema operatiu,
+les aplicacions, i els vostres fitxers personals. Molta gent pensa
+que també és necessària una altra partició per a l'intercanvi de
+memòria, però això no és cert del tot. La partició d'intercanvi o
+<quote>swap</quote> és un espai reservat per al sistema operatiu,
+i que permet utilitzar el disc com si es tractés de <quote>memòria
+virtual</quote>. Si poseu l'espai d'intercanvi en una altra partició
+independent, &arch-kernel; pot fer-ne un ús molt més eficient. Es pot fer
+servir un fitxer normal per a l'intercanvi, però no és recomanable.
+
+</para><para>
+
+Tanmateix, la majoria de la gent prefereix assignar a GNU/&arch-kernel; més
+particions de les estrictament necessàries.  Hi ha dos motius pels que us
+pot interessar dividir el sistema de fitxers en unes quantes particions
+més petites. El primer és per seguretat. Si passa res que malmeti
+el sistema de fitxers, generalment només afectarà una partició.
+D'aquesta manera només caldrà restaurar una part del sistema (a partir
+de les còpies de seguretat que aneu fent meticulosament).
+Almenys seria bo considerar crear el que normalment es coneix com
+<quote>partició arrel</quote>. Aquesta conté els components més
+essencials del sistema. Si qualsevol de les altres particions queda
+malmesa, encara podreu arrencar GNU/&arch-kernel; per arreglar el sistema. Això
+us pot estalviar haver de reinstal·lar-ho tot de nou.
+
+</para><para>
+
+El segon motiu generalment és més important en un entorn professional,
+però en realitat dependrà de l'ús que en feu de la màquina. Per
+exemple, un servidor que rep molt correu no desitjat pot omplir fàcilment
+una partició. Si teniu <filename>/var/mail</filename> en una partició
+separada al servidor de correu, la major part del sistema continuarà
+funcionant.
+
+</para><para>
+
+L'únic inconvenient real de fer servir més particions és que
+sovint és difícil saber d'entrada quines necessitats tindreu. Si feu
+una partició massa petita, llavors o reinstal·leu el sistema o no
+parareu de moure coses d'una banda a l'altra per fer lloc a la partició
+infradimensionada. D'altra banda, si feu la partició massa gran estareu
+malbaratant espai que es podria fer servir per alguna altra cosa. És
+cert que l'espai de disc és barat avui en dia, però tot i així,
+perquè llançar els diners?
+
+</para>
+ </sect1>

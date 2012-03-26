@@ -1,0 +1,79 @@
+<!-- $Id: schemes.xml 66210 2011-01-08 14:40:38Z mck-guest $ -->
+<!-- original version: 65994 -->
+
+ <sect1>
+ <title>Doporučené rozdělení disku</title>
+<para>
+
+Pro nové uživatele, domácí počítače a jiné jednouživatelské stanice je
+asi nejjednodušší použít jednu oblast jako kořenovou (a případně jednu
+pro virtuální paměť). Pokud bude některá oblast větší než 6 GB,
+použijte raději jiný souborový systém než standardní ext2 (např. ext3).
+Oblasti se souborovým systémem ext2 se totiž musí pravidelně
+kontrolovat, což může u větších oblastí trvat poměrně dlouho a
+prodlužuje se tím náběh systému.
+
+</para><para>
+
+Jak jsme řekli dříve, pro víceuživatelské systémy je lepší použít pro
+<filename>/usr</filename>, <filename>/var</filename>,
+<filename>/tmp</filename> a <filename>/home</filename> samostatné
+oblasti.
+
+</para><para>
+
+Chcete-li instalovat hodně programů, které nejsou přímo součástí
+distribuce, může se vám hodit samostatný oddíl pro
+<filename>/usr/local</filename>. Na počítači, který slouží jako
+poštovní server, má smysl vytvořit svazek pro
+<filename>/var/mail</filename>. Někdy je také dobré oddělit adresář
+<filename>/tmp</filename> na samostatný oddíl s kapacitou 20 až 50MB.
+Na serveru s více uživateli je výhodné vymezit velký oddíl pro
+domovské adresáře (<filename>/home</filename>).
+Obecně ale platí, že rozdělení disku se liší počítač od počítače a
+záleží na tom, k čemu systém používáte.
+
+</para><para>
+
+Při instalaci komplikovanějšího systému (serveru) se podívejte
+do <ulink url="&url-multidisk-howto;">Multi
+Disk HOWTO</ulink> na podrobnější informace. Tento odkaz může být
+zajímavý rovněž pro zprostředkovatele připojení k Internetu.
+
+</para><para>
+
+Zůstává otázka, kolik vyhradit pro virtuální paměť. Názory systémových
+administrátorů jsou různé. Jedna (dobrá) zkušenost říká, že je dobré
+mít stejně odkládacího prostoru jako máte paměti, ale rozhodně ne méně
+než 16MB (To už je skoro lepší odkládací prostor nepoužívat vůbec).
+Samozřejmě že existují výjimky &mdash; budete-li řešit soustavu
+10000 rovnic na počítači s 256 MB, budete potřebovat více jak
+gigabajt odkládacího prostoru.
+
+</para><para>
+
+Na některých 32-bitových architekturách (m68k a PowerPC)
+využije Linux z jednoho odkládacího oddílu maximálně 2 GB, takže není
+důvod, proč překračovat tuto hranici. Máte-li větší nároky na
+virtuální paměť, zkuste umístit odkládací oddíly na různé fyzické
+disky, a pokud možno, na různé IDE nebo SCSI kanály. Jádro bude
+automaticky vyrovnávat zátěž mezi jednotlivé oblasti, což se projeví
+ve zvýšení rychlosti.
+
+</para><para>
+
+Například starší domácí počítač může mít 32 MB paměti a 1,7 GB IDE
+disk na zařízení <filename>/dev/hda</filename>.
+Řekněme, že na <filename>/dev/hda1</filename> je oblast pro druhý
+operační systém o velikosti 500 MB. Odkládací oddíl má 32 MB a je na
+<filename>/dev/hda3</filename>. Zbytek, tj. asi 1,2 GB na
+<filename>/dev/hda2</filename> je kořenový svazek pro Linux.
+
+</para><para>
+
+Pro představu, kolik místa zaberou jednotlivé úlohy, se podívejte na
+<xref linkend="tasksel-size-list"/>.
+
+</para>
+
+ </sect1>

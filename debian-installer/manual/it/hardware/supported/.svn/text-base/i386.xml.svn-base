@@ -1,0 +1,142 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65170 -->
+
+  <sect2 arch="i386">
+  <!-- <title>CPU, Main Boards, and Video Support</title> -->
+  <title>CPU, schede madri e video supportate</title>
+<para>
+
+<!--
+Complete information concerning supported peripherals can be found at
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>.
+This section merely outlines the basics.
+-->
+
+Le informazioni complete sulle periferiche supportate possono essere
+trovate nel <ulink url="&url-hardware-howto;">Linux Hardware Compatibility
+HOWTO</ulink>. Lo scopo di questa sezione è descrivere solo le cose
+fondamentali.
+
+</para>
+
+   <sect3>
+   <!-- <title>CPU</title> -->
+   <title>CPU</title>
+<para>
+
+<!--
+Nearly all x86-based (IA-32) processors still in use in personal computers
+are supported, including all varieties of Intel's "Pentium" series.
+This also includes 32-bit AMD and VIA (former Cyrix) processors, and
+processors like the Athlon XP and Intel P4 Xeon.
+-->
+
+Sono supportati quasi tutti i processori x86 (IA-32) attualmente usati
+nei personal computer, comprese tutte le varianti della serie
+<quote>Pentium</quote> di Intel. Questa tipologia di processori comprende
+anche i processori a 32-bit AMD e VIA (Cyrix) e i processori come
+Athlon XP e Intel P4 Xeon.
+
+</para><para>
+
+<!--
+However, &debian; GNU/Linux &releasename; will <emphasis>not</emphasis> run
+on 386 or earlier processors.  Despite the architecture name "i386", support
+for actual 80386 processors (and their clones) was dropped with the Sarge
+(r3.1) release of &debian;<footnote>
+-->
+
+Purtroppo &debian; GNU/Linux &releasename; <emphasis>non</emphasis> funziona
+sui processori 386 e precedenti. A dispetto del nome dell'architettura,
+<quote>i386</quote>, il supporto per i processori 80386 (e i suoi cloni) è
+stato eliminato a partire dalla release Sarge (r3.1) di &debian;<footnote>
+
+<para>
+
+<!--
+We have long tried to avoid this, but in the end it was necessary due a
+unfortunate series of issues with the compiler and the kernel, starting
+with an bug in the C++ ABI provided by GCC.  You should still be able to
+run &debian; GNU/Linux on actual 80386 processors if you compile your own
+kernel and compile all packages from source, but that is beyond the
+scope of this manual.
+-->
+
+Sono stati fatti molti tentativi per evitare la rimozione ma alla fine è
+risultata necessaria a causa di una serie di problemi con il compilatore
+e il kernel, iniziando da un bug nell'ABI C++ fornita da GCC. Si dovrebbe
+poter comunque usare &debian; GNU/Linux sui processori 80386 compilando in
+proprio un kernel personalizzato e compilando tutti i pacchetti a partire
+dai sorgenti, ma questo non rientra nello scopo del manuale.
+
+</para>
+
+<!--
+</footnote>. (No version of Linux has ever supported the 286 or earlier
+chips in the series.)  All i486 and later processors are still
+supported<footnote>
+-->
+
+</footnote>. (Nessuna versione di Linux ha mai supportato il 286 o i chip
+precedenti). Tutti i processori dal i486 in poi continuano ad essere
+supportati<footnote>
+
+<para>
+
+<!--
+Many &debian; packages will actually run slightly faster on modern computers
+as a positive side effect of dropping support for these old chips.  The
+i486, introduced in 1989, has three opcodes (bswap, cmpxchg, and xadd)
+which the i386, introduced in 1986, did not have. Previously, these could not
+be easily used by most &debian; packages; now they can.
+-->
+
+Come effetto collaterale della rimozione del supporto per i chip più
+vecchi molti pacchetti &debian; sono un po' più veloci sui computer
+recenti. Il i486, introdotto nel 1989, ha tre istruzioni nel linguaggio
+macchina (bswap, cmpxchg e xadd) che il i386, introdotto nel 1986, non
+aveva. Fino a ora queste istruzioni non potevano essere usate con facilità
+dalla maggior parte dei pacchetti &debian;; ma adesso è possibile farlo.
+
+</para>
+
+</footnote>.
+
+</para>
+<note><para>
+
+<!--
+If your system has a 64-bit processor from the AMD64 or Intel EM64T families,
+you will probably want to use the installer for the amd64 architecture instead
+of the installer for the (32-bit) i386 architecture.
+-->
+
+Se si possiede un sistema con processore a 64-bit della famiglia AMD64
+o EM64T Intel è consigliabile usare la versione dell'installatore per
+l'architettura amd64 al posto della versione per i386 (32-bit).
+
+</para></note>
+   </sect3>
+
+   <sect3 id="bus">
+   <!-- <title>I/O Bus</title> -->
+   <title>Bus di I/O</title>
+<para>
+
+<!--
+The system bus is the part of the motherboard which allows the CPU to
+communicate with peripherals such as storage devices.  Your computer
+must use the ISA, EISA, PCI, PCIe, PCI-X, or VESA Local Bus (VLB, sometimes called the VL
+bus).  Essentially all personal computers sold in recent years use one
+of these.
+-->
+
+Il bus è quella parte della scheda madre che permette alla CPU di
+comunicare con le periferiche come i dispositivi di memorizzazione.
+Ogni computer usa un bus ISA, EISA, PCI, PCIe, PCI-X o VESA Local Bus
+(VLB, conosciuto anche come VL bus). Tutti i personal computer venduti
+negli ultimi anni usano uno di questi.
+
+</para>
+   </sect3>
+  </sect2>

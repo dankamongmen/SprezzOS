@@ -1,0 +1,229 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61133 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.09.20 -->
+<!-- updated 40671:45438 by Felipe Augusto van de Wiel (faw) 2007.03.12 -->
+
+<chapter id="boot-new">
+ <title>Inicializando em seu novo sistema &debian;</title>
+
+ <sect1 id="base-boot"><title>O momento da verdade</title>
+<para>
+
+A primeira inicialização do seu sistema é o que os engenheiros elétricos
+chamam de <quote>teste de fumaça</quote>.
+
+</para><para arch="any-x86">
+
+Se você fez a instalação padrão, a primeira coisa que você deveria ver quando
+inicializar o sistema é o menu do carregador de inicialização
+<classname>grub</classname><phrase arch="x86"> ou possivelmente do  <classname>lilo</classname></phrase>.
+As primeiras opções do menu serão para o seu novo sistema &debian;. Se você
+possui quaisquer outros sistemas operacionais no seu computador (como o
+Windows) que foram detectados pelo sistema de instalação, eles estarão listados
+mais abaixo no menu.
+
+</para><para>
+
+Se o sistema não inicia corretamente, não entre em pânico. Se a instalação
+foi feita com sucesso, as chances são boas de que há apenas um problema
+relativamente pequeno impedindo o sistema de inicializar o &debian;. Na maioria
+dos casos, tais problemas podem ser consertados sem ter que repetir a
+instalação. Uma opção disponível para corrigir problemas de inicialização é
+usar o modo de recuperação que já vem com o instalador (veja
+<xref linkend="rescue"/>).
+
+</para><para>
+
+Se você é novo no &debian; e no &arch-kernel;, você pode precisar de algumas ajuda de
+usuários mais experientes.
+<phrase arch="x86">Para ajuda <quote>on-line</quote> direta você pode tentar
+os canais de IRC #debian ou #debian-boot (em ambos fala-se inglês) ou o
+#debian-br (onde fala-se Português do Brasil), os canais ficam na rede OFTC.
+Alternativamente, você pode contatar a lista de discussão
+<ulink url="&url-list-subscribe;">debian-user</ulink> (em inglês) ou a
+<ulink url="&url-list-subscribe;">debian-user-portuguese</ulink> (em
+português).</phrase>
+<phrase arch="not-x86">Para arquiteturas menos comuns como &arch-title;, sua
+melhor opção é perguntar na lista de discussão
+<ulink url="&url-list-subscribe;">debian-&arch-listname;</ulink> (em
+inglês).</phrase>
+Você também pode enviar um relatório de instalação conforme descrito em
+<xref linkend="submit-bug"/>. Por favor, tenha certeza de que você descreve
+seu problema claramente e inclui quaisquer mensagem que são exibidas e que
+podem ajudar outros a diagnosticar o problema.
+
+</para><para arch="any-x86">
+
+Se você tinha quaisquer outros sistemas operacionais em seu computador que
+não foram detectados ou não foram detectados corretamente, por favor, envie
+um relatório de instalação.
+
+</para>
+
+
+  <sect2 arch="powerpc"><title>PowerMacs OldWorld</title>
+<para>
+
+Caso a máquina falhe ao tentar inicializar após completar a instalação
+e pare com um aviso <prompt>boot:</prompt>, tente digitar
+<userinput>Linux</userinput> seguido de &enterkey;. (A configuração
+padrão de partida em <filename>quik.conf</filename> é chamada Linux). As
+identificações definidas no <filename>quik.conf</filename> serão mostradas
+caso a tecla <keycap>Tab</keycap> seja pressionada no aviso
+<prompt>boot:</prompt>.
+Você pode também tentar voltar ao programa de instalação e editando o
+<filename>/target/etc/quik.conf</filename> colocado ali pelo passo
+<guimenuitem>Instalar o Quik no Disco Rígido</guimenuitem>.
+As dicas para se trabalhar com o
+<command>quik</command> estão disponíveis em <ulink
+url="&url-powerpc-quik-faq;"></ulink>.
+
+</para><para>
+
+Para inicializar novamente no MacOS sem precisar reiniciar a nvram,
+digite <userinput>bye</userinput> no aviso da OpenFirmware (assumindo que o
+MacOS ainda não foi removido da máquina). Para obter um aviso de comando do
+OpenFirmware, pressione a combinação de teclas
+<keycombo> <keycap>command</keycap>
+<keycap>option</keycap> <keycap>o</keycap> <keycap>f</keycap>
+</keycombo> enquanto faz uma reinicialização pesada na máquina. Se precisar
+resetar a OpenFirmware para o padrão do MacOS para inicializar de volta no
+MacOS, pressione a combinação de teclas <keycombo> <keycap>command</keycap>
+<keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap>
+</keycombo> enquanto reinicia de forma pesada a máquina.
+
+</para><para>
+
+Caso usar o <command>BootX</command> para inicializar no sistema de instalação,
+apenas selecione o kernel desejado na pasta <filename>Linux
+Kernels</filename>, desmarque a opção ramdisk e adicione um dispositivo
+raiz correspondendo a sua instalação;
+e.g. <userinput>/dev/hda8</userinput>.
+
+</para>
+   </sect2>
+
+
+  <sect2 arch="powerpc"><title>PowerMacs NewWorld</title>
+<para>
+
+Em máquinas G4 e Ibooks, você poderá manter pressionada a tecla
+<keycap>option</keycap> e obter uma tela gráfica com um botão para
+cada sistema operacional inicializável, a &debian-gnu; será um botão com um ícone
+de pingüim pequeno.
+
+</para><para>
+
+Se manter o MacOS e em algum ponto ele alterar a variável
+<envar>boot-device</envar> do OpenFirmware, você deverá
+resetar o OpenFirmware para sua configuração padrão. Para fazer
+isto mantenha pressionada a combinação de teclas <keycombo>
+<keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap>
+<keycap>r</keycap> </keycombo> enquanto reinicia de forma pesada a
+máquina.
+
+</para><para>
+
+As identificações definidas no arquivo <filename>yaboot.conf</filename> serão
+mostradas se pressionar a tecla <keycap>Tab</keycap> no aviso de comando
+<prompt>boot:</prompt>.
+
+</para><para>
+
+Se resetar a OpenFirmware no G3 e G4, fará com que ele inicialize na
+&debian-gnu; por padrão (se você particionou e colocou a partição
+Apple_Bootstrap primeiro). Se tiver a &debian-gnu; em um disco SCSI
+e o MacOS em um disco IDE, isto poderá não funcionar e você terá que entrar
+no OpenFirmware e ajustar a variável <envar>boot-device</envar>,
+o <command>ybin</command> normalmente faz isto automaticamente.
+
+</para><para>
+
+Após inicializar na &debian-gnu; pela primeira vez, você poderá adicionar qualquer
+opção adicional que desejar (tais como opções de dupla inicialização) no arquivo
+<filename>/etc/yaboot.conf</filename> e executar o <command>ybin</command>
+para atualizar sua partição de inicialização com a configuração modificada.
+Por favor, leia o <ulink url="&url-powerpc-yaboot-faq;">yaboot HOWTO</ulink>
+para mais detalhes.
+
+</para>
+   </sect2>
+ </sect1>
+
+&mount-encrypted.xml;
+
+ <sect1 id="login">
+ <title>Entrando no Sistema</title>
+
+<para>
+
+Assim que seu sistema inicializar, você será presenteado com o aviso de login.
+Entre usando seu login e senha escolhidos durante a instalação. Seu sistema
+agora está pronto para ser usado.
+
+</para><para>
+
+Caso seja um novo usuário, você pode desejar explorar a documentação
+que já está instalada em seu sistema assim que começar a usá-lo. Existem
+diversos sistemas de documentação, alguns trabalhos estão sendo feitos
+para integrar os diferentes tipos de documentação. Aqui estão alguns
+pontos iniciais.
+
+</para><para>
+
+A documentação que acompanha os programas foram instalados pode ser encontrada
+no diretório <filename>/usr/share/doc/</filename>, sob um subdiretório que tem
+o nome do programa (ou, mais precisamente, o pacote &debian; que contém o
+programa). No entanto, documentação mais extensa é frequentemente empacotada
+separadamente em pacotes especiais de documentação que em sua maioria não são
+instalados por padrão. Por exemplo, a documentação sobre a ferramenta de
+gerenciamento de pacotes <command>apt</command> pode ser encontrada nos pacotes
+<classname>apt-doc</classname> ou <classname>apt-howto</classname>.
+
+</para><para>
+
+Em adição, existem alguns diretórios especiais dentro da
+hierarquia <filename>/usr/share/doc/</filename>. Os HOWTO's do Linux estão
+instalados em formato <emphasis>.gz</emphasis> (compactado), dentro de
+<filename>/usr/share/doc/HOWTO/en-txt/</filename>.Após instalar o
+<classname>dhelp</classname>, você encontrará um índice da
+documentação em <filename>/usr/share/doc/HTML/index.html</filename>.
+
+</para><para>
+
+Um método fácil de ver estes documentos, usando um navegador em modo texto, é
+executar os seguintes comandos:
+
+<informalexample><screen>
+$ cd /usr/share/doc/
+$ w3m .
+</screen></informalexample>
+
+O ponto após o comando <command>w3m</command> diz para o programa exibir
+o conteúdo do diretório atual.
+
+</para><para>
+
+Se você tiver um ambiente desktop gráfico instalado, você também pode usar
+seu navegador web. Inicie o navegador web a partir do menu de aplicações e
+informe <userinput>/usr/share/doc/</userinput> na barra de endereços.
+
+</para><para>
+
+Você também poderá digitar <userinput>info
+<replaceable>comando</replaceable></userinput> ou <userinput>man
+<replaceable>comando</replaceable></userinput> para ver a documentação
+da maioria dos comandos disponíveis no aviso de comando. Digitando-se
+<userinput>help</userinput> exibirá a ajuda sobre os comandos do
+interpretador de comandos. Digitando um comando seguido de
+<userinput>--help</userinput> normalmente mostrará um resumo simples de
+uso de comandos. Se um comando ultrapassar o espaço da tela,
+acrescente <userinput>|&nbsp;more</userinput> após o comando para fazer o
+resultado pausar antes de ultrapassar o topo da tela. Para ver uma
+lista de todos os comandos disponíveis que começam com uma determinada
+letra, digite a letra e então aperte duas vezes seguidas a tecla tab.
+
+</para>
+
+ </sect1>
+</chapter>

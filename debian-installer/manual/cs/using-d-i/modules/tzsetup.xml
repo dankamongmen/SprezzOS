@@ -1,0 +1,58 @@
+<!-- $Id: tzsetup.xml 61904 2009-12-30 10:39:36Z mck-guest $ -->
+<!-- original version: 61447 -->
+
+<!-- As tzsetup is invoked from inside clock-setup, this is not a
+     separate section -->
+
+<para>
+
+Podle země vybrané na začátku instalace se může zobrazit seznam
+časových pásem dostupných v daném místě. Existuje-li pro zadané místo
+pouze jediné časové pásmo, otázka se nezobrazí.
+
+</para><para>
+
+Instalujete-li v expertním režimu, nebo pokud snížíte prioritu otázek
+na střední, budete moci navíc zvolit časové pásmo UTC (Univerzální
+koordinovaný čas).
+
+</para><para>
+
+Pokud z nějakého důvodu chcete pro instalovaný systém použít časové
+pásmo, které <emphasis>neodpovídá</emphasis> zvolenému místu, máte dvě
+možnosti.
+
+</para>
+
+<orderedlist>
+<listitem><para>
+
+Nejjednodušší možností je počkat s výběrem jiného časové pásma až po
+dokončení instalace. V nainstalovaném systému pak stačí spustit
+příkaz:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>dpkg-reconfigure tzdata</userinput>
+</screen></informalexample>
+
+</para></listitem>
+<listitem><para>
+
+Alternativně můžete zadat časové pásmo na úplném začátku instalace
+přidáním zaváděcího parametru
+<userinput>time/zone=<replaceable>hodnota</replaceable></userinput>,
+kde <replaceable>hodnota</replaceable> by mělo být platné časové
+pásmo, například <userinput>Europe/Prague</userinput> nebo
+<userinput>UTC</userinput>.
+
+</para></listitem>
+</orderedlist>
+
+<para>
+
+Pro automatizované instalace můžete požadované časové pásmo nastavit
+také pomocí přednastavení (viz dodatek
+<xref linkend="appendix-preseed"/>, přesněji část
+<xref linkend="preseed-time"/>).
+
+</para>

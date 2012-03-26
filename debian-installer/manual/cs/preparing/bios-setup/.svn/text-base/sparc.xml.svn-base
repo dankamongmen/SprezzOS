@@ -1,0 +1,105 @@
+<!-- $Id$ -->
+<!-- original version: 43641 -->
+
+  <sect2 arch="sparc" id="invoking-openboot">
+  <title>Vyvolání OpenBootu</title>
+
+<para>
+
+OpenBoot poskytuje základní funkce potřebné k zavedení počítačů
+&arch-title;. Funkčně je to podobné BIOSu na architektuře x86, ale
+mnohem hezčí. Sun boot PROM mají zabudovaný interpret, který umožňuje
+provádět s počítačem zajímavé věci, jako třeba diagnostiku, psaní
+jednoduchých skriptů, atd.
+
+</para><para>
+
+K získání zaváděcího promptu musíte stisknout a držet klávesu
+<keycap>Stop</keycap> (na starších klávesnicích typu 4 použijte
+klávesu <keycap>L1</keycap>, nebo u PC klávesnice připojené
+adaptérem stiskněte <keycap>Break</keycap>) a současně stisknout
+klávesu <keycap>A</keycap>. Boot PROM vám ukáže prompt
+<userinput>ok</userinput> nebo <userinput>&gt;</userinput>.
+Obecně je lepší mít novější prompt <userinput>ok</userinput>, takže
+pokud dostanete starý prompt, pro přepnutí do novějšího stiskněte
+klávesu <keycap>n</keycap>.
+
+</para><para>
+
+Používáte-li sériovou konzoli, pošlete počítači přerušení. V Minicomu
+použijte <keycap>Ctrl-A F</keycap>, v programu cu stiskněte
+<keycap>Enter</keycap> a poté napište
+<userinput>%~break</userinput>. Používáte-li jiný program pro emulaci
+terminálu, podívejte se do jeho dokumentace.
+
+</para>
+  </sect2>
+
+  <sect2 arch="sparc" id="boot-dev-select-sun">
+  <title>Výběr zaváděcího zařízení</title>
+
+<para>
+
+OpenBoot můžete použít k zavedení z různých zařízení, nebo ke změně
+standardního zaváděcího zařízení. Nyní byste se však měli seznámit
+s tím, jak OpenBoot pojmenovává zařízení, protože je to odlišné od
+způsobu, jakým zařízení pojmenovává Linux (viz
+<xref linkend="device-names"/>).
+Také příkazy se mohou lišit v závislosti na použité verzi OpenBootu.
+Bližší informace o OpenBootu se můžete dočíst v
+<ulink url="&url-openboot;">Sun OpenBoot Reference</ulink>.
+
+</para><para>
+
+V novějších verzích OpenBootu můžete používat jména zařízení jako
+<quote>floppy</quote>, <quote>cdrom</quote>, <quote>net</quote>,
+<quote>disk</quote> nebo <quote>disk2</quote>.  Jejich význam je
+zřejmý (<quote>net</quote> se používá pro zavedení ze sítě).  Dále
+může jméno zařízení specifikovat konkrétní oblast na disku, jako třeba
+<quote>disk2:a</quote>, což zavede systém z první oblasti druhého
+disku. Kompletní OpenBoot jméno zařízení má tvar:
+
+<informalexample>
+<screen>
+<replaceable>driver-name</replaceable>@
+<replaceable>unit-address</replaceable>:
+<replaceable>device-arguments</replaceable>
+</screen></informalexample>
+
+Ve starších revizích OpenBootu se pojmenování zařízení mírně liší:
+disketová mechanika se nazývá <quote>/fd</quote>, a SCSI disky se
+označují ve tvaru <quote>sd(<replaceable>controller</replaceable>,
+<replaceable>disk-target-id</replaceable>,
+<replaceable>disk-lun</replaceable>)</quote>. Novější revize OpenBootu
+mají příkaz <command>show-devs</command>, kterým zobrazíte všechna
+aktuálně nakonfigurovaná zařízení.  Kompletní informace o všech
+revizích najdete v <ulink url="&url-openboot;">Sun OpenBoot
+Reference</ulink>.
+
+</para><para>
+
+Systém z daného zařízení zavedete příkazem <userinput>boot
+<replaceable>zarizeni</replaceable></userinput>. Pokud z tohoto
+zařízení chcete zavádět systém automaticky, můžete nastavit příslušnou
+proměnnou příkazem <userinput>setenv</userinput>.
+V OpenBootu 1.x použijte příkaz <userinput>setenv boot-from
+<replaceable>zarizeni</replaceable></userinput>,
+nebo v novějších revizích <userinput>setenv boot-device
+<replaceable>zarizeni</replaceable></userinput>.
+Proměnná se dá změnit i přímo z operačního systému
+(v Solarisu příkazem <command>eeprom</command>, v Linuxu změnou
+souborů v adresáři <filename>/proc/openprom/options/</filename>).
+Například pod Linuxem:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>echo disk1:1 &gt; /proc/openprom/options/boot-device</userinput>
+</screen></informalexample>
+
+a pod Solarisem:
+
+<informalexample><screen>
+<userinput>eeprom boot-device=disk1:1</userinput>
+</screen></informalexample>
+
+</para>
+  </sect2>

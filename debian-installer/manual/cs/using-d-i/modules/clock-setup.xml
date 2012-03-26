@@ -1,0 +1,23 @@
+<!-- $Id: clock-setup.xml 61904 2009-12-30 10:39:36Z mck-guest $ -->
+<!-- original version: 61405 -->
+
+   <sect3 id="clock-setup">
+   <title>Nastavení hodin a časového pásma</title>
+
+<para>
+
+Instalační systém se nejprve pokusí získat přesný čas z některého
+časového serveru na Internetu (protokolem <firstterm>NTP</firstterm>).
+Pokud se to nepovede, bude &d-i; předpokládat, že čas získaný ze
+systémových hodin při zavádění instalace je správný. Během instalace
+není možné nastavit čas ručně.
+
+</para><para arch="s390">
+
+Instalace na platformě &arch-title; systémové hodiny nenastavuje.
+
+</para>
+
+&module-tzsetup.xml;
+
+  </sect3>

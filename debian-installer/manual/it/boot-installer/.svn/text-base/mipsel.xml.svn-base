@@ -1,0 +1,89 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 59840 -->
+
+  <sect2 arch="mipsel" id="boot-tftp">
+  <!-- <title>Booting with TFTP</title> -->
+  <title>Avvio con TFTP</title>
+
+   <sect3>
+   <!-- <title>Cobalt TFTP Booting</title> -->
+   <title>Avvio con TFTP di macchine Cobalt</title>
+<para>
+
+<!--
+Strictly speaking, Cobalt does not use TFTP but NFS to boot.  You need to
+install an NFS server and put the installer files in
+<filename>/nfsroot</filename>.  When you boot your Cobalt, you have to
+press the left and the right cursor buttons at the same time and the
+machine will boot via the network from NFS.  It will then display several
+options on the display.  There are the following two installation methods:
+-->
+
+In verità le Cobalt per l'avvio non usano TFTP bensì NFS. È necessario
+installare un server NFS e mettere i file del programma d'installazione
+in <filename>/nfsroot</filename>. Quando si avvia la macchina Cobalt si
+devono premere contemporaneamente i tasti per spostare il cursore a destra
+e a sinistra, in questo modo la macchina esegue l'avvio dalla rete tramite
+NFS. Sullo schermo sono proposte diverse scelte fra le quali ci sono le
+seguenti due modalità d'installazione:
+
+<itemizedlist>
+<listitem><para>
+
+<!--
+Via SSH (default): In this case, the installer will configure the network
+via DHCP and start an SSH server.  It will then display a random password
+and other login information (such as the IP address) on the Cobalt LCD.
+When you connect to the machine with an SSH client you can start with
+the installation.
+-->
+
+Tramite SSH (questa è la modalità predefinita): in questo caso l'installatore
+configura la rete tramite DHCP e avvia un server SSH. Poi mostra sul display
+della Cobalt una password casuale insieme a altre informazioni per l'accesso
+(per esempio l'indirizzo IP). A questo punto è possibile connettersi alla
+macchina con qualsiasi client SSH e far partire l'installazione.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Via serial console: Using a null modem cable, you can connect to the serial
+port of your Cobalt machine (using 115200 bps) and perform the installation
+this way.
+-->
+
+Con una console seriale: con un cavo <emphasis>null-modem</emphasis> è
+possibile connettersi (a 115000&nbsp;bps) alla porta seriale della macchina
+Cobalt ed effettuare l'installazione.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="mipsel">
+  <!-- <title>Boot Parameters</title> -->
+  <title>Parametri di avvio</title>
+
+   <sect3>
+   <!-- <title>Cobalt TFTP Booting</title> -->
+   <title>Avvio di macchine Cobalt con TFTP</title>
+<para>
+
+<!--
+You cannot pass any boot parameters directly.  Instead, you have to edit
+the <filename>/nfsroot/default.colo</filename> file on the NFS server and
+add your parameters to the <replaceable>args</replaceable> variable.
+-->
+
+Non è possibile passare direttamente dei parametri di avvio, si deve
+modificare il file <filename>/nfsroot/default.colo</filename> sul server
+NFS e aggiungere i parametri nella variabile
+<replaceable>args</replaceable>.
+
+</para>
+   </sect3>
+  </sect2>

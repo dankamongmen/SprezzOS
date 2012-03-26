@@ -1,0 +1,131 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65000 -->
+
+  <sect3 arch="ia64">
+  <title>Instal·lació del carregador <command>ELILO</command>
+         en un disc dur</title>
+<para>
+
+El carregador per a l'&architecture; s'anomena <quote>elilo</quote>.
+Està basat en el carregador <quote>lilo</quote>, de l'arquitectura x86,
+i fa servir un fitxer de configuració semblant. Tanmateix, en lloc
+d'escriure un MBR o un registre d'arrencada de partició al disc, copia
+els fitxers necessaris a una partició FAT separada i modifica el menú del
+<guimenuitem>gestor d'arrencada EFI</guimenuitem> del microprogramari perquè
+apunte als fitxers de la partició EFI. El carregador <command>elilo</command>
+té en realitat dues parts. L'ordre <filename>/usr/sbin/elilo</filename>
+gestiona la partició i hi copia els fitxers. El programa
+<filename>elilo.efi</filename> es copia a la partició EFI i després
+és executat pel <quote>gestor d'arrencada EFI</quote> a fi de dur a
+terme realment la feina de carregar i iniciar el nucli del Linux.
+
+</para><para>
+
+La instal·lació i configuració de l'<quote>elilo</quote> constitueix el
+darrer pas de la instal·lació dels paquets de la instal·lació bàsica.
+El &d-i; us presentarà una llista de possibles particions del disc adients
+per a esdevenir una partició EFI. Seleccioneu la partició que heu
+configurat abans durant la instal·lació, que serà normalment una
+partició al mateix disc dur que conté el sistema de fitxers
+<emphasis>arrel</emphasis>.
+
+</para>
+
+  <warning><title>Trieu la partició correcta!</title>
+
+<para>
+
+Els criteris per seleccionar una partició són: tenir el sistema de fitxers
+en format FAT amb el senyalador <emphasis>boot (arrencada)</emphasis>
+activat. El &d-i; pot mostrar nombroses opcions segons el que haja trobat
+en analitzar els discs del sistema, incloent-hi les particions EFI d'altres
+discs del sistema i les particions de diagnòstic EFI. Recordeu que
+l'<command>elilo</command> pot formata la partició durant la
+instal·lació i que això esborrarà qualsevol contingut que hi haja!
+
+</para></warning>
+
+  </sect3>
+
+  <sect3 arch="ia64">
+  <title>Continguts de la partició EFI</title>
+
+<para>
+
+La partició EFI és una partició de format de sistema de fitxers FAT,
+situada a un dels discs durs del sistema, normalment el mateix que conté
+el sistema de fitxers <emphasis>arrel</emphasis>. No sol estar muntada a
+un sistema que estiga en execució, ja que solament la necessita el
+<quote>gestor d'arrencada EFI</quote> per carregar el sistema i la part
+de l'instal·lador que l'<command>elilo</command> escriu al sistema de
+fitxers directament. La utilitat <command>/usr/sbin/elilo</command> escriu
+els següents fitxers al directori <filename>efi/debian</filename> de la
+partició EFI durant la instal·lació. Tingueu en compte que el
+<quote>gestor de càrrega EFI</quote> trobarà aquests fitxers emprant el
+camí <filename>fs<replaceable>n</replaceable>:\efi\debian</filename>.
+Podrà haver-hi altres fitxers en aquest sistema de fitxers a mesura que,
+amb el temps, s'actualitze o es reconfigure el sistema.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term><filename>elilo.conf</filename></term>
+<listitem><para>
+
+Aquest és el fitxer de configuració que llegeix el carregador quan
+s'inicia. És una còpia de l'<filename>/etc/elilo.conf</filename> amb
+els noms de fitxer reescrits per referir-se als fitxers de la partició
+EFI.
+
+</para></listitem></varlistentry>
+
+<varlistentry>
+<term><filename>elilo.efi</filename></term>
+<listitem><para>
+
+Aquest és el programa carregador que el <quote>gestor d'arrencada EFI</quote>
+executa per arrencar el sistema. És el programa que hi ha al darrere de
+l'ítem <guimenuitem>&debian; GNU/Linux</guimenuitem> del menú d'ordres
+del <quote>gestor d'arrencada EFI</quote>.
+
+</para></listitem></varlistentry>
+
+<varlistentry>
+<term><filename>initrd.img</filename></term>
+<listitem><para>
+
+Aquest és el sistema de fitxers arrel inicial emprat per arrencar el
+nucli. És una còpia del fitxer referenciat a
+<filename>/etc/elilo.conf</filename>. En una instal·lació estàndard de
+&debian; seria el fitxer de <filename>/boot</filename> al qual apunta
+l'enllaç simbòlic <filename>/initrd.img</filename>.
+
+</para></listitem></varlistentry>
+
+<varlistentry>
+<term><filename>readme.txt</filename></term>
+<listitem><para>
+
+És un petit fitxer de text que us informa que els continguts del
+directori són gestionats per l'<command>elilo</command> i que
+qualsevol canvi local es perdrà la propera vegada que s'execute
+l'<filename>/usr/sbin/elilo</filename>.
+
+</para></listitem></varlistentry>
+
+<varlistentry>
+<term><filename>vmlinuz</filename></term>
+<listitem><para>
+
+És el nucli comprimit. És una còpia del fitxer referenciat a
+<filename>/etc/elilo.conf</filename>. En una instal·lació estàndard
+de &debian;, seria el fitxer de <filename>/boot</filename> al qual
+apunta l'enllaç simbòlic <filename>/vmlinuz</filename>.
+
+</para></listitem></varlistentry>
+
+</variablelist>
+
+  </sect3>

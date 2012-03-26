@@ -1,0 +1,700 @@
+# translation of installation-howto.po to Greek
+# translation of installation-howto.po to
+# Copyright (C) 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+#
+# Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2005.
+# yODesY <yodesy@quad-nrg.net>, 2005.
+# quad-nrg.net <galaxico@quad-nrg.net>, 2006, 2007.
+# quad-nrg.net <yodesy@quad-nrg.net>, 2006, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: installation-howto\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-12-29 12:07+0000\n"
+"PO-Revision-Date: 2008-09-28 18:17+0300\n"
+"Last-Translator: quad-nrg.net <yodesy@quad-nrg.net>\n"
+"Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"org>\n"
+"org>\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#. Tag: title
+#: installation-howto.xml:5
+#, no-c-format
+msgid "Installation Howto"
+msgstr "Οδηγός εγκατάστασης"
+
+#. Tag: para
+#: installation-howto.xml:7
+#, no-c-format
+msgid ""
+"This document describes how to install &debian-gnu; &releasename; for the "
+"&arch-title; (<quote>&architecture;</quote>) with the new &d-i;. It is a "
+"quick walkthrough of the installation process which should contain all the "
+"information you will need for most installs. When more information can be "
+"useful, we will link to more detailed explanations in other parts of this "
+"document."
+msgstr ""
+"Το έγγραφο αυτό περιγράφει πώς να εγκαταστήσετε το &debian-gnu; "
+"&releasename; για την αρχιτεκτονική &arch-title; (<quote>&architecture;</"
+"quote>) με τον καινούριο &d-i;. Είναι μια γρήγορη περιδιάβαση στη διαδικασία "
+"εγκατάστασης και περιέχει όλες τις πληροφορίες που θα χρειαστείτε για την "
+"πλειοψηφία των εγκαταστάσεων. Όταν περισσότερες πληροφορίες μπορούν να σας "
+"φανούν χρήσιμες, θα γίνεται παραπομπή σε λεπτομερέστερες εξηγήσεις σε άλλα "
+"μέρη του παρόντος κειμένου."
+
+#. Tag: title
+#: installation-howto.xml:19
+#, no-c-format
+msgid "Preliminaries"
+msgstr "Προκαταρκτικά"
+
+#. Tag: para
+#: installation-howto.xml:20
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> The debian-installer is still in a "
+"beta state. </phrase> If you encounter bugs during your install, please "
+"refer to <xref linkend=\"submit-bug\"/> for instructions on how to report "
+"them. If you have questions which cannot be answered by this document, "
+"please direct them to the debian-boot mailing list (&email-debian-boot-"
+"list;) or ask on IRC (#debian-boot on the OFTC network)."
+msgstr ""
+"<phrase condition=\"unofficial-build\">Ο Εγκαταστάτης είναι ακόμα σε "
+"κατάσταση beta.</phrase> Αν αντιμετωπίσετε σφάλματα κατά την εγκατάσταση, "
+"παρακαλούμε δείτε το <xref linkend=\"submit-bug\" /> για οδηγίες σχετικά με "
+"την αναφορά τους. Αν  έχετε ερωτήσεις που δεν μπορούν να απαντηθούν από το "
+"παρόν έγγραφο, παρακαλούμε να τις απευθύνετε στη λίστα αλληλογραφίας debian-"
+"boot (&email-debian-boot-list;), ή στο αντίστοιχο κανάλι IRC (#debian-boot "
+"στο δίκτυο OFTC)."
+
+#. Tag: title
+#: installation-howto.xml:36
+#, no-c-format
+msgid "Booting the installer"
+msgstr "Ξεκινώντας τον Εγκαταστάτη"
+
+#. Tag: para
+#: installation-howto.xml:37
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> For some quick links to CD images, "
+"check out the <ulink url=\"&url-d-i;\"> &d-i; home page</ulink>. </phrase> "
+"The debian-cd team provides builds of CD images using &d-i; on the <ulink "
+"url=\"&url-debian-cd;\">Debian CD page</ulink>. For more information on "
+"where to get CDs, see <xref linkend=\"official-cdrom\"/>."
+msgstr ""
+"<phrase condition=\"unofficial-build\"> Για μερικούς γρήγορους συνδέσμους σε "
+"εικόνες  CD, ελέγξτε την <ulink url=\"&url-d-i;\">ιστοσελίδα του &d-i;</"
+"ulink>. </phrase> Η ομάδα debian-cd παρέχει εικόνες CD που χρησιμοποιούν τον "
+"&d-i; στην<ulink url=\"&url-debian-cd;\">ιστοσελίδα Debian CD</ulink>. Για "
+"περισσότερες πληροφορίες σχετικά με το από πού μπορείτε να απόκτησετε τα CD, "
+"δείτε το <xref linkend=\"official-cdrom\" />."
+
+#. Tag: para
+#: installation-howto.xml:47
+#, no-c-format
+msgid ""
+"Some installation methods require other images than CD images. <phrase "
+"condition=\"unofficial-build\"> The <ulink url=\"&url-d-i;\">&d-i; home "
+"page</ulink> has links to other images. </phrase> <xref linkend=\"where-files"
+"\"/> explains how to find images on &debian; mirrors."
+msgstr ""
+"Μερικές μέθοδοι εγκατάστασης απαιτούν άλλου είδους εικόνες, και όχι εικόνες "
+"CD. <phrase condition=\"unofficial-build\"> Η <ulink url=\"&url-d-i;"
+"\">ιστοσελίδα του &d-i;</ulink> έχει συνδέσμους σε αυτές.</phrase> Το <xref "
+"linkend=\"where-files\" /> εξηγεί πως να βρείτε εικόνες σε καθρέφτες του "
+"&debian;."
+
+#. Tag: para
+#: installation-howto.xml:57
+#, no-c-format
+msgid ""
+"The subsections below will give the details about which images you should "
+"get for each possible means of installation."
+msgstr ""
+"Τα ακόλουθα τμήματα περιέχουν λεπτομέρειες σχετικά με τις εικόνες που "
+"χρειάζονται για κάθε είδος εγκατάστασης."
+
+#. Tag: title
+#: installation-howto.xml:65
+#, no-c-format
+msgid "CDROM"
+msgstr "CDROM "
+
+#. Tag: para
+#: installation-howto.xml:67
+#, no-c-format
+msgid ""
+"There are two different netinst CD images which can be used to install "
+"&releasename; with the &d-i;. These images are intended to boot from CD and "
+"install additional packages over a network, hence the name 'netinst'. The "
+"difference between the two images is that on the full netinst image the base "
+"packages are included, whereas you have to download these from the web if "
+"you are using the business card image. If you'd rather, you can get a full "
+"size CD image which will not need the network to install. You only need the "
+"first CD of the set."
+msgstr ""
+"Υπάρχουν δύο διαφορετικές εικόνες netinst CD που μπορούν να χρησιμοποιηθούν "
+"για την εγκατάσταση του &releasename; με τον &d-i;. Αυτές προορίζονται για "
+"εκκίνηση από συσκευή CD και εγκατάσταση των υπόλοιπων πακέτων μέσω δικτύου, "
+"από κει και το όνομα 'netinst' (συντ. 'Δικτυακή Εγκατάσταση'). Η διαφορά "
+"μεταξύ των δύο εικόνων είναι ότι στην πλήρη εικόνα netinst "
+"συμπεριλαμβάνονται τα βασικά πακέτα, ενώ στην εικόνα business card αυτά τα "
+"πακέτα θα πρέπει να ληφθούν από το διαδίκτυο. Διαφορετικά, αν θέλετε, "
+"μπορείτε να απόκτησετε μια εικόνα CD πλήρους μεγέθους που δεν χρειάζεται "
+"δίκτυο για thn εγκατάσταση. Θα χρειαστείτε μόνο το πρώτο CD από το σετ."
+
+#. Tag: para
+#: installation-howto.xml:78
+#, no-c-format
+msgid ""
+"Download whichever type you prefer and burn it to a CD. <phrase arch=\"any-"
+"x86\">To boot the CD, you may need to change your BIOS configuration, as "
+"explained in <xref linkend=\"bios-setup\"/>.</phrase> <phrase arch=\"powerpc"
+"\"> To boot a PowerMac from CD, press the <keycap>c</keycap> key while "
+"booting. See <xref linkend=\"boot-cd\"/> for other ways to boot from CD. </"
+"phrase>"
+msgstr ""
+"Κατεβάστε οποιονδήποτε τύπο εικόνας που προτιμάτε και γράψτε την σ' ένα κενό "
+"CD. <phrase arch=\"any-x86\">Για να εκκινήσετε από το CD, ίσως χρειαστεί να "
+"αλλάξετε τις ρυθμίσεις του BIOS, όπως εξηγείται στο <xref linkend=\"bios-"
+"setup\" />.</phrase> <phrase arch=\"powerpc\"> Για να εκκινήσετε ένα "
+"μηχάνημα PowerMac από CD, πατήστε το πλήκτρο <keycap>c</keycap> κατά τη "
+"διάρκεια εκκίνησης του υπολογιστή. Δείτε το <xref linkend=\"boot-cd\" /> για "
+"άλλους τρόπους εκκίνησης από CD.</phrase>"
+
+#. Tag: title
+#: installation-howto.xml:92
+#, no-c-format
+msgid "Floppy"
+msgstr "Δισκέττα (floppy)"
+
+#. Tag: para
+#: installation-howto.xml:93
+#, no-c-format
+msgid ""
+"If you can't boot from CD, you can download floppy images to install "
+"&debian;. You need the <filename>floppy/boot.img</filename>, the "
+"<filename>floppy/root.img</filename> and one or more of the driver disks."
+msgstr ""
+"Αν δεν είναι δυνατή η εκκίνηση από CD, μπορείτε να μεταφορτώσετε εικόνες "
+"δισκέττας για την εγκατάσταση του &debian;. Χρειάζεστε τα αρχεία "
+"<filename>floppy/boot.img</filename>, <filename>floppy/root.img</filename> "
+"και μια ή περισσότερες από τις δισκέττες με τους οδηγούς."
+
+#. Tag: para
+#: installation-howto.xml:99
+#, no-c-format
+msgid ""
+"The boot floppy is the one with <filename>boot.img</filename> on it. This "
+"floppy, when booted, will prompt you to insert a second floppy &mdash; use "
+"the one with <filename>root.img</filename> on it."
+msgstr ""
+"Η δισκέττα εκκίνησης είναι η <filename>boot.img</filename>. Η δισκέττα αυτή, "
+"κατά την εκκίνηση, θα σας προτρέψει να εισάγετε μια δεύτερη δισκέττα &mdash; "
+"χρησιμοποιείστε τη δισκέττα <filename>root.img</filename>."
+
+#. Tag: para
+#: installation-howto.xml:105
+#, no-c-format
+msgid ""
+"If you're planning to install over the network, you will usually need the "
+"<filename>floppy/net-drivers-1.img</filename>. For PCMCIA or USB networking, "
+"and some less common network cards, you will also need a second driver "
+"floppy, <filename>floppy/net-drivers-2.img</filename>."
+msgstr ""
+"Αν σχεδιάζετε να κάνετε την εγκατάσταση μέσω δικτύου, θα χρειαστείτε συνήθως "
+"την εικόνα δισκέττας <filename>floppy/net-drivers-1.img</filename>. Για "
+"δίκτυο μέσω PCMCIA ή USB και μερικές λιγότερο συνηθισμένες κάρτες δικτύου, "
+"θα χρειαστείτε επίσης μια δεύτερη δισκέττα με οδηγούς, την <filename>floppy/"
+"net-drivers-2.img</filename>."
+
+#. Tag: para
+#: installation-howto.xml:112
+#, no-c-format
+msgid ""
+"If you have a CD, but cannot boot from it, then boot from floppies and use "
+"<filename>floppy/cd-drivers.img</filename> on a driver disk to complete the "
+"install using the CD."
+msgstr ""
+"Αν διαθέτετε ένα CD, αλλά δεν μπορείτε να εκκινήσετε με αυτό, τότε εκκινήστε "
+"με δισκέττες και χρησιμοποιήστε την εικόνα <filename>floppy/cd-drivers.img</"
+"filename> για να ολοκληρώσετε την εγκατάσταση χρησιμοποιώντας το CD."
+
+#. Tag: para
+#: installation-howto.xml:118
+#, no-c-format
+msgid ""
+"Floppy disks are one of the least reliable media around, so be prepared for "
+"lots of bad disks (see <xref linkend=\"unreliable-floppies\"/>). Each "
+"<filename>.img</filename> file you downloaded goes on a single floppy; you "
+"can use the dd command to write it to /dev/fd0 or some other means (see "
+"<xref linkend=\"create-floppy\"/> for details). Since you'll have more than "
+"one floppy, it's a good idea to label them."
+msgstr ""
+"Οι δισκέττες είναι από τα λιγότερο αξιόπιστα αφαιρούμενα μέσα, για αυτό "
+"ετοιμαστείτε για πολλά ελαττωματικά δισκάκια (βλ. <xref linkend=\"unreliable-"
+"floppies\" />). Κάθε αρχείο <filename>.img</filename> που μεταφορτώσατε, "
+"αντιστοιχεί σε μία δισκέττα. Μπορείτε να χρησιμοποιήσετε την εντολή dd για "
+"να το γράψετε στο /dev/fd0 ή κάποιο άλλο μέσο (βλ. <xref linkend=\"create-"
+"floppy\" /> για λεπτομέρειες). Επειδή θα έχετε περισσότερες από μία "
+"δισκέττες, είναι καλή ιδέα να τους βάλετε ετικέτες."
+
+#. Tag: title
+#: installation-howto.xml:131
+#, no-c-format
+msgid "USB memory stick"
+msgstr "USB memory stick"
+
+#. Tag: para
+#: installation-howto.xml:132
+#, no-c-format
+msgid ""
+"It's also possible to install from removable USB storage devices. For "
+"example a USB keychain can make a handy &debian; install medium that you can "
+"take with you anywhere."
+msgstr ""
+"Η εγκατάσταση από αφαιρούμενη συσκευή αποθήκευσης USB είναι επίσης εφικτή."
+"Για παράδειγμα, μια αλυσιδίτσα με ένα USB stick μπορεί να αποτελέσει ένα "
+"εύχρηστο μέσο εγκατάστασης &debian;, που μπορεί να σας συνοδεύει παντού."
+
+#. Tag: para
+#: installation-howto.xml:138
+#, no-c-format
+msgid ""
+"The easiest way to prepare your USB memory stick is to download <filename>hd-"
+"media/boot.img.gz</filename>, and use gunzip to extract the 256 MB image "
+"from that file. Write this image directly to your memory stick, which must "
+"be at least 256 mb in size. Of course this will destroy anything already on "
+"the memory stick. Then mount the memory stick, which will now have a FAT "
+"filesystem on it. Next, download a &debian; netinst CD image, and copy that "
+"file to the memory stick; any filename is ok as long as it ends in <literal>."
+"iso</literal>."
+msgstr ""
+"Ο ευκολότερος τρόπος προετοιμασίας του USB stick είναι να κατεβάσετε το "
+"αρχείο <filename>hd-media/boot.img.gz</filename>, και να χρησιμοποιήσετε την "
+"εντολή gunzip για την αποσυμπίεση της μεγέθους 256 MB εικόνας από το αρχείο "
+"αυτό. Γράψτε την εικόνα αυτή απευθείας στο stick, το οποίο πρέπει να έχει "
+"χωρητικότητα τουλάχιστον 256 mb. Βεβαίως αυτό θα καταστρέψει όλα τα "
+"υπάρχοντα δεδομένα στο stick. Στη συνέχεια, προσαρτήστε το stick, στο οποίο "
+"θα υπάρχει πλέον ένα σύστημα αρχείων FAT. Κατόπιν, κατεβαστε την εικόνα του "
+"&debian; netinst CD, και αντιγράψτε αυτό το αρχείο στο stick. Οποιοδήποτε "
+"όνομα είναι κατάλληλο για το αρχείο αυτό αρκεί να τελειώνει με την κατάληξη "
+"<literal>.iso</literal>."
+
+#. Tag: para
+#: installation-howto.xml:149
+#, no-c-format
+msgid ""
+"There are other, more flexible ways to set up a memory stick to use the "
+"debian-installer, and it's possible to get it to work with smaller memory "
+"sticks. For details, see <xref linkend=\"boot-usb-files\"/>."
+msgstr ""
+"Υπάρχουν κι άλλοι, πιο ευέλικτοι, τρόποι προετοιμασίας ενός memory stick "
+"ώστε να χρησιμοποιεί τον εγκαταστάτη debian, και είναι εφικτό να το "
+"επιτύχετε και για μικρότερου μεγέθους sticks. Για λεπτομέρειες δείτε το "
+"<xref linkend=\"boot-usb-files\" />."
+
+#. Tag: para
+#: installation-howto.xml:155
+#, no-c-format
+msgid ""
+"Some BIOSes can boot USB storage directly, and some cannot. You may need to "
+"configure your BIOS to boot from a <quote>removable drive</quote> or even a "
+"<quote>USB-ZIP</quote> to get it to boot from the USB device. For helpful "
+"hints and details, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Ορισμένα BIOS μπορούν να εκκινήσουν συσκευές αποθήκευσης USB απευθείας, ενώ "
+"άλλα όχι. Ίσως χρειαστεί να ρυθμίσετε το BIOS να ξεκινά από ὲνα "
+"<quote>removable drive</quote> ή ακόμα και <quote>USB-ZIP</quote> για να "
+"πετύχετε την εκκίνηση από τη συσκευή USB. Για χρήσιμες συμβουλές και "
+"λεπτομέρειες, δείτε το  <xref linkend=\"usb-boot\" />."
+
+#. Tag: para
+#: installation-howto.xml:162
+#, no-c-format
+msgid ""
+"Booting Macintosh systems from USB storage devices involves manual use of "
+"Open Firmware. For directions, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Για την εκκίνηση συστημάτων Macintosh από συσκευές αποθήκευσης USB "
+"απαιτείται χρήση του Open Firmware. Για οδηγίες, δείτε το <xref linkend="
+"\"usb-boot\" />."
+
+#. Tag: title
+#: installation-howto.xml:171
+#, no-c-format
+msgid "Booting from network"
+msgstr "Εκκίνηση από δίκτυο"
+
+#. Tag: para
+#: installation-howto.xml:172
+#, no-c-format
+msgid ""
+"It's also possible to boot &d-i; completely from the net. The various "
+"methods to netboot depend on your architecture and netboot setup. The files "
+"in <filename>netboot/</filename> can be used to netboot &d-i;."
+msgstr ""
+"Είναι δυνατόν να εκκινήσετε τον &d-i; απευθείας από το δίκτυο. Οι διάφορες "
+"μέθοδοι για αυτήν τη διαδικασία εξαρτώνται από την αρχιτεκτονική του "
+"υπολογιστή και τη ρύθμιση του netboot (συντ. \"Δικτυακή Εκκίνηση\"). Τα "
+"αρχεία στον κατάλογο <filename>netboot/</filename> μπορούν να "
+"χρησιμοποιηθούν για δικτυακή εκκίνηση του &d-i;."
+
+#. Tag: para
+#: installation-howto.xml:178
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The easiest thing to set up is probably PXE netbooting. Untar the file "
+#| "<filename>netboot/pxeboot.tar.gz</filename> into <filename>/var/lib/"
+#| "tftpboot</filename> or wherever is appropriate for your tftp server. Set "
+#| "up your DHCP server to pass filename <filename>/pxelinux.0</filename> to "
+#| "clients, and with luck everything will just work. For detailed "
+#| "instructions, see <xref linkend=\"install-tftp\"/>."
+msgid ""
+"The easiest thing to set up is probably PXE netbooting. Untar the file "
+"<filename>netboot/pxeboot.tar.gz</filename> into <filename>/srv/tftp</"
+"filename> or wherever is appropriate for your tftp server. Set up your DHCP "
+"server to pass filename <filename>/pxelinux.0</filename> to clients, and "
+"with luck everything will just work. For detailed instructions, see <xref "
+"linkend=\"install-tftp\"/>."
+msgstr ""
+"Η ευκολότερη μέθοδος είναι πιθανότατα η ρύθμιση της δικτυακής εκκίνησης PXE. "
+"Αποσυμπιέστε το αρχείο <filename>netboot/pxeboot.tar.gz</filename> στον "
+"κατάλογο <filename>/srv/tftp</filename> ή οπουδήποτε είναι κατάλληλο για τον "
+"εξυπηρετητή tftp. Ρυθμίστε τον εξυπηρετητή DHCP να περνάει το όνομα "
+"<filename>/pxelinux.0</filename> στους πελάτες, και με λίγη τύχη όλα θα "
+"δουλέψουν. Για λεπτομερείς οδηγίες, δείτε το <xref linkend=\"install-tftp\" /"
+">"
+
+#. Tag: title
+#: installation-howto.xml:192
+#, no-c-format
+msgid "Booting from hard disk"
+msgstr "Εκκίνηση από σκληρό δίσκο"
+
+#. Tag: para
+#: installation-howto.xml:193
+#, no-c-format
+msgid ""
+"It's possible to boot the installer using no removable media, but just an "
+"existing hard disk, which can have a different OS on it. Download "
+"<filename>hd-media/initrd.gz</filename>, <filename>hd-media/vmlinuz</"
+"filename>, and a &debian; CD image to the top-level directory of the hard "
+"disk. Make sure that the CD image has a filename ending in <literal>.iso</"
+"literal>. Now it's just a matter of booting linux with the initrd. <phrase "
+"arch=\"x86\"> <xref linkend=\"boot-initrd\"/> explains one way to do it. </"
+"phrase>"
+msgstr ""
+"Είναι δυνατόν να ξεκινήσετε τον εγκαταστάτη χωρίς τη χρήση αφαιρούμενων "
+"μέσων, αλλά μόνο από έναν υπάρχοντα σκληρό δίσκο, που ίσως και να έχει ένα "
+"διαφορετικό λειτουργικό σύστημα. Κατεβάστε τα αρχεία <filename>hd-media/"
+"initrd.gz</filename>,<filename>hd-media/vmlinuz</filename>, και μια εικόνα "
+"CD του &debian; στον κατάλογο στο υψηλότερο επίπεδο του σκληρού δίσκου. "
+"Σιγουρευτείτε ότι η εικόνα του CD έχει κατάληξη <literal>.iso</literal>. "
+"Τώρα είναι πλέον θέμα εκκίνησης του linux από τον δίσκο μνήμης initrd."
+"<phrase arch=\"x86\">Το <xref linkend=\"boot-initrd\" /> εξηγεί μία πιθανή "
+"μέθοδο για να κάνετε ακριβώς αυτό.</phrase>"
+
+#. Tag: title
+#: installation-howto.xml:210
+#, no-c-format
+msgid "Installation"
+msgstr "Εγκατάσταση"
+
+#. Tag: para
+#: installation-howto.xml:211
+#, no-c-format
+msgid ""
+"Once the installer starts, you will be greeted with an initial screen. Press "
+"&enterkey; to boot, or read the instructions for other boot methods and "
+"parameters (see <xref linkend=\"boot-parms\"/>)."
+msgstr ""
+"Αφού ξεκινήσει ο εγκαταστάτης, θα βρεθείτε μπροστά σε μια αρχική οθόνη "
+"υποδοχής. Πατήστε το πλήκτρο &enterkey; για εκκίνηση ή διαβάστε τις οδηγίες "
+"για άλλες μεθόδους εκκίνησης και παραμέτρους (δείτε το <xref linkend=\"boot-"
+"parms\" />)."
+
+#. Tag: para
+#: installation-howto.xml:217
+#, no-c-format
+msgid ""
+"After a while you will be asked to select your language. Use the arrow keys "
+"to pick a language and press &enterkey; to continue. Next you'll be asked to "
+"select your country, with the choices including countries where your "
+"language is spoken. If it's not on the short list, a list of all the "
+"countries in the world is available."
+msgstr ""
+"Μετά από λίγο θα σας ζητηθεί η επιλογή της γλώσσας. Χρησιμοποιήστε τα "
+"πλήκτρα με τα βέλη για να διαλέξετε μία και πατήστε &enterkey; για να "
+"συνεχίσετε. Κατόπιν θα σας ζητηθεί η επιλογή χώρας, με τις επιλογές να "
+"περιλαμβάνουν χώρες στις οποίες ομιλείται η γλώσσα σας. Αν δεν βρίσκεται η "
+"χώρα σας στη σύντομη αυτή λίστα, είναι διαθέσιμη μια λίστα με όλες τις χώρες "
+"του κόσμου."
+
+#. Tag: para
+#: installation-howto.xml:225
+#, no-c-format
+msgid ""
+"You may be asked to confirm your keyboard layout. Choose the default unless "
+"you know better."
+msgstr ""
+"Μπορεί να σας ζητηθεί να επιβεβαιώσετε την διάταξη του πληκτρολογίου σας."
+"Διαλέξτε την προεπιλεγμένη εκτός αν ξέρετε καλά τι κάνετε."
+
+#. Tag: para
+#: installation-howto.xml:230
+#, no-c-format
+msgid ""
+"Now sit back while debian-installer detects some of your hardware, and loads "
+"the rest of itself from CD, floppy, USB, etc."
+msgstr ""
+"Τώρα ο εγκαταστάτης θα ανιχνεύσει το υλικό του υπολογιστή, και θα φορτώσει "
+"το υπόλοιπο του από το CD, δισκέττα, USB, κλπ."
+
+#. Tag: para
+#: installation-howto.xml:235
+#, no-c-format
+msgid ""
+"Next the installer will try to detect your network hardware and set up "
+"networking by DHCP. If you are not on a network or do not have DHCP, you "
+"will be given the opportunity to configure the network manually."
+msgstr ""
+"Στη συνέχεια ο εγκαταστάτης θα προσπαθήσει να ανιχνεύσει το υλικό δικτύωσης "
+"και να ρυθμίσει το δίκτυο μέσω DHCP. Αν δε βρίσκεστε σε δίκτυο, ή δε "
+"διαθέτετε DHCP, θα σας δοθεί η ευκαιρία να ρυθμίσετε το δίκτυο χειροκίνητα."
+
+#. Tag: para
+#: installation-howto.xml:241
+#, no-c-format
+msgid ""
+"The next step is setting up your clock and time zone. The installer will try "
+"to contact a time server on the Internet to ensure the clock is set "
+"correctly. The time zone is based on the country selected earlier and the "
+"installer will only ask to select one if a country has multiple zones."
+msgstr ""
+"Το επόμενο βήμα είναι η ρύθμιση του ρολογιού σας και της χρονικής ζώνης. Ο "
+"εγκαταστάτης θα προσπαθήσει να έρθει σε επαφή με έναν χρονικό διακομιστή στο "
+"Διαδίκτυο ώστε να είναι βέβαιο ότι το ρολόι θα ρυθμιστεί σωστά. Η χρονική "
+"ζώνη βασίζεται στην χώρα που έχει επιλεγεί νωρίτερα και ο εγκαταστάτης θα "
+"ζητήσει την επιλογή μιας χρονικής ζώνης μόνο αν για μια χώρα υπάρχουν "
+"πολλαπλές τέτοιες."
+
+#. Tag: para
+#: installation-howto.xml:248
+#, no-c-format
+msgid ""
+"Now it is time to partition your disks. First you will be given the "
+"opportunity to automatically partition either an entire drive, or available "
+"free space on a drive (see <xref linkend=\"partman-auto\"/>). This is "
+"recommended for new users or anyone in a hurry. If you do not want to "
+"autopartition, choose <guimenuitem>Manual</guimenuitem> from the menu."
+msgstr ""
+"Τώρα είναι η στιγμή για την διαμέριση των δίσκων σας. Αρχικά θα σας δοθεί η "
+"δυνατότητα της αυτόματης διαμέρισης είτε μιας ολόκληρης συσκευής, είτε του "
+"διαθέσιμου ελεύθερου χώρου σε μια συσκευή (δείτε την ενότητα <xref linkend="
+"\"partman-auto\"/>). Αυτό είναι που συνιστάται για νέους χρήστες ή όσους "
+"βιάζονται. Αν δεν θέλετε να κάνετε μια αυτόματη διαμέριση, επιλέξτε "
+"<guimenuitem>Διαμέριση με το χέρι</guimenuitem> από το μενού."
+
+#. Tag: para
+#: installation-howto.xml:256
+#, no-c-format
+msgid ""
+"If you have an existing DOS or Windows partition that you want to preserve, "
+"be very careful with automatic partitioning. If you choose manual "
+"partitioning, you can use the installer to resize existing FAT or NTFS "
+"partitions to create room for the &debian; install: simply select the "
+"partition and specify its new size."
+msgstr ""
+"Αν διαθέτετε ήδη ένα τμήμα (διαμέρισμα) DOS ή Windows και θέλετε να το "
+"διατηρήσετε, να είστε ιδιαίτερα προσεκτικοί με την αυτόματη κατάτμηση. Αν "
+"επιλέξετε χειροκίνητη κατάτμηση, μπορείτε να χρησιμοποιήσετε τον εγκαταστάτη "
+"για να μικρύνετε το υπάρχον τμήμα FAT ή NTFS ώστε να δημιουργήσετε χώρο για "
+"την εγκατάσταση &debian;: απλά επιλέξτε το τμήμα και ορίστε το νέο του "
+"μέγεθος."
+
+#. Tag: para
+#: installation-howto.xml:263
+#, no-c-format
+msgid ""
+"On the next screen you will see your partition table, how the partitions "
+"will be formatted, and where they will be mounted. Select a partition to "
+"modify or delete it. If you did automatic partitioning, you should just be "
+"able to choose <guimenuitem>Finish partitioning and write changes to disk</"
+"guimenuitem> from the menu to use what it set up. Remember to assign at "
+"least one partition for swap space and to mount a partition on <filename>/</"
+"filename>. For more detailed information on how to use the partitioner, "
+"please refer to <xref linkend=\"di-partition\"/>; the appendix <xref linkend="
+"\"partitioning\"/> has more general information about partitioning."
+msgstr ""
+"Στην επόμενη οθόνη θα δείτε τον πίνακα διαμέρισης, το πώς θα διαμορφωθούν οι "
+"κατατμήσεις και το σημείο προσάρτησής τους. Επιλέξτε μια κατάτμηση για "
+"τροποποίηση ή διαγραφή. Αν κάνατε αυτόματη διαμέριση, θα πρέπει να μπορείτε "
+"κανονικά να επιλέξετε μόνο <guimenuitem>Ολοκλήρωση της διαμέρισης και "
+"αποθήκευση των αλλαγών στον δίσκο</guimenuitem> από το μενού ώστε να "
+"χρησιμοποιήσετε τα αποτελέσματα της. Θυμηθείτε να ορίσετε τουλάχιστον μια "
+"κατάτμηση για χώρο εικονικής μνήμης (swap) και να προσαρτήσετε μια κατάτμηση "
+"στο σημείο προσάρτησης <filename>/</filename>. Για πιο λεπτομερείς "
+"πληροφορίες σχετικά με την χρήση του προγράμματος διαμέρισης παρακαλούμε "
+"συμβουλευθείτε την ενότητα <xref linkend=\"di-partition\"/>.Το παράρτημα "
+"<xref linkend=\"partitioning\"/> περιέχει πιο γενικές πληροφορίες σχετικά με "
+"την διαδικασία διαμέρισης."
+
+#. Tag: para
+#: installation-howto.xml:276
+#, no-c-format
+msgid ""
+"Now &d-i; formats your partitions and starts to install the base system, "
+"which can take a while. That is followed by installing a kernel."
+msgstr ""
+"Τώρα ο &d-i; διαμορφώνει τα τμήματα και ξεκινάει την εγκατάσταση του κυρίως "
+"συστήματος, που μπορεί να πάρει κάποια ώρα. Κατόπιν εγκαθίσταται ο πυρήνας."
+
+#. Tag: para
+#: installation-howto.xml:281
+#, no-c-format
+msgid ""
+"The base system that was installed earlier is a working, but very minimal "
+"installation. To make the system more functional the next step allows you to "
+"install additional packages by selecting tasks. Before packages can be "
+"installed <classname>apt</classname> needs to be configured as that defines "
+"from where the packages will be retrieved. The <quote>Standard system</"
+"quote> task will be selected by default and should normally be installed. "
+"Select the <quote>Desktop environment</quote> task if you would like to have "
+"a graphical desktop after the installation. See <xref linkend=\"pkgsel\"/> "
+"for additional information about this step."
+msgstr ""
+"Το σύστημα που εγκαταστάθηκε νωρίτερα αποτελεί μια λειτουργική αλλά πολύ "
+"περιορισμένη εγκατάσταση. Για να κάνετε το σύστημα πιο λειτουργικό, το "
+"επόμενο βήμα σας επιτρέπει να εγκαταστήσετε επιπλέον πακέτα επιλέγοντας "
+"ομάδες πακέτων (tasks). Πριν μπορέσετε να εγκαταστήσετε τα πακέτα θα πρέπει "
+"να ρυθμιστεί το <classname>apt</classname> αφού αυτό προσδιορίζει από το πού "
+"θα ανακτηθούν τα πακέτα. Η ομάδα πακέτων (task) <quote>Standard system</"
+"quote> θα επιλεχθεί εξ' ορισμού και θα πρέπει συνήθως να εγκατασταθεί. "
+"Επιλέξτε την ομάδα πακέτων <quote>Περιβάλλον επιφάνειας εργασίας</quote> αν "
+"θέλετε να έχετε ένα γραφικό περιβάλλον εργασίας μετά την εγκατάσταση. Δείτε "
+"την ενότητα <xref linkend=\"pkgsel\"/> για περισσότερες πληροφορίες σχετικά "
+"μ' αυτό το βήμα."
+
+#. Tag: para
+#: installation-howto.xml:293
+#, no-c-format
+msgid ""
+"Installation of the base system is followed by setting up user accounts. By "
+"default you will need to provide a password for the <quote>root</quote> "
+"(administrator) account and information necessary to create one regular user "
+"account."
+msgstr ""
+"Η εγκατάσταση του βασικού συστήματος ακολουθείται από τη ρύθμιση των "
+"λογαριασμών των χρηστών. Εξ' ορισμού θα πρέπει να δώσετε έναν κωδικό "
+"πρόσβασης για τον λογαριασμό του χρήστη <quote>root</quote> (διαχειριστής) "
+"καθώς και απαραίτητες πληροφορίες για τη δημιουργία ενός λογαριασμού απλού "
+"χρήστη."
+
+#. Tag: para
+#: installation-howto.xml:300
+#, no-c-format
+msgid ""
+"The last step is to install a boot loader. If the installer detects other "
+"operating systems on your computer, it will add them to the boot menu and "
+"let you know. <phrase arch=\"any-x86\">By default GRUB will be installed to "
+"the master boot record of the first harddrive, which is generally a good "
+"choice. You'll be given the opportunity to override that choice and install "
+"it elsewhere. </phrase>"
+msgstr ""
+"Το τελευταίο βήμα είναι η εγκατάσταση ενός φορτωτή εκκίνησης. Αν ο "
+"εγκαταστάτης ανιχνεύσει άλλα λειτουργικά συστήματα στον υπολογιστή, θα τα "
+"προσθέσει στο μενού εκκίνησης και θα σας ενημερώσει σχετικά.<phrase arch="
+"\"any-x86\">. Η προεπιλογή είναι η εγκατάσταση του GRUB στο master boot "
+"record του πρώτου σκληρού δίσκου, που είναι γενικά μια καλή επιλογή. Σας "
+"δίνεται όμως η ευκαιρία να παρακάμψετε αυτή την επιλογή και να εγκαταστήσετε "
+"το GRUB κάπου αλλού.</phrase>"
+
+#. Tag: para
+#: installation-howto.xml:310
+#, no-c-format
+msgid ""
+"&d-i; will now tell you that the installation has finished. Remove the cdrom "
+"or other boot media and hit &enterkey; to reboot your machine. It should "
+"boot up into the newly installed system and allow you to log in. This is "
+"explained in <xref linkend=\"boot-new\"/>."
+msgstr ""
+"Ο &d-i; θα σας πει τώρα ότι η εγκατάσταση τελείωσε. Αφαιρέστε το cdrom ή το "
+"όποιο άλλο μέσο εκκίνησης και πατήστε &enterkey; για να επανεκκινήσετε το "
+"μηχάνημά σας. Θα πρέπει να ξεκινήσει στο μόλις εγκατεστημένο σύστημά σας "
+"επιτρέποντας την είσοδό σας σ' αυτό.Αυτό εξηγείται στην ενότητα  <xref "
+"linkend=\"boot-new\" />."
+
+#. Tag: para
+#: installation-howto.xml:317
+#, no-c-format
+msgid ""
+"If you need more information on the install process, see <xref linkend=\"d-i-"
+"intro\"/>."
+msgstr ""
+"Αν χρειάζεστε περισσότερες πληροφορίες σχετικά με τη διαδικασία "
+"εγκατάστασης, δείτε το <xref linkend=\"d-i-intro\" />."
+
+#. Tag: title
+#: installation-howto.xml:326
+#, no-c-format
+msgid "Send us an installation report"
+msgstr "Στείλτε μας μια αναφορά εγκατάστασης"
+
+#. Tag: para
+#: installation-howto.xml:327
+#, no-c-format
+msgid ""
+"If you successfully managed an installation with &d-i;, please take time to "
+"provide us with a report. The simplest way to do so is to install the "
+"reportbug package (<command>aptitude install reportbug</command>), configure "
+"<classname>reportbug</classname> as explained in <xref linkend=\"mail-"
+"outgoing\"/>, and run <command>reportbug installation-reports</command>."
+msgstr ""
+"Αν κάνατε μια πετυχημένη εγκατάσταση με τον &d-i;, παρακαλούμε διαθέστε λίγο "
+"χρόνο για να μας στείλετε μια αναφορά εγκατάστασης. Ο απλούστερος τρόπος για "
+"να το κάνετε είναι να εγκαταστήσετε το πακέτο reportbug (<command>aptitude "
+"install reportbug</command>), να ρυθμίσετε το <classname>reportbug</"
+"classname> όπως εξηγείται στην ενότητα <xref linkend=\"mail-outgoing\"/> και "
+"τρέξτε την εντολή <command>reportbug installation-reports</command>."
+
+#. Tag: para
+#: installation-howto.xml:337
+#, no-c-format
+msgid ""
+"If you did not complete the install, you probably found a bug in debian-"
+"installer. To improve the installer it is necessary that we know about them, "
+"so please take the time to report them. You can use an installation report "
+"to report problems; if the install completely fails, see <xref linkend="
+"\"problem-report\"/>."
+msgstr ""
+"Αν δεν ολοκληρώσατε την εγκατάσταση, είναι πιθανόν να βρήκατε ένα σφάλμα "
+"στον εγκαταστάτη. Για τη βελτίωση του  εγκαταστάτη είναι απαραίτητο να "
+"γνωρίζουμε τα σφάλματα, γι' αυτό παρακαλούμε να αφιερώσετε λίγο χρόνο για να "
+"τα αναφέρετε. Μπορείτε να χρησιμοποιήσετε μια αναφορά εγκατάστασης για να "
+"αναφέρετε προβλήματα. Αν η εγκατάσταση αποτύχει τελείως, συμβουλευτείτε το "
+"<xref linkend=\"problem-report\"/>."
+
+#. Tag: title
+#: installation-howto.xml:349
+#, no-c-format
+msgid "And finally&hellip;"
+msgstr "Και τέλος&hellip;"
+
+#. Tag: para
+#: installation-howto.xml:350
+#, no-c-format
+msgid ""
+"We hope that your &debian; installation is pleasant and that you find "
+"&debian; useful. You might want to read <xref linkend=\"post-install\"/>."
+msgstr ""
+"Ελπίζουμε ότι η εγκατάσταση σάς είναι ευχάριστη και ότι βρίσκετε το &debian; "
+"χρήσιμο. Ίσως να θέλετε να διαβάσετε και το <xref linkend=\"post-install\" /"
+">."

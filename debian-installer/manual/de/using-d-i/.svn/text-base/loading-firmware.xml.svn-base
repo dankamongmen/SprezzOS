@@ -1,0 +1,138 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66809 -->
+
+ <sect1 id="loading-firmware" arch="not-s390">
+ <title>Fehlende Firmware nachladen</title>
+<para>
+
+Wie in <xref linkend="hardware-firmware"/> beschrieben, existiert
+teilweise Hardware, die erfordert, dass Firmware in das Gerät geladen wird.
+In den meisten Fällen wird das Gerät nicht funktionieren, wenn diese Firmware
+nicht vorhanden ist; manchmal sind Basisfunktionen hiervon nicht betroffen,
+so dass das Laden der Firmware nur zum Aktivieren erweiterter Funktionen
+erforderlich ist.
+
+</para><para>
+
+Wenn ein Gerätetreiber Firmware anfordert, die nicht verfügbar ist,
+wird der &d-i; einen Dialog anzeigen, der anbietet, die fehlende Firmware
+nachzuladen. Wenn Sie dies auswählen, durchsucht der &d-i; verfügbare Geräte
+entweder nach einzelnen Firmware-Dateien oder nach Paketen, die Firmware
+enthalten. Gefundene Firmware wird in das dafür passende Verzeichnis
+(<filename>/lib/firmware</filename>) kopiert und das Treibermodul wird
+erneut geladen.
+
+</para>
+<note><para>
+
+Welche Geräte durchsucht und welche Dateisysteme dabei unterstützt werden,
+ist abhängig von der Systemarchitektur, der Installationsmethode und dem
+Fortschritt der Installation. Speziell während der frühen Schritte der
+Installation wird das Nachladen der Firmware höchstwahrscheinlich bei
+einer FAT-formatierten Diskette oder einem FAT-formatiertem USB-Stick
+erfolgreich sein. <phrase arch="x86">Auf i386- und amd64-Systemen kann
+Firmware auch von einer MMC- oder SD-Karte geladen werden.</phrase>
+
+</para></note>
+<para>
+
+Beachten Sie, dass es auch möglich ist, das Laden der Firmware zu
+überspringen, wenn Sie wissen, dass das Gerät auch ohne funktioniert oder
+dass es während der Installation nicht benötigt wird.
+
+</para>
+
+  <sect2><title>Einen Datenträger vorbereiten</title>
+<para>
+
+Offizielle CD-Images enthalten keine nicht-freie Firmware. Die gängigste
+Methode, um solche Firmware zu laden, ist von einem Wechseldatenträger, wie
+einem USB-Stick. Alternativ können Sie unter <ulink url="&url-firmware-cds;"/>
+inoffizielle CD-Builds finden, die nicht-freie Firmware enthalten.
+
+</para><para>
+
+Um einen USB-Stick (oder ein anderes Medium wie eine Festplatten-Partition
+oder eine Floppy-Diskette) vorzubereiten, müssen Sie die Firmware-Dateien
+oder -Pakete entweder im Wurzelverzeichnis des Datenträgers oder in einem
+Verzeichnis namens <filename>/firmware</filename> ablegen. Das
+empfohlene Dateisystem ist FAT, da ziemlich sicher ist, dass dies während der
+frühen Installationsschritte bereits unterstützt wird.
+
+</para><para>
+
+Tar-Archive (tarballs) und Zip-Dateien, die aktuelle Pakete für die gängigste
+Firmware enthalten, sind verfügbar unter:
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-tarballs;"/>
+</para></listitem>
+</itemizedlist>
+
+Laden Sie einfach das Tar- oder Zip-Archiv für das passende Release
+herunter und entpacken Sie es in das Dateisystem auf Ihrem Datenträger.
+
+</para><para>
+
+Wenn die Firmware, die Sie benötigen, nicht in dem Tar-Archiv enthalten
+ist, können Sie auch separate einzelne Firmware-Pakete aus dem
+Non-Free-Bereich des &debian;-Archivs herunterladen. Der folgende
+Überblick sollte die meisten verfügbaren Firmware-Pakete auflisten,
+es ist aber nicht garantiert, dass er vollständig ist; außerdem könnte
+er auch Pakete enthalten, die gar keine Firmware-Pakete sind:
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-packages;"/>
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Es ist auch möglich, einzelne Firmware-Dateien auf den Datenträger zu kopieren.
+Solche Dateien könnten Sie zum Beispiel von einem bereits installierten
+System bekommen oder von dem Hersteller Ihrer Hardware.
+
+</para>
+  </sect2>
+
+  <sect2><title>Firmware und das zu installierende System</title>
+<para>
+
+Jede Firmware, die während der Installation geladen wird, wird auch
+automatisch in das zu installierende System kopiert. In den meisten Fällen
+wird so sichergestellt, dass das Gerät, das die Firmware benötigt, auch
+nach dem Neustart in das neu installierte System korrekt funktioniert.
+Allerdings besteht die entfernte Möglichkeit, dass aufgrund von
+Versionsinkompatibilitäten die Firmware nicht geladen werden kann, wenn
+in dem installierten System ein anderer Kernel läuft als im Installer.
+
+</para><para>
+
+Wurde die Firmware aus einem Firmware-Paket geladen, wird der &d-i; dieses
+Paket ebenfalls auf das zu installierende System kopieren und auch automatisch
+den Non-Free-Bereich des Paketarchivs zu APT's Konfigurationsdatei
+<filename>sources.list</filename> hinzufügen. Das hat den Vorteil, dass die
+Firmware auf dem neu installierten System automatisch aktualisiert wird,
+wenn später einmal eine neue Version verfügbar ist.
+
+</para><para>
+
+Falls das Laden der Firmware während der Installation abgebrochen wurde,
+wird das entsprechende Gerät wahrscheinlich auch in dem neu installierten
+System nicht funktionieren, so lange Sie nicht die Firmware (oder das
+Firmware-Paket) von Hand nachinstalliert haben.
+
+</para>
+<note><para>
+
+Wenn die Firmware aus einer einzelnen Firmware-Datei nachgeladen wurde,
+wird sie im installierten System <emphasis>nicht</emphasis> automatisch
+auf aktuellem Stand gehalten, außer Sie installieren das passende Firmware-Paket
+(falls ein solches gibt) von Hand nach, wenn die &debian;-Installation
+abgeschlossen ist.
+
+</para></note>
+  </sect2>
+ </sect1>

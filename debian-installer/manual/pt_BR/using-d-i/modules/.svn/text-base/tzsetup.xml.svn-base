@@ -1,0 +1,60 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 50620 -->
+<!-- reviewed by Felipe Augusto van de Wiel (faw) 2006.04.09 -->
+<!-- updated 35518:50620 by Felipe Augusto van de Wiel (faw) 2008.02.08 -->
+
+<!-- As tzsetup is invoked from inside clock-setup, this is not a
+     separate section -->
+
+<para>
+
+Dependendo da localização selecionada anteriormente no processo de
+instalação, pode ser mostrada uma lista de fusos horários relevantes
+para essa localização. Se sua localização tiver apenas um fuso horário,
+nada será perguntado e o sistema assumirá esse fuso horário.
+
+</para><para>
+
+Se, por alguma razão, você deseja configurar um fuso horário para o
+sistema instalação que <emphasis>não</emphasis> base com a localização
+selecionada, há duas opções.
+
+</para>
+
+<orderedlist>
+<listitem>
+
+<para>
+
+A opção mais simples é simplesmente selecionar um fuso horário diferente
+depois da instalação ter sido completada e uma vez que você tenha
+inicializado em seu novo sistema. O comando para fazer isso é:
+
+<informalexample><screen>
+# dpkg-reconfigure tzdata
+</screen></informalexample>
+
+</para>
+
+</listitem><listitem>
+
+<para>
+
+De forma alternativa, o fuso horário pode ser configurado bem no início
+da instalação passando o parâmetro
+<userinput>time/zone=<replaceable>valor</replaceable></userinput>
+quando você inicializa o sistema de instalação. O valor deverá, é
+claro, ser um fuso horário válido, por exemplo
+<userinput>Europe/London</userinput> ou <userinput>UTC</userinput>.
+
+</para>
+
+</listitem>
+</orderedlist>
+
+<para>
+
+Para instalações automatizadas, o fuso horário pode ser definido usando
+pré-configuração (<quote>preseeding</quote>).
+
+</para>

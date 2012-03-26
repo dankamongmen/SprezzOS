@@ -1,0 +1,96 @@
+<!-- $Id: localechooser.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+  <sect3 id="localechooser">
+  <title>Výběr místního prostředí</title>
+<para>
+
+První uživateli viditelný krok instalace slouží k výběru národního
+prostředí, které se použije jak během instalace, tak později v novém
+systému. Nastavení se skládá z výběru jazyka, geografického umístění
+a tzv. <firstterm>locales</firstterm>.
+
+</para><para>
+
+Nejprve se tedy zobrazí seznam dostupných jazyků, ze kterého si
+vyberete jazyk, ve kterém má instalace probíhat<footnote><para>
+
+Ve výjimečných případech se může stát, že ve vybraném jazyce nebudou
+některé texty instalace přeloženy &mdash; pak se zobrazí anglicky.
+
+</para></footnote>. Jednotlivé položky v seznamu se skládají
+z anglického názvu (vlevo) a lokálního názvu v daném jazyce
+(napravo). Pro češtinu vypadá záznam nějak takto:
+
+<screen>
+Czech       -      Čeština
+</screen>
+
+Některé jazyky mají k dispozici více variant (např. portugalská
+a brazilská portugalština). Seznam je seřazen abecedně podle levého
+sloupce (anglických názvů). Drobnou výjimkou z řazení je položka
+<quote>C</quote> na počátku seznamu.
+
+</para><note><para>
+
+Vyberete-li ze seznamu položku <quote>C</quote>, bude instalace
+pokračovat v angličtině a instalovaný systém nebude mít podporu pro
+národní prostředí, protože se nenainstaluje balík
+<classname>locales</classname>. Tato volba může být zajímavá pro
+některé správce, kteří tvrdí, že lokalizace nemá na serveru co dělat.
+
+</para></note><para>
+
+Zvolíte-li jazyk, který je veden jako oficiální v několika
+zemích<footnote><para>
+
+Technicky řečeno: pokud k jazyku existuje více locales s různými kódy
+zemí.
+
+</para></footnote>, budete v další otázce dotázáni na výběr konkrétní
+země. Pokud vám nabídnutý seznam zemí nebude vyhovovat, můžete zvolit
+položku <guimenuitem>Jiná</guimenuitem>, což vám nabídne seznam
+kontinentů. Po výběru kontinentu se zobrazí seznam zemí, které se na
+něm nachází.
+
+</para><para>
+
+Jestliže je s jazykem svázána pouze jediná země, bude automaticky
+předvybrána, ale nic vám nebrání si výše popsaným způsobem zvolit
+zemi, ve které se právě nacházíte, nebo ve které skutečně žijete.
+
+</para><para>
+
+Proč je výběr geografického umístění tak důležitý? Protože se tato
+odpověď použije později v instalaci pro výběr výchozího časového pásma
+a také pro výběr vhodného síťového zrcadla s archivem &debian;u, které
+by mělo ležet co nejblíže. Správné nastavení země může hrát i drobnou
+roli při výběru klávesnice.
+
+</para><para>
+
+Na základě zvolené kombinace jazyka a umístění se vytvoří výchozí místní
+prostředí (<firstterm>locale</firstterm>). Pokud pro takové prostředí
+neexistuje definiční soubor, zobrazí se nabídka všech dostupných
+prostředí pro daný jazyk a budete vyzváni k výběru jednoho z nich.
+
+</para><para>
+
+Všechna prostředí automaticky používají jako výchozí kódování
+<firstterm>UTF-8</firstterm>.
+
+</para><para>
+
+Instalujete-li s nízkou prioritou otázek, bude vám nabídnuta možnost
+výběru dodatečných prostředí (nezávislých na předchozí volbě jazyka a
+umístění) a také možnost instalace zastaralých prostředí<footnote><para>
+
+Zastaralá prostředí jsou taková, která nepoužívají UTF-8, ale starší
+standardy kódování, jako ISO&nbsp;8859-2 (používaný ve střední Evropě)
+nebo EUC-JP (používaný v Japonsku).
+
+</para></footnote>. Jestliže vyberete více prostředí, budete ještě
+dotázáni, které z nich se má použít jako výchozí.
+
+</para>
+  </sect3>

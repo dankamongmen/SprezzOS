@@ -1,0 +1,657 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65799 -->
+
+ <sect1 id="boot-parms"><title>Paràmetres d'arrencada</title>
+<para arch="linux-any">
+
+Els paràmetres d'arrencada són paràmetres del nucli de Linux que
+s'utilitzen per assegurar que els perifèrics es gestionen
+correctament. En la majoria de casos el nucli és capaç
+de detectar automàticament la informació dels perifèrics.
+Tot i això, en algunes ocasions haureu d'ajudar-lo.
+
+</para><para>
+
+Si és la primera vegada que arrenqueu el sistema utilitzeu
+els paràmetres d'arrencada predeterminats (ex. no intenteu
+especificar cap paràmetre) i observeu si s'executa
+correctament; probablement ho farà. Si no és el cas,
+podeu tornar a arrencar més tard i buscar qualsevol
+paràmetre especial que informi al sistema respecte
+al vostre maquinari.
+
+</para><para arch="linux-any">
+
+Podeu trobar informació referent a molts paràmetres de l'arrencada a
+<ulink url="http://www.tldp.org/HOWTO/BootPrompt-HOWTO.html">Linux
+BootPrompt HOWTO</ulink>, inclosos alguns trucs per a maquinari
+obscur. Aquesta secció conté únicament una representació dels paràmetres
+més destacats. Podeu trobar una petita selecció dels problemes més
+habituals a <xref linkend="boot-troubleshooting"/>.
+
+</para><para arch="linux-any">
+
+A l'inici de l'arrencada del nucli hauria d'aparèixer el missatge
+
+<informalexample><screen>
+Memòria:<replaceable>dispo</replaceable>k/<replaceable>total</replaceable>k disponible
+</screen></informalexample>
+
+<replaceable>total</replaceable> hauria d'indicar la quantitat
+total de RAM en kilobytes. Si no coincideix amb la quantitat de RAM
+que teniu instal·lada utilitzeu el paràmetre
+<userinput>mem=<replaceable>ram</replaceable></userinput>,
+on <replaceable>ram</replaceable> correspon a la quantitat de memòria,
+amb el sufix <quote>k</quote> pels kilobytes, o <quote>m</quote> pels
+megabytes. Per exemple, <userinput>mem=65536K</userinput> i
+<userinput>mem=64M</userinput> corresponen a 65 MiB de RAM.
+
+</para><para arch="linux-any" condition="supports-serial-console">
+
+Si esteu arrencant via una consola sèrie el nucli ho detectarà
+automàticament.
+Si disposeu d'una targeta de vídeo (framebuffer) i un teclat connectats
+a l'ordinador del qual voleu arrencar, hauríeu de passar passar el
+paràmetre
+<userinput>console=<replaceable>device</replaceable></userinput>
+al nucli; <replaceable>device</replaceable> correspon al dispositiu
+sèrie, que acostuma a ser similar a <filename>ttyS0</filename><footnote>
+
+<para>
+Per a assegurar que el tipus de terminal emprat per l'instal·lador concorda
+amb el vostre emulador de terminal, podeu afegir el paràmetre
+<userinput>TERM=<replaceable>tipus</replaceable></userinput>.
+Adoneu-vos que l'instal·lador només accepta els tipus de terminal següents:
+<literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>,
+<literal>vt102</literal> i <literal>dumb</literal>. El valor per defecte
+per a la consola sèrie a &d-i; és <userinput>vt102</userinput>.
+</para>
+
+</footnote>.
+
+</para><para arch="sparc">
+
+Per a l'arquitectura &arch-title; els dispositius sèrie són els
+<filename>ttya</filename> o <filename>ttyb</filename>.
+D'altra banda, definiu les variables OpenROM <envar>input-device</envar>
+i <envar>output-device</envar> com a <filename>ttya</filename>.
+
+</para>
+
+  <sect2 id="installer-args"><title>Paràmetres de l'instal·lador de &debian;</title>
+<para>
+
+El sistema d'instal·lació reconeix un conjunt de paràmetres
+d'arrencada<footnote>
+
+<para>
+
+Amb nuclis actuals (2.6.9 o més nous) podeu utilitzar fins a 32
+paràmetres de línia d'ordres i 32 paràmetres d'entorn. Si s'excedeixen
+aquestes xifres, el nucli fallarà.
+
+</para>
+
+</footnote> addicionals que us podrien ser d'utilitat.
+
+</para><para>
+
+Hi ha una sèrie de paràmetres que tenen una <quote>forma
+abreujada</quote> que ajuda a evitar les limitacions dels paràmetres
+de línia d'ordres del nucli i facilita la seva introducció. Si un
+paràmetre té una forma abreujada, aquesta es mostrarà entre parèntesi
+després de la forma normal (més llarga). Els exemples d'aquest manual
+normalment utilitzaran la forma abreujada.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>debconf/priority (priority)</term>
+<listitem><para>
+
+Aquest paràmetre definirà la prioritat més alta dels missatges a mostrar.
+
+</para><para>
+
+La instal·lació predeterminada utilitza
+<userinput>priority=high</userinput>.
+En aquest cas es mostraran els missatges amb prioritat high i critical,
+però s'anul·laran els missatges amb prioritat medium i low. Si
+l'instal·lador detecta algun problema, ajustarà la prioritat en
+funció de les necessitats que n'esdevinguin.
+
+</para><para>
+
+Si utilitzeu el paràmetre d'arrencada
+<userinput>priority=medium</userinput>, se us mostrarà el
+menú d'instal·lació i disposareu de més control sobre la instal·lació.
+Quan s'utilitza el paràmetre <userinput>priority=low</userinput>
+es mostraran tots els missatges (és equivalent al mètode d'arrencada
+<emphasis>expert</emphasis>). En el cas de
+<userinput>priority=critical</userinput>, el sistema
+d'instal·lació mostrarà únicament els missatges crítics i
+procurarà fer la feina correctament sense mostrar missatges.
+
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>DEBIAN_FRONTEND</term>
+<listitem><para>
+
+Aquest paràmetre d'arrencada defineix el tipus d'interfície d'usuari
+utilitzat per l'instal·lador. Els possibles paràmetres de configuració
+actuals són:
+
+<itemizedlist>
+<listitem>
+<para><userinput>DEBIAN_FRONTEND=noninteractive</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=text</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=newt</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=gtk</userinput></para>
+</listitem>
+</itemizedlist>
+
+El tipus predeterminat és
+<userinput>DEBIAN_FRONTEND=newt</userinput>.
+En el cas de les instal·lacions a través de la consola sèrie s'acostuma
+a utilitzar
+<userinput>DEBIAN_FRONTEND=text</userinput>. En general, l'únic tipus
+disponible en el mitjà d'instal·lació predeterminat és el
+<userinput>newt</userinput>, i per tant actualment no és molt útil.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>BOOT_DEBUG</term>
+<listitem><para>
+
+Establint aquest paràmetre d'arrencada a 2 induirà el procés d'arrencada
+de l'instal·lador a mostrar més missatges. Establint-lo a 3 farà
+disponible en punts estratègics del procés d'arrencada intèrprets de
+depuració (sortiu dels intèrprets per a continuar amb el procés
+d'arrencada).
+
+<variablelist>
+<varlistentry>
+<term><userinput>BOOT_DEBUG=0</userinput></term>
+<listitem><para>És el valor predeterminat.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=1</userinput></term>
+<listitem><para>Més missatges de l'habitual.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=2</userinput></term>
+<listitem><para>Molta informació de depuració.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=3</userinput></term>
+<listitem><para>
+
+Durant el procés d'arrencada s'executen diversos intèrprets d'ordres
+que permeten una depuració més detallada. Per continuar l'arrencada
+haureu de sortir de l'intèrpret d'ordres.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>INSTALL_MEDIA_DEV</term>
+<listitem><para>
+
+El valor del paràmetre correspon al camí al dispositiu des del qual
+carregar l'instal·lador de &debian;. Per exemple,
+<userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</userinput>
+
+</para><para>
+
+El disquet d'arrencada, que normalment escaneja tots els disquets
+per trobar el disquet arrel, es pot substituir per aquest paràmetre
+per forçar que únicament busqui en aquest dispositiu.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>lowmem</term>
+<listitem><para>
+
+Es pot emprar per a forçar l'instal·lador a un nivell més gran de poca
+memòria del que l'instal·lador assigna per defecte basat en la memòria
+disponible. Els valors possibles són 1 i 2. Vegeu també <xref linkend="lowmem"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>noshell</term>
+<listitem><para>
+
+Evita que l'instal·lador òbriga intèrprets interactius als terminals 2 i 3.
+Açò és útil per a instal·lacions desateses on la seguretat física siga
+limitada.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/framebuffer (fb)</term>
+<listitem><para>
+
+Algunes arquitectures utilitzen el framebuffer del nucli per oferir
+la instal·lació en diferents idiomes. Si el framebuffer us provoca
+errors al sistema, podeu deshabilitar la característica utilitzant
+els paràmetres <userinput arch="x86">vga=normal</userinput>
+<userinput>fb=false</userinput>. Els símptomes del
+problema són missatges d'error referents al bogl, una pantalla en blanc
+o que es quedi congelat durant uns quants minuts després d'iniciar
+la instal·lació.
+
+</para><para arch="hppa">
+
+La problemàtica s'ha detectat a l'hppa.
+
+</para><note arch="sparc"><para>
+
+Degut a problemes de visualització en alguns sistemes, el suport de
+framebuffer està <emphasis>desactivat de manera predeterminada</emphasis>
+per a &arch-title;. Això pot resultar en visualitzacions lletges
+en sistemes que suporten adequadament el framebuffer, com els que
+tenen targetes gràfiques ATI. Si veieu problemes de visualització
+en l'instal·lador, podeu provar d'arrencar amb el paràmetre
+<userinput>debian-installer/framebuffer=true</userinput> o
+o amb la forma curta <userinput>fb=true</userinput>.
+
+</para></note></listitem>
+</varlistentry>
+
+<varlistentry arch="not-s390">
+<term>debian-installer/theme (theme)</term>
+<listitem><para>
+
+El tema determina l'aparença de la interfície d'usuari
+(colors, icones, etc.). Els temes disponibles varien segons la
+interfície. Actualment ambdues interfícies, newt i gtk, només
+tenen disponible el tema <quote>dark</quote>, dissenyat per a usuaris
+amb discapacitats visuals. Podeu establir el tema arrencant amb
+<userinput>theme=<replaceable>dark</replaceable></userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>netcfg/disable_dhcp</term>
+<listitem><para>
+
+El &d-i; procura, per defecte, configurar la xarxa automàticament
+utilitzant el DHCP. Si la configuració es realitza correctament
+no podreu revisar-ne i modificar-ne els paràmetres obtinguts.
+L'accés a la configuració manual de la xarxa només es donarà
+quan falli la configuració per DHCP.
+
+</para><para>
+
+Si en la vostra xarxa local disposeu d'un servidor de DHCP però
+no el voleu utilitzar, perquè per exemple us retorna respostes
+incorrectes, podeu evitar-lo i introduir la informació manualment
+utilitzant el paràmetre <userinput>netfcg/disable_dhcp=true</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>hw-detect/start_pcmcia</term>
+<listitem><para>
+
+Si us causa problemes i per evitar que s'iniciïn els serveis
+PCMCIA trieu <userinput>false</userinput>. Aquest comportament
+s'ha detectat en alguns ordinadors portàtils.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>disk-detect/dmraid/enable (dmraid)</term>
+<listitem><para>
+
+Establiu-ho a <userinput>true</userinput> per habilitar el suport a
+l'instal·lador per a discs Serial ATA RAID (anomenats també ATA RAID,
+BIOS RAID o RAID falsos). Tingueu en compte que de moment aquest suport
+és experimental. Podeu trobar informació addicional al
+<ulink url="&url-d-i-wiki;">wiki de l'instal·lador de &debian;</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/url (url)</term>
+<listitem><para>
+
+Especifica l'URL que enllaça a un fitxer de preconfiguració
+a baixar i utilitzar per automatitzar la instal·lació.
+Per a més informació vegeu <xref linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/file (file)</term>
+<listitem><para>
+
+Especifica el camí que enllaça a un fitxer de preconfiguració
+a carregar per automatitzar la instal·lació. Per a més
+informació vegeu <xref linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/interactive</term>
+<listitem><para>
+
+Per mostrar les qüestions encara que estiguin preconfigurades, establiu
+el paràmetre a <userinput>true</userinput>. Pot ser útil per provar o
+depurar un fitxer de preconfiguració. Fixeu-vos que això no afectarà
+els paràmetres d'arrencada que hagueu passat, tot i que per a aquests
+podeu utilitzar una sintaxi especial. Per a més detalls, vegeu <xref
+linkend="preseed-seenflag"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>auto-install/enable (auto)</term>
+<listitem><para>
+
+És possible retardar les qüestions que normalment es pregunten abans
+de la preconfiguració fins després de la configuració de la xarxa.
+Per a més informació quant a l'automatització d'instal·lacions,
+vegeu <xref linkend="preseed-auto"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>finish-install/keep-consoles</term>
+<listitem><para>
+
+A instal·lacions des de sèrie o des de la consola de gestió, les consoles 
+virtuals (VT1 a VT6) es deshabiliten normalment al 
+<filename>/etc/inittab</filename>.
+Poseu-ho a <userinput>true</userinput> per evitar-ho.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>cdrom-detect/eject</term>
+<listitem><para>
+
+De manera predeterminada, abans de reiniciar, &d-i; expulsa
+automàticament els medis òptics emprats durant la instal·lació. Això
+pot ser innecessari si el sistema no arrenca automàticament del CD.
+En alguns casos pot ser fins i tot, no desitjat, per exemple si la
+unitat òptica no pot reinserir el medi per sí sola i l'usuari no
+està allà per a fer-ho manualment. Moltes unitats de tipus carrega
+per ranura, línia fina o caddy no poden recarregar el medi
+automàticament.
+
+</para><para>
+
+Establiu-ho a <userinput>false</userinput> per a deshabilitar
+l'expulsió automàtica i tingueu present que pot ser que hàgiu
+d'assegurar-vos que el sistema no arrenca automàticament de la
+unitat òptica després de la instal·lació inicial.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>base-installer/install-recommends (recommends)</term>
+<listitem><para>
+
+Si establiu aquesta opció a <userinput>false</userinput>, es configurarà
+el sistema de gestió de paquets per a no instal·lar automàticament els
+paquets recomanats, tant durant la instal·lació com al propi sistema
+instal·lat. Vegeu també <xref linkend="di-install-base"/>.
+
+</para><para>
+
+Adoneu-vos que aquesta opció resulta en un sistema més lleuger, però
+també en la mancança de funcions que normalment esperaríeu que hi foren
+disponibles. Potser necessitareu instal·lar manualment alguns dels paquets
+recomanats per a obtenir tota la funcionalitat que desitgeu. Per tant,
+aquesta opció només hauria de ser emprada per usuaris molt experimentats.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/allow_unauthenticated</term>
+<listitem><para>
+
+Per omissió, l'instal·lador requereix repositoris autenticats amb una
+clau gpg coneguda. Establiu el paràmetre a <userinput>true</userinput>
+per desactivar l'autenticació.
+<emphasis role="bold">Avís: aquesta opció és insegura i no es recomana
+utilitzar-la.</emphasis>
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry arch="mips;mipsel">
+<term>ramdisk_size</term>
+<listitem><para>
+
+Aquest paràmetre ja hauria d'estar definit correctament allà on sigui
+necessari; torneu-lo a definir només si trobeu errors durant el procés
+d'arrencada que indiquin que no ha estat possible carregar el disc RAM
+completament. El valor està en KiB.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>rescue/enable</term>
+<listitem><para>
+
+Establiu-ho a <userinput>true</userinput> per entrar en mode
+de rescat en comptes de realitzar una instal·lació normal.
+Vegeu <xref linkend="rescue"/>.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+  </sect2>
+
+  <sect2 id="preseed-args">
+  <title>Utilitzar els paràmetres de l'arrencada per respondre
+         preguntes</title>
+<para>
+
+És possible establir un valor en l'indicador de l'arrencada per a
+pràcticament qualsevol de les qüestions que es pregunten durant el
+procés d'instal·lació, encara que això només és útil en casos
+determinats. Les instruccions generals per fer-ho les podeu trobar a
+<xref linkend="preseed-bootparms"/>. A continuació podeu veure alguns
+exemples concrets.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term>debian-installer/language (idioma)</term>
+<term>debian-installer/country (país)</term>
+<term>debian-installer/locale (locale)</term>
+<listitem><para>
+
+Hi ha dues formes d'indicar l'idioma, país i locale a emprar per a la
+instal·lació i per al propi sistema instal·lat.
+
+</para><para>
+
+La primera i més fàcil és indicar només el paràmetre <literal>locale</literal>.
+L'idioma i el país es derivaran del seu valor. Per exemple, podeu emprar
+<userinput>locale=ca_ES</userinput> per a escollir el català com a idioma i
+Espanya com a país (s'emprarà <literal>ca_ES.UTF-8</literal> com a locale
+per defecte del sistema instal·lat). Aquesta forma té la limitació de que
+no permet especificar totes les combinacions d'idioma, país i locale.
+
+</para><para>
+
+La segona opció, més flexible, és especificar <literal>language</literal>
+(idioma) i <literal>country</literal> (país) per separat. En aquest cas
+podeu especificar un <literal>locale</literal> opcional que s'emprarà com
+a locale per defecte al sistema instal·lat. Per exemple:
+<userinput>language=ca country=AD locale=ca_ES.UTF-8</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>anna/choose_modules (modules)</term>
+<listitem><para>
+
+Es pot utilitzar per carregar automàticament components
+de l'instal·lador que no es carreguen per omissió. Alguns
+exemples de components opcionals que us poden ser útils són
+<classname>openssh-client-udeb</classname> (que us permetrà
+emprar l'ordre <command>scp</command> durant la instal·lació)<phrase
+arch="not-s390"> i <classname>ppp-udeb</classname> (vegeu <xref
+linkend="pppoe"/>)</phrase>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>netcfg/disable_dhcp</term>
+<listitem><para>
+
+Establiu-lo a <userinput>true</userinput> si voleu desactivar DHCP i
+forçar la configuració de la xarxa utilitzant adreçament estàtic.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>mirror/protocol (protocol)</term>
+<listitem><para>
+
+Per omissió, l'instal·lador utilitzarà el protocol HTTP per descarregar
+fitxers de les rèpliques de &debian;, i no és possible canviar-ho a
+FTP durant les instal·lacions en prioritat normal. Si establiu aquest
+paràmetre a <userinput>ftp</userinput>, forçareu que l'instal·lador
+utilitzi aquest protocol. Tingueu en compte que no podreu seleccionar
+una rèplica FTP de la llista, haureu d'introduir el nom del servidor
+manualment.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>tasksel:tasksel/first (tasks)</term>
+<listitem><para>
+
+Es pot utilitzar per seleccionar tasques que no estan disponibles
+des de la llista de tasques interactiva, com per exemple
+<literal>kde-desktop</literal>. Per a informació addicional, vegeu
+<xref linkend="pkgsel"/>.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+  </sect2>
+
+  <sect2 id="module-parms">
+  <title>Pas de paràmetres a mòduls del nucli</title>
+<para>
+
+Si els controladors estan compilats al nucli, és possible passar
+paràmetres tal i com es descriu a la pròpia documentació del
+nucli. Tanmateix, si els controladors estan compilats com a mòduls, no
+és possible passar paràmetres de la forma habitual, ja que durant el
+procés d'instal·lació aquests no es carreguen igual que en un sistema
+ja instal·lat. Haureu d'utilitzar una sintaxi especial, reconeguda
+per l'instal·lador, que assegurarà que els paràmetres es desen als
+fitxers de configuració corresponents i per tant que els mòduls tindran
+disponible aquesta informació quan es carreguin. Els paràmetres també
+es propagaran automàticament a la configuració del sistema instal·lat.
+
+</para><para>
+
+Fixeu-vos que ara es força estrany haver de passar paràmetres
+als mòduls. En la majoria de casos el nucli podrà detectar
+el maquinari present al sistema i establir uns bons paràmetres
+predeterminats. Tanmateix, en algunes situacions encara pot ser necessari
+establir els paràmetres manualment.
+
+</para><para>
+
+La sintaxi utilitzada per establir els paràmetres dels mòduls és
+la següent:
+
+<informalexample><screen>
+<replaceable>nom_del_mòdul</replaceable>.<replaceable>nom_del_paràmetre</replaceable>=<replaceable>valor</replaceable>
+</screen></informalexample>
+
+Si necessiteu passar diversos paràmetres al mateix o a diferents mòduls,
+simplement repetiu això. Per exemple, per fer que una antiga targeta
+de xarxa 3com utilitzi el connector BNC (coaxial) i l'IRQ 10, hauríeu
+de passar:
+
+<informalexample><screen>
+3c509.xcvr=3 3c509.irq=10
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 id="module-blacklist">
+  <title>Afegir mòduls del nucli a la llista negra</title>
+<para>
+
+De vegades pot ser necessari afegir un mòdul en una llista negra per
+evitar que el nucli i udev el carreguin automàticament. Per exemple,
+un motiu per voler fer això seria un mòdul en particular que causi
+problemes amb els components del vostre equip. El nucli de vegades
+també llista dos controladors diferents pel mateix dispositiu. Això pot
+provocar que el dispositiu no funcioni correctament si hi ha conflictes
+entre els controladors, o si es carrega primer el controlador que no toca.
+
+</para><para>
+
+Podeu afegir un mòdul a la llista negra emprant la sintaxi següent:
+<userinput><replaceable>nom_del_mòdul</replaceable>.blacklist=yes</userinput>.
+D'aquesta manera s'afegira el mòdul a
+<filename>/etc/modprobe.d/blacklist.local</filename>, tant durant la
+instal·lació com en el sistema instal·lat.
+
+</para><para>
+
+Tot i així, fixeu-vos que és possible que el sistema d'instal·lació
+carregui un d'aquests mòduls igualment. Podeu evitar-ho si executeu la
+instal·lació en mode expert i desseleccioneu el mòdul de la llista
+que es mostra durant les etapes de detecció de maquinari.
+
+</para>
+  </sect2>
+ </sect1>

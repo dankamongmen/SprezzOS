@@ -1,0 +1,58 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 59840 -->
+<!-- revised by Herbert Parentes Fortes Neto (hpfn) 2006.05.06 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.06.01 -->
+<!-- updated 35612:59840 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+  <sect2 arch="mipsel" id="boot-tftp"><title>Inicializando com o TFTP</title>
+
+   <sect3>
+   <title>Inicialização do Cobalt TFTP</title>
+<para>
+
+Falando de maneira clara, Cobalt não usa o TFTP e sim o NFS para inicializar.
+Você precisa instalar um servidor NFS e colocar os arquivos do processo de
+inicialização em <filename>/nfsroot</filename>. Quando você inicializar seu
+Cobalt, você tem que pressionar os botões direito e esquerdo do cursor ao mesmo
+tempo e a máquina irá inicializar através da rede pelo NFS. Então, serão
+exibidas várias opções na tela. Existem os seguintes dois métodos de
+instalação:
+
+<itemizedlist>
+<listitem><para>
+
+Via SSH (padrão): Neste caso, o processo de instalação irá configurar a rede
+via DHCP e iniciar um servidor SSH. Ele irá então indicar uma senha aleatória
+e outra informação de login (como um endereço IP) no LCD do Cobalt. Quando
+você conectar na máquina com um cliente SSH você pode começar a instalação.
+
+</para></listitem>
+<listitem><para>
+
+Via console serial: Usando um cabo nulo de modem, você pode conectar à porta
+serial de sua máquina Cobalt (usando 115200 bps) e proceder com a instalação
+desta maneira.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect3>
+
+  </sect2>
+
+  <sect2 arch="mipsel"><title>Parâmetros de Inicialização</title>
+
+   <sect3>
+   <title>Inicialização do Cobalt TFTP</title>
+<para>
+
+Você não pode passar nenhum parâmetro de inicialização diretamente. Ao invés
+disso, você tem que editar o arquivo <filename>/nfsroot/default.colo</filename>
+no servidor NFS e adicionar seus parâmetros à variável
+<replaceable>args</replaceable>.
+
+</para>
+  </sect3>
+
+  </sect2>

@@ -1,0 +1,150 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 condition="gtk" id="graphical">
+ <title>L'instal·lador gràfic</title>
+<para>
+
+La versió gràfica de l'instal·lador només està disponible per a un
+nombre limitat d'arquitectures, incloent &arch-title;. La funcionalitat
+de l'instal·lador gràfic és essencialment la mateixa que la de
+l'instal·lador regular, però amb un aspecte diferent; en el fons
+utilitza els mateixos programes.
+
+</para><para>
+
+Encara que la funcionalitat sigui idèntica, l'instal·lador gràfic té
+alguns avantatges significatius. La millora principal és que suporta més
+idiomes, concretament aquells que utilitzen jocs de caràcters que no es
+poden mostrar amb la interfície <quote>newt</quote>. També incorpora
+certes millores relacionades amb la usabilitat com l'opció d'utilitzar
+el ratolí, i en alguns casos també es poden veure diverses preguntes
+alhora en una mateixa pantalla.
+
+</para><para arch="any-x86">
+
+L'instal·lador gràfic està disponible en totes les imatges de CD i
+amb el mètode d'instal·lació hd-media. Per arrencar l'instal·lador gràfic
+simplement seleccioneu l'opció rellevant al menú d'arrencada. El mode expert
+i de rescat de l'instal·lador gràfic es pot seleccionar des del menú
+<quote>Advanced options</quote>. Els mètodes anteriors d'arrencada 
+<userinput>installgui</userinput>, <userinput>expertgui</userinput> i 
+<userinput>rescuegui</userinput> encara poden utilitzar-se des de l'indicador
+d'arrencada que es mostra després de seleccionar l'opció <quote>Help</quote>
+al menú d'arrencada.
+
+</para><para arch="any-x86">
+
+Hi ha una imatge de l'instal·lador gràfic per arrencar per xarxa. També està
+disponible com a imatge ISO <quote>mini</quote> especial<footnote
+id="gtk-miniiso">
+
+<para>
+La imatge ISO mini es pot descarregar des d'una de les rèpliques de
+&debian; tal i com es descriu a <xref linkend="downloading-files"/>.
+Busqueu <filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>, que és útil sobretot per a fer proves.
+
+</para><para arch="powerpc">
+
+Per a &arch-title;, actualment només hi ha disponible una imatge ISO
+<quote>mini</quote> experimental<footnote id="gtk-miniiso">
+
+<para>
+La imatge ISO mini es pot descarregar des d'una de les rèpliques de
+&debian; tal i com es descriu a <xref linkend="downloading-files"/>.
+Busqueu <filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>. Hauria de funcionar en pràcticament qualsevol dels sistemes
+PowerPC que disposin d'una targeta gràfica ATI, però és possible que
+falli en altres sistemes.
+
+</para><para>
+
+Tal i com passa en l'instal·lador normal, és possible afegir paràmetres
+d'arrencada quan s'engega l'instal·lador gràfic.
+
+</para>
+<note><para>
+
+L'instal·lador gràfic requereix més memòria que l'instal·lador
+normal: &minimum-memory-gtk;. Si no hi ha prou memòria, passarà
+a utilitzar la interfície <quote>newt</quote> automàticament com
+a alternativa.
+
+</para><para>
+
+Si la quantitat de memòria en el vostre sistema està per sota de 
+&minimum-memory;, l'instal·lador gràfic podria fallar a l'arrencar mentre
+l'instal·lador normal encara hauria de funcionar. Es recomana la utilització
+de l'instal·lador normal en sistemes amb poca memòria.
+
+</para></note>
+
+  <sect2 id="gtk-using">
+  <title>Utilitzar l'instal·lador gràfic</title>
+<para>
+
+Tal i com ja s'ha dit anteriorment, l'instal·lador gràfic funciona ben
+bé de la mateixa manera que l'instal·lador regular, i per tant la resta
+del manual es igualment vàlid com a guia del procés d'instal·lació.
+
+</para><para>
+
+Si preferiu utilitzar el teclat en comptes del ratolí, hi ha un parell
+de coses que hauríeu de saber. Per expandir una llista (s'utilitza per
+exemple en la selecció de països dins dels continents), podeu utilitzar
+les tecles <keycap>+</keycap> i <keycap>-</keycap>. Per a preguntes en que
+hi ha més d'un element seleccionable (p.ex. la selecció de tasques),
+després de realitzar la selecció oportuna, haureu de tabular fins
+al botó &BTN-CONT; prémer la tecla de retorn directament no activarà
+&BTN-CONT; sinó que commutarà la selecció.
+
+</para><para>
+
+Si un diàleg ofereix informació addicional d'ajuda, es mostrarà un botó
+<guibutton>Ajuda</guibutton>. Podeu accedir a la informació d'ajuda
+prement bé el botó o bé la tecla <keycap>F1</keycap>.
+
+</para><para>
+
+Per canviar a una altra consola, també necessitareu utilitzar
+la tecla <keycap>Ctrl</keycap>, tal i com es fa a l'«X Window
+System». Per exemple, per canviar a VT2 (el primer intèrpret d'ordres de
+depuració) haureu d'utilitzar: <keycombo>
+<keycap>Ctrl</keycap> <keycap>Alt Esquerre</keycap> <keycap>F1</keycap>
+</keycombo>. L'instal·lador gràfic s'executa a VT5, per tant podeu emprar
+<keycombo> <keycap>Alt Esquerre</keycap> <keycap>F5</keycap> </keycombo>
+per tornar-hi.
+
+</para>
+  </sect2>
+
+  <sect2 id="gtk-issues">
+  <title>Problemes coneguts</title>
+<para>
+
+La interfície gràfica de l'instal·lador és relativament nova i per això té
+alguns problemes coneguts. Continuem treballant en resoldre'ls.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+En algunes pantalles la informació no queda encara molt ben formatada
+correctament en columnes.
+
+</para></listitem>
+<listitem><para>
+
+El suport per a dispositius «touchpad» encara no és òptim.
+
+</para></listitem>
+</itemizedlist>
+
+  </sect2>
+ </sect1>

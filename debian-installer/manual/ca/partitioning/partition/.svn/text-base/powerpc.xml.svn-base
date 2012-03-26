@@ -1,0 +1,56 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+
+  <sect2 arch="powerpc"><title>Fer particions als nous PowerMac</title>
+<para>
+
+Si esteu instal·lant a un PowerMac NewWorld necessitareu crear una
+partició especial d'inicialització que contingui el carregador. La mida
+d'aquesta partició ha de ser 819200 bytes i ha de ser de tipus
+<emphasis>Apple_Bootstrap</emphasis>. Si la partició d'inicialització
+no es crea del tipus <emphasis>Apple_Bootstrap</emphasis> la vostra
+màquina no es podrà arrencar des del disc dur. Aquesta partició és fàcil de
+crear utilitzant el <command>partman</command> i dient-li que utilitze la
+<quote>partició d'arrencada NewWorld</quote>, o al <command>mac-fdisk</command>
+utilitzant l'ordre <userinput>b</userinput>.
+
+</para><para>
+
+Es necessita tenir la partició especial de tipus «Apple_Bootstrap» per
+prevenir que el MacOS munte i danye la partició d'inicialització, ja que
+hi ha modificacions especials fetes per que el OpenFirmware l'arrenqui
+automàticament.
+
+</para><para>
+
+Adoneu-vos què la partició d'inicialització té tan sols significat
+per contenir 3 fitxers molt menuts: el binari de <command>yaboot</command>,
+la seva configuració <filename>yaboot.conf</filename>, i un primer pas al
+carregador d'OpenFirmware <command>ofboot.b</command>. No fa falta, i no
+hauria de muntar-se al vostre sistema de fitxers ni tenir nuclis o
+qualsevol altra cosa copiada dins. Les ordres <command>ybin</command> i
+<command>mkofboot</command> s'utilitzen per manipular aquesta partició.
+
+</para><para>
+
+Per que el OpenFirmware arrenqui automàticament &debian-gnu; la partició
+d'inicialització hauria d'aparèixer abans que les altres particions al
+disc, especialment que les particions d'arrencada de MacOS. La partició
+d'inicialització hauria de ser la primera en crear-se. Per altra banda,
+si afegiu la partició d'inicialització mes tard, podeu fer-ho utilitzant
+l'ordre <userinput>r</userinput> de <command>mac-fdisk</command> per
+reordenar la taula de particions de manera que la partició d'inicialització
+estigui després de la taula (que està sempre a la partició 1). El que conta
+és l'ordre lògic de la taula, no l'ordre físic.
+
+</para><para>
+
+Els discs d'Apple solen tenir vàries particions amb controladors xicotetes.
+Si intenteu arrencar la vostra màquina amb MacOSX, hauríeu de conservar-les i
+a més a més una partició xicoteta HFS (de mida mínima 800 KiB). Açò és
+perquè a cada arrencada el MacOSX, ofereix inicialitzar qualsevol disc que
+no tingui una partició MacOS activa i les particions dels controladors.
+
+</para>
+  </sect2>

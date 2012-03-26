@@ -1,0 +1,5337 @@
+# Korean messages for debian-installer.
+# Copyright (C) 2003,2004,2005,2008 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# Changwoo Ryu <cwryu@debian.org>, 2010, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: bugs.debian.org\n"
+"POT-Creation-Date: 2012-02-16 22:49+0000\n"
+"PO-Revision-Date: 2012-03-04 00:24+0900\n"
+"Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
+"Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../main-menu.templates:3001
+msgid "Installation step failed"
+msgstr "설치 단계가 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../main-menu.templates:3001
+msgid ""
+"An installation step failed. You can try to run the failing item again from "
+"the menu, or skip it and choose something else. The failing step is: ${ITEM}"
+msgstr ""
+"설치 단계가 실패했습니다. 메뉴에서 실패한 항목을 다시 실행할 수도 있고, 생략"
+"하고 다른 항목을 선택할 수도 있습니다. 실패한 단계는: ${ITEM}"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../main-menu.templates:4001
+msgid "Choose an installation step:"
+msgstr "설치 단계를 선택하십시오:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../main-menu.templates:4001
+msgid ""
+"This installation step depends on one or more other steps that have not yet "
+"been performed."
+msgstr "이 설치 단계보다 먼저 해야 하는 단계를 아직 수행하지 않았습니다."
+
+#. Type: note
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#. :sl2:
+#: ../di-utils-shell.templates:1001 ../di-utils.templates:5001
+msgid "Interactive shell"
+msgstr "인터랙티브 쉘"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../di-utils-shell.templates:1001
+msgid "After this message, you will be running \"ash\", a Bourne-shell clone."
+msgstr "이 메시지가 없어지면, 본 쉘과 비슷한 \"ash\"를 실행합니다."
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../di-utils-shell.templates:1001
+msgid ""
+"The root file system is a RAM disk. The hard disk file systems are mounted "
+"on \"/target\". The editor available to you is nano. It's very small and "
+"easy to figure out. To get an idea of what Unix utilities are available to "
+"you, use the \"help\" command."
+msgstr ""
+"루트 파일 시스템은 램디스크입니다. 하드 디스크의 파일 시스템은 \"/target\"에 "
+"마운트되어 있습니다. 사용할 수 있는 에디터는 nano입니다. nano는 크기가 아주 "
+"작고 사용법을 쉽게 배울 수 있는 에디터입니다. 어떤 유닉스 명령을 사용할 수 있"
+"는 지 알려면, \"help\" 명령을 실행하십시오."
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../di-utils-shell.templates:1001
+msgid "Use the \"exit\" command to return to the installation menu."
+msgstr "설치 메뉴로 다시 돌아오려면 \"exit\" 명령을 사용하십시오."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. The translation should not exceed 55 columns except for languages
+#. that are only supported in the graphical version of the installer
+#. :sl2:
+#: ../di-utils-exit-installer.templates:1001
+msgid "Exit installer"
+msgstr "설치 프로그램 끝내기"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../di-utils-reboot.templates:1001
+msgid "Are you sure you want to exit now?"
+msgstr "정말로 지금 끝내시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../di-utils-reboot.templates:1001
+msgid ""
+"If you have not finished the install, your system may be left in an unusable "
+"state."
+msgstr ""
+"설치를 끝마치지 않으면, 시스템이 사용 불가능한 상태로 남게 될 것입니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../di-utils.templates:6001
+msgid "Terminal plugin not available"
+msgstr "터미널 플러그인을 사용할 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../di-utils.templates:6001
+msgid ""
+"This build of the debian-installer requires the terminal plugin in order to "
+"display a shell. Unfortunately, this plugin is currently unavailable."
+msgstr ""
+"이 debian-installer 빌드는 쉘을 실행하려면 터미널 플러그인이 필요합니다. 하지"
+"만 이 플러그인이 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../di-utils.templates:6001
+msgid ""
+"It should be available after reaching the \"Loading additional components\" "
+"installation step."
+msgstr ""
+"이 기능은 \"추가 컴포넌트를 읽어들이는 중입니다\"까지 설치를 진행하면 사용할 "
+"수 있습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../di-utils.templates:7001
+msgid ""
+"Alternatively, you can open a shell by pressing Ctrl+Alt+F2. Use Alt+F5 to "
+"get back to the installer."
+msgstr ""
+"다른 방법으로 Ctrl+Alt+F2를 눌러서 쉘을 열 수 있습니다. 설치 프로그램으로 돌"
+"아오려면 Alt+F5를 누르십시오."
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../anna.templates:1001 ../anna.templates:2001
+msgid "Installer components to load:"
+msgstr "읽어들일 설치 프로그램 컴포넌트:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../anna.templates:1001
+msgid ""
+"All components of the installer needed to complete the install will be "
+"loaded automatically and are not listed here. Some other (optional) "
+"installer components are shown below. They are probably not necessary, but "
+"may be interesting to some users."
+msgstr ""
+"설치프로그램은 필요한 컴포넌트를 대부분 자동으로 읽어들이므로, 여기에 표시하"
+"지는 않습니다. 중요도가 낮아 선택사항인 컴포넌트는 여기에 표시합니다. 이 사항"
+"이 필요한 사용자는 많지 않겠지만, 일부 사용자에게는 중요할 수 있습니다."
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../anna.templates:1001 ../anna.templates:2001
+msgid ""
+"Note that if you select a component that requires others, those components "
+"will also be loaded."
+msgstr ""
+"선택한 컴포넌트에 또 다른 컴포넌트가 필요한 경우, 그 필요한 컴포넌트를 자동으"
+"로 읽어들입니다."
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../anna.templates:2001
+msgid ""
+"To save memory, only components that are certainly needed for an install are "
+"selected by default. The other installer components are not all necessary "
+"for a basic install, but you may need some of them, especially certain "
+"kernel modules, so look through the list carefully and select the components "
+"you need."
+msgstr ""
+"메모리를 절약하기 위해 설치프로그램은 꼭 필요한 컴포넌트만 선택합니다. 기본설"
+"치에 필요하지는 않지만 일부 사용자에게 필요한 컴포넌트가 있을 수 있습니다. 특"
+"히 기본적으로 선택하지 않는 커널 모듈도 있으므로 목록을 잘 보고 필요한 컴포넌"
+"트를 선택하십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../anna.templates:7001
+msgid "Failed to load installer component"
+msgstr "설치 프로그램 컴포넌트를 읽어들이는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../anna.templates:7001
+msgid "Loading ${PACKAGE} failed for unknown reasons. Aborting."
+msgstr ""
+"알 수 없는 이유로 ${PACKAGE} 패키지를 읽어들이는데 실패했습니다. 중지합니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../anna.templates:8001
+msgid "Continue the install without loading kernel modules?"
+msgstr "커널 모듈을 읽어들이지 않고 계속 설치하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../anna.templates:8001
+msgid ""
+"No kernel modules were found. This probably is due to a mismatch between the "
+"kernel used by this version of the installer and the kernel version "
+"available in the archive."
+msgstr ""
+"커널 모듈이 없습니다. 설치 프로그램의 버전과 아카이브의 커널 버전이 맞지 않아"
+"서 그럴 것입니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../anna.templates:8001
+msgid ""
+"If you're installing from a mirror, you can work around this problem by "
+"choosing to install a different version of Debian. The install will probably "
+"fail to work if you continue without kernel modules."
+msgstr ""
+"미러 사이트에서 설치하시는 거라면, 다른 버전의 데비안을 설치하면 이 문제를 피"
+"해갈 수도 있습니다. 커널 모듈 없이 계속하신다면 아마도 설치가 실패할 것입니"
+"다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:4001
+msgid "System locale:"
+msgstr "시스템 로캘:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:4001
+msgid "Select the default locale for the installed system."
+msgstr "설치할 시스템의 기본 로캘을 선택하십시오."
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:32001
+msgid "Additional locales:"
+msgstr "추가 로캘:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:32001
+msgid ""
+"Based on your previous choices, the default locale currently selected for "
+"the installed system is '${LOCALE}'."
+msgstr "앞의 설정 값에 따라, 설치할 시스템의 기본 로캘은 '${LOCALE}'입니다."
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:32001
+msgid ""
+"If you wish to use a different default or to also have other locales "
+"available, you may choose additional locales to be installed. If you are "
+"unsure it is best to just use the selected default."
+msgstr ""
+"이 로캘 대신 다른 로캘을 사용하거나, 아니면 다른 로캘도 추가로 사용하려면 설"
+"치할 로캘을 추가로 선택할 수 있습니다. 잘 모르겠으면 현재 선택한 기본값을 사"
+"용하는 게 좋습니다."
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:34001
+msgid "locale"
+msgstr "로캘"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../localechooser.templates-in:34001
+msgid ""
+"A locale determines character encoding and contains information on for "
+"example currency, date format and alphabetical sort order."
+msgstr ""
+"로캘은 문자 인코딩 및 기타 정보가 들어 있는 데이터입니다. 예를 들어 통화 단"
+"위, 날짜 형식, 사전 정렬 순서 따위가 들어 있습니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../kbd-chooser.templates-in:2001
+msgid "Type of keyboard:"
+msgstr "키보드 종류:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../kbd-chooser.templates-in:2001
+msgid "Please choose the type of keyboard to configure."
+msgstr "설정할 키보드의 종류를 선택하십시오."
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#: ../kbd-chooser.templates-in:6001
+msgid "No keyboard to configure"
+msgstr "설정할 키보드 없음"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#: ../kbd-chooser.templates-in:7001
+msgid "Do not configure keyboard; keep kernel keymap"
+msgstr "키보드를 설정하지 않고 커널 키맵을 유지"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-at.templates:1001
+msgid "PC-style (AT or PS-2 connector) keyboard"
+msgstr "PC 스타일 (AT 혹은 PS-2 커넥터) 키보드"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-atari.templates:1001
+msgid "Atari keyboard"
+msgstr "Atari 키보드"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-amiga.templates:1001
+msgid "Amiga keyboard"
+msgstr "Amiga 키보드"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-acorn.templates:1001
+msgid "Acorn keyboard"
+msgstr "Acorn 키보드"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-mac.templates:1001
+msgid "Mac keyboard"
+msgstr "Mac 키보드"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-sparc.templates:1001
+msgid "Sun keyboard"
+msgstr "Sun 키보드"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-usb.templates:1001
+msgid "USB keyboard"
+msgstr "USB 키보드"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-dec.templates:1001
+msgid "DEC keyboard"
+msgstr "DEC 키보드"
+
+#. Type: text
+#. Description
+#. Translators, this is a menu choice. MUST BE UNDER 65 COLUMNS
+#. :sl2:
+#: ../keyboard-hil.templates:1001
+msgid "HP HIL keyboard"
+msgstr "HP HIL 키보드"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:4001
+msgid "Keyboard model:"
+msgstr "키보드 모델:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:4001
+msgid "Please select the model of the keyboard of this machine."
+msgstr "이 컴퓨터의 키보드 모델을 선택하십시오."
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:12001
+msgid "No temporary switch"
+msgstr "임시 전환 키 없음"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:12001
+#: ../keyboard-configuration.templates:13001
+msgid "Both Logo keys"
+msgstr "양쪽 로고 키"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:12002
+msgid "Method for temporarily toggling between national and Latin input:"
+msgstr ""
+"임시로 지역 키보드 입력과 영문 키보드 입력 사이를 토글할 때 사용할 방법:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:12002
+msgid ""
+"When the keyboard is in national mode and one wants to type only a few Latin "
+"letters, it might be more appropriate to switch temporarily to Latin mode. "
+"The keyboard remains in that mode as long as the chosen key is kept pressed. "
+"That key may also be used to input national letters when the keyboard is in "
+"Latin mode."
+msgstr ""
+"키보드가 지역 키보드 모드이고 영문자를 입력하려면 임시로 영문 모드로 전환하"
+"는 편이 더 낫습니다. 키를 누르고 있는 동안에는 해당 모드를 유지합니다. 키보드"
+"가 영문 모드일 때 지역 문자를 입력하는 용도로 이 키를 사용할 수도 있습니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:12002
+msgid "You can disable this feature by choosing \"No temporary switch\"."
+msgstr "이 기능을 사용하지 않으려면 \"임시 전환 키 없음\"을 선택하십시오."
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:13001
+msgid "The default for the keyboard layout"
+msgstr "기본 키보드 배치"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:13001
+msgid "No AltGr key"
+msgstr "AltGr 키 없음"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:13001
+msgid "Keypad Enter key"
+msgstr "키패드 Enter 키"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:13001
+msgid "Both Alt keys"
+msgstr "양쪽 Alt 키"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:13002
+msgid "Key to function as AltGr:"
+msgstr "AltGr 키로 동작할 키:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:13002
+msgid ""
+"With some keyboard layouts, AltGr is a modifier key used to input some "
+"characters, primarily ones that are unusual for the language of the keyboard "
+"layout, such as foreign currency symbols and accented letters. These are "
+"often printed as an extra symbol on keys."
+msgstr ""
+"몇몇 키보드 배치에서 AltGr 키는, 화폐 기호나 액센트가 들어간 문자 따위처럼 해"
+"당 언어에서 자주 쓰이지 않는 문자를 입력하는데 사용합니다. 이런 문자는 키의 "
+"추가 기호로 인쇄되어 있기도 합니다."
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../keyboard-configuration.templates:14001
+msgid "No compose key"
+msgstr "Compose 키 없음"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:14002
+msgid "Compose key:"
+msgstr "Compose 키:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:14002
+msgid ""
+"The Compose key (known also as Multi_key) causes the computer to interpret "
+"the next few keystrokes as a combination in order to produce a character not "
+"found on the keyboard."
+msgstr ""
+"Compose (또는 Multi) 키를 누르면 그 다음 몇 개의 키는 키보드에 없는 문자를 조"
+"합한다고 해석합니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../keyboard-configuration.templates:14002
+msgid ""
+"On the text console the Compose key does not work in Unicode mode. If not in "
+"Unicode mode, regardless of what you choose here, you can always also use "
+"the Control+period combination as a Compose key."
+msgstr ""
+"텍스트 콘솔의 유니코드 모드에서는 Compose 키가 동작하지 않습니다. 유니코드 모"
+"드가 아니라면 여기 설정과 관계없이 Control+점 조합을 Compose 키로 사용할 수 "
+"있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:1001
+msgid "Load CD-ROM drivers from removable media?"
+msgstr "이동식 미디어에서 CD-ROM 드라이버를 읽어들이시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:1001 ../cdrom-detect.templates:3001
+msgid "No common CD-ROM drive was detected."
+msgstr "일반적인 CD-ROM 드라이브를 찾을 수 없습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:1001
+msgid ""
+"You may need to load additional CD-ROM drivers from removable media, such as "
+"a driver floppy. If you have such media available now, insert it, and "
+"continue. Otherwise, you will be given the option to manually select CD-ROM "
+"modules."
+msgstr ""
+"이동식 미디어에서 (드라이버 플로피 등) CD-ROM 드라이버를 추가로 읽어들여야 "
+"할 수 있습니다. 그런 미디어가 있다면, 바로 그 미디어를 넣고 계속 하십시오. 그"
+"렇지 않은 경우 수동으로 CD-ROM 모듈을 선택하는 옵션이 나옵니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:3001
+msgid "Manually select a CD-ROM module and device?"
+msgstr "수동으로 CD-ROM 모듈과 장치를 선택하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:3001
+msgid ""
+"Your CD-ROM drive may be an old Mitsumi or another non-IDE, non-SCSI CD-ROM "
+"drive. In that case you should choose which module to load and the device to "
+"use. If you don't know which module and device are needed, look for some "
+"documentation or try a network installation instead of a CD-ROM installation."
+msgstr ""
+"CD-ROM 드라이브가 과거의 Mitsumi 혹은 기타 IDE가 아니고, SCSI도 아닌 CD-ROM "
+"드라이브일 수도 있습니다. 이 경우 이 장치를 사용하기 위해 어떤 모듈을 읽어들"
+"일 지 선택해야 합니다. 어떤 모듈이 필요하고 어떤 장치 파일을 사용해야 하는 "
+"지 알지 못한다면, 관련 문서를 찾아 보시거나 CD-ROM 설치 대신에 네트워크 설치"
+"를 시도해 보십시오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:4001
+msgid "Retry mounting the CD-ROM?"
+msgstr "다시 한번 CD-ROM 마운트를 시도하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:4001
+msgid ""
+"Your installation CD-ROM couldn't be mounted. This probably means that the "
+"CD-ROM was not in the drive. If so you can insert it and try again."
+msgstr ""
+"설치 CD-ROM을 마운트할 수 없습니다. CD-ROM이 드라이브 안에 없는 경우일 것입니"
+"다. 그 경우 CD-ROM을 넣고 다시 시도할 수 있습니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:5001
+msgid "Module needed for accessing the CD-ROM:"
+msgstr "CD-ROM을 읽는데 필요한 모듈:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:5001
+msgid ""
+"The automatic detection didn't find a CD-ROM drive. You can try to load a "
+"specific module if you have an unusual CD-ROM drive (that is neither IDE nor "
+"SCSI)."
+msgstr ""
+"자동 찾기에서 CD-ROM 드라이브를 찾지 못했습니다. 일반적이지 않은 (IDE도 SCSI"
+"도 아닌) CD-ROM 드라이브의 경우에는 특정 모듈을 직접 읽어들일 수 있습니다."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:6001
+msgid "Device file for accessing the CD-ROM:"
+msgstr "CD-ROM에 접근할 때 사용할 장치 파일:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:6001
+msgid ""
+"In order to access your CD-ROM drive, please enter the device file that "
+"should be used. Non-standard CD-ROM drives use non-standard device files "
+"(such as /dev/mcdx)."
+msgstr ""
+"CD-ROM 드라이브를 사용하려면, 그 장치 파일 이름을 입력하십시오. 표준이 아닌 "
+"CD-ROM 드라이브는 표준이 아닌 장치 파일 이름을 사용합니다. (/dev/mcdx 따위)"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:6001
+msgid ""
+"You may switch to the shell on the second terminal (ALT+F2) to check the "
+"available devices in /dev with \"ls /dev\". You can return to this screen by "
+"pressing ALT+F1."
+msgstr ""
+"두 번째 터미널로 전환해서 (ALT+F2) \"ls /dev\" 명령으로 /dev에 들어 있는 사"
+"용 가능 장치의 목록을 볼 수 있습니다. ALT+F1을 누르면 이 화면으로 돌아옵니다."
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:12001
+msgid "CD-ROM detected"
+msgstr "CD-ROM을 찾았습니다"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:12001
+msgid ""
+"The CD-ROM autodetection was successful. A CD-ROM drive has been found and "
+"it currently contains the CD ${cdname}. The installation will now continue."
+msgstr ""
+"CD-ROM 자동 찾기가 성공했습니다. CD-ROM 드라이브를 찾았고 현재 ${cdname} CD"
+"가 들어 있습니다. 설치를 계속 진행합니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:13001
+msgid "Incorrect CD-ROM detected"
+msgstr "올바르지 않은 CD-ROM입니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:13001
+msgid "The CD-ROM drive contains a CD which cannot be used for installation."
+msgstr "설치에 사용할 수 없는 CD가 CD-ROM에 들어 있습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../cdrom-detect.templates:13001
+msgid "Please insert a suitable CD to continue with the installation."
+msgstr "설치를 계속 진행하시려면 올바른 CD를 넣으십시오."
+
+#. Type: error
+#. Description
+#. Translators: DO NOT TRANSLATE "Release". This is the name of a file.
+#. :sl2:
+#: ../cdrom-detect.templates:14001
+msgid "Error reading Release file"
+msgstr "Release 파일을 읽는데 오류"
+
+#. Type: error
+#. Description
+#. Translators: DO NOT TRANSLATE "Release". This is the name of a file.
+#. :sl2:
+#: ../cdrom-detect.templates:14001
+msgid ""
+"The CD-ROM does not seem to contain a valid 'Release' file, or that file "
+"could not be read correctly."
+msgstr ""
+"CD-ROM에 올바른 'Release' 파일이 들어 있지 않거나 파일을 제대로 읽어들일 수 "
+"없습니다."
+
+#. Type: error
+#. Description
+#. Translators: DO NOT TRANSLATE "Release". This is the name of a file.
+#. :sl2:
+#: ../cdrom-detect.templates:14001
+msgid ""
+"You may try to repeat CD-ROM detection but, even if it does succeed the "
+"second time, you may experience problems later in the installation."
+msgstr ""
+"CD-ROM 검색을 다시 시도하면 성공할 수도 있지만, 두 번째에서 성공하더라도 설"
+"치 뒤쪽에서 문제가 다시 발생할 수도 있습니다."
+
+#. Type: text
+#. Description
+#. Item in the main menu to select this package
+#. :sl2:
+#: ../cdrom-detect.templates:19001
+msgid "Detect and mount CD-ROM"
+msgstr "CD-ROM 찾기 및 마운트"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../ethdetect.templates:1001
+msgid "no ethernet card"
+msgstr "이더넷 카드 없음"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. "none of the above" should be understood as "none of the above choices"
+#: ../ethdetect.templates:1001 ../disk-detect.templates:3001
+msgid "none of the above"
+msgstr "위에 없음"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../ethdetect.templates:1002
+msgid "Driver needed by your Ethernet card:"
+msgstr "이더넷 카드에 필요한 드라이버:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../ethdetect.templates:1002
+msgid ""
+"No Ethernet card was detected. If you know the name of the driver needed by "
+"your Ethernet card, you can select it from the list."
+msgstr ""
+"이더넷 카드를 찾을 수 없습니다. 지금 사용하고 있는 이더넷 카드에 필요한 드라"
+"이버의 이름을 알고 있다면, 다음 목록에서 고르십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../ethdetect.templates:3001
+msgid "Ethernet card not found"
+msgstr "이더넷 카드를 찾을 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../ethdetect.templates:3001
+msgid "No Ethernet card was found on the system."
+msgstr "시스템에서 이더넷 카드를 찾을 수 없습니다."
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../disk-detect.templates:3001
+msgid "continue with no disk drive"
+msgstr "디스크 드라이브 없음"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:3002
+msgid "Driver needed for your disk drive:"
+msgstr "디스크 드라이브에 필요한 드라이버:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:3002
+msgid ""
+"No disk drive was detected. If you know the name of the driver needed by "
+"your disk drive, you can select it from the list."
+msgstr ""
+"디스크 드라이브를 찾을 수 없습니다. 지금 사용하고 있는 디스크 드라이브에 필요"
+"한 드라이버의 이름을 알고 있다면, 다음 목록에서 고르십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:4001
+msgid "No partitionable media"
+msgstr "파티션할 수 있는 미디어 없음"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:4001
+msgid "No partitionable media were found."
+msgstr "파티션할 수 있는 미디어가 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../disk-detect.templates:4001
+msgid "Please check that a hard disk is attached to this machine."
+msgstr "이 컴퓨터에 하드 디스크가 있는 지 확인하십시오."
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:5001
+msgid "Modules to load:"
+msgstr "읽어들일 모듈:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:5001
+msgid ""
+"The following Linux kernel modules were detected as matching your hardware. "
+"If you know some are unnecessary, or cause problems, you can choose not to "
+"load them. If you're unsure, you should leave them all selected."
+msgstr ""
+"하드웨어에 해당하는 다음 리눅스 커널 모듈을 찾았습니다. 모듈중에 필요없는 모"
+"듈이 뭔지 알고 있다면, 혹은 문제를 일으키는 모듈을 안다면, 읽어들이지 않을 모"
+"듈을 선택할 수 있습니다. 잘 모르겠다면, 전부 선택된 지금 상태로 놔 두십시오."
+
+#. Type: boolean
+#. Description
+#. FIXME: not in use and kept just while we're still in doubt it will
+#. be needed
+#. :sl2:
+#: ../hw-detect.templates:6001
+msgid "Start PC card services?"
+msgstr "PC 카드 서비스를 시작하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. FIXME: not in use and kept just while we're still in doubt it will
+#. be needed
+#. :sl2:
+#: ../hw-detect.templates:6001
+msgid ""
+"Please choose whether PC card services should be started in order to allow "
+"the use of PCMCIA cards."
+msgstr ""
+"PCMCIA 카드를 사용할 수 있도록 PC 카드 서비스를 시작할 지 선택하십시오."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:7001
+msgid "PCMCIA resource range options:"
+msgstr "PCMCIA 리소스 범위 옵션:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:7001
+msgid ""
+"Some PCMCIA hardware needs special resource configuration options in order "
+"to work, and can cause the computer to freeze otherwise. For example, some "
+"Dell laptops need \"exclude port 0x800-0x8ff\" to be specified here. These "
+"options will be added to /etc/pcmcia/config.opts. See the installation "
+"manual or the PCMCIA HOWTO for more information."
+msgstr ""
+"일부 PCMCIA 하드웨어는 동작하려면 특별한 리소스 설정 옵션이 필요하고, 제대로 "
+"지정하지 않으면 컴퓨터가 멈출 수도 있습니다. 예를 들어, 일부 Dell 랩탑은 "
+"\"exclude port 0x800-0x8ff\"를 여기에서 지정해야 합니다. 이 옵션은 /etc/"
+"pcmcia/config.opts 파일에 덧붙입니다. 더 자세한 정보는 설치 설명서 혹은 "
+"PCMCIA HOWTO를 참고하십시오."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:7001
+msgid "For most hardware, you do not need to specify anything here."
+msgstr "대부분 하드웨어는, 여기에서 아무 것도 지정할 필요가 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:9001
+msgid "Error while running '${CMD_LINE_PARAM}'"
+msgstr "'${CMD_LINE_PARAM}' 실행하는데 오류가 발생했습니다"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:10001
+msgid "Load missing drivers from removable media?"
+msgstr "없는 드라이버를 이동식 미디어에서 읽어들이시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:10001
+msgid ""
+"A driver for your hardware is not available. You may need to load drivers "
+"from removable media, such as a USB stick, or driver floppy."
+msgstr ""
+"하드웨어에 필요한 드라이버가 없습니다. 이동식 미디어에서 (USB 메모리, 드라이"
+"버 플로피 등) 필요한 드라이버를 읽어들여야 할 수도 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:10001 ../hw-detect.templates:11001
+msgid "If you have such media available now, insert it, and continue."
+msgstr "지금 그러한 미디어를 사용할 수 있으면, 그 미디어를 넣고 계속 하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:11001
+msgid "Load missing firmware from removable media?"
+msgstr "없는 펌웨어를 이동식 미디어에서 읽어들이시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:11001
+msgid ""
+"Some of your hardware needs non-free firmware files to operate. The firmware "
+"can be loaded from removable media, such as a USB stick or floppy."
+msgstr ""
+"하드웨어 중에 동작하려면 독점 펌웨어 파일이 필요한 하드웨어가 있습니다. 그 펌"
+"웨어는 이동식 미디어에서 (USB 메모리, 플로피 등) 읽어들일 수 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../hw-detect.templates:11001
+msgid "The missing firmware files are: ${FILES}"
+msgstr "없는 펌웨어 파일은: ${FILES}"
+
+#. Type: string
+#. Description
+#. :sl2:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:6001 ../netcfg-common.templates:7001
+msgid "Wireless ESSID for ${iface}:"
+msgstr "${iface} 인터페이스의 무선 ESSID:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:6001
+msgid ""
+"${iface} is a wireless network interface. Please enter the name (the ESSID) "
+"of the wireless network you would like ${iface} to use. If you would like to "
+"use any available network, leave this field blank."
+msgstr ""
+"${iface} 인터페이스는 무선 네트워크 인터페이스입니다. ${iface} 인터페이스가 "
+"사용할 무선 네트워크의 이름(ESSID)을 입력하십시오. 다른 네트워크를 사용할 수 "
+"있고 그걸 사용하려면, 다음 칸을 비워 두십시오."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:7001
+msgid "Attempting to find an available wireless network failed."
+msgstr "사용할 수 있는 무선 네트워크를 찾는데 실패했습니다."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:7001
+msgid ""
+"${iface} is a wireless network interface. Please enter the name (the ESSID) "
+"of the wireless network you would like ${iface} to use. To skip wireless "
+"configuration and continue, leave this field blank."
+msgstr ""
+"${iface} 인터페이스는 무선 네트워크 인터페이스입니다. ${iface} 인터페이스가 "
+"사용할 무선 네트워크의 이름(ESSID)을 입력하십시오. 무선 네트워크 설정을 건너"
+"띄고 계속 진행하려면 다음 칸을 비워 두십시오."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:8002
+msgid "Wireless network type for ${iface}:"
+msgstr "${iface} 인터페이스의 무선 네트워크 종류:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:8002
+msgid ""
+"Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
+"if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
+msgstr ""
+"공개 네트워크이거나 WEP 암호화를 사용하는 경우 WEP/오픈 항목을 선택하십시오. "
+"WPA/WPA2 PSK (키 사전 공유) 방식의 경우 WPA/WPA2 항목을 선택하십시오."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid "WEP key for wireless device ${iface}:"
+msgstr "${iface} 무선 장치의 WEP 키:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid ""
+"If applicable, please enter the WEP security key for the wireless device "
+"${iface}. There are two ways to do this:"
+msgstr ""
+"해당된다면, ${iface} 무선 장치의 WEP 보안 키를 입력하십시오. 두 가지 방법이 "
+"있습니다:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid ""
+"If your WEP key is in the format 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn', "
+"or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
+msgstr ""
+"WEP 키가 'nnnn-nnnn-nn' 'nn:nn:nn:nn:nn:nn:nn:nn' 이나 'nnnnnnnn'의 형식이라"
+"면 (n은 숫자), 그 키를 그대로 여기에 입력하십시오."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid ""
+"If your WEP key is in the format of a passphrase, prefix it with "
+"'s:' (without quotes)."
+msgstr "WEP 키가 열쇠글의 형태라면, 앞에 's:'를 (따옴표 없이) 붙이십시오."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:9001
+msgid ""
+"Of course, if there is no WEP key for your wireless network, leave this "
+"field blank."
+msgstr "물론, 무선 네트워크에 WEP 키가 없으면, 이 필드를 비워 두십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:10001
+msgid "Invalid WEP key"
+msgstr "WEP 키가 잘못되었습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:10001
+msgid ""
+"The WEP key '${wepkey}' is invalid. Please refer to the instructions on the "
+"next screen carefully on how to enter your WEP key correctly, and try again."
+msgstr ""
+"'${wepkey} WEP 키가 잘못되었습니다. WEP 키를 입력하는 방법에 대한 다음 화면"
+"의 안내를 잘 읽어보고, 다시 시도하십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:11001
+msgid "Invalid passphrase"
+msgstr "잘못된 암호글"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:11001
+msgid ""
+"The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
+"too short (less than 8 characters)."
+msgstr ""
+"WPA/WPA2 PSK 암호글이 너무 길거나 (64자 초과) 너무 짧습니다 (8자 미만)."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:12001
+msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
+msgstr "${iface} 무선 장치의 WPA/WPA2 암호글:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:12001
+msgid ""
+"Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
+"passphrase defined for the wireless network you are trying to use."
+msgstr ""
+"WPA/WPA2 PSK 인증할 때 사용할 암호글을 입력하십시오. 사용하려는 무선 네트워크"
+"에서 정의된 암호글이어야 합니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:13001
+msgid "Invalid ESSID"
+msgstr "ESSID가 잘못되었습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:13001
+msgid ""
+"The ESSID \"${essid}\" is invalid. ESSIDs may only be up to 32 characters, "
+"but may contain all kinds of characters."
+msgstr ""
+"\"${essid}\" ESSID가 잘못되었습니다. ESSID는 32글자까지 가능하지만, 모든 종류"
+"의 문자를 다 쓸 수 있습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:14001
+msgid "Attempting to exchange keys with the access point..."
+msgstr "액세스 포인트와 키 교환을 시도합니다..."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:16001
+msgid "WPA/WPA2 connection succeeded"
+msgstr "WPA/WPA2 연결이 성공했습니다"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:17001
+msgid "Failure of key exchange and association"
+msgstr "키 교환 및 연결 실패"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:17001
+msgid ""
+"The exchange of keys and association with the access point failed. Please "
+"check the WPA/WPA2 parameters you provided."
+msgstr ""
+"액세스 포인트와 키 교환 및 연결이 실패했습니다. 입력한 WPA/WPA2 설정이 맞는"
+"지 확인해 보십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:19001
+msgid "Invalid hostname"
+msgstr "잘못된 호스트 이름"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:19001
+msgid "The name \"${hostname}\" is invalid."
+msgstr "\"${hostname}\" 이름이 잘못되었습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:19001
+msgid ""
+"A valid hostname may contain only the numbers 0-9, upper and lowercase "
+"letters (A-Z and a-z), and the minus sign. It must be at most "
+"${maxhostnamelen} characters long, and may not begin or end with a minus "
+"sign."
+msgstr ""
+"호스트 이름은 0-9까지 숫자, 영문 알파벳 대소문자 (A-Z 및 a-z), 빼기 기호(-)"
+"만 들어갈 수 있습니다. 길이는 최대 ${maxhostnamelen}자까지 가능하고, 빼기 기"
+"호로 시작하거나 끝나면 안 됩니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:20001
+msgid "Error"
+msgstr "오류"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:20001
+msgid ""
+"An error occurred and the network configuration process has been aborted. "
+"You may retry it from the installation main menu."
+msgstr ""
+"오류가 발생했고 네트워크 설정 과정이 중지되었습니다. 설치 메인 메뉴에서 다시 "
+"시도할 수 있습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:21001
+msgid "No network interfaces detected"
+msgstr "네트워크 인터페이스를 찾을 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:21001
+msgid ""
+"No network interfaces were found. The installation system was unable to find "
+"a network device."
+msgstr ""
+"네트워크 인터페이스를 찾을 수 없습니다. 설치 시스템에서 네트워크 장치를 찾을 "
+"수 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:21001
+msgid ""
+"You may need to load a specific module for your network card, if you have "
+"one. For this, go back to the network hardware detection step."
+msgstr ""
+"네트워크 카드를 위해 특정 모듈을 읽어들여야 할 수도 있습니다. 그렇게 하려면, "
+"네트워크 하드웨어 찾기 단계로 돌아가십시오."
+
+#. Type: note
+#. Description
+#. A "kill switch" is a physical switch found on some network cards that
+#. disables the card.
+#. :sl2:
+#: ../netcfg-common.templates:22001
+msgid "Kill switch enabled on ${iface}"
+msgstr "${iface}에 kill switch가 걸려 있습니다"
+
+#. Type: note
+#. Description
+#. A "kill switch" is a physical switch found on some network cards that
+#. disables the card.
+#. :sl2:
+#: ../netcfg-common.templates:22001
+msgid ""
+"${iface} appears to have been disabled by means of a physical \"kill switch"
+"\". If you intend to use this interface, please switch it on before "
+"continuing."
+msgstr ""
+"${iface} 인터페이스가 물리적인 \"kill switch\"로 막혀 있습니다. 이 인터페이스"
+"를 사용하려면 계속하시기 전에 스위치를 움직여서 막힌 부분을 푸십시오."
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. Note to translators : Please keep your translations of each choice
+#. below the 65 columns limit (which means 65 characters for most languages)
+#. Choices MUST be separated by commas
+#. You MUST use standard commas not special commas for your language
+#. You MUST NOT use commas inside choices
+#: ../netcfg-common.templates:23001
+msgid "Infrastructure (Managed) network"
+msgstr "인프라스트럭쳐 (관리) 네트워크"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. Note to translators : Please keep your translations of each choice
+#. below the 65 columns limit (which means 65 characters for most languages)
+#. Choices MUST be separated by commas
+#. You MUST use standard commas not special commas for your language
+#. You MUST NOT use commas inside choices
+#: ../netcfg-common.templates:23001
+msgid "Ad-hoc network (Peer to peer)"
+msgstr "자체 구성 네트워크 (일대일)"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:24001
+msgid "Wireless network configuration"
+msgstr "무선 네트워크 설정"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:25001
+msgid "Searching for wireless access points..."
+msgstr "무선 액세스 포인트를 찾는 중입니다..."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:28001
+msgid "<none>"
+msgstr "<없음>"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:29001
+msgid "Wireless ethernet (802.11x)"
+msgstr "무선 네트워크 (802.11x)"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:30001
+msgid "wireless"
+msgstr "무선"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:31001
+msgid "Ethernet"
+msgstr "이더넷"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:32001
+msgid "Token Ring"
+msgstr "토큰 링"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:33001
+msgid "USB net"
+msgstr "USB 네트워크"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:35001
+msgid "Serial-line IP"
+msgstr "시리얼 라인 IP"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:36001
+msgid "Parallel-port IP"
+msgstr "패러렐 포트 IP"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:37001
+msgid "Point-to-Point Protocol"
+msgstr "포인트 투 포인트 프로토콜"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:38001
+msgid "IPv6-in-IPv4"
+msgstr "IPv6-in-IPv4"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:39001
+msgid "ISDN Point-to-Point Protocol"
+msgstr "ISDN 포인트 투 포인트 프로토콜"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:40001
+msgid "Channel-to-channel"
+msgstr "채널 투 채널"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:41001
+msgid "Real channel-to-channel"
+msgstr "실제 채널 투 채널"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:43001
+msgid "Inter-user communication vehicle"
+msgstr "사용자 사이 통신 수단"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../netcfg-common.templates:44001
+msgid "Unknown interface"
+msgstr "알 수 없는 인터페이스"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:5001
+msgid "No DHCP client found"
+msgstr "DHCP 클라이언트를 찾을 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:5001
+msgid "No DHCP client was found. This package requires pump or dhcp-client."
+msgstr ""
+"DHCP 클라이언트를 찾을 수 없습니다. 이 패키지는 pump나 dhcp-client가 필요합니"
+"다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:5001
+msgid "The DHCP configuration process has been aborted."
+msgstr "DHCP 설정 단계를 중지했습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:8001
+msgid "Continue without a default route?"
+msgstr "기본 라우팅 없이 계속 하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:8001
+msgid ""
+"The network autoconfiguration was successful. However, no default route was "
+"set: the system does not know how to communicate with hosts on the Internet. "
+"This will make it impossible to continue with the installation unless you "
+"have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
+"available on the local network."
+msgstr ""
+"네트워크 자동 설정이 성공했습니다. 하지만 기본 라우팅이 설정되어 있지 않습니"
+"다: 즉, 현재 이 시스템은 인터넷에 있는 호스트와 통신할 수 없습니다. 이 경우 "
+"데비안 공식 설치 CD-ROM 첫번째 장이나 'Netinst' CD-ROM이 있거나 로컬 네트워크"
+"에서 패키지를 설치할 수 있어야 설치를 계속할 수 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../netcfg-dhcp.templates:8001
+msgid ""
+"If you are unsure, you should not continue without a default route: contact "
+"your local network administrator about this problem."
+msgstr ""
+"잘 모르겠으면, 기본 라우팅 없이 진행하지 마십시오: 이 문제에 대해 로컬 네트워"
+"크의 관리자에게 문의하십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:2001
+msgid "Malformed IP address"
+msgstr "IP 주소가 잘못되었습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:2001
+msgid ""
+"The IP address you provided is malformed. It should be in the form x.x.x.x "
+"where each 'x' is no larger than 255. Please try again."
+msgstr ""
+"입력한 IP 주소의 형식이 틀렸습니다. x.x.x.x의 형태여야 하며, 여기서 x는 255보"
+"다 크지 않아야 합니다. 다시 시도하십시오."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:3001
+msgid "Point-to-point address:"
+msgstr "포인트 투 포인트 주소:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:3001
+msgid ""
+"The point-to-point address is used to determine the other endpoint of the "
+"point to point network.  Consult your network administrator if you do not "
+"know the value.  The point-to-point address should be entered as four "
+"numbers separated by periods."
+msgstr ""
+"포인트 투 포인트 주소는 포인트 투 포인트 네트워크에서 반대편의 주소를 말합니"
+"다. 무슨 값을 쓸 지 모르겠다면 네트워크 관리자에게 문의하십시오. 포인트 투 포"
+"인트 주소는 점으로 구분한 숫자 4개로 되어 있습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:6001
+msgid "Unreachable gateway"
+msgstr "게이트웨이에 접근할 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:6001
+msgid "The gateway address you entered is unreachable."
+msgstr "입력한 게이트웨이 주소에 접근할 수 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../netcfg-static.templates:6001
+msgid ""
+"You may have made an error entering your IP address, netmask and/or gateway."
+msgstr "IP 주소, 네트마스크, 게이트웨이중에 잘못 입력한 게 있을 것입니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Debian version to install:"
+msgstr "설치할 데비안 버전:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid ""
+"Debian comes in several flavors. Stable is well-tested and rarely changes. "
+"Unstable is untested and frequently changing. Testing is a middle ground, "
+"that receives many of the new versions from unstable if they are not too "
+"buggy."
+msgstr ""
+"데비안은 여러가지 버전으로 나옵니다. 안정 버전은 충분히 테스트되었고 거의 바"
+"뀌지 않습니다. 불안정 버전은 테스트되지 않았고 계속해서 바뀝니다. 테스팅은 "
+"그 중간으로, 불안정 버전에서 너무 많은 버그가 없으면 테스팅으로 넘어옵니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Only flavors available on the selected mirror are listed."
+msgstr "해당 미러 사이트에서 사용 가능한 버전만 다음 목록에 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:7001
+msgid "Go back and try a different mirror?"
+msgstr "뒤로 돌아가서 다른 미러 사이트를 사용해 보시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:7001
+msgid ""
+"The specified (default) Debian version (${RELEASE}) is not available from "
+"the selected mirror. It is possible to continue and select a different "
+"release for your installation, but normally you should go back and select a "
+"different mirror that does support the correct version."
+msgstr ""
+"지정한 (기본) 데비안 버전은 (${RELEASE}) 해당 미러 사이트에 들어 있지 않습니"
+"다. 계속 진행해서 다른 버전을 설치할 수도 있지만, 보통 뒤로 돌아가서 해당 버"
+"전을 지원하는 미러 사이트를 선택해야 합니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid "Bad archive mirror"
+msgstr "아카이브 미러 사이트가 잘못되었습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"An error has been detected while trying to use the specified Debian archive "
+"mirror."
+msgstr "데비안 미러를 사용하는데 오류가 발생했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"Possible reasons for the error are: incorrect mirror specified; mirror is "
+"not available (possibly due to an unreliable network connection); mirror is "
+"broken (for example because an invalid Release file was found); mirror does "
+"not support the correct Debian version."
+msgstr ""
+"가능한 오류 원인은: 올바르지 않은 미러 사이트를 입력했거나, 미러 사이트를 사"
+"용할 수 없거나 (네트워크 연결이 되지 않는 등의 이유), 미러 사이트 내용이 잘못"
+"되었거나 (예를 들어 Release 파일이 올바르지 않은 경우), 미러 사이트가 해당 데"
+"비안 버전을 지원하지 않는 경우입니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"Additional details may be available in /var/log/syslog or on virtual console "
+"4."
+msgstr "더 자세한 정보는 /var/log/syslog 혹은 가상 콘솔 4번에 있습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid "Please check the specified mirror or try a different one."
+msgstr "미러가 올바른지 확인하십시오. 또는 다른 미러를 사용해 보십시오."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:10001
+msgid "oldstable"
+msgstr "구버전안정"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:11001
+msgid "stable"
+msgstr "안정"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:12001
+msgid "testing"
+msgstr "테스팅"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:13001
+msgid "unstable"
+msgstr "불안정"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid "Debian archive mirror directory:"
+msgstr "데비안 아카이브 미러 디렉터리:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid ""
+"Please enter the directory in which the mirror of the Debian archive is "
+"located."
+msgstr "데비안 아카이브 미러 사이트가 들어 있는 디렉터리를 입력하십시오."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid "FTP proxy information (blank for none):"
+msgstr "FTP 프록시 정보 (없으면 빈 칸):"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid ""
+"If you need to use a FTP proxy to access the outside world, enter the proxy "
+"information here. Otherwise, leave this blank."
+msgstr ""
+"외부와 연결할 때 HTTP 프록시를 사용해야 한다면, 여기에 프록시 정보를 입력하십"
+"시오. 프록시가 필요없다면, 빈 칸으로 남겨 두십시오."
+
+#. Type: select
+#. Default
+#. Translators, you should put here the ISO 3166 code of a country
+#. which you know hosts at least one Debian FTP mirror. Please check
+#. that the country really has a Debian FTP mirror before putting a
+#. random value here
+#.
+#. First check that the country you mention here is listed in
+#. http://svn.debian.org/wsvn/webwml/trunk/webwml/english/mirror/Mirrors.masterlist
+#.
+#. BE CAREFUL to use the TWO LETTER ISO-3166 CODE and not anything else
+#.
+#. You do not need to translate what's between the square brackets
+#. You should even NOT put square brackets in translations:
+#. msgid "US[ Default value for ftp]"
+#. msgstr "FR"
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.sel-in:2002
+msgid "US[ Default value for ftp]"
+msgstr "KR"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid "Protocol for file downloads:"
+msgstr "파일을 다운로드할 때 사용할 프로토콜:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid ""
+"Please select the protocol to be used for downloading files. If unsure, "
+"select \"http\"; it is less prone to problems involving firewalls."
+msgstr ""
+"파일 다운로드 프로토콜을 선택하십시오. HTTP가 방화벽 관련 문제를 덜 겪기때문"
+"에 잘 모르겠으면 \"http\"를 선택하십시오."
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. :sl2:
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#: ../net-retriever.templates:1001 ../apt-setup-udeb.templates:7001
+#: ../apt-mirror-setup.templates:4001
+msgid "Retry"
+msgstr "다시 시도"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. :sl2:
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#: ../net-retriever.templates:1001 ../apt-mirror-setup.templates:4001
+msgid "Change mirror"
+msgstr "미러 사이트 바꾸기"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#: ../net-retriever.templates:1002 ../apt-mirror-setup.templates:4002
+msgid "Downloading a file failed:"
+msgstr "파일 다운로드가 실패했습니다:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../net-retriever.templates:1002
+msgid ""
+"The installer failed to download a file from the mirror. This may be a "
+"problem with your network, or with the mirror. You can choose to retry the "
+"download, select a different mirror, or cancel and choose another "
+"installation method."
+msgstr ""
+"설치 프로그램이 미러 사이트에서 파일을 다운로드하는데 실패했습니다. 네트워크"
+"에 문제가 있거나, 미러 사이트에 문제가 있을 것입니다. 다시 다운로드를 시도할 "
+"수도 있고, 미러 사이트를 다른 미러 사이트로 바꿀 수도 있고, 취소하고 다른 설"
+"치 방법을 고를 수도 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-retriever.templates:1001
+msgid "Failed to copy file from CD-ROM. Retry?"
+msgstr "CD-ROM에서 파일을 복사하는데 실패했습니다. 다시 시도하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../cdrom-retriever.templates:1001
+msgid ""
+"There was a problem reading data from the CD-ROM. Please make sure it is in "
+"the drive. If retrying does not work, you should check the integrity of your "
+"CD-ROM."
+msgstr ""
+"CD-ROM에서 데이터를 읽는데 문제가 있습니다. 드라이브에 CD-ROM이 들어 있는 지 "
+"확인하십시오. 그래도 동작하지 않으면 CD-ROM 내용이 올바른지 확인하십시오."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../media-retriever.templates:1001
+msgid "Scanning removable media"
+msgstr "이동식 미디어 검사하는 중입니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../media-retriever.templates:2001
+msgid "Cannot read removable media, or no drivers found."
+msgstr "이동식 미디어를 읽을 수 없거나, 드라이버가 들어있지 않습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../media-retriever.templates:2001
+msgid ""
+"There was a problem reading data from the removable media. Please make sure "
+"that the right media is present. If you continue to have trouble, your "
+"removable media might be bad."
+msgstr ""
+"이동식 미디어에서 데이터를 읽는데 문제가 발생했습니다. 올바른 미디어인지 확인"
+"하십시오. 계속해서 문제가 발생하면, 이 이동식 미디어가 잘못된 미디어일 것입니"
+"다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-base.templates:5001
+msgid "Device in use"
+msgstr "장치 사용 중"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-base.templates:5001
+msgid ""
+"No modifications can be made to the device ${DEVICE} for the following "
+"reasons:"
+msgstr "다음과 같은 이유때문에 ${DEVICE} 장치를 바꿀 수 없습니다:"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-base.templates:6001
+msgid "Partition in use"
+msgstr "파티션 사용 중"
+
+#. Type: error
+#. Description
+#. :sl2:
+#. This should be translated as "partition *number* ${PARTITION}"
+#. In short, ${PARTITION} will indeed contain the partition
+#. NUMBER and not the partition NAME
+#: ../partman-base.templates:6001
+msgid ""
+"No modifications can be made to the partition #${PARTITION} of device "
+"${DEVICE} for the following reasons:"
+msgstr ""
+"다음과 같은 이유때문에 ${DEVICE} 장치의 ${PARTITION}번 파티션을 수정할 수 없"
+"습니다:"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-base.templates:10001
+msgid "Continue with the installation?"
+msgstr "설치를 계속하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-base.templates:10001
+msgid ""
+"No partition table changes and no creation of file systems have been planned."
+msgstr "파티션 테이블을 바꾸지 않았고, 파일 시스템을 만들지도 않을 것입니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-base.templates:10001
+msgid ""
+"If you plan on using already created file systems, be aware that existing "
+"files may prevent the successful installation of the base system."
+msgstr ""
+"이미 만들어져 있는 파일 시스템을 사용한다면, 지금 남아 있는 파일 때문에 베이"
+"스 시스템 설치가 실패할 수도 있습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:13001
+msgid "The following partitions are going to be formatted:"
+msgstr "다음 파티션을 포맷합니다:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. for example: "partition #6 of IDE0 master as ext3 journaling file system"
+#: ../partman-base.templates:14001
+msgid "partition #${PARTITION} of ${DEVICE} as ${TYPE}"
+msgstr "${DEVICE} 장치의 #${PARTITION} 파티션에 있는 ${TYPE}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. for devices which have no partitions
+#. for example: "LVM VG Debian, LV Root as ext3 journaling file system"
+#: ../partman-base.templates:15001
+msgid "${DEVICE} as ${TYPE}"
+msgstr "${DEVICE} 형식 ${TYPE}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:16001
+msgid "The partition tables of the following devices are changed:"
+msgstr "다음 장치의 파티션 테이블이 바뀌었습니다:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-base.templates:17001
+msgid "What to do with this device:"
+msgstr "이 장치에 할 일:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-base.templates:18001
+msgid "How to use this free space:"
+msgstr "남은 공간의 용도:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-base.templates:19001
+msgid "Partition settings:"
+msgstr "파티션 설정:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-base.templates:19001
+msgid ""
+"You are editing partition #${PARTITION} of ${DEVICE}. ${OTHERINFO} "
+"${DESTROYED}"
+msgstr ""
+"${DEVICE} 장치의 #${PARTITION} 파티션을 편집하고 있습니다. ${OTHERINFO} "
+"${DESTROYED}"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:20001
+msgid "This partition is formatted with the ${FILESYSTEM}."
+msgstr "이 파티션은 ${FILESYSTEM} 파일 시스템으로 포맷되어 있습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:21001
+msgid "No existing file system was detected in this partition."
+msgstr "이 파티션에는 파일 시스템을 찾지 못했습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:22001
+msgid "All data in it WILL BE DESTROYED!"
+msgstr "모든 데이터가 없어집니다!"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../partman-base.templates:23001
+msgid "The partition starts from ${FROMCHS} and ends at ${TOCHS}."
+msgstr "파티션은 ${FROMCHS}에 시작해서 ${TOCHS}에 끝납니다."
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../partman-base.templates:24001
+msgid "The free space starts from ${FROMCHS} and ends at ${TOCHS}."
+msgstr "남은 공간은 ${FROMCHS}에 시작해서 ${TOCHS}에 끝납니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:29001 ../partman-base.templates:33001
+msgid "Show Cylinder/Head/Sector information"
+msgstr "실린더/헤드/섹터 정보 보기"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:30001
+msgid "Done setting up the partition"
+msgstr "파티션 준비를 마쳤습니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-base.templates:34001
+#, no-c-format
+msgid "Dump partition info in %s"
+msgstr "%s의 파티션 정보 보기"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-auto.templates:3001 ../partman-auto.templates:4001
+#: ../partman-auto-lvm.templates:4001
+msgid "Failed to partition the selected disk"
+msgstr "선택한 디스크를 파티션하는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-auto.templates:3001
+msgid ""
+"This probably happened because the selected disk or free space is too small "
+"to be automatically partitioned."
+msgstr ""
+"선택한 드라이브나 남은 공간이 너무 작기 때문에 자동 파티션이 실패했을 것입니"
+"다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-auto.templates:4001
+msgid ""
+"This probably happened because there are too many (primary) partitions in "
+"the partition table."
+msgstr "파티션 테이블에 (주) 파티션이 너무 많기 때문에 실패했을 것입니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-auto.templates:10001
+msgid "Unusable free space"
+msgstr "남은 공간을 사용할 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-auto.templates:10001
+msgid ""
+"Partitioning failed because the chosen free space may not be used. There are "
+"probably too many (primary) partitions in the partition table."
+msgstr ""
+"선택한 남은 공간을 사용할 수 없어서 파티션 나누기에 실패했습니다. 파티션 테이"
+"블에 (주) 파티션이 너무 많기 때문에 실패했을 것입니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#. TRANSLATORS: This is a menu entry. Keep in under 55 columns/characters
+#: ../partman-auto.templates:22001
+msgid "Small-disk (< 1GB) partitioning scheme"
+msgstr "소용량 디스크 (1GB보다 작은) 파티션하기"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:1001
+msgid "Go back to the menu?"
+msgstr "메뉴로 돌아가시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:1001
+msgid "No file system is specified for partition #${PARTITION} of ${DEVICE}."
+msgstr ""
+"${DEVICE} 장치의 #${PARTITION} 파티션에 파일 시스템을 지정하지 않았습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:1001
+msgid ""
+"If you do not go back to the partitioning menu and assign a file system to "
+"this partition, it won't be used at all."
+msgstr ""
+"파티션 메뉴로 돌아가서 이 파티션의 파일 시스템을 지정하지 않으면, 이 파티션 "
+"전체를 사용할 수 없습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:2001
+msgid "do not use the partition"
+msgstr "파티션을 사용하지 않습니다"
+
+#. Type: text
+#. Description
+#. up to 25 character positions
+#. :sl2:
+#: ../partman-basicmethods.templates:3001
+msgid "Format the partition:"
+msgstr "파티션 포맷:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:4001
+msgid "yes, format it"
+msgstr "예, 포맷합니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:5001
+msgid "no, keep existing data"
+msgstr "아니요, 현재 데이터 유지"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:6001
+msgid "do not use"
+msgstr "사용하지 않음"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:8001
+msgid "format the partition"
+msgstr "파티션 포맷"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicmethods.templates:10001
+msgid "keep and use the existing data"
+msgstr "현재 데이터를 계속 유지하고 사용합니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:1001
+msgid "Resizing partition..."
+msgstr "파티션 크기를 바꾸는 중입니다..."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:2001
+msgid "Copying partition..."
+msgstr "파티션을 복사하는 중입니다..."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:4001
+#: ../partman-partitioning.templates:8001
+msgid "Write previous changes to disk and continue?"
+msgstr "바뀐 점을 디스크에 쓰고 계속 진행하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:4001
+msgid ""
+"Before you can select a partition to copy, any previous changes have to be "
+"written to disk."
+msgstr "복사할 파티션을 선택하기 전에, 바뀐 사항을 모두 디스크에 써야 합니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:4001
+#: ../partman-partitioning.templates:8001
+msgid "You cannot undo this operation."
+msgstr "이 작업을 되돌릴 수는 없습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:4001
+msgid "Please note that the copy operation may take a long time."
+msgstr "복사 작업에 많은 시간이 걸릴 수도 있습니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:5001
+msgid "Source partition:"
+msgstr "원본 파티션:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:5001
+msgid "Please choose the partition which contains the data you want to copy."
+msgstr "복사할 데이터가 들어 있는 파티션을 고르십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:6001
+msgid "Copy operation failure"
+msgstr "복사 작업이 실패했습니다"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-partitioning.templates:6001
+#: ../partman-partitioning.templates:13001 ../partman-md.templates:21001
+msgid "An error occurred while writing the changes to the storage devices."
+msgstr "바뀐 점을 저장 장치에 쓰는 중에 오류가 발생했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:6001
+msgid "The copy operation has been aborted."
+msgstr "복사 작업을 중지했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:7001
+msgid "The resize operation is impossible"
+msgstr "크기 바꾸기 작업이 불가능합니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:7001
+msgid "Because of an unknown reason it is impossible to resize this partition."
+msgstr "알 수 없는 이유로 이 파티션의 크기를 바꾸는 게 불가능합니다."
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-partitioning.templates:7001 ../clock-setup.templates:9001
+#: ../bootstrap-base.templates:4001 ../bootstrap-base.templates:5001
+#: ../bootstrap-base.templates:6001 ../bootstrap-base.templates:7001
+#: ../bootstrap-base.templates:11001 ../bootstrap-base.templates:16001
+#: ../nobootloader.templates:2001 ../quik-installer.templates:11001
+#: ../quik-installer.templates:13001 ../quik-installer.templates:18001
+#: ../yaboot-installer.templates:11001 ../yaboot-installer.templates:13001
+#: ../yaboot-installer.templates:15001 ../partman-zfs.templates:29001
+#: ../partman-zfs.templates:40001 ../partman-zfs.templates:44001
+#: ../lvmcfg-utils.templates:24001 ../lvmcfg-utils.templates:32001
+#: ../lvmcfg-utils.templates:37001 ../partman-lvm.templates:32001
+#: ../partman-lvm.templates:46001 ../partman-lvm.templates:53001
+#: ../partman-lvm.templates:57001 ../partman-lvm.templates:60001
+#: ../partman-auto-lvm.templates:7001 ../partman-auto-raid.templates:1001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr ""
+"자세한 정보를 확인하시려면 /var/log/messages를 보시거나 가상 콘솔 4을보십시"
+"오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:8001
+msgid ""
+"Before you can select a new partition size, any previous changes have to be "
+"written to disk."
+msgstr ""
+"새 파티션 크기를 정하기 전에, 이전에 바뀐 사항을 모두 디스크에 써야 합니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:8001
+msgid "Please note that the resize operation may take a long time."
+msgstr "크기 바꾸기 작업에 많은 시간이 걸릴 수도 있습니다."
+
+#. Type: string
+#. Description
+#. :sl2:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:9001
+#: ../partman-partitioning.templates:14001
+msgid "New partition size:"
+msgstr "새 파티션 크기:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:9001
+msgid ""
+"The minimum size for this partition is ${MINSIZE} (or ${PERCENT}) and its "
+"maximum size is ${MAXSIZE}."
+msgstr ""
+"이 파티션의 최소 크기는 ${MINSIZE}이고 (혹은 ${PERCENT}) 최대 크기는 "
+"${MAXSIZE}입니다."
+
+#. Type: string
+#. Description
+#. :sl2:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:9001
+#: ../partman-partitioning.templates:14001
+#, no-c-format
+msgid ""
+"Hint: \"max\" can be used as a shortcut to specify the maximum size, or "
+"enter a percentage (e.g. \"20%\") to use that percentage of the maximum size."
+msgstr ""
+"힌트: \"max\" 최대 크기를 지정할 때 \"max\"를 사용할 수 있습니다. 아니면 퍼센"
+"트를 입력하면 (예를 들어 \"20%\") 최대 크기의 그 퍼센트만큼의 크기를 사용합니"
+"다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:10001
+msgid "The size entered is invalid"
+msgstr "입력한 크기가 잘못되었습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:10001
+msgid ""
+"The size you entered was not understood. Please enter a positive integer "
+"size followed by an optional unit of measure (e.g. \"200 GB\"). The default "
+"unit of measure is the megabyte."
+msgstr ""
+"입력한 크기 형식을 인식할 수 없습니다. 0보다 큰 정수를 쓰고 뒤에 단위를 (예: "
+"\"200 GB\") 쓰십시오. 기본 단위는 메가바이트입니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:11001
+msgid "The size entered is too large"
+msgstr "입력한 크기가 너무 큽니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:11001
+msgid ""
+"The size you entered is larger than the maximum size of the partition. "
+"Please enter a smaller size to continue."
+msgstr ""
+"입력한 크기가 파티션의 최대 크기보다 더 큽니다. 계속 하려면 이보다 작은 크기"
+"를 입력하십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:12001
+msgid "The size entered is too small"
+msgstr "입력한 크기가 너무 작습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:12001
+msgid ""
+"The size you entered is smaller than the minimum size of the partition. "
+"Please enter a larger size to continue."
+msgstr ""
+"입력한 크기가 파티션의 최소 크기보다 더 작습니다. 계속 하려면 이보다 큰 크기"
+"를 입력하십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:13001
+msgid "Resize operation failure"
+msgstr "크기 바꾸기 작업이 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:13001
+msgid "The resize operation has been aborted."
+msgstr "크기 바꾸기 작업을 중지했습니다."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:14001
+msgid "The maximum size for this partition is ${MAXSIZE}."
+msgstr "이 파티션의 최대 크기는 ${MAXSIZE}입니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:15001
+msgid "Invalid size"
+msgstr "크기가 잘못되었습니다"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:18001
+msgid "Flags for the new partition:"
+msgstr "새 파티션의 플래그:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:19001
+msgid "Partition name:"
+msgstr "파티션 이름:"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:20001
+#: ../partman-partitioning.templates:21001
+msgid "Continue with partitioning?"
+msgstr "파티션 프로그램을 계속하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:20001
+msgid ""
+"This partitioner doesn't have information about the default type of the "
+"partition tables on your architecture.  Please send an e-mail message to "
+"debian-boot@lists.debian.org with information."
+msgstr ""
+"이 파티션 프로그램은 이 아키텍쳐의 기본 파티션 테이블 종류를 알지 못합니다. "
+"debian-boot@lists.debian.org 주소에 전자메일로 정보를 보내 주십시오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:20001
+msgid ""
+"Please note that if the type of the partition table is unsupported by "
+"libparted, then this partitioner will not work properly."
+msgstr ""
+"파티션 테이블의 종류를 libparted에서 지원하지 않는다면, 이 파티션 프로그램은 "
+"제대로 동작하지 않습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:21001
+msgid ""
+"This partitioner is based on the library libparted which doesn't have "
+"support for the partition tables used on your architecture.  It is strongly "
+"recommended that you exit this partitioner."
+msgstr ""
+"이 파티션 프로그램은 libparted 라이브러리로 만들었습니다. 그런데 libparted가 "
+"이 아키텍쳐에 사용된 파티션 테이블을 지원하지 않습니다. 이 파티션 프로그램을 "
+"끝내시기를 강력히 권합니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:21001
+msgid ""
+"If you can, please help to add support for your partition table type to "
+"libparted."
+msgstr ""
+"할 수 있으면 이 종류의 파티션 테이블을 libparted가 지원하도록 도움을 주십시"
+"오."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:22001
+msgid "Partition table type:"
+msgstr "파티션 테이블 종류:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:22001
+msgid "Select the type of partition table to use."
+msgstr "어떤 종류의 파티션 테이블을 사용할 지 선택하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:23001
+msgid "Create new empty partition table on this device?"
+msgstr "이 장치에 빈 파티션을 새로 만드시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:23001
+msgid ""
+"You have selected an entire device to partition. If you proceed with "
+"creating a new partition table on the device, then all current partitions "
+"will be removed."
+msgstr ""
+"파티션할 장치로 전체 장치를 선택했습니다. 이 장치에 파티션 테이블을 새로 만들"
+"면, 현재 들어있는 파티션을 모두 지웁니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:23001
+msgid "Note that you will be able to undo this operation later if you wish."
+msgstr "원한다면 나중에 이 작업을 취소할 수도 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:24001
+msgid "Write a new empty partition table?"
+msgstr "빈 파티션 테이블을 새로 쓰시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:24001
+msgid ""
+"Because of limitations in the current implementation of the Sun partition "
+"tables in libparted, the newly created partition table has to be written to "
+"the disk immediately."
+msgstr ""
+"현재 libparted의 Sun 파티션 테이블 구현 상태는 제한적이기 때문에, 새로 만드"
+"는 파티션은 만드는 즉시 디스크에 써야 합니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:24001
+msgid ""
+"You will NOT be able to undo this operation later and all existing data on "
+"the disk will be irreversibly removed."
+msgstr ""
+"이 작업은 \"절대\" 나중에 되돌릴 수 없고, 디스크의 기존 데이터는 지워져서 복"
+"구할 수 없게 됩니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:24001
+msgid ""
+"Confirm whether you actually want to create a new partition table and write "
+"it to disk."
+msgstr "정말로 새 파티션 테이블을 만들고 디스크에 쓸 지 확인."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:25001
+msgid "Are you sure you want a bootable logical partition?"
+msgstr "정말로 부팅 가능한 논리 파티션을 만드시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:25001
+msgid ""
+"You are trying to set the bootable flag on a logical partition. The bootable "
+"flag is generally only useful on primary partitions, so setting it on "
+"logical partitions is normally discouraged. Some BIOS versions are known to "
+"fail to boot if there is no bootable primary partition."
+msgstr ""
+"논리 파티션에 부팅 가능 플래그를 적용하려는 중입니다. 부팅 가능 플래그는 보"
+"통 주 파티션에서만 의미가 있기 때문에 논리 파티션에 적용하는 것은 권장하지 않"
+"습니다. 부팅 가능한 주 파티션이 하나도 없으면 부팅에 실패하는 바이오스도 있습"
+"니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:25001
+msgid ""
+"However, if you are sure that your BIOS does not have this problem, or if "
+"you are using a custom boot manager that pays attention to bootable logical "
+"partitions, then setting this flag may make sense."
+msgstr ""
+"하지만 사용하고 있는 바이오스에 이런 문제가 없다고 확신하거나, 아니면 부팅 가"
+"능한 논리 파티션을 취급할 수 있는 전용 부팅 관리자를 사용하는 경우 이 플래그"
+"를 사용할 수도 있습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:26001
+msgid "Set the partition flags"
+msgstr "파티션 플래그 설정"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:27001
+msgid "Name:"
+msgstr "이름:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:28001
+msgid "Bootable flag:"
+msgstr "부팅 가능 플래그:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:29001
+msgid "on"
+msgstr "켜기"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:30001
+msgid "off"
+msgstr "끄기"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:31001
+msgid "Resize the partition (currently ${SIZE})"
+msgstr "파티션 크기 바꾸기 (현재 크기 ${SIZE})"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:32001
+msgid "Copy data from another partition"
+msgstr "다른 파티션에서 데이터 복사"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:33001
+msgid "Delete the partition"
+msgstr "파티션 삭제"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:34001
+msgid "Create a new partition"
+msgstr "새 파티션 만들기"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-partitioning.templates:35001
+msgid "Create a new empty partition table on this device"
+msgstr "이 장치에 새 빈 파티션 테이블을 만들기"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-basicfilesystems.templates:6001
+#: ../partman-basicfilesystems.templates:7001 ../partman-ext2r0.templates:2001
+msgid "Go back to the menu and correct errors?"
+msgstr "메뉴로 돌아가서 오류를 바로잡으시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:6001
+msgid ""
+"The test of the file system with type ${TYPE} in partition #${PARTITION} of "
+"${DEVICE} found uncorrected errors."
+msgstr ""
+"${DEVICE} 장치의 파티션 #${PARTITION}에 ${TYPE} 파일 시스템을 테스트하는 중"
+"에 바로잡지 않은 오류를 발견했습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:6001
+#: ../partman-basicfilesystems.templates:7001
+msgid ""
+"If you do not go back to the partitioning menu and correct these errors, the "
+"partition will be used as is."
+msgstr ""
+"파티션 메뉴로 돌아가서 이 오류를 바로잡지 않으면, 이 파티션은 지금 현재 상태"
+"로 사용해야 합니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:7001
+msgid ""
+"The test of the swap space in partition #${PARTITION} of ${DEVICE} found "
+"uncorrected errors."
+msgstr ""
+"${DEVICE} 장치에 있는 파티션 #${PARTITION} 스왑 영역을 테스트하는 중에 바로 "
+"잡지 않았던 오류를 발견했습니다."
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-basicfilesystems.templates:8001
+#: ../partman-basicfilesystems.templates:11001 ../partman-ext3.templates:10001
+#: ../partman-ext2r0.templates:4001
+msgid "Do you want to return to the partitioning menu?"
+msgstr "파티션 메뉴로 돌아가시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:8001
+msgid ""
+"You have not selected any partitions for use as swap space. Enabling swap "
+"space is recommended so that the system can make better use of the available "
+"physical memory, and so that it behaves better when physical memory is "
+"scarce. You may experience installation problems if you do not have enough "
+"physical memory."
+msgstr ""
+"스왑 파티션을 설정하지 않았습니다. 스왑 파티션을 사용하면 메모리를 더 효율적"
+"으로 사용할 수 있고 메모리가 부족하지더라도 시스템이 제대로 동작하도록 해 주"
+"기 때문에 사용을 권장합니다. 메모리가 부족할 경우 설치 과정 중에 문제가 발생"
+"할 수 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:8001
+msgid ""
+"If you do not go back to the partitioning menu and assign a swap partition, "
+"the installation will continue without swap space."
+msgstr ""
+"파티션 메뉴로 돌아가서 스왑 파티션을 지정하지 않으면, 스왑공간을 사용하지 않"
+"고 설치를 진행합니다."
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-basicfilesystems.templates:9001 ../partman-ext2r0.templates:3001
+msgid "Failed to create a file system"
+msgstr "파일 시스템을 만드는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:9001
+msgid ""
+"The ${TYPE} file system creation in partition #${PARTITION} of ${DEVICE} "
+"failed."
+msgstr ""
+"${DEVICE} 장치의 파티션 #${PARTITION}에 ${TYPE} 파일 시스템을 만드는데 실패했"
+"습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:10001
+msgid "Failed to create a swap space"
+msgstr "스왑 영역을 만드는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:10001
+msgid ""
+"The creation of swap space in partition #${PARTITION} of ${DEVICE} failed."
+msgstr ""
+"${DEVICE} 장치의 파티션 #${PARTITION}에 스왑 영역을 만드는데 실패했습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:11001
+msgid ""
+"No mount point is assigned for the ${FILESYSTEM} file system in partition #"
+"${PARTITION} of ${DEVICE}."
+msgstr ""
+"${DEVICE} 장치의 파티션 #${PARTITION}의 ${FILESYSTEM} 파일 시스템을 마운트할 "
+"위치를 지정하지 않았습니다."
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-basicfilesystems.templates:11001
+#: ../partman-ext2r0.templates:4001
+msgid ""
+"If you do not go back to the partitioning menu and assign a mount point from "
+"there, this partition will not be used at all."
+msgstr ""
+"파티션 메뉴로 돌아가서 마운트 위치를 지정하지 않으면, 이 파티션 전체를 사용"
+"할 수 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:12001
+msgid "Invalid file system for this mount point"
+msgstr "이 마운트 위치의 파일 시스템이 올바르지 않습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:12001
+msgid ""
+"The file system type ${FILESYSTEM} cannot be mounted on ${MOUNTPOINT}, "
+"because it is not a fully-functional Unix file system. Please choose a "
+"different file system, such as ${EXT2}."
+msgstr ""
+"${FILESYSTEM} 파일 시스템은 완전한 유닉스용 파일 시스템이 아니기 때문에 "
+"${MOUNTPOINT}에 이 형식의 파일 시스템을 마운트할 수 없습니다. ${EXT2}와 같"
+"은, 다른 종류의 파일 시스템을 선택하십시오."
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/ - the root file system"
+msgstr "/ - 루트 파일 시스템"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/boot - static files of the boot loader"
+msgstr "/boot - 부트로더가 사용하는 고정 파일들"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/home - user home directories"
+msgstr "/home - 사용자 홈 디렉토리"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/tmp - temporary files"
+msgstr "/tmp - 임시 파일"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/usr - static data"
+msgstr "/usr - 고정 데이터"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/var - variable data"
+msgstr "/var - 변하는 데이터"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/srv - data for services provided by this system"
+msgstr "/srv - 시스템에서 제공하는 서비스에 필요한 데이터"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/opt - add-on application software packages"
+msgstr "/opt - 추가 소프트웨어 패키지"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#: ../partman-basicfilesystems.templates:13001
+msgid "/usr/local - local hierarchy"
+msgstr "/usr/local - 로컬 저장고"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#. Type: select
+#. Choices
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. :sl4:
+#. what's to be entered is a mount point
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl5:
+#. What's to be "entered manually" is a mount point
+#: ../partman-basicfilesystems.templates:13001
+#: ../partman-basicfilesystems.templates:14001
+#: ../partman-ext2r0.templates:5001 ../partconf.templates:6001
+msgid "Enter manually"
+msgstr "수동으로 입력"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl2:
+#. Type: select
+#. Choices
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. :sl4:
+#. "it" is a partition
+#: ../partman-basicfilesystems.templates:13001
+#: ../partman-basicfilesystems.templates:14001
+#: ../partman-ext2r0.templates:5001
+msgid "Do not mount it"
+msgstr "마운트하지 않음"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: string
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#: ../partman-basicfilesystems.templates:13002
+#: ../partman-basicfilesystems.templates:14002
+#: ../partman-basicfilesystems.templates:15001
+#: ../partman-ext2r0.templates:5002
+msgid "Mount point for this partition:"
+msgstr "이 파티션을 마운트할 위치:"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../partman-basicfilesystems.templates:14001
+msgid "/dos"
+msgstr "/dos"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../partman-basicfilesystems.templates:14001
+msgid "/windows"
+msgstr "/windows"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:16001
+msgid "Invalid mount point"
+msgstr "마운트할 위치가 잘못되었습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:16001
+msgid "The mount point you entered is invalid."
+msgstr "입력한 마운트할 위치가 잘못되었습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:16001
+msgid "Mount points must start with \"/\". They cannot contain spaces."
+msgstr "마운트 위치는 \"/\"로 시작해야 합니다. 공백이 들어가면 안 됩니다."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:17001
+msgid "Label for the file system in this partition:"
+msgstr "이 파티션에 들어 있는 파일 시스템의 레이블:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:18001
+msgid "Format the swap area:"
+msgstr "스왑 영역 포맷:"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. In the following context: "Format the partition: yes"
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl3:
+#: ../partman-basicfilesystems.templates:19001
+#: ../partman-crypto.templates:21001
+msgid "yes"
+msgstr "예"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. In the following context: "Format the partition: no"
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl3:
+#: ../partman-basicfilesystems.templates:20001
+#: ../partman-crypto.templates:20001
+msgid "no"
+msgstr "아니요"
+
+#. Type: text
+#. Description
+#. label of file system
+#. :sl2:
+#: ../partman-basicfilesystems.templates:21001
+msgid "Label:"
+msgstr "레이블:"
+
+#. Type: text
+#. Description
+#. for partman-basicfilesystems: in the following context: "Label: none"
+#. :sl2:
+#: ../partman-basicfilesystems.templates:22001
+msgid ""
+"none[ Do not translate what's inside the brackets and just put the "
+"translation for the word \"none\" in your language without any brackets. "
+"This \"none\" relates to \"Label:\" ]"
+msgstr "없음"
+
+#. Type: text
+#. Description
+#. Up to 24 character positions
+#. :sl2:
+#: ../partman-basicfilesystems.templates:23001
+msgid "Reserved blocks:"
+msgstr "예약된 블럭:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:24001
+msgid "Percentage of the file system blocks reserved for the super-user:"
+msgstr "수퍼유저를 위해 예약된 파일 시스템 블럭의 퍼센트:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Up to 25 character positions
+#: ../partman-basicfilesystems.templates:25001
+msgid "Typical usage:"
+msgstr "일반적인 사용:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. In the following context: "Typical usage: standard"
+#: ../partman-basicfilesystems.templates:26001
+msgid "standard"
+msgstr "표준"
+
+#. Type: text
+#. Description
+#. This is an item in the menu "Partition settings"
+#. :sl2:
+#: ../partman-basicfilesystems.templates:28001
+msgid "Mount point:"
+msgstr "마운트 위치:"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. In the following context: "Mount point: none"
+#: ../partman-basicfilesystems.templates:29001
+msgid ""
+"none[ Do not translate what's inside the brackets and just put the "
+"translation for the word \"none\" in your language without any brackets. "
+"This \"none\" relates to \"Mount point:\" ]"
+msgstr "없음"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:30001
+msgid "Ext2 file system"
+msgstr "EXT2 파일 시스템"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:32001
+msgid "FAT16 file system"
+msgstr "FAT16 파일 시스템"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:34001
+msgid "FAT32 file system"
+msgstr "FAT32 파일 시스템"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#: ../partman-basicfilesystems.templates:36001
+#: ../partman-basicfilesystems.templates:38001
+msgid "swap area"
+msgstr "스왑 영역"
+
+#. Type: text
+#. Description
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:40001
+#: ../partman-basicfilesystems.templates:41001
+msgid "Mount options:"
+msgstr "마운트 옵션:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../partman-basicfilesystems.templates:41001
+msgid "Mount options can tune the behavior of the file system."
+msgstr "마운트 옵션으로 파일 시스템의 동작을 조정할 수 있습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:42001
+msgid "noatime - do not update inode access times at each access"
+msgstr "noatime - 접근할 때 inode의 접근 시각을 업데이트하지 않습니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:43001
+msgid "relatime - update inode access times relative to modify time"
+msgstr "relatime - inode의 접근 시각을 변경 시각에 상대 시각으로 업데이트"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:44001
+msgid "nodev - do not support character or block special devices"
+msgstr "nodev - 캐릭터 장치나 블럭 장치를 지원하지 않습니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:45001
+msgid "nosuid - ignore set-user-identifier or set-group-identifier bits"
+msgstr "nosuid - set user ID 혹은 set group ID 비트를 무시합니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:46001
+msgid "noexec - do not allow execution of any binaries"
+msgstr "noexec - 실행 파일의 실행을 막습니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:47001
+msgid "ro - mount the file system read-only"
+msgstr "ro - 읽기 전용으로 파일 시스템을 마운트합니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:48001
+msgid "sync - all input/output activities occur synchronously"
+msgstr "sync - 모든 입/출력이 동기적으로 일어납니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:49001
+msgid "usrquota - user disk quota accounting enabled"
+msgstr "usrquota - 사용자 디스크 쿼타 기능을 사용합니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:50001
+msgid "grpquota - group disk quota accounting enabled"
+msgstr "grpquota - 그룹 디스크 쿼타 기능을 사용합니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:51001
+msgid "user_xattr - support user extended attributes"
+msgstr "user_xattr - 사용자 확장 속성을 지원합니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:52001
+msgid "quiet - changing owner and permissions does not return errors"
+msgstr "quiet - 소유자나 권한을 바꿀 때 오류를 리턴하지 않습니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Note to translators: Please keep your translations of this string below
+#. a 65 columns limit (which means 65 characters in single-byte languages)
+#: ../partman-basicfilesystems.templates:53001
+msgid "notail - disable packing of files into the file system tree"
+msgstr "notail - 파일 시스템 트리에 파일을 몰아 넣지 않습니다"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-ext3.templates:2001
+msgid "Ext3 journaling file system"
+msgstr "EXT3 저널링 파일 시스템"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-ext3.templates:5001
+msgid "Ext4 journaling file system"
+msgstr "EXT4 저널링 파일 시스템"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl3:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-ext3.templates:7001 ../partman-ext3.templates:8001
+#: ../partman-ext2r0.templates:9001 ../partman-ext2r0.templates:10001
+#: ../partman-ext2r0.templates:11001 ../partman-ufs.templates:6001
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
+msgid "Go back to the menu and correct this problem?"
+msgstr "메뉴로 돌아가서 이 문제를 바로잡으시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:7001
+msgid ""
+"Your boot partition has not been configured with the ext2 or ext3 file "
+"system. This is needed by your machine in order to boot. Please go back and "
+"use either the ext2 or ext3 file system."
+msgstr ""
+"부팅 파티션을 EXT2나 EXT3 파일 시스템으로 설정하지 않았습니다. 이 컴퓨터에서 "
+"부팅하려면 EXT2나 EXT3 파일 시스템을 사용해야 합니다. 돌아가서 EXT2나 EXT3 파"
+"일 시스템을 사용하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:7001 ../partman-ext3.templates:8001
+msgid ""
+"If you do not go back to the partitioning menu and correct this error, the "
+"partition will be used as is. This means that you may not be able to boot "
+"from your hard disk."
+msgstr ""
+"파티션 메뉴로 돌아가서 이 오류를 바로잡지 않으면, 이 파티션을 지금 상태로 사"
+"용합니다. 이렇게 하면 하드 디스크에서 부팅할 수 없을 수도 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:8001
+msgid ""
+"Your boot partition is not located on the first primary partition of your "
+"hard disk. This is needed by your machine in order to boot.  Please go back "
+"and use your first primary partition as a boot partition."
+msgstr ""
+"부팅 파티션이 하드 디스크의 첫 번째 주 파티션이 아닙니다. 이 컴퓨터에서 부팅"
+"하려면 이 파티션이 필요합니다. 돌아가서 첫 번째 주 파티션을 부팅 파티션으로 "
+"사용하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:9001
+msgid "Return to the menu to set the bootable flag?"
+msgstr "메뉴로 돌아가서 부팅 가능 플래그를 설정하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:9001
+msgid ""
+"The boot partition has not been marked as a bootable partition, even though "
+"this is required by your machine in order to boot. You should go back and "
+"set the bootable flag for the boot partition."
+msgstr ""
+"부팅 파티션을 부팅 가능 파티션으로 표시하지 않았습니다. 이 컴퓨터에서 부팅하"
+"려면 부팅 가능 파티션을 설정해야 합니다. 돌아가서 부팅 파티션에 부팅 가능 플"
+"래그를 설정하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:9001
+msgid ""
+"If you don't correct this, the partition will be used as is and it is likely "
+"that the machine cannot boot from its hard disk."
+msgstr ""
+"이 오류를 바로잡지 않으면 이 파티션을 지금 상태로 사용합니다. 이렇게 하면 이 "
+"컴퓨터는 하드 디스크에서 부팅할 수 없을 것입니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:10001
+msgid ""
+"The partition ${PARTITION} assigned to ${MOUNTPOINT} starts at an offset of "
+"${OFFSET} bytes from the minimum alignment for this disk, which may lead to "
+"very poor performance."
+msgstr ""
+"${MOUNTPOINT} 위치에서 사용할 ${PARTITION} 파티션이 이 디스크의 최소 정렬 단"
+"위의${OFFSET} 바이트 오프셋에서 시작합니다. 이렇게 하면 성능이 매우 떨어질 "
+"수 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-ext3.templates:10001
+msgid ""
+"Since you are formatting this partition, you should correct this problem now "
+"by realigning the partition, as it will be difficult to change later. To do "
+"this, go back to the main partitioning menu, delete the partition, and "
+"recreate it in the same position with the same settings. This will cause the "
+"partition to start at a point best suited for this disk."
+msgstr ""
+"파티션을 포맷하는 중이므로, 파티션 정렬을 지금 바로잡을 수 있습니다. 나중에"
+"는 바꾸기 어렵습니다. 바로잡으려면 주 파티션 메뉴로 돌아가서, 파티션을 지운 "
+"다음, 같은 위치에 같은 설정으로 파티션을 다시 만드십시오. 그렇게 하면 파티션"
+"이 알맞는 위치에서 시작하게 됩니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-btrfs.templates:2001
+msgid "btrfs journaling file system"
+msgstr "BRTFS 저널링 파일 시스템"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name (untranslatable in many languages)
+#: ../partman-reiserfs.templates:1001
+msgid "ReiserFS"
+msgstr "ReiserFS"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-reiserfs.templates:2001
+msgid "ReiserFS journaling file system"
+msgstr "ReiserFS 저널링 파일 시스템"
+
+#. Type: text
+#. Description
+#. File system name
+#. :sl2:
+#: ../partman-jfs.templates:2001
+msgid "JFS journaling file system"
+msgstr "JFS 저널링 파일 시스템"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:4001
+msgid "Use unrecommended JFS root file system?"
+msgstr "추천하지 않는 JFS 루트 파일 시스템을 사용하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:4001
+msgid ""
+"Your root file system is a JFS file system. This can cause problems with the "
+"boot loader used by default by this installer."
+msgstr ""
+"루트 파일 시스템이 JFS 파일 시스템입니다. 설치 프로그램에서 기본으로 사용하"
+"는 부트로더에서 문제가 발생할 수 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:4001
+msgid ""
+"You should use a small /boot partition with another file system, such as "
+"ext3."
+msgstr ""
+"작은 /boot 파티션을 만들어 ext3와 같은 다른 파일 시스템을 사용해야 합니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:5001
+msgid "Use unrecommended JFS /boot file system?"
+msgstr "추천하지 않는 JFS 루트 파일 시스템을 사용하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:5001
+msgid ""
+"You have mounted a JFS file system as /boot. This is likely to cause "
+"problems with the boot loader used by default by this installer."
+msgstr ""
+"JFS 파일 시스템을 /boot로 마운트했습니다. 설치 프로그램에서 기본으로 사용하"
+"는 부트로더에서 문제가 발생할 수 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-jfs.templates:5001
+msgid ""
+"You should use another file system, such as ext3, for the /boot partition."
+msgstr "/boot 파티션으로 ext3와 같은 다른 파일 시스템을 사용해야 합니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#. File system name
+#: ../partman-xfs.templates:2001
+msgid "XFS journaling file system"
+msgstr "XFS 저널링 파일 시스템"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:4001
+msgid "Identical labels for two file systems"
+msgstr "파일 시스템 두 개의 레이블이 같습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:4001
+msgid ""
+"Two file systems are assigned the same label (${LABEL}): ${PART1} and "
+"${PART2}. Since file system labels are usually used as unique identifiers, "
+"this is likely to cause reliability problems later."
+msgstr ""
+"두 파일 시스템에 같은 레이블이 붙어 있습니다 (${LABEL}): ${PART1} 및 "
+"${PART2}. 파일 시스템 레이블은 파일 시스템을 구별하는데 사용하므로 같은 레이"
+"블이 붙어 있으면 문제를 일으킬 수 있습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:4001
+msgid "Please correct this by changing labels."
+msgstr "레이블을 바꿔서 바로 잡으십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:5001
+msgid "Identical mount points for two file systems"
+msgstr "파일 시스템 두 개의 마운트 위치가 같습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:5001
+msgid ""
+"Two file systems are assigned the same mount point (${MOUNTPOINT}): ${PART1} "
+"and ${PART2}."
+msgstr ""
+"파일 시스템 두 개를 같은 위치에 (${MOUNTPOINT}) 마운트합니다: ${PART1} 및 "
+"${PART2}."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:5001
+msgid "Please correct this by changing mount points."
+msgstr "마운트 위치를 바꿔서 바로 잡으십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:6001
+msgid "No root file system"
+msgstr "루트 파일 시스템이 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:6001
+msgid "No root file system is defined."
+msgstr "루트 파일 시스템이 정의되지 않았습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:6001 ../partman-target.templates:7001
+msgid "Please correct this from the partitioning menu."
+msgstr "파티션 메뉴에서 이 문제를 바로 잡으십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:7001
+msgid "Separate file system not allowed here"
+msgstr "여기에 별도 파일 시스템 금지"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../partman-target.templates:7001
+msgid ""
+"You assigned a separate file system to ${MOUNTPOINT}, but in order for the "
+"system to start correctly this directory must be on the root file system."
+msgstr ""
+"${MOUNTPOINT}에 따로 파일 시스템을 배정했습니다. 하지만 이 디렉터리는 루트 파"
+"일 시스템에 들어 있어야 시스템이 올바르게 시작합니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-target.templates:8001
+msgid "Do you want to resume partitioning?"
+msgstr "파티션을 다시 시작하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-target.templates:8001
+msgid ""
+"The attempt to mount a file system with type ${TYPE} in ${DEVICE} at "
+"${MOUNTPOINT} failed."
+msgstr ""
+"${MOUNTPOINT} 위치에 ${DEVICE} 장치의 ${TYPE} 타입 파일 시스템을 마운트하는 "
+"데 실패했습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../partman-target.templates:8001
+msgid "You may resume partitioning from the partitioning menu."
+msgstr "파티션 메뉴에서 파티션 나누기를 다시 시작할 수 있습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../partman-target.templates:10001
+msgid "Use as:"
+msgstr "용도:"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:5001
+msgid "Set the clock using NTP?"
+msgstr "NTP를 이용해 시계를 맞추시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:5001
+msgid ""
+"The Network Time Protocol (NTP) can be used to set the system's clock. The "
+"installation process works best with a correctly set clock."
+msgstr ""
+"NTP(Network Time Protocol, 네트워크 시각 프로토콜)를 사용해 시스템 시계를 맞"
+"출 수 있습니다. 시각을 정확하게 맞춰야 설치 프로그램이 잘 동작합니다."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:6001
+msgid "NTP server to use:"
+msgstr "사용할 NTP 서버 주소:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:6001
+msgid ""
+"The default NTP server is almost always a good choice, but if you prefer to "
+"use another NTP server, you can enter it here."
+msgstr ""
+"기본 NTP 서버가 대부분의 경우 가장 적합한 선택사항이지만, 다른 NTP 서버를 사"
+"용하시려면 여기에 입력하실 수 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:9001
+msgid "Wait another 30 seconds for hwclock to set the clock?"
+msgstr "hwclock이 시계를 맞추는데 30초 더 기다리시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:9001
+msgid ""
+"Setting the hardware clock is taking longer than expected. The 'hwclock' "
+"program used to set the clock may have problems talking to the hardware "
+"clock."
+msgstr ""
+"하드웨어 시계를 설정하는 작업이 생각보다 오래 걸리고 있습니다. 시계를 설정하"
+"는 'hwclock' 프로그램이 하드웨어 시계와 통신하는데 문제를 겪고 있을 수 있습니"
+"다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../clock-setup.templates:9001
+msgid ""
+"If you choose to not wait for hwclock to finish setting the clock, this "
+"system's clock may not be set correctly."
+msgstr ""
+"hwclock이 시계를 설정할 때까지 기다리지 않으시면 시스템의 시계가 제대로 설정"
+"되어 있지 않을 수 있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../base-installer.templates:1001
+msgid "Proceed with installation to unclean target?"
+msgstr "비어있지 않은 대상에 설치를 계속 하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../base-installer.templates:1001
+msgid ""
+"The target file system contains files from a past installation. These files "
+"could cause problems with the installation process, and if you proceed, some "
+"of the existing files may be overwritten."
+msgstr ""
+"대상 파일 시스템에 예전에 설치한 파일이 남아 있습니다. 설치 과정에 문제가발생"
+"할 수도 있고 기존에 설치된 시스템을 망가뜨릴 수도 있습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../base-installer.templates:2001
+msgid "No file system mounted on /target"
+msgstr "/target에 마운트한 파일 시스템이 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../base-installer.templates:2001
+msgid ""
+"Before the installation can proceed, a root file system must be mounted on /"
+"target. The partitioner and formatter should have done this for you."
+msgstr ""
+"설치를 계속 하시기 전에, 루트 파일 시스템을 /target에 마운트해야 합니다. 파티"
+"션 프로그램과 포맷 프로그램에서 벌써 마운트했어야 합니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../base-installer.templates:3001
+msgid "Not installing to unclean target"
+msgstr "비어있지 않은 대상에는 설치하지 않습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../base-installer.templates:3001
+msgid ""
+"The installation to the target file system has been canceled. You should go "
+"back and erase or format the target file system before proceeding with the "
+"install."
+msgstr ""
+"대상 파일 시스템에 설치를 취소했습니다. 대상 파일 시스템에 예전에 설치한 파일"
+"이 남아 있습니다. 이 파일때문에 설치 과정이 잘못되거나 망가진 시스템을 설치"
+"할 수도 있습니다. 설치를 계속 하기 전에 뒤로 돌아가서 대상 파일 시스템을 지우"
+"거나 포맷해야 합니다."
+
+#. Type: error
+#. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#. :sl2:
+#: ../bootstrap-base.templates:2001
+msgid "Cannot install base system"
+msgstr "베이스 시스템을 설치하는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. The base system is the minimal Debian system
+#. See http://www.debian.org/doc/debian-policy/ch-binary.html#s3.7
+#. :sl2:
+#: ../bootstrap-base.templates:2001
+msgid ""
+"The installer cannot figure out how to install the base system. No "
+"installable CD-ROM was found and no valid mirror was configured."
+msgstr ""
+"설치 프로그램이 베이스 시스템을 설치할 방법이 없습니다. 설치 CD-ROM이 없고, "
+"올바른 미러 사이트를 설정하지도 않았습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a Release file name.
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a Release.gpg file name
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a gpg key ID
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../bootstrap-base.templates:3001 ../bootstrap-base.templates:7001
+#: ../bootstrap-base.templates:17001 ../bootstrap-base.templates:18001
+#: ../bootstrap-base.templates:19001 ../bootstrap-base.templates:20001
+#: ../bootstrap-base.templates:21001 ../bootstrap-base.templates:22001
+msgid "Debootstrap Error"
+msgstr "debootstrap 오류"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:3001
+msgid "Failed to determine the codename for the release."
+msgstr "이번 릴리스의 코드네임을 구하는데 실패했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:4001
+msgid "Failed to install the base system"
+msgstr "베이스 시스템을 설치하는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:4001
+msgid "The base system installation into /target/ failed."
+msgstr "베이스 시스템을 /target/에 설치하는데 실패했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:5001 ../bootstrap-base.templates:6001
+msgid "Base system installation error"
+msgstr "베이스 시스템 설치 오류"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:5001
+msgid ""
+"The debootstrap program exited with an error (return value ${EXITCODE})."
+msgstr ""
+"debootstrap 프로그램이 오류를 리턴하고 끝났습니다 (리턴값 ${EXITCODE})."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:6001
+msgid "The debootstrap program exited abnormally."
+msgstr "debootstrap 프로그램이 비정상적으로 끝났습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:7001
+msgid "The following error occurred:"
+msgstr "다음 오류가 발생했습니다:"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:11001
+msgid "Unable to install the selected kernel"
+msgstr "선택한 커널을 설치할 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:11001
+msgid ""
+"An error was returned while trying to install the kernel into the target "
+"system."
+msgstr "대상 시스템에 커널을 설치하는데 오류가 발생했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:11001
+msgid "Kernel package: '${KERNEL}'."
+msgstr "커널 패키지: '${KERNEL}'."
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../bootstrap-base.templates:12001
+msgid ""
+"none[ Do not translate what's inside the brackets and just put the "
+"translation for the word \"none\" in your language without any brackets. "
+"This \"none\" means \"no kernel\" ]"
+msgstr "없음"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:12002
+msgid "Kernel to install:"
+msgstr "설치할 커널:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:12002
+msgid ""
+"The list shows the available kernels. Please choose one of them in order to "
+"make the system bootable from the hard drive."
+msgstr ""
+"사용할 수 있는 커널의 목록입니다. 시스템을 하드 드라이브에서 시작하도록 만드"
+"려면 다음 커널 중에서 하나를 선택하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:14001
+msgid "Continue without installing a kernel?"
+msgstr "커널 설치 없이 계속하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:14001
+msgid "No installable kernel was found in the defined APT sources."
+msgstr "지정한 APT 소스에는 설치할 수 있는 커널이 하나도 없습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:14001
+msgid ""
+"You may try to continue without a kernel, and manually install your own "
+"kernel later. This is only recommended for experts, otherwise you will "
+"likely end up with a machine that doesn't boot."
+msgstr ""
+"커널 없이 진행한 다음에 수동으로 커널을 설치할 수도 있지만, 잘못하면 부팅을 "
+"안 할 수도 있으니 고급 사용자에게만 권장합니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:15001
+msgid "Cannot install kernel"
+msgstr "커널을 설치할 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:15001
+msgid "The installer cannot find a suitable kernel package to install."
+msgstr "설치 프로그램에서 필요한 커널 패키지를 찾는데 실패했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:16001
+msgid "Unable to install ${PACKAGE}"
+msgstr "${PACKAGE} 패키지를 설치할 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:16001
+msgid ""
+"An error was returned while trying to install the ${PACKAGE} package onto "
+"the target system."
+msgstr "대상 시스템에 ${PACKAGE} 패키지를 설치하는데 오류가 발생했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a Release file name.
+#: ../bootstrap-base.templates:17001
+msgid "Failed getting Release file ${SUBST0}."
+msgstr "${SUBST0} Release 파일을 받는데 실패했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a Release.gpg file name
+#: ../bootstrap-base.templates:18001
+msgid "Failed getting Release signature file ${SUBST0}."
+msgstr "${SUBST0} Release 서명 파일을 받는데 실패했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a gpg key ID
+#: ../bootstrap-base.templates:19001
+msgid "Release file signed by unknown key (key id ${SUBST0})"
+msgstr ""
+"Release 파일의 서명이 잘못되었습니다: 키 ${SUBST0}에 대한 항목이 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../bootstrap-base.templates:20001
+msgid "Invalid Release file: no valid components."
+msgstr "Release 파일이 잘못되었습니다: 올바른 컴포넌트가 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename
+#: ../bootstrap-base.templates:21001
+msgid "Invalid Release file: no entry for ${SUBST0}."
+msgstr "Release 파일이 잘못되었습니다: ${SUBST0}에 대한 항목이 없습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../bootstrap-base.templates:22001
+msgid ""
+"Couldn't retrieve ${SUBST0}. This may be due to a network problem or a bad "
+"CD, depending on your installation method."
+msgstr ""
+"${SUBST0} 파일을 가져올 수 없습니다. (어떤 설치 방법을 사용했느냐에 따라) 네"
+"트워크 문제가 있거나 CD가 잘못되었을 것입니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. SUBST0 is a filename or package name
+#. Debootstrap is a program name: should not be translated
+#: ../bootstrap-base.templates:22001
+msgid ""
+"If you are installing from CD-R or CD-RW, burning the CD at a lower speed "
+"may help."
+msgstr ""
+"CD-R이나 CD-RW에서 설치한다면, CD를 느린 속도에서 구우면 해결될 수도 있습니"
+"다."
+
+#. Type: error
+#. Description
+#. Debootstrap is a program name: should not be translated
+#. :sl2:
+#: ../bootstrap-base.templates:57001
+msgid "Debootstrap warning"
+msgstr "debootstrap 경고"
+
+#. Type: error
+#. Description
+#. Debootstrap is a program name: should not be translated
+#. :sl2:
+#: ../bootstrap-base.templates:57001
+msgid "Warning: ${INFO}"
+msgstr "경고: ${INFO}"
+
+#. Type: text
+#. Description
+#. SUBST0 is an url
+#. :sl2:
+#: ../bootstrap-base.templates:58001
+msgid "Retrying failed download of ${SUBST0}"
+msgstr "${SUBST0}을(를) 받는데 실패해 다시 다운로드하는 중입니다"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#. These are choices of actions so this is, at least in English,
+#. an infinitive form
+#: ../apt-setup-udeb.templates:7001 ../apt-mirror-setup.templates:4001
+msgid "Ignore"
+msgstr "무시"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-setup-udeb.templates:10001
+msgid "Cannot access repository"
+msgstr "저장소에 접근할 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-setup-udeb.templates:10001
+msgid ""
+"The repository on ${HOST} couldn't be accessed, so its updates will not be "
+"made available to you at this time. You should investigate this later."
+msgstr ""
+"${HOST}에 있는 저장소에 접근할 수 없기 때문에 해당 업데이트를 적용할 수 없습"
+"니다. 나중에 이 문제를 검토하시기 바랍니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-setup-udeb.templates:10001
+msgid ""
+"Commented out entries for ${HOST} have been added to the /etc/apt/sources."
+"list file."
+msgstr ""
+"주석 처리했던 ${HOST} 항목을 /etc/apt/sources.list 파일에 추가했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-cdrom-setup.templates:2001
+msgid "apt configuration problem"
+msgstr "APT 설정 문제"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../apt-cdrom-setup.templates:2001
+msgid ""
+"An attempt to configure apt to install additional packages from the CD "
+"failed."
+msgstr "APT를 설정해 CD에서 패키지를 설치하려고 했지만 실패했습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../apt-mirror-setup.templates:6001
+msgid "Continue without a network mirror?"
+msgstr "네트워크 미러 사이트 없이 계속 하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../apt-mirror-setup.templates:6001
+msgid "No network mirror was selected."
+msgstr "선택한 네트워크 미러 사이트가 없습니다."
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:1001
+msgid "Use restricted software?"
+msgstr "제한된 소프트웨어를 사용하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:1001
+msgid ""
+"Some non-free software is available in packaged form. Though this software "
+"is not a part of the main distribution, standard package management tools "
+"can be used to install it. This software has varying licenses which may "
+"prevent you from using, modifying, or sharing it."
+msgstr ""
+"독점 소프트웨어를 설치할 수 있습니다. 이 소프트웨어는 메인 배포판에 속해있지"
+"않지만 패키지 관리 도구를 사용해 설치할 수 있습니다. 비자유소프트웨어는 라이"
+"선스가 소프트웨어마다 다르며 소프트웨어를 사용하거나 수정, 공유할 수 없는경우"
+"도 있습니다."
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:2001
+msgid "Use software from the \"universe\" component?"
+msgstr "\"유니버스\" 소프트웨어를 사용하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:2001
+msgid ""
+"Some additional software is available in packaged form. This software is "
+"free and, though it is not a part of the main distribution, standard package "
+"management tools can be used to install it."
+msgstr ""
+"추가로 설치할 수 있는 소프트웨어가 있습니다. 메인 배포판에 속하지는 않지만자"
+"유 소프트웨어에 해당하며, 패키지 관리 도구를 사용해 설치할 수 있습니다."
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:3001
+msgid "Use software from the \"multiverse\" component?"
+msgstr "\"멀티버스\" 소프트웨어를 사용하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:3001
+msgid ""
+"Some non-free software is available in packaged form. Though this software "
+"is not a part of the main distribution, standard package management tools "
+"can be used to install it. This software has varying licenses and (in some "
+"cases) patent restrictions which may prevent you from using, modifying, or "
+"sharing it."
+msgstr ""
+"독점 소프트웨어 중에 패키지로 사용할 수 있는 소프트웨어가 있습니다. 이 소프트"
+"웨어는 메인 배포판에 포함된 소프트웨어가 아니지만 패키지 관리 도구를 이용해 "
+"설치할 수 있습니다. 독점 소프트웨어는 라이선스가 여러가지이고, (경우에 따라) "
+"특허 문제때문에 소프트웨어 사용, 수정, 공유를 못 할 수도 있습니다."
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:4001
+msgid "Use software from the \"partner\" repository?"
+msgstr "\"파트너\" 저장소에 있는 소프트웨어를 사용하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:4001
+msgid ""
+"Some additional software is available from Canonical's \"partner\" "
+"repository. This software is not part of Ubuntu, but is offered by Canonical "
+"and the respective vendors as a service to Ubuntu users."
+msgstr ""
+"캐노니컬의 \"파트너\" 저장고에 추가 소프트웨어가 일부 들어 있습니다. 이 소프"
+"트웨어는 우분투의 일부가 아니지만 캐노니컬 및 여러 회사들이 우분투 사용자에 "
+"대한 서비스로 제공합니다."
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:5001
+msgid "Use backported software?"
+msgstr "백포팅한 소프트웨어를 사용합니까?"
+
+#. Type: boolean
+#. Description
+#. This template is used by the Ubuntu version of d-i.
+#. :sl2:
+#: ../apt-mirror-setup.templates-ubuntu:5001
+msgid ""
+"Some software has been backported from the development tree to work with "
+"this release. Although this software has not gone through such complete "
+"testing as that contained in the release, it includes newer versions of some "
+"applications which may provide useful features."
+msgstr ""
+"이 배포판에 적합하도록 백포팅한 소프트웨어가 있습니다. 릴리스한 배포판에 들"
+"어 있는 소프트웨어만큼 철저한 테스트 과정을 거치지는 않았지만 몇 가지 기능이 "
+"추가되는 등 더 최신 버전의 소프트웨어입니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:8001
+msgid "Create a normal user account now?"
+msgstr "일반 사용자 계정을 지금 만드시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:8001
+msgid ""
+"It's a bad idea to use the root account for normal day-to-day activities, "
+"such as the reading of electronic mail, because even a small mistake can "
+"result in disaster. You should create a normal user account to use for those "
+"day-to-day tasks."
+msgstr ""
+"자주 하는 일반적인 (예를 들어 전자메일 읽기) 컴퓨터 작업에서는 루트 계정을 쓰"
+"지 않는 게 좋습니다. 루트 계정에서는 아주 작은 실수 때문에 큰 피해가 발생할 "
+"수도 있기 때문입니다. 일반적인 작업에 사용할 일반 사용자 계정을 지금 만들 수 "
+"있습니다."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:8001
+msgid ""
+"Note that you may create it later (as well as any additional account) by "
+"typing 'adduser <username>' as root, where <username> is an username, like "
+"'imurdock' or 'rms'."
+msgstr ""
+"나중에 루트 사용자로 'adduser <사용자이름>' 명령을 실행해서 계정을 만들 수도 "
+"있습니다. 여기서 <사용자이름>은 'imurdock'이나 'rms'같은 사용자 이름입니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:11001
+msgid "Invalid username"
+msgstr "잘못된 사용자 이름"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:11001
+msgid ""
+"The username you entered is invalid. Note that usernames must start with a "
+"lower-case letter, which can be followed by any combination of numbers and "
+"more lower-case letters, and must be no more than 32 characters long."
+msgstr ""
+"입력한 사용자 이름이 잘못되었습니다. 사용자 이름은 영문 소문자로 시작해야 하"
+"고, 그 뒤에는 숫자나 영문 소문자를 쓸 수 있습니다. 또 글자 수가 32자 이하여"
+"야 합니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:12001
+msgid "Reserved username"
+msgstr "예약 사용자 이름"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:12001
+msgid ""
+"The username you entered (${USERNAME}) is reserved for use by the system. "
+"Please select a different one."
+msgstr ""
+"입력한 사용자 이름은 (${USERNAME}) 시스템에서 사용하려고 예약해 놓은 사용자 "
+"이름입니다. 다른 이름을 사용하십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:15001 ../grub-installer.templates:10001
+msgid "Password input error"
+msgstr "암호 입력 오류"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:15001 ../grub-installer.templates:10001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr "입력한 두 암호가 같지 않습니다. 다시 입력하십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:16001 ../network-console.templates:6001
+msgid "Empty password"
+msgstr "빈 암호"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:16001 ../network-console.templates:6001
+msgid ""
+"You entered an empty password, which is not allowed. Please choose a non-"
+"empty password."
+msgstr "빈 암호를 사용할 수 없습니다. 암호를 입력하십시오."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:17001
+msgid "Enable shadow passwords?"
+msgstr "쉐도우 암호를 사용하시겠습니까?"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../user-setup-udeb.templates:17001
+msgid ""
+"Shadow passwords make your system more secure because nobody is able to view "
+"even encrypted passwords. The passwords are stored in a separate file that "
+"can only be read by special programs. The use of shadow passwords is "
+"strongly recommended, except in a few cases such as NIS environments."
+msgstr ""
+"쉐도우 암호를 쓰면 암호화한 암호조차 아무나 볼 수 없기 때문에 시스템의 보안"
+"에 좋습니다. 암호는 별도 파일에 저장하게 되고 일부 특별한 프로그램만 읽을 수 "
+"있습니다. 쉐도우 암호를 사용하도록 권장하지만, NIS 환경 등 드물게 쉐도우 암"
+"호 때문에 문제가 생기는 경우가 있습니다."
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../cdebconf-udeb.templates:2001
+msgid "critical"
+msgstr "중요"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../cdebconf-udeb.templates:2001
+msgid "high"
+msgstr "높음"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../cdebconf-udeb.templates:2001
+msgid "medium"
+msgstr "중간"
+
+#. Type: select
+#. Choices
+#. :sl2:
+#: ../cdebconf-udeb.templates:2001
+msgid "low"
+msgstr "낮음"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdebconf-udeb.templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "이보다 우선순위가 낮은 질문은 무시:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdebconf-udeb.templates:2002
+msgid ""
+"Packages that use debconf for configuration prioritize the questions they "
+"might ask you. Only questions with a certain priority or higher are actually "
+"shown to you; all less important questions are skipped."
+msgstr ""
+"debconf를 사용하는 패키지에서는 물어보는 질문에 우선 순위를 매깁니다. 지정한 "
+"우선 순위 혹은 그보다 높은 우선 순위의 질문들만 나타납니다. 더 낮은 질문들은 "
+"건너 뜁니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdebconf-udeb.templates:2002
+msgid ""
+"You can select the lowest priority of question you want to see:\n"
+" - 'critical' is for items that will probably break the system\n"
+"    without user intervention.\n"
+" - 'high' is for items that don't have reasonable defaults.\n"
+" - 'medium' is for normal items that have reasonable defaults.\n"
+" - 'low' is for trivial items that have defaults that will work in\n"
+"   the vast majority of cases."
+msgstr ""
+"질문의 최저 우선 순위를 선택할 수 있습니다:\n"
+" - '중요'는 사용자가 개입하지 않으면 시스템이 제대로 동작하지 않는 경우.\n"
+" - '높음'은 사용할 만한 기본값이 없는 경우.\n"
+" - '중간'은 사용할 만한 기본값이 있는 경우.\n"
+" - '낮음'은 대부분의 경우에 동작하는 기본값이 있는 경우."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../cdebconf-udeb.templates:2002
+msgid ""
+"For example, this question is of medium priority, and if your priority were "
+"already 'high' or 'critical', you wouldn't see this question."
+msgstr ""
+"예를 들어, 이 질문은 중간 우선 순위입니다. 우선 순위가 '높음'이나 '중요'였다"
+"면, 이 질문을 보지 못했을 것입니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../cdebconf-priority.templates:1001
+msgid "Change debconf priority"
+msgstr "debconf 우선 순위 바꾸기"
+
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:4001 ../grub-installer.templates:6001
+#: ../grub-installer.templates:14001
+msgid "Unable to configure GRUB"
+msgstr "GRUB을 설정할 수 없습니다"
+
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: string
+#. Description
+#. :sl2:
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: select
+#. Description
+#. :sl4:
+#: ../grub-installer.templates:7001 ../yaboot-installer.templates:9001
+msgid "Device for boot loader installation:"
+msgstr "부트로더를 설치할 장치:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001
+msgid ""
+"You need to make the newly installed system bootable, by installing the GRUB "
+"boot loader on a bootable device. The usual way to do this is to install "
+"GRUB on the master boot record of your first hard drive. If you prefer, you "
+"can install GRUB elsewhere on the drive, or to another drive, or even to a "
+"floppy."
+msgstr ""
+"새로 설치한 데비안 시스템을 부팅 가능하게 만들 차례입니다. GRUB 부트로더를 부"
+"팅 가능한 장치에 설치합니다. 보통 GRUB을 첫 번째 하드 드라이브의 마스터 부트 "
+"레코드에 설치합니다. 원한다면 GRUB을 드라이브의 다른 위치나, 다른 하드 드라이"
+"브, 심지어 플로피에라도 설치할 수 있습니다."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:7001
+msgid ""
+"The device should be specified as a device in /dev. Below are some "
+"examples:\n"
+" - \"/dev/sda\" will install GRUB to the master boot record of your first\n"
+"   hard drive;\n"
+" - \"/dev/sda2\" will use the second partition of your first hard drive;\n"
+" - \"/dev/sdc5\" will use the first extended partition of your third hard\n"
+"   drive;\n"
+" - \"/dev/fd0\" will install GRUB to a floppy."
+msgstr ""
+"장치는 /dev 안에 들어 있는 장치로 지정해야 합니다. 예를 들어:\n"
+" - \"/dev/sda\"는 첫 번째 하드 드라이브의 마스터 부트 레코드에 GRUB을\n"
+"   설치합니다.\n"
+" - \"/dev/sda2\"는 첫 번째 하드 드라이브의 두 번째 파티션을 사용합니다.\n"
+" - \"/dev/sdc5\"는 세 번째 하드 드라이브의 첫 번째 확장 파티션을 사용합니"
+"다.\n"
+" - \"/dev/fd0\"은 GRUB을 플로피에 설치합니다."
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:8001
+msgid "GRUB password:"
+msgstr "GRUB 암호:"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:8001
+msgid ""
+"The GRUB boot loader offers many powerful interactive features, which could "
+"be used to compromise your system if unauthorized users have access to the "
+"machine when it is starting up. To defend against this, you may choose a "
+"password which will be required before editing menu entries or entering the "
+"GRUB command-line interface. By default, any user will still be able to "
+"start any menu entry without entering the password."
+msgstr ""
+"GRUB 부트로더에는 아주 강력한 대화식 기능이 들어 있습니다. 이 기능을 이용하"
+"면 아무 사용자나 시작할 때 컴퓨터의 권한을 획득할 수 있습니다. 이렇게 하지 못"
+"하게 하려면, 메뉴를 편집하거나 GRUB 명령행 인터페이스로 들어갈 때 암호를 입력"
+"하도록 만들 수 있습니다. 기본값으로 어떤 사용자라도 암호를 입력하지 않고도 어"
+"떤 메뉴라도 들어갈 수 있습니다."
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:8001
+msgid "If you do not wish to set a GRUB password, leave this field blank."
+msgstr "GRUB 암호를 설정하지 않으려면, 이 필드를 비워 두십시오."
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:9001
+msgid ""
+"Please enter the same GRUB password again to verify that you have typed it "
+"correctly."
+msgstr "제대로 입력했는지 확인하기 위해 같은 GRUB 암호를 한번 더 입력하십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:12001
+msgid "GRUB installation failed"
+msgstr "GRUB 설치가 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:12001
+msgid ""
+"The '${GRUB}' package failed to install into /target/. Without the GRUB boot "
+"loader, the installed system will not boot."
+msgstr ""
+"/target/에 '${GRUB}' 패키지를 설치하는데 실패했습니다. GRUB 부트로더 없이는 "
+"시스템이 부팅하지 않습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001
+msgid "Unable to install GRUB in ${BOOTDEV}"
+msgstr "GRUB을 ${BOOTDEV}에 설치할 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001
+msgid "Executing 'grub-install ${BOOTDEV}' failed."
+msgstr "'grub-install ${BOOTDEV}' 실행이 실패했습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:13001 ../grub-installer.templates:14001
+msgid "This is a fatal error."
+msgstr "치명적인 오류입니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../grub-installer.templates:14001
+msgid "Executing 'update-grub' failed."
+msgstr "'update-grub' 실행이 실패했습니다."
+
+#. Type: text
+#. Description
+#. Rescue menu item
+#. :sl2:
+#: ../grub-installer.templates:25001
+msgid "Reinstall GRUB boot loader"
+msgstr "GRUB 부트로더 다시 설치"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:1001
+msgid "Failed to retrieve the preconfiguration file"
+msgstr "미리 설정 파일을 가져오는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:1001
+msgid ""
+"The file needed for preconfiguration could not be retrieved from "
+"${LOCATION}. The installation will proceed in non-automated mode."
+msgstr ""
+"미리 설정에 필요한 파일을 ${LOCATION}에서 다운로드할 수 없습니다. 자동이 아"
+"닌 모드로 설치를 진행합니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:2001
+msgid "Failed to process the preconfiguration file"
+msgstr "미리 설정 파일을 처리하는데 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:2001
+msgid ""
+"The installer failed to process the preconfiguration file from ${LOCATION}. "
+"The file may be corrupt."
+msgstr ""
+"설치 프로그램에서 ${LOCATION}에 있는 미리 설정 파일을 처리하는데 실패했습니"
+"다. 파일 내용이 망가진 것 같습니다."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:10001
+msgid "Failed to run preseeded command"
+msgstr "preseed 명령 실행이 실패했습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../preseed-common.templates:10001
+msgid ""
+"Execution of preseeded command \"${COMMAND}\" failed with exit code ${CODE}."
+msgstr ""
+"미리 설정한 명령어 (\"${COMMAND}\") 실행이 상태 코드 ${CODE}번으로 실패했습니"
+"다."
+
+#. Type: title
+#. Description
+#. Info message displayed when running in rescue mode
+#. :sl2:
+#: ../rescue-check.templates:2001
+msgid "Rescue mode"
+msgstr "복구 모드"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:3002
+msgid "Device to use as root file system:"
+msgstr "루트 파일 시스템으로 마운트할 장치:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:3002
+msgid ""
+"Enter a device you wish to use as your root file system. You will be able to "
+"choose among various rescue operations to perform on this file system."
+msgstr ""
+"루트 파일 시스템으로 사용할 장치를 입력하십시오. 이 파일 시스템에서 여러가지 "
+"복구 작업중에 필요한 작업을 선택할 수 있을 것입니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:3002
+msgid ""
+"If you choose not to use a root file system, you will be given a reduced "
+"choice of operations that can be performed without one. This may be useful "
+"if you need to correct a partitioning problem."
+msgstr ""
+"루트 파일 시스템을 사용하지 않으면, 루트 파일 시스템 없이 사용할 수 있는 일"
+"만 할 수 있습니다. 이 모드에서 효과적으로 파티션 문제를 바로잡을 수 있습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:8001
+msgid "Execute a shell in ${DEVICE}"
+msgstr "${DEVICE}에서 쉘 실행"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:9001
+msgid "Execute a shell in the installer environment"
+msgstr "설치 프로그램 환경에서 쉘 실행"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:10001
+msgid "Choose a different root file system"
+msgstr "다른 루트 파일 시스템 선택"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:11001
+msgid "Reboot the system"
+msgstr "시스템 다시 시작"
+
+#. Type: text
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#. :sl2:
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:12001 ../rescue-mode.templates:16001
+#: ../rescue-mode.templates:17001
+msgid "Executing a shell"
+msgstr "쉘 실행 중"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:12001
+msgid ""
+"After this message, you will be given a shell with ${DEVICE} mounted on \"/"
+"\". If you need any other file systems (such as a separate \"/usr\"), you "
+"will have to mount those yourself."
+msgstr ""
+"이 메시지 후에 ${DEVICE} 장치를 \"/target\"에 마운트한 상태로 쉘을 실행할 것"
+"입니다.\"/usr\" 등을 별도로 둬서 다른 파일 시스템이 필요할 경우 직접 마운트해"
+"야 합니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:15001
+msgid "Interactive shell on ${DEVICE}"
+msgstr "인터랙티브 쉘 실행 (${DEVICE}에서)"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:16001
+msgid ""
+"After this message, you will be given a shell with ${DEVICE} mounted on \"/"
+"target\". You may work on it using the tools available in the installer "
+"environment. If you want to make it your root file system temporarily, run "
+"\"chroot /target\". If you need any other file systems (such as a separate "
+"\"/usr\"), you will have to mount those yourself."
+msgstr ""
+"이 메시지를 닫으면 쉘이 나타납니다. ${DEVICE} 장치를 \"/target\"에 마운트한 "
+"상태입니다. 설치 프로그램에 들어 있는 도구를 이용해 이 장치를 바꿀 수 있습니"
+"다. 이 장치를 임시로 루트 파일 시스템으로 만드려면 \"chroot /target\" 명령을 "
+"실행하십시오. \"/usr\" 등 다른 파일 시스템이 필요하면 직접 하나하나 마운트해"
+"야 합니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:17001
+msgid ""
+"After this message, you will be given a shell in the installer environment. "
+"No file systems have been mounted."
+msgstr ""
+"이 메시지 후에 설치 프로그램 환경에서 쉘을 실행합니다. 마운트한 파일 시스템"
+"은 없습니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:18001
+msgid "Interactive shell in the installer environment"
+msgstr "설치 프로그램 환경에서 인터랙티브 쉘 실행"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:19001
+msgid "Passphrase for ${DEVICE}:"
+msgstr "${DEVICE}의 암호문:"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:19001
+msgid "Please enter the passphrase for the encrypted volume ${DEVICE}."
+msgstr "암호화한 장치 ${DEVICE}의 암호문을 입력하십시오."
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:19001
+msgid ""
+"If you don't enter anything, the volume will not be available during rescue "
+"operations."
+msgstr ""
+"아무것도 입력하지 않으시면 이 볼륨은 복구 작업 도중에는 사용할 수 없게 됩니"
+"다."
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:20002
+msgid "Partitions to assemble:"
+msgstr "결합할 파티션:"
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:20002
+msgid ""
+"Select the partitions to assemble into a RAID array. If you select "
+"\"Automatic\", then all devices containing RAID physical volumes will be "
+"scanned and assembled."
+msgstr ""
+"RAID 어레이로 결합할 파티션을 선택하십시오. \"자동\"을 선택하면 RAID 물리 볼"
+"륨에 들어 있는 모든 장치를 검사하고 조합합니다."
+
+#. Type: multiselect
+#. Description
+#. :sl2:
+#: ../rescue-mode.templates:20002
+msgid ""
+"Note that a RAID partition at the end of a disk may sometimes cause that "
+"disk to be mistakenly detected as containing a RAID physical volume. In that "
+"case, you should select the appropriate partitions individually."
+msgstr ""
+"디스크 끝에 RAID 파티션이 있는 경우, 디스크에 RAID 물리 볼륨이 들어 있다고 잘"
+"못 검사할 수도 있습니다. 이러한 경우 파티션을 개별적으로 선택해야 합니다."
+
+#. Type: select
+#. Choices
+#. Possible locations for debug logs to be saved
+#. :sl2:
+#: ../save-logs.templates:2001
+msgid "floppy"
+msgstr "플로피"
+
+#. Type: select
+#. Choices
+#. Possible locations for debug logs to be saved
+#. :sl2:
+#: ../save-logs.templates:2001
+msgid "web"
+msgstr "웹"
+
+#. Type: select
+#. Choices
+#. Possible locations for debug logs to be saved
+#. :sl2:
+#: ../save-logs.templates:2001
+msgid "mounted file system"
+msgstr "마운트한 파일 시스템"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../save-logs.templates:2002
+msgid "How should the debug logs be saved or transferred?"
+msgstr "디버깅 로그를 어떻게 저장 혹은 전송하시겠습니까?"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../save-logs.templates:2002
+msgid ""
+"Debugging log files for the installer can be saved to floppy, served up over "
+"the web, or saved to a mounted file system."
+msgstr ""
+"설치 프로그램의 디버깅 로그 파일은 플로피에 저장할 수도 있고, 웹을 통해 가져"
+"갈 수도 있고, 마운트한 파일 시스템에 저장할 수도 있습니다."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../save-logs.templates:3001
+msgid "Directory in which to save debug logs:"
+msgstr "디버깅 로그를 저장할 디렉터리:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../save-logs.templates:3001
+msgid ""
+"Please make sure the file system you want to save debug logs on is mounted "
+"before you continue."
+msgstr ""
+"계속 하시기 전에 디버깅 로그를 저장하려는 파일 시스템을 마운트하도록 하십시"
+"오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../save-logs.templates:4001
+msgid "Cannot save logs"
+msgstr "로그를 저장할 수 없습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../save-logs.templates:4001
+msgid "The directory \"${DIR}\" does not exist."
+msgstr "\"${DIR}\" 디렉터리가 없습니다."
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../save-logs.templates:7001
+msgid "Insert formatted floppy in drive"
+msgstr "포맷한 플로피를 드라이브에 넣으십시오"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../save-logs.templates:7001
+msgid "Log files and debug info will be copied into this floppy."
+msgstr "로그 파일과 디버깅 정보를 플로피에 복사합니다."
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../save-logs.templates:7001
+msgid ""
+"The information will also be stored in /var/log/installer/ on the installed "
+"system."
+msgstr "이 정보는 최종 설치한 시스템의 /var/log/installer/에도 저장합니다."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. Translators: keep it under 65 columns
+#. :sl2:
+#: ../cdrom-checker.templates:12001
+msgid "Check the CD-ROM(s) integrity"
+msgstr "CD-ROM 내용 확인"
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../network-console.templates:1001
+msgid "Continue installation remotely using SSH"
+msgstr "SSH을 사용해 원격에서 설치하기"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl2:
+#: ../network-console.templates:2001
+msgid "Start installer"
+msgstr "설치 프로그램 시작"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl2:
+#: ../network-console.templates:2001
+msgid "Start installer (expert mode)"
+msgstr "설치 프로그램 시작 (전문가 모드)"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl2:
+#: ../network-console.templates:2001
+msgid "Start shell"
+msgstr "쉘 시작"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../network-console.templates:2002
+msgid "Network console option:"
+msgstr "네트워크 콘솔 옵션:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../network-console.templates:2002
+msgid ""
+"This is the network console for the Debian installer. From here, you may "
+"start the Debian installer, or execute an interactive shell."
+msgstr ""
+"데비안 설치 프로그램의 네트워크 콘솔입니다. 여기에서 데비안 설치 프로그램을 "
+"시작할 수도 있고, 쉘을 실행할 수도 있습니다."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../network-console.templates:2002
+msgid "To return to this menu, you will need to log in again."
+msgstr "이 메뉴로 돌아오려면 다시 로그인해야 합니다."
+
+#. Type: text
+#. Description
+#. :sl2:
+#: ../network-console.templates:3001
+msgid "Generating SSH host key"
+msgstr "SSH 호스트 키를 만드는 중입니다"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../network-console.templates:4001
+msgid "Remote installation password:"
+msgstr "원격 설치 암호:"
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../network-console.templates:4001
+msgid ""
+"You need to set a password for remote access to the Debian installer. A "
+"malicious or unqualified user with access to the installer can have "
+"disastrous results, so you should take care to choose a password that is not "
+"easy to guess. It should not be a word found in the dictionary, or a word "
+"that could be easily associated with you, like your middle name."
+msgstr ""
+"데비안 설치 프로그램에 원격으로 연결할 때 사용할 암호를 지정해야 합니다. 악의"
+"적인 사용자나 미숙한 사용자가 설치 프로그램에 연결하면, 매우 안 좋은 결과로 "
+"끝날 수 있습니다. 그러므로 쉽게 추측할 수 없는 암호를 설정하도록 신경을 써야 "
+"합니다. 사전에 있는 단어를 사용하지 말아야 하고, 별명 등 본인 신상 정보와 관"
+"계 있는 암호를 사용해서도 안 됩니다."
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../network-console.templates:4001
+msgid ""
+"This password is used only by the Debian installer, and will be discarded "
+"once you finish the installation."
+msgstr ""
+"이 암호는 데비안 설치 프로그램에서만 사용하고, 설치가 끝나면 없어집니다."
+
+#. Type: password
+#. Description
+#. :sl2:
+#: ../network-console.templates:5001
+msgid ""
+"Please enter the same remote installation password again to verify that you "
+"have typed it correctly."
+msgstr "올바르게 입력했는 지 확인하기 위해 원격 설치 암호를 다시 입력하십시오."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../network-console.templates:7001
+msgid "Password mismatch"
+msgstr "암호가 맞지 않습니다"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../network-console.templates:7001
+msgid ""
+"The two passwords you entered were not the same. Please enter a password "
+"again."
+msgstr "두 번 입력한 암호가 같지 않습니다. 암호를 다시 입력하십시오."
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../network-console.templates:8001
+msgid "Start SSH"
+msgstr "SSH 시작"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../network-console.templates:8001
+msgid ""
+"To continue the installation, please use an SSH client to connect to the IP "
+"address ${ip} and log in as the \"installer\" user. For example:"
+msgstr ""
+"설치를 계속 하시려면, SSH 클라이언트로 IP 주소 ${ip}에 연결해 \"installer\"라"
+"는 사용자로 로그인하십시오. 예를 들어:"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../network-console.templates:8001
+msgid "The fingerprint of this SSH server's host key is: ${fingerprint}"
+msgstr "SSH 서버의 호스트 키의 핑거프린트는: ${fingerprint}"
+
+#. Type: note
+#. Description
+#. :sl2:
+#: ../network-console.templates:8001
+msgid ""
+"Please check this carefully against the fingerprint reported by your SSH "
+"client."
+msgstr ""
+"이 핑거프린트가 SSH 클라이언트에서 알려주는 핑거프린트와 같은 지 확인하십시"
+"오."

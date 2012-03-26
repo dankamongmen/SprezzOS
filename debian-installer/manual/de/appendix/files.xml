@@ -1,0 +1,372 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65939 -->
+
+
+ <sect1 arch="linux-any" id="linuxdevices"><title>Linux-Geräte</title>
+<para>
+
+Unter Linux finden Sie im Verzeichnis <filename>/dev</filename> verschiedene
+spezielle Dateien. Diese heißen Gerätedateien und verhalten sich anders wie
+gewöhnliche Dateien. Die bekanntesten Typen von Gerätedateien sind die für
+blockorientierte und für zeichenorientierte Geräte. Diese Dateien stellen
+eine Schnittstelle zu dem jeweiligen Treiber (ein Teil des Linux-Kernels)
+dar, der dann wiederum auf die Hardware zugreift. Eine weitere wichtige, aber
+weniger bekannte Gerätedatei heißt <firstterm>pipe</firstterm>.
+Die wichtigsten Gerätedateien sind in der untenstehenden Tabelle aufgelistet.
+
+</para><para>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>fd0</filename></entry>
+  <entry>Das erste Diskettenlaufwerk</entry>
+</row><row>
+  <entry><filename>fd1</filename></entry>
+  <entry>Das zweite Diskettenlaufwerk</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>hda</filename></entry>
+  <entry>Festplatte oder CD-ROM am ersten IDE-Port - Master</entry>
+</row><row>
+  <entry><filename>hdb</filename></entry>
+  <entry>Festplatte oder CD-ROM am ersten IDE-Port - Slave</entry>
+</row><row>
+  <entry><filename>hdc</filename></entry>
+  <entry>Festplatte oder CD-ROM am zweiten IDE-Port - Master</entry>
+</row><row>
+  <entry><filename>hdd</filename></entry>
+  <entry>Festplatte oder CD-ROM am zweiten IDE-Port - Slave</entry>
+</row><row>
+  <entry><filename>hda1</filename></entry>
+  <entry>Die erste Partition auf der ersten IDE-Festplatte</entry>
+</row><row>
+  <entry><filename>hdd15</filename></entry>
+  <entry>Fünfzehnte Partition auf der vierten IDE-Festplatte</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sda</filename></entry>
+  <entry>Die SCSI-Festplatte mit der niedrigsten SCSI-ID (z.B. 0)</entry>
+</row><row>
+  <entry><filename>sdb</filename></entry>
+  <entry>Die SCSI-Festplatte mit der nächsthöheren SCSI-ID (z.B. 1)</entry>
+</row><row>
+  <entry><filename>sdc</filename></entry>
+  <entry>Die SCSI-Festplatte mit der nächsthöheren SCSI-ID (z.B. 2)</entry>
+</row><row>
+  <entry><filename>sda1</filename></entry>
+  <entry>Die erste Partition auf der ersten SCSI-Festplatte</entry>
+</row><row>
+  <entry><filename>sdd10</filename></entry>
+  <entry>Die zehnte Partition auf der vierten SCSI-Festplatte</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sr0</filename></entry>
+  <entry>SCSI-CD-ROM-Laufwerk mit der niedrigsten SCSI-ID</entry>
+</row><row>
+  <entry><filename>sr1</filename></entry>
+  <entry>SCSI-CD-ROM-Laufwerk mit der nächsthöheren SCSI-ID</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>ttyS0</filename></entry>
+  <entry>Der erste serielle Port (Port 0, unter MS-DOS COM1 genannt)</entry>
+</row><row>
+  <entry><filename>ttyS1</filename></entry>
+  <entry>Der zweite serielle Port (Port 1, unter MS-DOS COM2 genannt)</entry>
+</row><row>
+  <entry><filename>psaux</filename></entry>
+  <entry>PS/2-Maus</entry>
+</row><row>
+  <entry><filename>gpmdata</filename></entry>
+  <entry>Pseudo-Gerät, das Daten vom GPM-(Maus-)Daemon überträgt</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>cdrom</filename></entry>
+  <entry>Symbolischer Link zum CD-ROM-Laufwerk</entry>
+</row><row>
+  <entry><filename>mouse</filename></entry>
+  <entry>Symbolischer Link zur Gerätedatei der Maus</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>null</filename></entry>
+  <entry>Alles, was an dieses Gerät geschickt wird, verschwindet</entry>
+</row><row>
+  <entry><filename>zero</filename></entry>
+  <entry>Man kann endlos Nullen von diesem Gerät lesen</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+  <sect2 arch="not-s390" id="device-mouse">
+  <title>Einrichten der Maus</title>
+
+<para>
+
+Die Maus kann sowohl auf der Linux-Konsole (mit GPM) wie auch in der
+X-Window-Umgebung verwendet werden. Normalerweise ist es dazu lediglich
+erforderlich, <filename>gpm</filename> sowie den X-Server selbst zu
+installieren. Beide sollten so konfiguriert werden,
+dass sie <filename>/dev/input/mice</filename> als Maus-Gerät verwenden.
+Das korrekte Mausprotokoll in gpm heißt <userinput>exps2</userinput>, in X
+<userinput>ExplorerPS/2</userinput>. Die entsprechenden Konfigurationsdateien
+sind <filename>/etc/gpm.conf</filename> beziehungsweise
+<filename>/etc/X11/xorg.conf</filename>.
+
+</para><para>
+
+Bestimmte Kernel-Module müssen geladen werden, damit Ihre Maus funktioniert.
+In den meisten Fällen werden die richtigen Module automatisch erkannt, aber für
+ältere serielle oder Bus-Mäuse funktioniert dies nicht immer<footnote>
+
+<para>
+Serielle Mäuse haben gewöhnlich einen 9-poligen Sub-D-Anschluss, Bus-Mäuse haben
+einen runden 8-poligen Stecker (nicht zu verwechseln mit dem runden 6-poligen
+Stecker einer PS/2-Maus oder dem runden 4-poligen Stecker einer ADB-Maus).
+</para>
+
+</footnote>; diese sind jedoch sehr selten, außer vielleicht bei sehr alten
+Rechnern. Eine Zusammenfassung der Linux-Kernel-Module, die für verschiedene
+Maustypen erforderlich sind:
+
+<informaltable><tgroup cols="2"><thead>
+<row>
+  <entry>Modul</entry>
+  <entry>Beschreibung</entry>
+</row>
+</thead><tbody>
+<row>
+  <entry>psmouse</entry>
+  <entry>PS/2-Maus (sollte automatisch erkannt werden)</entry>
+</row>
+<row>
+  <entry>usbhid</entry>
+  <entry>USB-Maus (sollte automatisch erkannt werden)</entry>
+</row>
+<row>
+  <entry>sermouse</entry>
+  <entry>Die meisten seriellen Mäuse</entry>
+</row>
+<row>
+  <entry>logibm</entry>
+  <entry>Bus-Maus, die an eine Logitech-Adapterkarte angeschlossen ist</entry>
+</row>
+<row>
+  <entry>inport</entry>
+  <entry>Bus-Maus, die an eine ATI oder Microsoft InPort-Karte angeschlossen ist</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+Um ein Maustreiber-Modul zu laden, können Sie den Befehl
+<command>modconf</command> (aus dem gleichnamigen Paket) verwenden; sehen
+Sie in der Kategorie <userinput>kernel/drivers/input/mouse</userinput> nach.
+
+</para><para arch="powerpc">
+<!-- FJP 20070122: Unsure if this is still valid -->
+
+Moderne Kernel geben Ihnen die Möglichkeit, eine Drei-Tasten-Maus zu
+emulieren, wenn Sie nur eine Ein-Tasten-Maus haben. Fügen Sie dazu die
+folgenden Zeilen zur Datei <filename>/etc/sysctl.conf</filename> hinzu.
+
+<informalexample><screen>
+# Emulation einer 3-Tasten-Maus
+# Emulation aktivieren
+/dev/mac_hid/mouse_button_emulation = 1
+# Das Signal der mittleren Maustaste über die Taste F11 erzeugen
+/dev/mac_hid/mouse_button2_keycode = 87
+# Das Signal der rechten Maustaste über die Taste F12 erzeugen
+/dev/mac_hid/mouse_button3_keycode = 88
+# Wenn Sie andere Tasten verwenden möchten, nutzen Sie den Befehl showkey,
+# um zu erfahren, welchen Keycode Sie eintragen müssen.
+</screen></informalexample>
+
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="tasksel-size-list">
+ <title>Festplattenplatz, der für die Programmgruppen benötigt wird</title>
+<para>
+
+Eine Standard-Installation für die amd64-Architektur inklusive aller
+Standardpakete und mit Verwendung des standardmäßigen 2.6-Kernels benötigt
+&std-system-size;MB Festplattenplatz. Eine minimale Basisinstallation ohne die Programmgruppe
+<quote>Standard-System</quote> belegt &base-system-size;MB.
+</para>
+<important><para>
+
+In beiden Fällen ist dies der benötigte Platz auf der Platte,
+<emphasis>nachdem</emphasis> die Installation beendet ist und alle temporären
+Dateien gelöscht wurden. Ebenfalls ist der vom Dateisystem genutzte Overhead
+nicht mit eingerechnet, zum Beispiel für die Journal-Dateien. Dies bedeutet,
+dass noch bedeutend mehr Festplattenplatz benötigt wird, und zwar sowohl
+<emphasis>während</emphasis> der Installation wie auch später bei der normalen
+Nutzung des Systems.
+
+</para></important>
+<para>
+
+
+Die folgende Tabelle listet die Größe der Programmgruppen auf (die Sie in
+tasksel auswählen können), wie Sie von aptitude angegeben wird. Beachten Sie,
+dass einige Gruppen überlappende Bestandteile haben, so dass die absolut
+installierte Größe von zwei Gruppen zusammen weniger sein kann als die Summe
+der einzelnen Werte.
+
+</para><para>
+
+Standardmäßig wird der Installer die GNOME-Arbeitsplatzumgebung installieren,
+aber es können auch alternative Umgebungen ausgewählt werden: entweder durch
+Verwendung eines der speziellen CD-Images oder indem beim Booten des Installers
+durch einen Parameter die gewünschte Arbeitsplatzumgebung festgelegt wird
+(siehe <xref linkend="pkgsel"/>).
+
+</para><para>
+
+Bedenken Sie, dass Sie zu den Angaben aus der Liste noch die Größe der
+Standard-Installation hinzurechnen müssen, wenn es darum geht, die benötigte
+Größe der Partitionen abzuschätzen. Von dem, was unter <quote>Größe
+nach der Installation</quote> aufgeführt ist, wird das meiste in
+<filename>/usr</filename> und <filename>/lib</filename> landen; die Werte
+unter <quote>Herunterzuladende Größe</quote> werden (vorübergehend) in
+<filename>/var</filename> benötigt.
+ 
+</para><para>
+
+<informaltable>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Programmgruppe</entry>
+  <entry>Größe nach der Installation (MB)</entry>
+  <entry>Herunterzuladende Größe (MB)</entry>
+  <entry>Für die Installation benötigt (MB)</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Arbeitsplatzrechner</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;GNOME (Standardeinstellung)</entry>
+  <entry>&task-desktop-gnome-inst;</entry>
+  <entry>&task-desktop-gnome-dl;</entry>
+  <entry>&task-desktop-gnome-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;KDE</entry>
+  <entry>&task-desktop-kde-inst;</entry>
+  <entry>&task-desktop-kde-dl;</entry>
+  <entry>&task-desktop-kde-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;Xfce</entry>
+  <entry>&task-desktop-xfce-inst;</entry>
+  <entry>&task-desktop-xfce-dl;</entry>
+  <entry>&task-desktop-xfce-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;LXDE</entry>
+  <entry>&task-desktop-lxde-inst;</entry>
+  <entry>&task-desktop-lxde-dl;</entry>
+  <entry>&task-desktop-lxde-tot;</entry>
+</row>
+
+<row>
+  <entry>Laptop<footnote>
+  
+  <para>
+   Es gibt ein paar Überschneidungen der Programmgruppe Laptop mit der für
+   Arbeitsplatzrechner. Wenn Sie beide installieren, benötigt Laptop
+   nur ein paar MB zusätzlich.
+  </para>
+
+  </footnote></entry>
+  <entry>&task-laptop-inst;</entry>
+  <entry>&task-laptop-dl;</entry>
+  <entry>&task-laptop-tot;</entry>
+</row>
+
+<row>
+  <entry>Web-Server</entry>
+  <entry>&task-web-inst;</entry>
+  <entry>&task-web-dl;</entry>
+  <entry>&task-web-tot;</entry>
+</row>
+
+<row>
+  <entry>Print-Server</entry>
+  <entry>&task-print-inst;</entry>
+  <entry>&task-print-dl;</entry>
+  <entry>&task-print-tot;</entry>
+</row>
+
+<row>
+  <entry>DNS-Server</entry>
+  <entry>&task-dns-inst;</entry>
+  <entry>&task-dns-dl;</entry>
+  <entry>&task-dns-tot;</entry>
+</row>
+
+<row>
+  <entry>Datei-Server</entry>
+  <entry>&task-file-inst;</entry>
+  <entry>&task-file-dl;</entry>
+  <entry>&task-file-tot;</entry>
+</row>
+
+<row>
+  <entry>Mail-Server</entry>
+  <entry>&task-mail-inst;</entry>
+  <entry>&task-mail-dl;</entry>
+  <entry>&task-mail-tot;</entry>
+</row>
+
+<row>
+  <entry>SQL-Datenbank-Server</entry>
+  <entry>&task-sql-inst;</entry>
+  <entry>&task-sql-dl;</entry>
+  <entry>&task-sql-tot;</entry>
+</row>
+
+<row>
+  <entry>SSH-Server</entry>
+  <entry>&task-ssh-inst;</entry>
+  <entry>&task-ssh-dl;</entry>
+  <entry>&task-ssh-tot;</entry>
+</row>
+
+</tbody>
+</tgroup></informaltable>
+
+</para><para>
+
+Falls Sie bei der Sprachauswahl nicht Englisch gewählt haben, installiert
+<command>tasksel</command> möglicherweise automatisch eine Programmgruppe
+für die Lokalisierung, falls diese für Ihre Sprache verfügbar ist.
+Der Speicherbedarf differiert abhängig von der Sprache; Sie sollten insgesamt
+bis zu 350MB für das Herunterladen und die Installation vorsehen.
+
+</para>
+ </sect1>

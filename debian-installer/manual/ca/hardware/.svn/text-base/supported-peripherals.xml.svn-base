@@ -1,0 +1,37 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64720 -->
+
+ <sect2 id="supported-peripherals">
+ <title>Perifèrics i altre maquinari</title>
+<para arch="not-s390">
+
+El &arch-kernel; permet utilitzar una gran varietat de dispositius de maquinari
+com ara ratolins, impressores, escànners, PCMCIA i dispositius USB. De tota
+manera, la major part d'aquests dispositius no són necessaris durant la
+instal·lació del sistema.
+
+</para><para arch="x86">
+
+El maquinari USB generalment funciona correctament, només alguns teclats
+USB necessiten configuració addicional (consulteu
+<xref linkend="hardware-issues"/>).
+
+</para><para arch="x86">
+
+De nou, consulteu el
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>
+per a esbrinar si el vostre maquinari específic funciona a Linux.
+
+</para><para arch="s390">
+
+Aquest sistema no permet la instal·lació de paquets des de XPRAM o cinta.
+Tots els paquets que voleu instal·lar han d'estar disponibles en un DASD
+o en una xarxa per mitjà d'NFS, HTTP o FTP.
+
+</para><para arch="mipsel">
+
+Cobalt RaQ no té support per a dispositius adicionals però el Qube té una
+ranura PCI.
+
+</para>
+</sect2>

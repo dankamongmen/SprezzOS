@@ -1,0 +1,119 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 43576 -->
+
+
+  <sect2 arch="any-x86"><title>Fer particions des del DOS o el Windows</title>
+<para>
+
+Si esteu manipulant particions FAT o NTFS, és recomanable que o bé
+empreu les instruccions següents o bé les eines natives del Windows o
+el DOS. Tanmateix, en realitat no cal fer particions des del DOS o el
+Windows; en general les eines de &debian; solen funcionar millor.
+
+</para><para>
+
+Però si teniu un disk IDE gran i no esteu emprant l'adreçament LBA,
+controladors superposats (de vegades proporcionats pels fabricants), o
+cap BIOS nova (posterior al 1998) que permeta l'ús d'extensions
+d'accés a discs durs, aleshores heu d'ubicar amb cura la partició
+d'arrencada de &debian;. Se l'ha de col·locar als primers 1024 cilindres del
+disc dur (normalment uns 524 MiB, sense traducció de la BIOS). Això potser us
+obligarà a moure la partició FAT o NTFS, si en teniu cap.
+
+</para>
+
+   <sect3 id="lossless" >
+   <title>Tornar a fer particions segurament des del DOS, el Win-32 o l'OS/2</title>
+
+<para>
+
+Una de les instal·lacions més comunes se sol fer en un sistema que ja té el
+DOS (incloent-hi el Windows 3.1), el Win32 (com els Windows 95, 98, Me,
+NT, 2000, XP, 2003, Vista, 7), o l'OS/2, i en què hom vol posar &debian; al mateix disc
+sense malmetre l'altre sistema. Tingueu en compte que l'instal·lador permet
+canviar la mida dels sistemes de fitxers FAT i NTFS, emprats pel DOS i el
+Windows. Només cal iniciar l'instal·lador i un cop arribeu al pas de
+fer particions, seleccionar l'opció per fer particions de forma
+<menuchoice> <guimenuitem>Manual</guimenuitem> </menuchoice>, seleccionar
+la partició que s'ha de modificar, i especificar-ne la mida nova. Per tant,
+en la majoria de casos no haureu de seguir el mètode que es descriu tot
+seguit.
+
+</para><para>
+
+Abans de continuar, heu de tenir clara la manera com aneu a dividir el
+disc. El mètode següent sols divideix una partició en dos. L'una contindrà
+el sistema operatiu existent i l'altra s'emprarà per a &debian;. Durant la
+instal·lació d'aquest, podreu indicar la manera com voleu utilitzar la part
+&debian; del disc, és a dir, com a espai d'intercanvi o com un sistema de
+fitxers.
+
+</para><para>
+
+La idea és moure a l'inici de la partició totes les dades abans de
+modificar-ne la informació, de manera que no es perda res. És important
+que feu el mínim possible amb l'ordinador entre el desplaçament de les
+dades i el tornar a partir, a fi de minimitzar el perill que un fitxer
+resulte modificat prop del final de la partició, ja que això reduirà la
+quantitat d'espai que podreu prendre de la partició.
+
+</para><para>
+
+En primer lloc cal una còpia del <command>fips</command>, que és a l'abast
+al directori <filename>tools/</filename> de la rèplica de &debian; més propera.
+Descomprimiu l'arxiu i copieu-ne els fitxers<filename>RESTORRB.EXE</filename>,
+<filename>FIPS.EXE</filename> i <filename>ERRORS.TXT</filename> a un disquet
+arrencable. En el DOS, podeu crear-ne un amb l'ordre
+<filename>sys a:</filename>. El <command>fips</command> conté una molt bona
+documentació que s'ha de llegir, sobretot si feu servir un controlador de
+compressió de discs o un gestor de discs. Creeu el disc i llegiu la
+documentació <emphasis>abans</emphasis> de compactar el disc.
+
+</para><para>
+
+Després s'han de moure totes les dades al començament de la partició.
+Podeu fer-ho fàcilment amb l'ordre <command>defrag</command>, inclosa
+en el DOS 6.0 i posteriors. La documentació del <command>fips</command>
+conté una relació de programari alternatiu. Tingueu en compte que en el
+Windows 9x cal executar el <command>defrag</command> des d'aquest, car
+el DOS no entén el VFAT, que és el que es fa servir per a noms llargs de
+fitxer, emprats en el Windows 95 i posteriors.
+
+</para><para>
+
+Després d'executar el compactador (que pot trigar prou a acabar en un disc
+gran), torneu a iniciar amb el disquet que conté el <command>fips</command>.
+Només heu de teclejar <filename>a:\fips</filename> i seguir les indicacions.
+
+</para><para>
+
+Tingueu en compte que hi ha molts altres gestors de particions, per si
+de cas el <command>fips</command> no us funciona com cal.
+
+</para>
+   </sect3>
+
+   <sect3 id="partitioning-for-dos"><title>Fer particions del DOS</title>
+
+<para>
+
+Si particioneu unitats DOS o en canvieu la mida amb les eines del &debian;,
+podeu experimentar problemes en treballar amb les particions FAT resultants.
+Per exemple, s'ha informat de reducció del rendiment, de problemes de
+consistència amb l'<command>scandisk</command>, i d'altres errors estranys
+en el DOS o el Windows.
+
+</para><para>
+
+Aparentment, sempre que creeu o modifiqueu la mida d'una partició del
+tipus DOS, és bona idea omplir-ne de zeros els primers sectors. Abans
+d'executar l'ordre <command>format</command> del DOS, haurieu d'executar
+l'ordre següent des del &debian;:
+
+<informalexample><screen>
+# dd if=/dev/zero of=/dev/hdXX bs=512 count=4
+</screen></informalexample>
+
+</para>
+   </sect3>
+  </sect2>

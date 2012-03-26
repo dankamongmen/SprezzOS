@@ -1,0 +1,183 @@
+<!-- $Id$ -->
+<!-- original version: 56326 -->
+
+ <sect1 id="mount-encrypted-volumes">
+ <title>Připojení zašifrovaných svazků</title>
+
+<para>
+
+Jestliže jste při instalaci vytvořili nějaké šifrované svazky a
+přiřadili jim přípojné body, budete během zavádění dotázáni na
+přístupovou frázi ke každému takovému svazku. Samotný postup se mezi
+dm-crypt a loop-AES mírně liší.
+
+</para>
+
+  <sect2 id="mount-dm-crypt">
+  <title>dm-crypt</title>
+
+<para>
+
+Pro oblasti zašifrované pomocí dm-crypt uvidíte při zavádění výzvu
+podobnou této:
+
+<informalexample><screen>
+Starting early crypto disks... <replaceable>part</replaceable>_crypt(starting)
+Enter LUKS passphrase:
+</screen></informalexample>
+
+kde <replaceable>oblast</replaceable> je název oblasti, která byla
+zašifrována. Možná nyní přemýšlíte, pro <emphasis>který
+svazek</emphasis> vlastně frázi zadáváte. <filename>/home</filename>?
+<filename>/var</filename>?  Samozřejmě pokud máte jen jediný šifrovaný
+svazek, tyto pochyby vás trápit nemusí a stačí zadat frázi, kterou
+jste použili při vytváření svazku. Pro ostatní se nyní hodí poznámky,
+které jste si poznačili jako poslední krok <xref
+linkend="partman-crypto"/>. Pokud jste si nepoznačili dvojice
+<filename><replaceable>oblast</replaceable>_crypt</filename> a
+přípojný bod, můžete tuto informaci najít v souboru
+<filename>/etc/fstab</filename> (a částečně v
+<filename>/etc/crypttab</filename>) ve svém novém systému.
+
+</para><para>
+
+Při připojování kořenového souborového systému může výzva k zadání
+fráze vypadat mírně jinak. Vzhled závisí na generátoru, kterým byl
+initrd vytvořen. Initrd v následujícím příkladu byl vytvořen nástrojem
+<classname>initramfs-tools</classname>:
+
+<informalexample><screen>
+Begin: Mounting <emphasis>root file system</emphasis>... ...
+Begin: Running /scripts/local-top ...
+Enter LUKS passphrase:
+</screen></informalexample>
+
+</para><para>
+
+Během zadávání přístupové fráze se nezobrazují žádné znaky (ani
+hvězdičky). Zadáte-li chybnou frázi, máte ještě dva další pokusy. Po
+třetím pokusu, zaváděcí proces tento svazek přeskočí a bude pokračovat
+připojením dalšího souborového systému. Přeskočený svazek můžete
+připojit později ručně, viz část <xref
+linkend="crypto-troubleshooting"/>.
+
+</para><para>
+
+Po zadání všech přístupových frází by mělo zavádění pokračovat jako
+obvykle.
+
+</para>
+  </sect2>
+
+  <sect2 id="mount-loop-aes">
+  <title>loop-AES</title>
+
+<para>
+
+Pro oblasti zašifrované pomocí loop-AES uvidíte při připojování výzvu
+podobnou této:
+
+<informalexample><screen>
+Checking loop-encrypted file systems.
+Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>pripojny_bod</replaceable>)
+Password:
+</screen></informalexample>
+
+Během zadávání přístupové fráze se nezobrazují žádné znaky (ani
+hvězdičky). Buďte opatrní, máte pouze <emphasis>jediný
+pokus</emphasis>. Zadáte-li i v třetím pokusu chybnou frázi, zobrazí
+se chybová hláška, zaváděcí proces tento svazek přeskočí a bude
+pokračovat připojením dalšího souborového systému. Přeskočený svazek
+můžete připojit později ručně, viz část <xref
+linkend="crypto-troubleshooting"/>.
+
+</para><para>
+
+Po zadání všech přístupových frází by mělo zavádění pokračovat jako
+obvykle.
+
+</para>
+  </sect2>
+
+  <sect2 id="crypto-troubleshooting">
+  <title>Řešení problémů</title>
+
+<para>
+
+Pokud se některé šifrované svazky nepodařilo připojit kvůli chybné
+přístupové frázi, budete je muset připojit po zavedení systému
+ručně. Existuje několik možností.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+První případ se zabývá kořenovou oblastí. Pokud se tato nepřipojí,
+zavádění se zastaví a pro další pokus budete muset počítač
+restartovat.
+
+</para></listitem>
+<listitem><para>
+
+Nejjednodušší případ se týká datových oblastí typu
+<filename>/home</filename> nebo <filename>/srv</filename>.
+Po zavedení je stačí ručně připojit. Pro loop-AES stačí jediný krok:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/pripojny_bod</replaceable></userinput>
+<prompt>Password:</prompt>
+</screen></informalexample>
+
+kde <replaceable>/pripojny_bod</replaceable> byste měli nahradit za
+konkrétní adresář (např. <filename>/home</filename>). Jediný rozdíl
+oproti připojení běžné oblasti je, že budete dotázáni na přístupovou
+frázi.
+
+</para><para>
+
+U dm-crypt je připojení trošku složitější. Nejprve musíte
+zaregistrovat svazky do části jádra nazvané <application>device
+mapper</application>. Slouží k tomu příkaz
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>
+</screen></informalexample>
+
+který prohledá všechny svazky zmíněné v souboru
+<filename>/etc/crypttab</filename> a po zadání správných přístupových
+frází vytvoří příslušná zařízení v adresáři <filename>/dev</filename>.
+(Již zaregistrované svazky budu přeskočeny, takže můžete příkaz
+spustit bez obav i několikrát po sobě.) Po úspěšné registraci můžete
+svazky připojit tradičním
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/pripojny_bod</replaceable></userinput>
+</screen></informalexample>
+
+</para></listitem>
+<listitem><para>
+
+Pokud se nepodařilo připojit svazky obsahující nekritické části
+systému (např. <filename>/usr</filename>
+nebo <filename>/var</filename>), systém by se měl stále zavést a měli
+byste mít možnost připojit svazky ručně stejně jako v předchozím
+případě. Navíc byste ale měli nastartovat (resp. restartovat) služby,
+které se spouští ve vašem výchozím <firstterm>runlevel</firstterm>u,
+protože je velmi pravděpodobné, že se nespustily. Nejjednodušší cestou
+je asi přepnutí do prvního runlevelu a zpět příkazem
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>init 1</userinput>
+</screen></informalexample>
+
+Až budete požádáni o rootovo heslo do jednouživatelského režimu,
+stiskněte jen kombinaci
+<keycombo> <keycap>Control</keycap> <keycap>D</keycap> </keycombo>,
+což vás přepne zpět do výchozího runlevelu.
+
+</para></listitem>
+</itemizedlist>
+
+  </sect2>
+ </sect1>

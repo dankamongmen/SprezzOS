@@ -1,0 +1,307 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65801 -->
+
+ <sect1 id="module-details">
+ <!-- <title>Using Individual Components</title> -->
+ <title>Uso dei singoli componenti</title>
+<para>
+
+<!--
+In this section we will describe each installer component in
+detail. The components have been grouped into stages that should
+be recognizable for users. They are presented in the order they
+appear during the install. Note that not all modules will be used
+for every installation; which modules are actually used depends on
+the installation method you use and on your hardware.
+-->
+
+In questa sezione è descritto ogni componente dell'installatore in
+dettaglio. I componenti sono stati raggruppati in fasi che siano
+identificabili dagli utenti. Essi sono presentati nell'ordine in cui
+appaiono durante l'installazione; quali moduli siano davvero usati
+dipende dal metodo di installazione usato e dall'hardware.
+
+</para>
+
+  <sect2 id="di-setup">
+  <!-- <title>Setting up &debian; Installer and Hardware Configuration</title> -->
+  <title>Impostazione dell'Installatore &debian; e configurazione dell'hardware</title>
+<para>
+
+<!--
+Let's assume the &debian; Installer has booted and you are facing its
+first screen.  At this time, the capabilities of &d-i; are still quite
+limited. It doesn't know much about your hardware, preferred language,
+or even the task it should perform. Don't worry. Because &d-i; is quite
+clever, it can automatically probe your hardware, locate the rest
+of its components and upgrade itself to a capable installation system.
+-->
+
+Supponiamo che l'installatore &debian; sia avviato e di trovarsi
+davanti alla sua prima schermata. A questo punto, le funzionalità di
+&d-i; sono ancora limitate. Esso non conosce molto riguardo
+l'hardware, la lingua preferita o addirittura i compiti che dovrebbe
+eseguire. Non ci si deve preoccupare, il &d-i; è abbastanza intelligente,
+può sondare automaticamente l'hardware, localizzare il resto dei
+suoi componenti e aggiornare se stesso ad un sistema di installazione
+capace.
+
+<!--
+However, you still need to help &d-i; with some information it can't
+determine automatically (like selecting your preferred language, keyboard
+layout or desired network mirror).
+-->
+
+Naturalmente, è ancora necessario aiutare &d-i; con qualche informazione
+che esso non può determinare automaticamente (come selezionare la lingua
+preferita, la mappa della tastiera o il mirror di rete preferito).
+
+</para><para>
+
+<!--
+You will notice that &d-i; performs <firstterm>hardware detection</firstterm>
+several times during this stage. The first time is targeted specifically
+at the hardware needed to load installer components (e.g. your CD-ROM or
+network card). As not all drivers may be available during this first run,
+hardware detection needs to be repeated later in the process.
+-->
+
+Si noterà che &d-i; esegue <firstterm>il rilevamento
+dell'hardware</firstterm> diverse volte durante questa fase. La prima
+volta è finalizzata specificamente all'hardware necessario a caricare i
+componenti dell'installatore (ad es. il CD-ROM o la scheda di rete).
+Poiché non tutti i driver possono essere disponibili durante questa
+prima esecuzione, è necessario ripetere il rilevamento dell'hardware
+più avanti, nel processo.
+
+</para><para arch="not-s390">
+
+<!--
+During hardware detection &d-i; checks if any of the drivers for the
+hardware devices in your system require firmware to be loaded. If any
+firmware is requested but unavailable, a dialog will be displayed that
+allows the missing firmware to be loaded from a removable medium.
+See <xref linkend="loading-firmware"/> for further details.
+-->
+
+Durante la rilevazione dell'hardware il &d-i; verifica se i driver per
+i dispositivi hardware presenti nel sistema richiedono il caricamento
+di un firmware. Se è richiesto un firmware ma questo non è disponibile
+viene mostrato un messaggio che permette di caricare il firmware
+mancante da un supporto removibile. Si veda 
+<xref linkend="loading-firmware"/> per maggiori dettagli.
+
+</para>
+
+&module-lowmem.xml;
+&module-localechooser.xml;
+&module-kbd-chooser.xml;
+&module-s390-netdevice.xml;
+&module-ddetect.xml;
+&module-cdrom-detect.xml;
+&module-iso-scan.xml;
+&module-anna.xml;
+&module-netcfg.xml;
+&module-choose-mirror.xml;
+<!-- tzsetup is included in clock-setup -->
+&module-clock-setup.xml;
+
+  </sect2>
+
+  <sect2 id="di-user-setup">
+  <!-- <title>Setting Up Users And Passwords</title> -->
+  <title>Impostazione di utenti e password</title>
+<para>
+
+<!--
+After the base system has been installed, the installer will allow you
+to set up the <quote>root</quote> account and/or an account for the first
+user. Other user accounts can be created after the installation has been
+completed.
+-->
+
+Dopo aver installato il sistema di base, l'installatore permette di
+configurare l'account <quote>root</quote> e/o un account per il primo
+utente. Si possono creare altri account utente una volta completata
+l'installazione.
+
+</para>
+
+&module-user-setup.xml;
+
+  </sect2>
+
+  <sect2 id="di-partition">
+  <!-- <title>Partitioning and Mount Point Selection</title> -->
+  <title>Partizionamento e selezione del punto di mount</title>
+<para>
+
+<!--
+At this time, after hardware detection has been executed a final time,
+&d-i; should be at its full strength, customized for the user's needs
+and ready to do some real work.
+-->
+
+A questo punto, dopo che il rilevamento dell'hardware è stato eseguito
+per l'ultima volta, &d-i; dovrebbe trovarsi alla sua massima potenza,
+personalizzato per le esigenze dell'utente e pronto a fare un po' di
+lavoro vero.
+
+<!--
+As the title of this section indicates, the main task of the next few
+components lies in partitioning your disks, creating filesystems,
+assigning mountpoints and optionally configuring closely related options
+like RAID, LVM or encrypted devices.
+-->
+
+Come suggerisce il titolo di questa sezione, il compito principale dei
+prossimi pochi componenti ricade nel partizionamento dei dischi, nella
+creazione dei file system, nell'assegnazione dei punti di mount e
+nella configurazione, se necessaria, delle opzioni a essi strettamente
+correlate come i dispositivi RAID, LVM o cifrati.
+
+</para>
+
+&module-s390-dasd.xml;
+&module-partman.xml;
+&module-autopartkit.xml;
+&module-partitioner.xml;
+&module-partconf.xml;
+&module-mdcfg.xml;
+&module-partman-lvm.xml;
+&module-partman-crypto.xml;
+
+  </sect2>
+
+  <sect2 id="di-install-base">
+  <!-- <title>Installing the Base System</title> -->
+  <title>Installazione del sistema base</title>
+<para>
+
+<!--
+Although this stage is the least problematic, it consumes a significant
+fraction of the install because it downloads, verifies and unpacks the whole
+base system. If you have a slow computer or network connection, this could
+take some time.
+-->
+
+Nonostante questa fase sia la meno problematica, richiede una parte
+significativa del tempo di installazione perché scarica, verifica e
+scompatta l'intero sistema base. Se si possiede un computer lento o una
+connessione di rete lenta, ciò potrebbe richiedere un certo tempo.
+
+</para>
+
+&module-base-installer.xml;
+
+  </sect2>
+
+  <sect2 id="di-install-software">
+  <!-- <title>Installing Additional Software</title> -->
+  <title>Installazione di altri programmi</title>
+<para>
+
+<!--
+At this point you have a usable but limited system.
+Most users will want to install additional software on the system to tune it to
+their needs, and the installer allows you do so. This step can take even
+longer than installing the base system if you have a slow computer or
+network connection.
+-->
+
+A questo punto è disponibile un sistema usabile ma
+molto limitato. La maggior parte degli utenti vuole installare altri programmi
+per adattare il sistema alle proprie necessità, e il programma d'installazione
+consente di farlo. Se si possiede un computer lento o una connessione di rete
+lenta, ciò potrebbe richiedere molto più tempo rispetto all'installazione del
+sistema di base.
+
+</para>
+
+&module-apt-setup.xml;
+&module-pkgsel.xml;
+
+  </sect2>
+
+  <sect2 id="di-make-bootable">
+  <!-- <title>Making Your System Bootable</title> -->
+  <title>Rendere avviabile il sistema</title>
+<para condition="supports-nfsroot">
+
+<!--
+If you are installing a diskless workstation, obviously, booting off
+the local disk isn't a meaningful option, and this step will be
+skipped. <phrase arch="sparc">You may wish to set OpenBoot to boot
+from the network by default; see <xref
+linkend="boot-dev-select-sun"/>.</phrase>
+-->
+
+Se si sta installando un terminale di lavoro senza disco, ovviamente,
+l'avvio dal disco locale non è un'opzione valida e questo passo
+sarà saltato. <phrase arch="sparc">Si potrebbe voler impostare OpenBoot
+per avviare da rete come impostazione predefinita; si veda <xref
+linkend="boot-dev-select-sun"/>.</phrase>
+
+</para>
+
+&module-os-prober.xml;
+&module-hppa-palo-installer.xml;
+&module-x86-grub-installer.xml;
+&module-x86-lilo-installer.xml;
+&module-ia64-elilo-installer.xml;
+&module-mips-arcboot-installer.xml;
+&module-mipsel-colo-installer.xml;
+&module-powerpc-yaboot-installer.xml;
+&module-powerpc-quik-installer.xml;
+&module-s390-zipl-installer.xml;
+&module-sparc-silo-installer.xml;
+&module-nobootloader.xml;
+
+  </sect2>
+
+  <sect2 id="di-finish">
+  <!-- <title>Finishing the Installation</title> -->
+  <title>Completamento dell'installazione</title>
+<para>
+
+<!--
+This is the last step in the &debian; installation process during which the
+installer will do any last minute tasks.
+It mostly consists of tidying up after the &d-i;.
+-->
+
+Questo è l'ultimo passo del processo d'installazione di &debian; durante
+il quale l'installatore compie le ultime operazioni che consistono
+principalmente nel mettere in ordine dopo il &d-i;.
+
+</para>
+
+&module-clock-setup-finish.xml;
+&module-finish-install.xml;
+
+  </sect2>
+
+  <sect2 id="di-miscellaneous">
+  <!-- <title>Troubleshooting</title> -->
+  <title>Risoluzione dei problemi</title>
+<para>
+
+<!--
+The components listed in this section are usually not involved in the
+installation process, but are waiting in the background to help the
+user in case something goes wrong.
+-->
+
+I componenti elencati in questa sezione non sono normalmente coinvolti
+nel processo d'installazione ma restano in attesa in background per
+aiutare l'utente nel caso che qualcosa vada storto.
+
+</para>
+
+&module-save-logs.xml;
+&module-cdrom-checker.xml;
+&module-shell.xml;
+
+  </sect2>
+&module-network-console.xml;
+ </sect1>

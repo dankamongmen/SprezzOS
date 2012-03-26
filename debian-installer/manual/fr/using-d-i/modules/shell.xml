@@ -1,0 +1,62 @@
+<!-- original version: 56326 -->
+
+   <sect3 id="shell">
+	<title>Utilisation du shell et consultation des journaux</title>
+ <!-- TODO: There is nothing about logs in this section! -->
+
+
+<para>
+Il y a plusieurs façons d'obtenir un interpréteur de commandes pendant l'installation.
+Sur la plupart des systèmes (et si vous n'utilisez pas une console série) la méthode
+la plus simple est de passer sur la deuxième <emphasis>console virtuelle</emphasis>
+en appuyant sur les touches 
+<keycombo><keycap>Left Alt</keycap> <keycap>F2</keycap></keycombo> <footnote>
+<para>
+C'est-à-dire qu'il faut appuyer simultanément sur la touche 
+<keycap>Alt</keycap>, à gauche de la <keycap>barre espace</keycap>, et sur la 
+touche de fonction <keycap>F2</keycap>.
+</para></footnote>
+(sur un clavier Mac, <keycombo><keycap>Option</keycap>
+<keycap>F2</keycap></keycombo>).
+Utilisez <keycombo><keycap>Left Alt</keycap><keycap>F1</keycap></keycombo>
+pour revenir à l'installateur.
+
+</para>
+<para condition="gtk">
+
+Pour l'installateur graphique, voyez <xref linkend="gtk-using"/>.
+
+</para><para>
+Si vous ne pouvez passer d'une console à l'autre,
+il y a aussi une entrée dans le menu principal, <guimenuitem>Exécuter un shell</guimenuitem>,
+qui peut lancer un interpréteur de commandes. Dans la plupart de dialogues,
+vous pouvez revenir au menu principal en utilisant le bouton &BTN-GOBACK;, une ou plusieurs fois.
+Pour fermer l'interpréteur et revenir à l'installateur,
+utilisez la commande <userinput>exit</userinput>.
+
+</para><para>
+
+Vous avez maintenant amorcé votre système depuis un disque virtuel en mémoire,
+et vous avez seulement accès à un ensemble limité d'utilitaires Unix. Vous 
+pouvez voir les programmes disponibles avec la commande 
+<userinput>ls /bin /sbin /usr/bin /usr/sbin</userinput> et en utilisant la 
+commande <command>help</command>. L'interpréteur de commandes disponible est 
+<command>ash</command>. Il possède quelques fonctionnalités intéressantes 
+comme la complétion automatique et le rappel des commandes.
+
+</para><para>
+
+Pour lire ou modifier des fichiers, utilisez l'éditeur <command>nano</command>.
+Les journaux de l'installation se trouvent dans le répertoire <filename>/var/log</filename>.
+</para>
+<note><para>
+Bien qu'il soit possible de faire tout ce que les commandes disponibles permettent, il ne
+faut utiliser l'interpréteur de commandes qu'en cas de problème.
+</para>
+<para>
+Exécuter un programme dans un interpréteur de commandes interfère avec le
+processus d'installation et provoque des erreurs ou une installation incomplète.
+En particulier, la partition d'échange doit toujours être activée par l'installateur.
+</para></note>
+
+  </sect3>

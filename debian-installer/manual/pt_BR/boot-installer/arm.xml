@@ -1,0 +1,225 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 36639 -->
+<!-- revised by Marco Carvalho (macs) 2006.01.01 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.06.15 -->
+
+  <sect2 arch="arm" id="boot-tftp"><title>Inicialização através do TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+  <sect3 arch="arm"><title>Inicialização através do TFTP no Netwinder</title>
+
+<para>
+
+Os Netwinders tem duas placas de rede: uma placa 10Mbps NE2000-compatível
+(que normalmente é referenciada como sendo <literal>eth0</literal>) e a placa
+Tulip de 100Mbps. Podem ocorrer problemas carregando a imagem via TFTP usando
+a placa de 100Mbps, por isso é recomendado que você use a interface de 10Mbps
+(a que está identificada como <literal>10 Base-T</literal>).
+
+</para>
+<note><para>
+
+Você precisará do NeTTrom 2.2.1 ou superior para iniciar o programa
+de instalação e a versão 2.3.3 é recomendada. Infelizmente, os arquivos de
+firmware não estão disponíveis para download no momento por problemas de
+licenciamento. Se esta situação mudar, você poderá encontrar novas imagens
+em <ulink url="ftp://ftp.netwinder.org/pub/netwinder/firmware/"></ulink>.
+
+</para></note>
+<para>
+
+Quando você inicializar seu Netwinder você terá que interromper o processo de
+inicialização durante a contagem regressiva. Isto permite que você defina um
+conjunto de configurações do firmware necessárias para inicializar o
+instalador. Antes de tudo, inicie carregando as configurações padrão:
+
+<informalexample><screen>
+    NeTTrom command-&gt; load-defaults
+</screen></informalexample>
+
+Na seqüência, você deve configurar a rede, com um endereço estático:
+
+<informalexample><screen>
+    NeTTrom command-&gt; setenv netconfig_eth0 flash
+    NeTTrom command-&gt; setenv eth0_ip 192.168.0.10/24
+</screen></informalexample>
+
+onde 24 é o número de conjunto de bits de sua máscara de rede, ou um endereço
+dinâmico:
+
+<informalexample><screen>
+    NeTTrom command-&gt; setenv netconfig_eth0 dhcp
+</screen></informalexample>
+
+Pode ser que você também precise configurar <userinput>route1</userinput>
+se o servidor TFTP não está na sua rede local.
+
+Após estas configurações, você tem que especificar o servidor TFTP e o
+local da imagem. Você pode então gravar estas configurações na memória
+flash.
+
+<informalexample><screen>
+    NeTTrom command-&gt; setenv kerntftpserver 192.168.0.1
+    NeTTrom command-&gt; setenv kerntftpfile boot.img
+    NeTTrom command-&gt; save-all
+</screen></informalexample>
+
+Agora você tem que dizer para o firmware que a imagem TFTP deve ser
+inicializada:
+
+<informalexample><screen>
+    NeTTrom command-&gt; setenv kernconfig tftp
+    NeTTrom command-&gt; setenv rootdev /dev/ram
+</screen></informalexample>
+
+Se você usa um console serial para instalar seu Netwinder, você precisa
+adicionar a seguinte configuração:
+
+<informalexample><screen>
+    NeTTrom command-&gt; setenv cmdappend root=/dev/ram console=ttyS0,115200
+</screen></informalexample>
+
+Como alternativa, para instalações usando um teclado e monitor, você tem
+que configurar:
+
+<informalexample><screen>
+    NeTTrom command-&gt; setenv cmdappend root=/dev/ram
+</screen></informalexample>
+
+Você pode usar o comando <command>printenv</command> para revisar suas
+configurações de ambiente. Após ter verificado que as configurações estão
+corretas, você pode carregar a imagem:
+
+<informalexample><screen>
+    NeTTrom command-&gt; boot
+</screen></informalexample>
+
+Caso você tenha quaisquer problemas, um <ulink
+url="http://www.netwinder.org/howto/Firmware-HOWTO.html">HOWTO detalhado
+</ulink> está disponível.
+
+</para>
+   </sect3>
+
+   <sect3 arch="arm"><title>Inicialização através do TFTP no CATS</title>
+
+<para>
+
+Em sistemas CATS, use <command>boot de0:</command> ou similar no
+aviso de comando Cyclone.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="arm"><title>Inicializando através de um CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<para>
+
+Para inicializar um CD-ROM através do aviso de comando do Cyclone, use
+a sintaxe <command>boot cd0:cats.bin</command>
+
+</para>
+  </sect2>
+
+  <sect2 arch="arm" id="boot-firmware"><title>Inicializando a partir do Firmware</title>
+
+&boot-installer-intro-firmware.xml;
+
+   <sect3 arch="arm" id="boot-firmware-nslu2"><title>Inicializando o NSLU2</title>
+<para>
+
+Há três maneiras de colocar o firmware do instalador na memória flash:
+
+</para>
+
+    <sect4 arch="arm"><title>Usando a interface web do NSLU2</title>
+<para>
+
+Vá até a seção de administração e escolha o item <literal>Upgrade</literal> do
+menu. Você pode então navegar no seu disco em busca da imagem do instalador que
+você baixou previamente. Então pressione o botão <literal>Start
+Upgrade</literal>, confirme, aguarde alguns minutos e confirme novamente. O
+sistema irá inicializar direto no instalador.
+
+</para>
+    </sect4>
+
+    <sect4 arch="arm"><title>Através da rede usando Linux/Unix</title>
+<para>
+
+Você pode usar <command>upslug2</command> a partir de qualquer máquina
+Linux ou Unix para atualizar a máquina via rede. Este software está
+empacotado para o &debian;.
+
+Primeiro, você tem que colocar seu NSLU2 em modo upgrade:
+
+<orderedlist>
+<listitem><para>
+
+Desconecte quaisquer discos e/ou dispositivos das portas USB.
+
+</para></listitem>
+<listitem><para>
+
+Desligue o NSLU2
+
+</para></listitem>
+<listitem><para>
+
+Aperte e segure o botão de reset (acessível através de um pequeno buraco
+na parte traseira acima da entrada de energia).
+
+</para></listitem>
+<listitem><para>
+
+Aperte e solte o botão de liga/desliga para ligar o NSLU2.
+
+</para></listitem>
+<listitem><para>
+
+Aguarde 10 segundos olhando os LEDs ready/status. Após 10 segundos ele
+irá mudar de âmbar para vermelho. Imediatamente solte o botão de reset.
+
+</para></listitem>
+<listitem><para>
+
+O LED ready/status do NSLU2 vai piscar alternadamente vermelho/verde (há um
+atraso de um segundo antes do primeiro verde). O NSLU2 agora está no modo
+upgrade.
+
+</para></listitem>
+</orderedlist>
+
+Veja as <ulink
+url="http://www.nslu2-linux.org/wiki/OpenSlug/UsingTheBinary">páginas
+NSLU2-Linux</ulink> se você teve problemas com este procedimento.
+
+Uma vez que seu NSLU2 está no modo upgrade, você pode gravar a nova imagem:
+
+<informalexample><screen>
+sudo upslug2 -i di-nslu2.bin
+</screen></informalexample>
+
+Note que a ferramenta também mostra o endereço MAC do seu NSLU2, o que pode
+tornar-se útil para configurar o seu servidor DHCP. Após a imagem completa
+ter sido gravada e verificada, o sistema irá automaticamente reiniciar. Tenha
+certeza que conectou seu disco USB novamente, caso contrário o instalador não
+será capaz encontrá-lo.
+
+</para>
+    </sect4>
+
+    <sect4 arch="arm"><title>Através da rede usando Windows</title>
+<para>
+
+Há uma<ulink
+url="http://www.everbesthk.com/8-download/sercomm/firmware/all_router_utility.zip">ferramenta</ulink> para Windows para atualizar o firmware via rede.
+
+</para>
+    </sect4>
+   </sect3>
+  </sect2>

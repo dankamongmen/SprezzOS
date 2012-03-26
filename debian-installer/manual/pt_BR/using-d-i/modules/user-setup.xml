@@ -1,0 +1,73 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 50618 -->
+<!-- updated 35518:43741 by Felipe Augusto van de Wiel (faw) 2007.01.14 -->
+<!-- updated 43741:50618 by Felipe Augusto van de Wiel (faw) 2008.02.06 -->
+
+   <sect3 id="user-setup-root">
+   <title>Configurar a Senha do Root</title>
+
+<!-- TODO: Document sudo setup (no root password); medium/low prio only -->
+
+<para>
+
+A conta do <emphasis>root</emphasis> também é chamada de
+<emphasis>super-usuário ("super-user")</emphasis>; é um login que passa todas
+as proteções de segurança no seu sistema. A conta root só deve ser usada para 
+realizar tarefas de administração do sistema, e pelo menor período de tempo
+possível.
+
+</para><para>
+
+Qualquer senha que você crie deve conter ao menos 6 caracteres, e
+deve conter caracteres maiúsculos e minúsculos, assim como caracteres
+de pontuação.  Tome um cuidado extra ao configurar sua senha de root,
+já que é a conta mais poderosa.  Evite palavras de dicionário ou
+qualquer informação pessoal que possa ser adivinhada.
+
+</para><para>
+
+Se alguém lhe disser que precisa de sua senha de root, seja extremamente
+cuidadoso. Normalmente, você nunca precisa fornecer sua senha de root, a 
+menos que você esteja administrando uma máquina com mais de um administrador de
+sistemas.
+
+</para>
+  </sect3>
+
+  <sect3 id="make-normal-user">
+  <title>Crie um Usuário Comum</title>
+
+<para>
+
+O sistema irá perguntar se você deseja criar uma conta de usuário comum 
+neste momento.  Essa conta deve ser sua conta pessoal de log-in principal.
+Você <emphasis>não</emphasis> deve usar a conta de root no dia-a-dia ou como 
+login pessoal.
+
+<!-- Note: it only _asks_ at medium/low priority -->
+
+</para><para>
+
+Por que não?  Bem, uma razão para evitar o uso dos privilégios de root
+é que é muito fácil causar danos irreparáveis como root.  Outra razão é
+que você pode ser enganado e executar um programa
+<emphasis>Cavalo de Tróia (<quote>Trojan-horse</quote>)</emphasis> &mdash;
+que é um programa que se aproveita dos seus poderes de super-usuário para
+comprometer a segurança de seu sistema pelas suas costas. Qualquer bom livro
+sobre administração de sistemas Unix irá cobrir esse tópico com mais
+detalhes &mdash; considere a leitura de um se isso for novidade para você.
+
+</para><para>
+
+Primeiro, você será perguntado pelo nome completo do usuário. Então você
+será questionado por um nome para a conta do usuário; geralmente seu
+primeiro nome ou algo similar será suficiente e de fato será o padrão.
+Finalmente, você será questionado por uma senha para essa conta.
+
+</para><para>
+
+Se em qualquer momento após a instalação você quiser criar outra conta,
+use o comando <command>adduser</command>.
+
+</para>
+   </sect3>

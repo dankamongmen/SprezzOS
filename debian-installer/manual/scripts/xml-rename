@@ -1,0 +1,26 @@
+#! /bin/bash
+
+# This script can be used to rename an xml file or directory for all
+# translations.
+# (Script could be expanded to really move to another location.)
+
+SOURCE="$1"
+NEWNAME="$2"
+
+[ "$SOURCE" ] || exit 1
+[ "$NEWNAME" ] || exit 1
+
+
+if [ ! -e "en/$SOURCE" ]; then
+	echo "Source file does not exist"
+	exit 1
+fi
+if echo "$NEWNAME" | grep -q "/"; then
+	echo "New name may not contain a directory"
+	exit 1
+fi
+
+for FILE in */$SOURCE; do
+	FDIR="$(dirname $FILE)"
+	svn mv $FILE $FDIR/$NEWNAME
+done

@@ -1,0 +1,56 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64742 -->
+
+   <sect3 arch="not-s390" id="system-clock">
+   <!-- <title>Setting the System Clock</title> -->
+   <title>Impostazione dell'orologio di sistema</title>
+<para>
+
+<!--
+The installer may ask you if the computer's clock is set to UTC. Normally
+this question is avoided if possible and the installer tries to work out
+whether the clock is set to UTC based on things like what other operating
+systems are installed. 
+-->
+
+Il programma d'installazione potrebbe chiedere se l'orologio del proprio
+computer è impostato su UTC. Se possibile questa domanda non viene posta,
+infatti il programma d'installazione determina se il sistema è impostato
+su UTC analizzando quali altri sistemi operativi sono installati.
+
+</para><para>
+
+<!--
+In expert mode you will always be able to choose
+whether or not the clock is set to UTC.
+<phrase arch="powerpc">Macintosh hardware clocks are normally
+set to local time. If you want to dual-boot, select local time instead of
+UTC.</phrase>
+<phrase arch="any-x86">Systems that (also) run Dos or Windows are normally
+set to local time. If you want to dual-boot, select local time
+instead of UTC.</phrase>
+-->
+
+Nella modalità esperto è possibile scegliere se l'orologio del proprio
+computer è impostato con UTC o no.<phrase arch="powerpc">
+L'orologio hardware dei Macintosh è normalmente regolato con l'ora
+locale, se si vuole un sistema dual-boot scegliere l'ora locale invece
+di UTC.</phrase><phrase arch="any-x86">
+I sistemi su cui viene usato (anche) Dos o Windows sono normalmente
+regolati con l'ora locale, se si vuole un sistema dual-boot scegliere
+l'ora locale invece di UTC.</phrase>
+
+</para><para>
+
+<!--
+At this point &d-i; will also attempt to save the current time to the
+system's hardware clock. This will be done either in UTC or local time,
+depending on the selection that was just made.
+-->
+
+A questo punto &d-i; cerca di salvare l'ora corrente nell'orologio
+hardware del sistema. In base alla scelta appena fatta l'ora può
+essere UTC o locale.
+
+</para>
+   </sect3>

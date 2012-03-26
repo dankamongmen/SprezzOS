@@ -1,0 +1,142 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61147 -->
+<!-- revised by Herbert parentes Fortes Neto (hpfn) 2006.11.05 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.11.06 -->
+
+ <sect1 id="partition-programs">
+ <title>Programas de particionamento da &debian;</title>
+<para>
+
+Diversas variedades de programas de particionamento foram adaptados
+por desenvolvedores  da &debian; para funcionar com vários tipos de discos
+rígidos e arquiteturas de computadores. O seguinte é uma lista de
+programas aplicáveis para sua arquitetura.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term><command>partman</command></term>
+<listitem><para>
+
+Ferramenta de particionamento recomendada na &debian;. Esse canivete suíço
+também pode redimensionar, criar sistemas de arquivos <phrase arch="any-x86">
+(<quote>formatar</quote> no mundo do Windows) </phrase> e te indicar
+pontos de montagem.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdisk.txt">
+<term><command>fdisk</command></term>
+<listitem><para>
+
+ O particionador de discos original do Linux, bom para gurus.
+
+</para><para>
+
+Seja cuidadoso se tiver partições FreeBSD existentes em sua máquina.
+O kernel da instalação inclui suporte para estas partições, mas o
+método que o <command>fdisk</command> as representa (ou não)
+podem fazer os nomes de dispositivos diferentes. Veja o
+<ulink url="&url-linux-freebsd;">Linux+FreeBSD HOWTO</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="cfdisk.txt">
+<term><command>cfdisk</command></term>
+<listitem><para>
+
+Um particionador de disco simples de se utilizar e em tela cheia para o
+resto de nós.
+
+</para><para>
+
+Note que o <command>cfdisk</command> não entende partições do FreeBSD
+completamente e, novamente, os nomes de dispositivos podem ser diferentes.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="atari-fdisk.txt">
+<term><command>atari-fdisk</command></term>
+<listitem><para>
+
+Versão Atari do <command>fdisk</command>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="amiga-fdisk.txt">
+<term><command>amiga-fdisk</command></term>
+<listitem><para>
+
+Versão do <command>fdisk</command> do amiga.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="mac-fdisk.txt">
+<term><command>mac-fdisk</command></term>
+<listitem><para>
+
+Versão do programa <command>fdisk</command> do atari.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="pmac-fdisk.txt">
+<term><command>pmac-fdisk</command></term>
+<listitem><para>
+
+Versão PowerMac do <command>fdisk</command>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdasd.txt">
+<term><command>fdasd</command></term>
+<listitem><para>
+
+Versão do <command>fdisk</command> para &arch-title; Por favor leia a
+página de manual do fdasd ou o capítulo 13 em
+<ulink url="http://oss.software.ibm.com/developerworks/opensource/linux390/docu/l390dd08.pdf">
+Controladores de Dispositivos e Comandos de Instalação</ulink> para mais
+detalhes. 
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Um destes programas será executado por padrão quando selecionar
+<guimenuitem>Particionando Discos</guimenuitem> (ou similar). Talvez seja
+possível usar uma ferramenta de particionamento diferente a partir da linha
+de comando no terminal 2 (VT2), mas isto não é recomendado.
+
+</para><para arch="x86">Lembre-se de marca sua partição de inicialização
+como <quote>Inicializável</quote>.
+
+</para><para condition="mac-fdisk.txt">
+
+Um ponto chave é a identificação da partição swap por seu nome;
+ela terá o nome <quote>swap</quote>. Todas as partições Mac do linux são o
+mesmo tipo de partição; Apple_UNIX_SRV2. Por favor leia o belo manual.
+Nós também sugerimos a leitura do
+<ulink url="&url-mac-fdisk-tutorial;">tutorial do fdisk do mac</ulink>
+que inclui passos que deverá fazer se estiver compartilhando seu disco
+com o MacOS.
+
+</para>
+
+&partition-hppa.xml;
+&partition-x86.xml;
+&partition-ia64.xml;
+&partition-mips.xml;
+&partition-powerpc.xml;
+&partition-sparc.xml;
+
+ </sect1>

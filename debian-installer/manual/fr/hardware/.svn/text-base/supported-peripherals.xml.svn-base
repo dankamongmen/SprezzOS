@@ -1,0 +1,38 @@
+<!-- original version: 64720 -->
+
+ <sect2 id="supported-peripherals">
+<title>Périphériques et matériels</title>
+
+<para arch="not-s390">
+&arch-kernel; reconnaît une large gamme de périphériques comme les souris, les 
+imprimantes, les scanners, les modems, les cartes réseau, les périphériques 
+PCMCIA et USB, etc. Cependant aucun de ces périphériques n'est requis lors de
+l'installation du système.
+</para>
+
+<para arch="x86">
+Le matériel USB fonctionne correctement mais certains
+claviers USB peuvent nécessiter une configuration supplémentaire 
+(voyez la <xref linkend="hardware-issues"/>).
+</para>
+
+<para arch="x86">
+Encore une fois, reportez-vous au 
+<ulink url="&url-hardware-howto;">HOWTO sur la compatibilité des matériels avec Linux</ulink> 
+pour déterminer si votre matériel est reconnu par Linux.
+</para>
+
+<para arch="s390">
+Les installations de paquets à partir de XPRAM ou d'une bande ne sont pas 
+reconnues par le système. Tous les paquets que vous désirez installer doivent 
+être disponibles sur un DASD ou bien sur le réseau via NFS, HTTP ou FTP.
+</para>
+
+<para arch="mipsel">
+
+Le Cobalt RaQ ne permet pas l'ajout de périphérique
+mais le Qube a un emplacement PCI libre.
+
+</para>
+
+ </sect2>

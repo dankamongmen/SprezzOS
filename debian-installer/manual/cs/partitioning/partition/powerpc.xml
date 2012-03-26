@@ -1,0 +1,55 @@
+<!-- $Id: powerpc.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64829 -->
+
+  <sect2 arch="powerpc">
+  <title>Dělení disku na novějších Macintoshích</title>
+<para>
+
+Pokud instalujete na <quote>Newworld</quote> PowerMac, musíte pro
+zavaděč vytvořit speciální zaváděcí oblast. Tato oblast by měla být
+typu <emphasis>Apple_Bootstrap</emphasis> o velikosti nejméně 819200
+bajtů. Pokud oblast nebude mít požadovaný typ, nebudete schopni
+zavádět systém z pevného disku. Tuto oblast vytvoříte buď
+v <command>partman</command>u tak, že vytvoříte oblast a přiřadíte jí
+typ použití <quote>Zaváděcí oblast NewWorld</quote>, nebo
+v <command>mac-fdisk</command>u příkazem <userinput>b</userinput>.
+
+</para><para>
+
+Tím, že přiřadíte zaváděcí oblasti speciální typ, předejdete
+problémům s MacOS, který by jinak oblast připojil a tím ji zničil,
+protože tato obsahuje speciální modifikace pro OpenFirmware.
+Modifikace jsou nutné pro automatický start z oblasti.
+
+</para><para>
+
+Celá zaváděcí oblast je vytvořená pro tři malé soubory: program
+<command>yaboot</command>, jeho konfigurační soubor
+<filename>yaboot.conf</filename> a první část zavaděče OpenFirmware
+&mdash; <command>ofboot.b</command>. Tato oblast se nemusí a neměla by
+se připojovat do souborového systému, natož na ni kopírovat jádro nebo
+něco podobného. Pro manipulaci s touto oblastí slouží utility
+<command>ybin</command> a <command>mkofboot</command>.
+
+</para><para>
+
+Aby mohl OpenFirmware zavést &debian-gnu; automaticky, měla by se zaváděcí
+oblast objevit před všemi ostatními oblastmi na disku, obzvláště před
+zaváděcími oblastmi MacOS. To znamená, že zaváděcí oblast by měla být
+první, kterou vytvoříte. Ovšem i když přidáte zaváděcí oblast později,
+můžete použít program <command>mac-fdisk</command> a příkazem
+<userinput>r</userinput> přeskládat tabulku oblastí tak, aby tato
+oblast následovala hned po tabulce rozdělení disku (což je vždy první
+oblast). Toto pořadí je logické, ne fyzické uspořádání na disku, ale o
+to nám jde.
+
+</para><para>
+
+Apple disky totiž obsahují několik malých oblastí pro ovladače. Pokud
+chcete mít na disku &debian; i MacOSX, musí tyto oblasti zůstat
+zachovány včetně malé HFS oblasti (její minimální velikost je 800k).
+To je proto, že MacOSX nabízí při každém zavádění inicializaci všech
+disků, které nemají aktivní MacOS oblasti a oblasti s ovladači.
+
+</para>
+  </sect2>

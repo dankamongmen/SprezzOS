@@ -1,0 +1,136 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64734 -->
+
+ <sect1 id="loading-firmware" arch="not-s390">
+ <title>Carregar microprogramari no inclòs a l'instal·lador</title>
+<para>
+
+Tal i com es descriu a <xref linkend="hardware-firmware"/>, alguns dispositius
+necessiten carregar un determinat microprogramari. En la majoria de casos el
+dispositiu no funcionarà si el microprogramari no està disponible; en altres,
+la funcionalitat bàsica no es veurà afectada i només serà necessari carregar
+el microprogramari per activar funcions addicionals.
+
+</para><para>
+
+Si un controlador de dispositiu sol·licita un microprogramari que no està
+disponible, el &d-i; mostrarà un diàleg que us oferirà la possibilitat de
+carregar-lo. Si seleccioneu aquesta opció, l'instal·lador analitzarà els
+dispositius disponibles buscant possibles fitxers o paquets de
+microprogramari. Si es troba el microprogramari, aquest es copiarà a la
+ubicació pertinent (<filename>/lib/firmware</filename>) i es tornarà a
+carregar el controlador de dispositiu corresponent.
+
+</para>
+<note><para>
+
+Es podran analitzar uns dispositius i sistemes de fitxers o uns altres
+depenent de l'arquitectura, el mètode d'instal·lació i la fase en que us
+trobeu. És més fàcil carregar microprogramari des d'un disquet o llapis USB
+formatat amb FAT, especialment durant les etapes inicials de la instal·lació.
+<phrase arch="x86">En i386 i amd64 el microprogramari també es pot carregar
+des de targetes MMC o SD.</phrase>
+
+</para></note>
+<para>
+
+Tingueu en compte que és possible ometre aquest pas si sabeu que el dispositiu
+pot funcionar sense el microprogramari, o si el dispositiu no és necessari
+durant la instal·lació.
+
+</para>
+<warning><para>
+
+El suport per a carregar microprogramari és encara relativament bàsic i és
+possible que millori en properes versions de l'instal·lador. Actualment el
+&d-i;, per exemple, no mostrarà cap avís si escolliu carregar un
+microprogamari i aquest no es troba als dispositius.
+Podeu informar de qualsevol problema que trobeu emplenant l'informe
+d'instal·lació (vegeu <xref linkend="submit-bug"/>).
+
+</para></warning>
+
+  <sect2><title>Preparar un dispositiu</title>
+<para>
+
+Encara que en alguns casos el microprogramari també es pot carregar
+directament des de la partició d'un disc dur, el mètode més habitual és
+carregar-lo des d'un dispositiu extraïble com ara un disquet o un llapis USB.
+Els fitxers de microprogramari s'han d'ubicar o bé al directori arrel o bé en
+un directori anomenat <filename>/firmware</filename> dins el sistema de
+fitxers del dispositiu. El sistema de fitxers recomanat és FAT, ja que és més
+probable que funcioni durant les etapes inicials de la instal·lació.
+
+</para><para>
+
+Podeu trobar arxius tar i fitxers zip amb els paquets actuals per als
+microprogramaris més habituals a l'URL següent:
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-tarballs;"/>
+</para></listitem>
+</itemizedlist>
+
+Simplement descarregueu l'arxiu tar o el fitxer zip per a la versió
+corresponent i descomprimiu-lo al sistema de fitxers del dispositiu desitjat.
+
+</para><para>
+
+Si el microprogramari que us cal no està inclòs a l'arxiu tar, també podeu
+descarregar-vos paquets específics de l'arxiu (secció non-free). La llista que
+hi ha a continuació mostra la major part dels paquets de microprogramari, però
+no es garanteix que el seu funcionament sigui complet i a més pot contenir
+paquets que no siguin exclusivament de microprogramari:
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-packages;"/>
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+També és possible copiar els fitxers de microprogramari per separat
+directament al dispositiu. Aquests fitxers els podeu obtenir, per exemple,
+d'altres sistemes ja instal·lats o del fabricant del maquinari.
+
+</para>
+  </sect2>
+
+  <sect2><title>Microprogramari al sistema ja instal·lat</title>
+<para>
+
+Qualsevol microprogramari carregat durant el procés d'instal·lació serà copiat
+automàticament al sistema instal·lat. En la majoria de casos això assegurarà
+que aquells dispositius que requereixen el microprogramari també funcionin
+després de tornar a arrencar utilitzant el sistema que acabeu d'instal·lar.
+Tanmateix, si el sistema instal·lat utilitza una versió del nucli diferent a
+la de l'instal·lador, hi ha la possibilitat que el microprogramari no es pugui
+carregar per problemes de versions.
+
+</para><para>
+
+Si el microprogramari havia estat carregat utilitzant un paquet, el &d-i;
+també instal·larà aquest paquet al sistema i afegirà automàticament la secció
+non-free de l'arxiu de paquets al fitxer <filename>sources.list</filename> de
+l'APT. Això té l'avantatge que el microprogramari s'actualitzarà
+automàticament si hi ha disponible una nova versió.
+
+</para><para>
+
+Si ometeu la càrrega de microprogramari durant la instal·lació, el dispositiu
+afectat segurament no funcionarà fins que instal·leu manualment el
+microprogramari (o el seu paquet).
+
+</para>
+<note><para>
+
+Si la càrrega del microprogrmari es va dur a terme utilitzant fitxers, el
+microprogramari copiat <emphasis>no</emphasis> s'actualitzarà automàticament a
+menys que instal·leu el paquet de microprogramari corresponent (si està
+disponible) després de completar la instal·lació.
+
+</para></note>
+  </sect2>
+ </sect1>

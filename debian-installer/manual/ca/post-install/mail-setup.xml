@@ -1,0 +1,274 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="mail-setup">
+ <title>Configuració del vostre sistema per utilitzar el correu electrònic</title>
+<para>
+
+Avui en dia, el correu electrònic és una part important de la vida de la
+gent. Com que hi ha moltes formes de configurar-lo, i que fer-ho és
+important per algunes utilitats de &debian;, provarem de cobrir les parts
+més bàsiques en aquesta secció.
+
+</para><para>
+
+Un sistema de correu té tres components bàsics pel seu funcionament. En
+primer lloc tenim l'<firstterm>Agent de correu d'usuari</firstterm> (MUA)
+que s'utilitza per escriure i llegir els correus. Després tenim
+l'<firstterm>agent de transferència de correu</firstterm> (MTA) que
+s'encarrega de la transferència dels missatges des d'un ordinador a un altre.
+I per acabar tenim l'<firstterm>agent de lliurament de correu</firstterm>
+(MDA) que s'encarrega de lliurar el correu entrant a la safata d'entrada
+de l'usuari.
+
+</para><para>
+
+Aquestes tres funcions les poden dur a terme programes separats, però
+també es poden combinar en un o dos programes. També és possible tindre
+un tractament diferent d'aquestes funcions pels diferents tipus de correu.
+
+</para><para>
+
+A Linux i als sistemes Unix el <command>mutt</command> històricament ha
+estat un MUA molt conegut. Com la major part dels programes de Linux
+tradicionals, està basat en text. Sovint s'utilitza en combinació amb
+l'<command>exim</command> o el <command>sendmail</command> com a MTA i
+el <command>procmail</command> com a MDA.
+
+</para><para>
+
+Amb l'increment de popularitat dels entorns gràfics d'escriptori, l'ús
+de programes de correu electrònic gràfics com l'<command>evolution</command>
+de GNOME, el <command>kmail</command> de KDE, o el <command>thunderbird</command>
+de Mozilla (que a &debian; s'anomena <command>icedove</command><footnote>
+
+<para>
+La raó per que del canvi de nom del <command>thunderbird</command> a
+<command>icedove</command> a &debian; ha estat alguns problemes de
+llicència. Els detalls estan fora de l'abast d'aquest manual.
+</para>
+
+</footnote>) s'ha fet més popular. Aquests programes combinen les
+funcions d'un MUA, MTA i un MDA, però poden &mdash; i sovint &mdash;
+també s'utilititzen en combinació amb les eines de &debian-gnu; tradicionals.
+
+</para>
+
+  <sect2 id="mail-default">
+  <title>Configuració predeterminada del correu electrònic</title>
+<para>
+
+Encara que esteu pensant d'utilitzar un programa gràfic pel correu, és
+important que també tingueu correctament instal·lat i configurat al
+vostre sistema un MTA/MDA tradicional. La raó és que algunes utilitats
+importants al sistema<footnote>
+
+<para>
+Alguns exemples són: <command>cron</command>, <command>quota</command>,
+<command>logcheck</command>, <command>aide</command>, &hellip;
+</para>
+
+</footnote> poden enviar informacions importants per correu per informar
+a l'administrador del sistema de problemes (en potència) o de canvis.
+
+</para><para>
+
+Per aquest motiu els paquets <classname>exim4</classname> i el
+<classname>mutt</classname> s'instal·laran per defecte (sempre que
+no elimineu la selecció de la tasca <quote>standard</quote> a la
+instal·lació). L'<classname>exim4</classname> és una combinació de
+MTA/MDA que és relativament menuda i molt flexible. Per defecte tan
+sols es configurarà per que tracte amb el correu local del mateix
+sistema i els correus que van dirigits a l'administrador del sistema
+(al compte root) els lliurà al compte d'usuari que es va crear a la
+instal·lació<footnote>
+
+<para>
+El reenviament de correu pel root a un dels comptes d'usuari s'ha
+configurat a l'<filename>/etc/aliases</filename>. Si no hi ha cap compte
+d'usuari normal creat, aleshores el correu s'enviarà al compte del root
+mateix.
+</para>
+
+</footnote>.
+
+</para><para>
+
+Quan els correus del sistema es reparteixen, s'afegeixen a un fitxer que
+és a <filename>/var/mail/<replaceable>nom_del_compte</replaceable></filename>.
+Els correus es poden llegir utilitzant el <command>mutt</command>.
+
+</para>
+  </sect2>
+
+  <sect2 id="mail-outgoing">
+  <title>Enviar correus fora del sistema</title>
+<para>
+
+Com s'ha dit abans, l'instal·lador de &debian; està configurat per tractar
+amb el correu local del sistema, no per enviar correu a altres ni per
+rebren d'altres.
+
+</para><para>
+
+Si preferiríeu que l'<classname>exim4</classname> controle el correu
+extern, adreceu-vos a la subsecció següent per veure les opcions bàsiques
+de configuració que hi ha la vostre abast. Assegureu-vos de comprovar que
+el correu s'envia i es rep correctament.
+
+</para><para>
+
+Si esteu provant d'utilitzar un programa gràfic pel correu i utilitzeu el
+servidor de correu del vostre proveïdor de serveis Internet (ISP) o de
+la vostra empresa, no necessiteu configurar l'<classname>exim4</classname>
+per que es faci càrrec del correu electrònic. Tan sols configureu el vostre
+programa de correu gràfic favorit per que utilitze els servidors correctes
+i envie i reba el correu (el com fer-ho està fora de l'abast d'aquest
+manual).
+
+</para><para>
+
+Per altra banda, en eixe cas potser necessitaríeu configurar les utilitats
+de forma individual per enviar correus. Una d'aquestes utilitats és el
+<command>reportbug</command>, un programa que facilita l'enviament
+d'informes d'error contra els paquets de &debian;. Per defecte espera poder
+utilitzar l'<classname>exim4</classname> per enviar els informes d'error.
+
+</para><para>
+
+Per configurar correctament el <command>reportbug</command> per que
+utilitze un servidor de correu extern, executeu l'ordre
+<command>reportbug --configure</command> i responeu <quote>no</quote> a
+la pregunta de si teniu un MTA a l'abast. Haureu de preguntar quin és
+el servidor SMTP que podeu utilitzar per enviar informes d'error.
+
+</para>
+  </sect2>
+
+  <sect2 id="config-mta">
+  <title>Configuració de l'agent de transport de correu Exim4</title>
+<para>
+
+Si voleu que el vostre sistema també es faça càrrec del correu extern,
+necessitareu reconfigurar el paquet <classname>exim4</classname><footnote>
+
+<para>
+Per suposat, també podeu esborrar l'<classname>exim4</classname> i
+reemplaçar-lo per qualsevol MTA/MDA alternatiu.
+</para>
+
+</footnote>:
+
+<informalexample><screen>
+# dpkg-reconfigure exim4-config
+</screen></informalexample>
+
+</para><para>
+
+Després d'executar eixa ordre (com a root), haureu de respondre si
+voleu dividir la configuració en fitxers menuts. Si no esteu segurs,
+seleccioneu l'opció predeterminada.
+
+</para><para>
+
+A continuació es mostraran alguns escenaris comuns pel correu. Escolliu
+el que més s'aprope a les vostres necessitats.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>lloc d'internet</term>
+<listitem><para>
+
+El vostre sistema està connectat a una xarxa i el vostre correu
+s'envia i es rep directament amb SMTP. A les pantalles següents
+us faran unes poques preguntes, com el nom del correu de la vostra
+màquina, o una llista de dominis pels quals acceptar o reenviar correu.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>correu enviat a través de l'smarthost</term>
+<listitem><para>
+
+En aquest escenari el vostre correu sortint es reenvia a un altra màquina,
+que es diu un <quote>smarthost</quote>, que mira d'enviar els missatges
+a la seva destinació.
+
+L'smarthost normalment també emmagatzema el correu entrant al vostre
+ordinador, de forma que no necessitareu estar permanentment en línia.
+Això vol dir també que haureu de descarregar el vostre correu des de
+l'smarthost amb programes del tipus fetchmail.
+
+</para><para>
+
+En moltes ocasions l'smarthost serà el servidor de correu del vostre ISP,
+que és una opció molt vàlida per usuaris que fan ús del marcatge. També
+podria ser un servidor de correu d'empresa o inclús un altre sistema a
+la vostra xarxa.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>enviament a través de l'smarthost; no hi ha correu local</term>
+<listitem><para>
+
+Aquesta opció és bàsicament la mateixa que l'anterior excepte que
+el sistema no es configurarà per que gestione el correu pel domini de
+correu local. El correu del sistema mateix (p.e. per l'administrador
+del sistema) encara es gestionarà.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>només enviament local</term>
+<listitem><para>
+
+Aquesta és l'opció que està configurada per defecte al vostre sistema.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>no el configures ara mateix</term>
+<listitem><para>
+
+Escolliu aquesta si esteu absolutament convençuts de que sabeu el que
+esteu fent. Açò deixarà el vostre sistema amb el correu sense configurar
+&mdash; fins que el configureu, no podreu enviar o rebre cap correu i
+estareu perdent alguns missatges importants de les utilitats del vostre
+sistema.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Si cap d'aquests escenaris s'ajusta a les vostres necessitats, o si
+necessiteu una configuració més acurada, haureu d'editar els fitxers
+de configuració que hi ha al directori <filename>/etc/exim4</filename>
+després de completar la instal·lació. Podeu trobar més informació
+de l'<classname>exim4</classname> a <filename>/usr/share/doc/exim4</filename>;
+el fitxer <filename>README.Debian.gz</filename> conté alguns detalls
+per la configuració de l'<classname>exim4</classname> i explica on
+trobar documentació addicional.
+
+</para><para>
+
+Adoneu-vos que enviar directament correu a Internet quan no disposeu
+d'un domini oficial, pot resultar en que el vostre correu sigui rebutjat
+com a mesura contra el correu brossa als servidors que el reben. És
+preferible fer ús del servidor de correu del vostre ISP. Si encara voleu
+enviar correu de forma directa, podriu utilitzar una adreça de correu
+diferent a la que es genera per defecte. Si utilitzeu com MTA
+l'<classname>exim4</classname>, açò és possible afegint una entrada
+a l' <filename>/etc/email-addresses</filename>.
+
+</para>
+  </sect2>
+ </sect1>

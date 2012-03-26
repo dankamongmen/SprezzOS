@@ -1,0 +1,256 @@
+<!-- $Id: mail-setup.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+ <sect1 id="mail-setup">
+ <title>Nastavení poštovního systému</title>
+
+<para>
+
+V dnešní době je elektronická pošta důležitou součástí našich životů.
+Protože existuje spousty způsobů, jak poštu nastavit, a protože na ni
+spoléhají některé nástroje, zkusíme zde pokrýt alespoň základy.
+
+</para><para>
+
+Poštovní systém se skládá ze tří částí. Uživateli nejbližší je
+klientský program (MUA), jenž uživatel používá pro čtení a psaní
+pošty. Dále je zde poštovní server (MTA), který se stará o přenos
+pošty mezi různými počítači. A na závěr je zde doručovací agent (MDA),
+který se stará o doručení pošty do uživatelovy schránky. Tyto tři
+funkce mohou vykonávat samostatné programy, nebo mohou být sloučeny do
+dvou, případně jediného programu.
+
+</para><para>
+
+Na unixových systémech je historicky velmi populární MUA
+<command>mutt</command> a jako většina tradičních programů je
+textový. Jako MTA se často používá <command>exim</command> nebo
+<command>sendmail</command> a funkci MDA vykonává
+<command>procmail</command> nebo <command>maildrop</command>.
+
+</para><para>
+
+S rostoucí popularitou grafických desktopových prostředí se začíná
+používat více grafických poštovních klientů jako
+<command>evolution</command> pro prostředí GNOME,
+<command>kmail</command> pro prostředí KDE, nebo multiplatformní
+<command>thunderbird</command> (v &debian;u dostupný jako
+<command>icedove</command>). Tyto programy kombinují funkce MUA, MTA a
+MDA dohromady, ale mohou být &mdash; a často jsou &mdash; používány v
+kombinaci s tradičními unixovými nástroji.
+
+</para>
+
+  <sect2 id="mail-default">
+  <title>Výchozí nastavení pošty</title>
+<para>
+
+I když plánujete používat grafický poštovní program typu vše v jednom,
+je důležité, aby byl nainstalován i tradiční MTA/MDA. Důvodem jsou
+různé nástroje<footnote><para>
+
+<command>cron</command>, <command>quota</command>,
+<command>logcheck</command>, <command>aide</command>, &hellip;
+
+</para></footnote>, které mohou elektronickou poštou zasílat správci
+a/nebo uživatelům důležitá upozornění.
+
+</para><para>
+
+K těmto účelům se při standardní instalaci (pokud jste nezrušili
+výběr úlohy <quote>standardní</quote>) nainstalují balíky 
+<classname>exim4</classname> a <classname>mutt</classname>. 
+<command>exim4</command> kombinuje MTA a MDA, je relativně malý,
+jednoduchý na pochopení a zároveň je dostatečně pružný, aby vyhověl i
+náročnějším požadavkům. Ve výchozí konfiguraci je nastaven tak, aby
+zpracovával pouze lokální poštu (tj. tu, která vznikla na tomto
+systému) a veškeré zprávy adresované systémovému správci (účet root)
+posílal na účet běžného uživatele, který byl vytvořen během
+instalace<footnote><para>
+
+Přeposílání pošty uživatele root na účet běžného uživatele se
+nastavuje v souboru <filename>/etc/aliases</filename>. Jestliže jste
+během instalace přeskočili vytvoření běžného uživatele, pak bude pošta
+samozřejmě doručována přímo uživateli root.
+
+</para></footnote>.
+
+</para><para>
+
+Pošta je při doručení přidána do souboru
+<filename>/var/mail/<replaceable>jmeno_uctu</replaceable></filename>.
+Tuto poštu můžete číst například programem <command>mutt</command>.
+
+</para>
+  </sect2>
+
+  <sect2 id="mail-outgoing">
+  <title>Odesílání pošty mimo systém</title>
+<para>
+
+Jak bylo zmíněno dříve, po základní instalaci &debian;u umí systém
+zpracovávat pouze poštu pocházející ze stejného počítače. Odesílání
+nebo přijímání pošty z jiných systémů není nastaveno.
+
+</para><para>
+
+Chcete-li, aby <classname>exim4</classname> zpracovával i externí
+poštu, podívejte se na následující podkapitolu, kde naleznete základní
+možnosti. Nezapomeňte pak otestovat, zda odesílání a přijímání pošty
+funguje bez problému.
+
+</para><para>
+
+Jestliže plánujete používat grafický poštovní program ve spojení s
+poštovním serverem vašeho poskytovatele Internetu nebo s poštovním
+serverem vaší firmy, není důvod, abyste nastavovali
+<classname>exim4</classname>. Stačí nastavit grafický poštovní klient,
+aby používal pro přijímání a odesílání správné poštovní servery
+(konkrétní nastavení spadá mimo rozsah této příručky).
+
+</para><para>
+
+I při použití grafického poštovního klienta a externího poštovního
+serveru je někdy potřeba nastavit některé konkrétní programu pro
+posílání pošty mimo systém. Jedním z takových programů je nástroj
+<command>reportbug</command>, který zajišťuje odesílání hlášení o
+chybách v &debian;ích balících. Ve výchozím nastavení očekává, že bude
+pro odesílání chybových hlášení používat <classname>exim4</classname>.
+
+</para><para>
+
+Abyste <command>reportbug</command> přemluvili, aby používal externí
+poštovní server, spusťte příkaz <command>reportbug
+--configure</command> a na otázku, zda je MTA dostupný, odpovězte
+<quote>ne</quote>. Poté budete dotázáni na SMTP server, který se má
+používat pro odesílání chybových hlášení. Sem vyplňte stejné jméno
+nebo IP adresu, jakou jste zadali v konfiguraci grafického poštovního
+klienta.
+
+</para>
+  </sect2>
+
+  <sect2 id="config-mta">
+  <title>Nastavení poštovního serveru Exim4</title>
+<para>
+
+V případě, že na svém systému chcete zpracovávat i externí poštu,
+musíte změnit nastavení balíku <classname>exim4</classname><footnote>
+<para>
+
+Samozřejmě vám nic nebrání <classname>exim4</classname> odstranit a
+nahradit alternativním MTA/MDA.
+
+</para></footnote>:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>dpkg-reconfigure exim4-config</userinput>
+</screen></informalexample>
+
+</para><para>
+
+Po zadání příkazu budete nejprve dotázáni, zda chcete rozdělit
+konfiguraci do menších souborů. Pokud si nejste jisti, ponechte
+výchozí možnost.
+
+</para><para>
+
+Další obrazovka vám nabídne několik typických scénářů použití. Vyberte
+z nich ten, který nejvíce odpovídá zamýšlenému použití:
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>internetový počítač</term>
+<listitem><para>
+
+Váš systém je připojen k počítačové síti a pošta je odesílána/přijímána
+přímo protokolem SMTP. Na následujících obrazovkách budete dotázáni
+několik základních údajů, jako je poštovní jméno nebo seznam domén,
+pro které chcete přijímat nebo předávat poštu.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>odesílání pošty přes chytrý počítač</term>
+<listitem><para>
+
+Podle tohoto scénáře je veškerá odchozí pošta posílána
+<quote>chytrému</quote> počítači, který ji za vás rozešle. Chytrý
+počítač také často ukládá vaši příchozí poštu, tudíž nemusíte být
+neustále připojeni. To pak znamená, že poštu musíte číst na chytrém
+počítači, nebo ji z něj stahovat programem typu
+<command>fetchmail</command>.
+
+</para><para>
+
+Chytrý počítač obvykle bývá poštovní server vašeho poskytovatele
+připojení, což je obzvláště vhodné pro uživatele s vytáčeným
+připojením. Jinak to může být třeba firemní poštovní server, nebo i
+jiný počítač na vaší síti.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>odesílání pošty přes chytrý počítač; žádná lokální pošta</term>
+<listitem><para>
+
+Tato volba je v podstatě shodná s předchozí, až na fakt, že systém
+nebude zpracovávat poštu pro lokální poštovní doménu. Zpracovávat se
+bude pouze pošta vzniklá na systému (např. pro systémového správce).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>pouze lokální pošta</term>
+<listitem><para>
+
+Systém není připojen k síti a pošta se rozesílá pouze mezi lokálními
+uživateli. Tato volba je důrazně doporučena i když neplánujete
+posílání žádných zpráv, protože různé systémové nástroje mohou
+elektronickou poštou zasílat nejrůznější výstrahy a varování
+(například oblíbené <quote>Překročili jste diskovou kvótu</quote>).
+Tato volba je také vhodná pro nové uživatele, protože se neptá žádné
+další otázky.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>žádné nastavení</term>
+<listitem><para>
+
+Tuto možnost vyberte jedině pokud přesně víte, co děláte, protože
+dokud poštovní systém nenastavíte, nebudete moci přijímat a odesílat
+žádnou poštu a můžete tak přijít o důležité zprávy od systémových
+programů.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Jestliže vám nevyhovuje žádný z nabízených scénářů, nebo pokud
+potřebujete jemnější nastavení, budete muset ručně upravit
+konfigurační soubory v adresáři <filename>/etc/exim4</filename>.
+Další informace o <command>exim4</command> naleznete v adresáři
+<filename>/usr/share/doc/exim4</filename>.
+
+</para><para>
+
+Mějte však na paměti, že pokud nemáte oficiální doménové jméno, tak
+pošta odesílaná přímo do Internetu může být protistranou odmítnuta
+jako ochrana proti spammerům. Preferováno je posílání pošty přes
+poštovní server vašeho poskytovatele připojení. Chcete-li přesto
+odesílat poštu přímo, možná bude dobré použít jinou adresu, než tu,
+která byla vytvořena automaticky. S poštovním serverem Exim můžete
+přidat nový záznam do <filename>/etc/email-addresses</filename>.
+
+</para>
+  </sect2>
+ </sect1>

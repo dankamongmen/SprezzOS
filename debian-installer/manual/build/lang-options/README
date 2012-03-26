@@ -1,0 +1,48 @@
+INSTRUCTIONS FOR USING OPTIONAL PARAGRAPHS
+==========================================
+
+In some places in the manual paragraphs have been included that are not
+included in the generated English version of the manual. They can however
+be included _optionally_ in translations.
+
+To include an optional paragraph for your translation, you need to "enable"
+it:
+- creating a file in this directory with your language code as its name
+- add a singe line in this file containing:
+     optional_paras="condition(s)"
+- if you want to enable more than one optional paragraph, separate their
+  conditions by a semicolon (without a space)
+
+example
+-------
+optional_paras="about-langteam;gpl-unofficial"
+
+
+       *** PLEASE CHECK THE RESULT AFTER THE MANUAL HAS BEEN BUILT ***
+
+
+TRANSLATING AN OPTIONAL PARAGRAPH
+=================================
+In some cases you should replace the full text of the paragraph with your own.
+In other cases you may need to translate the English text included in the
+paragraph.
+
+If comments are included in the paragraph (to help translation), these should
+be deleted.
+
+
+LIST OF DEFINED OPTIONAL PARAGRAPHS
+===================================
+Currently the following optional paragraphs have been defined (the first term
+is the name of the condition used to activate it):
+* about-langteam (en/administrativa/administrativa.xml
+  Allows to add some info about the translator or translation team, and how
+  to contact the translator(s).
+* translation-status (en/bookinfo.xml)
+  Allows to add information about the status of the translation and maybe to
+  request reviews.
+* gpl-unofficial (en/appendix/gpl.xml)
+  *Must* be included if the GPL itself is translated; should *not* be included
+  if the appendix contains the original (untranslated) English text of the GPL.
+  Consists of two paragraphs of which the first *should remain in English*.
+  See http://www.gnu.org/licenses/translations.html for additional information.

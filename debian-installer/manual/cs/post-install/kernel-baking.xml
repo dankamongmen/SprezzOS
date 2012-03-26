@@ -1,0 +1,169 @@
+<!-- $Id: kernel-baking.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+ <sect1 arch="linux-any" id="kernel-baking"><title>Kompilace nového jádra</title>
+<para>
+
+Proč byste si chtěli sestavit nové jádro? Obvykle nejde o
+nutnost, poněvadž jádro dodávané s &debian;em funguje ve většině
+počítačů. V &debian;u také bývají dostupná alternativní jádra, která
+mohou odpovídat vašemu hardwaru lépe než jádro výchozí, takže byste se
+na ně určitě měli podívat. Nicméně nové jádro může být užitečné
+v následujících situacích:
+
+<itemizedlist>
+<listitem><para>
+
+Potřebujete vyřešit hardwarový konflikt zařízení nebo speciální nároky
+hardwaru, které dodávané jádro nezvládne.
+
+</para></listitem>
+<listitem><para>
+
+Ve standardním jádře postrádáte podporu zařízení nebo nějakou službu
+(např. podporu vysoké paměti).
+
+</para></listitem>
+<listitem><para>
+
+Chcete menší jádro bez ovladačů, které nepoužíváte. Urychlíte start
+systému a ušetříte paměť.
+
+</para></listitem>
+<listitem><para>
+
+Chcete monolitické jádro místo modulárního.
+
+</para></listitem>
+<listitem><para>
+
+Chcete jádro z vývojové řady.
+
+</para></listitem>
+<listitem><para>
+
+Chcete se o jádře dozvědět něco víc.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+
+  <sect2><title>Správa jader</title>
+<para>
+
+Nebojte se kompilace jádra, je to zábava a budete z ní mít užitek.
+
+</para><para>
+
+Doporučený způsob kompilace jádra v &debian;u vyžaduje tyto balíky:
+<classname>fakeroot</classname>, <classname>kernel-package</classname>,
+<classname>linux-source-2.6</classname> a další, které
+již máte patrně nainstalované (úplný seznam je v souboru
+<filename>/usr/share/doc/kernel-package/README.gz</filename>).
+
+</para><para>
+
+Tato metoda vytvoří ze zdrojových textů jádra .deb balíček, a jestliže
+používáte nestandardní moduly, taktéž z nich vyrobí aktuální balíčky.
+Při instalaci balíčku se do adresáře <filename>/boot</filename> uloží
+pěkně pohromadě jádro, mapa symbolů <filename>System.map</filename> a
+aktuální konfigurace.
+
+</para><para>
+
+Jádro <emphasis>nemusíte</emphasis> připravovat touto cestou, ale
+domníváme se, že s využitím balíčkovacího softwaru se proces
+zjednoduší a je také bezpečnější. Místo balíku
+<classname>linux-source-2.6</classname>
+si klidně můžete stáhnout poslední zdrojové texty jádra přímo od
+Linuse.
+
+</para><para>
+
+Popis balíku <classname>kernel-package</classname> se nachází v
+adresáři <filename>/usr/share/doc/kernel-package</filename>.
+V následujících odstavcích najdete jen stručný úvod k jeho použití.
+
+</para><para>
+
+V dalším budeme předpokládat, že zdrojové texty jádra verze
+&kernelversion; uložíte někam do svého domovského adresáře.<footnote>
+
+<para>
+
+Existují i jiná místa, kam můžete zdrojové texty jádra rozbalit, ale
+použitá možnost je nejjednodušší a nevyžaduje žádná speciální práva.
+
+</para></footnote>
+
+Přejděte do adresáře, kde chcete mít zdrojové texty jádra
+(<userinput>cd <replaceable>~/build</replaceable></userinput>),
+rozbalte archiv (<userinput>tar xjf
+/usr/src/linux-source-&kernelversion;.tar.bz2</userinput>) a vejděte
+do vzniklého adresáře (<userinput>cd
+linux-source-&kernelversion;/</userinput>).
+
+</para><para>
+
+V prostředí X11 nakonfigurujte jádro příkazem <userinput>make
+xconfig</userinput>, nebo v terminálu příkazem <userinput>make
+menuconfig</userinput> (musíte mít nainstalovaný balíček
+<classname>ncurses-dev</classname>). Pročtěte si nápovědu a pozorně
+vybírejte z nabízených možností. Pokud si v některém bodu nebudete
+vědět rady, je většinou lepší zařízení do jádra vložit. Volby, kterým
+nerozumíte a které se nevztahují k hardwaru, raději nechte na
+přednastavených hodnotách. Nezapomeňte do jádra zahrnout <quote>Kernel
+module loader</quote> (tj. automatické vkládání modulů) v sekci
+<quote>Loadable module support</quote>, které přednastavené nebývá,
+avšak &debian; tuto službu předpokládá.
+
+</para><para>
+
+Příkazem <userinput>make-kpkg clean</userinput> pročistíte strom
+zdrojových textů a vynulujete předchozí nastavení balíku
+<classname>kernel-package</classname>.
+
+</para><para>
+
+Kompilaci jádra provedete příkazem <userinput>fakeroot
+make-kpkg --initrd --revision=jadro.1.0
+kernel_image</userinput>. Číslo verze si můžete zvolit podle vlastní
+úvahy, slouží pouze k vaší orientaci v připravených
+balících. Kompilace zabere chvíli času, záleží na výpočetním výkonu
+vašeho počítače.
+
+</para><para>
+
+Až kompilace skončí, jádro nainstalujete jako každý jiný balík. Jako
+root napište <userinput>dpkg -i
+../&kernelpackage;-&kernelversion;-<replaceable>podarchitektura</replaceable>_jadro.1.0_&architecture;.deb</userinput>.
+<replaceable>podarchitektura</replaceable> je volitelné upřesnění
+architektury, <phrase arch="x86"> např. <quote>686</quote>,
+</phrase> které jste zadali při konfiguraci
+jádra. <userinput>dpkg -i</userinput> nainstaluje jádro spolu
+s doprovodnými soubory. Jedná se třeba o soubory
+<filename>System.map</filename>, který je užitečný při dohledávání
+problémů v jádře, a <filename>/boot/config-&kernelversion;</filename>
+obsahující konfigurační soubor jádra. Balík s jádrem je dostatečně
+chytrý, takže během instalace upraví zavaděč tak, aby implicitně
+používal nové jádro. Pokud jste vytvořili balík s moduly (třeba PCMCIA
+nebo lm-sensors), je nanejvýš vhodné ho také nainstalovat.
+
+</para><para>
+
+Nyní je čas spustit systém s novým jádrem. Projděte si chybové hlášky,
+které se mohly při instalaci jádra vyskytnout, a pokud vše vypadá
+dobře, restartujte příkazem <userinput>shutdown -r now</userinput>.
+
+</para><para>
+
+Více informací o debianích jádrech a o kompilaci jader si můžete
+přečíst v <ulink
+url="&url-kernel-handbook;">Debian Linux Kernel Handbook</ulink>.
+Popis balíku <classname>kernel-package</classname> najdete v adresáři
+<filename>/usr/share/doc/kernel-package</filename>.
+
+</para>
+  </sect2>
+ </sect1>

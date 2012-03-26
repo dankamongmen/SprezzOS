@@ -1,0 +1,917 @@
+# Swedish translation of boot-new.
+# Copyright (C) 2006 Free Software Foundation, Inc.
+# Daniel Nylander <po@danielnylander.se>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: boot-new\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-10 12:35+0000\n"
+"PO-Revision-Date: 2007-08-15 22:18+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#: boot-new.xml:5
+#, no-c-format
+msgid "Booting Into Your New &debian; System"
+msgstr "Starta upp ditt nya &debian;-system"
+
+#. Tag: title
+#: boot-new.xml:7
+#, no-c-format
+msgid "The Moment of Truth"
+msgstr "Sanningens minut"
+
+#. Tag: para
+#: boot-new.xml:8
+#, no-c-format
+msgid ""
+"Your system's first boot on its own power is what electrical engineers call "
+"the <quote>smoke test</quote>."
+msgstr ""
+"Första uppstarten av ditt nya system är vad elingenjörer kallar för "
+"<quote>röktest</quote>."
+
+#. Tag: para
+#: boot-new.xml:13
+#, no-c-format
+msgid ""
+"If you did a default installation, the first thing you should see when you "
+"boot the system is the menu of the <classname>grub</classname><phrase arch="
+"\"x86\"> or possibly the <classname>lilo</classname> bootloader</phrase>. "
+"The first choices in the menu will be for your new &debian; system. If you "
+"had any other operating systems on your computer (like Windows) that were "
+"detected by the installation system, those will be listed lower down in the "
+"menu."
+msgstr ""
+"Om du gjorde en standardinstallation, är det första du kommer att se när du "
+"startar upp systemet, menyn för starthanteraren <classname>grub</"
+"classname><phrase arch=\"x86\"> eller möjligen <classname>lilo</classname></"
+"phrase>. De första valen i menyn kommer att vara för ditt nya &debian;-system. "
+"Om du hade några andra operativsystem på din dator (som Windows) som "
+"identifierades av installationssystemet, kommer dessa att listas längre ner "
+"i menyn."
+
+#. Tag: para
+#: boot-new.xml:23
+#, no-c-format
+msgid ""
+"If the system fails to start up correctly, don't panic. If the installation "
+"was successful, chances are good that there is only a relatively minor "
+"problem that is preventing the system from booting &debian;. In most cases "
+"such problems can be fixed without having to repeat the installation. One "
+"available option to fix boot problems is to use the installer's built-in "
+"rescue mode (see <xref linkend=\"rescue\"/>)."
+msgstr ""
+"Få inte panik om systemet misslyckas med att starta upp korrekt. Om "
+"installationen lyckades är chanserna goda att det bara är ett relativt litet "
+"problem som förhindrar systemet från att starta upp &debian;. I de flesta fall "
+"kan problem rättas till utan att behöva upprepa installationen. Ett "
+"tillgängligt alternativ för att rätta till uppstartsproblem är att använda "
+"installationsprogrammets inbyggda räddningsläge (se <xref linkend=\"rescue\"/"
+">)."
+
+#. Tag: para
+#: boot-new.xml:32
+#, no-c-format
+msgid ""
+"If you are new to &debian; and &arch-kernel;, you may need some help from "
+"more experienced users. <phrase arch=\"x86\">For direct on-line help you can "
+"try the IRC channels #debian or #debian-boot on the OFTC network. "
+"Alternatively you can contact the <ulink url=\"&url-list-subscribe;\">debian-"
+"user mailing list</ulink>.</phrase> <phrase arch=\"not-x86\">For less common "
+"architectures like &arch-title;, your best option is to ask on the <ulink "
+"url=\"&url-list-subscribe;\">debian-&arch-listname; mailing list</ulink>.</"
+"phrase> You can also file an installation report as described in <xref "
+"linkend=\"submit-bug\"/>. Please make sure that you describe your problem "
+"clearly and include any messages that are displayed and may help others to "
+"diagnose the issue."
+msgstr ""
+"Om du är nybörjare när det gäller &debian; och &arch-kernel;, kanske du "
+"behöver lite hjälp från mer erfarna användare. <phrase arch=\"x86\">För "
+"direkthjälp på Internet kan du prova IRC-kanalerna #debian eller #debian-"
+"boot på OFTC-nätverket. Alternativt kan du kontakta <ulink url=\"&url-list-"
+"subscribe;\">sändlistan debian-user</ulink>.</phrase> <phrase arch=\"not-"
+"x86\">För mindre vanliga arkitekturer som &arch-title; är det bästa att "
+"fråga på <ulink url=\"&url-list-subscribe;\">sändlistan debian-&arch-"
+"listname;</ulink>.</phrase> Du kan även skicka in en installationsrapport, "
+"som beskrivs i <xref linkend=\"submit-bug\"/>. Se till att du beskriver ditt "
+"problem i detalj och inkluderar eventuella meddelanden som visas och kan "
+"hjälpa andra att felsöka problemet."
+
+#. Tag: para
+#: boot-new.xml:48
+#, no-c-format
+msgid ""
+"If you had any other operating systems on your computer that were not "
+"detected or not detected correctly, please file an installation report."
+msgstr ""
+"Skicka in en installationsrapport om du har andra operativsystem på din "
+"dator som inte identifierades eller inte identifierades korrekt."
+
+#. Tag: title
+#: boot-new.xml:56
+#, no-c-format
+msgid "OldWorld PowerMacs"
+msgstr "OldWorld PowerMac"
+
+#. Tag: para
+#: boot-new.xml:57
+#, no-c-format
+msgid ""
+"If the machine fails to boot after completing the installation, and stops "
+"with a <prompt>boot:</prompt> prompt, try typing <userinput>Linux</"
+"userinput> followed by &enterkey;. (The default boot configuration in "
+"<filename>quik.conf</filename> is labeled Linux). The labels defined in "
+"<filename>quik.conf</filename> will be displayed if you press the "
+"<keycap>Tab</keycap> key at the <prompt>boot:</prompt> prompt. You can also "
+"try booting back into the installer, and editing the <filename>/target/etc/"
+"quik.conf</filename> placed there by the <guimenuitem>Install Quik on a Hard "
+"Disk</guimenuitem> step. Clues for dealing with <command>quik</command> are "
+"available at <ulink url=\"&url-powerpc-quik-faq;\"></ulink>."
+msgstr ""
+"Om maskinen misslyckas att starta upp efter färdigställandet av "
+"installationen, och stoppar med en <prompt>boot:</prompt>-prompt, försök "
+"mata in <userinput>Linux</userinput> följt av &enterkey;. "
+"(Standardkonfiguration för uppstart i <filename>quik.conf</filename> är "
+"märkt som Linux). Märkningen definierad i <filename>quik.conf</filename> "
+"kommer att visas om du trycker tangenten <keycap>Tab</keycap> vid prompten "
+"<prompt>boot:</prompt>. Du kan också försöka starta upp in i "
+"installationsprogrammet och redigera <filename>/target/etc/quik.conf</"
+"filename> placerad där av steget <guimenuitem>Install Quik on a Hard Disk</"
+"guimenuitem>. Ledtrådar för hantering av <command>quik</command> finns "
+"tillgängliga på <ulink url=\"&url-powerpc-quik-faq;\"></ulink>."
+
+#. Tag: para
+#: boot-new.xml:71
+#, no-c-format
+msgid ""
+"To boot back into MacOS without resetting the nvram, type <userinput>bye</"
+"userinput> at the OpenFirmware prompt (assuming MacOS has not been removed "
+"from the machine). To obtain an OpenFirmware prompt, hold down the "
+"<keycombo> <keycap>command</keycap> <keycap>option</keycap> <keycap>o</"
+"keycap> <keycap>f</keycap> </keycombo> keys while cold booting the machine. "
+"If you need to reset the OpenFirmware nvram changes to the MacOS default in "
+"order to boot back to MacOS, hold down the <keycombo> <keycap>command</"
+"keycap> <keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap> </"
+"keycombo> keys while cold booting the machine."
+msgstr ""
+"För att starta upp det gamla MacOS utan att återställa nvram, skriv "
+"<userinput>bye</userinput> vid OpenFirmware-prompten (antar att MacOS inte "
+"har tagits bort från maskinen). För att få fram en OpenFirmware-prompt, håll "
+"nere tangenterna <keycombo> <keycap>command</keycap> <keycap>option</keycap> "
+"<keycap>o</keycap> <keycap>f</keycap> </keycombo> vid kallstart av maskinen. "
+"Om du behöver återställa ändringar i nvram till MacOS-standard för att kunna "
+"starta upp tillbaka till MacOS, håll ned tangenterna <keycombo> "
+"<keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap> "
+"<keycap>r</keycap> </keycombo> vid kallstart av maskinen."
+
+#. Tag: para
+#: boot-new.xml:84
+#, no-c-format
+msgid ""
+"If you use <command>BootX</command> to boot into the installed system, just "
+"select your desired kernel in the <filename>Linux Kernels</filename> folder, "
+"un-choose the ramdisk option, and add a root device corresponding to your "
+"installation; e.g. <userinput>/dev/hda8</userinput>."
+msgstr ""
+"Om du använder <command>BootX</command> för att starta upp i det "
+"installerade system, välj bara din önskade kärna i katalogen <filename>Linux "
+"Kernels</filename>, välj bort ramdisk-alternativet, och lägg till en "
+"rotenhet som passar din installation; exempelvis <userinput>/dev/hda8</"
+"userinput>."
+
+#. Tag: title
+#: boot-new.xml:96
+#, no-c-format
+msgid "NewWorld PowerMacs"
+msgstr "NewWorld PowerMac"
+
+#. Tag: para
+#: boot-new.xml:97
+#, no-c-format
+msgid ""
+"On G4 machines and iBooks, you can hold down the <keycap>option</keycap> key "
+"and get a graphical screen with a button for each bootable OS, &debian-gnu; "
+"will be a button with a small penguin icon."
+msgstr ""
+"På G4-maskiner och iBook:ar kan du hålla ned tangenten <keycap>option</"
+"keycap> och få en grafisk skärm med en knapp för varje startbart OS, &debian-"
+"gnu; kommer att vara en knapp med en liten pingvin på."
+
+#. Tag: para
+#: boot-new.xml:104
+#, no-c-format
+msgid ""
+"If you kept MacOS and at some point it changes the OpenFirmware <envar>boot-"
+"device</envar> variable you should reset OpenFirmware to its default "
+"configuration. To do this hold down the <keycombo> <keycap>command</keycap> "
+"<keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap> </keycombo> "
+"keys while cold booting the machine."
+msgstr ""
+"Om du behållde MacOS och vid någon tidpunkt ändrar <envar>boot-device</"
+"envar>-variabeln i OpenFirmware bör du återställa OpenFirmware till sin "
+"standardkonfiguration. För att göra det här, håll ned tangenterna <keycombo> "
+"<keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap> "
+"<keycap>r</keycap> </keycombo> vid kallstart av maskinen."
+
+#. Tag: para
+#: boot-new.xml:112
+#, no-c-format
+msgid ""
+"The labels defined in <filename>yaboot.conf</filename> will be displayed if "
+"you press the <keycap>Tab</keycap> key at the <prompt>boot:</prompt> prompt."
+msgstr ""
+"Märkena definierade i <filename>yaboot.conf</filename> kommer att visas om "
+"du trycker ned tangenten <keycap>Tab</keycap> vid <prompt>boot:</prompt>-"
+"prompten."
+
+#. Tag: para
+#: boot-new.xml:118
+#, no-c-format
+msgid ""
+"Resetting OpenFirmware on G3 or G4 hardware will cause it to boot &debian-"
+"gnu; by default (if you correctly partitioned and placed the Apple_Bootstrap "
+"partition first). If you have &debian-gnu; on a SCSI disk and MacOS on an "
+"IDE disk this may not work and you will have to enter OpenFirmware and set "
+"the <envar>boot-device</envar> variable, <command>ybin</command> normally "
+"does this automatically."
+msgstr ""
+"Återställning av OpenFirmware på G3 eller G4-maskinvara kommer att göra att "
+"den startar upp &debian-gnu; som standard (om du partitionerat den korrekt "
+"och placerat Apple_Bootstrap-partitionen först). Om du har &debian-gnu; på "
+"en SCSI-disk och MacOS på en IDE-disk kanske inte det här fungerar om du "
+"kommer att behöva på in i OpenFirmware och ställa in variabeln <envar>boot-"
+"device</envar>, <command>ybin</command> gör normalt det här helt automatiskt."
+
+#. Tag: para
+#: boot-new.xml:127
+#, no-c-format
+msgid ""
+"After you boot &debian-gnu; for the first time you can add any additional "
+"options you desire (such as dual boot options) to <filename>/etc/yaboot."
+"conf</filename> and run <command>ybin</command> to update your boot "
+"partition with the changed configuration. Please read the <ulink url=\"&url-"
+"powerpc-yaboot-faq;\">yaboot HOWTO</ulink> for more information."
+msgstr ""
+"Efter du har startat upp &debian-gnu; för första gången kan du lägga till "
+"ytterligare flaggor som du önskar (såsom flaggor för dubbla startalternativ) "
+"till <filename>/etc/yaboot.conf</filename> och köra <command>ybin</command> "
+"för att uppdatera din startpartition med den ändrade konfigurationen. Läs "
+"<ulink url=\"&url-powerpc-yaboot-faq;\">yaboot HOWTO</ulink> för mer "
+"information."
+
+#. Tag: title
+#: boot-new.xml:145
+#, no-c-format
+msgid "Mounting encrypted volumes"
+msgstr "Montering av krypterade volymer"
+
+#. Tag: para
+#: boot-new.xml:147
+#, no-c-format
+msgid ""
+"If you created encrypted volumes during the installation and assigned them "
+"mount points, you will be asked to enter the passphrase for each of these "
+"volumes during the boot. The actual procedure differs slightly between dm-"
+"crypt and loop-AES."
+msgstr ""
+"Om du skapade krypterade volymer under installationen och tilldelade "
+"monteringspunkter till dem, kommer du att bli efterfrågad vid uppstart om "
+"att ange lösenfrasen för varje av dessa volymer. Det faktiska proceduren för "
+"detta skiljer sig markant mellan dm-crypt och loop-AES."
+
+#. Tag: title
+#: boot-new.xml:157
+#, no-c-format
+msgid "dm-crypt"
+msgstr "dm-crypt"
+
+#. Tag: para
+#: boot-new.xml:159
+#, no-c-format
+msgid ""
+"For partitions encrypted using dm-crypt you will be shown the following "
+"prompt during the boot: <informalexample><screen>\n"
+"Starting early crypto disks... <replaceable>part</replaceable>_crypt"
+"(starting)\n"
+"Enter LUKS passphrase:\n"
+"</screen></informalexample> In the first line of the prompt, "
+"<replaceable>part</replaceable> is the name of the underlying partition, e."
+"g. sda2 or md0. You are now probably wondering <emphasis>for which volume</"
+"emphasis> you are actually entering the passphrase. Does it relate to your "
+"<filename>/home</filename>? Or to <filename>/var</filename>? Of course, if "
+"you have just one encrypted volume, this is easy and you can just enter the "
+"passphrase you used when setting up this volume. If you set up more than one "
+"encrypted volume during the installation, the notes you wrote down as the "
+"last step in <xref linkend=\"partman-crypto\"/> come in handy. If you did "
+"not make a note of the mapping between <filename><replaceable>part</"
+"replaceable>_crypt</filename> and the mount points before, you can still "
+"find it in <filename>/etc/crypttab</filename> and <filename>/etc/fstab</"
+"filename> of your new system."
+msgstr ""
+"För partitioner som är krypterade med dm-crypt kommer följande prompt att "
+"visas under uppstarten: <informalexample><screen>\n"
+"Starting early crypto disks... <replaceable>del</replaceable>_crypt"
+"(starting)\n"
+"Enter LUKS passphrase:\n"
+"</screen></informalexample> På första raden av prompten är <replaceable>del</"
+"replaceable> namnet på underliggande partition, t.ex. sda2 eller md0. Du "
+"undrar kanske nu <emphasis>för vilken volym</emphasis> du faktiskt anger "
+"lösenfrasen. Relaterar det till <filename>/home</filename>? Eller till "
+"<filename>/var</filename>? Om du bara skapade en krypterad volym är detta "
+"enkelt och du behöver bara ange lösenfrasen som du angav för den volymen. Om "
+"du har skapat fler än en krypterad volym under installationen kan "
+"anteckningarna du skrev ner i sista steget i <xref linkend=\"partman-crypto"
+"\"/> komma till hands. Om du inte antecknade relationerna mellan "
+"<filename>crypt<replaceable>X</replaceable></filename> och "
+"monteringspunkterna kan du fortfarande hitta dem i <filename>/etc/crypttab</"
+"filename> och <filename>/etc/fstab</filename> på ditt nya system."
+
+#. Tag: para
+#: boot-new.xml:182
+#, no-c-format
+msgid ""
+"The prompt may look somewhat different when an encrypted root file system is "
+"mounted. This depends on which initramfs generator was used to generate the "
+"initrd used to boot the system. The example below is for an initrd generated "
+"using <classname>initramfs-tools</classname>:"
+msgstr ""
+"Prompten kan se annorlunda ut när ett krypterat rotfilsystem monteras. Detta "
+"beror på vilken initramfs-generator som användes för att generera den initrd "
+"som används för att starta upp systemet. Exemplet nedan är för en initrd som "
+"genererats med <classname>initramfs-tools</classname>:"
+
+# Should this be translated?
+#. Tag: screen
+#: boot-new.xml:189
+#, no-c-format
+msgid ""
+"Begin: Mounting <emphasis>root file system</emphasis>... ...\n"
+"Begin: Running /scripts/local-top ...\n"
+"Enter LUKS passphrase:"
+msgstr ""
+"Begin: Mounting <emphasis>root file system</emphasis>... ...\n"
+"Begin: Running /scripts/local-top ...\n"
+"Enter LUKS passphrase:"
+
+#. Tag: para
+#: boot-new.xml:191 boot-new.xml:216
+#, no-c-format
+msgid ""
+"No characters (even asterisks) will be shown while entering the passphrase. "
+"If you enter the wrong passphrase, you have two more tries to correct it. "
+"After the third try the boot process will skip this volume and continue to "
+"mount the next filesystem. Please see <xref linkend=\"crypto-troubleshooting"
+"\"/> for further information."
+msgstr ""
+"Inga tecken (inte ens stjärnor) kommer att visas när lösenfrasen matas in. "
+"Om du matar in fel lösenfras har du ytterligare två försök till att mata in "
+"den korrekta lösenfrasen. Efter det tredje försöket kommer "
+"uppstartsprocessen att hoppa över denna volym och fortsätta montera nästa "
+"filsystem. Se <xref linkend=\"crypto-troubleshooting\"/> för ytterligare "
+"information."
+
+#. Tag: para
+#: boot-new.xml:199 boot-new.xml:224
+#, no-c-format
+msgid "After entering all passphrases the boot should continue as usual."
+msgstr ""
+"Efter att alla lösenfraser har matats in ska uppstarten fortsätta som "
+"normalt."
+
+#. Tag: title
+#: boot-new.xml:207
+#, no-c-format
+msgid "loop-AES"
+msgstr "loop-AES"
+
+#. Tag: para
+#: boot-new.xml:209
+#, no-c-format
+msgid ""
+"For partitions encrypted using loop-AES you will be shown the following "
+"prompt during the boot:"
+msgstr ""
+"För partitioner som krypterats med loop-AES kommer följande prompt att visas "
+"under uppstart:"
+
+#. Tag: screen
+#: boot-new.xml:214
+#, no-c-format
+msgid ""
+"Checking loop-encrypted file systems.\n"
+"Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</"
+"replaceable>)\n"
+"Password:"
+msgstr ""
+"Checking loop-encrypted file systems.\n"
+"Setting up /dev/loop<replaceable>X</replaceable> (/"
+"<replaceable>monteringspunkt</replaceable>)\n"
+"Password:"
+
+#. Tag: title
+#: boot-new.xml:232
+#, no-c-format
+msgid "Troubleshooting"
+msgstr "Problemlösning"
+
+#. Tag: para
+#: boot-new.xml:234
+#, no-c-format
+msgid ""
+"If some of the encrypted volumes could not be mounted because a wrong "
+"passphrase was entered, you will have to mount them manually after the boot. "
+"There are several cases."
+msgstr ""
+"Om någon av de krypterade volymerna inte kunde monteras på grund av att en "
+"felaktig lösenfras matades in, kan du montera dem manuellt efter uppstart. "
+"Det finns ett flertal olika situationer."
+
+#. Tag: para
+#: boot-new.xml:243
+#, no-c-format
+msgid ""
+"The first case concerns the root partition. When it is not mounted "
+"correctly, the boot process will halt and you will have to reboot the "
+"computer to try again."
+msgstr ""
+"Det första fallet gäller rotpartitionen. När den inte har monterats korrekt "
+"kommer uppstartsprocessen att stanna och du måste då starta om datorn och "
+"försöka igen."
+
+#. Tag: para
+#: boot-new.xml:250
+#, no-c-format
+msgid ""
+"The easiest case is for encrypted volumes holding data like <filename>/home</"
+"filename> or <filename>/srv</filename>. You can simply mount them manually "
+"after the boot. For loop-AES this is a one-step operation: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
+"userinput>\n"
+"<prompt>Password:</prompt>\n"
+"</screen></informalexample> where <replaceable>/mount_point</replaceable> "
+"should be replaced by the particular directory (e.g. <filename>/home</"
+"filename>). The only difference from an ordinary mount is that you will be "
+"asked to enter the passphrase for this volume."
+msgstr ""
+"Betydligt enklare är det med krypterade volymer som endast innehåller data, "
+"exempelvis <filename>/home</filename> eller <filename>/srv</filename>. Du "
+"kan helt enkelt montera dem manuellt efter uppstarten. För loop-AES är detta "
+"en enstegsoperation: <informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>mount <replaceable>/monteringspunkt</"
+"replaceable></userinput>\n"
+"<prompt>Password:</prompt>\n"
+"</screen></informalexample> där <replaceable>/monteringspunkt</replaceable> "
+"ersätts med den specifika katalogen (t.ex. <filename>/home</filename>). Den "
+"enda skillnaden från en vanlig montering är att du kommer att bli tillfrågad "
+"om att ange lösenfrasen för denna volym."
+
+#. Tag: para
+#: boot-new.xml:264
+#, no-c-format
+msgid ""
+"For dm-crypt this is a bit trickier. First you need to register the volumes "
+"with <application>device mapper</application> by running: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
+"</screen></informalexample> This will scan all volumes mentioned in "
+"<filename>/etc/crypttab</filename> and will create appropriate devices under "
+"the <filename>/dev</filename> directory after entering the correct "
+"passphrases. (Already registered volumes will be skipped, so you can repeat "
+"this command several times without worrying.) After successful registration "
+"you can simply mount the volumes the usual way:"
+msgstr ""
+"För dm-crypt är detta lite svårare. Först behöver du registrera volymerna "
+"med <quote><application>device mapper</application></quote> genom att köra: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
+"</screen></informalexample> Detta kommer att söka av alla volymer som "
+"angivits i <filename>/etc/crypttab</filename> och skapa lämpliga enheter "
+"under katalogen <filename>/dev</filename> efter att de korrekta "
+"lösenfraserna har angivits. (Redan registrerade volymer kommer att hoppas "
+"över så att du kan upprepa detta kommando flera gånger utan att vara "
+"orolig.) Efter en lyckad registrering kan du helt enkelt montera volymerna "
+"på vanligt sätt:"
+
+#. Tag: screen
+#: boot-new.xml:279
+#, no-c-format
+msgid ""
+"<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
+"userinput>"
+msgstr ""
+"<prompt>#</prompt> <userinput>mount <replaceable>/monteringspunkt</"
+"replaceable></userinput>"
+
+#. Tag: para
+#: boot-new.xml:282
+#, no-c-format
+msgid ""
+"If any volume holding noncritical system files could not be mounted "
+"(<filename>/usr</filename> or <filename>/var</filename>), the system should "
+"still boot and you should be able to mount the volumes manually like in the "
+"previous case. However, you will also need to (re)start any services usually "
+"running in your default runlevel because it is very likely that they were "
+"not started. The easiest way to achieve this is by switching to the first "
+"runlevel and back by entering <informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>init 1</userinput>\n"
+"</screen></informalexample> at the shell prompt and pressing <keycombo> "
+"<keycap>Control</keycap> <keycap>D</keycap> </keycombo> when asked for the "
+"root password."
+msgstr ""
+"Om någon volym som innehåller ickekritiska systemfiler inte kan monteras "
+"(<filename>/usr</filename> eller <filename>/var</filename>), ska systemet "
+"fortfarande kunna starta upp och du bör kunna montera volymerna manuellt "
+"precis som i föregående situation. Dock behöver du även starta (om) de "
+"tjänster som normalt kör i din standardkörnivå på grund av att det är mycket "
+"sannolikt att de inte startades. Det enklaste sättet att genomföra detta är "
+"att växla till den första körnivån och sedan tillbaka genom att köra "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>init 1</userinput>\n"
+"</screen></informalexample> vid skalprompten och trycka <keycombo> "
+"<keycap>Control</keycap> <keycap>D</keycap> </keycombo> när rootlösenordet "
+"efterfrågas."
+
+#. Tag: title
+#: boot-new.xml:305
+#, no-c-format
+msgid "Log In"
+msgstr "Logga in"
+
+#. Tag: para
+#: boot-new.xml:307
+#, no-c-format
+msgid ""
+"Once your system boots, you'll be presented with the login prompt. Log in "
+"using the personal login and password you selected during the installation "
+"process. Your system is now ready for use."
+msgstr ""
+"När ditt system startar upp kommer du bli presenterad med "
+"inloggningsprompten. Logga in med ditt personliga användarnamn och lösenord "
+"som du valde under installationsprocessen. Ditt system är nu färdigt att "
+"användas."
+
+#. Tag: para
+#: boot-new.xml:313
+#, no-c-format
+msgid ""
+"If you are a new user, you may want to explore the documentation which is "
+"already installed on your system as you start to use it. There are currently "
+"several documentation systems, work is proceeding on integrating the "
+"different types of documentation. Here are a few starting points."
+msgstr ""
+"Om du är en ny användare kanske du vill utforska dokumentationen som redan "
+"finns installerad på ditt system när du börjar använda det. Det finns för "
+"närvarande flera dokumentationssystem, men arbete fortgår på att integrera "
+"de olika dokumentationstyperna. Här är ett par startpunkter."
+
+#. Tag: para
+#: boot-new.xml:321
+#, no-c-format
+msgid ""
+"Documentation accompanying programs you have installed can be found in "
+"<filename>/usr/share/doc/</filename>, under a subdirectory named after the "
+"program (or, more precise, the &debian; package that contains the program). "
+"However, more extensive documentation is often packaged separately in "
+"special documentation packages that are mostly not installed by default. For "
+"example, documentation about the package management tool <command>apt</"
+"command> can be found in the packages <classname>apt-doc</classname> or "
+"<classname>apt-howto</classname>."
+msgstr ""
+"Dokumentation som följer med program och andra paket som du du har "
+"installerat kan hittas i <filename>/usr/share/doc/</filename>, i en katalog "
+"med samma namn som programmet (eller rättare sagt, &debian;-paketet som "
+"innehåller programmet). Dock är mer detaljerad dokumentation ofta paketerad "
+"separat i speciella dokumentationspaket som oftast inte blir installerade "
+"som standard. Till exempel kan dokumentation om pakethanteringsverktyget "
+"<command>apt</command> hittas i paketen <classname>apt-doc</classname> eller "
+"<classname>apt-howto</classname>."
+
+#. Tag: para
+#: boot-new.xml:332
+#, no-c-format
+msgid ""
+"In addition, there are some special folders within the <filename>/usr/share/"
+"doc/</filename> hierarchy. Linux HOWTOs are installed in <emphasis>.gz</"
+"emphasis> (compressed) format, in <filename>/usr/share/doc/HOWTO/en-txt/</"
+"filename>. After installing <classname>dhelp</classname>, you will find a "
+"browsable index of documentation in <filename>/usr/share/doc/HTML/index."
+"html</filename>."
+msgstr ""
+"I tillägg finns det några speciella mappar i hierarkin <filename>/usr/share/"
+"doc/</filename>. Ett flertal Linux HOWTO finns installerade i <emphasis>.gz</"
+"emphasis>-formatet, under <filename>/usr/share/doc/HOWTO/en-txt/</filename>. "
+"Efter installation av <command>dhelp</command> kommer du att hitta ett "
+"bläddringsbart dokumentationsindex i <filename>/usr/share/doc/HTML/index."
+"html</filename>."
+
+#. Tag: para
+#: boot-new.xml:341
+#, no-c-format
+msgid ""
+"One easy way to view these documents using a text based browser is to enter "
+"the following commands: <informalexample><screen>\n"
+"$ cd /usr/share/doc/\n"
+"$ w3m .\n"
+"</screen></informalexample> The dot after the <command>w3m</command> command "
+"tells it to show the contents of the current directory."
+msgstr ""
+"Ett enkelt sätt att visa dessa dokument med en textbaserad webbläsare är att "
+"köra följande kommandon: <informalexample><screen>\n"
+"$ cd /usr/share/doc/\n"
+"$ w3m .\n"
+"</screen></informalexample> Punkten efter kommandot <command>w3m</command> "
+"talar om för det att visa innehållet i den aktuella katalogen."
+
+#. Tag: para
+#: boot-new.xml:351
+#, no-c-format
+msgid ""
+"If you have a graphical desktop environment installed, you can also use its "
+"web browser. Start the web browser from the application menu and enter "
+"<userinput>/usr/share/doc/</userinput> in the address bar."
+msgstr ""
+"Om du har en grafisk skrivbordsmiljö installerad, kan du även använda dess "
+"grafiska webbläsare. Starta webbläsaren från programmenyn och skriv in "
+"<userinput>/usr/share/doc/</userinput> i adressfältet."
+
+#. Tag: para
+#: boot-new.xml:357
+#, no-c-format
+msgid ""
+"You can also type <userinput>info <replaceable>command</replaceable></"
+"userinput> or <userinput>man <replaceable>command</replaceable></userinput> "
+"to see documentation on most commands available at the command prompt. "
+"Typing <userinput>help</userinput> will display help on shell commands. And "
+"typing a command followed by <userinput>--help</userinput> will usually "
+"display a short summary of the command's usage. If a command's results "
+"scroll past the top of the screen, type <userinput>|&nbsp;more</userinput> "
+"after the command to cause the results to pause before scrolling past the "
+"top of the screen. To see a list of all commands available which begin with "
+"a certain letter, type the letter and then two tabs."
+msgstr ""
+"Du kan också skriva <userinput>info <replaceable>kommando</replaceable></"
+"userinput> eller <userinput>man <replaceable>kommando</replaceable></"
+"userinput> för att se dokumentationen för de flesta tillgängliga kommandon "
+"på kommandoprompten. Skriva <userinput>help</userinput> kommer att visa "
+"hjälp om skalkommandon. Skriva ett kommando följt av <userinput>--help</"
+"userinput> visar vanligtvis kortfattad information om hur kommandot används. "
+"Om ett kommandos resultat rullar förbi på skärmen, skriv <userinput>|&nbsp;"
+"more</userinput> efter kommandot för att pausa resultatet före det rullar "
+"förbi på skärmen. För att se en lista på alla tillgängliga kommandon som "
+"börjar med en speciell bokstav, skriv bokstaven och tryck sedan två gånger "
+"på tabulatortangenten."
+
+#~ msgid "BVME 6000 Booting"
+#~ msgstr "Uppstart för BVME 6000"
+
+#~ msgid ""
+#~ "If you have just performed a diskless install on a BVM or Motorola VMEbus "
+#~ "machine: once the system has loaded the <command>tftplilo</command> "
+#~ "program from the TFTP server, from the <prompt>LILO Boot:</prompt> prompt "
+#~ "enter one of:"
+#~ msgstr ""
+#~ "Om du precis har genomfört en disklös installation på en BVM eller "
+#~ "Motorola VMEbus-maskin: när systemet har läst in programmet "
+#~ "<command>tftplilo</command> från TFTP-servern, mata in vid <prompt>LILO "
+#~ "Boot:</prompt> en av:"
+
+#~ msgid ""
+#~ "<userinput>b6000</userinput> followed by &enterkey; to boot a BVME "
+#~ "4000/6000"
+#~ msgstr ""
+#~ "<userinput>b6000</userinput> följt av &enterkey; för att starta upp en "
+#~ "BVME 4000/6000"
+
+#~ msgid ""
+#~ "<userinput>b162</userinput> followed by &enterkey; to boot an MVME162"
+#~ msgstr ""
+#~ "<userinput>b162</userinput> följt av &enterkey; för att starta upp en "
+#~ "MVME162"
+
+#~ msgid ""
+#~ "<userinput>b167</userinput> followed by &enterkey; to boot an MVME166/167"
+#~ msgstr ""
+#~ "<userinput>b167</userinput> följt av &enterkey; för att starta upp en "
+#~ "MVME166/167"
+
+#~ msgid "Macintosh Booting"
+#~ msgstr "Uppstart för Macintosh"
+
+#~ msgid ""
+#~ "Go to the directory containing the installation files and start up the "
+#~ "<command>Penguin</command> booter, holding down the <keycap>command</"
+#~ "keycap> key. Go to the <userinput>Settings</userinput> dialogue "
+#~ "(<keycombo> <keycap>command</keycap> <keycap>T</keycap> </keycombo>), and "
+#~ "locate the kernel options line which should look like <userinput>root=/"
+#~ "dev/ram ramdisk_size=15000</userinput> or similar."
+#~ msgstr ""
+#~ "Gå till katalogen som innehåller installationsfilerna och starta "
+#~ "uppstartaren <command>Penguin</command>, håll nere tangenten "
+#~ "<keycap>command</keycap>. Gå till dialogen <userinput>Settings</"
+#~ "userinput> (<keycombo> <keycap>command</keycap> <keycap>T</keycap> </"
+#~ "keycombo>), och leta upp raden med kärnflaggor som bör se ut som "
+#~ "<userinput>root=/dev/ram ramdisk_size=15000</userinput> eller liknande."
+
+#~ msgid ""
+#~ "You need to change the entry to <userinput>root=/dev/<replaceable>yyyy</"
+#~ "replaceable></userinput>. Replace the <replaceable>yyyy</replaceable> "
+#~ "with the Linux name of the partition onto which you installed the system "
+#~ "(e.g. <filename>/dev/sda1</filename>); you wrote this down earlier. For "
+#~ "users with tiny screens, adding <userinput>fbcon=font:VGA8x8</userinput> "
+#~ "(or <userinput>video=font:VGA8x8</userinput> on pre-2.6 kernels) may help "
+#~ "readability. You can change this at any time."
+#~ msgstr ""
+#~ "Du behöver ändra posten till <userinput>root=/dev/<replaceable>yyyy</"
+#~ "replaceable></userinput>. Ersätt <replaceable>yyyy</replaceable> med "
+#~ "Linux-namnet på partitionen till vilken du har installerat systemet (t."
+#~ "ex. <filename>/dev/sda1</filename>); du skrev ner det här tidigare. För "
+#~ "användare med små skärmar kan <userinput>fbcon=font:VGA8x8</userinput> "
+#~ "(eller <userinput>video=font:VGA8x8</userinput> på kärnor före 2.6) "
+#~ "hjälpa läsbarheten. Du kan ändra det här när som helst."
+
+#~ msgid ""
+#~ "If you don't want to start GNU/Linux immediately each time you start, "
+#~ "uncheck the <userinput>Auto Boot</userinput> option. Save your settings "
+#~ "in the <filename>Prefs</filename> file using the <userinput>Save Settings "
+#~ "As Default</userinput> option."
+#~ msgstr ""
+#~ "Om du inte vill starta GNU/Linux omedelbart varje gång du startar, kryssa "
+#~ "av alternativet <userinput>Auto Boot</userinput>. Spara dina "
+#~ "inställningar i filen <filename>Prefs</filename> med alternativet "
+#~ "<userinput>Save Settings As Default</userinput>."
+
+#~ msgid ""
+#~ "Now select <userinput>Boot Now</userinput> (<keycombo> <keycap>command</"
+#~ "keycap> <keycap>B</keycap> </keycombo>) to start your freshly installed "
+#~ "GNU/Linux instead of the RAMdisk installer system."
+#~ msgstr ""
+#~ "Välj nu <userinput>Boot Now</userinput> (<keycombo> <keycap>command</"
+#~ "keycap> <keycap>B</keycap> </keycombo>) för att starta ditt nyligen "
+#~ "installerade GNU/Linux istället för RAMdisk-installationssystemet."
+
+#~ msgid ""
+#~ "Debian should boot, and you should see the same messages as when you "
+#~ "first booted the installation system, followed by some new messages."
+#~ msgstr ""
+#~ "Debian bör starta upp och du bör se samma meddelanden som när du först "
+#~ "startade installationssystemet, följt av några nya meddelanden."
+
+#~ msgid ""
+#~ "If you are booting directly into Debian, and the system doesn't start up, "
+#~ "either use your original installation boot media, or insert the custom "
+#~ "boot floppy if you have one, and reset your system. This way, you will "
+#~ "probably need to add some boot arguments like "
+#~ "<userinput>root=<replaceable>root</replaceable></userinput>, where "
+#~ "<replaceable>root</replaceable> is your root partition, such as "
+#~ "<filename>/dev/sda1</filename>. Alternatively, see <xref linkend=\"rescue"
+#~ "\"/> for instructions on using the installer's built-in rescue mode."
+#~ msgstr ""
+#~ "Om du startar upp direkt i Debian och systemet inte startar upp korrekt, "
+#~ "använd antingen ditt originalmedia för installation eller mata in en "
+#~ "anpassad uppstartsdiskett om du har en och starta om ditt system. På det "
+#~ "här sättet behöver du antagligen lägga till några startargument som "
+#~ "<userinput>root=<replaceable>rot</replaceable></userinput>, där "
+#~ "<replaceable>rot</replaceable> är din rotpartition, såsom <filename>/dev/"
+#~ "sda1</filename>. Alternativt, se <xref linkend=\"rescue\"/> för "
+#~ "instruktioner hur man använder installerarens inbyggda räddningsläge."
+
+#~ msgid ""
+#~ "Documentation accompanying programs you have installed is in <filename>/"
+#~ "usr/share/doc/</filename>, under a subdirectory named after the program. "
+#~ "For example, the APT User's Guide for using <command>apt</command> to "
+#~ "install other programs on your system, is located in <filename>/usr/share/"
+#~ "doc/apt/guide.html/index.html</filename>."
+#~ msgstr ""
+#~ "Dokumentation följer med program som du installerar finns i <filename>/"
+#~ "usr/share/doc/</filename>, under en underkatalog uppkallad efter "
+#~ "programmet. Till exempel, APT:s användarguiden för att använda "
+#~ "<command>apt</command> för att installera andra program på ditt system, "
+#~ "finns i <filename>/usr/share/doc/apt/guide.html/index.html</filename>."
+
+#~ msgid ""
+#~ "One easy way to view these documents is to <userinput>cd /usr/share/doc/</"
+#~ "userinput>, and type <userinput>lynx</userinput> followed by a space and "
+#~ "a dot (the dot stands for the current directory)."
+#~ msgstr ""
+#~ "Ett lätt sätt att visa dessa dokument är att <userinput>cd /usr/share/doc/"
+#~ "</userinput>, och skriva <userinput>lynx</userinput> följt av ett "
+#~ "blanksteg och en punkt (punkten står för aktuell katalog)."
+
+#~ msgid ""
+#~ "For a more complete introduction to Debian and GNU/Linux, see <filename>/"
+#~ "usr/share/doc/debian-guide/html/noframes/index.html</filename>."
+#~ msgstr ""
+#~ "För en mer komplett introduktion till Debian och GNU/Linux, se <filename>/"
+#~ "usr/share/doc/debian-guide/html/noframes/index.html</filename>."
+
+#~ msgid "TODO: write something once it works."
+#~ msgstr "ATTGÖRA: skriv något när det fungerar."
+
+#~ msgid "Configuring Your Time Zone"
+#~ msgstr "Konfigurera din tidszon"
+
+#~ msgid "Setting Up Users And Passwords"
+#~ msgstr "Skapa användare och lösenord"
+
+#~ msgid "Set the Root Password"
+#~ msgstr "Sätta ett lösenord för root"
+
+#~ msgid "Create an Ordinary User"
+#~ msgstr "Skapa en vanlig användare"
+
+#~ msgid "Setting Up PPP"
+#~ msgstr "Sätta upp PPP"
+
+#~ msgid ""
+#~ "Read <filename>/usr/share/doc/ppp/README.Debian.gz</filename> file for "
+#~ "more information on using PPP on Debian."
+#~ msgstr ""
+#~ "Läs filen <filename>/usr/share/doc/ppp/README.Debian.gz</filename> för "
+#~ "mer information om hur man använder PPP i Debian."
+
+#~ msgid "Setting Up PPP over Ethernet (PPPOE)"
+#~ msgstr "Ställa in PPP över Ethernet (PPPoE)"
+
+#~ msgid "Configuring APT"
+#~ msgstr "Konfigurera APT"
+
+#~ msgid "Configuring Network Package Sources"
+#~ msgstr "Konfigurera paketkällor på nätverket"
+
+#~ msgid "Package Installation"
+#~ msgstr "Paketinstallation"
+
+#~ msgid "Advanced Package Selection with <command>aptitude</command>"
+#~ msgstr "Avancerade paketval med <command>aptitude</command>"
+
+#~ msgid ""
+#~ "<command>Aptitude</command> is a modern program for managing packages. "
+#~ "<command>aptitude</command> allows you to select individual packages, set "
+#~ "of packages matching given criteria (for advanced users), or whole tasks."
+#~ msgstr ""
+#~ "<command>Aptitude</command> är ett modernt program för att hantera paket. "
+#~ "<command>aptitude</command> låter dig att välja individuella paket, "
+#~ "paketuppsättningar som matchar angivna kriterier (för avancerade "
+#~ "användare) eller kompletta uppgifter."
+
+#~ msgid ""
+#~ "The most basic keybindings are: <informaltable> <tgroup cols=\"2\"> "
+#~ "<thead> <row> <entry>Key</entry><entry>Action</entry> </row> </thead> "
+#~ "<tbody> <row> <entry><keycap>Up</keycap>, <keycap>Down</keycap></entry> "
+#~ "<entry>Move selection up or down.</entry> </row><row> <entry>&enterkey;</"
+#~ "entry> <entry>Open/collapse/activate item.</entry> </row><row> "
+#~ "<entry><keycap>+</keycap></entry> <entry>Mark package for installation.</"
+#~ "entry> </row><row> <entry><keycap>-</keycap></entry> <entry>Mark package "
+#~ "for removal.</entry> </row><row> <entry><keycap>d</keycap></entry> "
+#~ "<entry>Show package dependencies.</entry> </row><row> <entry><keycap>g</"
+#~ "keycap></entry> <entry>Actually download/install/remove packages.</entry> "
+#~ "</row><row> <entry><keycap>q</keycap></entry> <entry>Quit current view.</"
+#~ "entry> </row><row> <entry><keycap>F10</keycap></entry> <entry>Activate "
+#~ "menu.</entry> </row> </tbody></tgroup></informaltable> For more commands "
+#~ "see the online help under the <keycap>?</keycap> key."
+#~ msgstr ""
+#~ "De mest vanliga tangentbindningarna är: <informaltable> <tgroup cols="
+#~ "\"2\"> <thead> <row> <entry>Tangent</entry><entry>Åtgärd</entry> </row> </"
+#~ "thead> <tbody> <row> <entry><keycap>Upp</keycap>, <keycap>Ned</keycap></"
+#~ "entry> <entry>Flytta markering upp eller ned.</entry> </row><row> "
+#~ "<entry>&enterkey;</entry> <entry>Öppna/fäll in/aktivera post.</entry> </"
+#~ "row><row> <entry><keycap>+</keycap></entry> <entry>Markera paket för "
+#~ "installation.</entry> </row><row> <entry><keycap>-</keycap></entry> "
+#~ "<entry>Markera paket för borttagning.</entry> </row><row> "
+#~ "<entry><keycap>d</keycap></entry> <entry>Visa paketets beroenden.</entry> "
+#~ "</row><row> <entry><keycap>g</keycap></entry> <entry>Verkställ "
+#~ "nedladdning/installation/borttagning av paket.</entry> </row><row> "
+#~ "<entry><keycap>q</keycap></entry> <entry>Stäng nuvarande vy.</entry> </"
+#~ "row><row> <entry><keycap>F10</keycap></entry> <entry>Aktivera meny.</"
+#~ "entry> </row> </tbody></tgroup></informaltable> För flera kommandon, se "
+#~ "onlinehjälpen under <keycap>?</keycap>-tangenten."
+
+#~ msgid "Settings for the X Server"
+#~ msgstr "Inställningar för X-servern"
+
+#~ msgid ""
+#~ "The mouse device should be set to <userinput>/dev/input/mice</userinput>."
+#~ msgstr "Musenheten bör sättas till <userinput>/dev/input/mice</userinput>."
+
+#~ msgid "Configuring Your Mail Transport Agent"
+#~ msgstr "Konfigurera din mailserver (MTA)"
+
+#~ msgid "internet site"
+#~ msgstr "internetsystem"
+
+#~ msgid "mail sent by smarthost"
+#~ msgstr "e-post skickad av smart värd"
+
+#~ msgid "local delivery only"
+#~ msgstr "endast lokal leverans"
+
+#~ msgid "no configuration at this time"
+#~ msgstr "ingen konfiguration för närvarande"

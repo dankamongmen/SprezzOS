@@ -1,0 +1,77 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 58021 -->
+
+
+  <sect2 arch="sparc" id="boot-tftp">
+  <!-- <title>Booting with TFTP</title> -->
+  <title>Avvio con TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+<!--
+On machines with OpenBoot, simply enter the boot monitor on the
+machine which is being installed (see
+<xref linkend="invoking-openboot"/>).
+Use the command <userinput>boot net</userinput> to boot from a TFTP
+and RARP server, or try <userinput>boot net:bootp</userinput> or
+<userinput>boot net:dhcp</userinput> to boot from a TFTP and BOOTP
+or DHCP server. You can pass extra boot parameters to &d-i; at the end
+of the <userinput>boot</userinput> command.
+-->
+
+Sulle macchine con OpenBoot avviare il monitor (si veda <xref
+linkend="invoking-openboot"/>). Usare il comando <userinput>boot
+net</userinput> per l'avvio da un server TFTP o RARP, oppure provare
+con <userinput>boot net:bootp</userinput> o con <userinput>boot
+net:dhcp</userinput> per avviare da un server TFTP, BOOTP o DHCP.
+È possibile passare anche altri parametri al &d-i; alla fine del
+comando <userinput>boot</userinput>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="sparc">
+  <!-- <title>Booting from a CD-ROM</title> -->
+  <title>Avvio da CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<para>
+
+<!--
+Most OpenBoot versions support the <userinput>boot cdrom</userinput>
+command which is simply an alias to boot from the SCSI device on ID 6
+(or the secondary master for IDE based systems).
+-->
+
+La maggior parte delle versioni di OpenBoot supportano il comando
+<userinput>boot cdrom</userinput> che è semplicemente un alias per il
+device SCSI con ID 6 (o al dispositivo master sul secondo canale nei
+sistemi IDE).
+
+</para>
+  </sect2>
+
+  <sect2 arch="sparc">
+  <!-- <title>IDPROM Messages</title> -->
+  <title>Messaggi di IDPROM</title>
+<para>
+
+<!--
+If you cannot boot because you get messages about a problem with
+<quote>IDPROM</quote>, then it's possible that your NVRAM battery, which
+holds configuration information for you firmware, has run out.  See the
+<ulink url="&url-sun-nvram-faq;">Sun NVRAM FAQ</ulink> for more
+information.
+-->
+
+Se non si riesce ad avviare e si ottiene un messaggio di errore riguardo
+<quote>IDPROM</quote> allora è possibile che la batteria della NVRAM, che
+contiene la configurazione del firmware, sia scarica. Si consultino le
+<ulink url="&url-sun-nvram-faq;">Sun NVRAM FAQ</ulink> per ulteriori
+informazioni.
+
+</para>
+  </sect2>

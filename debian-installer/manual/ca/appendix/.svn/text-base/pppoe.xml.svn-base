@@ -1,0 +1,110 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+ <sect1 id="pppoe" arch="not-s390">
+ <title>Instal·lació de &debian-gnu; utilitzant PPP sobre Ethernet (PPPoE)</title>
+
+<para>
+
+En alguns països el PPP sobre Ethernet (PPPoE) és un protocol comú per
+les connexions de banda ampla (ADSL o cable) als proveïdors de serveis
+d'internet. La configuració de la connexió de xarxa utilitzant
+PPPoE no està suportada per defecte a l'instal·lador, però es pot fer
+funcionar de forma molt senzilla. Aquesta secció explica com fer-ho.
+
+</para><para>
+
+La connexió PPPoE feta a la instal·lació estarà també disponible després
+de reiniciar al sistema que heu instal·lat (vegeu <xref linkend="boot-new"/>).
+
+</para><para>
+
+Per tenir l'opció de configurar i utilitzar PPPoE a la instal·lació,
+necessitareu instal·lar utilitzant una de les imatges de CD-ROM/DVD de
+les que podeu disposar. No hi ha suport per altres mètodes d'instal·lació
+(com per exemple netboot<phrase condition="supports-floppy-boot"> o
+disquets</phrase>).
+
+</para><para>
+
+Instal·lar amb PPPoE és casi el mateix que qualsevol altra instal·lació. Els
+passos següents mostren les diferències.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+Arrenqueu l'instal·lador utilitzant el paràmetre d'arrencada
+<userinput>modules=ppp-udeb</userinput><footnote arch="x86">
+
+<para>
+Vegeu <xref linkend="boot-screen"/> per a obtenir informació sobre
+com afegir un paràmetre d'arrencada.
+</para>
+
+</footnote>.
+Açò assegurarà que el component responsable de la configuració del PPPoE
+(<classname>ppp-udeb</classname>) es carregarà i executarà automàticament.
+
+</para></listitem>
+<listitem><para>
+
+Seguiu els passos passos inicials normals de la instal·lació (selecció de
+la llengua, país i teclat; la càrrega de components addicionals<footnote>
+
+<para>
+
+El component <classname>ppp-udeb</classname> es carrega com qualsevol
+dels components addicionals en aquest pas. Si voleu instal·lar amb
+prioritat mitjana o baixa (mode expert), podeu seleccionar manualment
+el <classname>ppp-udeb</classname> en comptes d'introduir el paràmetre
+<quote>modules</quote> a l'indicador de l'arrencada.
+
+</para>
+
+</footnote>).
+
+</para></listitem>
+<listitem><para>
+
+El pas següent és la detecció del maquinari de xarxa, per poder identificar
+qualsevol targeta Ethernet que trobeu al sistema.
+
+</para></listitem>
+<listitem><para>
+
+Desprès d'açò s'engegarà la configuració del PPPoE. L'instal·lador provarà
+tots els dispositius Ethernet detectats per poder trobar un concentrador
+PPPoE (una tipus de servidor que controla connexions de tipus PPPoE).
+
+</para><para>
+
+És possible que no es trobe el concentrador al primer intent. Açò pot passar
+de vegades a xarxes carregades o lentes o amb servidors defectuosos. En
+molts casos un segon intent per detectar el concentrador serà suficient;
+per tornar a intentar-ho, seleccioneu <guimenuitem>Configurar i engegar una
+connexió PPPoE</guimenuitem> des del menú principal de l'instal·lador.
+
+</para></listitem>
+<listitem><para>
+
+Després de trobar un concentrador, es demanarà a l'usuari que escrigui la
+informació d'accés (l'usuari i la contrasenya del PPPoE).
+
+</para></listitem>
+<listitem><para>
+
+En aquest punt l'instal·lador utilitzarà la informació que es done per
+establir la connexió PPPoE. Si s'ha donat la informació correcta, la
+connexió PPPoE s'hauria de configurar i l'instal·lador hauria de ser capaç
+d'utilitzar la connexió a Internet i descarregar els paquets (si fa falta).
+Si la informació de connexió és incorrecta, o apareix algun error,
+l'instal·lador s'aturarà però la configuració es pot tornar a intentar
+seleccionant altra vegada l'entrada del menú <guimenuitem>Configurar i
+engegar una connexió PPPoE</guimenuitem>.
+
+</para></listitem>
+</itemizedlist>
+
+ </sect1>

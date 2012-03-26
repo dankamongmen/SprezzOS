@@ -1,0 +1,2266 @@
+# preparing.xml Korean translation
+#
+# Changwoo Ryu <cwryu@debian.org>, 2005, 2006, 2007, 2008.
+# Seok-moon Jang <drssay97@gmail.com>, 2005.
+#
+# 이 번역은 완성 단계로 품질에 많은 신경을 쓰고 있습니다. 반드시 메일링 리스트에
+# 번역 사실을 알리고 토의를 하십시오.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: preparing.xml\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-29 05:56+0000\n"
+"PO-Revision-Date: 2011-09-26 08:35+0900\n"
+"Last-Translator: Lee Kyung Soon <lks1331@gmail.com>\n"
+"Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
+#. Tag: title
+#: preparing.xml:5
+#, no-c-format
+msgid "Before Installing &debian-gnu;"
+msgstr "&debian-gnu;를 설치하기 전에"
+
+#. Tag: para
+#: preparing.xml:6
+#, no-c-format
+#| msgid ""
+#| "This chapter deals with the preparation for installing Debian before you "
+#| "even boot the installer. This includes backing up your data, gathering "
+#| "information about your hardware, and locating any necessary information."
+msgid "This chapter deals with the preparation for installing &debian; before you even boot the installer. This includes backing up your data, gathering information about your hardware, and locating any necessary information."
+msgstr "이 장에서는 설치 프로그램을 부팅하기 전에, &debian; 설치 준비 사항에 대해 다룹니다. 여기에서는 데이터 백업, 하드웨어에 대한 정보 모으기, 기타 필요한 정보 찾기와 같은 것을 포함합니다."
+
+#. Tag: title
+#: preparing.xml:19
+#, no-c-format
+msgid "Overview of the Installation Process"
+msgstr "설치 과정 개요"
+
+#. Tag: para
+#: preparing.xml:20
+#, no-c-format
+#| msgid ""
+#| "First, just a note about re-installations. With Debian, a circumstance "
+#| "that will require a complete re-installation of your system is very rare; "
+#| "perhaps mechanical failure of the hard disk would be the most common case."
+msgid "First, just a note about re-installations. With &debian;, a circumstance that will require a complete re-installation of your system is very rare; perhaps mechanical failure of the hard disk would be the most common case."
+msgstr "먼저 시스템을 다시 설치하는 것에 대해 설명합니다. &debian;에서 시스템 전체를 다시 설치해야 할 상황은 아주 드뭅니다. 다시 설치해야 하는 경우는 하드 디스크의 기계적인 고장이 대부분일  것입니다."
+
+#. Tag: para
+#: preparing.xml:27
+#, no-c-format
+msgid "Many common operating systems may require a complete installation to be performed when critical failures take place or for upgrades to new OS versions. Even if a completely new installation isn't required, often the programs you use must be re-installed to operate properly in the new OS."
+msgstr "흔히 사용하는 많은 운영 체제에서는 치명적인 문제점이 발생하거나 새로운 운영 체제의 버전으로 업그레이드하려는 경우 완전히 새로 설치해야 합니다. 처음부터 완전히 새로 설치할 필요는 없다고 해도, 프로그램이 새로운 운영 체제에서 제대로 동작하려면 프로그램을 다시 설치해야 합니다."
+
+#. Tag: para
+#: preparing.xml:35
+#, no-c-format
+#| msgid ""
+#| "Under &debian-gnu;, it is much more likely that your OS can be repaired "
+#| "rather than replaced if things go wrong. Upgrades never require a "
+#| "wholesale installation; you can always upgrade in-place. And the programs "
+#| "are almost always compatible with successive OS releases. If a new "
+#| "program version requires newer supporting software, the Debian packaging "
+#| "system ensures that all the necessary software is automatically "
+#| "identified and installed. The point is, much effort has been put into "
+#| "avoiding the need for re-installation, so think of it as your very last "
+#| "option. The installer is <emphasis>not</emphasis> designed to re-install "
+#| "over an existing system."
+msgid "Under &debian-gnu;, it is much more likely that your OS can be repaired rather than replaced if things go wrong. Upgrades never require a wholesale installation; you can always upgrade in-place. And the programs are almost always compatible with successive OS releases. If a new program version requires newer supporting software, the &debian; packaging system ensures that all the necessary software is automatically identified and installed. The point is, much effort has been put into avoiding the need for re-installation, so think of it as your very last option. The installer is <emphasis>not</emphasis> designed to re-install over an existing system."
+msgstr "&debian-gnu;에서는 잘되지 않는 경우, OS를 대체하지 않고 교체할 수 는 케이스가 훨씬 많습니다. 업그레이드  때 전부 다 설치  필요 없고, 항상 그 자리에서 업그레이드할 수 있습니다. 또한 OS의 릴리스가 계속해서 프로그램을 항상 호환 합니다. 프로그램의 새로운 버전이 최신에 의존하는 소프트웨어를 요구하는 경우 &debian; 패키지 시스템은 필요한 소프트웨어를 자동으로 확인하고 확실하게 설치합니다. 다시 설치하지 않도록 힘써 왔으며, 다시 설치하지 않으면 안된다고하는 것은 최후의 수단이라는 것이 포인트입니다. 설치 프로그램은 기존 시스템 위에 다시 설치하도록 설계되지 않았습니다."
+
+#. Tag: para
+#: preparing.xml:48
+#, no-c-format
+msgid "Here's a road map for the steps you will take during the installation process."
+msgstr "다음은 설치 과정에서 해야 할 단계입니다."
+
+#. Tag: para
+#: preparing.xml:56
+#, no-c-format
+msgid "Back up any existing data or documents on the hard disk where you plan to install."
+msgstr "설치하려는 하드 디스크에 들어 있는 데이터나 문서를 백업하십시오."
+
+#. Tag: para
+#: preparing.xml:62
+#, no-c-format
+msgid "Gather information about your computer and any needed documentation, before starting the installation."
+msgstr "설치를 시작하기 전에 해당 컴퓨터에 대한 정보와 필요한 문서를 모으십시오."
+
+#. Tag: para
+#: preparing.xml:68
+#, no-c-format
+#| msgid "Create partitionable space for Debian on your hard disk."
+msgid "Create partitionable space for &debian; on your hard disk."
+msgstr "하드 디스크에 &debian; 파티션 사용 가능한 공간을 확보한다."
+
+#. Tag: para
+#: preparing.xml:73
+#, no-c-format
+#| msgid ""
+#| "Locate and/or download the installer software and any specialized driver "
+#| "files your machine requires (except Debian CD users)."
+msgid "Locate and/or download the installer software and any specialized driver files your machine requires (except &debian; CD users)."
+msgstr "설치하면 컴퓨터에 필요한 특수 드라이버 파일의 위치를 확인하여 내려 받으십시오.(&debian; CD 사용자 제외)"
+
+#. Tag: para
+#: preparing.xml:79
+#, no-c-format
+#| msgid ""
+#| "Set up boot tapes/floppies/USB sticks, or place boot files (most Debian "
+#| "CD users can boot from one of the CDs)."
+msgid "Set up boot tapes/floppies/USB sticks, or place boot files (most &debian; CD users can boot from one of the CDs)."
+msgstr "부팅 테이프/플로피/USB 메모리를 만들거나, 부팅 파일을 배치합니다. (대부분의 &debian; CD 사용자는 CD 중 한장으로 부팅합니다)"
+
+#. Tag: para
+#: preparing.xml:85
+#, no-c-format
+msgid "Boot the installation system."
+msgstr "설치 시스템을 부팅하십시오."
+
+#. Tag: para
+#: preparing.xml:90
+#, no-c-format
+msgid "Select the installation language."
+msgstr "설치 언어를 선택하십시오."
+
+#. Tag: para
+#: preparing.xml:95
+#, no-c-format
+msgid "Activate the ethernet network connection, if available."
+msgstr "이더넷 네트워크 연결이 있으면 활성화하십시오."
+
+#. Tag: para
+#: preparing.xml:101
+#, no-c-format
+msgid "Configure one network interface."
+msgstr "네트워크 인터페이스를 하나 설정하십시오."
+
+#. Tag: para
+#: preparing.xml:106
+#, no-c-format
+msgid "Open an ssh connection to the new system."
+msgstr "새 시스템에 SSH 연결을 여십시오."
+
+#. Tag: para
+#: preparing.xml:111
+#, no-c-format
+msgid "Attach one or more DASDs (Direct Access Storage Device)."
+msgstr "1개 이상의 DASD(Direct Access Storage Device)를 부착하십시오."
+
+#. Tag: para
+#: preparing.xml:117
+#, no-c-format
+#| msgid "Create and mount the partitions on which Debian will be installed."
+msgid "Create and mount the partitions on which &debian; will be installed."
+msgstr "&debian;을 설치할 파티션을 만들고 마운트합니다."
+
+#. Tag: para
+#: preparing.xml:122
+#, no-c-format
+msgid "Watch the automatic download/install/setup of the <firstterm>base system</firstterm>."
+msgstr "<firstterm>베이스 시스템</firstterm>의 자동 다운로드/설치/설정을 지켜보십시오."
+
+#. Tag: para
+#: preparing.xml:128
+#, no-c-format
+msgid "Install a <firstterm>boot loader</firstterm> which can start up &debian-gnu; and/or your existing system."
+msgstr "&debian-gnu; 및 기존 시스템을 시작할 수 있는 <firstterm>부트로더</firstterm>를 설치하십시오."
+
+#. Tag: para
+#: preparing.xml:134
+#, no-c-format
+msgid "Load the newly installed system for the first time."
+msgstr "새로 설치한 시스템을 처음으로 시작하십시오."
+
+#. Tag: para
+#: preparing.xml:141
+#, no-c-format
+#| msgid ""
+#| "For &arch-title; you have the option of using <phrase arch=\"x86\">a</"
+#| "phrase> <phrase arch=\"powerpc\">an experimental</phrase> graphical "
+#| "version of the installation system. For more information about this "
+#| "graphical installer, see <xref linkend=\"graphical\"/>."
+msgid "For &arch-title; you have the option of using <phrase arch=\"any-x86\">a</phrase> <phrase arch=\"powerpc\">an experimental</phrase> graphical version of the installation system. For more information about this graphical installer, see <xref linkend=\"graphical\"/>."
+msgstr "&arch-title;에서는 <phrase arch=\"powerpc\">실험적인</phrase> 그래픽 버전의 설치 시스템을 사용하는 옵션이 있습니다. 그래픽 설치 프로그램은 <xref linkend=\"graphical\"/>를 참조하십시오."
+
+#. Tag: para
+#: preparing.xml:149
+#, no-c-format
+msgid "If you have problems during the installation, it helps to know which packages are involved in which steps. Introducing the leading software actors in this installation drama:"
+msgstr "설치할 때 문제가 발생할 때를 대비해서, 각 단계가 어떤 패키지와 상관이 있는지 알아 두는 게 좋습니다. 이 설치 단계의 주요 소프트웨어를 소개하면:"
+
+#. Tag: para
+#: preparing.xml:155
+#, no-c-format
+msgid "The installer software, <classname>debian-installer</classname>, is the primary concern of this manual. It detects hardware and loads appropriate drivers, uses <classname>dhcp-client</classname> to set up the network connection, runs <classname>debootstrap</classname> to install the base system packages, and runs <classname>tasksel</classname> to allow you to install certain additional software. Many more actors play smaller parts in this process, but <classname>debian-installer</classname> has completed its task when you load the new system for the first time."
+msgstr "설치 소프트웨어인 <classname>debian-installer</classname>는 이 안내서에서 가장 중점적으로 다룹니다. <classname>debian-installer</classname>는 하드웨어를 찾아서 적당한 드라이버를 읽어들이고, <classname>dhcp-client</classname>를 이용해 네트워크 연결을 설정하고, <classname>debootstrap</classname>을 실행해 베이스 시스템 패키지를 설치하고, <classname>tasksel</classname>로 특정 소프트웨어를 추가로 설치합니다. 이 외에 많은 소프트웨어가 각 단계에서 작은 역할을 담당하고 있지만, 새 시스템이 처음 시작하기까지 전까지는 <classname>debian-installer</classname>가 작업을 마칩니다."
+
+#. Tag: para
+#: preparing.xml:167
+#, no-c-format
+msgid "To tune the system to your needs, <classname>tasksel</classname> allows you to choose to install various predefined bundles of software like a Web server or a Desktop environment."
+msgstr "필요에 따라 시스템을 조정하려면, <classname>tasksel</classname>을 이용해 웹서버 또는 데스크톱 환경과 같은 미리 정의한 다양한 번들 소프트웨어를 설치할 수 있도록 선택할 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:173
+#, no-c-format
+msgid "One important option during the installation is whether or not to install a graphical desktop environment, consisting of the X Window System and one of the available graphical desktop environments. If you choose not to select the <quote>Desktop environment</quote> task, you will only have a relatively basic, command line driven system. Installing the Desktop environment task is optional because it requires a fairly large amount of disk space, and because many &debian-gnu; systems are servers which don't really have any need for a graphical user interface to do their job."
+msgstr "설치할 때 중요한 옵션의 하나가 그래픽 데스크톱 환경을 설치할 지 옵션입니다. 그래픽 데스크톱 환경은 X 윈도우 시스템과 그래픽 데스크톱 환경 하나로 구성되어 있습니다. <quote>데스크톱 환경</quote> 태스크를 선택하지 않으면, 아주 기본적인 명령행 기반 시스템만 설치합니다. 이 태스크 설치는 옵션입니다. 데스크톱 환경 태스크를 설치하면 상당히 큰 디스크 공간을 차지하기 때문이고, 또 많은 &debian-gnu; 시스템은 서버로 동작하기 때문에 동작하는 데 그래픽 사용자 인터페이스가 전혀 필요없기 때문입니다."
+
+#. Tag: para
+#: preparing.xml:185
+#, no-c-format
+msgid "Just be aware that the X Window System is completely separate from <classname>debian-installer</classname>, and in fact is much more complicated. Installation and troubleshooting of the X Window System is not within the scope of this manual."
+msgstr "X 윈도우 시스템은 <classname>debian-installer</classname>와는 완전히 별도의 소프트웨어이고, 실제로 훨씬 더 복잡합니다. X 윈도우 시스템의 설치나 X 윈도우 시스템의 문제점 해결은 이 안내서가 다루는 범위를 벗어납니다."
+
+#. Tag: title
+#: preparing.xml:200
+#, no-c-format
+msgid "Back Up Your Existing Data!"
+msgstr "기존 데이터를 백업하십시오!"
+
+#. Tag: para
+#: preparing.xml:201
+#, no-c-format
+msgid "Before you start, make sure to back up every file that is now on your system. If this is the first time a non-native operating system has been installed on your computer, it's quite likely you will need to re-partition your disk to make room for &debian-gnu;. Anytime you partition your disk, you run a risk of losing everything on the disk, no matter what program you use to do it. The programs used in installation are quite reliable and most have seen years of use; but they are also quite powerful and a false move can cost you. Even after backing up, be careful and think about your answers and actions. Two minutes of thinking can save hours of unnecessary work."
+msgstr "시작하기 전에 지금 시스템에 있는 모든 파일을 백업해 두십시오. 원래 설치된 운영 체제가 아닌 운영 체제를 처음으로 설치하는 거라면, &debian-gnu;의 루트로 쓸 디스크를 다시 파티션해야 합니다. 파티션 프로그램으로 어떤 프로그램을 사용하든 간에, 디스크를 파티션하면 그 디스크에 있는 모든 파일을 잃어버리는 걸 감수해야 합니다. 설치에 사용하는 프로그램은 상당히 안정적이고 수년동안 사용해 온 프로그램이지만, 그만큼 강력하기도 해서 조금만 잘못하면 막심한 손해가 발생합니다. 백업을 한 뒤에도 대답을 할 때나 어떤 작업을 할 때 신중을 기하십시오. 일이분만 더 생각하면 수 시간의 불필요한 작업을 예방할 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:214
+#, no-c-format
+msgid "If you are creating a multi-boot system, make sure that you have the distribution media of any other present operating systems on hand. Especially if you repartition your boot drive, you might find that you have to reinstall your operating system's boot loader, or in many cases the whole operating system itself and all files on the affected partitions."
+msgstr "멀티 부팅 시스템을 만든다면, 기존 운영 체제의 배포 미디어를 가지고 있으십시오. 특히 부팅 드라이브를 다시 파티션하는 경우라면, 운영 체제의 부트로더를 다시 설치해야 할 수도 있고, 운영 체제 전체를 해당 파티션에 다시 설치해야 할 수도 있습니다."
+
+#. Tag: title
+#: preparing.xml:232
+#, no-c-format
+msgid "Information You Will Need"
+msgstr "필요한 정보"
+
+#. Tag: title
+#: preparing.xml:235
+#, no-c-format
+msgid "Documentation"
+msgstr "문서"
+
+#. Tag: title
+#: preparing.xml:238
+#, no-c-format
+msgid "Installation Manual"
+msgstr "설치 안내서"
+
+#. Tag: para
+#: preparing.xml:240
+#, no-c-format
+msgid "This document you are now reading, in plain ASCII, HTML or PDF format."
+msgstr "지금 읽고 있는 문서입니다. 일반 텍스트, HTML, 혹은 PDF 형식."
+
+#. Tag: itemizedlist
+#: preparing.xml:246
+#, no-c-format
+msgid "&list-install-manual-files;"
+msgstr "&list-install-manual-files;"
+
+#. Tag: para
+#: preparing.xml:252
+#, no-c-format
+msgid "The document you are now reading, which is the official version of the Installation Guide for the &releasename; release of &debian;; available in <ulink url=\"&url-release-area;/installmanual\">various formats and translations</ulink>."
+msgstr "지금 읽고 있는 이 문서는 &debian;의 &releasename; 릴리스 공식 설치 가이드의 개발 버전입니다. 이것은 <ulink url=\"&url-release-area;/installmanual\">다양한 형식과 언어 </ulink>를 사용할 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:261
+#, no-c-format
+msgid "The document you are now reading, which is a development version of the Installation Guide for the next release of &debian;; available in <ulink url=\"&url-d-i-alioth-manual;\">various formats and translations</ulink>."
+msgstr "지금 읽고있는이 문서는 &debian;의 차기 릴리스 설치 가이드의 개발 버전입니다. 이것은 <ulink url=\"&url-d-i-alioth-manual;\">다양한 형식과 다양한 언어</ulink>에서 사용할 수 있습니다."
+
+#. Tag: title
+#: preparing.xml:273
+#, no-c-format
+msgid "Hardware documentation"
+msgstr "하드웨어 문서"
+
+#. Tag: para
+#: preparing.xml:274
+#, no-c-format
+msgid "Often contains useful information on configuring or using your hardware."
+msgstr "하드웨어를 설정하고 이용하는 방법에 대한 유용한 정보가 들어있습니다."
+
+#. Tag: ulink
+#: preparing.xml:285
+#, no-c-format
+msgid "Linux Hardware Compatibility HOWTO"
+msgstr "리눅스 하드웨어 호환성 하우투"
+
+#. Tag: ulink
+#: preparing.xml:291
+#, no-c-format
+msgid "Linux for SPARC Processors FAQ"
+msgstr "Linux for SPARC Processors FAQ"
+
+#. Tag: ulink
+#: preparing.xml:297
+#, no-c-format
+msgid "Linux/Mips website"
+msgstr "Linux/Mips 웹사이트"
+
+#. Tag: title
+#: preparing.xml:306
+#, no-c-format
+msgid "&arch-title; Hardware References"
+msgstr "&arch-title; 하드웨어 참고서"
+
+#. Tag: para
+#: preparing.xml:307
+#, no-c-format
+msgid "Documentation of &arch-title;-specific boot sequence, commands and device drivers (e.g. DASD, XPRAM, Console, OSA, HiperSockets and z/VM interaction)"
+msgstr "&arch-title; 특정 부팅 순서의 문서, 명령 및 장치 드라이버(예를 들면, DASD, XPRAM, Console, OSA, HiperSockets 및 z/VM interaction)."
+
+#. Tag: ulink
+#: preparing.xml:318
+#, no-c-format
+msgid "Device Drivers, Features, and Commands (Linux Kernel 2.6.32)"
+msgstr "장치 드라이버, 기능 및 명령 (리눅스 커널 2.6.32)"
+
+#. Tag: para
+#: preparing.xml:323
+#, no-c-format
+msgid "IBM Redbook describing how Linux can be combined with z/VM on zSeries and &arch-title; hardware."
+msgstr "IBM 레드북, zSeries 및 &arch-title; 하드웨어에서 z/VM에 리눅스를 쓰는 방법을 설명합니다."
+
+#. Tag: ulink
+#: preparing.xml:333
+#, no-c-format
+msgid "Linux for &arch-title;"
+msgstr "&arch-title;용 리눅스"
+
+#. Tag: para
+#: preparing.xml:339
+#, no-c-format
+#| msgid ""
+#| "IBM Redbook describing the Linux distributions available for the "
+#| "mainframe. It has no chapter about Debian but the basic installation "
+#| "concepts are the same across all &arch-title; distributions."
+msgid "IBM Redbook describing the Linux distributions available for the mainframe. It has no chapter about &debian; but the basic installation concepts are the same across all &arch-title; distributions."
+msgstr "메인 프레임용 Linux 배포판에 대해 설명하는 IBM 레드북입니다. &debian;에 관한 내용이 들어 있지 않지만 기본적인 설치 방법은 모든 &arch-title;배포판과 같습니다."
+
+# IBM Redbook 이름
+#. Tag: ulink
+#: preparing.xml:350
+#, no-c-format
+msgid "Linux for IBM eServer zSeries and &arch-title;: Distributions"
+msgstr "Linux for IBM eServer zSeries and &arch-title;: Distributions"
+
+#. Tag: title
+#: preparing.xml:360
+#, no-c-format
+msgid "Finding Sources of Hardware Information"
+msgstr "하드웨어 정보가 있는 곳 찾기"
+
+#. Tag: para
+#: preparing.xml:361
+#, no-c-format
+msgid "In many cases, the installer will be able to automatically detect your hardware. But to be prepared, we do recommend familiarizing yourself with your hardware before the install."
+msgstr "보통은 설치 프로그램에서 자동으로 하드웨어를 찾아 냅니다. 하지만 철저히 준비하려면, 설치하기 전에 하드웨어에 대해 잘 알아 두는 게 좋습니다."
+
+#. Tag: para
+#: preparing.xml:367
+#, no-c-format
+msgid "Hardware information can be gathered from:"
+msgstr "하드웨어 정보는 다음에서 알아낼 수 있습니다:"
+
+#. Tag: para
+#: preparing.xml:374
+#, no-c-format
+msgid "The manuals that come with each piece of hardware."
+msgstr "하드웨어에 같이 들어 있는 설명서."
+
+#. Tag: para
+#: preparing.xml:379
+#, no-c-format
+msgid "The BIOS setup screens of your computer. You can view these screens when you start your computer by pressing a combination of keys. Check your manual for the combination. Often, it is the <keycap>Delete</keycap> key."
+msgstr "컴퓨터의 BIOS 설정 화면. 컴퓨터가 시작할 때 어떤 키 조합을 누르면 BIOS 설정 화면을 볼 수 있습니다. 보통 <keycap>Delete</keycap> 키입니다."
+
+#. Tag: para
+#: preparing.xml:386
+#, no-c-format
+msgid "The cases and boxes for each piece of hardware."
+msgstr "하드웨어의 케이스 및 포장."
+
+#. Tag: para
+#: preparing.xml:392
+#, no-c-format
+msgid "The System window in the Windows Control Panel."
+msgstr "윈도우즈 제어판의 시스템 창."
+
+#. Tag: para
+#: preparing.xml:398
+#, no-c-format
+msgid "System commands or tools in another operating system, including file manager displays. This source is especially useful for information about RAM and hard drive memory."
+msgstr "파일 관리자에서 표시하는 것과 같은, 다른 운영 체제의 시스템 명령어 및 시스템 도구. 특히 RAM과 하드 드라이브에 대한 정보를 알아내는 데 유용합니다."
+
+#. Tag: para
+#: preparing.xml:405
+#, no-c-format
+msgid "Your system administrator or Internet Service Provider. These sources can tell you the settings you need to set up your networking and e-mail."
+msgstr "시스템 관리자 혹은 인터넷 서비스 회사. 여기서는 네트워크 및 전자메일 설정에 관련된 사항을 알 수 있습니다."
+
+#. Tag: title
+#: preparing.xml:417
+#, no-c-format
+msgid "Hardware Information Needed for an Install"
+msgstr "설치하는 데 필요한 하드웨어 정보"
+
+#. Tag: entry
+#: preparing.xml:421
+#, no-c-format
+msgid "Hardware"
+msgstr "하드웨어"
+
+#. Tag: entry
+#: preparing.xml:421
+#, no-c-format
+msgid "Information You Might Need"
+msgstr "필요할 수 있는 정보"
+
+#. Tag: entry
+#: preparing.xml:427
+#, no-c-format
+msgid "Hard Drives"
+msgstr "하드 드라이브"
+
+#. Tag: entry
+#: preparing.xml:428
+#, no-c-format
+msgid "How many you have."
+msgstr "용량이 얼마나 되는 지."
+
+#. Tag: entry
+#: preparing.xml:430
+#, no-c-format
+msgid "Their order on the system."
+msgstr "시스템에 붙어 있는 순서."
+
+#. Tag: entry
+#: preparing.xml:432
+#, no-c-format
+msgid "Whether IDE (also known as PATA), SATA or SCSI."
+msgstr "IDE (PATA), SATA, SCSI 중 한 가지."
+
+#. Tag: entry
+#: preparing.xml:434
+#: preparing.xml:486
+#, no-c-format
+msgid "Available free space."
+msgstr "사용 가능한 빈 공간."
+
+#. Tag: entry
+#: preparing.xml:435
+#, no-c-format
+msgid "Partitions."
+msgstr "파티션."
+
+#. Tag: entry
+#: preparing.xml:437
+#, no-c-format
+msgid "Partitions where other operating systems are installed."
+msgstr "다른 운영 체제를 설치한 파티션."
+
+#. Tag: entry
+#: preparing.xml:441
+#, no-c-format
+msgid "Monitor"
+msgstr "모니터"
+
+#. Tag: entry
+#: preparing.xml:442
+#: preparing.xml:462
+#: preparing.xml:468
+#: preparing.xml:474
+#, no-c-format
+msgid "Model and manufacturer."
+msgstr "모델 및 제조사."
+
+#. Tag: entry
+#: preparing.xml:444
+#, no-c-format
+msgid "Resolutions supported."
+msgstr "지원하는 해상도."
+
+#. Tag: entry
+#: preparing.xml:445
+#, no-c-format
+msgid "Horizontal refresh rate."
+msgstr "가로 출력 주파수."
+
+#. Tag: entry
+#: preparing.xml:446
+#, no-c-format
+msgid "Vertical refresh rate."
+msgstr "세로 출력 주파수."
+
+#. Tag: entry
+#: preparing.xml:448
+#, no-c-format
+msgid "Color depth (number of colors) supported."
+msgstr "지원하는 색상수."
+
+#. Tag: entry
+#: preparing.xml:450
+#, no-c-format
+msgid "Screen size."
+msgstr "화면 크기."
+
+#. Tag: entry
+#: preparing.xml:453
+#, no-c-format
+msgid "Mouse"
+msgstr "마우스"
+
+#. Tag: entry
+#: preparing.xml:454
+#, no-c-format
+msgid "Type: serial, PS/2, or USB."
+msgstr "종류: 시리얼, PS/2, 혹은 USB."
+
+#. Tag: entry
+#: preparing.xml:456
+#, no-c-format
+msgid "Port."
+msgstr "포트."
+
+#. Tag: entry
+#: preparing.xml:457
+#, no-c-format
+msgid "Manufacturer."
+msgstr "제조사."
+
+#. Tag: entry
+#: preparing.xml:458
+#, no-c-format
+msgid "Number of buttons."
+msgstr "단추 개수."
+
+#. Tag: entry
+#: preparing.xml:461
+#: preparing.xml:489
+#, no-c-format
+msgid "Network"
+msgstr "네트워크"
+
+#. Tag: entry
+#: preparing.xml:464
+#: preparing.xml:490
+#, no-c-format
+msgid "Type of adapter."
+msgstr "어댑터 종류."
+
+#. Tag: entry
+#: preparing.xml:467
+#, no-c-format
+msgid "Printer"
+msgstr "프린터"
+
+#. Tag: entry
+#: preparing.xml:470
+#, no-c-format
+msgid "Printing resolutions supported."
+msgstr "지원하는 인쇄 해상도."
+
+#. Tag: entry
+#: preparing.xml:473
+#, no-c-format
+msgid "Video Card"
+msgstr "비디오 카드"
+
+#. Tag: entry
+#: preparing.xml:476
+#, no-c-format
+msgid "Video RAM available."
+msgstr "비디오 RAM 크기."
+
+#. Tag: entry
+#: preparing.xml:478
+#, no-c-format
+msgid "Resolutions and color depths supported (these should be checked against your monitor's capabilities)."
+msgstr "지원하는 해상도 및 색상수 (모니터에서도 지원하는 지 확인해야 합니다)."
+
+#. Tag: entry
+#: preparing.xml:483
+#, no-c-format
+msgid "DASD"
+msgstr "DASD"
+
+#. Tag: entry
+#: preparing.xml:484
+#, no-c-format
+msgid "Device number(s)."
+msgstr "장치 번호."
+
+#. Tag: entry
+#: preparing.xml:492
+#, no-c-format
+msgid "Device numbers."
+msgstr "장치 번호."
+
+#. Tag: entry
+#: preparing.xml:493
+#, no-c-format
+msgid "Relative adapter number for OSA cards."
+msgstr "OSA 카드의 상대 어댑터 번호."
+
+#. Tag: title
+#: preparing.xml:501
+#, no-c-format
+msgid "Hardware Compatibility"
+msgstr "하드웨어 호환성"
+
+#. Tag: para
+#: preparing.xml:503
+#, no-c-format
+#| msgid ""
+#| "Many brand name products work without trouble on Linux. Moreover, "
+#| "hardware support in Linux is improving daily. However, Linux still does "
+#| "not run as many different types of hardware as some operating systems."
+msgid "Many brand name products work without trouble on &arch-kernel;. Moreover, hardware support in &arch-kernel; is improving daily. However, &arch-kernel; still does not run as many different types of hardware as some operating systems."
+msgstr "유명 제품의 대부분은 문제없이 &arch-kernel;에서 작동합니다. 또한 &arch-kernel;에서 지원하는 하드웨어는 날이 갈수록 발전하고 있습니다. 하지만 아직도 &arch-kernel;은 어떤 종류의 OS정도 만큼 다양한 하드웨어를 지원하지 않습니다."
+
+#. Tag: para
+#: preparing.xml:509
+#, no-c-format
+#| msgid ""
+#| "In particular, Linux usually cannot run hardware that requires a running "
+#| "version of Windows to work."
+msgid "In particular, &arch-kernel; usually cannot run hardware that requires a running version of Windows to work."
+msgstr "특히, &arch-kernel;는 일반적으로 특정 버전의 Windows를 필요로하는 하드웨어를 움직일 수 없습니다."
+
+#. Tag: para
+#: preparing.xml:514
+#, no-c-format
+msgid "Although some Windows-specific hardware can be made to run on Linux, doing so usually requires extra effort. In addition, Linux drivers for Windows-specific hardware are usually specific to one Linux kernel. Therefore, they can quickly become obsolete."
+msgstr "일부의 윈도우즈 전용 하드웨어는 리눅스에도 쓸 수 있긴 하지만, 보통 추가적인 노력이 필요합니다. 게다가 윈도우즈 전용 하드웨어의 리눅스 드라이버는 보통 한 개의 리눅스 커널 버전에서만 쓸 수 있습니다. 그래서 그러한 드라이버는 금방 사용할 수 없게 됩니다."
+
+#. Tag: para
+#: preparing.xml:521
+#, no-c-format
+msgid "So called win-modems are the most common type of this hardware. However, printers and other equipment may also be Windows-specific."
+msgstr "이른바 윈모뎀은 그러한 가장 전형적인 하드웨어입니다. 프린터와 그 외의 장치도 윈도우즈 전용이 있습니다."
+
+#. Tag: para
+#: preparing.xml:526
+#, no-c-format
+msgid "You can check hardware compatibility by:"
+msgstr "다음 방법으로 하드웨어 호환성을 알아볼 수 있습니다:"
+
+#. Tag: para
+#: preparing.xml:531
+#, no-c-format
+msgid "Checking manufacturers' web sites for new drivers."
+msgstr "제조사의 웹사이트에서 새 드라이버 확인하기."
+
+#. Tag: para
+#: preparing.xml:536
+#, no-c-format
+msgid "Looking at web sites or manuals for information about emulation. Lesser known brands can sometimes use the drivers or settings for better-known ones."
+msgstr "웹사이트와 안내 문서에서 에뮬레이션에 대한 정보 찾아보기. 덜 알려진 상표의 제품이 더 많이 알려진 제품의 드라이버와 설정을 그대로 사용하기도 합니다."
+
+#. Tag: para
+#: preparing.xml:543
+#, no-c-format
+#| msgid ""
+#| "Checking hardware compatibility lists for Linux on web sites dedicated to "
+#| "your architecture."
+msgid "Checking hardware compatibility lists for &arch-kernel; on web sites dedicated to your architecture."
+msgstr "&arch-kernel;의 하드웨어 호환성 정보를 자신의 아키텍처의 web사이트에서 확인합니다."
+
+#. Tag: para
+#: preparing.xml:549
+#, no-c-format
+msgid "Searching the Internet for other users' experiences."
+msgstr "인터넷에서 다른 사용자의 사용담 검색해 보기."
+
+#. Tag: title
+#: preparing.xml:560
+#, no-c-format
+msgid "Network Settings"
+msgstr "네트워크 설정"
+
+#. Tag: para
+#: preparing.xml:562
+#, no-c-format
+msgid "If your computer is connected to a network 24 hours a day (i.e., an Ethernet or equivalent connection &mdash; not a PPP connection), you should ask your network's system administrator for this information."
+msgstr "컴퓨터가 하루 24시간 내내 네트워크에 연결되어 있다면 (이더넷이나 비슷한 연결의 경우, PPP는 아님), 네트워크 시스템 관리자에게 이러한 정보를 알아봐야 합니다."
+
+#. Tag: para
+#: preparing.xml:569
+#, no-c-format
+msgid "Your host name (you may be able to decide this on your own)."
+msgstr "호스트 이름 (직접 정할 수도 있습니다)."
+
+#. Tag: para
+#: preparing.xml:574
+#, no-c-format
+msgid "Your domain name."
+msgstr "도메인 이름."
+
+#. Tag: para
+#: preparing.xml:579
+#, no-c-format
+msgid "Your computer's IP address."
+msgstr "컴퓨터의 IP 주소."
+
+#. Tag: para
+#: preparing.xml:584
+#, no-c-format
+msgid "The netmask to use with your network."
+msgstr "네트워크에 사용할 네트마스크."
+
+#. Tag: para
+#: preparing.xml:589
+#, no-c-format
+msgid "The IP address of the default gateway system you should route to, if your network <emphasis>has</emphasis> a gateway."
+msgstr "라우팅하는 데 쓸 기본 게이트웨이 시스템의 IP 주소 (게이트웨이가 <emphasis>있는 경우</emphasis>)."
+
+#. Tag: para
+#: preparing.xml:595
+#, no-c-format
+msgid "The system on your network that you should use as a DNS (Domain Name Service) server."
+msgstr "네트워크에서 DNS (Domain Name Service) 서버로 사용할 시스템."
+
+#. Tag: para
+#: preparing.xml:603
+#, no-c-format
+msgid "On the other hand, if your administrator tells you that a DHCP server is available and is recommended, then you don't need this information because the DHCP server will provide it directly to your computer during the installation process."
+msgstr "한편 관리자가 DHCP 서버를 사용할 수 있다고 하고 DHCP 서버 사용을 추천한다면, 이 정보가 필요 없습니다. 설치할 때 DHCP 서버에서 컴퓨터로 이 정보를 알려줍니다."
+
+#. Tag: para
+#: preparing.xml:610
+#, no-c-format
+msgid "If you use a wireless network, you should also find out:"
+msgstr "무선 네트워크를 사용한다면, 다음도 알아봐야 합니다:"
+
+#. Tag: para
+#: preparing.xml:615
+#, no-c-format
+msgid "ESSID of your wireless network."
+msgstr "무선 네트워크의 ESSID."
+
+#. Tag: para
+#: preparing.xml:620
+#, no-c-format
+msgid "WEP security key (if applicable)."
+msgstr "WEP 보안 키 (보안 키를 사용하는 경우)."
+
+#. Tag: title
+#: preparing.xml:637
+#, no-c-format
+msgid "Meeting Minimum Hardware Requirements"
+msgstr "최소 하드웨어 요구 사항 맞추기"
+
+#. Tag: para
+#: preparing.xml:638
+#, no-c-format
+msgid "Once you have gathered information about your computer's hardware, check that your hardware will let you do the type of installation that you want to do."
+msgstr "컴퓨터의 하드웨어에 대한 정보를 모았으면, 설치하려는 방법대로 그 하드웨어에서 설치할 수 있는 지 확인하십시오."
+
+#. Tag: para
+#: preparing.xml:644
+#, no-c-format
+msgid "Depending on your needs, you might manage with less than some of the recommended hardware listed in the table below. However, most users risk being frustrated if they ignore these suggestions."
+msgstr "필요에 따라서는, 아래의 표에 나온 하드웨어보다 성능이 떨어지는 하드웨어로도 설치할 수 있을 수도 있습니다. 하지만 아래 제안을 무시할 경우 대부분 사용자는 짜증나는 문제를 겪게 됩니다."
+
+#. Tag: para
+#: preparing.xml:650
+#, no-c-format
+msgid "A Pentium 4, 1GHz system is the minimum recommended for a desktop system."
+msgstr "데스크톱 시스템 용도로 최소 펜티엄 4 1GHz 시스템을 추천합니다."
+
+#. Tag: para
+#: preparing.xml:655
+#, no-c-format
+msgid "Any OldWorld or NewWorld PowerPC can serve well as a desktop system."
+msgstr "모든 올드월드 혹은 뉴월드 PowerPC는 데스크톱 시스템으로 쓸 수 있습니다."
+
+#. Tag: title
+#: preparing.xml:662
+#, no-c-format
+msgid "Recommended Minimum System Requirements"
+msgstr "추천하는 최소 시스템 요구사항"
+
+#. Tag: entry
+#: preparing.xml:666
+#, no-c-format
+msgid "Install Type"
+msgstr "설치 종류"
+
+#. Tag: entry
+#: preparing.xml:667
+#, no-c-format
+msgid "RAM (minimal)"
+msgstr "램 (최소)"
+
+#. Tag: entry
+#: preparing.xml:668
+#, no-c-format
+msgid "RAM (recommended)"
+msgstr "램 (추천)"
+
+#. Tag: entry
+#: preparing.xml:669
+#, no-c-format
+msgid "Hard Drive"
+msgstr "하드 드라이브"
+
+#. Tag: entry
+#: preparing.xml:675
+#, no-c-format
+msgid "No desktop"
+msgstr "데스크톱 없음"
+
+#. Tag: entry
+#: preparing.xml:676
+#, no-c-format
+msgid "64 megabytes"
+msgstr "64메가바이트"
+
+#. Tag: entry
+#: preparing.xml:677
+#, no-c-format
+msgid "256 megabytes"
+msgstr "256메가바이트"
+
+#. Tag: entry
+#: preparing.xml:678
+#, no-c-format
+msgid "1 gigabyte"
+msgstr "1기가바이트"
+
+#. Tag: entry
+#: preparing.xml:680
+#, no-c-format
+msgid "With Desktop"
+msgstr "데스크톱 포함"
+
+#. Tag: entry
+#: preparing.xml:681
+#, no-c-format
+#| msgid "512 megabytes"
+msgid "128 megabytes"
+msgstr "128 메가바이트"
+
+#. Tag: entry
+#: preparing.xml:682
+#, no-c-format
+msgid "512 megabytes"
+msgstr "512메가바이트"
+
+#. Tag: entry
+#: preparing.xml:683
+#, no-c-format
+msgid "5 gigabytes"
+msgstr "5기가바이트"
+
+#. Tag: para
+#: preparing.xml:688
+#, no-c-format
+#| msgid ""
+#| "The actual minimum memory requirements are a lot less then the numbers "
+#| "listed in this table. Depending on the architecture, it is possible to "
+#| "install Debian with as little as 20MB (for s390) to 60MB (for amd64). The "
+#| "same goes for the disk space requirements, especially if you pick and "
+#| "choose which applications to install; see <xref linkend=\"tasksel-size-"
+#| "list\"/> for additional information on disk space requirements."
+msgid "The actual minimum memory requirements are a lot less then the numbers listed in this table. Depending on the architecture, it is possible to install &debian; with as little as 20MB (for s390) to 60MB (for amd64). The same goes for the disk space requirements, especially if you pick and choose which applications to install; see <xref linkend=\"tasksel-size-list\"/> for additional information on disk space requirements."
+msgstr "실제로 필요한 최소 메모리는 이 표에 나와 있는 숫자보다 훨씬 적습니다. 아키텍처에 따라 다르지만 최소 20MB (s390)에서 60MB (amd64)에서 &debian;를 설치할 수 있습니다. 필요한 디스크 공간도 마찬가지입니다. 특히, 설치할 프로그램을 선택하면 필요한 디스크 공간에 대한 추가 정보는 <xref linkend=\"tasksel-size-list\"/>를 참조하십시오."
+
+#. Tag: para
+#: preparing.xml:698
+#, no-c-format
+msgid "It is possible to run a graphical desktop environment on older or low-end systems, but in that case it is recommended to install a window manager that is less resource-hungry than those of the GNOME or KDE desktop environments; alternatives include <classname>xfce4</classname>, <classname>icewm</classname> and <classname>wmaker</classname>, but there are others to choose from."
+msgstr "성능이 낮은 오래된 시스템에도 그래픽 데스크톱 환경을 설치할 수 있지만, 그놈이나 KDE 데스크톱 환경을 설치하지 말고 리소스를 적게 차지하는 윈도우 매니저를 설치하길 권장합니다. 예를 들어 <classname>xfce4</classname>, <classname>icewm</classname>, <classname>wmaker</classname> 등 기타 여러가지가 있습니다."
+
+#. Tag: para
+#: preparing.xml:707
+#, no-c-format
+msgid "It is practically impossible to give general memory or disk space requirements for server installations as those very much depend on what the server is to be used for."
+msgstr "서버로 설치할 경우 필요한 메모리나 디스크 공간을 예측하기는 사실상 불가능합니다. 그 서버가 어떤 용도로 사용하느냐에 따라 많이 달라지기 때문입니다."
+
+#. Tag: para
+#: preparing.xml:713
+#, no-c-format
+msgid "Remember that these sizes don't include all the other materials which are usually to be found, such as user files, mail, and data. It is always best to be generous when considering the space for your own files and data."
+msgstr "여기 나와 있는 크기는 사용자 파일, 메일, 데이터 등과 같은 데이터는 포함하지 않은 숫자입니다. 사용자의 파일 및 데이터가 차지하는 공간을 잡을 때는 넉넉하게 잡는 게 좋습니다."
+
+#. Tag: para
+#: preparing.xml:720
+#, no-c-format
+#| msgid ""
+#| "Disk space required for the smooth operation of the &debian-gnu; system "
+#| "itself is taken into account in these recommended system requirements. "
+#| "Notably, the <filename>/var</filename> partition contains a lot of state "
+#| "information specific to Debian in addition to its regular contents, like "
+#| "logfiles. The <command>dpkg</command> files (with information on all "
+#| "installed packages) can easily consume 40MB. Also, <command>apt-get</"
+#| "command> puts downloaded packages here before they are installed. You "
+#| "should usually allocate at least 200MB for <filename>/var</filename>, and "
+#| "a lot more if you install a graphical desktop environment."
+msgid "Disk space required for the smooth operation of the &debian-gnu; system itself is taken into account in these recommended system requirements. Notably, the <filename>/var</filename> partition contains a lot of state information specific to &debian; in addition to its regular contents, like logfiles. The <command>dpkg</command> files (with information on all installed packages) can easily consume 40MB. Also, <command>apt-get</command> puts downloaded packages here before they are installed. You should usually allocate at least 200MB for <filename>/var</filename>, and a lot more if you install a graphical desktop environment."
+msgstr "&debian-gnu; 시스템을 원활히 동작시키는 데 필요한 디스크 공간은 권장 시스템 요구 사항에 반영되어 있습니다. 특히, <filename>/var</filename> 파티션에 로그 파일 같은 일반적인 내용뿐만 아니라 &debian; 특유의 상태 정보들이 들어 있습니다. <command>dpkg</command> 파일은 (설치 패키지에 대한 정보) 쉽게 40MB를 차지합니다. 또한 <command>apt-get</command>는 설치하기 전에 다운로드한 패키지를 여기에 놓습니다. <filename>/var</filename>에 최소 200MB를 할당해야만 합니다. 그리고 그래픽 데스크톱 환경을 설치하는 경우에는 더 할당 할 것입니다."
+
+#. Tag: title
+#: preparing.xml:744
+#, no-c-format
+msgid "Pre-Partitioning for Multi-Boot Systems"
+msgstr "멀티 부팅 시스템에서 미리 파티션하기"
+
+#. Tag: para
+#: preparing.xml:745
+#, no-c-format
+msgid "Partitioning your disk simply refers to the act of breaking up your disk into sections. Each section is then independent of the others. It's roughly equivalent to putting up walls inside a house; if you add furniture to one room it doesn't affect any other room."
+msgstr "디스크 파티션은 디스크를 여러 개의 조각으로 나누는 작업을 말합니다. 각각의 조각은 다른 조각과 독립적입니다. 비유 하자면 집에 벽을 놓는 것과 비슷합니다. 어떤 방에 가구를 놓는다고 해서 다른 방에 영향을 끼치지 않습니다."
+
+#. Tag: para
+#: preparing.xml:752
+#, no-c-format
+msgid "Whenever this section talks about <quote>disks</quote> you should translate this into a DASD or VM minidisk in the &arch-title; world. Also a machine means an LPAR or VM guest in this case."
+msgstr "여기서 <quote>디스크</quote>에 관해 이야기할 때에는, &arch-title;에 있는 DASD나 VM 미니디스크로 해석해야 합니다. 또 이 경우 컴퓨터라고 할 때는 LPAR이나 VM guest를 말합니다."
+
+#. Tag: para
+#: preparing.xml:758
+#, no-c-format
+#| msgid ""
+#| "If you already have an operating system on your system <phrase arch="
+#| "\"x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, "
+#| "Solaris, FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, "
+#| "OS/390, &hellip;) </phrase> and want to stick Linux on the same disk, you "
+#| "will need to repartition the disk. Debian requires its own hard disk "
+#| "partitions. It cannot be installed on Windows or MacOS partitions. It may "
+#| "be able to share some partitions with other Linux systems, but that's not "
+#| "covered here. At the very least you will need a dedicated partition for "
+#| "the Debian root."
+msgid "If you already have an operating system on your system <phrase arch=\"any-x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, &hellip;) </phrase> and want to stick &debian; on the same disk, you will need to repartition the disk. &debian; requires its own hard disk partitions. It cannot be installed on Windows or MacOS partitions. It may be able to share some partitions with other Unix systems, but that's not covered here. At the very least you will need a dedicated partition for the &debian; root."
+msgstr "시스템에 이미 다른 운영 체제 <phrase arch=\"any-x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, &hellip;) </phrase>가 들어 있고 같은 디스크에 &debian;도 설치하려는 경우에는 디스크 파티션 분할을 다시 시작해야합니다. &debian;은 Windows나 MacOS 파티션에 설치할 수 없습니다. 다른 Unix 시스템과는 일부 파티션을 공유할 수도 가능 할지도 모르지만, 여기에서는 그것은 다루지 않습니다. 적어도 &debian;의 root에 사용할 전용 파티션이 필요합니다."
+
+#. Tag: para
+#: preparing.xml:777
+#, no-c-format
+msgid "You can find information about your current partition setup by using a partitioning tool for your current operating system<phrase arch=\"any-x86\">, such as fdisk or PartitionMagic</phrase><phrase arch=\"powerpc\">, such as Drive Setup, HD Toolkit, or MacTools</phrase><phrase arch=\"s390\">, such as the VM diskmap</phrase>. Partitioning tools always provide a way to show existing partitions without making changes."
+msgstr "현재 파티션 상태는 <phrase arch=\"any-x86\"> fdisk나 PartitionMagic,</phrase><phrase arch=\"powerpc\">Drive Setup, HD Toolkit이나 MacTools,</phrase><phrase arch=\"s390\">VM diskmap</phrase> 같은 현재의 OS에 대응한 파티션 도구를 이용해 알아 볼 수 있습니다. 파티션 도구는 반드시 기존 파티션을 바꾸지 않고도 표시 기능이 있습니다."
+
+#. Tag: para
+#: preparing.xml:786
+#, no-c-format
+msgid "In general, changing a partition with a file system already on it will destroy any information there. Thus you should always make backups before doing any repartitioning. Using the analogy of the house, you would probably want to move all the furniture out of the way before moving a wall or you risk destroying it."
+msgstr "이미 파일 시스템이 들어 있는 파티션을 바꾸면 보통 거기에 들어 있는 정보가 모두 망가집니다. 그러므로 파티션 작업을 하기 하기 전에 항상 백업을 만들어야 합니다. 집의 경우에 비유하자면, 벽을 옮기기 전에 모든 가구를 다른 곳에 옮겨 놓아야 가구가 망가지지 않을 겁니다."
+
+#. Tag: emphasis
+#: preparing.xml:796
+#, no-c-format
+msgid "FIXME: write about HP-UX disks?"
+msgstr "FIXME: write about HP-UX disks?"
+
+#. Tag: para
+#: preparing.xml:798
+#, no-c-format
+#| msgid ""
+#| "If your computer has more than one hard disk, you may want to dedicate "
+#| "one of the hard disks completely to Debian. If so, you don't need to "
+#| "partition that disk before booting the installation system; the "
+#| "installer's included partitioning program can handle the job nicely."
+msgid "If your computer has more than one hard disk, you may want to dedicate one of the hard disks completely to &debian;. If so, you don't need to partition that disk before booting the installation system; the installer's included partitioning program can handle the job nicely."
+msgstr "컴퓨터에 두 개 이상의 하드 디스크가있는 경우 그 중 하나를 debian; 전용으로하면 좋을지도 모릅니다. 이렇게하면 설치 시스템 부팅하기 전에 파티션을 할 필요가 없습니다. 설치 프로그램에 포함된 파티션 프로그램이 이 일을 정확하게 해내줍니다."
+
+# &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
+#. Tag: para
+#: preparing.xml:805
+#, no-c-format
+msgid "If your machine has only one hard disk, and you would like to completely replace the current operating system with &debian-gnu;, you also can wait to partition as part of the installation process (<xref linkend=\"di-partition\"/>), after you have booted the installation system. However this only works if you plan to boot the installer system from tapes, CD-ROM or files on a connected machine. Consider: if you boot from files placed on the hard disk, and then partition that same hard disk within the installation system, thus erasing the boot files, you'd better hope the installation is successful the first time around. At the least in this case, you should have some alternate means of reviving your machine like the original system's installation tapes or CDs."
+msgstr "컴퓨터에 하드 디스크가 1개 있고, 지금 운영 체제를 &debian-gnu;로 완전히 덮어 쓰려고 한다면, 설치 시스템을 부팅한 다음에 설치하는 과정에서 파티션을 할 수도 있습니다. (<xref linkend=\"di-partition\"/>.) 하지만 설치 시스템을 테이프에서 부팅하거나 CD-ROM에서 부팅하거나 연결되어 있는 다른 컴퓨터에 있는 파일에서 부팅할 경우에만 이렇게 할 수 있습니다. 생각해 보면 하드 디스크에 부팅 파일을 넣고 같은 그 하드 디스크를 파티션해 버린다면, 기존에 있던 부팅 파일이 지워질 수밖에 없고, 반드시 한 번에 설치를 성공적으로 해야 좋을 것입니다. 최소한 이러한 경우, 원래 운영 체제의 설치 테이프나 CD처럼 컴퓨터를 복구할 방법을 가지고 있는 게 좋습니다."
+
+#. Tag: para
+#: preparing.xml:820
+#, no-c-format
+#| msgid ""
+#| "If your machine already has multiple partitions, and enough space can be "
+#| "provided by deleting and replacing one or more of them, then you too can "
+#| "wait and use the Debian installer's partitioning program. You should "
+#| "still read through the material below, because there may be special "
+#| "circumstances like the order of the existing partitions within the "
+#| "partition map, that force you to partition before installing anyway."
+msgid "If your machine already has multiple partitions, and enough space can be provided by deleting and replacing one or more of them, then you too can wait and use the &debian; installer's partitioning program. You should still read through the material below, because there may be special circumstances like the order of the existing partitions within the partition map, that force you to partition before installing anyway."
+msgstr "이미 컴퓨터에 파티션이 여러 개 있고 그 일부를 지우거나 바꾸거나해서 충분한 공간을 확보할  경우 &debian; 설치 프로그램의 파티션 프로그램에서 작업해도 됩니다. 그러나 이 경우에 아래의 내용은 읽어 둡시다. 파티션에서 기존 파티션의 순서 때문에, 설치 전에 파티션 작업을 해야 한다 할 경우도 있기 때문입니다."
+
+#. Tag: para
+#: preparing.xml:830
+#, no-c-format
+#| msgid ""
+#| "If your machine has a FAT or NTFS filesystem, as used by DOS and Windows, "
+#| "you can wait and use Debian installer's partitioning program to resize "
+#| "the filesystem."
+msgid "If your machine has a FAT or NTFS filesystem, as used by DOS and Windows, you can wait and use &debian; installer's partitioning program to resize the filesystem."
+msgstr "DOS나 Windows에서 사용하는 시스템에 FAT나 NTFS파일 시스템이 있으면 &debian; 설치 프로그램의 파티션 프로그램에서 파일 시스템 크기를 조정할 수 있습니다 ."
+
+#. Tag: para
+#: preparing.xml:836
+#, no-c-format
+msgid "If none of the above apply, you'll need to partition your hard disk before starting the installation to create partitionable space for &debian;. If some of the partitions will be owned by other operating systems, you should create those partitions using native operating system partitioning programs. We recommend that you do <emphasis>not</emphasis> attempt to create partitions for &debian-gnu; using another operating system's tools. Instead, you should just create the native operating system's partitions you will want to retain."
+msgstr "위의 경우 중 아무것도 없으면 설치를 시작하기 전에 분할하고 &debian;에 파티션 가능한 공간을 만들어 줘야 합니다. 일부 파티션을 다른 OS에 사용하는 경우 파티션은 OS의 파티션 도구를 작성하는 것이 좋습니다. 그러나 &debian-gnu;의 파티션을 다른 OS의 도구로 <emphasis>만들지 않는</emphasis> 것이 좋습니다. 그 도구로 만들어 보관하려는 OS의 파티션에만 합니다."
+
+#. Tag: para
+#: preparing.xml:848
+#, no-c-format
+#| msgid ""
+#| "If you are going to install more than one operating system on the same "
+#| "machine, you should install all other system(s) before proceeding with "
+#| "Linux installation. Windows and other OS installations may destroy your "
+#| "ability to start Linux, or encourage you to reformat non-native "
+#| "partitions."
+msgid "If you are going to install more than one operating system on the same machine, you should install all other system(s) before proceeding with &debian; installation. Windows and other OS installations may destroy your ability to start &debian;, or encourage you to reformat non-native partitions."
+msgstr "같은 컴퓨터에 여러 개의 OS를 설치하려는 경우, &debian;을 설치하기 전에 다른 OS를 먼저 설치하고 둡시다. Windows 등의 다른 OS를 설치하면 &debian;을 시작하는 기능이 파괴되어 버리거나, 혹은 그 OS의 파티션이 아닌 파티션을 다시 포맷하라고 할 수도 있습니다."
+
+#. Tag: para
+#: preparing.xml:856
+#, no-c-format
+msgid "You can recover from these actions or avoid them, but installing the native system first saves you trouble."
+msgstr "이런 동작은 복구할 수도 있고, 피할 수 있습니다. 하지만 원래 운영 체제를 먼저 설치하면 이런 문제가 없습니다."
+
+# &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
+#. Tag: para
+#: preparing.xml:861
+#, no-c-format
+#| msgid ""
+#| "In order for OpenFirmware to automatically boot &debian-gnu; the Linux "
+#| "partitions should appear before all other partitions on the disk, "
+#| "especially MacOS boot partitions. This should be kept in mind when pre-"
+#| "partitioning; you should create a Linux placeholder partition to come "
+#| "<emphasis>before</emphasis> the other bootable partitions on the disk. "
+#| "(The small partitions dedicated to Apple disk drivers are not bootable.) "
+#| "You can delete the placeholder with the Linux partition tools later "
+#| "during the actual install, and replace it with Linux partitions."
+msgid "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-parttype; partitions should appear before all other partitions on the disk, especially MacOS boot partitions. This should be kept in mind when pre-partitioning; you should create a &arch-parttype; placeholder partition to come <emphasis>before</emphasis> the other bootable partitions on the disk. (The small partitions dedicated to Apple disk drivers are not bootable.) You can delete the placeholder with the &debian; partition tools later during the actual install, and replace it with &arch-parttype; partitions."
+msgstr "OpenFirmware에 &debian-gnu;을 자동으로 시작하려면 &arch-parttype; 파티션을 다른 OS의 파티션 (특히 MacOS 부팅 파티션)보다 디스크의 위쪽에 둬야 합니다. 사전 파티션할 때 다음을 염두에 두고 봅시다. &arch-parttype;용으로 사용 위치를 파티션이 들어갈 파티션을 다른 부팅 파티션보다 디스크 <emphasis>앞부분</emphasis>에 만들어야합니다 (Apple 디스크 드라이버 전용 작은 파티션은 부팅 가능하지 않습니다). 이 위치에 파티션은 실제로 설치 때 &debian; 파티션 도구에서 제거하고 실제 &arch-parttype; 파티션 바꿀 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:873
+#, no-c-format
+#| msgid ""
+#| "If you currently have one hard disk with one partition (a common setup "
+#| "for desktop computers), and you want to multi-boot the native operating "
+#| "system and Debian, you will need to:"
+msgid "If you currently have one hard disk with one partition (a common setup for desktop computers), and you want to multi-boot the native operating system and &debian;, you will need to:"
+msgstr "하드 디스크가 하나의 파티션이 하나(데스크탑 컴퓨터와 일반 설정)되어, 원래의 OS와 &debian;과 듀얼 부팅하려면 다음 단계를 취할 필요가 있습니다."
+
+#. Tag: para
+#: preparing.xml:880
+#, no-c-format
+msgid "Back up everything on the computer."
+msgstr "컴퓨터에 들어 있는 내용을 전부 백업하십시오."
+
+#. Tag: para
+#: preparing.xml:885
+#, no-c-format
+msgid "Boot from the native operating system installer media such as CD-ROM or tapes. <phrase arch=\"powerpc\">When booting from a MacOS CD, hold the <keycap>c</keycap> key while booting to force the CD to become the active MacOS system.</phrase>"
+msgstr "CD-ROM이나 테이프같은 원래 운영 체제의 설치 미디어에서 부팅하십시오. <phrase arch=\"powerpc\">맥오에스 CD에서 부팅할 때, CD에서 맥오에스 시스템을 시작하려면 부팅하는 동안 <keycap>c</keycap> 키를 누르고 있으십시오.</phrase>"
+
+# &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
+#. Tag: para
+#: preparing.xml:895
+#, no-c-format
+msgid "Use the native partitioning tools to create native system partition(s). Leave either a place holder partition or free space for &debian-gnu;."
+msgstr "원래 운영 체제에 들어 있는 파티션 도구로 그 운영 체제용 시스템 파티션을 만드십시오. &debian-gnu;로 사용할 위치에 파티션을 만들거나 빈 공간을 만들어 놓으십시오."
+
+#. Tag: para
+#: preparing.xml:902
+#, no-c-format
+msgid "Install the native operating system on its new partition."
+msgstr "새 파티션에 원래 운영 체제를 설치하십시오."
+
+#. Tag: para
+#: preparing.xml:907
+#, no-c-format
+#| msgid ""
+#| "Boot back into the native system to verify everything's OK, and to "
+#| "download the Debian installer boot files."
+msgid "Boot back into the native system to verify everything's OK, and to download the &debian; installer boot files."
+msgstr "새로 넣은  OS에서 다시 시작 해, 제대로 되었는지 확인합니다. 문제가 없으면 &debian; 설치 프로그램 부팅 파일을 다운로드한다."
+
+#. Tag: para
+#: preparing.xml:913
+#, no-c-format
+#| msgid "Boot the Debian installer to continue installing Debian."
+msgid "Boot the &debian; installer to continue installing &debian;."
+msgstr "&debian; 설치 프로그램을 시작하고 &debian; 설치를 계속합니다."
+
+#. Tag: title
+#: preparing.xml:927
+#, no-c-format
+msgid "Partitioning From DOS or Windows"
+msgstr "DOS나 윈도우즈에서 파티션하기"
+
+#. Tag: para
+#: preparing.xml:928
+#, no-c-format
+#| msgid ""
+#| "If you are manipulating existing FAT or NTFS partitions, it is "
+#| "recommended that you either use the scheme below or native Windows or DOS "
+#| "tools. Otherwise, it is not really necessary to partition from DOS or "
+#| "Windows; the Linux partitioning tools will generally do a better job."
+msgid "If you are manipulating existing FAT or NTFS partitions, it is recommended that you either use the scheme below or native Windows or DOS tools. Otherwise, it is not really necessary to partition from DOS or Windows; the &debian; partitioning tools will generally do a better job."
+msgstr "기존 FAT나 NTFS 파티션을 변경하는 경우에는, 아래에서 설명하는 방법을 사용하거나 Windows나 DOS 도구를 사용하는 것을 권장합니다. 그 외의 경우에는 DOS나 Windows에서 파티션을 나눌 필요는 전혀 없습니다. 일반적으로 &debian;의 파티션 도구를 사용하면보다 효율적으로 작업이 가능합니다."
+
+#. Tag: para
+#: preparing.xml:936
+#, no-c-format
+#| msgid ""
+#| "But if you have a large IDE disk, and are not using LBA addressing, "
+#| "overlay drivers (sometimes provided by hard disk manufacturers), or a new "
+#| "(post 1998) BIOS that supports large disk access extensions, then you "
+#| "must locate your Debian boot partition carefully. In this case, you will "
+#| "have to put the boot partition into the first 1024 cylinders of your hard "
+#| "disk (usually around 524 megabytes, without BIOS translation). This may "
+#| "require that you move an existing FAT or NTFS partition."
+msgid "But if you have a large IDE disk, and are not using LBA addressing, overlay drivers (sometimes provided by hard disk manufacturers), or a new (post 1998) BIOS that supports large disk access extensions, then you must locate your &debian; boot partition carefully. In this case, you will have to put the boot partition into the first 1024 cylinders of your hard disk (usually around 524 megabytes, without BIOS translation). This may require that you move an existing FAT or NTFS partition."
+msgstr "큰 IDE 디스크를 가진 경우, LBA 주소나 오버레이 드라이버 (HDD 제조사에서 제공되는 일이 가끔 있습니다) 큰 디스크 접근을 지원하는 새로운(1998년 이후) BIOS도 때 &debian; 부팅 파티션을 주의하여 배치해야 합니다. 이런 경우 부팅 파티션을 하드 디스크의 첫 번째 1024 실린더 안에 해야 합니다(이것은 BIOS 변환이 없으면 보통 524 메가 바이트입니다). 이는 곧 기존 FAT나 NTFS 파티션을 이동하지 않으면 안되는 것을 의미합니다."
+
+#. Tag: title
+#: preparing.xml:950
+#, no-c-format
+msgid "Lossless Repartitioning When Starting From DOS, Win-32 or OS/2"
+msgstr "DOS, Win-32, OS/2의 데이터 손실없이 다시 파티션하기"
+
+#. Tag: para
+#: preparing.xml:953
+#, no-c-format
+#| msgid ""
+#| "One of the most common installations is onto a system that already "
+#| "contains DOS (including Windows 3.1), Win32 (such as Windows 95, 98, Me, "
+#| "NT, 2000, XP, 2003, Vista, 7), or OS/2, and it is desired to put Debian "
+#| "onto the same disk without destroying the previous system. Note that the "
+#| "installer supports resizing of FAT and NTFS filesystems as used by DOS "
+#| "and Windows. Simply start the installer and when you get to the "
+#| "partitioning step, select the option for <menuchoice> "
+#| "<guimenuitem>Manual</guimenuitem> </menuchoice> partitioning, select the "
+#| "partition to resize, and specify its new size. So in most cases you "
+#| "should not need to use the method described below."
+msgid "One of the most common installations is onto a system that already contains DOS (including Windows 3.1), Win32 (such as Windows 95, 98, Me, NT, 2000, XP, 2003, Vista, 7), or OS/2, and it is desired to put &debian; onto the same disk without destroying the previous system. Note that the installer supports resizing of FAT and NTFS filesystems as used by DOS and Windows. Simply start the installer and when you get to the partitioning step, select the option for <menuchoice> <guimenuitem>Manual</guimenuitem> </menuchoice> partitioning, select the partition to resize, and specify its new size. So in most cases you should not need to use the method described below."
+msgstr "자주 묻는 설치 형태는 이미 DOS(Windows3.1 포함), Win32 Windows 95, 98, Me, NT, 2000, XP, 2003, Vista, 7), OS/2 등이 들어 있는 시스템에 새로운 &debian;를 설치하는 경우 기존의 시스템을 깨지 않고 같은 디스크에 &debian;을 설치하려는 경우입니다. DOS나 Windows에서 사용하는 FAT파일 시스템 NTFS 파일 시스템의 크기를 조정 설치는 지원하는 것에 주의하십시오. 단지 설치 프로그램을 시작하고 분할 단계에 오면, <menuchoice> <guimenuitem>수동</guimenuitem> </menuchoice> 분할을 선택하고 조정하려는 파티션을 선택하고 새로운 크기를 지정하십시오. 대부분의 경우 다음 방법을 사용할 필요는 없습니다."
+
+#. Tag: para
+#: preparing.xml:965
+#, no-c-format
+#| msgid ""
+#| "Before going any further, you should have decided how you will be "
+#| "dividing up the disk. The method in this section will only split a "
+#| "partition into two pieces. One will contain the original OS and the other "
+#| "will be used for Debian. During the installation of Debian, you will be "
+#| "given the opportunity to use the Debian portion of the disk as you see "
+#| "fit, i.e., as swap or as a file system."
+msgid "Before going any further, you should have decided how you will be dividing up the disk. The method in this section will only split a partition into two pieces. One will contain the original OS and the other will be used for &debian;. During the installation of &debian;, you will be given the opportunity to use the &debian; portion of the disk as you see fit, i.e., as swap or as a file system."
+msgstr "진행하기 전에 디스크를 어떻게 나눌 지 정해 두지 않으면 안됩니다. 이 절에서는 하나의 파티션을 두 개로 분할하는 방법만을 설명합니다. 그 중 하나는 기존의 OS를 남겨두고 또 하나를 &debian;에서 사용합니다. 또한 &debian;에 할당된 디스크 공간을 어떤 용도(스왑이나 파일 시스템)에 얼마 씩 할당 여부를 &debian; 설치 중에 결정할 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:974
+#, no-c-format
+msgid "The idea is to move all the data on the partition to the beginning, before changing the partition information, so that nothing will be lost. It is important that you do as little as possible between the data movement and repartitioning to minimize the chance of a file being written near the end of the partition as this will decrease the amount of space you can take from the partition."
+msgstr "지금 하려는 일은 파티션 정보를 바꾸기 전에 그 안의 모든 데이터를 앞쪽으로 옮기는 것입니다. 그래야 아무것도 잃지 않습니다. 가능하면 데이터 이동과 파티션을 조금 하는 게 중요합니다. 그래야 파일이 파티션 끝 부분에 들어 있지 않게 됩니다. 끝 부분에 파일이 들어가면 그 파티션에서 뽑아낼 수 있는 공간이 줄어듭니다."
+
+#. Tag: para
+#: preparing.xml:983
+#, no-c-format
+#| msgid ""
+#| "The first thing needed is a copy of <command>fips</command> which is "
+#| "available in the <filename>tools/</filename> directory on your nearest "
+#| "Debian mirror. Unzip the archive and copy the files <filename>RESTORRB."
+#| "EXE</filename>, <filename>FIPS.EXE</filename> and <filename>ERRORS.TXT</"
+#| "filename> to a bootable floppy. A bootable floppy can be created using "
+#| "the command <filename>sys a:</filename> under DOS. <command>fips</"
+#| "command> comes with very good documentation which you may want to read. "
+#| "You will definitely need to read the documentation if you use a disk "
+#| "compression driver or a disk manager. Create the disk and read the "
+#| "documentation <emphasis>before</emphasis> you defragment the disk."
+msgid "The first thing needed is a copy of <command>fips</command>. Unzip the archive and copy the files <filename>RESTORRB.EXE</filename>, <filename>FIPS.EXE</filename> and <filename>ERRORS.TXT</filename> to a bootable floppy. A bootable floppy can be created using the command <filename>sys a:</filename> under DOS. <command>fips</command> comes with very good documentation which you may want to read. You will definitely need to read the documentation if you use a disk compression driver or a disk manager. Create the disk and read the documentation <emphasis>before</emphasis> you defragment the disk."
+msgstr "먼저 필요한 것은 <command>fips</command>의 복사본입니다. 아카이브를 unzip하여 <filename>RESTORRB.EXE</filename>, <filename>FIPS.EXE</filename>, <filename>ERRORS.TXT</filename>의 각 파일을 부팅 가능한 플로피에 복사 하십시오. 부팅 가능 플로피는 DOS에서 <filename>sys a:</filename>라는 명령어를 이용하면 만들 수 있습니다. <command>fips</command>는 매우 뛰어난 문서가 포함되어 있기 때문에, 읽어두면 좋습니다. 특히 디스크 압축 드라이 버나 디스크 관리자를 사용하는 경우 이 문서는 반드시 읽어야 할 것입니다. 디스크 단편화 <emphasis>전에</emphasis> 디스크를 만들고 문서를 읽어보십시오."
+
+#. Tag: para
+#: preparing.xml:995
+#, no-c-format
+msgid "The next thing needed is to move all the data to the beginning of the partition. <command>defrag</command>, which comes standard with DOS 6.0 and later, can easily do the job. See the <command>fips</command> documentation for a list of other software that may do the trick. Note that if you have Windows 9x, you must run <command>defrag</command> from there, since DOS doesn't understand VFAT, which is used to support for long filenames, used in Windows 95 and higher."
+msgstr "그 다음에 필요한 일은 모든 데이터를 파티션의 처음으로 옮기는 일입니다. DOS 6.0 이후에 포함되어 있는 <command>defrag</command>가 이 작업을 합니다. 이런 일을 하는 다른 소프트웨어 목록을 보려면 <command>fips</command> 문서를 보십시오. 윈도우즈 9x를 사용한다면 윈도우즈 9x에서 <command>defrag</command>를 실행해야 합니다. DOS는 윈도우즈 95 이상에서 (긴 파일 이름을 지원하기 위해) 사용하는 VFAT를 인식하지 못합니다."
+
+#. Tag: para
+#: preparing.xml:1005
+#, no-c-format
+msgid "After running the defragmenter (which can take a while on a large disk), reboot with the <command>fips</command> disk you created in the floppy drive. Simply type <filename>a:\\fips</filename> and follow the directions."
+msgstr "단편화를 없애는 프로그램을 실행한 다음에 (디스크가 크면 꽤 오래 걸립니다), 플로피 드라이브에 새로 만든 <command>fips</command> 디스크를 넣고 다시 부팅하십시오. <filename>a:\\fips</filename>를 실행해 안내에 따르십시오."
+
+#. Tag: para
+#: preparing.xml:1011
+#, no-c-format
+msgid "Note that there are many other partition managers out there, in case <command>fips</command> doesn't do the trick for you."
+msgstr "<command>fips</command>에서 파티션 크기 조정을 못 하더라도, 다른 파티션 관리자가 많이 있습니다."
+
+#. Tag: title
+#: preparing.xml:1019
+#, no-c-format
+msgid "Partitioning for DOS"
+msgstr "DOS용 파티션하기"
+
+#. Tag: para
+#: preparing.xml:1021
+#, no-c-format
+#| msgid ""
+#| "If you are partitioning for DOS drives, or changing the size of DOS "
+#| "partitions, using Linux tools, many people experience problems working "
+#| "with the resulting FAT partitions. For instance, some have reported slow "
+#| "performance, consistent problems with <command>scandisk</command>, or "
+#| "other weird errors in DOS or Windows."
+msgid "If you are partitioning for DOS drives, or changing the size of DOS partitions, using &debian; tools, many people experience problems working with the resulting FAT partitions. For instance, some have reported slow performance, consistent problems with <command>scandisk</command>, or other weird errors in DOS or Windows."
+msgstr "DOS 드라이브에 파티션을 만들거나 DOS 파티션의 크기를 변경할 작업을 &debian; 도구하면 만들어 낸 FAT 파티션에서 많은 문제가 남아있을 수 있는 것 같습니다. 예를 들어 DOS 나 Windows에서 성능이 떨어지고, <command>scandisk</command>에서 일관성 문제가 발생하거나 기타 알 수 없는 오류가 발생하는 등의 보고 사례가 있습니다."
+
+#. Tag: para
+#: preparing.xml:1029
+#, no-c-format
+#| msgid ""
+#| "Apparently, whenever you create or resize a partition for DOS use, it's a "
+#| "good idea to fill the first few sectors with zeros. You should do this "
+#| "prior to running DOS's <command>format</command> command by executing the "
+#| "following command from Linux:"
+msgid "Apparently, whenever you create or resize a partition for DOS use, it's a good idea to fill the first few sectors with zeros. You should do this prior to running DOS's <command>format</command> command by executing the following command from &debian;:"
+msgstr "DOS에 사용할 파티션을 만들거나 크기를 변경할 경우, 처음 몇 섹터를 0으로 채워 두는 것이 좋습니다. DOS의 <command>format</command> 명령을 실행하기 전에 &debian;에서 다음 명령을 실행하십시오."
+
+#. Tag: screen
+#: preparing.xml:1036
+#, no-c-format
+msgid "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
+msgstr "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
+
+#. Tag: title
+#: preparing.xml:1047
+#, no-c-format
+msgid "Partitioning from SunOS"
+msgstr "SunOS에서 파티션하기"
+
+#. Tag: para
+#: preparing.xml:1049
+#, no-c-format
+#| msgid ""
+#| "It's perfectly fine to partition from SunOS; in fact, if you intend to "
+#| "run both SunOS and Debian on the same machine, it is recommended that you "
+#| "partition using SunOS prior to installing Debian. The Linux kernel "
+#| "understands Sun disk labels, so there are no problems there. SILO "
+#| "supports booting Linux and SunOS from any of EXT2 (Linux), UFS (SunOS), "
+#| "romfs or iso9660 (CDROM) partitions."
+msgid "It's perfectly fine to partition from SunOS; in fact, if you intend to run both SunOS and &debian; on the same machine, it is recommended that you partition using SunOS prior to installing &debian;. The Linux kernel understands Sun disk labels, so there are no problems there. SILO supports booting Linux and SunOS from any of EXT2 (Linux), UFS (SunOS), romfs or iso9660 (CDROM) partitions."
+msgstr "SunOS에서 파티션하는 건 문제가 없습니다. 동일한 컴퓨터에 SunOS와 &debian;를 운용하는 경우 &debian;를 설치하기 전에 SunOS에서 파티션을 만들어 두는 것이 좋습니다. Linux 커널은 Sun 디스크 레이블을 인식하기 때문에 이 방법으로 문제 없습니다. SILO는 EXT2 (Linux), UFS (SunOS), romfs 및 iso9660 (CDROM) 중 하나의 파티션에서 Linux와 SunOS 부팅을 지원합니다."
+
+#. Tag: title
+#: preparing.xml:1061
+#, no-c-format
+msgid "Partitioning from Linux or another OS"
+msgstr "리눅스 및 그 밖의 OS에서 파티션하기"
+
+#. Tag: para
+#: preparing.xml:1063
+#, no-c-format
+msgid "Whatever system you are using to partition, make sure you create a <quote>Sun disk label</quote> on your boot disk. This is the only kind of partition scheme that the OpenBoot PROM understands, and so it's the only scheme from which you can boot. In <command>fdisk</command>, the <keycap>s</keycap> key is used to create Sun disk labels. You only need to do this on drives that do not already have a Sun disk label. If you are using a drive that was previously formatted using a PC (or other architecture) you must create a new disk label, or problems with the disk geometry will most likely occur."
+msgstr "파티션할 때 어떤 시스템을 사용하든 간에, 부팅 디스크에 <quote>Sun 디스크 레이블</quote>을 만들도록 하십시오. OpenBoot PROM이 이해하는 유일한 파티션 방식이고, 그래서 부팅할 수 있는 유일한 방식입니다. <command>fdisk</command>에서, <keycap>s</keycap> 키를 누르면 Sun 디스크 레이블을 만들 수 있습니다. Sun 디스크 레이블이 없는 드라이브의 경우에만 레이블을 새로 만들 필요가 있습니다. PC에서 (아니면 다른 아키텍처에서) 포맷한 드라이브가 있다면 새로운 디스크 레이블을 만들어야 하고, 아니면 디스크 크기에 관련한 오류가 발생할 것입니다."
+
+#. Tag: para
+#: preparing.xml:1075
+#, no-c-format
+msgid "You will probably be using <command>SILO</command> as your boot loader (the small program which runs the operating system kernel). <command>SILO</command> has certain requirements for partition sizes and location; see <xref linkend=\"partitioning\"/>."
+msgstr "부트로더(운영 체제 커널을 실행하는 작은 프로그램)로 <command>SILO</command>를 사용합니다. <command>SILO</command>를 쓰려면 파티션 크기와 위치에 대해 엄격한 제한이 있습니다. <xref linkend=\"partitioning\"/> 부분을 참고하십시오."
+
+#. Tag: title
+#: preparing.xml:1090
+#, no-c-format
+msgid "MacOS/OSX Partitioning"
+msgstr "맥오에스/맥오에스X 파티션하기"
+
+#. Tag: para
+#: preparing.xml:1092
+#, no-c-format
+msgid "The <application>Apple Drive Setup</application> application can be found in the <filename>Utilities</filename> folder on the MacOS CD. It will not adjust existing partitions; it is limited to partitioning the entire disk at once. The disk driver partitions don't show up in <application>Drive Setup</application>."
+msgstr "맥오에스 CD의 <filename>Utilities</filename> 폴더에 <application>Apple Drive Setup</application> 애플리케이션이 있습니다. 이 프로그램은 기존 파티션을 조정하지 않고, 전체 디스크를 한 번에 파티션하는 데만 쓸 수 있습니다. 디스크 드라이버 파티션은 <application>Drive Setup</application>에 나타나지 않습니다."
+
+#. Tag: para
+#: preparing.xml:1099
+#, no-c-format
+msgid "Remember to create a placeholder partition for GNU/Linux, preferably positioned first in the disk layout. it doesn't matter what type it is, it will be deleted and replaced later inside the &debian-gnu; installer."
+msgstr "GNU/리눅스가 들어갈 위치에 공간을 차지하는 파티션을 만들도록 하십시오. 가능하면 디스크에서 첫번째에 놓으십시오. 파티션 종류는 중요하지 않습니다. &debian-gnu; 설치 프로그램에서 나중에 그 파티션을 지워서 다른 파티션으로 바꾸게 됩니다."
+
+#. Tag: para
+#: preparing.xml:1105
+#, no-c-format
+msgid "If you are planning to install both MacOS 9 and OS X, it is best to create separate partitions for OS 9 and OS X. If they are installed on the same partition, <application>Startup Disk</application> (and reboot) must be used to select between the two; the choice between the two systems can't be made at boot time. With separate partitions, separate options for OS 9 and OS X will appear when holding the <keycap>option</keycap> key at boot time, and separate options can be installed in the <application>yaboot</application> boot menu as well. Also, Startup Disk will de-bless all other mountable partitions, which can affect GNU/Linux booting. Both OS 9 and OS X partitions will be accessible from either OS 9 or OS X."
+msgstr "맥오에스 9과 OS X을 모두 설치하려는 경우, OS 9과 OS X에 별도의 파티션을 만드는 게 가장 좋습니다. 같은 파티션에 설치하는 경우 <application>Startup Disk</application>를 이용해서 두 가지 중에서 하나를 선택해야 합니다 (그리고 다시 부팅). 부팅할 때는 두 시스템 사이에 하나를 선택할 수 없습니다. 별도의 파티션을 이용하면, <keycap>option</keycap> 키를 부팅할 때 누르고 있으면 OS 9과 OS X 중의 하나를 선택할 수 있습니다. 또 <application>yaboot</application> 부팅 메뉴에서도 별도 옵션을 만들 수 있습니다. 게다가 Startup Disk는 다른 마운트 가능 파티션을 없애 버리기 때문에, GNU/리눅스가 부팅하는 데 문제가 생깁니다. OS 9과 OS X 파티션은 OS 9과 OS X 모두에서 접근할 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:1118
+#, no-c-format
+msgid "GNU/Linux is unable to access information on UFS partitions, but does support HFS+ (aka MacOS Extended) partitions. OS X requires one of these two types for its boot partition. MacOS 9 can be installed on either HFS (aka MacOS Standard) or HFS+. To share information between the MacOS and GNU/Linux systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT partitions are supported by both MacOS and Linux."
+msgstr "GNU/리눅스는 UFS 파티션에 있는 정보에 접근할 수 없습니다, 그러나 HFS+ (다른 말로 MacOS Extended) 파일 시스템은 지원합니다. OS X은 부팅 파티션에 이 두가지 중의 하나의 파일 시스템을 써야 합니다. 맥오에스 9은 HFS에 (다른 말로 MacOS Standard) 설치할 수도 있고 HFS+에 설치할 수도 있습니다. 맥오에스와 GNU/리눅스 시스템 사이에 정보를 공유하려면, 데이터 교환용 파티션을 만드는 게 편리합니다. HFS, HFS+와 MS-DOS FAT 파티션은 맥오에스와 리눅스 모두에서 지원합니다."
+
+#. Tag: title
+#: preparing.xml:1138
+#, no-c-format
+msgid "Pre-Installation Hardware and Operating System Setup"
+msgstr "설치하기 전에 할 하드웨어 및 운영 체제 설정"
+
+#. Tag: para
+#: preparing.xml:1139
+#, no-c-format
+#| msgid ""
+#| "This section will walk you through pre-installation hardware setup, if "
+#| "any, that you will need to do prior to installing Debian. Generally, this "
+#| "involves checking and possibly changing firmware settings for your "
+#| "system. The <quote>firmware</quote> is the core software used by the "
+#| "hardware; it is most critically invoked during the bootstrap process "
+#| "(after power-up). Known hardware issues affecting the reliability of "
+#| "&debian-gnu; on your system are also highlighted."
+msgid "This section will walk you through pre-installation hardware setup, if any, that you will need to do prior to installing &debian;. Generally, this involves checking and possibly changing firmware settings for your system. The <quote>firmware</quote> is the core software used by the hardware; it is most critically invoked during the bootstrap process (after power-up). Known hardware issues affecting the reliability of &debian-gnu; on your system are also highlighted."
+msgstr "이 절에서는 &debian; 설치에 앞서 필요한 하드웨어 설정에 대해 알아보겠습니다. 일반적으로이 작업은 시스템의 펌웨어 설정을 확인하고 필요하다면 설정을 변경할 수 있습니다. <quote>펌웨어</quote>는 하드웨어가 사용하는 주요 소프트웨어로, 전원을 켠 다음에 부트 과정 동안에 시작되는 가장 중요한 것입니다. 당신이 사용하게 되는 &debian-gnu;의 신뢰성에 영향을 미칠 수 있는 알려진 하드웨어의 문제에 대해서도 마찬가지로 취급 예정입니다."
+
+#. Tag: title
+#: preparing.xml:1161
+#, no-c-format
+msgid "Invoking the BIOS Set-Up Menu"
+msgstr "BIOS 설정 메뉴 들어가기"
+
+#. Tag: para
+#: preparing.xml:1163
+#, no-c-format
+#| msgid ""
+#| "BIOS provides the basic functions needed to boot your machine to allow "
+#| "your operating system to access your hardware. Your system probably "
+#| "provides a BIOS setup menu, which is used to configure the BIOS. Before "
+#| "installing, you <emphasis>must</emphasis> ensure that your BIOS is set up "
+#| "correctly; not doing so can lead to intermittent crashes or an inability "
+#| "to install Debian."
+msgid "BIOS provides the basic functions needed to boot your machine to allow your operating system to access your hardware. Your system probably provides a BIOS setup menu, which is used to configure the BIOS. Before installing, you <emphasis>must</emphasis> ensure that your BIOS is set up correctly; not doing so can lead to intermittent crashes or an inability to install &debian;."
+msgstr "BIOS는 컴퓨터를 부팅에 필요한 기본적인 기능을 제공하고 OS가 하드웨어에 액세스할 수 있도록하는 것입니다. 이제 설치하려고하는 시스템에서도 아마도 BIOS를 설정할 수 있는 메뉴가 붙어 있다고 생각합니다. 설치 전에 BIOS를 제대로 설정되었는지 여부를 <emphasis>반드시</emphasis> 확인하십시오. 그렇지 않으면 시스템이 예기치 않게 충돌하거나 &debian;를 설치할 수 없게 될지도 모릅니다."
+
+#. Tag: para
+#: preparing.xml:1172
+#, no-c-format
+msgid "The rest of this section is lifted from the <ulink url=\"&url-pc-hw-faq;\"></ulink>, answering the question, <quote>How do I enter the CMOS configuration menu?</quote>. How you access the BIOS (or <quote>CMOS</quote>) configuration menu depends on who wrote your BIOS software:"
+msgstr "이 절의 나머지 부분은 <ulink url=\"&url-pc-hw-faq;\"></ulink>에서 가져온 <quote>어떻게 CMOS 설정 메뉴로 들어가는가?</quote>라는 질문에 대한 답입니다. BIOS (아니면 <quote>CMOS</quote>) 설정 메뉴에 들어가는 방법은 BIOS 소프트웨어를 만든 회사에 따라 다릅니다:"
+
+#. Tag: term
+#: preparing.xml:1186
+#, no-c-format
+msgid "AMI BIOS"
+msgstr "AMI BIOS"
+
+#. Tag: para
+#: preparing.xml:1187
+#, no-c-format
+msgid "<keycap>Delete</keycap> key during the POST (power on self test)"
+msgstr "POST (power on self test, 최초 테스트) 도중에 <keycap>Delete</keycap> 키 "
+
+#. Tag: term
+#: preparing.xml:1195
+#, no-c-format
+msgid "Award BIOS"
+msgstr "Award BIOS"
+
+#. Tag: para
+#: preparing.xml:1196
+#, no-c-format
+msgid "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </keycombo>, or <keycap>Delete</keycap> key during the POST"
+msgstr "POST 도중에 <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </keycombo>, 아니면 <keycap>Delete</keycap> 키"
+
+#. Tag: term
+#: preparing.xml:1205
+#, no-c-format
+msgid "DTK BIOS"
+msgstr "DTK BIOS"
+
+#. Tag: para
+#: preparing.xml:1206
+#, no-c-format
+msgid "<keycap>Esc</keycap> key during the POST"
+msgstr "POST 도중에 <keycap>Esc</keycap> 키"
+
+#. Tag: term
+#: preparing.xml:1213
+#, no-c-format
+msgid "IBM PS/2 BIOS"
+msgstr "IBM PS/2 BIOS"
+
+#. Tag: para
+#: preparing.xml:1214
+#, no-c-format
+msgid "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</keycap> </keycombo> after <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Delete</keycap> </keycombo>"
+msgstr "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Delete</keycap> </keycombo> 다음에 <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</keycap> </keycombo>"
+
+#. Tag: term
+#: preparing.xml:1228
+#, no-c-format
+msgid "Phoenix BIOS"
+msgstr "Phoenix BIOS"
+
+#. Tag: para
+#: preparing.xml:1229
+#, no-c-format
+msgid "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </keycombo> or <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>S</keycap> </keycombo> or <keycap>F1</keycap>"
+msgstr "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </keycombo> 아니면 <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>S</keycap> </keycombo> 아니면 <keycap>F1</keycap>"
+
+#. Tag: para
+#: preparing.xml:1245
+#, no-c-format
+msgid "Information on invoking other BIOS routines can be found in <ulink url=\"&url-invoking-bios-info;\"></ulink>."
+msgstr "다른 BIOS를 실행하는 방법에 대한 정보는 <ulink url=\"&url-invoking-bios-info;\"></ulink>에 있습니다."
+
+#. Tag: para
+#: preparing.xml:1250
+#, no-c-format
+msgid "Some &arch-title; machines don't have a CMOS configuration menu in the BIOS. They require a software CMOS setup program. If you don't have the Installation and/or Diagnostics diskette for your machine, you can try using a shareware/freeware program. Try looking in <ulink url=\"&url-simtel;\"></ulink>."
+msgstr "일부 &arch-title; 컴퓨터에는 BIOS에 CMOS 설정 메뉴가 없습니다. 소프트웨어 CMOS 설정 프로그램이 필요합니다. 해당 컴퓨터의 설치 및/혹은 진단 디스켓이 없다면, 셰어웨어/프리웨어 프로그램을 사용해 볼 수 있습니다. <ulink url=\"&url-simtel;\"></ulink> 사이트를 살펴 보십시오."
+
+#. Tag: title
+#: preparing.xml:1261
+#: preparing.xml:1579
+#, no-c-format
+msgid "Boot Device Selection"
+msgstr "부팅 장치 선택"
+
+#. Tag: para
+#: preparing.xml:1263
+#, no-c-format
+#| msgid ""
+#| "Many BIOS setup menus allow you to select the devices that will be used "
+#| "to bootstrap the system. Set this to look for a bootable operating system "
+#| "on <filename>A:</filename> (the first floppy disk), then optionally the "
+#| "first CD-ROM device (possibly appearing as <filename>D:</filename> or "
+#| "<filename>E:</filename>), and then from <filename>C:</filename> (the "
+#| "first hard disk). This setting enables you to boot from either a floppy "
+#| "disk or a CD-ROM, which are the two most common boot devices used to "
+#| "install Debian."
+msgid "Many BIOS setup menus allow you to select the devices that will be used to bootstrap the system. Set this to look for a bootable operating system on <filename>A:</filename> (the first floppy disk), then optionally the first CD-ROM device (possibly appearing as <filename>D:</filename> or <filename>E:</filename>), and then from <filename>C:</filename> (the first hard disk). This setting enables you to boot from either a floppy disk or a CD-ROM, which are the two most common boot devices used to install &debian;."
+msgstr "많은 BIOS의 설정 메뉴에서는 시스템을 부팅 장치를 선택할 수 있도록 되어 있습니다. 이 설정은 다음과 같이하십시오. 먼저 부팅 가능한 운영 체제를 <filename>A:</filename>(첫번째 플로피 디스크)에서 찾아 CD-ROM 장치가 있다면 거기에서 (아마 <filename>D:</filename> 및 <filename>E:</filename> 것 입니다), 그 다음에 <filename>C:</filename> (첫 번째 하드 디스크)에서 찾도록 합니다. 이렇게 설정하면 플로피 디스크나 CD-ROM에서 시작할 수 있습니다. &debian; 설치에 가장 잘 이용되는 것은 이 두개 입니다."
+
+#. Tag: para
+#: preparing.xml:1274
+#, no-c-format
+msgid "If you have a newer SCSI controller and you have a CD-ROM device attached to it, you are usually able to boot from the CD-ROM. All you have to do is enable booting from a CD-ROM in the SCSI-BIOS of your controller."
+msgstr "최신의 SCSI 컨트롤러가 있고 SCSI에 CD-ROM 장치가 붙어 있다면 보통 CD-ROM에서 부팅할 수 있을 것입니다. 해야 되는 일은 컨트롤러의 SCSI BIOS에서 CD-ROM 부팅을 켜는 일 뿐입니다."
+
+#. Tag: para
+#: preparing.xml:1281
+#, no-c-format
+msgid "Another popular option is to boot from a USB storage device (also called a USB memory stick or USB key). Some BIOSes can boot directly from a USB storage device, but some cannot. You may need to configure your BIOS to boot from a <quote>Removable drive</quote> or even from <quote>USB-ZIP</quote> to get it to boot from the USB device."
+msgstr "그 밖에 많이 쓰는 옵션으로, USB 저장 장치에서 (USB 메모리나 USB 키라고도 함) 부팅하는 옵션입니다. 어떤 BIOS에서는 USB 저장 장치에서 직접 부팅할 수 있고, 그렇지 않은 BIOS도 있습니다. USB 장치에서 부팅하려면 <quote>Removable drive</quote> 혹은 <quote>USB-ZIP</quote>에서 부팅하도록 BIOS를 설정합니다."
+
+#. Tag: para
+#: preparing.xml:1289
+#, no-c-format
+#| msgid ""
+#| "Here are some details about how to set the boot order. Remember to reset "
+#| "the boot order after Linux is installed, so that you restart your machine "
+#| "from the hard drive."
+msgid "Here are some details about how to set the boot order. Remember to reset the boot order after &arch-kernel; is installed, so that you restart your machine from the hard drive."
+msgstr "여기서는 부팅 순서 설정 방법을 자세히 설명합니다. &arch-kernel; 설치가 끝나면 부팅 순서를 다시 시스템이 하드웨어에서 시작하도록 합니다."
+
+#. Tag: title
+#: preparing.xml:1298
+#, no-c-format
+msgid "Changing the Boot Order on IDE Computers"
+msgstr "IDE 컴퓨터의 부팅 순서 바꾸기"
+
+#. Tag: para
+#: preparing.xml:1301
+#, no-c-format
+msgid "As your computer starts, press the keys to enter the BIOS utility. Often, it is the <keycap>Delete</keycap> key. However, consult the hardware documentation for the exact keystrokes."
+msgstr "컴퓨터가 시작할 때, BIOS 유틸리티에 들어가는 키를 누르십시오. 보통 그 키는 <keycap>Delete</keycap> 키입니다. 정확히 어떤 키를 눌러야 할 지는 하드웨어 문서를 참고하십시오."
+
+#. Tag: para
+#: preparing.xml:1308
+#, no-c-format
+msgid "Find the boot sequence in the setup utility. Its location depends on your BIOS, but you are looking for a field that lists drives."
+msgstr "설정 유틸리티에서 부팅 순서를 찾으십시오. 이 설정의 위치는 BIOS에 따라 다르지만, 드라이브 여러 개를 늘어 놓은 필드를 찾으면 됩니다."
+
+#. Tag: para
+#: preparing.xml:1313
+#, no-c-format
+msgid "Common entries on IDE machines are C, A, cdrom or A, C, cdrom."
+msgstr "IDE 컴퓨터에서는 보통 C, A, cdrom이거나 A, C, cdrom입니다."
+
+#. Tag: para
+#: preparing.xml:1318
+#, no-c-format
+msgid "C is the hard drive, and A is the floppy drive."
+msgstr "C는 하드 드라이브이고, A는 플로피 드라이브입니다."
+
+#. Tag: para
+#: preparing.xml:1324
+#, no-c-format
+msgid "Change the boot sequence setting so that the CD-ROM or the floppy is first. Usually, the <keycap>Page Up</keycap> or <keycap>Page Down</keycap> keys cycle through the possible choices."
+msgstr "부팅 순서 설정을 바꿔서 CD-ROM이나 플로피가 첫번째가 되도록 하십시오. 보통 <keycap>Page Up</keycap>이나 <keycap>Page Down</keycap> 키로 여러가지 중의 하나를 선택합니다."
+
+#. Tag: para
+#: preparing.xml:1332
+#, no-c-format
+msgid "Save your changes. Instructions on the screen tell you how to save the changes on your computer."
+msgstr "바꾼 내용을 저장하십시오. 설정 화면의 안내에 따라 저장하십시오."
+
+#. Tag: title
+#: preparing.xml:1342
+#, no-c-format
+msgid "Changing the Boot Order on SCSI Computers"
+msgstr "SCSI 컴퓨터에서 부팅 순서 바꾸기"
+
+#. Tag: para
+#: preparing.xml:1346
+#, no-c-format
+msgid "As your computer starts, press the keys to enter the SCSI setup utility."
+msgstr "컴퓨터가 시작하면, SCSI 설정 유틸리티로 들어가는 키를 누르십시오."
+
+#. Tag: para
+#: preparing.xml:1351
+#, no-c-format
+msgid "You can start the SCSI setup utility after the memory check and the message about how to start the BIOS utility displays when you start your computer."
+msgstr "컴퓨터를 시작하면 메모리 검사를 하고, BIOS 유틸리티를 시작하는 방법을 표시한 다음, SCSI 설정 유틸리티로 들어갈 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:1357
+#, no-c-format
+msgid "The keystrokes you need depend on the utility. Often, it is <keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>. However, consult your hardware documentation for the exact keystrokes."
+msgstr "어떤 키를 눌러야 하는 지는 유틸리티에 따라 다릅니다. 보통 <keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>입니다. 정확한 키 조합은 하드웨어 문서를 보십시오."
+
+#. Tag: para
+#: preparing.xml:1365
+#, no-c-format
+msgid "Find the utility for changing the boot order."
+msgstr "부팅 순서를 바꾸는 유틸리티 찾기."
+
+#. Tag: para
+#: preparing.xml:1370
+#, no-c-format
+msgid "Set the utility so that the SCSI ID of the CD drive is first on the list."
+msgstr "CD 드라이브의 SCSI ID가 목록의 첫번째가 되도록 유틸리티를 설정하십시오."
+
+#. Tag: para
+#: preparing.xml:1376
+#, no-c-format
+msgid "Save your changes. Instructions on the screen tell you how to save the changes on your computer. Often, you must press <keycap>F10</keycap>."
+msgstr "바뀐 부분을 저장하십시오. 화면의 안내에 따라 바뀐 부분을 컴퓨터에 저장하십시오. 보통 <keycap>F10</keycap>을 눌러야 합니다."
+
+#. Tag: title
+#: preparing.xml:1390
+#, no-c-format
+msgid "Miscellaneous BIOS Settings"
+msgstr "기타 BIOS 설정"
+
+#. Tag: title
+#: preparing.xml:1392
+#, no-c-format
+msgid "CD-ROM Settings"
+msgstr "CD-ROM 설정"
+
+#. Tag: para
+#: preparing.xml:1393
+#, no-c-format
+msgid "Some BIOS systems (such as Award BIOS) allow you to automatically set the CD speed. You should avoid that, and instead set it to, say, the lowest speed. If you get <userinput>seek failed</userinput> error messages, this may be your problem."
+msgstr "어떤 BIOS 시스템은 (예: Award BIOS) CD 속도를 설정할 수 있습니다. 속도를 설정하지 말고, 그냥 최저 속도로 놔둬야 합니다. <userinput>seek failed</userinput> 오류 메시지가 나오게 된다면 이 문제 때문일 수도 있습니다."
+
+#. Tag: title
+#: preparing.xml:1403
+#, no-c-format
+msgid "Extended vs. Expanded Memory"
+msgstr "Extended와 Expanded Memory"
+
+#. Tag: para
+#: preparing.xml:1404
+#, no-c-format
+msgid "If your system provides both ex<emphasis>ten</emphasis>ded and ex<emphasis>pan</emphasis>ded memory, set it so that there is as much extended and as little expanded memory as possible. &arch-kernel; requires extended memory and cannot use expanded memory."
+msgstr "시스템 ex<emphasis>ten</emphasis> ded 메모리(XMS)와 ex<emphasis>pan</emphasis> ded 메모리(EMS)를 모두 지원하고있다면, extended 메모리를 가능한 많은 expanded 메모리를 최대한으로 해놓고 최소한으로 맞춰 놓으십시오. &arch-kernel; 필요한 것은 extended 메모리에서 expanded 메모리는 사용할 수 없습니다."
+
+#. Tag: title
+#: preparing.xml:1414
+#, no-c-format
+msgid "Virus Protection"
+msgstr "Virus Protection"
+
+#. Tag: para
+#: preparing.xml:1415
+#, no-c-format
+#| msgid ""
+#| "Disable any virus-warning features your BIOS may provide. If you have a "
+#| "virus-protection board or other special hardware, make sure it is "
+#| "disabled or physically removed while running GNU/Linux. These aren't "
+#| "compatible with GNU/Linux; moreover, due to the file system permissions "
+#| "and protected memory of the Linux kernel, viruses are almost unheard "
+#| "of<footnote> <para> After installation you can enable Boot Sector "
+#| "protection if you want. This offers no additional security in Linux but "
+#| "if you also run Windows it may prevent a catastrophe. There is no need to "
+#| "tamper with the Master Boot Record (MBR) after the boot manager has been "
+#| "set up. </para> </footnote>."
+msgid "Disable any virus-warning features your BIOS may provide. If you have a virus-protection board or other special hardware, make sure it is disabled or physically removed while running GNU/&arch-kernel;. These aren't compatible with GNU/&arch-kernel;; moreover, due to the file system permissions and protected memory of the &arch-kernel; kernel, viruses are almost unheard of<footnote> <para> After installation you can enable Boot Sector protection if you want. This offers no additional security in &arch-kernel; but if you also run Windows it may prevent a catastrophe. There is no need to tamper with the Master Boot Record (MBR) after the boot manager has been set up. </para> </footnote>."
+msgstr "BIOS 바이러스 경고 기능이 있다는 일절 사용하지 마십시오. 바이러스 방지 보드나 기타 특수 하드웨어가 있는 경우, &arch-kernel;이 움직이고 있는 동안은 비활성화 하거나, 그렇지 않으면 물리적으로 제거하십시오. 이들은 &arch-kernel;와 호환되지 않습니다. 또 &arch-kernel;에는 파일 시스템의 권한 및 리눅스의 보호 메모리 때문에 바이러스는 거의 존재하지 않습니다. <footnote> <para>설치 후에 부트 섹터 보호를 사용해도 됩니다. 이 기능은 &arch-kernel; 보안을 높여주지 않지만 Windows에서 재앙을 막아줄지도 모릅니다. 부트 관리자가 설정된 후에는 마스터 부트 레코드 (MBR)를 변경할 필요가 없습니다. </para> </footnote>."
+
+#. Tag: title
+#: preparing.xml:1436
+#, no-c-format
+msgid "Shadow RAM"
+msgstr "Shadow RAM"
+
+#. Tag: para
+#: preparing.xml:1437
+#, no-c-format
+#| msgid ""
+#| "Your motherboard may provide <emphasis>shadow RAM</emphasis> or BIOS "
+#| "caching. You may see settings for <quote>Video BIOS Shadow</quote>, "
+#| "<quote>C800-CBFF Shadow</quote>, etc. <emphasis>Disable</emphasis> all "
+#| "shadow RAM. Shadow RAM is used to accelerate access to the ROMs on your "
+#| "motherboard and on some of the controller cards. Linux does not use these "
+#| "ROMs once it has booted because it provides its own faster 32-bit "
+#| "software in place of the 16-bit programs in the ROMs. Disabling the "
+#| "shadow RAM may make some of it available for programs to use as normal "
+#| "memory. Leaving the shadow RAM enabled may interfere with Linux access to "
+#| "hardware devices."
+msgid "Your motherboard may provide <emphasis>shadow RAM</emphasis> or BIOS caching. You may see settings for <quote>Video BIOS Shadow</quote>, <quote>C800-CBFF Shadow</quote>, etc. <emphasis>Disable</emphasis> all shadow RAM. Shadow RAM is used to accelerate access to the ROMs on your motherboard and on some of the controller cards. &arch-kernel; does not use these ROMs once it has booted because it provides its own faster 32-bit software in place of the 16-bit programs in the ROMs. Disabling the shadow RAM may make some of it available for programs to use as normal memory. Leaving the shadow RAM enabled may interfere with &arch-kernel; access to hardware devices."
+msgstr "당신의 메인 보드에는 <emphasis>shadow RAM</emphasis> 또는 BIOS 캐시를 사용할 것입니다. 이 경우 <quote>Video BIOS Shadow</quote>나 <quote>C800-CBFF Shadow</quote>와 같은 설정이 있어야 합니다. shadow RAM은 모든 <emphasis>해제</emphasis>를 하십시오. shadow RAM은 마더보드와 컨트롤러 카드에 있는 ROM의 접근 속도를 높이는하기 위해 이용되는 것이지만, &arch-kernel;은 시작 후 이러한 ROM을 사용하지 않습니다. &arch-kernel;는 자기 부담의 빠른 32 비트 소프트웨어가 이를 ROM 내부 16 비트 프로그램 대신하기 때문입니다. shadow RAM을 해제하면 그 일부를 일반 메모리로 프로그램에서 사용할 수 있습니다. shadow RAM을 사용 한 채로 &arch-kernel; 하드웨어에 접근되어 버릴지도 모릅니다. 마더보드에서 <emphasis>shadow RAM</emphasis>이나 BIOS 캐시 기능이 있을 수도 있습니다. <quote>Video BIOS Shadow</quote>나 <quote>C800-CBFF Shadow</quote>와 같은 설정을 볼 수 있을 것입니다. 모든 shadow RAM을 <emphasis>끄십시오</emphasis>. shadow RAM은 마더보드와 일부 컨트롤러 카드에 있는 ROM의 접근 속도를 높이는 데 쓰입니다. 리눅스는 일단 부팅하면 이러한 ROM을 사용하지 않습니다. ROM에 들어 있는 16비트 프로그램 대신에 직접 32비트 소프트웨어가 들어 있기 때문입니다. 어떤 경우 shadow RAM을 꺼야만 이 shadow RAM을 다른 프로그램에서 일반 메모리로 사용할 수 있습니다. shadow RAM을 켜 놓으면 리눅스가 하드웨어에 접근할 때 문제가 발생할 수 있습니다."
+
+#. Tag: title
+#: preparing.xml:1454
+#, no-c-format
+msgid "Memory Hole"
+msgstr "Memory Hole"
+
+#. Tag: para
+#: preparing.xml:1455
+#, no-c-format
+#| msgid ""
+#| "If your BIOS offers something like <quote>15&ndash;16 MB Memory Hole</"
+#| "quote>, please disable that. Linux expects to find memory there if you "
+#| "have that much RAM."
+msgid "If your BIOS offers something like <quote>15&ndash;16 MB Memory Hole</quote>, please disable that. &arch-kernel; expects to find memory there if you have that much RAM."
+msgstr "BIOS에 <quote>15&ndash;16 MB Memory Hole </quote>라고하는 설정이 있으면, 그것은 비활성화해야 합니다. 16MB 이상의 메모리가있는 경우는 &arch-kernel;이 영역에 메모리가 있는 것으로 작동합니다."
+
+#. Tag: para
+#: preparing.xml:1461
+#, no-c-format
+msgid "We have a report of an Intel Endeavor motherboard on which there is an option called <quote>LFB</quote> or <quote>Linear Frame Buffer</quote>. This had two settings: <quote>Disabled</quote> and <quote>1 Megabyte</quote>. Set it to <quote>1 Megabyte</quote>. When disabled, the installation floppy was not read correctly, and the system eventually crashed. At this writing we don't understand what's going on with this particular device &mdash; it just worked with that setting and not without it."
+msgstr "인텔이 만든 어떤 마더보드에서 <quote>LFB</quote> 혹은 <quote>Linear Frame Buffer</quote>라고 하는 옵션이 있다는 보고를 받았습니다. 두 가지 설정을 할 수 있습니다: <quote>Disabled</quote> 및 <quote>1 Megabyte</quote>입니다. <quote>1 Megabyte</quote>로 설정하십시오. Disabled인 경우에는, 설치 플로피를 제대로 읽지 못하고, 시스템이 결국 멈추었습니다. 현재로서는 이 특정 마더보드에서 무슨 일이 벌어지고 있는 건지 알아내지 못했습니다. (<quote>1 Megabyte</quote>로 설정하면 동작하고 아니면 동작하지 않는 것 밖에 알지 못합니다.)"
+
+#. Tag: title
+#: preparing.xml:1477
+#, no-c-format
+msgid "Advanced Power Management"
+msgstr "Advanced Power Management"
+
+#. Tag: para
+#: preparing.xml:1478
+#, no-c-format
+#| msgid ""
+#| "If your motherboard provides Advanced Power Management (APM), configure "
+#| "it so that power management is controlled by APM. Disable the doze, "
+#| "standby, suspend, nap, and sleep modes, and disable the hard disk's power-"
+#| "down timer. Linux can take over control of these modes, and can do a "
+#| "better job of power-management than the BIOS."
+msgid "If your motherboard provides Advanced Power Management (APM), configure it so that power management is controlled by APM. Disable the doze, standby, suspend, nap, and sleep modes, and disable the hard disk's power-down timer. &arch-kernel; can take over control of these modes, and can do a better job of power-management than the BIOS."
+msgstr "마더보드에서 Advanced Power Management (APM)에 대응하고 있으면, 이것을 사용하여 전원 관리 APM을 제어하도록 하십시오. 또한 doze, standby, suspend, nap, sleep 각 모드는 해제하고 하드 디스크의 power-down 타이머도 비활성화하십시오. &arch-kernel;은 이 모드에 대한 컨트롤을 실행할 수 있는 전원 관리 일을 BIOS보다 잘 할 수 있습니다."
+
+#. Tag: title
+#: preparing.xml:1496
+#, no-c-format
+msgid "Invoking OpenFirmware"
+msgstr "OpenFirmware 실행"
+
+#. Tag: para
+#: preparing.xml:1497
+#, no-c-format
+msgid "There is normally no need to set up the BIOS (called OpenFirmware) on &arch-title; systems. PReP and CHRP are equipped with OpenFirmware, but unfortunately, the means you use to invoke it vary from manufacturer to manufacturer. You'll have to consult the hardware documentation which came with your machine."
+msgstr "&arch-title; 시스템에서는 BIOS를 (OpenFirmware) 설정할 필요가 없습니다. PReP 및 CHRP는 OpenFirmware가 들어 있지만, 아쉽게도 그 때문에 각 제조사마다 OpenFirmware 실행 방법이 다릅니다. 컴퓨터에 들어 있는 하드웨어 문서를 참고하셔야 합니다."
+
+#. Tag: para
+#: preparing.xml:1505
+#, no-c-format
+msgid "On &arch-title; Macintoshes, you invoke OpenFirmware with <keycombo><keycap>Command (cloverleaf/Apple)</keycap><keycap>Option</keycap><keycap>o</keycap><keycap>f</keycap></keycombo> while booting. Generally it will check for these keystrokes after the chime, but the exact timing varies from model to model. See <ulink url=\"&url-netbsd-powerpc-faq;\"></ulink> for more hints."
+msgstr "&arch-title; 매킨토시에서는, 부팅할 때 <keycombo><keycap>Command(클로버잎/사과 모양)</keycap><keycap>Option</keycap><keycap>o</keycap><keycap>f</keycap></keycombo> 키를 눌러 OpenFirmware를 시작합니다. 보통 삐 소리가 난 다음에 이 키가 눌렸는 지 검사하지만, 정확한 타이밍은 여러 모델마다 다릅니다. 더 많은 힌트는 <ulink url=\"&url-netbsd-powerpc-faq;\"></ulink>의 내용을 참고하십시오."
+
+#. Tag: para
+#: preparing.xml:1513
+#, no-c-format
+msgid ""
+"The OpenFirmware prompt looks like this: <informalexample><screen>\n"
+"ok\n"
+"0 &gt;\n"
+"</screen></informalexample> Note that on older model &arch-title; Macs, the default and sometimes hardwired I/O for OpenFirmware user interaction is through the serial (modem) port. If you invoke OpenFirmware on one of these machines, you will just see a black screen. In that case, a terminal program running on another computer, connected to the modem port, is needed to interact with OpenFirmware."
+msgstr ""
+"OpenFirmware 프롬프트는 다음과 같습니다: <informalexample><screen>\n"
+"ok\n"
+"0 &gt;\n"
+"</screen></informalexample> 오래된 모델의 &arch-title; 맥에서는, OpenFirmware의 사용자 입출력은 기본값이 (혹은 고정된 값이) 시리얼 (모뎀) 포트입니다. 이러한 컴퓨터에서 OpenFirmware를 실행한 경우, 검은 화면만 보게 될 것입니다. 이 경우 다른 컴퓨터에서 터미널 프로그램을 실행해 모뎀 포트에 연결해야 OpenFirmware를 쓸 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:1526
+#, no-c-format
+msgid "The OpenFirmware on OldWorld Beige G3 machines, OF versions 2.0f1 and 2.4, is broken. These machines will most likely not be able to boot from the hard drive unless the firmware is patched. A firmware patch is included in the <application>System Disk 2.3.1</application> utility, available from Apple at <ulink url=\"ftp://ftp.apple.com/developer/macosxserver/utilities/SystemDisk2.3.1.smi.bin\"></ulink>. After unpacking the utility in MacOS, and launching it, select the <guibutton>Save</guibutton> button to have the firmware patches installed to nvram."
+msgstr "올드월드 Beige G3 컴퓨터의 OpenFirmware, OF 2.0f1 및 2.4 버전은 심각한 문제가 있습니다. 이 컴퓨터에서는 펌웨어를 패치해야 하드 드라이브에서 부팅할 수 있습니다. 펌웨어 패치는 <application>System Disk 2.3.1</application> 유틸리티에 들어 있고, 애플의 <ulink url=\"ftp://ftp.apple.com/developer/macosxserver/utilities/SystemDisk2.3.1.smi.bin\"></ulink>에서 구할 수 있습니다. 맥오에스에서 이 유틸리티의 압축을 풀고, 실행한 다음, <guibutton>Save</guibutton> 단추를 눌러 펌웨어 패치를 nvram에 설치하십시오."
+
+#. Tag: title
+#: preparing.xml:1546
+#, no-c-format
+msgid "Invoking OpenBoot"
+msgstr "OpenBoot 실행"
+
+#. Tag: para
+#: preparing.xml:1548
+#, no-c-format
+msgid "OpenBoot provides the basic functions needed to boot the &arch-title; architecture. This is rather similar in function to the BIOS in the x86 architecture, although much nicer. The Sun boot PROMs have a built-in forth interpreter which lets you do quite a number of things with your machine, such as diagnostics and simple scripts."
+msgstr "OpenBoot에는 &arch-title; 아키텍처 부팅에 필요한 기능이 들어 있습니다. 이 기능은 x86 아키텍처의 BIOS와 비슷하지만, 훨씬 더 훌륭합니다. Sun boot PROM에는 forth 인터프리터가 들어 있어서, 진단 기능이나 간단한 스크립트와 같은 여러 가지 일을 할 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:1556
+#, no-c-format
+msgid "To get to the boot prompt you need to hold down the <keycap>Stop</keycap> key (on older type 4 keyboards, use the <keycap>L1</keycap> key, if you have a PC keyboard adapter, use the <keycap>Break</keycap> key) and press the <keycap>A</keycap> key. The boot PROM will give you a prompt, either <userinput>ok</userinput> or <userinput>&gt;</userinput>. It is preferred to have the <userinput>ok</userinput> prompt. So if you get the old style prompt, hit the <keycap>n</keycap> key to get the new style prompt."
+msgstr "부팅 프롬프트로 들어가려면 <keycap>Stop</keycap> 키를 누르고 있다가 (옛날 type 4 키보드에서는 <keycap>L1</keycap> 키를 사용하고, PC 키보드 어댑터를 쓰면 <keycap>Break</keycap> 키 사용), <keycap>A</keycap> 키를 누릅니다. boot PROM에서 <userinput>ok</userinput> 혹은 <userinput>&gt;</userinput>라는 프롬프트가 나옵니다. <userinput>ok</userinput> 프롬프트가 좋습니다. 옛날 방식의 프롬프트가 나타난다면, <keycap>n</keycap>키를 누르면 새로운 방식의 프롬프트가 나옵니다."
+
+#. Tag: para
+#: preparing.xml:1568
+#, no-c-format
+msgid "If you are using a serial console, send a break to the machine. With Minicom, use <keycap>Ctrl-A F</keycap>, with cu, hit <keycap>Enter</keycap>, then type <userinput>%~break</userinput>. Consult the documentation of your terminal emulator if you are using a different program."
+msgstr "시리얼 콘솔을 사용한다면, break 신호를 보내십시오. minicom에서는 <keycap>Ctrl-A F</keycap>을 누르고, cu에서는 <keycap>Enter</keycap> 다음에 <userinput>%~break</userinput>을 입력합니다. 다른 프로그램을 사용한다면 그 터미널 에뮬레이터의 문서를 참고하십시오."
+
+#. Tag: para
+#: preparing.xml:1581
+#, no-c-format
+msgid "You can use OpenBoot to boot from specific devices, and also to change your default boot device. However, you need to know some details about how OpenBoot names devices; it's considerably different from Linux device naming, described in <xref linkend=\"device-names\"/>. Also, the command will vary a bit, depending on what version of OpenBoot you have. More information about OpenBoot can be found in the <ulink url=\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
+msgstr "OpenBoot를 사용해 특정 장치에서 부팅할 수 있고, 기본 부팅 장치를 바꿀 수도 있습니다. 하지만 OpenBoot의 장치 명명법에 대해 좀 자세히 알아야 합니다. 리눅스 장치 명명법과는 많이 다른데 <xref linkend=\"device-names\"/>에 보면 설명되어 있습니다. 또, 명령어도 어떤 OpenBoot 버전을 쓰느냐에 따라 많이 다릅니다. OpenBoot에 대한 더 많은 정보는 <ulink url=\"&url-openboot;\">Sun OpenBoot Reference</ulink>에서 볼 수 있습니다."
+
+#. Tag: para
+#: preparing.xml:1591
+#, no-c-format
+msgid ""
+"Typically, with newer revisions, you can use OpenBoot devices such as <quote>floppy</quote>, <quote>cdrom</quote>, <quote>net</quote>, <quote>disk</quote>, or <quote>disk2</quote>. These have the obvious meanings; the <quote>net</quote> device is for booting from the network. Additionally, the device name can specify a particular partition of a disk, such as <quote>disk2:a</quote> to boot disk2, first partition. Full OpenBoot device names have the form: <informalexample> <screen>\n"
+"<replaceable>driver-name</replaceable>@\n"
+"<replaceable>unit-address</replaceable>:\n"
+"<replaceable>device-arguments</replaceable>\n"
+"</screen></informalexample> In older revisions of OpenBoot, device naming is a bit different: the floppy device is called <quote>/fd</quote>, and SCSI disk devices are of the form <quote>sd(<replaceable>controller</replaceable>, <replaceable>disk-target-id</replaceable>, <replaceable>disk-lun</replaceable>)</quote>. The command <userinput>show-devs</userinput> in newer OpenBoot revisions is useful for viewing the currently configured devices. For full information, whatever your revision, see the <ulink url=\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
+msgstr ""
+"최근 버전에서는, OpenBoot 장치를 <quote>floppy</quote>, <quote>cdrom</quote>, <quote>net</quote>, <quote>disk</quote> 혹은 <quote>disk2</quote>와 같이 쓸 수 있습니다. 각각은 분명한 의미가 있습니다. <quote>net</quote>은 네트워크에서 부팅합니다. 또 장치 이름에서 디스크의 특정 파티션을 지정할 수도 있습니다. <quote>disk2:a</quote>와 같이 하면 disk2의 첫번째 파티션에서 부팅하는 것입니다. 완전한 OpenBoot 장치 이름의 형식은 다음과 같습니다: <informalexample> <screen>\n"
+"<replaceable>드라이버-이름</replaceable>@\n"
+"<replaceable>유닛-주소</replaceable>:\n"
+"<replaceable>장치-인수</replaceable>\n"
+"</screen></informalexample> 과거 버전의 OpenBoot에서는 장치 명명법이 약간 다릅니다: 플로피 장치는 <quote>/fd</quote>라고 하고, SCSI 디스크는 <quote>sd(<replaceable>컨트롤러</replaceable>, <replaceable>disk-대상ID</replaceable>, <replaceable>disk-LUN</replaceable>)</quote> 형식입니다. 최근 OpenBoot 버전에서는 <userinput>show-devs</userinput> 명령으로 현재 설정한 장치의 목록을 볼 수 있습니다. 버전에 대한 더 자세한 정보는 <ulink url=\"&url-openboot;\">Sun OpenBoot Reference</ulink>를 참고하십시오."
+
+#. Tag: para
+#: preparing.xml:1614
+#, no-c-format
+msgid ""
+"To boot from a specific device, use the command <userinput>boot <replaceable>device</replaceable></userinput>. You can set this behavior as the default using the <userinput>setenv</userinput> command. However, the name of the variable to set changed between OpenBoot revisions. In OpenBoot 1.x, use the command <userinput>setenv boot-from <replaceable>device</replaceable></userinput>. In later revisions of OpenBoot, use the command <userinput>setenv boot-device <replaceable>device</replaceable></userinput>. Note, this is also configurable using the <command>eeprom</command> command on Solaris, or modifying the appropriate files in <filename>/proc/openprom/options/</filename>, for example under Linux: <informalexample><screen>\n"
+"# echo disk1:1 &gt; /proc/openprom/options/boot-device\n"
+"</screen></informalexample> and under Solaris:"
+msgstr ""
+"특정 장치에서 부팅하려면, <userinput>boot <replaceable>장치</replaceable></userinput> 명령을 사용합니다. <userinput>setenv</userinput> 명령을 사용하면 이걸 기본값으로 만들 수 있습니다. 하지만 변수의 이름은 OpenBoot 버전마다 다릅니다. OpenBoot 1.x에서는 <userinput>setenv boot-from <replaceable>장치</replaceable></userinput> 명령을 사용하십시오. 그 후의 OpenBoot 버전에서는, <userinput>setenv boot-device <replaceable>장치</replaceable></userinput> 명령을 사용하십시오. Solaris에서 <command>eeprom</command> 명령을 이용하거나, <filename>/proc/openprom/options/</filename>의 파일을 고쳐서 설정할 수 있습니다. 예를 들어 리눅스에서는: <informalexample><screen>\n"
+"# echo disk1:1 &gt; /proc/openprom/options/boot-device\n"
+"</screen></informalexample> 그리고 Solaris에서는:"
+
+#. Tag: screen
+#: preparing.xml:1633
+#, no-c-format
+msgid "eeprom boot-device=disk1:1"
+msgstr "eeprom boot-device=disk1:1"
+
+#. Tag: title
+#: preparing.xml:1643
+#, no-c-format
+msgid "BIOS Setup"
+msgstr "BIOS 설정"
+
+# &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
+#. Tag: para
+#: preparing.xml:1644
+#, no-c-format
+msgid "In order to install &debian-gnu; on a &arch-title; or zSeries machine you have first boot a kernel into the system. The boot mechanism of this platform is inherently different to other ones, especially from PC-like systems: there are no floppy devices available at all. You will notice another big difference while you work with this platform: most (if not all) of the time you will work remote, with the help of some client session software like telnet, or a browser. This is due to that special system architecture where the 3215/3270 console is line-based instead of character-based."
+msgstr "&debian-gnu;를 &arch-title; 혹은 zSeries 컴퓨터에 설치하려면 먼저 커널을 부팅합니다. 이 플랫폼의 부팅 방법은 다른 플랫폼과는 (특히 PC 시스템과는) 완전히 다릅니다. 플로피 장치가 아예 없습니다. 이 플랫폼으로 작업할 때 다른 큰 차이점도 하나 있는데, (항상 그렇지는 않더라도) 대부분 원격에서 telnet이나 브라우저같은 클라이언트 소프트웨어를 이용해 작업합니다. 특별한 아키텍처때문인데 여기서 3215/3270 콘솔은 문자 단위가 아니라 라인 단위입니다."
+
+#. Tag: para
+#: preparing.xml:1656
+#, no-c-format
+msgid "Linux on this platform runs either natively on the bare machine, in a so-called LPAR (Logical Partition) or in a virtual machine supplied by the VM system. You can use a boot tape on all of those systems; you may use some other boot media, too, but those may not be generally available. For example, you can use the virtual card reader of a virtual machine, or boot from the HMC (Hardware Management Console) of an LPAR if the HMC and this option is available for you."
+msgstr "이 플랫폼의 리눅스는 LPAR(Logical Partition)이라고 하는 원래의 컴퓨터에서 동작할 수도 있고, VM 시스템의 가상 머신에서 동작할 수도 있습니다. 두 경우 모두 부팅 테이프를 사용할 수 있습니다. 다른 부팅 미디어를 사용할 수도 있지만 보통은 사용할 수 없습니다. 예를 들어서, 가상 머신의 경우 가상 카드 리더를 사용할 수도 있고, LPAR에서는 HMC에서 부팅할 수도 있습니다. (HMC가 있고 부팅 옵션이 있는 경우.)"
+
+#. Tag: para
+#: preparing.xml:1666
+#, no-c-format
+#| msgid ""
+#| "Before you actually perform an installation, you have to go over some "
+#| "design and preparation steps. IBM has made documentation available about "
+#| "the whole process, e.g. how to prepare an installation medium and how "
+#| "actually to boot from that medium. Duplicating that information here is "
+#| "neither possible nor necessary. However, we will describe here which kind "
+#| "of Debian-specific data is needed and where to find it. Using both "
+#| "sources of information, you have to prepare your machine and the "
+#| "installation medium before you can perform a boot from it. When you see "
+#| "the welcome message in your client session, return to this document to go "
+#| "through the Debian-specific installation steps."
+msgid "Before you actually perform an installation, you have to go over some design and preparation steps. IBM has made documentation available about the whole process, e.g. how to prepare an installation medium and how actually to boot from that medium. Duplicating that information here is neither possible nor necessary. However, we will describe here which kind of &debian;-specific data is needed and where to find it. Using both sources of information, you have to prepare your machine and the installation medium before you can perform a boot from it. When you see the welcome message in your client session, return to this document to go through the &debian;-specific installation steps."
+msgstr "실제로 설치를하기 전에 설계하고 준비하는 단계를 몇 가지 취해야 합니다. 전체 단계, 예를 들어 설치 미디어를 준비하고 그 미디어의 실제 시작 등은 IBM에서 문서에 설명되어 있습니다. 여기서 그 정보를 반복하는 것은 불가능하고 불필요할 것입니다. 그러나 필요한 &debian; 특유의 정보, 그리고 그 데이터 위치는 여기에서 언급하고 있다고 생각합니다. 두 자료를 바탕으로 컴퓨터와 설치 미디어를 시작하기 전에 준비하십시오. 클라이언트 세션에서 welcome 메시지를 보면, 이 문서로 돌아가 &debian; 설치 단계를 진행하십시오."
+
+#. Tag: title
+#: preparing.xml:1683
+#, no-c-format
+msgid "Native and LPAR installations"
+msgstr "네이티브 및 LPAR 설치"
+
+#. Tag: para
+#: preparing.xml:1684
+#, no-c-format
+msgid "Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook and chapter 3.2 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink> Redbook on how to set up an LPAR for Linux."
+msgstr "리눅스용으로 LPAR을 설정하는 방법은 <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> 레드북의 5장과 <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink> 레드북의 3.2장을 참고하십시오."
+
+#. Tag: title
+#: preparing.xml:1698
+#, no-c-format
+msgid "Installation as a VM guest"
+msgstr "VM guest로 설치"
+
+#. Tag: para
+#: preparing.xml:1700
+#, no-c-format
+msgid "Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook and chapter 3.1 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink> Redbook on how to set up a VM guest for running Linux."
+msgstr "VM guest를 설정해 리눅스를 실행하는 방법은 <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> 레드북의 6장과 <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink> 레드북의 3.1장을 참고하십시오."
+
+#. Tag: para
+#: preparing.xml:1710
+#, no-c-format
+#| msgid ""
+#| "You need to copy all the files from the <filename>generic</filename> sub-"
+#| "directory to your CMS disk. Be sure to transfer <filename>kernel.debian</"
+#| "filename> and <filename>initrd.debian</filename> in binary mode with a "
+#| "fixed record length of 80 characters."
+msgid "You need to copy all the files from the <filename>generic</filename> sub-directory to your CMS disk. Be sure to transfer <filename>kernel.debian</filename> and <filename>initrd.debian</filename> in binary mode with a fixed record length of 80 characters. <filename>parmfile.debian</filename> can be in either ASCII or EBCDIC format. A sample <filename>debian.exec</filename> script, which will punch the files in the proper order, is included with the images."
+msgstr "모든 파일을 <filename>generic</filename> 서브 디렉토리에서 CMS 디스크에 복사해야 합니다. <filename>kernel.debian</filename>와 <filename>initrd.debian</filename>은 반드시 고정 레코드 길이를 80 문자로 바이너리 모드로 전송하십시오. <filename>parmfile.debian</filename>은 ASCII 형식 또는 EBCDIC 형식으로 괜찮습니다. 파일을 적절한 순서에 펀치하는 <filename>debian.exec</filename> 샘플 스크립트는 이미지가 포함되어 있습니다."
+
+#. Tag: title
+#: preparing.xml:1726
+#, no-c-format
+msgid "Setting up an installation server"
+msgstr "설치 서버 준비하기"
+
+#. Tag: para
+#: preparing.xml:1728
+#, no-c-format
+msgid "If you don't have a connection to the Internet (either directly or via a web proxy) you need to create a local installation server that can be accessed from your S/390. This server keeps all the packages you want to install and must make them available using NFS, HTTP or FTP."
+msgstr "(직접 혹은 웹 프록시를 통해) 인터넷에 연결하지 않는다면 S/390에서 접근할 수 있는 로컬 설치 서버를 만들어야 합니다. 이 서버에는 설치하려는 모든 패키지가 들어 있고 그 패키지를 NFS나 HTTP나 FTP로 외부에서 접근할 수 있게 합니다."
+
+#. Tag: para
+#: preparing.xml:1736
+#, no-c-format
+msgid "The installation server needs to copy the exact directory structure from any &debian-gnu; mirror, but only the s390 and architecture-independent files are required. You can also copy the contents of all installation CDs into such a directory tree."
+msgstr "설치 서버에는 &debian-gnu; 미러에서 디렉터리 구조를 정확히 복사해 놓아야 합니다. s390 아키텍처용 파일 및 아키텍처 공용 파일만 필요합니다. 그 디렉터리에서 설치 CD의 내용만 복사해 올 수도 있습니다."
+
+#. Tag: emphasis
+#: preparing.xml:1745
+#, no-c-format
+msgid "FIXME: more information needed &mdash; from a Redbook?"
+msgstr "FIXME: more information needed &mdash; from a Redbook?"
+
+#. Tag: title
+#: preparing.xml:1752
+#, no-c-format
+msgid "Hardware Issues to Watch Out For"
+msgstr "주의해야 할 하드웨어 문제"
+
+#. Tag: title
+#: preparing.xml:1755
+#, no-c-format
+msgid "USB BIOS support and keyboards"
+msgstr "USB BIOS 지원 및 키보드"
+
+#. Tag: para
+#: preparing.xml:1756
+#, no-c-format
+msgid "If you have no AT-style keyboard and only a USB model, you may need to enable legacy AT keyboard emulation in your BIOS setup. Only do this if the installation system fails to use your keyboard in USB mode. Conversely, for some systems (especially laptops) you may need to disable legacy USB support if your keyboard does not respond. Consult your main board manual and look in the BIOS for <quote>Legacy keyboard emulation</quote> or <quote>USB keyboard support</quote> options."
+msgstr "AT 방식 키보드가 없고 USB 키보드만 있는 경우에는, BIOS 설정에서 legacy AT keyboard emulation을 켜야 할 수도 있습니다. 설치 시스템에서 USB 모드로 키보드를 사용할 수 없는 경우에만 사용하십시오. 반대로 어떤 시스템에서는 (특히 노트북 컴퓨터의 경우) 키보드가 동작하지 않을 때 legacy USB 기능을 꺼야 할 수도 있습니다. 메인보드 안내 문서를 살펴 보시고 BIOS에서 <quote>Legacy keyboard emulation</quote>이나 <quote>USB keyboard support</quote> 옵션을 찾으십시오."
+
+#. Tag: title
+#: preparing.xml:1770
+#, no-c-format
+msgid "Display-visibility on OldWorld Powermacs"
+msgstr "올드월드 파워맥에서 화면이 안 보이는 문제"
+
+#. Tag: para
+#: preparing.xml:1772
+#, no-c-format
+msgid "Some OldWorld Powermacs, most notably those with the <quote>control</quote> display driver, may not reliably produce a colormap under Linux when the display is configured for more than 256 colors. If you are experiencing such issues with your display after rebooting (you can sometimes see data on the monitor, but on other occasions cannot see anything) or, if the screen turns black after booting the installer instead of showing you the user interface, try changing your display settings under MacOS to use 256 colors instead of <quote>thousands</quote> or <quote>millions</quote>."
+msgstr "일부 올드월드 파워맥의 경우, 특히 <quote>control</quote> 디스플레이 드라이버를 사용하는 기종은 디스플레이를 256색보다 더 높게 맞추면 리눅스에서 제대로 컬러맵을 만들지 못할 때가 있습니다. 다시 부팅한 후에 그러한 현상이 나타나거나 (가끔 모니터에서 데이터를 볼 수도 있지만, 어떤 경우에는 아무것도 못 볼 수도 있습니다), 아니면 사용자 인터페이스가 나오기 전에 화면이 검은색으로 변하는 경우, 맥오에스에서 디스플레이 설정을 <quote>thousands</quote>나 <quote>millions</quote> 대신에 256색으로 맞추십시오."
+
+#~ msgid ""
+#~ "Installation instructions and device drivers (DASD, XPRAM, Console, tape, "
+#~ "z90 crypto, chandev, network) for Linux on &arch-title; using kernel 2.4"
+#~ msgstr ""
+#~ "커널 2.4를 사용한 리눅스 설치 방법 및 장치 드라이버 (DASD, XPRAM, 콘솔, 테"
+#~ "이프, z90 crypto, chandev, 네트워크)"
+
+#~ msgid "Device Drivers and Installation Commands"
+#~ msgstr "장치 드라이버 및 설치 명령어"
+
+#~ msgid "Linux/Alpha FAQ"
+#~ msgstr "Linux/Alpha FAQ"
+
+#~ msgid "Partitioning in Tru64 UNIX"
+#~ msgstr "Tru64 UNIX에서 파티션하기"
+
+#~ msgid ""
+#~ "Tru64 UNIX, formerly known as Digital UNIX, which is in turn formerly "
+#~ "known as OSF/1, uses the partitioning scheme similar to the BSD "
+#~ "<quote>disk label</quote>, which allows for up to eight partitions per "
+#~ "disk drive. The partitions are numbered <quote>1</quote> through to "
+#~ "<quote>8</quote> in Linux and <quote>lettered</quote> <quote>a</quote> "
+#~ "through to <quote>h</quote> in UNIX. Linux kernels 2.2 and higher always "
+#~ "correspond <quote>1</quote> to <quote>a</quote>, <quote>2</quote> to "
+#~ "<quote>b</quote> and so on. For example, <filename>rz0e</filename> in "
+#~ "Tru64 UNIX would most likely be called <filename>sda5</filename> in Linux."
+#~ msgstr ""
+#~ "Tru64 UNIX는 (예전 이름은 Digital UNIX였고, 그 다음에는 OSF/1이었습니다) "
+#~ "BSD `디스크 레이블'과 비슷한 파티션 방식을 사용하는데, 이 방식은 각 디스"
+#~ "크 드라이브마다 8개까지의 파티션을 만들 수 있습니다. 이 파티션은 리눅스에"
+#~ "서는 <quote>1</quote>부터 <quote>8</quote>까지 번호를 붙이고 UNIX에서는 "
+#~ "<quote>a</quote>에서 <quote>h</quote>까지 글자를 붙입니다. 리눅스 커널 "
+#~ "2.2 이상의 버전에서는 <quote>1</quote>이 <quote>a</quote>에 해당하고, "
+#~ "<quote>2</quote>가 <quote>b</quote>에 해당하는 식입니다. 예를 들어 Tru64 "
+#~ "UNIX에서 <filename>rz0e</filename>는 리눅스에서는 <filename>sda5</"
+#~ "filename>라고 합니다."
+
+#~ msgid ""
+#~ "Partitions in a Tru64 disk label may overlap. Moreover, if this disk will "
+#~ "be used from Tru64, the <quote>c</quote> partition is required to span "
+#~ "the entire disk (thus overlapping all other non-empty partitions). Under "
+#~ "Linux this makes <filename>sda3</filename> identical to <filename>sda</"
+#~ "filename> (<filename>sdb3</filename> to <filename>sdb</filename>, if "
+#~ "present, and so on). However, the partman partitioning tool used by &d-i; "
+#~ "cannot handle overlapping partitions at present. As a result, it is "
+#~ "currently not recommended to share disks between Tru64 and Debian. "
+#~ "Partitions on Tru64 disks can be mounted under Debian after installation "
+#~ "has been completed."
+#~ msgstr ""
+#~ "Tru64 디스크 레이블에서 파티션이 겹칠 수도 있습니다. 게다가 디스크를 Tru64"
+#~ "에서 사용하는 경우, 전체 디스크에 걸쳐 있는 <quote>c</quote> 파티션이 필요"
+#~ "합니다. (즉 비어 있지 않은 다른 모든 파티션과 겹칩니다.) 그것 때문에 리눅"
+#~ "스에서는 <filename>sda3</filename>가 <filename>sda</filename>와 동일합니"
+#~ "다. (<filename>sdb3</filename>은 <filename>sdb</filename>와 같고 기타 등"
+#~ "등) 하지만 &d-i;에서 사용하는 partman 파티션 도구는 현재로선 겹치는 파티션"
+#~ "을 처리하지 못합니다. 그래서 Tru64와 데비안 사이에 디스크를 같이 쓰지 않기"
+#~ "를 권장합니다. Tru64의 파티션은 설치가 끝난 다음에 데비안에서 마운트할 수 "
+#~ "있습니다."
+
+#~ msgid ""
+#~ "Another conventional requirement is for the <quote>a</quote> partition to "
+#~ "start from the beginning of the disk, so that it always includes the boot "
+#~ "block with the disk label. If you intend to boot Debian from that disk, "
+#~ "you need to size it at least 2MB to fit aboot and perhaps a kernel. Note "
+#~ "that this partition is only required for compatibility; you must not put "
+#~ "a file system onto it, or you'll destroy data."
+#~ msgstr ""
+#~ "전통적으로 필요한 또 한 가지 사항이, <quote>a</quote> 파티션이 디스크의 "
+#~ "맨 처음에서 시작해야 한다는 것입니다. 그래서 이 파티션은 디스크 레이블에"
+#~ "서 부팅 블럭을 포함합니다. 그 디스크에서 데비안을 부팅하려고 한다면, 이 파"
+#~ "티션의 크기를 최소 2MB로 늘려야 aboot와 (아마도) 커널이 들어갈 수 있습니"
+#~ "다. 이 파티션은 호환성을 위해서만 필요합니다. 여기에는 파일 시스템을 넣으"
+#~ "면 안 됩니다. 여기에 파일 시스템을 넣으면 데이터가 망가집니다."
+
+#~ msgid ""
+#~ "It is possible, and indeed quite reasonable, to share a swap partition "
+#~ "between UNIX and Linux. In this case it will be needed to do a "
+#~ "<command>mkswap</command> on that partition every time the system is "
+#~ "rebooted from UNIX into Linux, as UNIX will damage the swap signature. "
+#~ "You may want to run <command>mkswap</command> from the Linux start-up "
+#~ "scripts before adding swap space with <command>swapon -a</command>."
+#~ msgstr ""
+#~ "유닉스와 리눅스 사이에 스왑 파티션을 공유하는 게 가능하고, 공유하는 게 좋"
+#~ "습니다. 이 경우 유닉스에서 리눅스로 부팅할 때마다 <command>mkswap</"
+#~ "command> 명령을 실행해야합니다. 유닉스에서 리눅스 스왑 시그너처를 망가뜨리"
+#~ "기 때문입니다. <command>swapon -a</command> 명령으로 스왑 공간을 추가하기 "
+#~ "전에 시작 스크립트에서 <command>mkswap</command>을 실행해야 합니다."
+
+#~ msgid ""
+#~ "If you want to mount UNIX partitions under Linux, note that Digital UNIX "
+#~ "can use two different file system types, UFS and AdvFS, of which Linux "
+#~ "only understands the former."
+#~ msgstr ""
+#~ "리눅스에서 유닉스 파티션을 마운트할 때, Digital UNIX는 UFS와 AdvFS 두 종류"
+#~ "의 파일 시스템을 사용할 수 있다는 점을 알아 두십시오. 이 중에서 리눅스는 "
+#~ "UFS 파일 시스템만 이해합니다."
+
+#~ msgid "Partitioning in Windows NT"
+#~ msgstr "윈도우즈 NT에서 파티션하기"
+
+#~ msgid ""
+#~ "Windows NT uses the PC-style partition table. If you are manipulating "
+#~ "existing FAT or NTFS partitions, it is recommended that you use the "
+#~ "native Windows NT tools (or, more conveniently, you can also repartition "
+#~ "your disk from the AlphaBIOS setup menu). Otherwise, it is not really "
+#~ "necessary to partition from Windows; the Linux partitioning tools will "
+#~ "generally do a better job. Note that when you run NT, the Disk "
+#~ "Administrator may offer to write a <quote>harmless signature</quote> on "
+#~ "non-Windows disks if you have any. <emphasis>Never</emphasis> let it do "
+#~ "that, as this signature will destroy the partition information."
+#~ msgstr ""
+#~ "윈도우즈 NT는 PC 방식 파티션 테이블을 사용합니다. 기존 FAT 혹은 NTFS 파티"
+#~ "션을 변경하는 경우에는, 윈도우즈 NT에 들어 있는 프로그램을 이용하길 권장합"
+#~ "니다. (아니면 더 편하게 AlphaBIOS 설정 메뉴에서 디스크 파티션)  아니면 꼭 "
+#~ "윈도우즈에서 디스크를 파티션할 필요는 없습니다. 보통 리눅스의 파티션 프로"
+#~ "그램이 더 잘 동작합니다. NT를 쓰는 경우, Disk Administrator에서는 윈도우즈"
+#~ "가 아닌 디스크가 있을 때 <quote>harmless signature</quote>를 쓰라고 할 수 "
+#~ "있습니다. <emphasis>절대 하지 마십시오.</emphasis> 이 시그너처때문에 파티"
+#~ "션 정보가 망가질 수 있습니다."
+
+#~ msgid ""
+#~ "If you plan to boot Linux from an ARC/AlphaBIOS/ARCSBIOS console, you "
+#~ "will need a (small) FAT partition for MILO. 5 MB is quite sufficient. If "
+#~ "Windows NT is installed, its 6 MB bootstrap partition can be employed for "
+#~ "this purpose. Debian &releasename; does not support installing MILO. If "
+#~ "you already have MILO installed on your system, or install MILO from "
+#~ "other media, Debian can still be booted from ARC."
+#~ msgstr ""
+#~ "ARC/AlphaBIOS/ARCSBIOS 콘솔에서 리눅스를 부팅하려면, MILO에 필요한 (작은) "
+#~ "FAT 파티션이 필요합니다. 5MB면 충분합니다. 윈도우즈 NT를 설치한 경우, 6MB"
+#~ "의 부트스트랩 파티션을 이 목적으로 쓸 수 있습니다. 데비안 &releasename; 릴"
+#~ "리스는 MILO 설치를 지원하지 않습니다. 시스템에 MILO가 이미 설치되어 있거"
+#~ "나, 다른 미디어에서 MILO를 설치하는 경우에도, ARC에서 데비안을 부팅할 수 "
+#~ "있습니다."
+
+#~ msgid ""
+#~ "With the exception of the BVM and Motorola VMEbus computers, the only "
+#~ "supported installation method for m68k systems is booting from a local "
+#~ "disk or floppy using an AmigaOS/TOS/MacOS-based bootstrap, for these "
+#~ "machines you will need the original operating system in order to boot "
+#~ "Linux. In order to boot Linux on the BVM and Motorola VMEbus machines you "
+#~ "will need the <quote>BVMBug</quote> or <quote>16xBug</quote> boot ROMs."
+#~ msgstr ""
+#~ "BVM과 모토로라 VMEbus 컴퓨터를 제외하면 m68k 시스템에서 지원하는 유일한 설"
+#~ "치 방법은, AmigaOS/TOS/맥오에스 기반 부트스트랩을 이용해 로컬 디스크 혹은 "
+#~ "플로피 디스크에서 부팅하는 것입니다. 이 시스템에서 리눅스를 부팅하려면 원"
+#~ "래 운영 체제를 가지고 있어야 합니다. BVM과 모토로라 VMEbus 컴퓨터에서는  "
+#~ "<quote>BVMBug</quote> 혹은 <quote>16xBug</quote> 부트롬을 사용합니다."
+
+#~ msgid "Linux/m68k FAQ"
+#~ msgstr "Linux/m68k FAQ"
+
+#~ msgid "Whether IDE or SCSI (most m68k computers are SCSI)."
+#~ msgstr "IDE인지 SCSI인지 (대부분 m68k 컴퓨터는 SCSI입니다)."
+
+#~ msgid ""
+#~ "A 68030 or better processor is recommended for m68k installs. You may get "
+#~ "by with a little less drive space than shown."
+#~ msgstr ""
+#~ "m68k에서 설치할 때는 68030이나 그보다 상위 프로세서를 추천합니다. 보기보"
+#~ "다 약간 더 적은 드라이브 공간으로 설치할 수도 있습니다."
+
+#~ msgid "Partitioning in AmigaOS"
+#~ msgstr "AmigaOS에서 파티션하기"
+
+#~ msgid ""
+#~ "If you are running AmigaOS, you can use the <command>HDToolBox</command> "
+#~ "program to adjust your native partitions prior to installation."
+#~ msgstr ""
+#~ "AmigaOS를 사용한다면, 설치하기 전에 <command>HDToolBox</command> 프로그램"
+#~ "으로 파티션을 조정할 수 있습니다."
+
+#~ msgid "Partitioning in Atari TOS"
+#~ msgstr "Atari TOS에서 파티션하기"
+
+#~ msgid ""
+#~ "Atari partition IDs are three ASCII characters, use <quote>LNX</quote> "
+#~ "for data and <quote>SWP</quote> for swap partitions. If using the low "
+#~ "memory installation method, a small Minix partition is also needed (about "
+#~ "2 MB), for which the partition ID is <quote>MNX</quote>. Failure to set "
+#~ "the appropriate partition IDs not only prevents the Debian installation "
+#~ "process from recognizing the partitions, but also results in TOS "
+#~ "attempting to use the Linux partitions, which confuses the hard disk "
+#~ "driver and renders the whole disk inaccessible."
+#~ msgstr ""
+#~ "Atari 파티션 ID는 세 개의 ASCII 문자로 되어 있습니다. 데이터는 "
+#~ "<quote>LNX</quote>를 사용하고 스왑은 <quote>SWP</quote>를 사용하십시오. 저"
+#~ "용량 메모리 설치 방법을 이용한다면, 작은 Minix 파티션도 필요합니다 (약 "
+#~ "2MB). 이 파티션의 ID는 <quote>MNX</quote>입니다. 올바른 파티션 ID를 설정"
+#~ "해 놓지 않으면 데비안을 설치할 때 파티션을 인식하지 못할 뿐만 아니라, TOS"
+#~ "에서 리눅스 파티션을 사용하게 되서, 하드 디스크 드라이버에 혼란을 일으키"
+#~ "고 전체 디스크를 사용할 수 없게 됩니다."
+
+#~ msgid ""
+#~ "There are a multitude of third party partitioning tools available (the "
+#~ "Atari <command>harddisk</command> utility doesn't permit changing the "
+#~ "partition ID); this manual cannot give detailed descriptions for all of "
+#~ "them. The following description covers <command>SCSITool</command> (from "
+#~ "Hard+Soft GmBH)."
+#~ msgstr ""
+#~ "아주 많은 써드파티 파티션 도구가 있습니다. (Atari <command>harddisk</"
+#~ "command> 유틸리티에서는 파티션 ID를 바꿀 수 없습니다.) 이 안내서는 그 도구"
+#~ "를 모두 설명하지 않습니다. 다음 설명은 (Hard+Soft GmBH에서 만든) "
+#~ "<command>SCSITool</command>에 관해서 다룹니다."
+
+#~ msgid ""
+#~ "Start <command>SCSITool</command> and select the disk you want to "
+#~ "partition (<guimenu>Disk</guimenu> menu, item <guimenuitem>select</"
+#~ "guimenuitem>)."
+#~ msgstr ""
+#~ "<command>SCSITool</command>을 시작해서 파티션하려는 디스크를 선택하십시"
+#~ "오. (<guimenu>Disk</guimenu> 메뉴, <guimenuitem>select</guimenuitem> 항목)"
+
+#~ msgid ""
+#~ "From the <guimenu>Partition</guimenu> menu, select either "
+#~ "<guimenuitem>New</guimenuitem> to add new partitions or change the "
+#~ "existing partition sizes, or <guimenuitem>Change</guimenuitem> to change "
+#~ "one specific partition. Unless you have already created partitions with "
+#~ "the right sizes and only want to change the partition ID, "
+#~ "<guimenuitem>New</guimenuitem> is probably the best choice."
+#~ msgstr ""
+#~ "<guimenu>Partition</guimenu> 메뉴에서, <guimenuitem>New</guimenuitem>로 "
+#~ "새 파티션을 추가하거나 현재 파티션 크기를 바꾸고, 아니면 "
+#~ "<guimenuitem>Change</guimenuitem>로 한 개 특정 파티션을 바꾸십시오. 이미 "
+#~ "적당한 크기로 파티션을 만든 상태에서 파티션 ID만 바꾸려는 경우가 아니라"
+#~ "면, <guimenuitem>New</guimenuitem>를 이용하는 편이 가장 좋습니다."
+
+#~ msgid ""
+#~ "For the <guimenuitem>New</guimenuitem> choice, select <guilabel>existing</"
+#~ "guilabel> in the dialog box prompting the initial settings. The next "
+#~ "window shows a list of existing partitions which you can adjust using the "
+#~ "scroll buttons, or by clicking in the bar graphs. The first column in the "
+#~ "partition list is the partition type; just click on the text field to "
+#~ "edit it. When you are finished changing partition settings, save the "
+#~ "changes by leaving the window with the <guibutton>OK</guibutton> button."
+#~ msgstr ""
+#~ "<guimenuitem>New</guimenuitem>에서는, 최초 설정을 표시하는 대화 상자에서 "
+#~ "<guilabel>existing</guilabel>을 선택하십시오. 다음 창에서는 기존 파티션의 "
+#~ "목록이 나오고, 스크롤 단추나 막대 그래프를 눌러 크기를 조정할 수 있습니"
+#~ "다. 파티션 목록의 첫번째 열에는 파티션 종류가 있고, 눌러서 편집할 수 있습"
+#~ "니다. 파티션 설정을 다 바꿨으면, <guibutton>OK</guibutton> 단추를 눌러서 "
+#~ "창을 닫으면 저장합니다."
+
+#~ msgid ""
+#~ "For the <guimenuitem>Change</guimenuitem> option, select the partition to "
+#~ "change in the selection list, and select <guilabel>other systems</"
+#~ "guilabel> in the dialog box. The next window lists detailed information "
+#~ "about the location of this partition, and lets you change the partition "
+#~ "ID. Save changes by leaving the window with the <guibutton>OK</guibutton> "
+#~ "button."
+#~ msgstr ""
+#~ "<guimenuitem>Change</guimenuitem>에서는, 선택할 목록에서 바꿀 파티션을 선"
+#~ "택하고, 대화 상자에서 <guilabel>other systems</guilabel>을 선택하십시오. "
+#~ "다음 창에서는 이 파티션의 위치에 대한 정보가 나옵니다. 거기서 파티션 ID를 "
+#~ "바꿉니다. <guibutton>OK</guibutton> 단추를 눌러 창을 닫으면 저장합니다."
+
+#~ msgid ""
+#~ "Write down the Linux names for each of the partitions you created or "
+#~ "changed for use with Linux &mdash; see <xref linkend=\"device-names\"/>."
+#~ msgstr ""
+#~ "리눅스용으로 새로 만들거나 변경한 파티션의 리눅스 이름을 적어 놓으십시오 "
+#~ "&mdash; <xref linkend=\"device-names\"/> 부분을 참고하십시오."
+
+#~ msgid ""
+#~ "Quit <command>SCSITool</command> using the <guimenuitem>Quit</"
+#~ "guimenuitem> item from the <guimenu>File</guimenu> menu. The computer "
+#~ "will reboot to make sure the changed partition table is used by TOS. If "
+#~ "you changed any TOS/GEM partitions, they will be invalidated and have to "
+#~ "be reinitialized (we told you to back up everything on the disk, didn't "
+#~ "we?)."
+#~ msgstr ""
+#~ "<guimenu>File</guimenu> 메뉴에서 <guimenuitem>Quit</guimenuitem> 항목을 선"
+#~ "택해 <command>SCSITool</command>을 마치십시오. 컴퓨터가 다시 부팅하게 되"
+#~ "고 바꾼 파티션 테이블을 TOS가 제대로 사용하는 지 확인하십시오. TOS/GEM 파"
+#~ "티션을 바꿨다면, 그 파티션은 사용할 수 없게 되므로 다시 초기화해야 합니"
+#~ "다. (앞에서 디스크를 백업해야 한다고 말했지요?)"
+
+#~ msgid ""
+#~ "There is a partitioning tool for Linux/m68k called <command>atari-fdisk</"
+#~ "command> in the installation system, but for now we recommend you "
+#~ "partition your disk using a TOS partition editor or some disk tool. If "
+#~ "your partition editor doesn't have an option to edit the partition type, "
+#~ "you can do this crucial step at a later stage (from the booted temporary "
+#~ "install RAMdisk). <command>SCSITool</command> is only one of the "
+#~ "partition editors we know of which supports selection of arbitrary "
+#~ "partition types. There may be others; select the tool that suits your "
+#~ "needs."
+#~ msgstr ""
+#~ "리눅스/m68k에는 설치 시스템 안에 <command>atari-fdisk</command>라는 파티"
+#~ "션 도구가 있습니다. 하지만 현재로서는 TOS 파티션 편집 프로그램이나 다른 디"
+#~ "스크 도구를 이용해 디스크를 파티션하기를 권장합니다. 파티션 편집 프로그램"
+#~ "에 파티션 종류를 편집하는 옵션이 없다면, 나중에 이 작업을 할 수 있습니다 "
+#~ "(설치할 때 임시로 만든 램디스크에서). <command>SCSITool</command>이 임의"
+#~ "의 파티션 종류를 선택할 수 있는 (우리가 알고 있는 유일한) 파티션 편집 프로"
+#~ "그램입니다. 다른 프로그램이 있을 지도 모르니, 필요에 따라 적합한 도구를 이"
+#~ "용하십시오."
+
+#~ msgid "Partitioning in MacOS"
+#~ msgstr "맥오에스에서 파티션하기"
+
+#~ msgid ""
+#~ "Partitioning tools for Macintosh tested include <command>pdisk</command>, "
+#~ "<command>HD SC Setup</command> 7.3.5 (Apple), <command>HDT</command> 1.8 "
+#~ "(FWB), <command>SilverLining</command> (LaCie), and <command>DiskTool</"
+#~ "command> (Tim Endres, GPL). Full versions are required for <command>HDT</"
+#~ "command> and <command>SilverLining</command>. The Apple tool requires a "
+#~ "patch in order to recognize third-party disks (a description on how to "
+#~ "patch <command>HD SC Setup</command> using <command>ResEdit</command> can "
+#~ "be found at <ulink url=\"http://www.euronet.nl/users/ernstoud/patch.html"
+#~ "\"></ulink>)."
+#~ msgstr ""
+#~ "테스트한 매킨토시의 파티션 도구는 <command>pdisk</command>, <command>HD "
+#~ "SC Setup</command> 7.3.5 (애플), <command>HDT</command> 1.8 (FWB), "
+#~ "<command>SilverLining</command> (LaCie), 그리고 <command>DiskTool</"
+#~ "command>이 (Tim Endres, GPL) 있습니다. <command>HDT</command>와 "
+#~ "<command>SilverLining</command>의 경우 완전한 버전이 필요합니다. 애플의 도"
+#~ "구는 써드파티 디스크를 인식하려면 패치가 필요합니다. (<command>HD SC "
+#~ "Setup</command>을 <command>ResEdit</command>로 패치하는 방법은 <ulink url="
+#~ "\"http://www.euronet.nl/users/ernstoud/patch.html\"></ulink>에 있습니다.)"
+
+#~ msgid ""
+#~ "For IDE based Macs, you need to use <command>Apple Drive Setup</command> "
+#~ "to create empty space for the Linux partitions, and complete the "
+#~ "partitioning under Linux, or use the MacOS version of pdisk available for "
+#~ "download from <ulink url=\"http://homepage.mac.com/alk/downloads/pdisk."
+#~ "sit.hqx\">Alsoft</ulink>."
+#~ msgstr ""
+#~ "IDE 기반 맥의 경우, <command>Apple Drive Setup</command>을 이용해 리눅스 "
+#~ "파티션을 위한 빈 공간을 만들어야 합니다. 그리고 리눅스에서 나머지 파티션"
+#~ "을 하거나, 맥오에스 버전의 pdisk를 (<ulink url=\"http://homepage.mac.com/"
+#~ "alk/downloads/pdisk.sit.hqx\">Alsoft</ulink>에서 다운로드할 수 있습니다) "
+#~ "사용합니다."
+
+#~ msgid "Firmware Revisions and Existing OS Setup"
+#~ msgstr "펌웨어 버전 및 기존 운영 체제 설정"
+
+#~ msgid ""
+#~ "&arch-title; machines are generally self-configuring and do not require "
+#~ "firmware configuration. However, you should make sure that you have the "
+#~ "appropriate ROM and system patches. On the Macintosh, MacOS version >= "
+#~ "7.1 is recommended because version 7.0.1 contains a bug in the video "
+#~ "drivers preventing the boot loader from deactivating the video "
+#~ "interrupts, resulting in a boot hang. On the BVM VMEbus systems you "
+#~ "should make sure you are using BVMBug revision G or higher boot ROMs. The "
+#~ "BVMBug boot ROMs do not come as standard on the BVM systems but are "
+#~ "available from BVM on request free of charge."
+#~ msgstr ""
+#~ "&arch-title; 컴퓨터는 일반적으로 알아서 설정이 되고, 별도의 펌웨어 설정이 "
+#~ "필요없습니다. 하지만 올바른 ROM과 시스템 패치는 있어야 합니다. 매킨토시에"
+#~ "서는 버전 7.1 이상의 맥오에스 버전을 추천합니다. 맥오에스 7.0.1에는 버그때"
+#~ "문에 부트로더가 비디오 인터럽트를 끌 수 없어서, 부팅할 때 멈춥니다. BVM "
+#~ "VMEbus 시스템에서는 BVMBug 버전 G나 그보다 높은 부트 ROM을 사용해야 합니"
+#~ "다. BVMBug 부트 ROM은 BVM 시스템에 기본으로 들어있지 않지만, BVM에 요청하"
+#~ "면 무료로 구할 수 있습니다."
+
+#~ msgid ""
+#~ "Atari TT RAM boards are notorious for RAM problems under Linux; if you "
+#~ "encounter any strange problems, try running at least the kernel in ST-"
+#~ "RAM. Amiga users may need to exclude RAM using a booter memfile. <phrase "
+#~ "condition=\"FIXME\"><emphasis> FIXME: more description of this needed. </"
+#~ "emphasis></phrase>"
+#~ msgstr ""
+#~ "Atari TT RAM 보드는 리눅스에서 문제 많기로 유명합니다. 어떤 문제가 발생하"
+#~ "면 ST-RAM에 있는 커널을 실행해 보십시오. Amiga 사용자는 booter memfile을 "
+#~ "이용해 RAM을 제외해야 할 수도 있습니다. <phrase condition=\"FIXME"
+#~ "\"><emphasis> FIXME: more description of this needed. </emphasis></phrase>"
+
+#~ msgid "Whether IDE or SCSI (most computers are IDE)."
+#~ msgstr "IDE인지 SCSI인지 (대부분 컴퓨터는 IDE입니다)."

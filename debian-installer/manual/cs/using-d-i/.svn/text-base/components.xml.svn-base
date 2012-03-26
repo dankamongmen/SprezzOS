@@ -1,0 +1,195 @@
+<!-- $Id$ -->
+<!-- original version: 65801 -->
+
+ <sect1 id="module-details">
+ <title>Použití jednotlivých komponent</title>
+<para>
+
+V této části podrobně popíšeme každou komponentu instalačního
+programu. Komponenty jsou seskupeny do celků podle kontextu, ve kterém
+se během instalace vyskytují. Poznamenejme, že při instalaci se nemusí
+vždy využít všechny komponenty &mdash; to závisí na způsobu instalace
+a na dostupném hardwaru.
+
+</para>
+
+  <sect2 id="di-setup">
+  <title>Nastavení instalačního programu a rozpoznání hardwaru</title>
+<para>
+
+Předpokládejme, že &d-i; úspěšně nastartoval a nyní se díváte na jeho
+první obrazovku. V tento okamžik je &d-i; ještě poměrně hloupý
+a nepoužitelný. Neví nic o hardwaru vašeho počítače, nezná váš
+preferovaný jazyk a dokonce ani netuší, jaký úkol mu byl přidělen. Ale
+nebojte se. Jako správný průzkumník začne &d-i; zkoumat své okolí a po
+nějaké době bude mít slušný přehled o okolním hardwaru. Poté se pokusí
+nalézt zbytek svých komponent a sám sebe přemění ve schopný, dobře
+vychovaný program.
+
+Bohužel, stále existují věci, se kterými si &d-i; nedokáže poradit
+a proto mu musíte trošku pomoci (například vybrat jazyk, ve kterém má
+instalace probíhat, odsouhlasit rozložení klávesnice a podobně).
+
+</para><para>
+
+Během této fáze si jistě všimnete, že &d-i; několikrát
+<firstterm>rozpoznává hardware</firstterm>. Poprvé je úzce zaměřen na
+hardware, který by mohl obsahovat další části instalačního programu,
+tj. CD mechaniky nebo síťové karty. Další rozpoznávání hardwaru
+probíhá později, když se hledají pevné disky, protože před prvním
+rozpoznáváním ještě nemusí být k dispozici všechny ovladače.
+
+</para><para arch="not-s390">
+
+Při rozpoznávání hardwaru si &d-i; kontroluje, zda ovladače pro
+nalezený hardware vyžadují zavedeni firmwaru. Jestliže požadovaný
+firmware není dostupný, zobrazí se nabídka na jeho nahrání z výměnného
+média. Podrobnosti naleznete v části <xref linkend="loading-firmware"/>.
+
+</para>
+
+&module-lowmem.xml;
+&module-localechooser.xml;
+&module-kbd-chooser.xml;
+&module-s390-netdevice.xml;
+&module-ddetect.xml;
+&module-cdrom-detect.xml;
+&module-iso-scan.xml;
+&module-anna.xml;
+&module-netcfg.xml;
+&module-choose-mirror.xml;
+&module-clock-setup.xml;
+  </sect2>
+
+  <sect2 id="di-user-setup">
+  <title>Nastavení uživatelů a hesel</title>
+<para>
+
+Těsně před nastavením hodin vám instalační systém umožní nastavit
+účet <quote>root</quote> a/nebo účet pro prvního uživatele. Další
+uživatelské účty můžete vytvořit po dokončení instalace.
+
+</para>
+
+&module-user-setup.xml;
+  </sect2>
+
+  <sect2 id="di-partition">
+  <title>Rozdělení disku a výběr přípojných bodů</title>
+<para>
+
+Nyní, po posledním rozpoznávání hardwaru, by již měl být &d-i; v plné
+síle, přizpůsoben podle uživatelských požadavků a připraven na
+opravdovou práci.
+
+Jak praví název této části, bude se několik následujících komponent
+zabývat rozdělením disků, vytvořením souborových systémů, přiřazením
+přípojných bodů a volitelně nastavením souvisejících záležitostí, jako
+jsou LVM, RAID a šifrovaná zařízení.
+
+</para>
+
+&module-s390-dasd.xml;
+&module-partman.xml;
+&module-autopartkit.xml;
+&module-partitioner.xml;
+&module-partconf.xml;
+&module-mdcfg.xml;
+&module-partman-lvm.xml;
+&module-partman-crypto.xml;
+  </sect2>
+
+  <sect2 id="di-install-base">
+  <title>Instalace základního systému</title>
+<para>
+
+Přestože je tato část nejméně problematická, zabere dosti času,
+protože musí stáhnout, ověřit a rozbalit celý základní systém. Pokud
+máte pomalý počítač a/nebo síťové připojení, může to chvíli trvat.
+
+</para>
+
+&module-base-installer.xml;
+  </sect2>
+
+  <sect2 id="di-install-software">
+  <title>Instalace dodatečného softwaru</title>
+<para>
+
+V tento okamžik máte sice použitelný, nicméně poněkud
+omezený systém. Většina uživatelů si bude chtít do systému doinstalovat
+další software a upravit tak systém svým potřebám, s čímž vám instalátor
+ochotně pomůže. Jestliže máte pomalejší počítač nebo síťové připojení,
+může tento krok trvat ještě déle než instalace základního systému.
+
+</para>
+
+&module-apt-setup.xml;
+&module-pkgsel.xml;
+  </sect2>
+
+  <sect2 id="di-make-bootable">
+  <title>Nastavení zavádění systému</title>
+<para condition="supports-nfsroot">
+
+Pokud instalujete bezdiskovou stanici, zavádění systému z lokálního
+disku evidentně nebude nejsmysluplnější volba - tento krok přeskočte.
+<phrase arch="sparc"> Možná budete chtít nastavit OpenBoot tak, aby
+implicitně zaváděl systém ze sítě, viz <xref
+linkend="boot-dev-select-sun"/>.</phrase>
+
+<!--
+</para><para>
+
+Zavádění více operačních systémů na jednom počítači je stále něco jako
+černá magie. Tento dokument se ani nesnaží pokrýt všechny možné
+zavaděče, které se liší na jednotlivých architekturách a dokonce i na
+jejich podarchitekturách. Měli byste si dobře prostudovat dokumentaci
+vašeho zavaděče a pamatujete: třikrát měř a jednou řež.
+-->
+
+</para>
+
+&module-os-prober.xml;
+&module-hppa-palo-installer.xml;
+&module-x86-grub-installer.xml;
+&module-x86-lilo-installer.xml;
+&module-ia64-elilo-installer.xml;
+&module-mips-arcboot-installer.xml;
+&module-mipsel-colo-installer.xml;
+&module-powerpc-yaboot-installer.xml;
+&module-powerpc-quik-installer.xml;
+&module-s390-zipl-installer.xml;
+&module-sparc-silo-installer.xml;
+&module-nobootloader.xml;
+  </sect2>
+
+  <sect2 id="di-finish">
+  <title>Dokončení instalace</title>
+<para>
+
+Toto jsou poslední drobnosti, které je třeba vykonat před zavedením
+nového systému. Většina práce spočívá v uklizení po &d-i;u.
+
+</para>
+
+&module-clock-setup-finish.xml;
+&module-finish-install.xml;
+  </sect2>
+
+  <sect2 id="di-miscellaneous">
+  <title>Řešení problémů</title>
+<para>
+
+Následující komponenty se obvykle do instalačního procesu nezapojují,
+ale tiše čekají v pozadí, aby vám pomohly v případě, že se něco
+pokazí.
+
+</para>
+
+&module-save-logs.xml;
+&module-cdrom-checker.xml;
+&module-shell.xml;
+  </sect2>
+&module-network-console.xml;
+ </sect1>

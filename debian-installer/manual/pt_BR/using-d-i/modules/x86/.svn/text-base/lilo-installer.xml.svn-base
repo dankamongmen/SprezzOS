@@ -1,0 +1,68 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 49849 -->
+<!-- updated 43573:48599 by Felipe Augusto van de Wiel (faw) 2007.07.28 -->
+<!-- updated 48599:49849 by Felipe Augusto van de Wiel (faw) 2008.02.06 -->
+
+  <sect3 arch="x86">
+  <title>Instalação do gerenciador de inicialização <command>LILO</command> no disco rígido</title>
+<para>
+
+O segundo gerenciador de inicialização disponível para &architecture; é
+chamado <quote>LILO</quote>.
+Ele é um programa antigo e complexo que oferece várias funcionalidades,
+incluindo o gerenciamento de inicialização no DOS, Windows e OS/2. Por favor,
+leia atentamente as instruções no diretório
+<filename>/usr/share/doc/lilo/</filename> se tiver necessidades especiais;
+também leia o <ulink url="&url-lilo-howto;">LILO mini-HOWTO</ulink>.
+
+</para>
+<note><para>
+
+Atualmente a instalação do LILO somente criará a entrada para os sistemas
+operacionais caso estes podem ser <firstterm>chainloaded</firstterm>.
+Isto significa que deverá adicionar manualmente uma entrada no menu
+para sistemas operacionais como o GNU/Linux e o GNU/Hurd após a instalação.
+
+</para></note>
+<para>
+
+O &d-i; oferecerá três opções sobre onde poderá instalar o gerenciador de
+inicialização <command>LILO</command>:
+
+<variablelist>
+<varlistentry>
+<term>Registro Mestre de Partida (MBR)</term><listitem><para>
+
+Desta forma o <command>LILO</command> tomará controle completo do processo de
+inicialização.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>nova partição da &debian;</term><listitem><para>
+
+Escolha esta opção se quiser usar outro gerenciador de inicialização. O
+<command>LILO</command> se instalará no inicio da nova partição da
+&debian; e servirá como gerenciador de inicialização secundário.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>Outra escolha</term><listitem><para>
+
+Útil para usuários avançados que desejam instalar o <command>LILO</command>
+em algum outro lugar. Neste caso você será perguntado pela localização
+adequada. Você poderá usar nomes de dispositivos tradicionais tais como
+<filename>/dev/hda</filename> ou <filename>/dev/sda</filename>.
+
+</para></listitem></varlistentry>
+</variablelist>
+
+</para><para>
+
+Se não puder mais inicializar no Windows 9x (ou DOS) após este passo,
+você precisará usar um disquete de inicialização do Windows 9x (MS-DOS) e usar
+o comando <userinput>fdisk /mbr</userinput> para reinstalar um gerenciador de
+inicialização do MS-DOS &mdash; no entanto, isto significa que você precisará
+usar algum outro método de retornar ao &debian;!
+
+</para>
+  </sect3>

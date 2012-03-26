@@ -1,0 +1,938 @@
+# Vietnamese translation for Debian Installer Level 1.
+# Copyright © 2010 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+# Jean Christophe André <progfou@gmail.com>
+# Vũ Quang Trung <vu.quang.trung@auf.org>
+# Trịnh Minh Thành <tmthanh@yahoo.com>
+# Clytie Siddall <clytie@riverland.net.au>, 2005-2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer Level 1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-27 22:51+0000\n"
+"PO-Revision-Date: 2010-04-01 16:51+1030\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: LocFactoryEditor 1.8\n"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:60001
+#, no-c-format
+msgid "ZFS pool %s, volume %s"
+msgstr ""
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:62001
+#, no-c-format
+msgid "DASD %s (%s)"
+msgstr "DASD %s (%s)"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-base.templates:63001
+#, no-c-format
+msgid "DASD %s (%s), partition #%s"
+msgstr "DASD %s (%s), phân vùng #%s"
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Setting to reserve a small part of the disk for use by BIOS-based bootloaders
+#. such as GRUB.
+#: ../partman-partitioning.templates:36001
+msgid "Reserved BIOS boot area"
+msgstr "Vùng khởi động BIOS dành riêng"
+
+#. Type: text
+#. Description
+#. :sl5:
+#. short variant of 'Reserved BIOS boot area'
+#. Up to 10 character positions
+#: ../partman-partitioning.templates:37001
+msgid "biosgrub"
+msgstr "biosgrub"
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:1001
+msgid ""
+"In order to start your new system, the firmware on your Itanium system loads "
+"the boot loader from its private EFI partition on the hard disk.  The boot "
+"loader then loads the operating system from that same partition.  An EFI "
+"partition has a FAT16 file system formatted on it and the bootable flag set. "
+"Most installations place the EFI partition on the first primary partition of "
+"the same hard disk that holds the root file system."
+msgstr ""
+"Để khởi động hệ thống mới, phần vững trên hệ thống Itanium sẽ nạp bộ nạp "
+"khởi động từ phân vùng EFI riêng của nó trên đĩa cứng. Bộ nạp khởi động thì "
+"nạp hệ điều hành từ cùng phân vùng. Phân vùng kiểu EFI có một hệ thống tập "
+"tin FAT16 được định dạng trên nó, cũng có cờ khởi động được đã đặt. Phần lớn "
+"tiến trình cài đặt để phân vùng EFI trên phân vùng chính thứ nhất của cùng "
+"đĩa cứng chứa hệ thống tập tin gốc."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:2001 ../partman-efi.templates:4001
+msgid "EFI boot partition"
+msgstr "Phân vùng khởi động EFI"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:3001
+msgid "No EFI partition was found."
+msgstr "Không tìm thấy phân vùng EFI."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. short variant of 'EFI boot partition'
+#. Up to 10 character positions
+#: ../partman-efi.templates:5001
+msgid "EFIboot"
+msgstr "pvkđ_EFI"
+
+# Name: don't translate/Tên: đừng dịch
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partman-efi.templates:7001
+msgid "EFI-fat16"
+msgstr "EFI-fat16"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:1001
+msgid ""
+"No partitions were found in your system. You may need to partition your hard "
+"drives or load additional kernel modules."
+msgstr ""
+"Không tìm thấy phân vùng nào trên hệ thống của bạn. Bạn có thể cần phải phân "
+"vùng các đĩa cứng hoặc nạp các mô-đun hạt nhân thêm."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:2001
+msgid "No file systems found"
+msgstr "Không tìm thấy hệ thống tập tin"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:2001
+msgid ""
+"No usable file systems were found. You may need to load additional kernel "
+"modules."
+msgstr ""
+"Không tìm thấy hệ thống tập tin có ích nào. Bạn có thể cần phải nạp các mô-"
+"đun hạt nhân thêm."
+
+#. Type: select
+#. Choices
+#. :sl5:
+#: ../partconf.templates:3001
+msgid "Abort"
+msgstr "Hủy bỏ"
+
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#: ../partconf.templates:4001
+msgid "Leave the file system intact"
+msgstr "Không sửa đổi hệ thông tập tin"
+
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. Type: select
+#. Choices
+#. :sl5:
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#: ../partconf.templates:4001 ../partconf.templates:5001
+msgid "Create swap space"
+msgstr "Tạo chỗ trao đổi"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:4002 ../partconf.templates:5002
+msgid "Action on ${PARTITION}:"
+msgstr "Hành động trên ${PARTITION}:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:4002
+msgid ""
+"This partition seems to already have a file system (${FSTYPE}). You can "
+"choose to leave this file system intact, create a new file system, or create "
+"swap space."
+msgstr ""
+"Có vẻ là phân vùng này đã có hệ thống tập tin kiểu (${FSTYPE}). Bạn có thể "
+"chọn:\n"
+" • không sửa đổi hệ thống tập tin này\n"
+" • tạo một hệ thống tập tin mới\n"
+" • tạo chỗ trao đổi."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:5002
+msgid ""
+"This partition does not seem to have a file system. You can create a file "
+"system or swap space on it."
+msgstr ""
+"Có vẻ là phân vùng này chưa có hệ thống tập tin. Bạn có thể tạo một hệ thống "
+"tập tin hoặc chỗ trao đổi trên nó."
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of each choice
+#. (separated by commas)
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl5:
+#. "it" is a partition
+#: ../partconf.templates:6001
+msgid "Don't mount it"
+msgstr "Không lắp nó"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: string
+#. Description
+#. :sl5:
+#: ../partconf.templates:6002 ../partconf.templates:7001
+msgid "Mount point for ${PARTITION}:"
+msgstr "Điểm lắp cho ${PARTITION}:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partconf.templates:6002
+msgid ""
+"When a partition is mounted, it is available to the users of the system. You "
+"always need a root (\"/\") partition, and it's often good to have a separate "
+"partition for /home."
+msgstr ""
+"Khi phân vùng được lắp, nó sẵn sàng cho các người dùng hệ thống. Bạn luôn "
+"luôn cần phải có phân vùng gốc (« / »), và một phân vùng riêng cho « /home "
+"» (phân vùng chính) cũng là một ý kiến tốt."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../partconf.templates:7001
+msgid "Please enter where the partition should be mounted."
+msgstr "Hãy nhập nơi cần lắp phân vùng này."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:8001
+msgid "Do you want to unmount the partitions so you can make changes?"
+msgstr "Bạn có muốn tháo lắp những phân vùng để thay đổi gì không?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:8001
+msgid ""
+"Since the partitions have already been mounted, you cannot do any changes."
+msgstr "Bạn không thể thay đổi gì, vì những phân vùng này đã được lắp."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "Failed to unmount partitions"
+msgstr "Lỗi tháo lắp phân vùng"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "An unexpected error occurred while unmounting the partitions."
+msgstr "Gặp lỗi bất thường khi bỏ lắp phân vùng."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:9001
+msgid "The partition configuration process has been aborted."
+msgstr "Tiến trình cấu hình phân vùng bị hủy bỏ."
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../partconf.templates:10001
+#, no-c-format
+msgid "Create %s file system"
+msgstr "Tạo hệ thống tập tin %s"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:11001
+msgid "No root partition (/)"
+msgstr "Không có phân vùng gốc (/)"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:11001
+msgid ""
+"You need a root partition. Please assign a partition to the root mount point "
+"before continuing."
+msgstr ""
+"Cần thiết một phân vùng gốc. Hãy gán một phân vùng cho điểm lắp gốc trước "
+"khi tiếp tục."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:12001
+msgid "Partition assigned to ${MOUNT}"
+msgstr "Phân vùng đã gán cho ${MOUNT}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:12001
+msgid "Mounting a partition on ${MOUNT} makes no sense. Please change this."
+msgstr "Việc lắp phân vùng vào ${MOUNT} là vô ích. Hãy thay đổi điều này."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:13001
+msgid "Several partitions assigned to ${MOUNT}"
+msgstr "Vài phân vùng khác được gán cho ${MOUNT}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:13001
+msgid ""
+"You cannot assign several partitions to the same mount point. Please change "
+"all but one of them."
+msgstr ""
+"Không thể gán vài phân vùng khác nhau cho cùng một điểm lắp. Hãy thay đổi "
+"tất cả các phân vùng trừ một cái."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid "Ready to create file systems and mount partitions?"
+msgstr "Sẵn sàng tạo hệ thống tập tin và lắp phân vùng chưa?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid "File systems will be created and partitions mounted."
+msgstr "Hệ thống tập sẽ được tạo và phân vùng sẽ được lắp."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../partconf.templates:14001
+msgid ""
+"WARNING: This will destroy all data on the partitions you have assigned file "
+"systems to."
+msgstr ""
+"Cảnh báo : hành đông này sẽ hủy hoàn toàn mọi dữ liệu trên các phân vùng cho "
+"chúng bạn đã gán hệ thống tập  tin."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001
+msgid "Failed to create swap space on ${PARTITION}"
+msgstr "Lỗi tạo chỗ trao đổi trên ${PARTITION}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001
+msgid "An error occurred when the swap space was created on ${PARTITION}."
+msgstr "Gặp lỗi khi tạo chỗ trao đổi trên ${PARTITION}."
+
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:15001 ../partconf.templates:16001
+#: ../partconf.templates:17001 ../partconf.templates:18001
+msgid ""
+"Please check the error log on the third console or /var/log/messages for "
+"more information."
+msgstr ""
+"Hãy kiểm tra lại bản ghi lỗi trên bàn giao tiếp thứ ba hoặc « /var/log/"
+"messages » để xem thông tin thêm."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:16001
+msgid "Failed to activate the swap space on ${PARTITION}"
+msgstr "Lỗi kích hoạt chỗ trao đổi trên ${PARTITION}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:16001
+msgid "An error occurred when the swap space on ${PARTITION} was activated."
+msgstr "Gặp lỗi khi kích hoạt chỗ trao đổi trên ${PARTITION}."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:17001
+msgid "Failed to create ${FS} file system on ${PARTITION}"
+msgstr "Lỗi tạo hệ thống tập tin ${FS} trên ${PARTITION}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:17001
+msgid ""
+"An error occurred when the ${FS} file system was created on ${PARTITION}."
+msgstr "Găp lỗi khi tạo hệ thống tập tin ${FS} trên ${PARTITION}."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:18001
+msgid "Failed to mount ${PARTITION} on ${MOUNT}"
+msgstr "Lỗi lắp ${PARTITION} vào ${MOUNT}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partconf.templates:18001
+msgid "An error occurred when ${PARTITION} was mounted on ${MOUNT}."
+msgstr "Gặp lỗi khi lắp phân vùng ${PARTITION} vào ${MOUNT}."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../partconf.templates:19001
+msgid "Configure and mount partitions"
+msgstr "Cấu hình và lắp phân vùng"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002
+msgid "Disk to partition:"
+msgstr "Đĩa cần phân vùng:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002
+msgid "Please choose one of the listed disks to create partitions on it."
+msgstr "Hãy chọn một của những đĩa được liệt kê, để tạo phân vùng trên nó."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../partitioner.templates:1002 ../s390-dasd.templates:1002
+msgid "Select \"Finish\" at the bottom of the list when you are done."
+msgstr "Hãy chọn « Kết thúc » tại cuối danh sách khi bạn đã làm xong."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:2001
+msgid "No disk found"
+msgstr "Không tìm thấy đĩa"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:2001
+msgid ""
+"Unable to find any disk in your system. Maybe some kernel modules need to be "
+"loaded."
+msgstr ""
+"Không tìm thấy đĩa nào trong hệ thống của bạn. Một số mô-đun hạt nhân có thể "
+"cần được nạp."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:3001
+msgid "Partitioning error"
+msgstr "Lỗi phân vùng"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../partitioner.templates:3001
+msgid "Failed to partition the disk ${DISC}."
+msgstr "Lỗi phân vùng đĩa ${DISC}."
+
+#. Type: text
+#. Description
+#. :sl5:
+#. Main menu item
+#: ../partitioner.templates:4001
+msgid "Partition a hard drive"
+msgstr "Phân vùng đĩa cứng"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "ctc: Channel to Channel (CTC) or ESCON connection"
+msgstr "ctc: kết nối kiểu kênh đến kênh (CTC) hay ESCON"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "qeth: OSA-Express in QDIO mode / HiperSockets"
+msgstr "qeth: OSA-Express trong chế độ QDIO/HiperSockets"
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "iucv: Inter-User Communication Vehicle - available for VM guests only"
+msgstr "iucv: cơ chế người dùng liên lạc với nhau : có sẵn chỉ cho khách VM."
+
+#. Type: select
+#. Choices
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages) including the initial path
+#. :sl5:
+#: ../s390-netdevice.templates:1001
+msgid "virtio: KVM VirtIO"
+msgstr ""
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:1002
+msgid "Network device type:"
+msgstr "Kiểu thiết bị mạng:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:1002
+msgid ""
+"Please choose the type of your primary network interface that you will need "
+"for installing the Debian system (via NFS or HTTP). Only the listed devices "
+"are supported."
+msgstr ""
+"Hãy chọn kiểu giao diện mạng chính cần thiết để cài đặt hệ thống Debian "
+"(bằng NFS hay HTTP). Chỉ hỗ trợ những thiết bị được liệt kê."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:2001
+msgid "CTC read device:"
+msgstr "Thiết bị đọc CTC:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:2001 ../s390-netdevice.templates:3001
+msgid "The following device numbers might belong to CTC or ESCON connections."
+msgstr ""
+"Những số hiệu thiết bị theo đây có thể thuộc về sự kết nối CTC hay ESCON."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:3001
+msgid "CTC write device:"
+msgstr "Thiết bị ghi CTC:"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#. Type: boolean
+#. Description
+#. :sl5:
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:4001 ../s390-netdevice.templates:8001
+#: ../s390-netdevice.templates:13001
+msgid "Do you accept this configuration?"
+msgstr "Bạn có chấp nhận cấu hình này không?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:4001
+msgid ""
+"The configured parameters are:\n"
+" read channel  = ${device_read}\n"
+" write channel = ${device_write}\n"
+" protocol      = ${protocol}"
+msgstr ""
+"Những tham số đã cấu hình là:\n"
+" kênh đọc  \t= ${device_read}\n"
+" kênh ghi  \t= ${device_write}\n"
+" giao thức \t= ${protocol}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:5001
+msgid "No CTC or ESCON connections"
+msgstr "Không có kết nối nào kiểu CTC hay ESCON"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:5001
+msgid "Please make sure that you have set them up correctly."
+msgstr "Hãy kiểm tra xem bạn đã thiết lập chúng cho đúng."
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:6001
+msgid "Protocol for this connection:"
+msgstr "Giao thức cho sự kết nối này:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:7001
+msgid "Device:"
+msgstr "Thiết bị:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:7001
+msgid "Please select the OSA-Express QDIO / HiperSockets device."
+msgstr "Hãy chọn thiết bị kiểu OSA-Express QDIO/HiperSockets"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:8001
+msgid ""
+"The configured parameters are:\n"
+" channels = ${device0}, ${device1}, ${device2}\n"
+" port     = ${port}\n"
+" portname = ${portname}\n"
+" layer2   = ${layer2}"
+msgstr ""
+"Những tham số đã cấu hình:\n"
+" kênh  \t= ${device0}, ${device1}, ${device2}\n"
+" cổng         \t= ${port}\n"
+" tên cổng     \t= ${portname}\n"
+" lớp2   = ${layer2}"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:9001
+msgid "No OSA-Express QDIO cards / HiperSockets"
+msgstr "Không có thẻ nào kiểu OSA-Express QDIO/HiperSockets"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:9001
+msgid ""
+"No OSA-Express QDIO cards / HiperSockets were detected. If you are running "
+"VM please make sure that your card is attached to this guest."
+msgstr ""
+"Không có thẻ kiểu OSA-Express QDIO hay HiperSockets nào được phát hiện. Nếu "
+"bạn đang chạy VM (bộ nhớ ảo), hãy kiểm tra xem thẻ của bạn được gắn nối đến "
+"máy khách này."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid "Portname:"
+msgstr "Tên cổng:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid ""
+"Please enter the portname of your OSA-Express card. This name must be 1 to 8 "
+"characters long and must be equal on all systems accessing the same card."
+msgstr ""
+"Hãy nhập tên cổng của thẻ OSA-Express của bạn. Tên này phải chứa 1-8 ký tự "
+"và phải là trùng trên mọi hệ thống truy cập cùng một thẻ."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid ""
+"Leave it empty if you want to use HiperSockets. This parameter is required "
+"for cards with microcode level 2.10 or later or when you want to share a "
+"card."
+msgstr ""
+"Hãy bỏ rỗng nếu bạn muốn sư dụng HiperSockets. Tham số này cần thiết cho mọi "
+"thẻ có mức mã vi (microcode) 2.10 hay sau, hoặc khi bạn muốn dùng chung thẻ."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:10001
+msgid "The name will automatically be converted to uppercase."
+msgstr "Tên sẽ tự động được chuyển đổi sang chữ hoa."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:11001
+msgid "Port:"
+msgstr "Cổng:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:11001
+msgid "Please enter a relative port for this connection."
+msgstr "Hãy nhập một cổng tương đối cho sự kết nối này."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:12001
+msgid "Use this device in layer2 mode?"
+msgstr "Dùng thiết bị này trong chế độ lớp2 không?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:12001
+msgid ""
+"By default OSA-Express cards use layer3 mode. In that mode LLC headers are "
+"removed from incoming IPv4 packets. Using the card in layer2 mode will make "
+"it keep the MAC addresses of IPv4 packets."
+msgstr ""
+"Mặc định là thẻ kiểu OSA-Express dùng chế độ lớp3. Trong chế độ đó, những "
+"phần đầu LLC bị gỡ bỏ khỏi các gói tin IPv4 được gửi đến. Việc dùng thẻ này "
+"trong chế độ lớp2 sẽ làm cho nó giữ lại những đĩa chỉ MAC của các gói tin "
+"IPv4."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:13001
+msgid ""
+"The configured parameter is:\n"
+" peer  = ${peer}"
+msgstr ""
+"Tham số đã cấu hình là:\n"
+" ngang hàng  = ${peer}"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid "VM peer:"
+msgstr "Ngang hàng VM:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid "Please enter the name of the VM peer you want to connect to."
+msgstr "Hãy nhập tên ngang hàng VM đến đó bạn muốn kết nối."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid ""
+"If you want to connect to multiple peers, separate the names by colons, e."
+"g.  tcpip:linux1."
+msgstr ""
+"Nếu bạn muốn kết nối đến nhiều ngang hàng, hãy định giới các tên bằng dấu "
+"hai chấm, v.d. « tcpip:linux1 »."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-netdevice.templates:14001
+msgid ""
+"The standard TCP/IP server name on VM is TCPIP; on VIF it's $TCPIP. Note: "
+"IUCV must be enabled in the VM user directory for this driver to work and it "
+"must be set up on both ends of the communication."
+msgstr ""
+"Tên máy phục vụ TCP/IP chuẩn trên VM là « TCPIP »; trên VIF là « $TCPIP ». "
+"Ghi chú : IUCV phải được bật trong thư mục người dùng VM để trình điều khiển "
+"này hoạt động được, và nó phải được thiết lập tại cả hai cuối của sự giao "
+"thông."
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../s390-netdevice.templates:15001
+msgid "Configure the network device"
+msgstr "Cấu hình thiết bị mạng"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:1002
+msgid "Available devices:"
+msgstr "Các thiết bị có sẵn:"
+
+#. Type: select
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:1002
+msgid ""
+"The following direct access storage devices (DASD) are available. Please "
+"select each device you want to use one at a time."
+msgstr ""
+"Những thiết bị cất giữ truy cập trực tiếp (DASD) sau là sẵn sàng. Hãy chọn "
+"mỗi thiết bị cần dùng từng cái một."
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:2001
+msgid "Choose device:"
+msgstr "Chọn thiết bị:"
+
+#. Type: string
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:2001
+msgid ""
+"Please choose a device. You have to specify the complete device number, "
+"including leading zeros."
+msgstr ""
+"Hãy chọn một thiết bị. Phải ghi rõ toàn bộ số thiết bị, gồm con số không đi "
+"trước."
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:3001
+msgid "Invalid device"
+msgstr "Thiết bị không hợp lệ"
+
+#. Type: error
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:3001
+msgid "An invalid device number has been chosen."
+msgstr "Một số thiết bị không hợp lệ đã được chọn."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid "Format the device?"
+msgstr "Định dạng thiết bị ?"
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid ""
+"The installer is unable to detect if the device ${device} has already been "
+"formatted or not. Devices need to be formatted before you can create "
+"partitions."
+msgstr ""
+"Bộ cài đặt không thể phát hiện nếu thiết bị ${device} đã được định dạng "
+"chưa. Cần phải định dạng mỗi thiết bị trước khi tạo phân vùng."
+
+#. Type: boolean
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:4001
+msgid ""
+"If you are sure the device has already been correctly formatted, you don't "
+"need to do so again."
+msgstr "Chắc biết thiết bị đã được định dạng thì không cần làm lại."
+
+#. Type: text
+#. Description
+#. :sl5:
+#: ../s390-dasd.templates:5001
+msgid "Formatting ${device}..."
+msgstr "Đang định dạng ${device}..."
+
+#. Type: text
+#. Description
+#. Main menu item. Keep translations below 55 columns
+#. :sl5:
+#: ../s390-dasd.templates:6001
+msgid "Configure direct access storage devices (DASD)"
+msgstr "Cấu hình thiết bị cất giữ truy cập trực tiếp (DASD)"
+
+#. Type: text
+#. Description
+#. Main menu item
+#. :sl5:
+#: ../zipl-installer.templates:1001
+msgid "Install the ZIPL boot loader on a hard disk"
+msgstr "Cài đặt bộ nạp khởi động ZIPL vào đĩa cứng"

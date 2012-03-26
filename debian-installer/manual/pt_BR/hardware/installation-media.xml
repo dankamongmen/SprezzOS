@@ -1,0 +1,251 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56150 -->
+<!-- updated 43773:56150 by Felipe Augusto van de Wiel (faw) 2008.11.11 -->
+
+ <sect1 id="installation-media">
+ <title>Mídias de Instalação</title>
+
+<para>
+
+Esta seção lhe ajudará a determinar que diferentes tipos de mídias de instalação
+poderá usar para instalar a &debian;. Por exemplo, se tiver uma unidade de
+disquetes em sua máquina, ela poderá ser usada para instalar a &debian;. Existe um
+capítulo completo sobre mídias de instalação em
+<xref linkend="install-methods"/>, que lista as vantagens e desvantagens de
+cada tipo de mídia. Você pode voltar a esta página assim que terminar a leitura
+daquela seção.
+
+</para>
+
+  <sect2 condition="supports-floppy-boot"><title>Disquetes</title>
+
+<para>
+
+Em alguns casos, você terá que dar a partida pela primeira vez
+a partir de disquetes, usando o disquete de recuperação. Geralmente, tudo que
+irá precisar é de um disquete de alta densidade (1440KB) de 3.5
+polegadas.
+
+</para><para arch="powerpc">
+
+O suporte a disquetes na CHRP atualmente não funciona.
+
+</para>
+</sect2>
+
+  <sect2><title>CD-ROM/DVD-ROM</title>
+
+<note><para>
+
+Onde quer que veja <quote>CD-ROM</quote> neste manual, entenda como
+CD-ROM ou DVD-ROM, porque ambas as tecnologias são a
+mesma coisa do ponto de vista do sistema operacional. (Exceto por alguns
+padrões bastante antigos de unidades de CD-ROM que não são nem SCSI ou
+IDE/ATAPI).
+
+</para></note><para>
+
+A instalação baseada em CD-ROM é suportada por algumas arquiteturas.
+Em máquinas que suportam a inicialização através de CD-ROMs, você
+deverá ser capaz de fazer uma instalação
+<phrase arch="not-s390">sem disquetes</phrase>
+<phrase arch="s390">sem tapes</phrase>. Até mesmo se o seu
+sistema não suportar a inicialização através de um CD-ROM,
+você poderá usar um CD-ROM em conjunto com as
+outras técnicas de instalação em seu sistema, uma vez que
+inicializou por outras formas; veja <xref linkend="boot-installer"/>.
+
+</para><para arch="x86">
+
+Há suporte para CD-ROMs SCSI, SATA e IDE/ATAPI. O
+<ulink url="&url-cd-howto;">Linux CD-ROM HOWTO</ulink>
+contém informação mais aprofundada sobre o uso de CD-ROMs no Linux.
+
+</para><para arch="x86">
+
+Unidades de CD-ROM USB também são suportadas, como são dispositivos
+FireWire pois são suportados pelos dispositivos ohci1394 e sbp2.
+
+</para><para arch="arm">
+
+CD-ROMs IDE/ATAPI são suportados por todas as máquinas ARM.
+
+</para><para arch="mips">
+
+Em máquinas SGI, a inicialização através da unidade de CD-Rom requer uma
+unidade de CD-ROM SCSI que seja capaz de funcionar com um tamanho de blocos
+lógico de 512 bytes. Muitas das unidades de CD-ROM envidas no mercado de PCs
+não tem esta capacidade. Se sua unidade de CD tem um jumper com a identificação
+<quote>Unix/PC</quote> ou <quote>512/2048</quote>, coloque-a na posição
+<quote>Unix</quote> ou <quote>512</quote>.
+
+Para iniciar a instalação, simplesmente selecione <quote>Instalação
+do Sistema</quote> na firmware. A BCM91250A suporta dispositivos que seguem o
+padrão IDE, incluindo unidades de CD-ROM, mas não são fornecidas imagens de CD
+para esta plataforma porque a firmware não reconhece unidades de CD. Para
+instalar o &debian; em uma placa de avaliação Broadcom BCM91480B, você
+precisa de uma placa PCI IDE, SATA ou SCSI.
+
+</para>
+  </sect2>
+  <sect2><title>Disco Rígido</title>
+<para>
+
+A possibilidade de iniciar o sistema de instalação diretamente através do
+disco rígido é outra opção disponível para muitas arquiteturas. Esta opção
+requer que outro sistema operacional esteja instalado para carregar o programa
+de instalação a partir do disco rígido.
+
+</para><para arch="sparc">
+
+A &arch-title; não permite a inicialização a partir do
+SunOS (Solaris), você poderá instalar a partir de uma partição
+SunOS (partes do UFS).
+
+</para>
+  </sect2>
+  <sect2 condition="bootable-usb"><title>Memória Stick USB</title>
+<para>
+
+Muitas máquinas que rodam &debian; precisam de suas unidades de CD-ROM
+somente para configurar o sistema para propósitos de recuperação. Se
+você administra alguns servidores, você preferencialmente evitará
+estes métodos e usará uma memory stick USB para a instalação e
+(caso preciso) a recuperação do seu sistema. Isto é também útil para
+sistemas de pequeno porte que não tem espaço para controladores
+desnecessários.
+
+</para>
+  </sect2>
+
+  <sect2><title>Rede</title>
+
+<para>
+
+A rede pode ser usada durante a instalação para obter arquivos necessários
+para a instalação. Se a rede é usada ou não depende do método de instalação
+que você escolheu e de suas respostas para certas questões que serão
+perguntadas durante a instalação. O sistema de instalação suporta a maior
+parte dos tipos de conexão de rede (incluindo PPPoE, mas não ISDN ou PPP),
+via HTTP ou FTP. Após a instalação ser completada, você também pode configurar
+o seu sistema para usar ISDN e PPP.
+
+</para><para condition="supports-tftp">
+
+Também é possível inicializar o sistema de instalação através da rede.
+<phrase arch="mips">Esta é a técnica de instalação preferida para
+&arch-title;.</phrase>
+
+</para><para condition="supports-nfsroot">
+
+A instalação sem discos, usando a inicialização via rede a partir
+de uma rede de área local e montagem NFS de todos os sistemas de arquivos
+locais é outra opção.
+
+</para>
+</sect2>
+
+  <sect2><title>Sistema GNU ou *ix</title>
+<para>
+
+Se já estiver executando um sistema adicional no estilo Unix, é possível
+usá-lo para instalar a &debian-gnu; sem usar o &d-i; descrito no resto deste
+manual. Este tipo de instalação poderá ser útil para usuários possuem
+hardwares não suportados ou de máquinas que não podem tomar downtimes.
+Se estiver interessado nesta técnica, vá até <xref linkend="linux-upgrade"/>.
+
+</para>
+  </sect2>
+
+
+  <sect2><title>Sistemas de Armazenamento Suportados</title>
+
+<para>
+
+O disquete de inicialização da &debian; trazem um kernel que é
+construído para maximizar o número de sistemas em que ele poderá
+ser executado. Infelizmente, isto cria um kernel grande, que contém
+muitos controladores que não serão usados em sua máquina<phrase arch="linux-any"> (veja
+<xref linkend="kernel-baking"/> para aprender como construir seu
+próprio kernel)</phrase>. O suporte para a maior faixa de dispositivos possíveis
+é considerável em geral, para se assegurar que o &debian; poderá ser
+instalado na maior quantidade de hardwares.
+
+</para><para arch="x86">
+
+Geralmente, o sistema de instalação da &debian; inclui suporte para disquetes,
+unidades IDE (também conhecidas como PATA), disquetes IDE, dispositivos IDE
+de porta paralela, controladores e unidades SCSI, USB e FireWire. Os sistemas
+de arquivos para os quais há suporte incluem FAT, extensões FAT Win-32 (VFAT)
+e NTFS.
+
+</para><para arch="i386">
+
+Há suporte para as interfaces de disco que emulam a interface de disco rígido
+<quote>AT</quote> &mdash; freqüentemente chamada de MFM, RLL, IDE ou PATA.
+Há suporte para controladores de disco SATA e SCSI de vários fabricantes. Veja
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>
+para mais detalhes.
+
+</para><para arch="sparc">
+
+Qualquer sistema de armazenamento suportado pelo kernel do Linux
+também é suportado pelo sistema de inicialização. Os seguintes
+controladores SCSI são suportados pelo kernel padrão:
+
+<itemizedlist>
+<listitem><para>
+
+Sparc ESP
+
+</para></listitem>
+<listitem><para>
+
+PTI Qlogic,ISP
+
+</para></listitem>
+<listitem><para>
+
+Adaptec AIC7xxx
+
+</para></listitem>
+<listitem><para>
+
+NCR and Symbios 53C8XX
+
+</para></listitem>
+</itemizedlist>
+
+Sistemas IDE (tal como o UltraSPARC 5) também são suportados. Veja a
+<ulink url="&url-sparc-linux-faq;">FAQ do Linux para processadores SPARC</ulink>
+para mais informações sobre hardwares SPARC suportados pelo kernel do Linux.
+
+</para><para arch="powerpc">
+
+Qualquer sistema de armazenamento suportado pelo kernel do Linux
+é também suportado pelo sistema de inicialização. Note que o kernel
+do Linux atual não suporta totalmente disquetes em sistemas CHRP.
+
+</para><para arch="hppa">
+
+Qualquer sistema de armazenamento suportado pelo kernel do Linux
+é também suportado pelo sistema de inicialização. Note que o
+kernel padrão do Linux não suporta a unidade de disquete.
+
+</para><para arch="mips">
+
+Qualquer sistema de armazenamento suportado pelo kernel do Linux
+é também suportado pelo sistema de inicialização.
+
+</para><para arch="s390">
+
+Qualquer sistema de armazenamento suportado pelo kernel do Linux
+é também suportado pelo sistema de inicialização. Isto significa
+que o FBA e ECKD DASDs são suportados pelo antigo layout de disco
+do Linux (ldl) e o novo layout de disco padrão do S/390 (cdl).
+
+</para>
+
+  </sect2>
+
+ </sect1>

@@ -1,0 +1,175 @@
+<!-- original version: 64916 -->
+
+ <sect1 id="install-overview">
+ <title>Vue générale du processus d'installation</title>
+<para>
+
+D'abord, une note au sujet des réinstallations. Avec &debian;, il est très 
+rare d'avoir à réinstaller complètement son système. La cause la plus 
+commune d'une réinstallation est sans doute une défaillance mécanique du disque dur.
+
+</para><para>
+
+Beaucoup de systèmes d'exploitation nécessitent une installation complète
+quand des erreurs critiques se produisent ou lors d'une mise à jour du
+système. Et même s'il n'est pas nécessaire de refaire entièrement une 
+installation, les programmes que vous utilisez doivent être réinstallés
+pour fonctionner correctement.
+
+</para><para>
+
+Avec &debian-gnu;, quand les choses tournent mal, vous devrez sans doute réparer le système, 
+mais pas le remplacer entièrement. Les mises à jour n'exigent
+jamais une installation complète&nbsp;; vous pouvez toujours les faire à 
+partir du système existant. Les programmes sont presque toujours compatibles 
+avec les versions successives du système. Quand la nouvelle version d'un 
+programme exige d'autres logiciels, le système de gestion des paquets fait en sorte
+que tous les logiciels nécessaires soient listés et installés. Beaucoup 
+d'efforts ont été déployés pour éviter le besoin d'une réinstallation&nbsp;:
+c'est la dernière option&nbsp;! Et l'installateur 
+<emphasis>n'est pas</emphasis> conçu pour procéder à une installation sur un système existant.
+
+</para><para>
+
+Voici les étapes qui composent le processus d'installation&nbsp;:
+
+</para>
+
+<orderedlist>
+<listitem><para>
+
+sauvegarder toutes les données du disque dur sur lequel
+l'installation sera faite&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+rassembler les informations concernant l'ordinateur, ainsi
+que la documentation nécessaire&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+préparer de l'espace libre sur le disque dur&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+télécharger l'installateur et tous les pilotes nécessaires
+(uniquement quand on n'utilise pas les cédéroms &debian;)&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+préparer les bandes, les disquettes ou les clés USB pour l'amorçage, ou 
+installer les fichiers d'amorçage - les utilisateurs des cédéroms &debian; 
+peuvent amorcer à partir de l'un des cédéroms&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+amorcer l'installateur&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+choisir une langue&nbsp;;
+
+      </para></listitem>
+
+<listitem arch="not-s390"><para>
+
+si nécessaire, mettre en place la connexion réseau&nbsp;;
+
+      </para></listitem>
+
+<listitem arch="s390"><para>
+
+configurer une interface réseau&nbsp;;
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+ouvrir une connexion ssh au nouveau système&nbsp;;
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+attacher un ou plusieurs DASD (<emphasis>Direct Access Storage Device)</emphasis>&nbsp;;
+
+</para></listitem>
+
+<listitem><para>
+
+créer et monter les partitions sur lesquelles &debian; sera installé&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+attendre la fin du processus automatique de téléchargement/installation/configuration
+du <firstterm>système de base</firstterm>&nbsp;;
+
+      </para></listitem>
+<listitem><para>
+
+installer un <firstterm>programme d'amorçage</firstterm> qui puisse 
+démarrer &debian-gnu; ou un autre système&nbsp;;
+
+      </para></listitem>
+<listitem><para>
+
+charger le nouveau système pour la première fois.
+
+      </para></listitem>
+  </orderedlist>
+
+<para condition="gtk">
+
+Sur &arch-title; il est possible d'utiliser
+la version graphique <phrase arch="powerpc">expérimentale</phrase>
+du système d'installation. Pour d'autres informations sur cette méthode
+d'installation, voyez <xref linkend="graphical"/>.
+
+</para>
+<para>
+
+Connaître les paquets qui sont impliqués dans chaque étape peut aider à la 
+résolution des problèmes qui peuvent se produire durant l'installation. Voici 
+les principaux acteurs de cette pièce&nbsp;:
+
+</para><para>
+
+L'<classname>installateur &debian;</classname> est le sujet 
+principal de ce manuel. Il détecte le matériel et charge les pilotes  
+nécessaires, il met en place la connexion au réseau avec 
+<classname>dhcp-client</classname>, il installe les paquets du système de 
+base avec <classname>debootstrap</classname> et il lance <classname>tasksel</classname>
+pour vous permettre d'installer d'autres logiciels. Il y a bien d'autres acteurs 
+mineurs, mais l'<classname>installateur &debian;</classname> a terminé sa 
+tâche quand vous démarrez pour la première fois le nouveau système.
+
+</para><para>
+
+Pour installer ce dont vous avez besoin, vous disposez du programme 
+<classname>tasksel</classname> qui peut installer des ensembles thématiques 
+de paquets, comme par exemple un serveur web ou un environnement de bureau.
+
+</para><para>
+
+</para><para>
+
+Une option importante lors de l'installation est d'installer ou non un
+environnement de bureau avec le système X Window. Si vous n'avez pas choisi
+la tâche <quote>Desktop environment</quote>, vous aurez un système minimal
+avec ligne de commande. L'installation d'un environnement de bureau est facultative
+car cela demande beaucoup d'espace disque. D'autre part, beaucoup de systèmes &debian;
+sont des serveurs qui n'ont pas vraiment besoin d'une interface graphique pour être
+opérationnels.
+
+</para><para arch="not-s390">
+
+L'installateur ne prend pas en charge le système X Window. Son installation et les
+problèmes liés ne sont pas du ressort de ce manuel.
+
+</para>
+ </sect1>

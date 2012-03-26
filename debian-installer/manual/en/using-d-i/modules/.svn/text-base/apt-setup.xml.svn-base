@@ -1,0 +1,196 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id$ -->
+
+   <sect3 id="apt-setup">
+   <title>Configuring apt</title>
+
+<para>
+
+One of the tools used to install packages on a &debian-gnu; system is
+a program called <command>apt-get</command>, from the
+<classname>apt</classname> package<footnote>
+
+<para>
+Note that the program which actually installs the packages is called
+<command>dpkg</command>.  However, this program is more of a low-level
+tool.  <command>apt-get</command> is a higher-level tool, which will
+invoke <command>dpkg</command> as appropriate. It knows how to retrieve
+packages from your CD, the network, or wherever. It is also able to
+automatically install other packages which are required to make the
+package you're trying to install work correctly.
+</para>
+
+</footnote>.
+Other front-ends for package management, like <command>aptitude</command>
+and <command>synaptic</command>, are also in use.
+These front-ends are recommended for new users, since they integrate
+some additional features (package searching and status checks)
+in a nice user interface. In fact, <command>aptitude</command> is now the
+recommended utility for package management.
+
+</para><para>
+
+<command>apt</command> must be configured so that it knows from where to
+retrieve packages. The results of this configuration are written to the
+file <filename>/etc/apt/sources.list</filename>. You can examine and edit
+this file to your liking after the installation is complete.
+
+</para><para>
+
+If you are installing at default priority, the installer will largely
+take care of the configuration automatically, based on the installation
+method you are using and possibly using choices made earlier in the
+installation. In most cases the installer will automatically add a security
+mirror and, if you are installing the stable distribution, a mirror for the
+<quote>volatile</quote> update service.
+
+</para><para>
+
+If you are installing at a lower priority (e.g. in expert mode), you will
+be able to make more decisions yourself. You can choose whether or not to
+use the security and/or volatile update services, and you can choose to
+add packages from the <quote>contrib</quote> and <quote>non-free</quote>
+sections of the archive.
+
+</para>
+
+    <sect4 id="apt-setup-cdset">
+    <title>Installing from more than one CD or DVD</title>
+
+<para>
+
+If you are installing from a CD or a DVD that is part of a larger set,
+the installer will ask if you want to scan additional CDs or DVDs.
+If you have additional CDs or DVDs available, you probably want to do
+this so the installer can use the packages included on them.
+
+</para><para>
+
+If you do not have any additional CDs or DVDs, that is no problem: using
+them is not required. If you also do not use a network mirror (as explained
+in the next section), it can mean that not all packages belonging to the
+tasks you select in the next step of the installation can be installed.
+
+</para>
+<note><para>
+
+Packages are included on CDs (and DVDs) in the order of their popularity.
+This means that for most uses only the first CDs in a set are needed and
+that only very few people actually use any of the packages included on the
+last CDs in a set.
+
+</para><para>
+
+It also means that buying or downloading and burning a full CD set is just
+a waste of money as you'll never use most of them. In most cases you are
+better off getting only the first 3 to 8 CDs and installing any additional
+packages you may need from the Internet by using a mirror.
+The same goes for DVD sets: the first DVD, or maybe the first two DVDs
+will cover most needs.
+
+</para><para>
+
+A good rule of thumb is that for a regular desktop installation (using the
+GNOME desktop environment) only the first three CDs are needed. For the
+alternative desktop environments (KDE or Xfce), additional CDs are needed.
+The first DVD easily covers all three desktop environments.
+
+</para></note>
+<para>
+
+If you do scan multiple CDs or DVDs, the installer will prompt you to
+exchange them when it needs packages from another CD/DVD than the one
+currently in the drive. Note that only CDs or DVDs that belong to the
+same set should be scanned. The order in which they are scanned does not
+really matter, but scanning them in ascending order will reduce the chance
+of mistakes.
+
+</para>
+    </sect4>
+
+    <sect4 id="apt-setup-mirror">
+    <title>Using a network mirror</title>
+
+<para>
+
+One question that will be asked during most installs is whether or not to
+use a network mirror as a source for packages. In most cases the default
+answer should be fine, but there are some exceptions.
+
+</para><para>
+
+If you are <emphasis>not</emphasis> installing from a full CD or DVD or
+using a full CD/DVD image, you really should use a network mirror as
+otherwise you will end up with only a very minimal system. However, if you
+have a limited Internet connection it is best <emphasis>not</emphasis>
+to select the <literal>desktop</literal> task in the next step of the
+installation.
+
+</para><para>
+
+If you are installing from a single full CD or using a full CD image, using
+a network mirror is not required, but is still strongly recommended because
+a single CD contains only a fairly limited number of packages.
+If you have a limited Internet connection it may still be best
+to <emphasis>not</emphasis> select a network mirror here, but to finish the
+installation using only what's available on the CD and selectively install
+additional packages after the installation (i.e. after you have rebooted into
+the new system).
+
+</para><para>
+
+If you are installing from a DVD or using a DVD image, any packages needed
+during the installation should be present on the first DVD. The same is true
+if you have scanned multiple CDs as explained in the previous section. Use
+of a network mirror is optional.
+
+</para><para>
+
+One advantage of adding a network mirror is that updates that have occurred
+since the CD/DVD set was created and have been included in a point release,
+will become available for installation, thus extending the life of your CD/DVD
+set without compromising the security or stability of the installed system.
+
+</para><para>
+
+In summary: selecting a network mirror is generally a good idea, except
+if you do not have a good Internet connection. If the current version of
+a package is available from CD/DVD, the installer will always use that.
+The amount of data that will be downloaded if you do select a mirror thus
+depends on
+
+<orderedlist>
+<listitem><para>
+
+the tasks you select in the next step of the installation,
+
+</para></listitem>
+<listitem><para>
+
+which packages are needed for those tasks,
+
+</para></listitem>
+<listitem><para>
+ 
+which of those packages are present on the CDs or DVDs you have scanned, and
+
+</para></listitem>
+<listitem><para>
+
+whether any updated versions of packages included on the CDs or DVDs are
+available from a mirror (either a regular package mirror, or a mirror for
+security or volatile updates).
+
+</para></listitem>
+</orderedlist>
+
+</para><para>
+
+Note that the last point means that, even if you choose not to use a network
+mirror, some packages may still be downloaded from the Internet if there is a
+security or volatile update available for them and those services have been
+configured.
+
+</para>
+</sect4>
+   </sect3>

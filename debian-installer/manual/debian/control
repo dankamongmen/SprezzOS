@@ -1,0 +1,161 @@
+Source: installation-guide
+Section: doc
+Priority: optional
+Maintainer: Debian Install System Team <debian-boot@lists.debian.org>
+Standards-Version: 3.8.3
+Vcs-Svn: svn://svn.debian.org/d-i/trunk/manual
+Vcs-Browser: http://anonscm.debian.org/viewvc/d-i/trunk/manual/
+Build-Depends: debhelper (>= 6)
+Build-Depends-Indep: docbook, docbook-xml, docbook-xsl, xsltproc, gawk, libhtml-parser-perl, w3m, poxml, jadetex, openjade | openjade1.3, docbook-dsssl, ghostscript, texlive-lang-cyrillic, texlive-lang-czechslovak, texlive-lang-finnish, texlive-lang-french, texlive-lang-german, texlive-lang-greek, texlive-lang-italian, texlive-lang-other, texlive-lang-portuguese, texlive-lang-spanish, texlive-lang-swedish, texlive-lang-vietnamese, ko.tex-base, cm-super
+# This comment can also be used to generate a Build-Depends-Indep line, by
+# running the debian/genbuilddeps program. So put each build dep on its own
+# line, prefixed by " - " and to comment out a build dep, start the line
+# with two hashes. And don't edit the Build-Depends-Indep line above by hand.
+#
+#	- docbook
+#	- docbook-xml
+#	- docbook-xsl
+#	- xsltproc
+#		The manual is a docbook XML document, so needs these to	build.
+#	- gawk
+#	- libhtml-parser-perl
+#		Used as part of the manual build process.
+#	- w3m
+#		Used to generate plain text manual from html.
+#	- poxml
+#		Translations of the manual are done in po files via poxml.
+#	- jadetex
+#	- openjade | openjade1.3
+#	- docbook-dsssl
+#		Used for producing pdf and ps files.
+#	- ghostscript
+#		For pdfs.
+#	- texlive-lang-cyrillic
+#	- texlive-lang-czechslovak
+##	- texlive-lang-danish
+##	- texlive-lang-dutch
+#	- texlive-lang-finnish
+#	- texlive-lang-french
+#	- texlive-lang-german
+#	- texlive-lang-greek
+#	- texlive-lang-italian
+#	- texlive-lang-other
+#		Contains hyphenation for Romanian.
+#	- texlive-lang-portuguese
+#	- texlive-lang-spanish
+#	- texlive-lang-swedish
+#	- texlive-lang-vietnamese
+#		All texlive-lang-* packages provide hyphenation and other
+#		language-specific support.
+#	- ko.tex-base
+#		Font for Korean pdf.
+#	- cm-super
+#		Font for Russian pdf.
+
+Package: installation-guide-amd64
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for amd64
+ This package contains the Debian installation guide for the AMD64
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-armel
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for armel
+ This package contains the Debian installation guide for the ARM
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-hppa
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for hppa
+ This package contains the Debian installation guide for the PA-RISC
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-i386
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for i386
+ This package contains the Debian installation guide for the Intel x86
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-ia64
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for ia64
+ This package contains the Debian installation guide for the IA-64
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-kfreebsd-amd64
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for kFreeBSD amd64
+ This package contains the Debian installation guide for the kFreeBSD kernel
+ running on the AMD64 architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-kfreebsd-i386
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for kFreeBSD i386
+ This package contains the Debian installation guide for the kFreeBSD kernel
+ running on the Intel x86 architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-mips
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for mips
+ This package contains the Debian installation guide for the Mips
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-mipsel
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for mipsel
+ This package contains the Debian installation guide for the Mipsel
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-powerpc
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for powerpc
+ This package contains the Debian installation guide for the PowerPC
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-s390
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for s390
+ This package contains the Debian installation guide for the S/390
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.
+
+Package: installation-guide-sparc
+Architecture: all
+Conflicts: installation-guide
+Description: Debian installation guide for sparc
+ This package contains the Debian installation guide for the Sparc
+ architecture, in a variety of languages.
+ .
+ A shorter reference, the installation HOWTO, is included in an appendix.

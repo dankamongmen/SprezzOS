@@ -1,0 +1,95 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="pre-install-bios-setup">
+ <!-- <title>Pre-Installation Hardware and Operating System Setup</title> -->
+ <title>Configurazione di hardware e sistema operativo prima dell'installazione</title>
+<para>
+
+<!--
+This section will walk you through pre-installation hardware setup, if
+any, that you will need to do prior to installing &debian;.  Generally,
+this involves checking and possibly changing firmware settings for
+your system.  The <quote>firmware</quote> is the core software used by the
+hardware; it is most critically invoked during the bootstrap process
+(after power-up). Known hardware issues affecting the reliability of
+&debian-gnu; on your system are also highlighted.
+-->
+
+Questa sezione guida il lettore attraverso la riconfigurazione dell'hardware
+che in alcuni casi potrebbe essere necessaria prima di installare &debian;.
+Generalmente si tratta di controllare e, nel caso, di modificare le
+impostazioni del firmware del proprio sistema. Il <quote>firmware</quote>
+è il software essenziale usato dall'hardware. Ne viene fatto un utilizzo
+critico durante il processo di bootstrap (che segue l'accensione). Verranno
+anche evidenziati problemi noti con hardware particolare che potrebbero
+incidere sull'affidabilità di &debian-gnu;.
+
+</para>
+
+&bios-setup-i386.xml;
+&bios-setup-powerpc.xml;
+&bios-setup-sparc.xml;
+&bios-setup-s390.xml;
+
+  <sect2 arch="x86;powerpc" id="hardware-issues">
+  <!-- <title>Hardware Issues to Watch Out For</title> -->
+  <title>Problemi hardware a cui prestare attenzione</title>
+   <formalpara arch="x86">
+   <!-- <title>USB BIOS support and keyboards</title> -->
+   <title>Tastiere e BIOS USB</title>
+<para>
+
+<!--
+If you have no AT-style keyboard and only a USB model, you may need
+to enable legacy AT keyboard emulation in your BIOS setup. Only do this if
+the installation system fails to use your keyboard in USB mode. Conversely,
+for some systems (especially laptops) you may need to disable legacy USB
+support if your keyboard does not respond.
+Consult your main board manual and look in the BIOS for <quote>Legacy
+keyboard emulation</quote> or <quote>USB keyboard support</quote> options.
+-->
+
+Se non si dispone di una tastiera AT e si ha solo una tastiera USB potrebbe
+essere necessario attivare nella configurazione del BIOS l'emulazione di
+tastiera AT. Questa configurazione deve essere fatta solo se il sistema
+d'installazione non riesce a usare la tastiera in modalità USB. Al contrario
+(in particolare sui portatili) potrebbe essere necessario disattivare il
+supporto per USB se la tastiera non risponde. Si consulti il manuale della
+scheda madre cercando le voci <quote>Legacy keyboard emulation</quote> o
+<quote>USB keyboard support</quote>.
+
+</para>
+   </formalpara>
+
+   <formalpara arch="powerpc">
+   <!-- <title>Display-visibility on OldWorld Powermacs</title> -->
+   <title>Qualità della visualizzazione su Powermac OldWorld</title>
+<para>
+
+<!--
+Some OldWorld Powermacs, most notably those with the <quote>control</quote>
+display driver, may not reliably produce a colormap under Linux when the
+display is configured for more than 256 colors. If you are experiencing such
+issues with your display after rebooting (you can sometimes see data on
+the monitor, but on other occasions cannot see anything) or, if the screen
+turns black after booting the installer instead of showing you the user
+interface, try changing your display settings under MacOS to use 256
+colors instead of <quote>thousands</quote> or <quote>millions</quote>.
+-->
+
+Alcuni Powermac OldWorld, principalmente quelli con il <quote>control
+display driver</quote>, potrebbero non essere in grado di riprodurre
+correttamente la mappa dei colori sotto Linux quando si richiede una
+visualizzazione con più di 256 colori. Se si verificano problemi di
+visualizzazione dopo il riavvio (si vedono degli strani caratteri o
+non si vede nulla) oppure se dopo l'avvio lo schermo diventa nero anziché
+mostrare l'interfaccia utente del sistema d'installazione, si può provare
+a modificare le impostazioni di visualizzazione sotto MacOS in modo da
+usare 256 colori al posto di <quote>migliaia</quote> o addirittura
+<quote>milioni</quote> di colori.
+
+</para>
+   </formalpara>
+  </sect2>
+ </sect1>

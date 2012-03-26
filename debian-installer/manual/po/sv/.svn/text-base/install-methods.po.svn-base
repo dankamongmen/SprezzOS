@@ -1,0 +1,1793 @@
+# Swedish translation of install-methods.
+# Copyright (C) 2006 Free Software Foundation, Inc.
+# Daniel Nylander <po@danielnylander.se>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: install-methods\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-29 05:56+0000\n"
+"PO-Revision-Date: 2011-04-25 09:50+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#: install-methods.xml:5
+#, no-c-format
+msgid "Obtaining System Installation Media"
+msgstr "Få tag på installationsmedia"
+
+#. Tag: title
+#: install-methods.xml:12
+#, no-c-format
+msgid "Official &debian-gnu; CD-ROM Sets"
+msgstr "Officiella &debian-gnu; cd-rom-uppsättningar"
+
+#. Tag: para
+#: install-methods.xml:13
+#, no-c-format
+msgid "By far the easiest way to install &debian-gnu; is from an Official &debian; CD-ROM Set. You can buy a set from a vendor (see the <ulink url=\"&url-debian-cd-vendors;\">CD vendors page</ulink>). You may also download the CD-ROM images from a &debian; mirror and make your own set, if you have a fast network connection and a CD burner (see the <ulink url=\"&url-debian-cd;\">Debian CD page</ulink> for detailed instructions). If you have a &debian; CD set and CDs are bootable on your machine, you can skip right to <xref linkend=\"boot-installer\"/>; much effort has been expended to ensure the files most people need are there on the CD. Although a full set of binary packages requires several CDs, it is unlikely you will need packages on the third CD and above. You may also consider using the DVD version, which saves a lot of space on your shelf and you avoid the CD shuffling marathon."
+msgstr "Det klart enklaste sättet att installera &debian-gnu; är från en officiell uppsättning av &debian;s cd-skivor. Du kan köpa uppsättningen från en leverantör (se <ulink url=\"&url-debian-cd-vendors;\">Debian-cd-försäljare</ulink>). Du kan också hämta cd-avbildningar från en &debian;-spegel och göra en egen uppsättning, om du har en snabb nätverksanslutning och en cd-brännare (se <ulink url=\"&url-debian-cd;\">Debian GNU/Linux på cd</ulink> för detaljerade instruktioner). Om du har en uppsättning av &debian;s cd-skivor och möjligheten att starta upp din dator på en cd-skiva kan du hoppa till <xref linkend=\"boot-installer\"/>; mycket jobb har lagts ner på att se till att filer som de flesta behöver finns på cd-skivan. Även om en full uppsättning av binära paket kräver många cd-skivor är det ovanligt att du behöver paket på tredje cd-skivan och uppåt. Du kan också använda dvd-versionen som sparar en hel del plats på din bokhylla och du slipper mata skivor in och ut. "
+
+#. Tag: para
+#: install-methods.xml:30
+#, no-c-format
+msgid "If your machine doesn't support CD booting, but you do have a CD set, you can use an alternative strategy such as <phrase condition=\"supports-floppy-boot\">floppy disk,</phrase> <phrase arch=\"s390\">tape, emulated tape,</phrase> <phrase condition=\"bootable-disk\">hard disk,</phrase> <phrase condition=\"bootable-usb\">usb stick,</phrase> <phrase condition=\"supports-tftp\">net boot,</phrase> or manually loading the kernel from the CD to initially boot the system installer. The files you need for booting by another means are also on the CD; the &debian; network archive and CD folder organization are identical. So when archive file paths are given below for particular files you need for booting, look for those files in the same directories and subdirectories on your CD."
+msgstr "Om din maskin inte har stöd för uppstart på cd-skiva men du har en cd-uppsättning kan du använda en alternativ strategi såsom <phrase condition=\"supports-floppy-boot\">startdiskett,</phrase> <phrase arch=\"s390\">band, emulerade band,</phrase> <phrase condition=\"bootable-disk\">hårddisk,</phrase> <phrase condition=\"bootable-usb\">usb-minne,</phrase> <phrase condition=\"supports-tftp\">nätuppstart,</phrase> eller manuellt läsa in kärnan från en cd för att initialt starta upp systemets installationsprogram. Filerna du behöver för att starta upp på annat sätt finns också på cd:n; organiseringen av &debian;s nätverksarkiv och cd-katalogen är identisk. När filsökvägar i arkivet anges nedan för speciella filer du behöver för uppstart kan du leta efter de här filerna i samma kataloger och underkataloger på din cd."
+
+#. Tag: para
+#: install-methods.xml:52
+#, no-c-format
+msgid "Once the installer is booted, it will be able to obtain all the other files it needs from the CD."
+msgstr "När installationsprogrammet har startat upp kan den hämta de andra filerna den behöver från cd-skivan."
+
+#. Tag: para
+#: install-methods.xml:57
+#, no-c-format
+msgid "If you don't have a CD set, then you will need to download the installer system files and place them on the <phrase arch=\"s390\">installation tape</phrase> <phrase condition=\"supports-floppy-boot\">floppy disk or</phrase> <phrase condition=\"bootable-disk\">hard disk or</phrase> <phrase condition=\"bootable-usb\">usb stick or</phrase> <phrase condition=\"supports-tftp\">a connected computer</phrase> so they can be used to boot the installer."
+msgstr "Om du inte har en cd-uppsättning behöver du hämta systemfiler för installationsprogrammet och placera dem på <phrase arch=\"s390\">ett installationsband</phrase> <phrase condition=\"supports-floppy-boot\">en diskett eller</phrase> <phrase condition=\"bootable-disk\">hårddisk eller</phrase> <phrase condition=\"bootable-usb\">usb-minne eller</phrase> <phrase condition=\"supports-tftp\">en ansluten dator</phrase> så att de kan användas för att starta upp installationsprogrammet."
+
+#. Tag: title
+#: install-methods.xml:83
+#, no-c-format
+msgid "Downloading Files from &debian; Mirrors"
+msgstr "Hämta filer från &debian;-speglar"
+
+#. Tag: para
+#: install-methods.xml:85
+#, no-c-format
+msgid "To find the nearest (and thus probably the fastest) mirror, see the <ulink url=\"&url-debian-mirrors;\">list of &debian; mirrors</ulink>."
+msgstr "För att hitta den närmaste (och kanske även den snabbaste) spegeln, se <ulink url=\"&url-debian-mirrors;\">Hämta &debian; från Internet</ulink>."
+
+#. Tag: para
+#: install-methods.xml:90
+#, no-c-format
+msgid "When downloading files from a &debian; mirror using FTP, be sure to download the files in <emphasis>binary</emphasis> mode, not text or automatic mode."
+msgstr "När filer hämtas från en &debian;-spegel via FTP så bör du se till att filerna hämtas i <emphasis>binärt</emphasis> läge, inte text eller automatiskt läge."
+
+#. Tag: title
+#: install-methods.xml:98
+#, no-c-format
+msgid "Where to Find Installation Images"
+msgstr "Var man får tag på installationsavbildningar"
+
+#. Tag: para
+#: install-methods.xml:100
+#, no-c-format
+msgid "The installation images are located on each &debian; mirror in the directory <ulink url=\"&url-debian-installer;images\">debian/dists/&releasename;/main/installer-&architecture;/current/images/</ulink> &mdash; the <ulink url=\"&url-debian-installer;images/MANIFEST\">MANIFEST</ulink> lists each image and its purpose."
+msgstr "Installationsavbildningar finns på varje &debian;-spegel i katalogen <ulink url=\"&url-debian-installer;images\">debian/dists/&releasename;/main/installer-&architecture;/current/images/</ulink> &mdash; <ulink url=\"&url-debian-installer;images/MANIFEST\">MANIFEST</ulink> listar varje avbild och dess funktion."
+
+#. Tag: title
+#: install-methods.xml:113
+#, no-c-format
+msgid "NSLU2 Installation Files"
+msgstr "Installationsfiler för NSLU2"
+
+#. Tag: para
+#: install-methods.xml:114
+#, no-c-format
+msgid "A firmware image is provided for the Linksys NSLU2 which will automatically boot <classname>debian-installer</classname>. This image can be uploaded via the Linksys web frontend or with upslug2. This firmware image can be obtained from &nslu2-firmware-img;."
+msgstr "En fast programvaruavbildning tillhandahålls för Linksys NSLU2 som automatiskt kommer att starta upp <classname>debian-installer</classname>. Denna avbildning kan skickas upp via Linksys webbgränssnitt eller med upslug2. Den här fasta programvaruavbildningen kan hämtas från &nslu2-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:126
+#, no-c-format
+msgid "Thecus N2100 Installation Files"
+msgstr "Installationsfiler för Thecus N2100"
+
+#. Tag: para
+#: install-methods.xml:127
+#, no-c-format
+msgid "A firmware image is provided for the Thecus N2100 which will automatically boot <classname>debian-installer</classname>. This image can be installed using the Thecus firmware upgrade process. This firmware image can be obtained from &n2100-firmware-img;."
+msgstr "En fast programvaruavbildning tillhandahålls för Thecus N2100 som automatiskt kommer att starta upp <classname>debian-installer</classname>. Denna avbildning kan installeras med hjälp av uppgraderingsprocessen för Thecus fasta programvara. Den här fasta programvaruavbildningen kan hämtas från &n2100-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:138
+#, no-c-format
+msgid "GLAN Tank Installation Files"
+msgstr "Installationsfiler för GLAN Tank"
+
+#. Tag: para
+#: install-methods.xml:139
+#, no-c-format
+msgid "The GLAN Tank requires a kernel and ramdisk on an ext2 partition on the disk on which you intend to install &debian;. These images can be obtained from &glantank-firmware-img;."
+msgstr "GLAN Tank kräver en kärna och ramdisk på en ext2-partition på den disk som du tänker installera &debian; på. Dessa avbildningar kan hämtas från &glantank-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:149
+#, no-c-format
+msgid "Kurobox Pro Installation Files"
+msgstr "Installationsfiler för Kurobox Pro"
+
+#. Tag: para
+#: install-methods.xml:150
+#, no-c-format
+msgid "The Kurobox Pro requires a kernel and ramdisk on an ext2 partition on the disk on which you intend to install &debian;. These images can be obtained from &kuroboxpro-firmware-img;."
+msgstr "Kurobox Pro kräver en kärna och ramdisk på en ext2-partition på den disk som du tänker installera &debian; på. Dessa avbildningar kan hämtas från &kuroboxpro-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:160
+#, no-c-format
+msgid "HP mv2120 Installation Files"
+msgstr "Installationsfiler för HP mv2120"
+
+#. Tag: para
+#: install-methods.xml:161
+#, no-c-format
+msgid "A firmware image is provided for the HP mv2120 which will automatically boot <classname>debian-installer</classname>. This image can be installed with uphpmvault on Linux and other systems and with the HP Media Vault Firmware Recovery Utility on Windows. The firmware image can be obtained from &mv2120-firmware-img;."
+msgstr "En fast programvaruavbildning tillhandahålls för HP mv2120 som automatiskt kommer att starta upp <classname>debian-installer</classname>. Denna avbildning kan installeras med uphpmvault på Linux och andra system och med HP Media Vault Firmware Recovery Utility på Windows. Den här fasta programvaruavbildningen kan hämtas från &mv2120-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:173
+#, no-c-format
+msgid "QNAP Turbo Station Installation Files"
+msgstr "Installationsfiler för QNAP Turbo Station"
+
+#. Tag: para
+#: install-methods.xml:174
+#, no-c-format
+msgid "The installation files for the QNAP Turbo Station consist of a kernel and ramdisk as well as a script to write these images to flash. You can obtain the installation files for QNAP TS-109 and TS-209 from &qnap-orion-firmware-img; and for QNAP TS-110, TS-119, TS-210, TS-219, TS-219P from &qnap-kirkwood-firmware-img;."
+msgstr "Installationsfilerna för QNAP Turbo Station innehåller en kärna och ramdisk såväl som ett skript för att skriva dessa avbildningar till flash-minne. Du kan hämta installationsfilerna för QNAP TS-109 och TS-209 från &qnap-orion-firmware-img; och för QNAP TS-110, TS-119, TS-210, TS-219, TS-219P från &qnap-kirkwood-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:186
+#, no-c-format
+msgid "SheevaPlug and OpenRD Installation Files"
+msgstr "Installationsfiler för SheevaPlug och OpenRD"
+
+#. Tag: para
+#: install-methods.xml:187
+#, no-c-format
+msgid "The installation files for the Marvell SheevaPlug and OpenRD devices consist of a kernel and initrd for U-Boot. You can obtain these files from &kirkwood-marvell-firmware-img;."
+msgstr "Installationsfilerna för Marvell SheevaPlug och OpenRD-enheter innehåller en kärna och initrd för U-Boot. Du kan hämta dessa filer från &kirkwood-marvell-firmware-img;."
+
+#. Tag: title
+#: install-methods.xml:237
+#, no-c-format
+msgid "Creating an IPL tape"
+msgstr "Skapa ett IPL-band"
+
+#. Tag: para
+#: install-methods.xml:239
+#, no-c-format
+msgid "If you can't boot (IPL) from the CD-ROM and you are not using VM you need to create an IPL tape first. This is described in section 3.4.3 in the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and S/390: Distributions</ulink> Redbook. The files you need to write to the tape are (in this order): <filename>kernel.debian</filename>, <filename>parmfile.debian</filename> and <filename>initrd.debian</filename>. The files can be downloaded from the <filename>tape</filename> sub-directory, see <xref linkend=\"where-files\"/>."
+msgstr "Om du inte kan starta upp (IPL) från cd-rom och du inte använder VM behöver du skapa ett IPL-band först. Det här beskrivs i avsnittet 3.4.3 i en \"redbook\" kallad <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and S/390: Distributions</ulink>. Filerna du behöver skriva till bandet är (i den här ordningen): <filename>kernel.debian</filename>, <filename>parmfile.debian</filename> och <filename>initrd.debian</filename>. Filerna kan hämtas från underkatalogen <filename>tape</filename>, se <xref linkend=\"where-files\"/>."
+
+#. Tag: title
+#: install-methods.xml:263
+#, no-c-format
+msgid "Creating Floppies from Disk Images"
+msgstr "Skapa startdisketter från diskettavbildningar"
+
+#. Tag: para
+#: install-methods.xml:264
+#, no-c-format
+msgid "Bootable floppy disks are generally used as a last resort to boot the installer on hardware that cannot boot from CD or by other means."
+msgstr "Startbara disketter används oftast som en sista utväg för att starta upp installationsprogrammet på maskinvara som inte kan starta upp från cd eller på andra sätt."
+
+#. Tag: para
+#: install-methods.xml:269
+#, no-c-format
+msgid "Booting the installer from floppy disk reportedly fails on Mac USB floppy drives."
+msgstr "Starta upp installationsprogrammet från diskett misslyckas på Mac USB-diskettenheter enligt rapporter."
+
+#. Tag: para
+#: install-methods.xml:274
+#, no-c-format
+msgid "Disk images are files containing the complete contents of a floppy disk in <emphasis>raw</emphasis> form. Disk images, such as <filename>boot.img</filename>, cannot simply be copied to floppy drives. A special program is used to write the image files to floppy disk in <emphasis>raw</emphasis> mode. This is required because these images are raw representations of the disk; it is required to do a <emphasis>sector copy</emphasis> of the data from the file onto the floppy."
+msgstr "Diskettavbildningar är filer som innehåller det kompletta innehållet av en diskett i <emphasis>råformat</emphasis>. Diskettavbildningar, såsom <filename>boot.img</filename>, kan inte bara kopieras till diskettenheter. Ett speciellt program används för att skriva avbildningsfilerna till disketter i <emphasis>råläge</emphasis>. Det här krävs för att de här avbilderna är råa representationer av disketten; det är nödvändigt att göra en <emphasis>sektorkopiering</emphasis> av data från filen till disketten."
+
+#. Tag: para
+#: install-methods.xml:285
+#, no-c-format
+msgid "There are different techniques for creating floppies from disk images. This section describes how to create floppies from disk images on different platforms."
+msgstr "Det finns olika tekniker för att skapa disketter från diskettavbildningar. Det här avsnittet beskriver hur man skapar disketter från diskettavbildningar på olika plattformar."
+
+#. Tag: para
+#: install-methods.xml:291
+#, no-c-format
+msgid "Before you can create the floppies, you will first need to download them from one of the &debian; mirrors, as explained in <xref linkend=\"downloading-files\"/>. <phrase arch=\"i386\">If you already have an installation CD-ROM or DVD, the floppy images may also be included on the CD/DVD.</phrase>"
+msgstr "Innan du kan skapa disketterna behöver du först hämta ner dem från en av &debian;-speglarna, som förklaras i <xref linkend=\"downloading-files\"/>. <phrase arch=\"i386\">Om du redan har en installations-cd eller dvd kan även diskettavbildningarna finnas inkluderade på skivan.</phrase>"
+
+#. Tag: para
+#: install-methods.xml:299
+#, no-c-format
+msgid "No matter which method you use to create your floppies, you should remember to flip the write-protect tab on the floppies once you have written them, to ensure they are not damaged unintentionally."
+msgstr "Oavsett vilken metod du använder för att skapa dina disketter, bör du komma ihåg att aktivera skrivskyddet på disketterna när du har skrivit på dem, för att vara säker på att de inte oavsiktligt ändras."
+
+#. Tag: title
+#: install-methods.xml:307
+#, no-c-format
+msgid "Writing Disk Images From a Linux or Unix System"
+msgstr "Skriva diskettavbildningar från ett Linux eller Unix-system"
+
+#. Tag: para
+#: install-methods.xml:308
+#, no-c-format
+msgid ""
+"To write the floppy disk image files to the floppy disks, you will probably need root access to the system. Place a good, blank floppy in the floppy drive. Next, use the command <informalexample><screen>\n"
+"$ dd if=<replaceable>filename</replaceable> of=/dev/fd0 bs=1024 conv=sync ; sync\n"
+"</screen></informalexample> where <replaceable>filename</replaceable> is one of the floppy disk image files. <filename>/dev/fd0</filename> is a commonly used name of the floppy disk device, it may be different on your workstation<phrase arch=\"sparc\"> (on Solaris, it is <filename>/dev/fd/0</filename>)</phrase>. The command may return to the prompt before Unix has finished writing the floppy disk, so look for the disk-in-use light on the floppy drive and be sure that the light is out and the disk has stopped revolving before you remove it from the drive. On some systems, you'll have to run a command to eject the floppy from the drive <phrase arch=\"sparc\"> (on Solaris, use <command>eject</command>, see the manual page)</phrase>."
+msgstr ""
+"För att skriva diskettavbildningsfilerna till disketterna behöver du antagligen root-åtkomst till systemet. Placera en bra, tom diskett i diskettenheten. Använd sedan kommandot <informalexample><screen>\n"
+"$ dd if=<replaceable>filnamn</replaceable> of=/dev/fd0 bs=1024 conv=sync ; sync\n"
+"</screen></informalexample> där <replaceable>filnamn</replaceable> är en av diskettavbildningsfilerna. <filename>/dev/fd0</filename> är ett vanligt använt namn på diskettenheten, det kan vara annorlunda på den dator du använder<phrase arch=\"sparc\"> (på Solaris är det <filename>/dev/fd/0</filename>)</phrase>. Kommandot kan återvända till prompten före Unix har skrivit klart disketten så se på aktivitetslampan på diskettenheten och se till att lampan slocknat och disketten slutat rotera innan du matar ut den från enheten. På vissa system behöver du köra ett kommando för att mata ut disketten från enheten <phrase arch=\"sparc\"> (på Solaris, använd <command>eject</command>, se manualsidan)</phrase>."
+
+#. Tag: para
+#: install-methods.xml:329
+#, no-c-format
+msgid "Some systems attempt to automatically mount a floppy disk when you place it in the drive. You might have to disable this feature before the workstation will allow you to write a floppy in <emphasis>raw mode</emphasis>. Unfortunately, how to accomplish this will vary based on your operating system. <phrase arch=\"sparc\"> On Solaris, you can work around volume management to get raw access to the floppy. First, make sure that the floppy is auto-mounted (using <command>volcheck</command> or the equivalent command in the file manager). Then use a <command>dd</command> command of the form given above, just replace <filename>/dev/fd0</filename> with <filename>/vol/rdsk/<replaceable>floppy_name</replaceable></filename>, where <replaceable>floppy_name</replaceable> is the name the floppy disk was given when it was formatted (unnamed floppies default to the name <filename>unnamed_floppy</filename>). On other systems, ask your system administrator. </phrase>"
+msgstr "Vissa system försöker att automatiskt montera en diskett när du matar in den i enheten. Du kanske behöver inaktivera den här funktionen innan arbetsstationen tillåter dig att skriva en diskett i <emphasis>råläge</emphasis>. Hur man gör det beror helt på ditt operativsystem. <phrase arch=\"sparc\"> På Solaris kan du komma runt volymhanteringen för att få råtillgång till disketten. Se först till att disketten är automatiskt monterad (med <command>volcheck</command> eller motsvarande kommando i filhanteraren). Använd sedan ett <command>dd</command>-kommando liknande exemplet ovan, ersätt bara <filename>/dev/fd0</filename> med <filename>/vol/rdsk/<replaceable>diskettnamnet</replaceable></filename>, där <replaceable>diskettnamnet</replaceable> är namnet på diskettnamnet som angavs när den blev formaterad (ej namngivna disketter får namnet <filename>unnamed_floppy</filename>). På andra system, fråga din systemadministratör. </phrase>"
+
+#. Tag: para
+#: install-methods.xml:350
+#, no-c-format
+msgid "If writing a floppy on powerpc Linux, you will need to eject it. The <command>eject</command> program handles this nicely; you might need to install it."
+msgstr "Om du skriver en diskett på en PowerPC Linux-maskin, behöver du mata ut den. Programmet <command>eject</command> hanterar det snyggt; du kan behöva installera det."
+
+#. Tag: title
+#: install-methods.xml:368
+#, no-c-format
+msgid "Writing Disk Images From DOS, Windows, or OS/2"
+msgstr "Skriva diskettavbildningar från DOS, Windows eller OS/2"
+
+#. Tag: para
+#: install-methods.xml:370
+#, no-c-format
+msgid "If you have access to an i386 or amd64 machine, you can use one of the following programs to copy images to floppies."
+msgstr "Om du har tillgång till en i386- eller amd64-maskin, kan du använda ett av följande program för att kopiera avbildningar till disketter."
+
+#. Tag: para
+#: install-methods.xml:375
+#, no-c-format
+msgid "The <command>rawrite1</command> and <command>rawrite2</command> programs can be used under MS-DOS. To use these programs, first make sure that you are booted into DOS. Trying to use these programs from within a DOS box in Windows, or double-clicking on these programs from the Windows Explorer is <emphasis>not</emphasis> expected to work."
+msgstr "Programmen <command>rawrite1</command> och <command>rawrite2</command> kan användas under MS-DOS. För att använda de här programmen måste du se till att du har startat upp i DOS. Försök att använda dessa program från DOS-prompten i Windows eller att dubbelklicka på de här programmen från Utforskaren i Windows kommer <emphasis>inte</emphasis> att fungera."
+
+#. Tag: para
+#: install-methods.xml:383
+#, no-c-format
+msgid "The <command>rwwrtwin</command> program runs on Windows 95, NT, 98, 2000, ME, XP and probably later versions. To use it you will need to unpack diskio.dll in the same directory."
+msgstr "Programmet <command>rwwrtwin</command> kan köras på Windows 95, NT, 98, 2000, ME, XP och antagligen senare versioner. För att använda det behöver du packa upp diskio.dll i samma katalog."
+
+#. Tag: para
+#: install-methods.xml:389
+#, no-c-format
+msgid "These tools can be found on the Official &debian; CD-ROMs under the <filename>/tools</filename> directory."
+msgstr "De här verktygen kan hittas på de officiella &debian; cd-skivorna under katalogen <filename>/tools</filename>."
+
+#. Tag: title
+#: install-methods.xml:402
+#, no-c-format
+msgid "Writing Disk Images From MacOS"
+msgstr "Skriva diskettavbildningar från MacOS"
+
+#. Tag: para
+#: install-methods.xml:403
+#, no-c-format
+msgid "An AppleScript, <application>Make &debian; Floppy</application>, is available for burning floppies from the provided disk image files. It can be downloaded from <ulink url=\"ftp://ftp2.sourceforge.net/pub/sourceforge/d/de/debian-imac/MakeDebianFloppy.sit\"></ulink>. To use it, just unstuff it on your desktop, and then drag any floppy image file to it. You must have Applescript installed and enabled in your extensions manager. Disk Copy will ask you to confirm that you wish to erase the floppy and proceed to write the file image to it."
+msgstr "Ett AppleScript, <application>Make Debian Floppy</application>, finns tillgängligt för att skriva disketter från diskettavbildningsfilerna. Det kan hämtas från <ulink url=\"ftp://ftp2.sourceforge.net/pub/sourceforge/d/de/debian-imac/MakeDebianFloppy.sit\"></ulink>. För att använda det, packa upp (unstuff) det på ditt skrivbord och dra en diskettavbildningsfil till det. Du måste ha Applescript installerat och aktiverat i din utökningshanterare. Disk Copy kommer att fråga dig att bekräfta om du vill radera disketten och fortsätta att skriva filavbildningen till den."
+
+#. Tag: para
+#: install-methods.xml:414
+#, no-c-format
+msgid "You can also use the MacOS utility <command>Disk Copy</command> directly, or the freeware utility <command>suntar</command>. The <filename>root.bin</filename> file is an example of a floppy image. Use one of the following methods to create a floppy from the floppy image with these utilities."
+msgstr "Du kan också använda MacOS-verktyget <command>Disk Copy</command> direkt, eller freewareverktyget <command>suntar</command>. Filen <filename>root.bin</filename> är ett exempel på en diskettavbildning. Använd en av följande metoder för att skapa en diskett från diskettavbildningen med de här verktygen."
+
+#. Tag: title
+#: install-methods.xml:425
+#, no-c-format
+msgid "Writing Disk Images with <command>Disk Copy</command>"
+msgstr "Skriva diskettavbildningar med <command>Disk Copy</command>"
+
+#. Tag: para
+#: install-methods.xml:426
+#, no-c-format
+msgid "If you are creating the floppy image from files which were originally on the official &debian-gnu; CD, then the Type and Creator are already set correctly. The following <command>Creator-Changer</command> steps are only necessary if you downloaded the image files from a &debian; mirror."
+msgstr "Om du skapar diskettavbildningarna från filer som från början kom från en officiell &debian-gnu;-cd, så är Type och Creator redan korrekt inställda. Följande steg för <command>Creator-Changer</command> är endast nödvändiga om du hämtade avbildningsfilerna från en &debian;-spegel."
+
+#. Tag: para
+#: install-methods.xml:435
+#, no-c-format
+msgid "Obtain <ulink url=\"&url-powerpc-creator-changer;\">Creator-Changer</ulink> and use it to open the <filename>root.bin</filename> file."
+msgstr "Få tag på <ulink url=\"&url-powerpc-creator-changer;\">Creator-Changer</ulink> och använd den för att öppna filen <filename>root.bin</filename>."
+
+#. Tag: para
+#: install-methods.xml:442
+#, no-c-format
+msgid "Change the Creator to <userinput>ddsk</userinput> (Disk Copy), and the Type to <userinput>DDim</userinput> (binary floppy image). The case is sensitive for these fields."
+msgstr "Ändra Creator till <userinput>ddsk</userinput> (Disk Copy), och Type till <userinput>DDim</userinput> (binär diskettavbildning). De här fälten är skiftkänsliga."
+
+#. Tag: para
+#: install-methods.xml:449
+#, no-c-format
+msgid "<emphasis>Important:</emphasis> In the Finder, use <userinput>Get Info</userinput> to display the Finder information about the floppy image, and <quote>X</quote> the <userinput>File Locked</userinput> check box so that MacOS will be unable to remove the boot blocks if the image is accidentally mounted."
+msgstr "<emphasis>Viktigt:</emphasis> I Finder, använd <userinput>Get Info</userinput> för att visa Finder-information om diskettavbildningen, och <quote>X</quote> i kryssrutan <userinput>File Locked</userinput> så att MacOS inte kan ta bort startblocken om avbildningen monteras av misstag."
+
+#. Tag: para
+#: install-methods.xml:458
+#, no-c-format
+msgid "Obtain <command>Disk Copy</command>; if you have a MacOS system or CD it will very likely be there already, otherwise try <ulink url=\"&url-powerpc-diskcopy;\"></ulink>."
+msgstr "Få tag på <command>Disk Copy</command>; om du har ett MacOS-system eller cd finns det sannolikt redan där, prova annars <ulink url=\"&url-powerpc-diskcopy;\"></ulink>."
+
+#. Tag: para
+#: install-methods.xml:465
+#, no-c-format
+msgid "Run <command>Disk Copy</command>, and select <menuchoice> <guimenu>Utilities</guimenu> <guimenuitem>Make a Floppy</guimenuitem> </menuchoice>, then select the <emphasis>locked</emphasis> image file from the resulting dialog. It will ask you to insert a floppy, then ask if you really want to erase it. When done it should eject the floppy."
+msgstr "Kör <command>Disk Copy</command> och välj <menuchoice> <guimenu>Utilities</guimenu> <guimenuitem>Make a Floppy</guimenuitem> </menuchoice>, och välj sedan den <emphasis>låsta</emphasis> avbildningsfilen från dialogrutan. Den kommer att fråga dig att mata in en diskett, sedan fråga om du verkligen vill radera den. När den är klar ska den mata ut disketten."
+
+#. Tag: title
+#: install-methods.xml:480
+#, no-c-format
+msgid "Writing Disk Images with <command>suntar</command>"
+msgstr "Skriva diskettavbildningar med <command>suntar</command>"
+
+#. Tag: para
+#: install-methods.xml:484
+#, no-c-format
+msgid "Obtain <command>suntar</command> from <ulink url=\"&url-powerpc-suntar;\"> </ulink>. Start the <command>suntar</command> program and select <quote>Overwrite Sectors...</quote> from the <userinput>Special</userinput> menu."
+msgstr "Få tag på <command>suntar</command> från <ulink url=\"&url-powerpc-suntar;\"> </ulink>. Starta programmet <command>suntar</command> och välj <quote>Overwrite Sectors...</quote> från menyn <userinput>Special</userinput>."
+
+#. Tag: para
+#: install-methods.xml:492
+#, no-c-format
+msgid "Insert the floppy disk as requested, then hit &enterkey; (start at sector 0)."
+msgstr "Mata in disketten enligt begäran, tryck sedan &enterkey; (start på sektor 0)."
+
+#. Tag: para
+#: install-methods.xml:498
+#, no-c-format
+msgid "Select the <filename>root.bin</filename> file in the file-opening dialog."
+msgstr "Välj filen <filename>root.bin</filename> i filöppningsdialogen."
+
+#. Tag: para
+#: install-methods.xml:503
+#, no-c-format
+msgid "After the floppy has been created successfully, select <menuchoice> <guimenu>File</guimenu> <guimenuitem>Eject</guimenuitem> </menuchoice>. If there are any errors writing the floppy, simply toss that floppy and try another."
+msgstr "Efter att disketten har skapats, välj <menuchoice> <guimenu>File</guimenu> <guimenuitem>Eject</guimenuitem> </menuchoice>. Om det inträffade några fel under skrivning av disketten, kasta helt enkelt disketten och prova med en annan."
+
+#. Tag: para
+#: install-methods.xml:511
+#, no-c-format
+msgid "Before using the floppy you created, <emphasis>set the write protect tab</emphasis>! Otherwise if you accidentally mount it in MacOS, MacOS will helpfully ruin it."
+msgstr "Före du använder disketten du skapade, <emphasis>aktivera skrivskyddet</emphasis>! Om du av misstag monterar den i MacOS kommer MacOS förstöra den."
+
+#. Tag: title
+#: install-methods.xml:530
+#, no-c-format
+msgid "Preparing Files for USB Memory Stick Booting"
+msgstr "Förbereda filer för uppstart med USB-minne"
+
+#. Tag: para
+#: install-methods.xml:532
+#, fuzzy, no-c-format
+#| msgid ""
+#| "There are two installation methods possible when booting from USB stick. "
+#| "The first is to install completely from the network. The second is to "
+#| "also copy a CD image onto the USB stick and use that as a source for "
+#| "packages, possibly in combination with a mirror. This second method is "
+#| "the more common."
+msgid "There are two installation methods possible when booting from USB stick. The first is to only use the USB stick to boot the installer, and then install completely from the network. The second is to also copy a CD image onto the USB stick and use that as a source for packages, possibly in combination with a mirror."
+msgstr "Det finns två installationsmetoder möjliga för uppstart från USB-minnen. Första är att installera helt från nätverket. Det andra är att även kopiera en cd-avbildning till USB-minnet och använda den som en källa för paket, möjligen i kombination med en spegelserver. Den andra metoden är den mer vanliga."
+
+#. Tag: para
+#: install-methods.xml:540
+#, no-c-format
+msgid "To prepare the USB stick, you will need a system where GNU/Linux is already running and where USB is supported. With current GNU/Linux systems the USB stick should be automatically recognized when you insert it. If it is not you should check that the usb-storage kernel module is loaded. When the USB stick is inserted, it will be mapped to a device named <filename>/dev/sdX</filename>, where the <quote>X</quote> is a letter in the range a-z. You should be able to see to which device the USB stick was mapped by running the command <command>dmesg</command> after inserting it. To write to your stick, you may have to turn off its write protection switch."
+msgstr "För att förbereda USB-minnet behöver du ett system där GNU/Linux redan körs och där USB stöds. Med aktuella GNU/Linux-system ska USB-minnet automatiskt kännas igen när du ansluter det. Om det inte gör det bör du kontrollera att kärnmodulen usb-storage har lästs in. När USB-minnet är anslutet så kommer det att kopplas till en enhet med namnet <filename>/dev/sdX</filename>, där <quote>X</quote> är en bokstav i intervallet a-z. Du bör kunna se till vilken enhet som USB-minnet kopplades genom att köra kommandot <command>dmesg</command> efter minnet anslutits. För att skriva till ditt minne så måste du stänga av dess skrivskydd (om sådant finns)."
+
+#. Tag: para
+#: install-methods.xml:553
+#, no-c-format
+msgid "The procedures described in this section will destroy anything already on the device! Make very sure that you use the correct device name for your USB stick. If you use the wrong device the result could be that all information on for example a hard disk could be lost."
+msgstr "Procedurerna som beskrivs i detta avsnitt kommer att förstöra allt som redan finns på enheten! Försäkra dig om att du använder det korrekta enhetsnamnet för ditt USB-minne. Om du använder fel enhet kommer resultatet bli att all information går förlorad på till exempel en hårddisk."
+
+#. Tag: para
+#: install-methods.xml:560
+#, fuzzy, no-c-format
+#| msgid ""
+#| "For the first installation method you'll need to download an installer "
+#| "image from the <filename>netboot</filename> directory (at the location "
+#| "mentioned in <xref linkend=\"where-files\"/>) and use the <quote>flexible "
+#| "way</quote> explained below to copy the files to the USB stick."
+msgid "To prepare a USB stick that only boots the installer, which then proceeds to install entirely from the network, you'll need to download the <filename>mini.iso</filename> image from the <filename>netboot</filename> directory (at the location mentioned in <xref linkend=\"where-files\"/>), and write this file directly to the USB stick, overwriting its current contents. This method will work with very small USB sticks, only a few megabytes in size."
+msgstr "För den första installationsmetoden kommer du att behöva hämta ner en installationsavbildning från katalogen <filename>netboot</filename> (på adressen som angavs i <xref linkend=\"where-files\"/>) och använda det <quote>flexibla sättet</quote> som beskrivs nedan för att kopiera filerna till USB-minnet."
+
+#. Tag: para
+#: install-methods.xml:570
+#, no-c-format
+msgid ""
+"For example, when using an existing GNU/Linux system, the <filename>mini.iso</filename> file can be written to a USB stick as follows: <informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>dd if=<replaceable>debian.iso</replaceable> of=/dev/<replaceable>sdX</replaceable></userinput>\n"
+"<prompt>#</prompt> <userinput>sync</userinput>\n"
+"</screen></informalexample> To add firmware to a USB stick prepared in this way, obtain the necessary firmware files. See <xref linkend=\"loading-firmware\"/> for more information. Now unplug and replug the USB stick, and two partitions should now be visible on it. You should mount the second of the two partitions, and unpack the firmware onto it."
+msgstr ""
+
+#. Tag: screen
+#: install-methods.xml:582
+#, no-c-format
+msgid ""
+"# mount /dev/<replaceable>sdX2</replaceable> /mnt\n"
+"# cd /mnt\n"
+"# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz\n"
+"# cd /\n"
+"# umount"
+msgstr ""
+"# mount /dev/<replaceable>sdX2</replaceable> /mnt\n"
+"# cd /mnt\n"
+"# tar zxvf <replaceable>/sökväg/till/</replaceable>fast-programvara.tar.gz\n"
+"# cd /\n"
+"# umount"
+
+#. Tag: para
+#: install-methods.xml:584
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Installation images for the second installation method can be found in "
+#| "the <filename>hd-media</filename> directory and either the <quote>easy "
+#| "way</quote> or the <quote>flexible way</quote> can be used to copy the "
+#| "image to the USB stick. For this installation method you will also need "
+#| "to download a CD image. The installation image and the CD image must be "
+#| "based on the same release of &d-i;. If they do not match you are likely "
+#| "to get errors<footnote> <para> The error message that is most likely to "
+#| "be displayed is that no kernel modules can be found. This means that the "
+#| "version of the kernel module udebs included on the CD image is different "
+#| "from the version of the running kernel. </para> </footnote> during the "
+#| "installation."
+msgid "To prepare a USB stick that installs packages from a CD image included on the stick, use the installer images found in the <filename>hd-media</filename> directory. Either the <quote>easy way</quote> or the <quote>flexible way</quote> can be used to copy the image to the USB stick. For this installation method you will also need to download a CD image. The installation image and the CD image must be based on the same release of &d-i;. If they do not match you are likely to get errors<footnote> <para> The error message that is most likely to be displayed is that no kernel modules can be found. This means that the version of the kernel module udebs included on the CD image is different from the version of the running kernel. </para> </footnote> during the installation."
+msgstr "Installationsavbildningar för den andra installationsmetoden kan hittas i katalogen <filename>hd-media</filename> och antingen det <quote>enkla sättet</quote> eller det <quote>flexibla sättet</quote> kan användas för att kopiera avbildningen till USB-minnet. För denna installationsmetod kommer du även att behöva hämta ner en cd-avbildning. Installationsavbildningen och cd-avbildningen måste vara baserade på samma utgåva av &d-i;. Om de inte stämmer överens kommer du säkerligen få problem<footnote> <para> Felmeddelandet som antagligen kommer att visas är att inga kärnmoduler kan hittas. Detta betyder att versionen av udebs-kärnmoduler som inkluderats på cd-avbildningen är olika från versionen av den körande kärnan. </para> </footnote> under installationen."
+
+#. Tag: para
+#: install-methods.xml:604
+#, no-c-format
+msgid "Note that the USB stick should be at least 256 MB in size (smaller setups are possible if you follow <xref linkend=\"usb-copy-flexible\"/>)."
+msgstr "Observera att USB-minnet bör vara minst 256 MB stort (mindre installationer är möjliga om du följer <xref linkend=\"usb-copy-flexible\"/>)."
+
+#. Tag: title
+#: install-methods.xml:612
+#, no-c-format
+msgid "Copying the files &mdash; the easy way"
+msgstr "Kopiera filerna &mdash; det enkla sättet"
+
+#. Tag: para
+#: install-methods.xml:613
+#, fuzzy, no-c-format
+#| msgid ""
+#| "There is an all-in-one file <filename>hd-media/boot.img.gz</filename> "
+#| "which contains all the installer files (including the kernel) <phrase "
+#| "arch=\"x86\">as well as <classname>syslinux</classname> and its "
+#| "configuration file.</phrase> <phrase arch=\"powerpc\">as well as "
+#| "<classname>yaboot</classname> and its configuration file.</phrase>"
+msgid "There is an all-in-one file <filename>hd-media/boot.img.gz</filename> which contains all the installer files (including the kernel) <phrase arch=\"x86\">as well as <classname>syslinux</classname> and its configuration file</phrase> <phrase arch=\"powerpc\">as well as <classname>yaboot</classname> and its configuration file</phrase>."
+msgstr "Det finns en allt-i-ett-fil kallad <filename>hd-media/boot.img.gz</filename> som innehåller alla installationsprogrammets filer (inklusive kärnan) <phrase arch=\"x86\">såväl som <classname>syslinux</classname> och dess konfigurationsfil.</phrase> <phrase arch=\"powerpc\">såväl som <command>yaboot</command> och dess konfigurationsfil.</phrase>"
+
+#. Tag: para
+#: install-methods.xml:622
+#, no-c-format
+msgid "Note that, although convenient, this method does have one major disadvantage: the logical size of the device will be limited to 256 MB, even if the capacity of the USB stick is larger. You will need to repartition the USB stick and create new file systems to get its full capacity back if you ever want to use it for some different purpose. A second disadvantage is that you cannot copy a full CD image onto the USB stick, but only the smaller businesscard or netinst CD images."
+msgstr "Observera att, även om det är bekvämt, denna metod har en stor nackdel: den logiska storleken för enheten kommer att vara begränsad till 256 MB, även om kapaciteten för USB-minnet är större. Du kommer att behöva partitionera om USB-minnet och skapa nya filsystem för att få dess fullständiga kapacitet tillbaka om du någon gång vill använda det för andra ändamål. En andra nackdel är att du inte kan kopiera en fullständig cd-avbildning till USB-minnet utan endast de mindre cd-avbildningarna för visitkortsavbildning eller nätinstallation."
+
+#. Tag: para
+#: install-methods.xml:632
+#, no-c-format
+msgid "To use this image simply extract it directly to your USB stick:"
+msgstr "För att använda denna avbildning så behöver du bara extrahera den direkt till ditt USB-minne:"
+
+#. Tag: screen
+#: install-methods.xml:636
+#, no-c-format
+msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
+msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
+
+#. Tag: para
+#: install-methods.xml:638
+#, no-c-format
+msgid "Create a partition of type \"Apple_Bootstrap\" on your USB stick using <command>mac-fdisk</command>'s <userinput>C</userinput> command and extract the image directly to that:"
+msgstr "Skapa en partition av typen \"Apple_Bootstrap\" på ditt USB-minne med kommandot <userinput>C</userinput> i <command>mac-fdisk</command> och extrahera avbildningen direkt till den:"
+
+#. Tag: screen
+#: install-methods.xml:644
+#, no-c-format
+msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
+msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
+
+#. Tag: para
+#: install-methods.xml:646
+#, fuzzy, no-c-format
+#| msgid ""
+#| "After that, mount the USB memory stick <phrase arch=\"x86\">"
+#| "(<userinput>mount /dev/<replaceable>sdX</replaceable> /mnt</userinput>),</"
+#| "phrase> <phrase arch=\"powerpc\">(<userinput>mount /dev/"
+#| "<replaceable>sdX2</replaceable> /mnt</userinput>),</phrase> which will "
+#| "now have <phrase arch=\"x86\">a FAT filesystem</phrase> <phrase arch="
+#| "\"powerpc\">an HFS filesystem</phrase> on it, and copy a Debian netinst "
+#| "or businesscard ISO image to it. Unmount the stick (<userinput>umount /"
+#| "mnt</userinput>) and you are done."
+msgid "After that, mount the USB memory stick <phrase arch=\"x86\">(<userinput>mount /dev/<replaceable>sdX</replaceable> /mnt</userinput>),</phrase> <phrase arch=\"powerpc\">(<userinput>mount /dev/<replaceable>sdX2</replaceable> /mnt</userinput>),</phrase> which will now have <phrase arch=\"x86\">a FAT filesystem</phrase> <phrase arch=\"powerpc\">an HFS filesystem</phrase> on it, and copy a &debian; netinst or businesscard ISO image to it. Unmount the stick (<userinput>umount /mnt</userinput>) and you are done."
+msgstr "Efter det, montera USB-minnet <phrase arch=\"x86\">(<userinput>mount /dev/<replaceable>sdX</replaceable> /mnt</userinput>),</phrase> <phrase arch=\"powerpc\">(<userinput>mount /dev/<replaceable>sdX2</replaceable> /mnt</userinput>),</phrase> som nu har <phrase arch=\"x86\">ett FAT-filsystem</phrase> <phrase arch=\"powerpc\">ett HFS-filsystem</phrase> på sig, och kopiera en av &debian;s nätinstallation- eller visitkortsavbildningar till det. Avmontera minnet (<userinput>umount /mnt</userinput>) och du är nu färdig."
+
+#. Tag: title
+#: install-methods.xml:663
+#, no-c-format
+msgid "Copying the files &mdash; the flexible way"
+msgstr "Kopiera filerna &mdash; det flexibla sättet"
+
+#. Tag: para
+#: install-methods.xml:664
+#, no-c-format
+msgid "If you like more flexibility or just want to know what's going on, you should use the following method to put the files on your stick. One advantage of using this method is that &mdash; if the capacity of your USB stick is large enough &mdash; you have the option of copying a full CD ISO image to it."
+msgstr "Om du vill ha mer flexibilitet eller bara vill veta vad som händer så bör du använda följande metod att lägga in filerna på ditt minne. En fördel av att använda denna metod är att &mdash; om kapaciteten för ditt USB-minne är tillräckligt stort &mdash; du har alternativet att kopiera en fullständig cd-avbildning till det."
+
+#. Tag: title
+#: install-methods.xml:679
+#: install-methods.xml:791
+#, no-c-format
+msgid "Partitioning the USB stick"
+msgstr "Partitionera USB-minnet"
+
+#. Tag: para
+#: install-methods.xml:680
+#, no-c-format
+msgid "We will show how to set up the memory stick to use the first partition, instead of the entire device."
+msgstr "Vi kommer nu att visa hur man ställer in USB-minnet att använda första partitionen, istället för hela enheten."
+
+#. Tag: para
+#: install-methods.xml:685
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Since most USB sticks come pre-configured with a single FAT16 partition, "
+#| "you probably won't have to repartition or reformat the stick. If you have "
+#| "to do that anyway, use <command>cfdisk</command> or any other "
+#| "partitioning tool to create a FAT16 partition<footnote> <para> Don't "
+#| "forget to set the <quote>bootable</quote> bootable flag. </para> </"
+#| "footnote>, and then create the filesystem using: "
+#| "<informalexample><screen>\n"
+#| "# mkdosfs /dev/<replaceable>sdX1</replaceable>\n"
+#| "</screen></informalexample> Take care that you use the correct device "
+#| "name for your USB stick. The <command>mkdosfs</command> command is "
+#| "contained in the <classname>dosfstools</classname> Debian package."
+msgid ""
+"Since most USB sticks come pre-configured with a single FAT16 partition, you probably won't have to repartition or reformat the stick. If you have to do that anyway, use <command>cfdisk</command> or any other partitioning tool to create a FAT16 partition<footnote> <para> Don't forget to set the <quote>bootable</quote> bootable flag. </para> </footnote>, and then create the filesystem using: <informalexample><screen>\n"
+"# mkdosfs /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Take care that you use the correct device name for your USB stick. The <command>mkdosfs</command> command is contained in the <classname>dosfstools</classname> &debian; package."
+msgstr ""
+"Eftersom de flesta USB-minnen kommer förkonfigurerade med en enda FAT16-partition så behöver du antagligen inte partitionera eller formatera om minnet. Om du måste göra det ändå så använd <command>cfdisk</command> eller något annat partitioneringsverktyg för att skapa en FAT16-partition<footnote> <para> Glöm inte att ställa in uppstartsflaggan <quote>bootable</quote>. </para> </footnote>, och skapa sedan filsystemet med: <informalexample><screen>\n"
+"# mkdosfs /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Försäkra dig om att du använder det korrekta enhetsnamnet för ditt USB-minne. Kommandot <command>mkdosfs</command> finns i &debian;-paketet <classname>dosfstools</classname>."
+
+#. Tag: para
+#: install-methods.xml:704
+#, no-c-format
+msgid "In order to start the kernel after booting from the USB stick, we will put a boot loader on the stick. Although any boot loader (e.g. <classname>lilo</classname>) should work, it's convenient to use <classname>syslinux</classname>, since it uses a FAT16 partition and can be reconfigured by just editing a text file. Any operating system which supports the FAT file system can be used to make changes to the configuration of the boot loader."
+msgstr "För att kunna starta kärnan efter uppstart från USB-minnet så lägger vi på en starthanterare på minnet. Även om valfri starthanterare (exempelvis <command>lilo</command>) bör fungera så är det bekvämt att använda <command>syslinux</command>, eftersom den använder en FAT16-partition och kan konfigureras om genom att redigera en textfil. Alla operativsystem som har stöd för FAT-filsystemet kan användas för att göra ändringar i konfigurationen av starthanteraren."
+
+#. Tag: para
+#: install-methods.xml:714
+#, no-c-format
+msgid ""
+"To put <classname>syslinux</classname> on the FAT16 partition on your USB stick, install the <classname>syslinux</classname> and <classname>mtools</classname> packages on your system, and do: <informalexample><screen>\n"
+"# syslinux /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Again, take care that you use the correct device name. The partition must not be mounted when starting <command>syslinux</command>. This procedure writes a boot sector to the partition and creates the file <filename>ldlinux.sys</filename> which contains the boot loader code."
+msgstr ""
+"För att lägga <command>syslinux</command> på FAT16-partitionen på ditt USB-minne, installera paketen <classname>syslinux</classname> och <classname>mtools</classname> på ditt system och kör: <informalexample><screen>\n"
+"# syslinux /dev/<replaceable>sdX1</replaceable>\n"
+"</screen></informalexample> Än en gång, se till att du använder det korrekta enhetsnamnet. Partitionen får inte vara monterad när <command>syslinux</command> startas. Den här proceduren skriver en startsektor till partitionen och skapar filen <filename>ldlinux.sys</filename> som innehåller starthanterarens programkod."
+
+#. Tag: title
+#: install-methods.xml:731
+#: install-methods.xml:838
+#, no-c-format
+msgid "Adding the installer image"
+msgstr "Lägg till installationsavbildningen"
+
+#. Tag: para
+#: install-methods.xml:732
+#, no-c-format
+msgid "Mount the partition (<userinput>mount /dev/<replaceable>sdX1</replaceable> /mnt</userinput>) and copy the following installer image files to the stick: <itemizedlist> <listitem><para> <filename>vmlinuz</filename> or <filename>linux</filename> (kernel binary) </para></listitem> <listitem><para> <filename>initrd.gz</filename> (initial ramdisk image) </para></listitem> </itemizedlist> You can choose between either the regular version or the graphical version of the installer. The latter can be found in the <filename>gtk</filename> subdirectory. If you want to rename the files, please note that <classname>syslinux</classname> can only process DOS (8.3) file names."
+msgstr "Montera partitionen (<userinput>mount /dev/<replaceable>sdX1</replaceable> /mnt</userinput>) och kopiera följande installationsavbildningsfiler till minnet: <itemizedlist> <listitem><para> <filename>vmlinuz</filename> eller <filename>linux</filename> (kärnbinärfil) </para></listitem> <listitem><para> <filename>initrd.gz</filename> (initial ramdiskavbildning) </para></listitem> </itemizedlist>  Du kan välja mellan antingen den vanliga versionen eller den grafiska versionen av installationsprogrammet. Den senare kan hittas i underkatalogen <filename>gtk</filename>. Om du vill byta namn på filerna så tänk på att <classname>syslinux</classname> endast kan behandla DOS-filnamn (8.3 tecken)."
+
+#. Tag: para
+#: install-methods.xml:756
+#, no-c-format
+msgid ""
+"Next you should create a <filename>syslinux.cfg</filename> configuration file, which at a bare minimum should contain the following two lines (change the name of the kernel binary to <quote><filename>linux</filename></quote> if you used a <filename>netboot</filename> image): <informalexample><screen>\n"
+"default vmlinuz\n"
+"append initrd=initrd.gz\n"
+"</screen></informalexample> For the graphical installer you should add <userinput>vga=788</userinput> to the second line."
+msgstr ""
+"Härnäst ska du skapa konfigurationsfilen <filename>syslinux.cfg</filename>, som minimum bör innehålla följande två rader (ändra namnet på kärnbinärfilen till <quote><filename>linux</filename></quote> om du använder en <filename>netboot</filename>-avbildning): <informalexample><screen>\n"
+"default vmlinuz\n"
+"append initrd=initrd.gz\n"
+"</screen></informalexample> För det grafiska installationsprogrammet så bör du lägga till <userinput>vga=788</userinput> på den andra raden."
+
+#. Tag: para
+#: install-methods.xml:768
+#, no-c-format
+msgid "If you used an <filename>hd-media</filename> image, you should now copy a &debian; ISO image<footnote> <para> You can use either a businesscard, a netinst or a full CD image (see <xref linkend=\"official-cdrom\"/>). Be sure to select one that fits. Note that the <quote>netboot <filename>mini.iso</filename></quote> image is not usable for this purpose. </para> </footnote> onto the stick. When you are done, unmount the USB memory stick (<userinput>umount /mnt</userinput>)."
+msgstr "Om du använde en <filename>hd-media</filename>-avbildning så bör du nu kopiera en &debian; ISO-avbildning<footnote> <para> Du kan använda antingen en visitkortsavbildning, en nätinstallation eller en fullständig cd-avbildning (see <xref linkend=\"official-cdrom\"/>). Försäkra dig om att välja en som passar. Observera att <quote>netboot <filename>mini.iso</filename></quote>-avbildningen inte är lämplig för detta ändamål. </para> </footnote> till minnet. När du är färdig så kan du avmontera USB-minnet (<userinput>umount /mnt</userinput>)."
+
+#. Tag: para
+#: install-methods.xml:792
+#, no-c-format
+msgid ""
+"Most USB sticks do not come pre-configured in such a way that Open Firmware can boot from them, so you will need to repartition the stick. On Mac systems, run <userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></userinput>, initialise a new partition map using the <userinput>i</userinput> command, and create a new partition of type Apple_Bootstrap using the <userinput>C</userinput> command. (Note that the first \"partition\" will always be the partition map itself.) Then type <informalexample><screen>\n"
+"$ hformat /dev/<replaceable>sdX2</replaceable>\n"
+"</screen></informalexample> Take care that you use the correct device name for your USB stick. The <command>hformat</command> command is contained in the <classname>hfsutils</classname> &debian; package."
+msgstr ""
+"De flesta USB-minnen kommer inte förkonfigurerade på det sätt att Open Firmware kan starta upp från dem, så därför behöver du partitionera om minnet. På Mac-system, kör <userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></userinput>, initiera en ny partitionskarta med kommandot <userinput>i</userinput>, och skapa en ny partition av typen Apple_Bootstrap med kommandot <userinput>C</userinput>. (Observera att den första \"partitionen\" alltid kommer att vara själva partitionskartan.) Ange sedan <informalexample><screen>\n"
+"$ hformat /dev/<replaceable>sdX2</replaceable>\n"
+"</screen></informalexample> Försäkra dig om att du använder det korrekta enhetsnamnet för ditt USB-minne. Kommandot <command>hformat</command> finns i &debian;-paketet <classname>hfsutils</classname>."
+
+#. Tag: para
+#: install-methods.xml:809
+#, no-c-format
+msgid "In order to start the kernel after booting from the USB stick, we will put a boot loader on the stick. The <command>yaboot</command> boot loader can be installed on an HFS filesystem and can be reconfigured by just editing a text file. Any operating system which supports the HFS file system can be used to make changes to the configuration of the boot loader."
+msgstr "För att starta kärnan efter uppstart från USB-minnet, lägger vi en starthanterare på minnet. Starthanteraren <command>yaboot</command> kan installeras på ett HFS-filsystem och kan omkonfigureras genom att redigera en textfil. Alla operativsystem som har stöd för HFS-filsystem kan användas för att göra ändringar i konfigurationen för starthanteraren."
+
+#. Tag: para
+#: install-methods.xml:818
+#, no-c-format
+msgid ""
+"The normal <command>ybin</command> tool that comes with <command>yaboot</command> does not yet understand USB storage devices, so you will have to install <command>yaboot</command> by hand using the <classname>hfsutils</classname> tools. Type <informalexample><screen>\n"
+"$ hmount /dev/<replaceable>sdX2</replaceable>\n"
+"$ hcopy -r /usr/lib/yaboot/yaboot :\n"
+"$ hattrib -c UNIX -t tbxi :yaboot\n"
+"$ hattrib -b :\n"
+"$ humount\n"
+"</screen></informalexample> Again, take care that you use the correct device name. The partition must not be otherwise mounted during this procedure. This procedure writes the boot loader to the partition, and uses the HFS utilities to mark it in such a way that Open Firmware will boot it. Having done this, the rest of the USB stick may be prepared using the normal Unix utilities."
+msgstr ""
+"Det normala verktyget <command>ybin</command> som kommer med <command>yaboot</command> förstår ännu inte USB-lagringsenheter, så du måste installera <command>yaboot</command> för hand genom att använda verktygen från <classname>hfsutils</classname>. Ange <informalexample><screen>\n"
+"$ hmount /dev/<replaceable>sdX2</replaceable>\n"
+"$ hcopy -r /usr/lib/yaboot/yaboot :\n"
+"$ hattrib -c UNIX -t tbxi :yaboot\n"
+"$ hattrib -b :\n"
+"$ humount\n"
+"</screen></informalexample> Än en gång, se till att du använder det korrekta enhetsnamnet. Partitionen får inte vara monterad under den här proceduren. Den här proceduren skriver starthanteraren till partitionen och använder HFS-verktygen för att markera den på sådant sätt att Open Firmware kan starta upp på den. Genom att göra det här kan resten av USB-minnet förberedas med de vanliga Unix-verktygen."
+
+#. Tag: para
+#: install-methods.xml:839
+#, no-c-format
+msgid "Mount the partition (<userinput>mount /dev/<replaceable>sdX2</replaceable> /mnt</userinput>) and copy the following installer image files to the stick:"
+msgstr "Montera partitionen (<userinput>mount /dev/<replaceable>sdX2</replaceable> /mnt</userinput>) och kopiera följande installationsavbildningsfiler till minnet:"
+
+#. Tag: para
+#: install-methods.xml:846
+#, no-c-format
+msgid "<filename>vmlinux</filename> (kernel binary)"
+msgstr "<filename>vmlinux</filename> (kärnbinär)"
+
+#. Tag: para
+#: install-methods.xml:851
+#, no-c-format
+msgid "<filename>initrd.gz</filename> (initial ramdisk image)"
+msgstr "<filename>initrd.gz</filename> (initiell ramdiskavbildning)"
+
+#. Tag: para
+#: install-methods.xml:856
+#, no-c-format
+msgid "<filename>yaboot.conf</filename> (yaboot configuration file)"
+msgstr "<filename>yaboot.conf</filename> (yaboots konfigurationsfil)"
+
+#. Tag: para
+#: install-methods.xml:861
+#, no-c-format
+msgid "<filename>boot.msg</filename> (optional boot message)"
+msgstr "<filename>boot.msg</filename> (valfritt uppstartsmeddelande)"
+
+#. Tag: para
+#: install-methods.xml:868
+#, no-c-format
+msgid ""
+"The <filename>yaboot.conf</filename> configuration file should contain the following lines: <informalexample><screen>\n"
+"default=install\n"
+"root=/dev/ram\n"
+"\n"
+"message=/boot.msg\n"
+"\n"
+"image=/vmlinux\n"
+"        label=install\n"
+"        initrd=/initrd.gz\n"
+"        initrd-size=10000\n"
+"        read-only\n"
+"</screen></informalexample> Please note that the <userinput>initrd-size</userinput> parameter may need to be increased, depending on the image you are booting."
+msgstr ""
+"Konfigurationsfilen <filename>yaboot.conf</filename> bör innehålla följande rader: <informalexample><screen>\n"
+"default=install\n"
+"root=/dev/ram\n"
+"\n"
+"message=/boot.msg\n"
+"\n"
+"image=/vmlinux\n"
+"        label=install\n"
+"        initrd=/initrd.gz\n"
+"        initrd-size=10000\n"
+"        read-only\n"
+"</screen></informalexample> Observera att parametern <userinput>initrd-size</userinput> kan behöva ökas, beroende på avbildningen du startar upp."
+
+#. Tag: para
+#: install-methods.xml:878
+#, no-c-format
+msgid "If you used an <filename>hd-media</filename> image, you should now copy a &debian; ISO image (businesscard, netinst or full CD image; be sure to select one that fits) onto the stick. When you are done, unmount the USB memory stick (<userinput>umount /mnt</userinput>)."
+msgstr "Om du använda en <filename>hd-media</filename>-avbildning så bör du nu kopiera en &debian; ISO-avbildning (visitkortsavbildning, nätinstallation eller fullständig cd-avbildning; försäkra dig om att välja en som passar) till minnet. När du är färdig kan du avmontera USB-minnet (<userinput>umount /mnt</userinput>)."
+
+#. Tag: title
+#: install-methods.xml:893
+#, no-c-format
+msgid "Booting the USB stick"
+msgstr "Starta upp på USB-minne"
+
+#. Tag: para
+#: install-methods.xml:894
+#, no-c-format
+msgid "If your system refuses to boot from the memory stick, the stick may contain an invalid master boot record (MBR). To fix this, use the <command>install-mbr</command> command from the package <classname>mbr</classname>:"
+msgstr "Om ditt system vägrar att starta upp från minnet kanske det beror på att minnet innehåller en ogiltig huvudstartsektor (MBR). För att rätta till det, använd kommandot <command>install-mbr</command> från paketet <classname>mbr</classname>:"
+
+#. Tag: screen
+#: install-methods.xml:901
+#, no-c-format
+msgid "# install-mbr /dev/<replaceable>sdX</replaceable>"
+msgstr "# install-mbr /dev/<replaceable>sdX</replaceable>"
+
+#. Tag: title
+#: install-methods.xml:912
+#, no-c-format
+msgid "Preparing Files for Hard Disk Booting"
+msgstr "Förbereda filer för uppstart med hårddisk"
+
+#. Tag: para
+#: install-methods.xml:913
+#, no-c-format
+msgid "The installer may be booted using boot files placed on an existing hard drive partition, either launched from another operating system or by invoking a boot loader directly from the BIOS."
+msgstr "Installationsprogrammet kan startas upp med uppstartsfiler placerade på en befintlig hårddiskpartition, antingen startade från ett annat operativsystem eller genom att kalla upp en starthanterare direkt från BIOS."
+
+#. Tag: para
+#: install-methods.xml:919
+#, no-c-format
+msgid "A full, <quote>pure network</quote> installation can be achieved using this technique. This avoids all hassles of removable media, like finding and burning CD images or struggling with too numerous and unreliable floppy disks."
+msgstr "En full installation, <quote>helt över nätverket</quote> kan göras med den här tekniken. Det här förhindrar problem med flyttbar media, hitta och bränna cd-avbildningar eller kämpa med för många och ej tillförlitliga disketter."
+
+#. Tag: para
+#: install-methods.xml:926
+#, no-c-format
+msgid "The installer cannot boot from files on an HFS+ file system. MacOS System 8.1 and above may use HFS+ file systems; NewWorld PowerMacs all use HFS+. To determine whether your existing file system is HFS+, select <userinput>Get Info</userinput> for the volume in question. HFS file systems appear as <userinput>Mac OS Standard</userinput>, while HFS+ file systems say <userinput>Mac OS Extended</userinput>. You must have an HFS partition in order to exchange files between MacOS and Linux, in particular the installation files you download."
+msgstr "Installationsprogrammet kan inte starta upp från filer på ett filsystem av typen HFS+. MacOS System 8.1 och senare kan använda HFS+ filsystem; alla NewWorld PowerMacs använder HFS+. För att fastställa om ditt befintliga filsystem är HFS+, välj <userinput>Get Info</userinput> för volymen i fråga. HFS-filsystem syns som <userinput>Mac OS Standard</userinput>, medans HFS+-filsystem anges som <userinput>Mac OS Extended</userinput>. Du måste ha en HFS-partition för att utväxla filer mellan MacOS och Linux, speciellt installationsfilerna du hämtade."
+
+#. Tag: para
+#: install-methods.xml:937
+#, no-c-format
+msgid "Different programs are used for hard disk installation system booting, depending on whether the system is a <quote>NewWorld</quote> or an <quote>OldWorld</quote> model."
+msgstr "Olika program används för att starta upp installationsystemet från hårddisk, beroende på om systemet är en <quote>NewWorld</quote>- eller en <quote>OldWorld</quote>-modell."
+
+#. Tag: title
+#: install-methods.xml:946
+#, no-c-format
+msgid "Hard disk installer booting using <command>LILO</command> or <command>GRUB</command>"
+msgstr "Starta upp hårddiskinstalleraren med <command>LILO</command> eller <command>GRUB</command>"
+
+#. Tag: para
+#: install-methods.xml:948
+#, no-c-format
+msgid "This section explains how to add to or even replace an existing linux installation using either <command>LILO</command> or <command>GRUB</command>."
+msgstr "Det här avsnittet förklarar hur man lägger till eller ersätter en befintlig Linux-installation med antingen <command>LILO</command> eller <command>GRUB</command>."
+
+#. Tag: para
+#: install-methods.xml:954
+#, no-c-format
+msgid "At boot time, both bootloaders support loading in memory not only the kernel, but also a disk image. This RAM disk can be used as the root file-system by the kernel."
+msgstr "Vid uppstart har båda starthanterarna stöd för att läsa in en kärna och även en diskavbildning i minnet. Den här RAM-disken kan användas som rotfilsystem av kärnan."
+
+#. Tag: para
+#: install-methods.xml:960
+#, no-c-format
+#| msgid ""
+#| "Copy the following files from the Debian archives to a convenient "
+#| "location on your hard drive, for instance to <filename>/boot/newinstall/</"
+#| "filename>."
+msgid "Copy the following files from the &debian; archives to a convenient location on your hard drive (note that LILO can not boot from files on an NTFS file system), for instance to <filename>/boot/newinstall/</filename>."
+msgstr "Kopiera följande filer från &debian;-arkiven till en lämplig plats på din hårddisk (observera att LILO inte kan starta upp från filer på ett NTFS-filsystem), exempelvis till <filename>/boot/newinstall/</filename>."
+
+#. Tag: para
+#: install-methods.xml:968
+#, no-c-format
+msgid "<filename>vmlinuz</filename> (kernel binary)"
+msgstr "<filename>vmlinuz</filename> (kärnbinär)"
+
+#. Tag: para
+#: install-methods.xml:973
+#, no-c-format
+msgid "<filename>initrd.gz</filename> (ramdisk image)"
+msgstr "<filename>initrd.gz</filename> (ramdiskavbildning)"
+
+#. Tag: para
+#: install-methods.xml:980
+#, no-c-format
+msgid "Finally, to configure the bootloader proceed to <xref linkend=\"boot-initrd\"/>."
+msgstr "Till slut, för att konfigurera starthanteraren kan du fortsätta till <xref linkend=\"boot-initrd\"/>."
+
+#. Tag: title
+#: install-methods.xml:990
+#, no-c-format
+#| msgid ""
+#| "Hard disk installer booting using <command>LILO</command> or "
+#| "<command>GRUB</command>"
+msgid "Hard disk installer booting using <command>loadlin</command>"
+msgstr "Starta upp hårddiskinstalleraren med <command>loadlin</command>"
+
+#. Tag: para
+#: install-methods.xml:991
+#, no-c-format
+#| msgid ""
+#| "This section explains how to add to or even replace an existing linux "
+#| "installation using either <command>LILO</command> or <command>GRUB</"
+#| "command>."
+msgid "This section explains how to prepare your hard drive for booting the installer from DOS using <command>loadlin</command>."
+msgstr "Det här avsnittet förklarar hur man förbereder din hårddisk för att starta upp installationsprogrammet från DOS med <command>loadlin</command>."
+
+#. Tag: para
+#: install-methods.xml:996
+#, no-c-format
+#| msgid ""
+#| "Copy the following files from the Debian archives to a convenient "
+#| "location on your hard drive, for instance to <filename>/boot/newinstall/</"
+#| "filename>."
+msgid "Copy the following directories from a &debian; CD image to <filename>c:\\</filename>."
+msgstr "Kopiera följande kataloger från en cd-avbildning av &debian; till <filename>c:\\</filename>."
+
+#. Tag: para
+#: install-methods.xml:1001
+#, no-c-format
+#| msgid "<filename>initrd.gz</filename> (initial ramdisk image)"
+msgid "<filename>/&x86-install-dir;</filename> (kernel binary and ramdisk image)"
+msgstr "<filename>/&x86-install-dir;</filename> (kärnans binärfil och ramdisk-avbildning)"
+
+#. Tag: para
+#: install-methods.xml:1006
+#, no-c-format
+#| msgid "<filename>boot.msg</filename> (optional boot message)"
+msgid "<filename>/tools</filename> (loadlin tool)"
+msgstr "<filename>/tools</filename> (loadlin-verktyg)"
+
+#. Tag: title
+#: install-methods.xml:1019
+#, no-c-format
+msgid "Hard Disk Installer Booting for OldWorld Macs"
+msgstr "Uppstart av hårddiskinstallerare på OldWorld Mac"
+
+#. Tag: para
+#: install-methods.xml:1020
+#, no-c-format
+msgid "The <filename>boot-floppy-hfs</filename> floppy uses <application>miBoot</application> to launch Linux installation, but <application>miBoot</application> cannot easily be used for hard disk booting. <application>BootX</application>, launched from MacOS, supports booting from files placed on the hard disk. <application>BootX</application> can also be used to dual-boot MacOS and Linux after your &debian; installation is complete. For the Performa 6360, it appears that <command>quik</command> cannot make the hard disk bootable. So <application>BootX</application> is required on that model."
+msgstr "Disketten <filename>boot-floppy-hfs</filename> använder <application>miBoot</application> för att starta Linux-installationen, men <application>miBoot</application> kan inte på något enkelt sätt användas för att starta upp på hårddisk. <application>BootX</application>, startad från MacOS, har stöd för uppstart från filer placerade på hårddisk. <application>BootX</application> kan även användas för att både starta upp MacOS och Linux efter din &debian;-installation är färdigställd. För Performa 6360, verkar det som <command>quik</command> inte kan göra hårddisken startbar. Så <application>BootX</application> krävs på den modellen."
+
+#. Tag: para
+#: install-methods.xml:1033
+#, no-c-format
+msgid "Download and unstuff the <application>BootX</application> distribution, available from <ulink url=\"&url-powerpc-bootx;\"></ulink>, or in the <filename>dists/woody/main/disks-powerpc/current/powermac</filename> directory on &debian; http/ftp mirrors and official &debian; CDs. Use <application>Stuffit Expander</application> to extract it from its archive. Within the package, there is an empty folder called <filename>Linux Kernels</filename>. Download <filename>linux.bin</filename> and <filename>ramdisk.image.gz</filename> from the <filename>disks-powerpc/current/powermac</filename> folder, and place them in the <filename>Linux Kernels</filename> folder. Then place the <filename>Linux Kernels</filename> folder in the active System Folder."
+msgstr "Hämta och packa upp (unstuff) utgåvan <application>BootX</application>, tillgänglig från <ulink url=\"&url-powerpc-bootx;\"></ulink>, eller i katalogen <filename>dists/woody/main/disks-powerpc/current/powermac</filename> på &debian;s http/ftp-speglar och officiella &debian; cd-skivor. Använd <application>Stuffit Expander</application> för att extrahera de från sitt arkiv. I paket, finns det en tom mapp som heter <filename>Linux Kernels</filename>. Hämta <filename>linux.bin</filename> och <filename>ramdisk.image.gz</filename> från mappen <filename>disks-powerpc/current/powermac</filename>, och placera dem i mappen <filename>Linux Kernels</filename>. Placera sedan mappen <filename>Linux Kernels</filename> i den aktiva Systemmappen."
+
+#. Tag: title
+#: install-methods.xml:1053
+#, no-c-format
+msgid "Hard Disk Installer Booting for NewWorld Macs"
+msgstr "Uppstart av hårddiskinstallerare på NewWorld Mac"
+
+#. Tag: para
+#: install-methods.xml:1054
+#, no-c-format
+msgid "NewWorld PowerMacs support booting from a network or an ISO9660 CD-ROM, as well as loading ELF binaries directly from the hard disk. These machines will boot Linux directly via <command>yaboot</command>, which supports loading a kernel and RAMdisk directly from an ext2 partition, as well as dual-booting with MacOS. Hard disk booting of the installer is particularly appropriate for newer machines without floppy drives. <command>BootX</command> is not supported and must not be used on NewWorld PowerMacs."
+msgstr "NewWorld PowerMac har stöd för att starta upp från ett nätverk eller från en ISO9660 cd-rom, såväl som läsa in ELF-binärer direkt från hårddisken. De här maskinerna kan starta upp Linux direkt via <command>yaboot</command>, som har stöd för att läsa in en kärna och ramdisk direkt från en ext2-partition, såväl som dela uppstartsläge med MacOS. Hårddiskuppstart för installationsprogrammet är speciellt lämplig för nyare maskiner utan diskettenheter. <command>BootX</command> stöds inte och får inte ses på NewWorld PowerMac."
+
+#. Tag: para
+#: install-methods.xml:1065
+#, no-c-format
+msgid "<emphasis>Copy</emphasis> (not move) the following four files which you downloaded earlier from the &debian; archives, onto the root level of your hard drive (this can be accomplished by <keycap>option</keycap>-dragging each file to the hard drive icon)."
+msgstr "<emphasis>Kopiera</emphasis> (inte flytta) följande fyra filer som du hämtade tidigare från &debian;-arkiven, till rotnivån på din hårddisk (det här kan göras genom att hålla ner <keycap>Alt</keycap> och dra varje fil till hårddisksikonen)."
+
+#. Tag: filename
+#: install-methods.xml:1075
+#: install-methods.xml:1401
+#, no-c-format
+msgid "vmlinux"
+msgstr "vmlinux"
+
+#. Tag: filename
+#: install-methods.xml:1080
+#: install-methods.xml:1406
+#, no-c-format
+msgid "initrd.gz"
+msgstr "initrd.gz"
+
+#. Tag: filename
+#: install-methods.xml:1085
+#: install-methods.xml:1411
+#, no-c-format
+msgid "yaboot"
+msgstr "yaboot"
+
+#. Tag: filename
+#: install-methods.xml:1090
+#: install-methods.xml:1416
+#, no-c-format
+msgid "yaboot.conf"
+msgstr "yaboot.conf"
+
+#. Tag: para
+#: install-methods.xml:1095
+#, no-c-format
+msgid "Make a note of the partition number of the MacOS partition where you place these files. If you have the MacOS <command>pdisk</command> program, you can use the <command>L</command> command to check for the partition number. You will need this partition number for the command you type at the Open Firmware prompt when you boot the installer."
+msgstr "Gör en notering om partitionsnumret på MacOS-partitionen där du placerade de här filerna. Om du har MacOS-programmet <command>pdisk</command>, kan du använda <command>L</command>-kommandot för att leta efter partitionsnumret. Du behöver det här partitionsnumret för kommandot du anger vid Open Firmware-prompten när du startar upp installationsprogrammet."
+
+#. Tag: para
+#: install-methods.xml:1103
+#, no-c-format
+msgid "To boot the installer, proceed to <xref linkend=\"boot-newworld\"/>."
+msgstr "För att starta upp installationsprogrammet, fortsätt till <xref linkend=\"boot-newworld\"/>."
+
+#. Tag: title
+#: install-methods.xml:1116
+#, no-c-format
+msgid "Preparing Files for TFTP Net Booting"
+msgstr "Förbered filerna för nätverksuppstart via TFTP"
+
+#. Tag: para
+#: install-methods.xml:1117
+#, no-c-format
+msgid "If your machine is connected to a local area network, you may be able to boot it over the network from another machine, using TFTP. If you intend to boot the installation system from another machine, the boot files will need to be placed in specific locations on that machine, and the machine configured to support booting of your specific machine."
+msgstr "Om din maskin är ansluten till ett lokalt nätverk har du möjligheten att starta upp via nätverket från en annan maskin med TFTP. Om du tänker starta upp installationssystemet från en annan maskin behöver uppstartsfilerna placeras på specifika platser på den maskinen och maskinen konfigureras för att få stöd för uppstart av din specifika maskin."
+
+#. Tag: para
+#: install-methods.xml:1125
+#, no-c-format
+msgid "You need to set up a TFTP server, and for many machines a DHCP server<phrase condition=\"supports-rarp\">, or RARP server</phrase><phrase condition=\"supports-bootp\">, or BOOTP server</phrase>."
+msgstr "Du behöver konfigurera en TFTP-server, och för många maskiner även en DHCP-server<phrase condition=\"supports-rarp\">, eller RARP-server</phrase><phrase condition=\"supports-bootp\">, eller BOOTP-server</phrase>."
+
+#. Tag: para
+#: install-methods.xml:1132
+#, no-c-format
+msgid "<phrase condition=\"supports-rarp\">The Reverse Address Resolution Protocol (RARP) is one way to tell your client what IP address to use for itself. Another way is to use the BOOTP protocol.</phrase> <phrase condition=\"supports-bootp\">BOOTP is an IP protocol that informs a computer of its IP address and where on the network to obtain a boot image.</phrase> The DHCP (Dynamic Host Configuration Protocol) is a more flexible, backwards-compatible extension of BOOTP. Some systems can only be configured via DHCP."
+msgstr "<phrase condition=\"supports-rarp\">Reverse Address Resolution Protocol (RARP) är ett sätt att berätta för din klient vilken IP-adress den själv ska använda. Ett annat sätt är att använda BOOTP-protokollet.</phrase> <phrase condition=\"supports-bootp\">BOOTP är ett IP-protokoll som informerar en dator om dess IP-adress och var på nätverket den kan hämta en uppstartsavbildning.</phrase> DHCP (Dynamic Host Configuration Protocol) är en mer flexibel, bakåtkompatibel utökning av BOOTP. Vissa system kan endast konfigureras via DHCP."
+
+#. Tag: para
+#: install-methods.xml:1146
+#, no-c-format
+msgid "For PowerPC, if you have a NewWorld Power Macintosh machine, it is a good idea to use DHCP instead of BOOTP. Some of the latest machines are unable to boot using BOOTP."
+msgstr "För PowerPC, om du har en NewWorld Power Macintosh-maskin, är det en bra idé att använda DHCP istället för BOOTP. Några av de senaste maskinerna kan inte starta upp via BOOTP."
+
+#. Tag: para
+#: install-methods.xml:1152
+#, no-c-format
+msgid "Some older HPPA machines (e.g. 715/75) use RBOOTD rather than BOOTP. There is an <classname>rbootd</classname> package available in &debian;."
+msgstr "Vissa äldre HPPA-maskiner (exempelvis 715/75) använder hellre RBOOTD än BOOTP. Det finns ett paket som kallas <classname>rbootd</classname> tillgängligt i &debian;."
+
+#. Tag: para
+#: install-methods.xml:1157
+#, no-c-format
+msgid "The Trivial File Transfer Protocol (TFTP) is used to serve the boot image to the client. Theoretically, any server, on any platform, which implements these protocols, may be used. In the examples in this section, we shall provide commands for SunOS 4.x, SunOS 5.x (a.k.a. Solaris), and GNU/Linux."
+msgstr "Trivial File Transfer Protocol (TFTP) används för att erbjuda uppstartsavbildningar till klienten. Teoretiskt sett kan alla servrar, på alla plattformar, som implementerat de här protokollen, kan användas. I exemplen i det här avsnittet, tillhandahåller vi kommandon för SunOS 4.x, SunOS 5.x (även kallad Solaris) och GNU/Linux."
+
+#. Tag: para
+#: install-methods.xml:1165
+#, no-c-format
+msgid "For a &debian-gnu; server we recommend <classname>tftpd-hpa</classname>. It's written by the same author as the <classname>syslinux</classname> bootloader and is therefore least likely to cause issues. A good alternative is <classname>atftpd</classname>."
+msgstr "För en &debian-gnu;-server så rekommenderar vi <classname>tftpd-hpa</classname>. Den är skriven av samma upphovsman som starthanteraren <classname>syslinux</classname> och är därför minst sannolik att orsaka problem. Ett bra alternativ är <classname>atftpd</classname>."
+
+#. Tag: title
+#: install-methods.xml:1181
+#, no-c-format
+msgid "Setting up RARP server"
+msgstr "Konfigurering av RARP-server"
+
+#. Tag: para
+#: install-methods.xml:1182
+#, no-c-format
+msgid "To set up RARP, you need to know the Ethernet address (a.k.a. the MAC address) of the client computers to be installed. If you don't know this information, you can <phrase arch=\"sparc\"> pick it off the initial OpenPROM boot messages, use the OpenBoot <userinput>.enet-addr</userinput> command, or </phrase> boot into <quote>Rescue</quote> mode (e.g., from the rescue floppy) and use the command <userinput>ip addr show dev eth0</userinput>."
+msgstr "För att ställa in RARP behöver du veta Ethernet-adressen (även kallad MAC-adress, maskinvaruadress eller hårdvaruadress) på klientdatorerna som ska installeras. Om du inte har den informationen så kan du <phrase arch=\"sparc\"> hämta den från uppstartsmeddelandena i OpenPROM, använda kommandot <userinput>.enet-addr</userinput> i OpenBoot, eller </phrase> starta upp i <quote>Räddningsläge</quote> (t.ex. från räddningsdisketten) och använda kommandot <userinput>ip addr show dev eth0</userinput>."
+
+#. Tag: para
+#: install-methods.xml:1194
+#, no-c-format
+msgid "On a RARP server system using a Linux 2.4 or 2.6 kernel, or Solaris/SunOS, you use the <command>rarpd</command> program. You need to ensure that the Ethernet hardware address for the client is listed in the <quote>ethers</quote> database (either in the <filename>/etc/ethers</filename> file, or via NIS/NIS+) and in the <quote>hosts</quote> database. Then you need to start the RARP daemon. Issue the command (as root): <userinput>/usr/sbin/rarpd -a</userinput> on most Linux systems and SunOS 5 (Solaris 2), <userinput>/usr/sbin/in.rarpd -a</userinput> on some other Linux systems, or <userinput>/usr/etc/rarpd -a</userinput> in SunOS 4 (Solaris 1)."
+msgstr "På ett RARP-serversystem som använder en Linux 2.4 eller 2.6-kärna, eller Solaris/SunOS, använder du programmet <command>rarpd</command>. Du behöver se till att Ethernet-hårdvaruadressen för klienten är listad i <quote>ethers</quote>-databasen (antingen i filen <filename>/etc/ethers</filename>, eller via NIS/NIS+) och i <quote>hosts</quote>-databasen. Sedan behöver du starta om RARP-demonen. Kör kommandot (som root): <userinput>/usr/sbin/rarpd -a</userinput> på de flesta Linux-system och SunOS 5 (Solaris 2), <userinput>/usr/sbin/in.rarpd -a</userinput> på vissa andra Linux-system, eller <userinput>/usr/etc/rarpd -a</userinput> på SunOS 4 (Solaris 1)."
+
+#. Tag: title
+#: install-methods.xml:1215
+#, no-c-format
+msgid "Setting up a DHCP server"
+msgstr "Konfigurering av DHCP-server"
+
+#. Tag: para
+#: install-methods.xml:1216
+#, no-c-format
+msgid "One free software DHCP server is ISC <command>dhcpd</command>. For &debian-gnu;, the <classname>dhcp3-server</classname> package is recommended. Here is a sample configuration file for it (see <filename>/etc/dhcp3/dhcpd.conf</filename>):"
+msgstr "En fri DHCP-serverprogramvara är ISC <command>dhcpd</command>. För &debian-gnu;, rekommenderas paketet <classname>dhcp3-server</classname>. Här är en exempelkonfigurationsfil för det (se <filename>/etc/dhcp3/dhcpd.conf</filename>):"
+
+#. Tag: screen
+#: install-methods.xml:1223
+#, no-c-format
+msgid ""
+"option domain-name \"example.com\";\n"
+"option domain-name-servers ns1.example.com;\n"
+"option subnet-mask 255.255.255.0;\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"server-name \"servername\";\n"
+"\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option routers 192.168.1.1;\n"
+"}\n"
+"\n"
+"host clientname {\n"
+"  filename \"/tftpboot.img\";\n"
+"  server-name \"servername\";\n"
+"  next-server servername;\n"
+"  hardware ethernet 01:23:45:67:89:AB;\n"
+"  fixed-address 192.168.1.90;\n"
+"}"
+msgstr ""
+"option domain-name \"exempel.se\";\n"
+"option domain-name-servers ns1.exempel.se;\n"
+"option subnet-mask 255.255.255.0;\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"server-name \"servernamn\";\n"
+"\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option routers 192.168.1.1;\n"
+"}\n"
+"\n"
+"host klientnamn {\n"
+"  filename \"/tftpboot.img\";\n"
+"  server-name \"servernamn\";\n"
+"  next-server servernamn;\n"
+"  hardware ethernet 01:23:45:67:89:AB;\n"
+"  fixed-address 192.168.1.90;\n"
+"}"
+
+#. Tag: para
+#: install-methods.xml:1225
+#, no-c-format
+msgid "In this example, there is one server <replaceable>servername</replaceable> which performs all of the work of DHCP server, TFTP server, and network gateway. You will almost certainly need to change the domain-name options, as well as the server name and client hardware address. The <replaceable>filename</replaceable> option should be the name of the file which will be retrieved via TFTP."
+msgstr "I det här exemplet finns det en server kallad <replaceable>servernamn</replaceable> som gör allt arbete som DHCP-server, TFTP-server och nätverksgateway. Du behöver nästan säkert ändra domännamnsalternativen, såväl som servernamnet och klientens maskinvaruadress. Alternativet <replaceable>filename</replaceable> bör vara ange namnet på den fil som ska hämtas via TFTP."
+
+#. Tag: para
+#: install-methods.xml:1235
+#, no-c-format
+msgid "After you have edited the <command>dhcpd</command> configuration file, restart it with <userinput>/etc/init.d/dhcp3-server restart</userinput>."
+msgstr "Efter du har redigerat konfigurationsfilen för <command>dhcpd</command>, starta om den med <userinput>/etc/init.d/dhcp3-server restart</userinput>."
+
+#. Tag: title
+#: install-methods.xml:1243
+#, no-c-format
+msgid "Enabling PXE Booting in the DHCP configuration"
+msgstr "Aktivera PXE-uppstart i DHCP-konfigurationen"
+
+#. Tag: para
+#: install-methods.xml:1244
+#, no-c-format
+msgid ""
+"Here is another example for a <filename>dhcp.conf</filename> using the Pre-boot Execution Environment (PXE) method of TFTP. <informalexample><screen>\n"
+"option domain-name \"example.com\";\n"
+"\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"\n"
+"allow booting;\n"
+"allow bootp;\n"
+"\n"
+"# The next paragraph needs to be modified to fit your case\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option broadcast-address 192.168.1.255;\n"
+"# the gateway address which can be different\n"
+"# (access to the internet for instance)\n"
+"  option routers 192.168.1.1;\n"
+"# indicate the dns you want to use\n"
+"  option domain-name-servers 192.168.1.3;\n"
+"}\n"
+"\n"
+"group {\n"
+"  next-server 192.168.1.3;\n"
+"  host tftpclient {\n"
+"# tftp client hardware address\n"
+"  hardware ethernet  00:10:DC:27:6C:15;\n"
+"  filename \"/pxelinux.0\";\n"
+" }\n"
+"}\n"
+"</screen></informalexample> Note that for PXE booting, the client filename <filename>pxelinux.0</filename> is a boot loader, not a kernel image (see <xref linkend=\"tftp-images\"/> below)."
+msgstr ""
+"Här är ett annat exempel på en <filename>dhcp.conf</filename>, som använder Pre-boot Execution Environment-metoden (PXE) för TFTP. <informalexample><screen>\n"
+"option domain-name \"exempel.se\";\n"
+"\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"\n"
+"allow booting;\n"
+"allow bootp;\n"
+"\n"
+"# Nästa paragraf behöver ändras för att passa din miljö\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option broadcast-address 192.168.1.255;\n"
+"# gatewayadressen kan vara olik\n"
+"# (tillgång till Internet till exempel)\n"
+"  option routers 192.168.1.1;\n"
+"# indikerar dns-servern du vill använda\n"
+"  option domain-name-servers 192.168.1.3;\n"
+"}\n"
+"\n"
+"group {\n"
+" next-server 192.168.1.3;\n"
+" host tftpclient {\n"
+"# maskinvaruadressen för tftp-klienten\n"
+"  hardware ethernet  00:10:DC:27:6C:15;\n"
+"  filename \"/pxelinux.0\";\n"
+" }\n"
+"}\n"
+"</screen></informalexample> Observera att för PXE-uppstarter är klientfilnamnet <filename>pxelinux.0</filename> en starthanterare, inte en kärnavbildning (se <xref linkend=\"tftp-images\"/> nedan)."
+
+#. Tag: title
+#: install-methods.xml:1264
+#, no-c-format
+msgid "Setting up a BOOTP server"
+msgstr "Konfigurera en BOOTP-server"
+
+#. Tag: para
+#: install-methods.xml:1265
+#, no-c-format
+msgid "There are two BOOTP servers available for GNU/Linux. The first is CMU <command>bootpd</command>. The other is actually a DHCP server: ISC <command>dhcpd</command>. In &debian-gnu; these are contained in the <classname>bootp</classname> and <classname>dhcp3-server</classname> packages respectively."
+msgstr "Det finns två BOOTP-servrar tillgängliga för GNU/Linux. Den första är CMU <command>bootpd</command>. Den andra är faktiskt en DHCP-server: ISC <command>dhcpd</command>. I &debian-gnu; finns dessa i paketen <classname>bootp</classname> respektive <classname>dhcp3-server</classname>."
+
+#. Tag: para
+#: install-methods.xml:1273
+#, no-c-format
+msgid ""
+"To use CMU <command>bootpd</command>, you must first uncomment (or add) the relevant line in <filename>/etc/inetd.conf</filename>. On &debian-gnu;, you can run <userinput>update-inetd --enable bootps</userinput>, then <userinput>/etc/init.d/inetd reload</userinput> to do so. Just in case your BOOTP server does not run &debian;, the line in question should look like: <informalexample><screen>\n"
+"bootps  dgram  udp  wait  root  /usr/sbin/bootpd  bootpd -i -t 120\n"
+"</screen></informalexample> Now, you must create an <filename>/etc/bootptab</filename> file. This has the same sort of familiar and cryptic format as the good old BSD <filename>printcap</filename>, <filename>termcap</filename>, and <filename>disktab</filename> files. See the <filename>bootptab</filename> manual page for more information. For CMU <command>bootpd</command>, you will need to know the hardware (MAC) address of the client. Here is an example <filename>/etc/bootptab</filename>: <informalexample><screen>\n"
+"client:\\\n"
+"  hd=/tftpboot:\\\n"
+"  bf=tftpboot.img:\\\n"
+"  ip=192.168.1.90:\\\n"
+"  sm=255.255.255.0:\\\n"
+"  sa=192.168.1.1:\\\n"
+"  ha=0123456789AB:\n"
+"</screen></informalexample> You will need to change at least the <quote>ha</quote> option, which specifies the hardware address of the client. The <quote>bf</quote> option specifies the file a client should retrieve via TFTP; see <xref linkend=\"tftp-images\"/> for more details. <phrase arch=\"mips\"> On SGI machines you can just enter the command monitor and type <userinput>printenv</userinput>. The value of the <userinput>eaddr</userinput> variable is the machine's MAC address. </phrase>"
+msgstr ""
+"För att använda CMU <command>bootpd</command>, måste du först kommentera bort (eller lägga till) den relevanta raden i <filename>/etc/inetd.conf</filename>. På &debian-gnu; kan du köra <userinput>update-inetd --enable bootps</userinput>, sedan <userinput>/etc/init.d/inetd reload</userinput> för att göra det. Om din BOOTP-server inte kör &debian;, bör raden i fråga se ut så här: <informalexample><screen>\n"
+"bootps  dgram  udp  wait  root  /usr/sbin/bootpd  bootpd -i -t 120\n"
+"</screen></informalexample> Nu måste du skapa filen <filename>/etc/bootptab</filename>. Den har samma sorts familjära och kryptiska format som de gamla goda BSD-filerna <filename>printcap</filename>, <filename>termcap</filename> och <filename>disktab</filename>. Se manualsidan för <filename>bootptab</filename> för mer information. För CMU <command>bootpd</command> behöver du känna till maskinvaruadressen (MAC) för klienten. Här är ett exempel på en <filename>/etc/bootptab</filename>: <informalexample><screen>\n"
+"client:\\\n"
+"  hd=/tftpboot:\\\n"
+"  bf=tftpboot.img:\\\n"
+"  ip=192.168.1.90:\\\n"
+"  sm=255.255.255.0:\\\n"
+"  sa=192.168.1.1:\\\n"
+"  ha=0123456789AB:\n"
+"</screen></informalexample> Du behöver ändra åtminstone alternativet <quote>ha</quote>, som anger maskinvaruadressen för klienten. Alternativet <quote>bf</quote> anger filen som klienten bör hämta via TFTP; se <xref linkend=\"tftp-images\"/> för mer detaljer. <phrase arch=\"mips\"> På SGI-maskiner kan du bara gå in kommandomonitorn och skriva <userinput>printenv</userinput>. Värdet för variabeln <userinput>eaddr</userinput> är maskinens MAC-adress. </phrase>"
+
+#. Tag: para
+#: install-methods.xml:1306
+#, no-c-format
+msgid "By contrast, setting up BOOTP with ISC <command>dhcpd</command> is really easy, because it treats BOOTP clients as a moderately special case of DHCP clients. Some architectures require a complex configuration for booting clients via BOOTP. If yours is one of those, read the section <xref linkend=\"dhcpd\"/>. Otherwise you will probably be able to get away with simply adding the <userinput>allow bootp</userinput> directive to the configuration block for the subnet containing the client in <filename>/etc/dhcp3/dhcpd.conf</filename>, and restart <command>dhcpd</command> with <userinput>/etc/init.d/dhcp3-server restart</userinput>."
+msgstr "Tvärtemot är konfigurering av BOOTP med ISC <command>dhcpd</command> riktigt enkelt, för att den behandlar BOOTP-klienter som vanliga specialfall av DHCP-klienter. Vissa arkitekturer kräver en komplex konfiguration för att starta upp klienter via BOOTP. Om din dator är en av dessa, läs avsnittet <xref linkend=\"dhcpd\"/>. Om inte, kommer du antagligen komma undan med att bara lägga till direktivet <userinput>allow bootp</userinput> till konfigurationsblocket för subnätet som innehåller klienten i <filename>/etc/dhcp3/dhcpd.conf</filename>, och starta om <command>dhcpd</command> med <userinput>/etc/init.d/dhcp3-server restart</userinput>."
+
+#. Tag: title
+#: install-methods.xml:1325
+#, no-c-format
+msgid "Enabling the TFTP Server"
+msgstr "Aktivering av TFTP-server"
+
+#. Tag: para
+#: install-methods.xml:1326
+#, no-c-format
+msgid "To get the TFTP server ready to go, you should first make sure that <command>tftpd</command> is enabled."
+msgstr "För att få igång TFTP-servern så bör du först försäkra dig om att <command>tftpd</command> är aktiverad."
+
+#. Tag: para
+#: install-methods.xml:1331
+#, no-c-format
+msgid "In the case of <classname>tftpd-hpa</classname> there are two ways the service can be run. It can be started on demand by the system's <classname>inetd</classname> daemon, or it can be set up to run as an independent daemon. Which of these methods is used is selected when the package is installed and can be changed by reconfiguring the package."
+msgstr "I det fallet med <classname>tftpd-hpa</classname> så finns det två sätt som tjänsten kan köras på. Den kan startas vid behov av systemets <classname>inetd</classname>-demon, eller så kan den konfigureras till att köras som en oberoende demon. Vilken av dessa metoder som används väljs när paketet installeras och kan ändras genom att konfigurera om paketet."
+
+#. Tag: para
+#: install-methods.xml:1340
+#, no-c-format
+msgid "Historically, TFTP servers used <filename>/tftpboot</filename> as directory to serve images from. However, &debian-gnu; packages may use other directories to comply with the <ulink url=\"&url-fhs-home;\">Filesystem Hierarchy Standard</ulink>. For example, <classname>tftpd-hpa</classname> by default uses <filename>/srv/tftp</filename>. You may have to adjust the configuration examples in this section accordingly."
+msgstr "Historiskt sett hanterade TFTP-servrarna  avbildningar från katalogen <filename>/tftpboot</filename>. Dock kan &debian-gnu;-paket använda andra kataloger för att följa <ulink url=\"&url-fhs-home;\">Filesystem Hierarchy Standard</ulink>. Till exempel, <classname>tftpd-hpa</classname> använder som standard <filename>/srv/tftp</filename>. Du kan därför behöva justera konfigurationsexemplen i det här avsnittet."
+
+#. Tag: para
+#: install-methods.xml:1350
+#, no-c-format
+msgid "All <command>in.tftpd</command> alternatives available in &debian; should log TFTP requests to the system logs by default. Some of them support a <userinput>-v</userinput> argument to increase verbosity. It is recommended to check these log messages in case of boot problems as they are a good starting point for diagnosing the cause of errors."
+msgstr "Alla tillgängliga alternativ för <command>in.tftpd</command> i &debian; bör logga TFTP-begäran till systemloggarna som standard. Vissa av dem har stöd för argumentet <userinput>-v</userinput> för att öka informationsnivån. Det rekommenderas att kontrollera dessa loggmeddelanden när uppstartsproblem sker eftersom de är en bra startpunkt för att diagnostisera orsaken till felen."
+
+#. Tag: para
+#: install-methods.xml:1358
+#, no-c-format
+msgid ""
+"If you intend to install &debian; on an SGI machine and your TFTP server is a GNU/Linux box running Linux 2.4, you'll need to set the following on your server: <informalexample><screen>\n"
+"# echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc\n"
+"</screen></informalexample> to turn off Path MTU discovery, otherwise the SGI's PROM can't download the kernel. Furthermore, make sure TFTP packets are sent from a source port no greater than 32767, or the download will stall after the first packet. Again, it's Linux 2.4.X tripping this bug in the PROM, and you can avoid it by setting <informalexample><screen>\n"
+"# echo \"2048 32767\" &gt; /proc/sys/net/ipv4/ip_local_port_range\n"
+"</screen></informalexample> to adjust the range of source ports the Linux TFTP server uses."
+msgstr ""
+"Om du tänker installera &debian; på en SGI-maskin och din TFTP-server är en GNU/Linux-burk som kör Linux 2.4, behöver du ställa in följande på din server: <informalexample><screen>\n"
+"# echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc\n"
+"</screen></informalexample> för att stänga av Path MTU discovery, annars kan SGI:ns PROM inte hämta kärnan. Vidare bör du se till att TFTP-paket skickas från en källport som inte är högre än 32767, annars kommer hämtningen att stanna av efter första paketet. Igen, det är Linux 2.4.X som ger det här felet i PROM, och du kan undvika det genom att ställa in <informalexample><screen>\n"
+"# echo \"2048 32767\" &gt; /proc/sys/net/ipv4/ip_local_port_range\n"
+"</screen></informalexample> för att justera intervallet av källportar som Linux TFTP-server använder."
+
+#. Tag: title
+#: install-methods.xml:1380
+#, no-c-format
+msgid "Move TFTP Images Into Place"
+msgstr "Flytta TFTP-avbildningarna till rätt plats"
+
+#. Tag: para
+#: install-methods.xml:1381
+#, no-c-format
+msgid "Next, place the TFTP boot image you need, as found in <xref linkend=\"where-files\"/>, in the <command>tftpd</command> boot image directory. You may have to make a link from that file to the file which <command>tftpd</command> will use for booting a particular client. Unfortunately, the file name is determined by the TFTP client, and there are no strong standards."
+msgstr "Placera sedan TFTP-uppstartsavbildningen du behöver, som du hittar i <xref linkend=\"where-files\"/>, i katalogen för uppstartsavbildningar för <command>tftpd</command>. Du kan behöva att skapa en länk från den filen till den fil som <command>tftpd</command> kommer att använda för att starta upp en specifik klient. Tyvärr fastställs filnamnet av TFTP-klienten och det finns inga riktiga standarder."
+
+#. Tag: para
+#: install-methods.xml:1390
+#, no-c-format
+msgid "On NewWorld Power Macintosh machines, you will need to set up the <command>yaboot</command> boot loader as the TFTP boot image. <command>Yaboot</command> will then retrieve the kernel and RAMdisk images via TFTP itself. You will need to download the following files from the <filename>netboot/</filename> directory:"
+msgstr "På NewWorld Power Macintosh-maskiner behöver du ställa in starthanteraren <command>yaboot</command> som TFTP-uppstartsavbildning. <command>Yaboot</command> kommer då själv att hämta kärnan och ramdiskavbildningarna via TFTP. Du behöver hämta ner följande filer från katalogen <filename>netboot/</filename>:"
+
+#. Tag: filename
+#: install-methods.xml:1421
+#, no-c-format
+msgid "boot.msg"
+msgstr "boot.msg"
+
+#. Tag: para
+#: install-methods.xml:1426
+#, no-c-format
+msgid "For PXE booting, everything you should need is set up in the <filename>netboot/netboot.tar.gz</filename> tarball. Simply extract this tarball into the <command>tftpd</command> boot image directory. Make sure your dhcp server is configured to pass <filename>pxelinux.0</filename> to <command>tftpd</command> as the filename to boot."
+msgstr "För PXE-uppstart är allt du behöver konfigurerat i filen <filename>netboot/netboot.tar.gz</filename>. Extrahera helt enkelt den här filen till katalogen för uppstartsavbildningar för <command>tftpd</command>. Se till att din dhcp-server är konfigurerad att skicka <filename>pxelinux.0</filename> till <command>tftpd</command> som det filnamn som ska användas för uppstart."
+
+#. Tag: para
+#: install-methods.xml:1434
+#, no-c-format
+msgid "For PXE booting, everything you should need is set up in the <filename>netboot/netboot.tar.gz</filename> tarball. Simply extract this tarball into the <command>tftpd</command> boot image directory. Make sure your dhcp server is configured to pass <filename>/debian-installer/ia64/elilo.efi</filename> to <command>tftpd</command> as the filename to boot."
+msgstr "För PXE-uppstart bör allt du behöver finns i filen <filename>netboot/netboot.tar.gz</filename>. Extrahera den filen till katalogen för uppstartsavbildningar för <command>tftpd</command>. Se till att din dhcp-server är konfigurerad att skicka <filename>/debian-installer/ia64/elilo.efi</filename> till <command>tftpd</command> som filnamnet att starta upp på."
+
+#. Tag: title
+#: install-methods.xml:1446
+#, no-c-format
+msgid "SPARC TFTP Booting"
+msgstr "Uppstart via TFTP för SPARC"
+
+#. Tag: para
+#: install-methods.xml:1447
+#, no-c-format
+msgid ""
+"Some SPARC architectures add the subarchitecture names, such as <quote>SUN4M</quote> or <quote>SUN4C</quote>, to the filename. Thus, if your system's subarchitecture is a SUN4C, and its IP is 192.168.1.3, the filename would be <filename>C0A80103.SUN4C</filename>. However, there are also subarchitectures where the file the client looks for is just <filename>client-ip-in-hex</filename>. An easy way to determine the hexadecimal code for the IP address is to enter the following command in a shell (assuming the machine's intended IP is 10.0.0.4). <informalexample><screen>\n"
+"$ printf '%.2x%.2x%.2x%.2x\\n"
+"' 10 0 0 4\n"
+"</screen></informalexample> To get to the correct filename, you will need to change all letters to uppercase and if necessary append the subarchitecture name."
+msgstr ""
+"Vissa SPARC-arkitekturer lägger till  underarkitekturens namn, såsom <quote>SUN4M</quote> eller <quote>SUN4C</quote>; till filnamnet. Därför, om ditt systems arkitektur är en SUN4C, och dess IP är 192.168.1.3, borde filnamnet vara <filename>C0A80103.SUN4C</filename>. Dock, det finns även underarkitekturer där filen som klienten letar efter är bara <filename>klient-ip-i-hex</filename>. Ett lätt sätt att fastställa den hexadecimala koden för IP-adressen är att ange följande kommando i ett skal (anta att maskinens tilltänkta IP-adress är 10.0.0.4). <informalexample><screen>\n"
+"$ printf '%.2x%.2x%.2x%.2x\\n"
+"' 10 0 0 4\n"
+"</screen></informalexample> För att få det korrekta filnamnet, behöver du ändra alla bokstäver till versaler om och det behövs även lägga till underarkitekturens namn."
+
+#. Tag: para
+#: install-methods.xml:1463
+#, no-c-format
+msgid "If you've done all this correctly, giving the command <userinput>boot net</userinput> from the OpenPROM should load the image. If the image cannot be found, try checking the logs on your tftp server to see which image name is being requested."
+msgstr "Om du har gjort allt det här korrekt, ska kommandot <userinput>boot net</userinput> från OpenPROM läsa in avbildningen. Om avbildningen inte kan hittas, försök leta i loggarna på din tftp-server för att se vilket avbildningsnamn som efterfrågas."
+
+#. Tag: para
+#: install-methods.xml:1470
+#, no-c-format
+msgid "You can also force some sparc systems to look for a specific file name by adding it to the end of the OpenPROM boot command, such as <userinput>boot net my-sparc.image</userinput>. This must still reside in the directory that the TFTP server looks in."
+msgstr "Du kan också tvinga vissa sparc-system att leta efter ett specifikt filnamn genom att lägga till det på slutet av uppstartskommandot för OpenPROM, såsom <userinput>boot net min-sparc.avbildning</userinput>. Den måste dock finnas i katalogen som TFTP-servern letar i."
+
+#. Tag: title
+#: install-methods.xml:1481
+#, no-c-format
+msgid "SGI TFTP Booting"
+msgstr "Uppstart via TFTP för SGI"
+
+#. Tag: para
+#: install-methods.xml:1482
+#, no-c-format
+msgid "On SGI machines you can rely on the <command>bootpd</command> to supply the name of the TFTP file. It is given either as the <userinput>bf=</userinput> in <filename>/etc/bootptab</filename> or as the <userinput>filename=</userinput> option in <filename>/etc/dhcpd.conf</filename>."
+msgstr "På SGI-maskiner kan du förlita dig på att <command>bootpd</command> skickar med namnet på TFTP-filen. Det anges antingen som <userinput>bf=</userinput> i <filename>/etc/bootptab</filename> eller som alternativet <userinput>filename=</userinput> i <filename>/etc/dhcpd.conf</filename>."
+
+#. Tag: title
+#: install-methods.xml:1590
+#, no-c-format
+msgid "Automatic Installation"
+msgstr "Automatisk installation"
+
+#. Tag: para
+#: install-methods.xml:1591
+#, fuzzy, no-c-format
+#| msgid ""
+#| "For installing on multiple computers it's possible to do fully automatic "
+#| "installations. Debian packages intended for this include <classname>fai</"
+#| "classname> (which uses an install server), <classname>replicator</"
+#| "classname>, <classname>systemimager</classname>, <classname>autoinstall</"
+#| "classname>, and the Debian Installer itself."
+msgid "For installing on multiple computers it's possible to do fully automatic installations. &debian; packages intended for this include <classname>fai-quickstart</classname> (which can use an install server) and the &debian; Installer itself. Have a look at the <ulink url=\"http://fai-project.org\">FAI home page</ulink> for detailed information."
+msgstr "För installation på flera datorer är det möjligt att göra fullt automatiska installationer. &debian;-paketen som är tänkta för det här är <classname>fai</classname> (som använder en installationsserver), <classname>replicator</classname>, <classname>systemimager</classname>, <classname>autoinstall</classname>, och själva &debian; Installer."
+
+#. Tag: title
+#: install-methods.xml:1603
+#, no-c-format
+msgid "Automatic Installation Using the &debian; Installer"
+msgstr "Automatisk installation med &debian; Installer"
+
+#. Tag: para
+#: install-methods.xml:1604
+#, no-c-format
+msgid "The &debian; Installer supports automating installs via preconfiguration files. A preconfiguration file can be loaded from the network or from removable media, and used to fill in answers to questions asked during the installation process."
+msgstr "&debian; Installer har stöd för att automatisera installationer via förkonfigurationsfiler. En förkonfigurationsfil kan läsas in från nätverket eller från flyttbart media, och används för att fylla i svar på frågor som ställs under installationsprocessen."
+
+#. Tag: para
+#: install-methods.xml:1611
+#, no-c-format
+msgid "Full documentation on preseeding including a working example that you can edit is in <xref linkend=\"appendix-preseed\"/>."
+msgstr "Full dokumentation om förinställning inklusive ett fungerande exempel som du kan redigera finns i <xref linkend=\"appendix-preseed\"/>."
+
+#~ msgid "The installer cannot boot from files on an NTFS file system."
+#~ msgstr ""
+#~ "Installationsprogrammet kan inte starta upp från filer på ett NTFS-"
+#~ "filsystem."
+#~ msgid ""
+#~ "To use the Pre-boot Execution Environment (PXE) method of TFTP booting, "
+#~ "you will need a TFTP server with <userinput>tsize</userinput> support. On "
+#~ "a &debian-gnu; server, the <classname>atftpd</classname> and "
+#~ "<classname>tftpd-hpa</classname> packages qualify; we recommend "
+#~ "<classname>tftpd-hpa</classname>."
+#~ msgstr ""
+#~ "För att använda metoden Pre-boot Execution Environment (PXE) av TFTP-"
+#~ "uppstarten, behöver du en TFTP-server med stöd för <userinput>tsize</"
+#~ "userinput>. På en &debian-gnu;-server är paketen <classname>atftpd</"
+#~ "classname> och <classname>tftpd-hpa</classname> kvalificerade; vi "
+#~ "rekommenderar <classname>tftpd-hpa</classname>."
+#~ msgid ""
+#~ "To get the TFTP server ready to go, you should first make sure that "
+#~ "<command>tftpd</command> is enabled. This is usually enabled by having "
+#~ "something like the following line in <filename>/etc/inetd.conf</"
+#~ "filename>: <informalexample><screen>\n"
+#~ "tftp dgram udp wait nobody /usr/sbin/tcpd in.tftpd /tftpboot\n"
+#~ "</screen></informalexample> Debian packages will in general set this up "
+#~ "correctly by default when they are installed."
+#~ msgstr ""
+#~ "För att få TFTP-servern klar att köra, bör du först se till att "
+#~ "<command>tftpd</command> är aktiverad. Den aktiveras normalt sett genom "
+#~ "att ha en rad som liknar följande rad i <filename>/etc/inetd.conf</"
+#~ "filename>: <informalexample><screen>\n"
+#~ "tftp dgram udp wait nobody /usr/sbin/tcpd in.tftpd /tftpboot\n"
+#~ "</screen></informalexample> Debian-paketen kommer normalt sett att ställa "
+#~ "in det korrekt som standard när de installeras."
+#~ msgid ""
+#~ "Look in <filename>/etc/inetd.conf</filename> and remember the directory "
+#~ "which is used as the argument of <command>in.tftpd</command><footnote> "
+#~ "<para> All <command>in.tftpd</command> alternatives available in Debian "
+#~ "should log TFTP requests to the system logs by default. Some of them "
+#~ "support a <userinput>-v</userinput> argument to increase verbosity. It is "
+#~ "recommended to check these log messages in case of boot problems as they "
+#~ "are a good starting point for diagnosing the cause of errors. </para> </"
+#~ "footnote>; you'll need that below. If you've had to change <filename>/etc/"
+#~ "inetd.conf</filename>, you'll have to notify the running <command>inetd</"
+#~ "command> process that the file has changed. On a Debian machine, run "
+#~ "<userinput>/etc/init.d/inetd reload</userinput>; on other machines, find "
+#~ "out the process ID for <command>inetd</command>, and run <userinput>kill -"
+#~ "HUP <replaceable>inetd-pid</replaceable></userinput>."
+#~ msgstr ""
+#~ "Leta i filen <filename>/etc/inetd.conf</filename> och kom ihåg katalogen "
+#~ "som används som argument till <command>in.tftpd</command><footnote> "
+#~ "<para> Alla alternativ till <command>in.tftpd</command> i Debian ska som "
+#~ "standard logga TFTP-begäran till systemloggarna. Några av dem har stöd "
+#~ "för argumentet <userinput>-v</userinput> för att öka informationsnivån. "
+#~ "Det rekommenderas att kontrollera dessa loggmeddelanden om "
+#~ "uppstartsproblem inträffar eftersom de är en bra startpunkt för att "
+#~ "diagnostisera problem. </para> </footnote>; du behöver det senare. Om du "
+#~ "behövde ändra <filename>/etc/inetd.conf</filename>, behöver du meddela "
+#~ "till den körande <command>inetd</command>-processen att filen har "
+#~ "ändrats. På en Debian-maskin, kör <userinput>/etc/init.d/inetd reload</"
+#~ "userinput>; på andra maskiner, ta reda på vilket process-id som "
+#~ "<command>inetd</command> har och kör sedan <userinput>kill -HUP "
+#~ "<replaceable>inetd-pid</replaceable></userinput>."
+#~ msgid ""
+#~ "The QNAP Turbo Station (TS-109, TS-209 and TS-409) requires a kernel and "
+#~ "ramdisk which can be obtained from &qnap-orion-firmware-img;. A script is "
+#~ "provided to write these images to flash."
+#~ msgstr ""
+#~ "QNAP Turbo Station (TS-109, TS-209 och TS-409) kräver en kärna och "
+#~ "ramdisk vilka kan hämtas från &qnap-orion-firmware-img;. Ett skript finns "
+#~ "för att skriva dessa avbildningar till flashminnet."
+#~ msgid "Alpha Installation Files"
+#~ msgstr "Installationsfiler för Alpha"
+#~ msgid ""
+#~ "If you choose to boot from ARC console firmware using <command>MILO</"
+#~ "command>, you will also need to prepare a disk containing <command>MILO</"
+#~ "command> and <command>LINLOAD.EXE</command> from the provided disk "
+#~ "images. See <xref linkend=\"alpha-firmware\"/> for more information on "
+#~ "Alpha firmware and boot loaders. The floppy images can be found in the "
+#~ "<filename>MILO</filename> directory as "
+#~ "<filename>milo_<replaceable>subarchitecture</replaceable>.bin</filename>."
+#~ msgstr ""
+#~ "Om du väljer att starta från ARC-konsollens firmware med <command>MILO</"
+#~ "command> behöver du att förbereda en disk som innehåller <command>MILO</"
+#~ "command> och <command>LINLOAD.EXE</command> från den angivna "
+#~ "diskavbildningen. Se <xref linkend=\"alpha-firmware\"/> för mer "
+#~ "information om Alpha-firmware och starthanterare. Diskettavbildningar kan "
+#~ "hittas i katalogen <filename>MILO</filename> som "
+#~ "<filename>milo_<replaceable>underarkitektur</replaceable>.bin</filename>."
+#~ msgid ""
+#~ "Unfortunately, these <command>MILO</command> images could not be tested "
+#~ "and might not work for all subarchitectures. If you find it doesn't work "
+#~ "for you, try copying the appropriate <command>MILO</command> binary onto "
+#~ "the floppy (<ulink url=\"&disturlftp;main/disks-alpha/current/MILO/\"></"
+#~ "ulink>). Note that those <command>MILO</command>s don't support ext2 "
+#~ "<quote>sparse superblocks</quote>, so you can't use them to load kernels "
+#~ "from newly generated ext2 file systems. As a workaround, you can put your "
+#~ "kernel onto the FAT partition next to the <command>MILO</command>."
+#~ msgstr ""
+#~ "Tyvärr, de här <command>MILO</command>-avbildningarna kunde inte testas "
+#~ "och kanske inte fungerar för alla underarkitekturer. Om du upptäcker att "
+#~ "de inte fungerar för dig, försök att kopiera den lämpliga <command>MILO</"
+#~ "command> binären till disketten (<ulink url=\"&disturlftp;main/disks-"
+#~ "alpha/current/MILO/\"></ulink>). Observera att de här <command>MILO</"
+#~ "command>:arna inte har stöd för <quote>sparse superblocks</quote> i ext2, "
+#~ "så du kan inte använda dem för att läsa in kärnor från nyligen genererade "
+#~ "ext2-filsystem. En lösning är att du kan lägga din kärna på FAT-"
+#~ "partitionen bredvid <command>MILO</command>."
+#~ msgid ""
+#~ "<command>MILO</command> binaries are platform-specific. See <xref linkend="
+#~ "\"alpha-cpus\"/> to determine the appropriate <command>MILO</command> "
+#~ "image for your Alpha platform."
+#~ msgstr ""
+#~ "<command>MILO</command>-binärer är plattformsspecifika. Se <xref linkend="
+#~ "\"alpha-cpus\"/> för att fastställa den lämpliga <command>MILO</command>-"
+#~ "avbildningen för din Alpha-plattform."
+#~ msgid ""
+#~ "Unlike the Open Firmware found on Sparc and PowerPC machines, the SRM "
+#~ "console will <emphasis>not</emphasis> use RARP to obtain its IP address, "
+#~ "and therefore you must use BOOTP for net booting your Alpha<footnote> "
+#~ "<para> Alpha systems can also be net-booted using the DECNet MOP "
+#~ "(Maintenance Operations Protocol), but this is not covered here. "
+#~ "Presumably, your local OpenVMS operator will be happy to assist you "
+#~ "should you have some burning need to use MOP to boot Linux on your Alpha. "
+#~ "</para> </footnote>. You can also enter the IP configuration for network "
+#~ "interfaces directly in the SRM console."
+#~ msgstr ""
+#~ "Tvärtemot Open Firmware som finns på Sparc och PowerPC-maskiner, använder "
+#~ "SRM-konsollen <emphasis>inte</emphasis> RARP för att hämta sin IP-adress, "
+#~ "och därför måste du använda BOOTP för nätverksuppstart av din "
+#~ "Alpha<footnote> <para> Alpha-system kan också nätverksstartas med DECNet "
+#~ "MOP (Maintenance Operations Protocol), men det täcks inte in här. "
+#~ "Antagligen kan din lokala OpenVMS-operatör gladeligen assistera dig om du "
+#~ "har ett stort behov av att använda MOP för att start upp Linux på din "
+#~ "Alpha. </para> </footnote>. Du kan också ange IP-konfigurationen för "
+#~ "nätverksgränssnitt direkt i SRM-konsollen."
+#~ msgid "Alpha TFTP Booting"
+#~ msgstr "Uppstart för Alpha via TFTP"
+#~ msgid ""
+#~ "On Alpha, you must specify the filename (as a relative path to the boot "
+#~ "image directory) using the <userinput>-file</userinput> argument to the "
+#~ "SRM <userinput>boot</userinput> command, or by setting the "
+#~ "<userinput>BOOT_FILE</userinput> environment variable. Alternatively, the "
+#~ "filename can be given via BOOTP (in ISC <command>dhcpd</command>, use the "
+#~ "<userinput>filename</userinput> directive). Unlike Open Firmware, there "
+#~ "is <emphasis>no default filename</emphasis> on SRM, so you "
+#~ "<emphasis>must</emphasis> specify a filename by either one of these "
+#~ "methods."
+#~ msgstr ""
+#~ "På Alpha, måste du ange filnamnet (som en relativ sökväg till katalogen "
+#~ "för uppstartsavbildningar) med argumentet <userinput>-file</userinput> "
+#~ "till SRM-kommandot <userinput>boot</userinput>, eller genom att ställa in "
+#~ "miljövariabeln <userinput>BOOT_FILE</userinput>. Alternativ kan filnamnet "
+#~ "anges via BOOTP (i ISC <command>dhcpd</command>, använd direktivet "
+#~ "<userinput>filename</userinput>). Tvärtemot Open Firmware, finns det  "
+#~ "<emphasis>inget standardfilnamn</emphasis> på SRM, så du <emphasis>måste</"
+#~ "emphasis> ange ett filnamn genom en av de här metoderna."
+#~ msgid "Choosing a Kernel"
+#~ msgstr "Välja en kärna"
+#~ msgid ""
+#~ "Some m68k subarchs have a choice of kernels to install. In general we "
+#~ "recommend trying the most recent version first. If your subarch or "
+#~ "machine needs to use a 2.2.x kernel, make sure you choose one of the "
+#~ "images that supports 2.2.x kernels (see the <ulink url=\"&disturl;/main/"
+#~ "installer-&architecture;/current/images/MANIFEST\">MANIFEST</ulink>)."
+#~ msgstr ""
+#~ "Vissa m68k-underarkitekturer har flera val av kärnor att installera. "
+#~ "Allmänt sett rekommenderar vi att försöka den senaste versionen först. Om "
+#~ "din underarkitektur eller maskin behöver använda en 2.2.x-kärna, se till "
+#~ "att välja en av avbildningarna som har stöd för 2.2.x-kärnor (se <ulink "
+#~ "url=\"&disturl;/main/installer-&architecture;/current/images/MANIFEST"
+#~ "\">MANIFEST</ulink>)."
+#~ msgid ""
+#~ "All of the m68k images for use with 2.2.x kernels, require the kernel "
+#~ "parameter &ramdisksize;."
+#~ msgstr ""
+#~ "Alla m68k-avbildningar som använder 2.2.x-kärnor kräver kärnparametern "
+#~ "&ramdisksize;."
+#~ msgid ""
+#~ "Booting the installer from floppy disk is not supported on Amigas or 68k "
+#~ "Macs."
+#~ msgstr ""
+#~ "Starta upp installationsprogrammet från diskett stöds inte på Amiga eller "
+#~ "68k Mac."
+#~ msgid "Writing Disk Images on Atari Systems"
+#~ msgstr "Skriva diskettavbildningar på Atari-system"
+#~ msgid ""
+#~ "You'll find the &rawwrite.ttp; program in the same directory as the "
+#~ "floppy disk images. Start the program by double clicking on the program "
+#~ "icon, and type in the name of the floppy image file you want written to "
+#~ "the floppy at the TOS program command line dialog box."
+#~ msgstr ""
+#~ "Du kan hitta programmet &rawwrite.ttp; i samma katalog som "
+#~ "diskettavbildningarna. Starta programmet genom att dubbelklicka på "
+#~ "programikonen och ange namnet på diskettavbildningen du vill skriva till "
+#~ "disketten i dialogrutan för TOS-programmets kommandorad."
+#~ msgid "Writing Disk Images on Macintosh Systems"
+#~ msgstr "Skriva diskettavbildningar på Macintosh-system"
+#~ msgid ""
+#~ "Since the current release does not yet support booting from floppies to "
+#~ "start the installation, there would be no point in doing this on "
+#~ "Macintosh Systems. However, these files are needed for the installation "
+#~ "of the operating system and modules, later in the process."
+#~ msgstr ""
+#~ "Eftersom den aktuella utgåvan inte ännu har stöd för att starta upp från "
+#~ "disketter för att påbörja installationen är det ingen mening att göra det "
+#~ "här på Macintosh-system. Dock behövs de här filerna senare i processen "
+#~ "för installationen av operativsystem och moduler."
+#~ msgid "BVM/Motorola TFTP Booting"
+#~ msgstr "Uppstart via TFTP för BVM/Motorola"
+#~ msgid ""
+#~ "For BVM and Motorola VMEbus systems copy the files &bvme6000-tftp-files; "
+#~ "to <filename>/tftpboot/</filename>."
+#~ msgstr ""
+#~ "För BVM och Motorola VMEbus-system kopiera filerna &bvme6000-tftp-files; "
+#~ "till <filename>/tftpboot/</filename>."
+#~ msgid ""
+#~ "Next, configure your boot ROMs or BOOTP server to initially load the "
+#~ "<filename>tftplilo.bvme</filename> or <filename>tftplilo.mvme</filename> "
+#~ "files from the TFTP server. Refer to the <filename>tftplilo.txt</"
+#~ "filename> file for your subarchitecture for additional system-specific "
+#~ "configuration information."
+#~ msgstr ""
+#~ "Sedan, konfigurera ditt uppstarts-ROM elle BOOTP-server att initialt läsa "
+#~ "in filen <filename>tftplilo.bvme</filename> eller <filename>tftplilo."
+#~ "mvme</filename> från TFTP-servern. Referera till filen <filename>tftplilo."
+#~ "txt</filename> för din underarkitektur för ytterligare systemspecifik "
+#~ "konfigurationsinformation."
+#~ msgid "Broadcom BCM91250A and BCM91480B TFTP Booting"
+#~ msgstr "Uppstart via TFTP för Broadcom BCM91250A och BCM91480B"
+#~ msgid ""
+#~ "You don't have to configure DHCP in a special way because you'll pass the "
+#~ "full path of the file to be loaded to CFE."
+#~ msgstr ""
+#~ "Du behöver inte konfigurera DHCP på något speciellt sätt på grund av att "
+#~ "du skickar hela sökvägen till filen som ska läsas in av CFE."
+#~ msgid ""
+#~ "The easiest way to boot a Netwinder is over the network, using the "
+#~ "supplied TFTP image &netwinder-boot-img;."
+#~ msgstr ""
+#~ "Det enklaste sättet att starta upp en NetWinder är över nätverket, med "
+#~ "den medskickade TFTP-avbildningen &netwinder-boot-img;."
+#~ msgid "CATS Installation Files"
+#~ msgstr "Installationsfiler för CATS"
+#~ msgid ""
+#~ "CATS can be booted either via the network or from CD-ROM. The kernel and "
+#~ "initrd can be obtained from &cats-boot-img;."
+#~ msgstr ""
+#~ "CATS kan startas upp antingen via nätverket eller från cd-rom. Kärnan och "
+#~ "initrd kan hämtas från &cats-boot-img;."
+#~ msgid "USB stick partitioning on &arch-title;"
+#~ msgstr "Partitionering av USB-minne på &arch-title;"
+#~ msgid ""
+#~ "The <filename>syslinux.cfg</filename> configuration file should contain "
+#~ "the following two lines:"
+#~ msgstr ""
+#~ "Konfigurationsfilen <filename>syslinux.cfg</filename> ska innehålla "
+#~ "följande två rader:"
+#~ msgid ""
+#~ "default vmlinuz\n"
+#~ "append initrd=initrd.gz"
+#~ msgstr ""
+#~ "default vmlinuz\n"
+#~ "append initrd=initrd.gz"
+#~ msgid "Optional kernel modules"
+#~ msgstr "Valfria kärnmoduler"
+#~ msgid ""
+#~ "The installer will look for a Debian ISO image on the stick as its source "
+#~ "for additional data needed for the installation. So your next step is to "
+#~ "copy a Debian ISO image (businesscard, netinst or even a full CD image) "
+#~ "onto your stick (be sure to select one that fits). The file name of the "
+#~ "image must end in <filename>.iso</filename>."
+#~ msgstr ""
+#~ "Installationsprogrammet kommer att leta efter en Debian ISO-avbildning på "
+#~ "minnet som dess källa för ytterligare data som behövs för installationen. "
+#~ "Så ditt nästa steg är att kopiera en Debian ISO-avbildning (visitkort, "
+#~ "netinst eller till och med en fullständig cd-avbildning) till ditt USB-"
+#~ "minne (se till att välja den som passar). Filnamnet på avbildningen måste "
+#~ "sluta på <filename>.iso</filename>."
+#~ msgid ""
+#~ "If you want to install over the network, without using an ISO image, you "
+#~ "will of course skip the previous step. Moreover you will have to use the "
+#~ "initial ramdisk from the <filename>netboot</filename> directory instead "
+#~ "of the one from <filename>hd-media</filename>, because <filename>hd-media/"
+#~ "initrd.gz</filename> does not have network support."
+#~ msgstr ""
+#~ "Om du vill installera över nätverket, utan att använda en ISO-avbildning, "
+#~ "kommer du så klart hoppa över föregående steg. Vidare måste du använda "
+#~ "den initiala ramdisken från katalogen <filename>netboot</filename> "
+#~ "istället för den från <filename>hd-media</filename>, på grund av att "
+#~ "<filename>hd-media/initrd.gz</filename> inte har stöd för nätverk."
+#~ msgid ""
+#~ "When you are done, unmount the USB memory stick (<userinput>umount /mnt</"
+#~ "userinput>) and activate its write protection switch."
+#~ msgstr ""
+#~ "När du är klar, avmontera USB-minnet (<userinput>umount /mnt</userinput>) "
+#~ "och aktivera dess skrivskydd."
+#~ msgid "DECstation TFTP Images"
+#~ msgstr "Avbildningar för DECstation TFTP"
+#~ msgid ""
+#~ "For DECstations, there are tftpimage files for each subarchitecture, "
+#~ "which contain both kernel and installer in one file. The naming "
+#~ "convention is <filename><replaceable>subarchitecture</replaceable>/"
+#~ "netboot-boot.img</filename>. Copy the tftpimage file you would like to "
+#~ "use to <userinput>/tftpboot/tftpboot.img</userinput> if you work with the "
+#~ "example BOOTP/DHCP setups described above."
+#~ msgstr ""
+#~ "För DECstation, finns det tftpimage-filer för varje underarkitektur, som "
+#~ "innehåller både kärna och installationsprogram i en fil. Namnkonventionen "
+#~ "är <filename><replaceable>underarkitektur</replaceable>/netboot-boot.img</"
+#~ "filename>. Kopiera den tftpimage-fil du vill använda till <userinput>/"
+#~ "tftpboot/tftpboot.img</userinput> om du arbetar med det exemplet för "
+#~ "BOOTP/DHCP-konfigurationer som beskrivs ovan."
+#~ msgid ""
+#~ "The DECstation firmware boots by TFTP with the command <userinput>boot "
+#~ "<replaceable>#</replaceable>/tftp</userinput>, where <replaceable>#</"
+#~ "replaceable> is the number of the TurboChannel device from which to boot. "
+#~ "On most DECstations this is <quote>3</quote>. If the BOOTP/DHCP server "
+#~ "does not supply the filename or you need to pass additional parameters, "
+#~ "they can optionally be appended with the following syntax:"
+#~ msgstr ""
+#~ "DECstationens firmware kan starta upp via TFTP med kommandot "
+#~ "<userinput>boot <replaceable>#</replaceable>/tftp</userinput>, där "
+#~ "<replaceable>#</replaceable> är numret på den TurboChannel-enhet från "
+#~ "vilken uppstarten ska ske. På de flesta DECstationer är det <quote>3</"
+#~ "quote>. Om BOOTP/DHCP-servern inte ger ut filnamnet eller om du behöver "
+#~ "skicka ytterligare parametrar, kan de valfritt läggas till med följande "
+#~ "syntax:"
+#~ msgid "boot #/tftp/filename param1=value1 param2=value2 ..."
+#~ msgstr "boot #/tftp/filename param1=värde1 param2=värde2 ..."
+#~ msgid ""
+#~ "Several DECstation firmware revisions show a problem with regard to net "
+#~ "booting: the transfer starts, but after some time it stops with an "
+#~ "<computeroutput>a.out err</computeroutput>. This can have several "
+#~ "reasons: <orderedlist> <listitem><para> The firmware does not respond to "
+#~ "ARP requests during a TFTP transfer. This leads to an ARP timeout and the "
+#~ "transfer stops. The solution is to add the MAC address of the Ethernet "
+#~ "card in the DECstation statically to the ARP table of the TFTP server. "
+#~ "This is done by running <userinput>arp -s <replaceable>IP-address</"
+#~ "replaceable> <replaceable>MAC-address</replaceable></userinput> as root "
+#~ "on the machine acting as TFTP server. The MAC-address of the DECstation "
+#~ "can be read out by entering <command>cnfg</command> at the DECstation "
+#~ "firmware prompt. </para></listitem> <listitem><para> The firmware has a "
+#~ "size limit on the files that can be booted by TFTP. </para></listitem> </"
+#~ "orderedlist> There are also firmware revisions that cannot boot via TFTP "
+#~ "at all. An overview about the different firmware revisions can be found "
+#~ "at the NetBSD web pages: <ulink url=\"http://www.netbsd.org/Ports/pmax/"
+#~ "board-list.html#proms\"></ulink>."
+#~ msgstr ""
+#~ "Flera revisioner av DECstation-firmware har ett problem angående "
+#~ "nätverksuppstart: överföringen startar, men efter en viss tid stoppar den "
+#~ "med en <computeroutput>a.out err</computeroutput>. Det kan finnas flera "
+#~ "anledningar: <orderedlist> <listitem><para> Firmware svarar inte på ARP-"
+#~ "begäran under en TFTP-överföring. Det leder till en ARP-timeout och "
+#~ "överföringen stoppas. Lösningen är att statiskt lägga till MAC-adressen "
+#~ "på Ethernet-kortet i DECstationen till ARP-tabellen på TFTP-servern. Det "
+#~ "görs genom att köra <userinput>arp -s <replaceable>IP-adress</"
+#~ "replaceable> <replaceable>MAC-adress</replaceable></userinput> som root "
+#~ "på maskinen som fungerar som TFTP-server. MAC-adressen för DECstationen "
+#~ "kan läsas av genom att ange <command>cnfg</command> i DECstationens "
+#~ "firmware-prompt. </para></listitem> <listitem><para> Firmware har en "
+#~ "storleksgräns på de filer som kan startas upp via TFTP. </para></"
+#~ "listitem> </orderedlist> Det finns också  revisioner av firmware som inte "
+#~ "kan starta upp via TFTP alls. En översikt av de olika revisionerna av "
+#~ "firmware kan hittas på webbsidorna för NetBSD: <ulink url=\"http://www."
+#~ "netbsd.org/Ports/pmax/board-list.html#proms\"></ulink>."
+#~ msgid ""
+#~ "The RiscPC installer is booted initially from RISC OS. All the necessary "
+#~ "files are provided in one Zip archive, &rpc-install-kit;. Download this "
+#~ "file onto the RISC OS machine, copy the <filename>linloader.!Boot</"
+#~ "filename> components into place, and run <filename>!dInstall</filename>."
+#~ msgstr ""
+#~ "Installationsprogrammet för RiscPC startas initialt upp från RISC OS. "
+#~ "Alla nödvändiga filer finns i ett Zip-arkiv, &rpc-install-kit;. Hämta den "
+#~ "här filen till  RISC OS-maskinen, kopiera komponenterna "
+#~ "<filename>linloader.!Boot</filename> till rätt plats, och kör <filename>!"
+#~ "dInstall</filename>."
+#~ msgid ""
+#~ "On a RARP server system using a Linux 2.2.x kernel, you need to populate "
+#~ "the kernel's RARP table. To do this, run the following commands: "
+#~ "<informalexample><screen>\n"
+#~ "# <userinput>/sbin/rarp -s\n"
+#~ "<replaceable>client-hostname</replaceable>\n"
+#~ "<replaceable>client-enet-addr</replaceable></userinput>\n"
+#~ "\n"
+#~ "# <userinput>/usr/sbin/arp -s\n"
+#~ "<replaceable>client-ip</replaceable>\n"
+#~ "<replaceable>client-enet-addr</replaceable></userinput>\n"
+#~ "</screen></informalexample> If you get <informalexample><screen>\n"
+#~ "SIOCSRARP: Invalid argument\n"
+#~ "</screen></informalexample> you probably need to load the RARP kernel "
+#~ "module or else recompile the kernel to support RARP. Try "
+#~ "<userinput>modprobe rarp</userinput> and then try the <command>rarp</"
+#~ "command> command again."
+#~ msgstr ""
+#~ "På ett RARP-serversystem som använder en Linux 2.2.x-kärna, behöver du "
+#~ "befolka kärnans RARP-tabell. För att göra det här, kör följande "
+#~ "kommandon: <informalexample><screen>\n"
+#~ "# <userinput>/sbin/rarp -s\n"
+#~ "<replaceable>client-hostname</replaceable>\n"
+#~ "<replaceable>client-enet-addr</replaceable></userinput>\n"
+#~ "\n"
+#~ "# <userinput>/usr/sbin/arp -s\n"
+#~ "<replaceable>client-ip</replaceable>\n"
+#~ "<replaceable>client-enet-addr</replaceable></userinput>\n"
+#~ "</screen></informalexample> Om du får <informalexample><screen>\n"
+#~ "SIOCSRARP: Invalid argument\n"
+#~ "</screen></informalexample> behöver du antagligen läsa in kärnmodulen för "
+#~ "RARP eller bygga in stöd för RARP i kärnan. Försök med "
+#~ "<userinput>modprobe rarp</userinput> och försök sedan med kommandot "
+#~ "<command>rarp</command> igen."
+#~ msgid ""
+#~ "On a RARP server system using a Linux 2.4.x kernel, there is no RARP "
+#~ "module, and you should instead use the <command>rarpd</command> program. "
+#~ "The procedure is similar to that used under SunOS in the following "
+#~ "paragraph."
+#~ msgstr ""
+#~ "På ett RARP-serversystem som använder en Linux 2.4.x-kärna, finns det "
+#~ "ingen RARP-modul, du bör istället använda programmet <command>rarpd</"
+#~ "command>. Proceduren liknar den som används under SunOS i nästa paragraf."
+#~ msgid ""
+#~ "The only supported boot method for CATS is to use the combined image "
+#~ "&cats-boot-img;. This can be loaded from any device accessible to the "
+#~ "Cyclone bootloader."
+#~ msgstr ""
+#~ "Den enda uppstartsmetoden som stöds för CATS är att använda den "
+#~ "kombinerade avbilden &cats-boot-img;. Den kan läsas in från alla enheter "
+#~ "som är nåbara från starthanteraren Cyclone."
+#~ msgid ""
+#~ "d-i foo/bar string value\n"
+#~ "d-i foo/bar seen false"
+#~ msgstr ""
+#~ "d-i foo/bar string value\n"
+#~ "d-i foo/bar seen false"
+

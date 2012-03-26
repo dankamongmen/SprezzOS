@@ -1,0 +1,78 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56248 -->
+<!-- updated 42036:56248 by Felipe Augusto van de Wiel (faw) 2008.11.11 -->
+
+  <sect2 arch="i386"><title>CPU, placas mãe e suporte a placas de vídeo</title>
+<para>
+
+Informações completas sobre o suporte a periféricos podem ser
+encontrados no
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>.
+Esta seção apenas destaca o básico.
+
+</para>
+
+   <sect3><title>CPU</title>
+<para>
+
+Praticamente todos os processadores baseados no padrão x86 (IA-32) ainda em
+uso em computadores pessoais são suportados, incluindo todas as variações
+da série <quote>Pentium</quote> da Intel. Isso também inclui os processadores
+de 32-bit da AMD e VIA (também conhecido como Cyrix), e processadores
+como Athlon XP e Intel P4 Xeon.
+
+</para><para>
+		
+Contudo, &debian; GNU/Linux &releasename; <emphasis>não</emphasis> funcionará
+nos processadores 386 ou anteriores. A despeito do nome de arquitetura
+<quote>i386</quote>, o suporte para os atuais processador 80386 (e seus
+clones) foi abandonado com o lançamento do Sarge (r3.1) pelo &debian;<footnote>
+
+<para>
+Nós tentamos muito evitar isso, mas no final isso foi necessário devido a uma
+infeliz série de problemas com o compilador e o kernel, começando com um bug
+na ABI do C++ fornecido pelo GCC.  Você ainda deve ser capaz de executar
+o &debian; GNU/Linux nos atuais processadores 80386 se você compilar seu
+próprio kernel e todos os pacotes a partir dos fontes, mas isso está além
+do escopo deste manual.
+</para>
+
+</footnote>. (Nenhuma versão do Linux jamais suportou os chips 286 ou
+anteriores.)  Todos os processadores i486 e posteriores ainda são
+suportados<footnote>
+
+<para>
+
+Muitos pacotes &debian; realmente serão executados um pouco mais rápido em
+computadores modernos, como um efeito positivo do não suportar esses chips
+antigos. O i486, introduzido em 1989, tem três opcodes (bswap, cmpxchg, e
+xadd), enquanto que o i386, introduzido em 1986, não tinha. Anteriormente,
+isso não poderia ser facilmente usado pela maioria dos pacotes &debian;; agora
+eles podem.
+
+</para>
+
+</footnote>.
+
+</para>
+<note><para>
+
+Se seu sistema tem um processador de 64-bit das famílias AMD64 ou Intel EM64T,
+você provavelmente optará por usar o instalador para a arquitetura amd64, ao
+invés do instalador para a arquitetura i386 (32-bit).
+
+</para></note>
+   </sect3>
+
+   <sect3 id="bus"><title>Barramento de I/O</title>
+<para>
+
+O barramento dos sistema é parte da placa mãe que permite que a
+CPU se comunique com periféricos como dispositivos de armazenamento.
+Seu computador deve usar ISA, EISA, PCI, PCIe, PCI-X ou VESA Local Bus (VLB,
+muitas vezes chamado VL bus). Essencialmente todos os computadores
+pessoais vendidos nos anos recentes usam um desses.
+
+</para>
+   </sect3>
+  </sect2>

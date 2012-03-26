@@ -1,0 +1,35 @@
+<!-- $Id: shutdown.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64829 -->
+
+ <sect1 id="shutdown">
+ <title>Vypínání systému</title>
+
+<para>
+
+Běžící systém &debian-gnu; nesmíte vypínat tlačítkem reset nebo prostým
+vytažením napájecí šňůry ze zásuvky. Pokud se operační systém nevypne
+řízeně, mohou se soubory na disku ztratit nebo poškodit. Používáte-li
+desktopové prostředí, obvykle se v menu vyskytuje položka
+<quote>Odhlásit</quote>, která vám umožní systém vypnout (případně
+restartovat).
+
+</para><para>
+
+Na konzoli můžete použít klávesovou kombinaci
+<keycombo>
+  <keycap>Ctrl</keycap> <keycap>Alt</keycap> <keycap>Del</keycap>
+</keycombo>
+<phrase arch="powerpc"> nebo na Macintoshích
+<keycombo>
+  <keycap>Control</keycap> <keycap>Shift</keycap> <keycap>Power</keycap>
+</keycombo>
+</phrase>.
+
+Pokud žádná z předchozích možností nefungovala, můžete se přihlásit
+jako uživatel root a zkusit některý z příkazů
+<userinput>poweroff</userinput>, <userinput>halt</userinput> nebo
+<userinput>shutdown -h now</userinput>. Pro restart systému použijte
+příkaz <userinput>reboot</userinput>.
+
+</para>
+ </sect1>

@@ -1,0 +1,637 @@
+<!-- $Id$ -->
+<!-- original version: 66709 -->
+
+ <sect1 id="boot-parms"><title>Zaváděcí parametry</title>
+<para arch="linux-any">
+
+Parametry pro zavádění jsou vlastně parametry pro jádro Linuxu,
+které se používají v případech, kdy chceme zajistit, aby jádro
+korektně pracovalo s neposlušnými zařízeními. Ve většinou je jádro
+schopno rozpoznat všechna zařízení automaticky, ale v některých
+speciálních případech mu musíte trochu pomoci.
+
+</para><para>
+
+Při prvním zavádění systému zkuste, zdali systém rozpozná všechna
+potřebná zařízení jen s implicitními parametry (tj. nenastavujte
+pro začátek žádné vlastní hodnoty). Systém obvykle naběhne.
+V případě, že se tak nestane, můžete systém zavést později poté,
+co zjistíte, jaké parametry je potřeba zadat, aby jádro korektně
+rozpoznalo váš hardware.
+
+</para><para arch="linux-any">
+
+Poznatky o nejrůznějších zaváděcích parametrech a podivných zařízeních
+jsou k nalezení v
+<ulink url="http://www.tldp.org/HOWTO/BootPrompt-HOWTO.html">Linux
+BootPrompt HOWTO</ulink>.
+Následující text obsahuje popis jen stěžejních parametrů. Vybrané
+problémy popisuje <xref linkend="boot-troubleshooting"/>.
+
+</para><para arch="linux-any">
+
+Brzy po zavedení jádra můžete zpozorovat hlášení
+
+<informalexample><screen>
+Memory:<replaceable>dostupná</replaceable>k/<replaceable>celkem</replaceable>k available
+</screen></informalexample>
+
+Hodnota <replaceable>celkem</replaceable> by měla ukazovat celkovou
+fyzickou paměť RAM (v kilobajtech), která je systému dostupná.
+Pokud tato hodnota neodpovídá aktuálnímu stavu instalované paměti,
+potom byste měli použít zaváděcí parametr
+<userinput>mem=<replaceable>ram</replaceable></userinput>,
+kde <replaceable>ram</replaceable> je vámi udaná velikost paměti
+zakončená znakem <quote>k</quote> pro kilobajty nebo <quote>m</quote> pro megabajty.
+Například, obě hodnoty <userinput>mem=65536k</userinput> a
+<userinput>mem=64m</userinput> znamenají 64MB RAM.
+
+</para><para arch="linux-any" condition="supports-serial-console">
+
+Jádro by
+mělo být schopno rozpoznat, že zavádíte systém ze sériové konzoly.
+Pokud máte v zaváděném počítači rovněž grafickou kartu (framebuffer)
+a připojenou klávesnici, měli byste při zavádění zadat parametr
+<userinput>console=<replaceable>zařízení</replaceable></userinput>,
+kde <replaceable>zařízení</replaceable> je vaše sériové zařízení, což
+je obvykle něco jako <filename>ttyS0</filename><footnote><para>
+
+Abyste zajistili, že instalace používá typ terminálu kompatibilní s
+vaším emulátorem terminálu, můžete přidat parametr
+<userinput>TERM=<replaceable>typ</replaceable></userinput>.
+Instalační systém podporuje následující typy terminálů:
+<literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>,
+<literal>vt102</literal> a <literal>dumb</literal>. Pro sériovou
+konzoli v &d-i; je výchozím typem <userinput>vt102</userinput>.
+
+</para></footnote>.
+
+</para><para arch="sparc">
+
+Pro &arch-title; jsou sériová zařízení <filename>ttya</filename> nebo
+<filename>ttyb</filename>. Eventuálně můžete nastavit proměnné pro
+OpenPROM <envar>input-device</envar> a <envar>output-device</envar> na
+hodnotu <filename>ttya</filename>.
+
+</para>
+
+  <sect2 id="installer-args"><title>Parametry instalačního programu</title>
+<para>
+
+Instalační systém rozpoznává několik užitečných parametrů<footnote><para>
+
+S aktuálními jádry (od verze 2.6.9) lze použít až 32 parametrů a 32
+proměnných prostředí. Pokud tato čísla překročíte, jádro zpanikaří.
+
+</para></footnote>.
+
+</para><para>
+
+Mnoho parametrů má i svou zkrácenou formu, která usnadňuje zadávání a
+také pomáhá obejít omezení příkazové řádky jádra. Pokud má parametr
+zkrácenou formu, bude uvedena v závorce za dlouhou podobou. Krátkou
+formu preferujeme i v příkladech této příručce.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>debconf/priority (priority)</term>
+<listitem><para>
+
+Nastavením tohoto parametru můžete změnit nejnižší prioritu
+zobrazených otázek.
+
+</para><para>
+
+Standardní instalace používá nastavení
+<userinput>priority=high</userinput>, což znamená, že se
+zobrazí jak kritické, tak důležité hlášky, ale normální a nevýznamné
+zprávy jsou přeskočeny. Jestliže se vyskytne problém, instalátor
+upraví priority otázek podle potřeb.
+
+</para><para>
+
+Když použijete parametr
+<userinput>priority=medium</userinput>, zobrazí se instalační
+menu a získáte nad instalací větší kontrolu. Při použití
+<userinput>priority=low</userinput>, nic se nepřeskakuje
+a zobrazí se všechny hlášky instalačního programu (to je ekvivalentní
+zaváděcí metodě <userinput>expert</userinput>).  Hodnotou
+<userinput>priority=critical</userinput> se potlačí všechny
+zprávy a otázky se stupněm důležitosti menším než kritickým.  Pro tyto
+potlačené otázky se použijí přednastavené hodnoty.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>DEBIAN_FRONTEND</term>
+<listitem><para>
+
+Ovlivňuje uživatelské rozhraní, ve kterém bude instalace
+probíhat. Dostupné volby jsou:
+
+<itemizedlist>
+<listitem>
+<para><userinput>DEBIAN_FRONTEND=noninteractive</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=text</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=newt</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=gtk</userinput></para>
+</listitem>
+</itemizedlist>
+
+Výchozí rozhraní je <userinput>DEBIAN_FRONTEND=newt</userinput>.
+Pro instalaci přes sériovou konzolu může být vhodnější
+<userinput>DEBIAN_FRONTEND=text</userinput>. Některé specializované
+typy instalačních médií mohou nabízet jen omezený výběr rozhraní,
+nicméně rozhraní <userinput>newt</userinput>
+a <userinput>text</userinput> by měla být dostupná na většině
+instalačních médií. Na architekturách, kde to je možné, využívá
+grafický instalátor rozhraní <userinput>gtk</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>BOOT_DEBUG</term>
+<listitem><para>
+
+Tímto parametrem můžete kontrolovat množství zpráv, které se
+zapíší do instalačního logu.
+
+<variablelist>
+<varlistentry>
+<term><userinput>BOOT_DEBUG=0</userinput></term>
+<listitem><para>Toto je standardní hodnota.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=1</userinput></term>
+<listitem><para>Upovídanější než obvykle.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=2</userinput></term>
+<listitem><para>Spousty ladících informací.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=3</userinput></term>
+<listitem><para>
+
+Pro opravdu detailní ladění se během zavádění několikrát spustí shell,
+ve kterém můžete kontrolovat a ovlivňovat náběh systému. Když shell
+ukončíte, bude zavádění pokračovat.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>INSTALL_MEDIA_DEV</term>
+<listitem><para>
+
+Hodnota tohoto parametru zadává cestu k zařízení, ze kterého se má
+nahrát instalační systém, například
+<userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</userinput>
+
+</para><para>
+
+Normálně se totiž zaváděcí disketa snaží najít kořenovou disketu na
+všech dostupných disketových mechanikách. Tímto parametrem jí sdělíte,
+že se má podívat jenom na zadané zařízení.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>log_host</term>
+<term>log_port</term>
+<listitem><para>
+
+Způsobí, že instalátor nebude ukládat logovací hlášky jen do lokálního
+souboru, ale bude je také posílat přes síť vzdálenému syslogu běžícímu
+na zadaném počítači a portu. Jestliže parametr log_port vynecháte,
+bude se předpokládat standardní port syslogu 514.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>lowmem</term>
+<listitem><para>
+
+Může vynutit, aby instalátor použil agresivnější nízkopaměťový režim,
+než by nastavil podle skutečně dostupné paměti. Možné hodnoty jsou
+1 a 2. Více naleznete v <xref linkend="lowmem"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>noshell</term>
+<listitem><para>
+
+Zabrání instalátoru, aby na druhé a třetí virtuální konzoli nabízel
+interaktivní shell, což je užitečné při automatizovaných vzdálených
+instalacích, kdy je fyzická bezpečnost omezena.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/framebuffer (fb)</term>
+<listitem><para>
+
+Některé architektury využívají pro instalaci v různých jazycích
+jaderný framebuffer (grafická konzole). Pokud na svém systému
+zaznamenáte symptomy jako chybové hlášky o btermu a boglu, černou
+obrazovku nebo zamrznutí instalace po několika minutách od spuštění,
+můžete framebuffer vypnout parametrem
+<userinput arch="x86">vga=normal</userinput> <userinput>fb=false</userinput>.
+
+</para><para arch="hppa">
+
+Tyto problémy byly hlášeny na hppa.
+
+</para><note arch="sparc"><para>
+
+Kvůli zobrazovacím problémům na některých systémech je podpora
+framebufferu na architektuře &arch-title; <emphasis>implicitně
+vypnutá</emphasis>. To může způsobit ne zrovna pěkné zobrazení na
+systémech, které framebuffer podporují korektně. Příkladem jsou
+systémy s grafickými kartami ATI. Zaznamenáte-li při instalaci
+problémy se zobrazením, zkuste zavést instalační systém s parametrem
+<userinput>debian-installer/framebuffer=true</userinput>, nebo
+krátce <userinput>fb=true</userinput>.
+
+</para></note></listitem>
+</varlistentry>
+
+<varlistentry arch="not-s390">
+<term>debian-installer/theme (theme)</term>
+<listitem><para>
+
+Téma určuje vzhled uživatelského rozhraní instalačního systému (barvy,
+ikony, atd.). Dostupná témata se liší podle použitého
+rozhraní. Rozhraní newt i gtk nyní podporují pouze alternativní téma
+<quote>dark</quote>, které bylo navrženo pro zrakově postižené
+uživatele. Téma můžete nastavit zaváděcím parametrem
+<userinput>theme=<replaceable>dark</replaceable></userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>netcfg/disable_dhcp</term>
+<listitem><para>
+
+Standardně se &d-i; snaží získat nastavení sítě přes DHCP. Je-li
+získáno nějaké nastavení, instalační systém se na nic nebude ptát
+a automaticky bude pokračovat v instalaci. K ručnímu nastavení sítě se
+dostanete pouze v případě, že dotaz na DHCP server selže.
+
+</para><para>
+
+Máte-li tedy na místní síti DHCP server, ale z nějakého důvodu jej
+nechcete použít (protože např. pro účely instalace vrací špatné
+hodnoty), můžete použít parametr
+<userinput>netcfg/disable_dhcp=false</userinput>, kterým zabráníte
+automatickému nastavení sítě přes DHCP a rovnou budete požádáni
+o ruční nastavení síťových údajů.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>hw-detect/start_pcmcia</term>
+<listitem><para>
+
+Pokud chcete zabránit startu PCMCIA služeb, nastavte tento parametr na
+hodnotu <userinput>false</userinput>. Některé notebooky jsou totiž
+nechvalně známé tím, že při startu PCMCIA služeb zaseknou celý systém.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>disk-detect/dmraid/enable (dmraid)</term>
+<listitem><para>
+
+Chcete-li v instalačním systému zapnout podporu disků připojených k
+sériovému ATA RAIDu (též známému jako ATA RAID, BIOS RAID nebo falešný
+RAID), nastavte parametr na hodnotu <userinput>true</userinput>. Tato
+podpora je zatím experimentální. Více informací naleznete v
+v <ulink url="&url-d-i-wiki;">&debian; Installer Wiki</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/url (url)</term>
+<listitem><para>
+
+Zde můžete zadat url k souboru s přednastavením, podle kterého se
+má provést automatická instalace, viz <xref
+linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/file (file)</term>
+<listitem><para>
+
+Zde můžete zadat soubor s přednastavením, podle kterého se má provést
+automatická instalace, viz <xref linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/interactive</term>
+<listitem><para>
+
+Nastavením na hodnotu <userinput>true</userinput> se zobrazí i otázky,
+které byly přednastaveny. To může být užitečné pro testování nebo
+ladění souboru s přednastavením. Nastavení se neprojeví u otázek,
+které byly zadány jako parametry při zavádění systému. Pro ty však
+existuje speciální syntaxe, viz <xref linkend="preseed-seenflag"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>auto-install/enable (auto)</term>
+<listitem><para>
+
+Při nastavení na hodnotu <userinput>true</userinput> odsune otázky
+obvykle zobrazované před začátkem přednastavení až za nastavení
+sítě. Podrobnosti o automatizaci instalací pomocí této možnosti
+naleznete v části <xref linkend="preseed-auto"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>finish-install/keep-consoles</term>
+<listitem><para>
+
+Během instalací skrze sériovou nebo správcovskou konzoli jsou tradiční
+virtuální konzoly (VT1-VT6) v souboru <filename>/etc/inittab</filename>
+zakázány. Chcete-li tomu zabránit, nastavte na hodnotu
+<userinput>true</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>cdrom-detect/eject</term>
+<listitem><para>
+
+Před restartem &d-i; do nového systému se implicitně vysune optické
+médium použité během instalace. To někdy není potřeba (např. systém
+není nastaven pro automatické zavádění z CD-ROM) a v některých
+případech může být vysunutí dokonce nežádoucí. Například pokud
+mechanika neumí nahrát médium sama a uživatel zrovna není na místě,
+aby to provedl ručně. Příkladem takovýchto mechanik jsou mechaniky
+v přenosných počítačích a mechaniky se štěrbinovým podáváním.
+
+</para><para>
+
+Pro zakázání automatického vysunutí nastavte parametr na hodnotu
+<userinput>false</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>base-installer/install-recommends (recommends)</term>
+<listitem><para>
+
+Nastavením na hodnotu <userinput>false</userinput> se systém pro
+správu balíků nebude pokoušet o instalaci doporučených balíků jak
+během instalace, tak později v nainstalovaném systému.
+Více naleznete v kapitole <xref linkend="di-install-base"/>.
+
+</para><para>
+
+Použitím této volby můžete získat štíhlejší systém, ale také je možné,
+že zmizí některé vlastnosti, které byste normálně od systému
+očekávali. Pro získání požadované funkcionality pak můžete ručně
+doinstalovat některé vybrané doporučované balíky, nicméně musíte
+vědět, které balíky potřebujete a proto by tuto možnost měli používat
+pouze zkušení harcovníci.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/allow_unauthenticated</term>
+<listitem><para>
+
+Instalační systém vyžaduje, aby byly všechny repositáře autentizovány
+známým gpg klíčem. Nastavením na hodnotu <userinput>true</userinput>
+můžete autentizaci potlačit. <emphasis role="bold">Varování:
+Nebezpečné, není doporučeno.</emphasis>
+
+</para></listitem>
+</varlistentry>
+
+
+<varlistentry arch="mips;mipsel">
+<term>ramdisk_size</term>
+<listitem><para>
+
+Tento parametr by již měl být nastaven na správnou hodnotu. Použijte
+jej pouze v případě, že během zavádění systému uvidíte chyby
+naznačující, že ramdisk nebyl nahrán celý. Hodnota je v kB.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>rescue/enable</term>
+<listitem><para>
+
+Nastavíte-li tento parametr na hodnotu <userinput>true</userinput>,
+spustí se místo běžné instalace záchranný režim. Viz <xref
+linkend="rescue"/>.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+  </sect2>
+
+  <sect2 id="preseed-args">
+  <title>Použití zaváděcích parametrů pro zodpovězení otázek</title>
+<para>
+
+Na stejném místě, kam se zadávají parametry pro jádro nebo instalační
+program, můžete zadat odpověď na téměř každou otázku, se kterou se
+můžete při instalaci potkat. Tato možnost se využívá spíše ve
+specifických případech a je zde vypsáno jen několik
+příkladů. Podrobnější informace naleznete v dodatku <xref
+linkend="preseed-bootparms"/>.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term>debian-installer/language (language)</term>
+<term>debian-installer/country (country)</term>
+<term>debian-installer/locale (locale)</term>
+<listitem><para>
+
+Existují dva způsoby, jak nastavit jazyk, zemi a místní prostředí
+(locale) instalace a následně nainstalovaného systému.
+
+</para><para>
+
+První a nejjednodušší je použít pouze parametr
+<literal>locale</literal>. Jazyk a země se pak z této hodnoty odvodí
+automaticky. Například <userinput>locale=de_CH</userinput> vybere jako
+výchozí jazyk němčinu, jako zemi Švýcarsko a výchozí locale v
+nainstalovaném systému bude <literal>de_CH.UTF-8</literal>. Nevýhodou
+je skutečnost, že takto nelze nastavit všechny možné kombinace jazyka,
+země a locale.
+
+</para><para>
+
+Druhou, pružnější, možností je zadat jazyk
+(<literal>language</literal>) a zemi (<literal>country</literal>)
+samostatně, přičemž můžete volitelně použít i parametr
+<literal>locale</literal>, kterým nastavíte výchozí locale
+instalovaného systému. Například můžete systému sdělit, že se
+nacházíte v Německu, ale rádi byste používali anglické prostředí v
+jeho britském standardu:
+<userinput>language=en country=DE locale=en_GB.UTF-8</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>anna/choose_modules (modules)</term>
+<listitem><para>
+
+Pomocí tohoto parametru můžete nechat automaticky nahrát komponenty
+instalačního systému, které se implicitně nenahrávají. Příkladem
+užitečných komponent jsou <classname>openssh-client-udeb</classname>
+(během instalace můžete využívat <command>scp</command>)<phrase
+arch="not-s390"> a <classname>ppp-udeb</classname> (podporuje
+nastavení PPPoE, viz <xref linkend="pppoe"/>)</phrase>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>mirror/protocol (protocol)</term>
+<listitem><para>
+
+Instalační systém standardně používá pro stažení souborů ze zrcadel
+&debian;u protokol http a při standardní prioritě otázek nelze za běhu
+změnit na ftp. nastavením tohoto parametru na hodnotu
+<userinput>ftp</userinput> můžete instalátor donutit, aby použil právě
+tento protokol. Ftp zrcadlo nemůžete vybrat z připraveného seznamu,
+vždy jej musíte zadat ručně.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>tasksel:tasksel/first (tasks)</term>
+<listitem><para>
+
+Tímto parametrem můžete nainstalovat úlohy, které nejsou při instalaci
+v interaktivním seznamu úloh dostupné. Příkladem budiž úloha
+<literal>kde-desktop</literal>. Více informací naleznete v části <xref
+linkend="pkgsel"/>.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+  </sect2>
+
+  <sect2 id="module-parms">
+  <title>Předávání parametrů jaderným modulům</title>
+<para>
+
+Jestliže jsou ovladače zakompilovány přímo do jádra, můžete jim
+předávat parametry tak, jak je popsáno v dokumentaci k jádru. Pokud
+však jsou ovladače zkompilovány jako moduly, znamená to, že jsou při
+instalaci zaváděny odlišným způsobem než při zavádění nainstalovaného
+systému a nemůžete jim předat parametry klasickým postupem. Musíte
+použít speciální syntaxi, kterou instalátor rozpozná a zařídí, aby se
+tyto parametry uložily do příslušných konfiguračních souborů a posléze
+se v pravý čas použily. Tyto parametry se automaticky přenesou i do
+nainstalovaného systému.
+
+</para><para>
+
+Poznamenejme, že v dnešní době je používání parametrů modulů téměř
+raritou, protože jádro ve většině případů správně rozpozná přítomný
+hardware a nastaví pro něj vhodné hodnoty automaticky. Pokud tomu tak
+není, stále můžete použít ruční nastavení.
+
+</para><para>
+
+Syntaxe pro nastavení parametrů modulu je následující:
+
+<informalexample><screen>
+<replaceable>název_modulu</replaceable>.<replaceable>název_parametru</replaceable>=<replaceable>hodnota</replaceable>
+</screen></informalexample>
+
+Potřebujete-li modulu předat několik parametrů, stačí syntaxi
+několikrát zopakovat. Například pro nastavení staré síťové karty 3Com,
+aby použila konektor BNC (koaxiální) a IRQ 10, zadali-byste:
+
+<informalexample><screen>
+3c509.xcvr=3 3c509.irq=10
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 id="module-blacklist">
+  <title>Zapsání jaderných modulů na černou listinu</title>
+<para>
+
+Někdy je nutné zanést modul na černou listinu a zabránit tak jádru a
+udevu, aby jej automaticky zavedli. Jedním z důvodů bývá ten, že modul
+způsobuje na vašem hardwaru problémy. Někdy také jádro registruje pro
+jedno zařízení dva ovladače, což může vytvářet problémy v případech,
+kdy jsou tyto ovladače navzájem konfliktní, nebo pokud zařízení
+funguje správně jen s jedním z ovladačů a jádro nejprve zavede ten
+chybný ovladač.
+
+</para><para>
+
+Moduly můžete na černou listinu přidat následovně:
+<userinput><replaceable>jméno_modulu</replaceable>.blacklist=yes</userinput>.
+Prakticky to znamená, že se modul zapíše do souboru
+<filename>/etc/modprobe.d/blacklist.local</filename>, což ho vyřadí
+jak během instalace, tak v nově nainstalovaném systému.
+
+</para><para>
+
+Poznamenejme, že modul stále může být zaveden explicitně přímo
+instalačním systémem. Předejít tomu můžete instalací v expertním
+režimu a odebráním modulu ze seznamu modulů, který se zobrazuje během
+několika fází rozpoznávání hardwaru.
+
+</para>
+  </sect2>
+ </sect1>
+

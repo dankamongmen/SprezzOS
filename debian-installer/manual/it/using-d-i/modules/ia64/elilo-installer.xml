@@ -1,0 +1,219 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65000 -->
+
+   <sect3 arch="ia64">
+   <!-- <title>Install the <command>ELILO</command> Boot Loader
+         on a Hard Disk</title> -->
+   <title>Installazione del boot loader <command>ELILO</command> sul
+          disco fisso</title>
+<para>
+
+<!--
+The &architecture; boot loader is called <quote>elilo</quote>.
+It is modeled on the <quote>lilo</quote> boot loader for the
+x86 architecture and uses a similar configuration file.
+However, instead of writing an MBR or partition boot record to
+the disk, it copies the necessary files to a separate FAT formatted
+disk partition and modifies the <guimenuitem>EFI Boot Manager</guimenuitem>
+menu in the firmware to point to the files in the EFI partition.
+The <command>elilo</command> boot loader is really in two parts.
+The <filename>/usr/sbin/elilo</filename> command manages the partition and
+copies files into it.
+The <filename>elilo.efi</filename> program is copied into the EFI
+partition and then run by the <quote>EFI Boot Manager</quote> to
+do the actual work of loading and starting the Linux kernel.
+-->
+
+Il boot loader per &arch-title; è <quote>elilo</quote>. È modellato sul
+boot loader per l'architettura x86 <quote>lilo</quote> e quindi usa un
+file di configurazione simile. Anziché scrivere nel MBR o nel boot record
+di una partizione copia i file necessari in una apposita partizione con
+filesystem FAT del disco e modifica il menu del <guimenuitem>EFI Boot
+Manager</guimenuitem> per fargli puntare i file nella partizione EFI.
+In realtà il boot loader <command>elilo</command> è composto da due parti
+distinte, <filename>/usr/sbin/elilo</filename> gestisce la partizione e la
+copia dei file al suo interno, <filename>elilo.efi</filename> è un programma
+che viene copiato nella partizione EFI e che è avviato da <quote>EFI Boot
+Manager</quote> per effettuare le operazioni di caricamento e avvio del
+kernel Linux.
+
+</para><para>
+
+<!--
+The <quote>elilo</quote> configuration and installation is done as the
+last step of installing the packages of the base installation.
+&d-i; will present you with a list of potential disk partitions that it
+has found suitable for an EFI partition.
+Select the partition you set up earlier in the installation, typically
+a partition on the same disk that contains your
+<emphasis>root</emphasis> filesystem.
+-->
+
+La configurazione e l'installazione di <quote>elilo</quote> è fatta come
+ultimo passo dell'installazione dei pacchetti che compongono il sistema di
+base. Il &d-i; propone un elenco delle partizioni del disco che hanno le
+caratteristiche per essere una partizione EFI. Scegliere la partizione che
+si è preparato nei precedenti passi dell'installazione, tipicamente una
+partizione sullo stesso disco che contiene il filesystem di
+<emphasis>root</emphasis>.
+
+</para>
+
+<warning>
+<!-- <title>Choose the correct partition!</title> -->
+<title>Scelta della partizione corretta!</title>
+
+<para>
+
+<!--
+The criterion for selecting a partition is that it must be a FAT format
+filesystem with its <emphasis>boot</emphasis> flag set.
+&d-i; may show multiple choices depending on what it finds from scanning
+all of the disks of the system including EFI partitions of other system
+disks and EFI diagnostic partitions.
+Remember, <command>elilo</command> may format the partition during
+the installation, erasing any previous contents!
+-->
+
+Il criterio per scegliere una partizione è che il filesystem deve
+essere FAT con il flag <emphasis>boot</emphasis> attivo.
+Il &d-i; può mostrare più possibilità a
+seconda di cosa rileva con la scansione di tutti i dischi sul sistema,
+comprese le partizioni EFI di altri dischi e le partizioni EFI di
+diagnostica. Notare che <command>elilo</command> può formattare la
+partizione durante l'installazione cancellando tutto il precedente
+contenuto!
+
+</para></warning>
+   </sect3>
+
+   <sect3 arch="ia64">
+   <!-- <title>EFI Partition Contents</title> -->
+   <title>Contenuto della partizione EFI</title>
+<para>
+
+<!--
+The EFI partition is a FAT filesystem format partition on one of the
+hard disks of the system, usually the same disk that contains the
+<emphasis>root</emphasis> filesystem.
+It is normally not mounted on a running system as it is only needed
+by the <quote>EFI Boot Manager</quote> to load the system and the
+installer part of the <command>elilo</command> writes to the filesystem
+directly.
+The <command>/usr/sbin/elilo</command> utility writes the following files
+into the <filename>efi/debian</filename> directory of the EFI
+partition during the installation.
+Note that the <quote>EFI Boot Manager</quote> would find these files
+using the path <filename>fs<replaceable>n</replaceable>:\efi\debian</filename>.
+There may be other files in this filesystem as well over time as
+the system is updated or re-configured.
+-->
+
+La partizione EFI è una partizione con filesystem FAT su uno dei dischi
+del sistema, di solito è lo stesso disco che contiene il filesystem
+<emphasis>root</emphasis>. Normalmente non viene montata ed è usata solo
+da <quote>EFI Boot Manager</quote> per caricare il sistema e dalla parte
+di <command>elilo</command> che scrive direttamente su questo filesystem.
+Durante l'installazione <command>/usr/sbin/elilo</command> scrive i seguenti
+file nella directory <filename>efi/debian</filename> della partizione EFI.
+Notare che <quote>EFI Boot Manager</quote> recupera questi file in
+<filename>fs<replaceable>n</replaceable>:\efi\debian</filename>. Con il
+tempo in questo filesystem si possono accumulare altri file ogni volta
+che il sistema è aggiornato o riconfigurato.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term><filename>elilo.conf</filename></term>
+<listitem><para>
+
+<!--
+This is the configuration file read by the boot loader when it starts.
+It is a copy of the <filename>/etc/elilo.conf</filename> with
+the filenames re-written to refer to files in the EFI partition.
+-->
+
+Questo è il file di configurazione letto dal boot loader, è una copia del
+file <filename>/etc/elilo.conf</filename> in cui i nomi dei file sono
+stati sostituiti in modo da referenziare i file nella partizione EFI.
+
+</para></listitem></varlistentry>
+
+<varlistentry>
+<term><filename>elilo.efi</filename></term>
+<listitem><para>
+
+<!--
+This is the boot loader program that the <quote>EFI Boot Manager</quote>
+runs to boot the system.
+It is the program behind the <guimenuitem>&debian; GNU/Linux</guimenuitem>
+menu item of the <quote>EFI Boot Manager</quote> command menu.
+-->
+
+Questo è il boot loader usato da <quote>EFI Boot Manager</quote> per
+avviare il sistema, è il programma che sta dietro la voce <guimenuitem>&debian;
+GNU/Linux</guimenuitem> del menu comandi di <quote>EFI Boot Manager</quote>.
+
+</para></listitem></varlistentry>
+
+<varlistentry>
+<term><filename>initrd.img</filename></term>
+<listitem><para>
+
+<!--
+This is the initial root filesystem used to boot the kernel.
+It is a copy of the file referenced in the
+<filename>/etc/elilo.conf</filename>.
+In a standard &debian; installation it would be the file in
+<filename>/boot</filename> pointed to by the symbolic link
+<filename>/initrd.img</filename>.
+-->
+
+Questo è il filesystem di root iniziale usato per l'avvio del kernel, è una
+copia del file referenziato in <filename>/etc/elilo.conf</filename>. In
+un'installazione &debian; standard è il file in <filename>/boot</filename> a
+cui punta il link simbolico <filename>/initrd.img</filename>.
+
+</para></listitem></varlistentry>
+
+<varlistentry>
+<term><filename>readme.txt</filename></term>
+<listitem><para>
+
+<!--
+This is a small text file warning you that the contents of the
+directory are managed by the <command>elilo</command> and that
+any local changes would be lost at the next time
+<filename>/usr/sbin/elilo</filename> is run.
+-->
+
+Un piccolo file di testo con l'avvertimento che il contenuto della directory
+è gestito da <command>elilo</command> e che qualsiasi modifica locale verrà
+persa alla prossima esecuzione di <filename>/usr/sbin/elilo</filename>.
+
+</para></listitem></varlistentry>
+
+<varlistentry>
+<term><filename>vmlinuz</filename></term>
+<listitem><para>
+
+<!--
+This is the compressed kernel itself.
+It is a copy of the file referenced in the
+<filename>/etc/elilo.conf</filename>.
+In a standard &debian; installation it would be the file in
+<filename>/boot</filename> pointed to by the symbolic link
+<filename>/vmlinuz</filename>.
+-->
+
+Questo è il kernel (compresso), è una copia del file referenziato in
+<filename>/etc/elilo.conf</filename>. In un'installazione &debian; standard
+è il file in <filename>/boot</filename> a cui punta il link simbolico
+<filename>/vmlinuz</filename>.
+
+</para></listitem></varlistentry>
+
+</variablelist>
+   </sect3>

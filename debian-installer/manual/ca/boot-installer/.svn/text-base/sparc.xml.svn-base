@@ -1,0 +1,46 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 58021 -->
+
+  <sect2 arch="sparc" id="boot-tftp"><title>Arrencada amb el TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+A màquines amb OpenBoot, simplement entreu al monitor d'arrencada a la
+màquina que s'està instal·lant (vegeu <xref linkend="invoking-openboot"/>).
+Utilitzeu l'ordre <userinput>boot net</userinput> per arrencar des d'un
+servidor TFTP i RARP, o proveu <userinput>boot net:bootp</userinput> o
+<userinput>boot net:dhcp</userinput> per arrencar des d'un servidor TFTP i
+BOOTP o DHCP. Podeu passar paràmetres d'arrencada addicionals a &d-i; al
+final de l'ordre <userinput>boot</userinput>.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="sparc"><title>Arrencada des d'un CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<para>
+
+La major part de les versions d'OpenBoot suporten l'ordre
+<userinput>boot cdrom</userinput> que és un àlies per arrencar des del
+dispositiu SCSI amb ID 6 (o el màster del secundari a sistemes basats en
+IDE).
+
+</para>
+  </sect2>
+
+  <sect2 arch="sparc"><title>Missatges del IDPROM</title>
+<para>
+
+Si no podeu arrencar perquè teniu missatges que informen d'un problema amb
+el <quote>IDPROM</quote>, aleshores és possible que la vostra pila de la
+NVRAM, que conté la informació de la configuració del vostre microprogramari,
+s'haja esgotat. Vegeu <ulink url="&url-sun-nvram-faq;">Sun NVRAM FAQ</ulink>
+per obtenir més informació.
+
+</para>
+  </sect2>

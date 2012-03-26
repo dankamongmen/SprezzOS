@@ -1,0 +1,185 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56322 -->
+
+ <sect1 id="install-overview">
+ <title>Resum del procés d'instal·lació</title>
+<para>
+
+D'entrada, una nota sobre les reinstal·lacions. En &debian;, és ben
+rar que es done la circumstància d'haver de tornar a fer una instal·lació
+completa del sistema; la fallada mecànica del disc dur potser siga la
+causa més comuna.
+
+</para><para>
+
+Nombrosos sistemes operatius d'ús generalitzat poden requerir una
+instal·lació completa quan es donen fallades crítiques o quan cal
+actualitzar-los. Fins i tot si no cal una instal·lació completament nova,
+sovint els programes que empreu s'hauran de tornar a instal·lar perquè
+funcionen correctament en el nou sistema operatiu.
+
+</para><para>
+
+Sota &debian-gnu;, quan les coses van malament és molt més probable que el
+sistema operatiu s'haja de reparar abans que reemplaçar-lo. Les
+actualitzacions mai no requereixen una instal·lació completa; sempre
+podeu actualitzar-hi al sistema estant. A més, els programes són gairebé
+sempre compatibles amb les noves versions del sistema operatiu. Si una
+nova versió d'un programa requereix programari nou addicional, el sistema
+de paquets de &debian; garanteix la identificació i la instal·lació
+automàtiques del programari que cal. És a dir, s'ha posat molta cura a
+evitar la necessitat de tornar a instal·lar, per tant penseu-hi com a
+veritable últim recurs. L'instal·lador <emphasis>no</emphasis> s'ha
+dissenyat per tornar a fer instal·lacions sobre un sistema ja existent.
+
+</para><para>
+
+Aquí hi ha les instruccions amb els passos que es faran durant el procés
+d'instal·lació.
+
+</para>
+
+<orderedlist>
+<listitem><para>
+
+Feu una còpia de seguretat de qualssevol dades o documents que tingueu al
+disc dur on voleu fer la instal·lació.
+
+</para></listitem>
+<listitem><para>
+
+Recopileu informació sobre el vostre ordinador i sobre qualsevulla
+documentació necessària abans de començar la instal·lació.
+
+</para></listitem>
+<listitem><para>
+
+Creeu un espai que es pugui partir per a la &debian; al disc dur.
+
+</para></listitem>
+<listitem><para>
+
+Localitzeu i/o descarregueu el programari de l'instal·lador i els fitxers
+de qualsevol controlador que necessite la vostra màquina (tret dels usuaris
+del CD de &debian;).
+
+</para></listitem>
+<listitem><para>
+
+Configureu les cintes/disquets/llapis USB d'arrencada, o poseu on calga els
+fitxers d'arrencada (la majoria dels usuaris dels CD de &debian; poden
+arrencar des d'un d'ells).
+
+</para></listitem>
+<listitem><para>
+
+Arrenqueu el sistema d'instal·lació.
+
+</para></listitem>
+<listitem arch="not-s390"><para>
+
+Seleccioneu la llengua d'instal·lació.
+
+</para></listitem>
+<listitem arch="not-s390"><para>
+
+Activeu la connexió ethernet de xarxa, si s'escau.
+
+</para></listitem>
+
+<listitem arch="s390"><para>
+
+Configureu una interfície de xarxa.
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+Obriu una connexió ssh per al nou sistema.
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+Afegiu-hi un o més DASD (Dispositiu d'emmagatzematge d'accés directe).
+
+</para></listitem>
+
+<listitem><para>
+
+Creeu i munteu les particions en què s'instal·larà la &debian;.
+
+</para></listitem>
+<listitem><para>
+
+Superviseu la descàrrega/instal·lació/configuració automàtiques del
+<firstterm>sistema base</firstterm>.
+
+</para></listitem>
+<listitem><para>
+
+Instal·leu un <firstterm>carregador d'arrencada</firstterm>
+que puga iniciar &debian-gnu; i/o un altre sistema que tingueu.
+
+</para></listitem>
+<listitem><para>
+
+Carregueu per primera vegada el sistema acabat d'instal·lar.
+
+</para></listitem>
+</orderedlist>
+
+<para condition="gtk">
+
+Per a &arch-title; teniu l'opció d'emprar una versió
+<phrase arch="powerpc">experimental</phrase> gràfica del sistema
+d'instal·lació. Per a més informació referent a aquest instal·lador
+gràfic, vegeu <xref linkend="graphical"/>.
+
+</para><para>
+
+Si teniu problemes durant la instal·lació, és útil saber quins paquets
+s'han instal·lat i en quins passos. En el drama de la instal·lació, els
+actors principals són:
+
+</para><para>
+
+L'instal·lador, el <classname>debian-installer</classname>, és l'objecte
+principal d'aquest manual. Detecta el maquinari i carrega els
+controladors adients, fa servir el <classname>dhcp-client</classname>
+per establir la connexió de xarxa, i executa
+<classname>debootstrap</classname> a fi d'instal·lar els paquets del
+sistema base, i executa el <classname>tasksel</classname> amb l'objectiu
+de permetre-us instal·lar alguns programes addicionals.
+N'hi ha més d'actors que fan papers menors en aquest procés, però el
+<classname>debian-installer</classname> ha complert la seva feina quan
+carregueu el nou sistema per primera vegada.
+
+</para><para>
+
+Per tal d'adaptar el sistema a les vostres necessitats,
+<classname>tasksel</classname> us permetrà triar entre diferents conjunts
+de programes relacionats amb un mateixa finalitat, com ara servidor web
+o entorn d'escriptori.
+
+</para><para>
+
+Una decisió important a la instal·lació és si instal·lar o no un entorn
+gràfic d'escriptori, que inclou l'«X Window System» i un dels entorns
+gràfics d'escriptori.
+Si escolliu no seleccionar la tasca <quote>Entorn d'escriptori</quote>,
+tan sols disposareu d'un sistema basat en línia d'ordres, relativament bàsic.
+La instal·lació de la tasca d'entorn d'escriptori és opcional ja que
+necessita d'una gran quantitat d'espai en disc, i perquè alguns sistemes
+&debian-gnu; són servidors que realment no necessiten una interfície
+gràfica d'usuari per fer la seua tasca.
+
+</para><para arch="not-s390">
+
+Per tant, tingueu en compte que l'«X Window System» està completament
+separat del <classname>debian-installer</classname>; de fet, és més
+complicat que aquest. Tant la instal·lació de l'«X Window System» com
+els problemes relacionats amb aquest estan fora de l'abast d'aquest
+manual.
+
+</para>
+ </sect1>
+

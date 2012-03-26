@@ -1,0 +1,81 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65170 -->
+
+
+  <sect2 arch="i386"><title>CPUs, Mainboards und Grafikunterstützung</title>
+<para>
+
+Vollständige Informationen zu unterstützter Peripherie finden Sie im
+<ulink url="&url-hardware-howto;">Linux-Hardware-Compatibility-HowTo</ulink>.
+Dieser Abschnitt behandelt lediglich die Grundlagen.
+
+</para>
+
+   <sect3><title>CPUs</title>
+<para>
+
+Nahezu alle x86-basierten (IA32) Prozessoren, die in PCs noch in Verwendung
+sind, werden unterstützt, inklusive aller Variationen von Intels
+<quote>Pentium</quote>-Serie; das beinhaltet auch 32-Bit AMD- und VIA-
+(früher Cyrix) Prozessoren sowie Prozessoren wie den Athlon XP und
+Intel P4 Xeon.
+
+</para><para>
+
+Allerdings wird &debian; GNU/Linux &releasename-cap; <emphasis>nicht</emphasis>
+auf 386- oder älteren Prozessoren laufen! Trotz der Architekturbezeichnung
+<quote>i386</quote> wurde die Unterstützung für echte 80386-Prozessoren
+und deren Klone ab der Veröffentlichung von &debian; Sarge (r3.1)
+<emphasis>entfernt</emphasis><footnote>
+
+<para>
+Wir haben lange versucht, dies zu vermeiden, aber letzten Endes war es doch
+nötig aufgrund einer bedauerlichen Serie von Problemen mit dem Compiler
+und dem Kernel, beginnend mit einem Fehler im C++-ABI von GCC. Es sollte
+immer noch möglich sein, &debian; GNU/Linux auf einem echten 80386-Prozessor
+laufen zu lassen, wenn Sie Ihren eigenen Kernel sowie alle Pakete aus
+den Quellen kompilieren, aber dies ist nicht Thema dieses Handbuchs.
+</para>
+
+</footnote>. (Keine Linux-Version hat je den 286-Prozessor oder frühere
+Chips der Serie unterstützt.) Alle 486- und spätere Prozessoren werden
+nach wie vor unterstützt<footnote>
+
+<para>
+
+Ein positiver Nebeneffekt der Tatsache, dass die alten Chips nicht mehr
+unterstützt werden: viele &debian;-Pakete werden letztlich auf modernen
+Rechnern geringfügig schneller laufen. Der i486, eingeführt 1989, hat drei
+Maschinenbefehle (bswap, cmpxchg und xadd), die der i386 von 1986 nicht
+hat. Diese konnten früher von den meisten &debian;-Paketen nicht ohne weiteres
+verwendet werden; jetzt schon.
+
+</para>
+
+</footnote>.
+
+</para><para>
+
+</para>
+<note><para>
+
+Falls Ihr System einen 64-Bit-Prozessor aus der AMD64- oder Intel EM64T-Familie
+enthält, sollten Sie vielleicht den Installer für die AMD64-Architektur
+verwendet statt einen Installer für die (32-Bit) i386-Architektur.
+
+</para></note>
+   </sect3>
+
+   <sect3 id="bus"><title>E/A-Bus</title>
+<para>
+
+Der System-Bus ist der Teil des Motherboards, der der CPU die
+Kommunikation mit der Peripherie (zum Beispiel Speichergeräten) ermöglicht.
+Ihr Computer muss ISA, EISA, PCI, PCIe, PCI-X oder den VESA-Local-Bus (VLB, manchmal
+auch VL-Bus genannt) verwenden. Im Wesentlichen nutzen alle Personal Computer,
+die in den letzten Jahren verkauft wurden, eines dieser Bussysteme.
+
+</para>
+   </sect3>
+  </sect2>
+

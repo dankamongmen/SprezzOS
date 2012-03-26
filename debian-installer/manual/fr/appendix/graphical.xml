@@ -1,0 +1,115 @@
+<!--  original version:  64916 -->
+
+ <sect1 condition="gtk" id="graphical">
+ <title>L'installateur graphique</title>
+<para>
+
+La version graphique de l'installateur n'est disponible que sur
+certaines architectures, dont &arch-title;. Les fonctionnalités
+de l'installateur graphique sont essentiellement les mêmes que celles de
+l'installateur en mode texte. Ils utilisent les mêmes programmes mais
+l'interface est différente.
+
+</para><para>
+
+Malgré cette similitude, l'installateur graphique possède quelques avantages.
+Le principal est qu'il reconnaît plus de langues, notamment celles qui utilisent
+des jeux de caractères impossibles à afficher avec l'interface <quote>newt</quote>.
+Un autre avantage est la possibilité d'utiliser une souris. De même, plusieurs
+questions peuvent être réunies dans un seul écran.
+
+</para><para arch="any-x86">
+
+L'installateur graphique est disponible avec toutes les images CD et avec la
+méthode d'installation <quote>hd-media</quote>. Il peut être amorcé avec
+l'option existante dans le menu d'amorçage.
+Dans le menu <quote>Advanced options</quote>, on peut choisir les modes
+<emphasis>expert</emphasis> et <emphasis>rescue</emphasis>. Les méthodes précédentes,
+<userinput>installgui</userinput>, <userinput>expertgui</userinput> et <userinput>rescuegui</userinput>
+sont toujours disponibles au moment de l'amorçage si l'on sélectionne
+l'option <quote>Help</quote>.
+
+</para><para arch="any-x86">
+
+Il est aussi possible d'amorcer sur le réseau une image de l'installateur graphique.
+Et il existe une image ISO spéciale <footnote id="gtk-miniiso">
+
+<para>
+L'image ISO <emphasis>mini</emphasis> peut être téléchargée sur un miroir
+&debian;, voyez <xref linkend="downloading-files"/>. Cherchez
+<filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>, qui est utile surtout pour les tests.
+
+</para><para arch="powerpc">
+
+Pour &arch-title;, seule une image ISO <quote>mini</quote> est disponible <footnote id="gtk-miniiso">
+
+<para>
+L'image ISO <emphasis>mini</emphasis> peut être téléchargée sur un miroir
+&debian;, voyez <xref linkend="downloading-files"/>. Cherchez
+<filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>. Elle devrait fonctionner sur presque tous les systèmes PowerPC
+qui possèdent une carte ATI, mais pas sur d'autres systèmes.
+
+</para><para>
+
+Comme pour l'installateur texte, il est possible d'ajouter des
+paramètres d'amorçage au lancement de l'installateur graphique.
+
+</para>
+<note><para>
+
+L'installateur graphique exige beaucoup plus de mémoire que l'installateur
+texte&nbsp;: &minimum-memory-gtk;. S'il n'y a pas assez de mémoire,
+l'installateur reviendra à l'interface <quote>newt</quote>.
+
+</para><para>
+
+Si la quantité de mémoire du système est inférieure à &minimum-memory;,
+il se peut que l'installateur graphique ne fonctionne plus mais que
+l'installateur texte fonctionne encore. Pour des systèmes avec peu de
+mémoire, il est recommandé d'utiliser l'installateur texte.
+
+</para></note>
+
+  <sect2 id="gtk-using">
+  <title>Utilisation de l'installateur graphique</title>  
+<para>
+
+Comme l'installateur graphique fonctionne de la même manière que 
+l'installateur texte, la suite de ce manuel vous servira de guide pour le
+processus d'installation.
+
+</para><para>
+
+Si vous préférez le clavier à la souris, vous devez savoir deux choses.
+Pour dérouler une liste (par exemple la liste des pays à l'intérieur des
+continents) vous pouvez utiliser les touches <keycap>+</keycap> et
+<keycap>-</keycap>. Pour les questions permettant plusieurs choix
+(par exemple la sélection des tâches), vous devez d'abord appuyer le
+bouton &BTN-CONT; après la sélection&nbsp;; appuyer sur la
+touche enter modifie une sélection, sans activer &BTN-CONT;.
+
+</para><para>
+
+Quand un dialogue propose une aide, un bouton <guibutton>Help</guibutton>
+est affiché. Les informations sont alors accessibles avec ce bouton ou
+bien en pressant la touche <keycap>F1</keycap>.
+
+</para><para>
+
+Pour changer de console, vous aurez besoin d'utiliser la touche
+<keycap>Ctrl</keycap>, comme dans le système X Window. Par exemple,
+pour passer sur VT2 où se trouve un interpréteur de commandes&nbsp;: <keycombo> <keycap>Ctrl</keycap>
+<keycap>Left Alt</keycap> <keycap>F2</keycap> </keycombo>. Et pour revenir sur l'installateur graphique
+qui s'exécute sur la console VT5&nbsp;:
+<keycombo> <keycap>Left Alt</keycap> <keycap>F5</keycap> </keycombo>.
+
+</para>
+  </sect2>
+
+ </sect1>

@@ -1,0 +1,192 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="plip" arch="x86">
+ <title>Instal·lació de &debian-gnu; per Parallel Line IP (PLIP)</title>
+
+<para>
+
+Aquesta secció explica com instal·lar &debian-gnu; en un ordinador sense una
+targeta Ethernet, però amb un ordinador passarel·la remot adjunt per mitjà
+d'un cable Null-Modem (també anomenat cable Null-Printer). És recomanable
+que l'ordinador passarel·la estigui connectat a una xarxa que tingui una
+rèplica de &debian; (per exemple a Internet).
+
+</para><para>
+
+En l'exemple d'aquest apèndix configurarem una connexió PLIP utilitzant
+una passarel·la connectada a Internet a través d'una connexió de marcatge
+directe (ppp0). Farem servir les adreces IP 192.168.0.1 i 192.168.0.2 per a
+les interfícies PLIP del sistema destí i origen respectivament
+(és recomanable que aquestes adreces no s'utilitzin dins de l'espai
+d'adreces de la vostra xarxa).
+
+</para><para>
+
+La connexió PLIP configurada durant la instal·lació romandrà disponible
+després d'arrencar el sistema instal·lat (consulteu <xref linkend="boot-new"/>).
+
+</para><para>
+
+Abans de començar, necessitareu comprovar la configuració de la BIOS (adreces
+base IO i IRQ) per als ports paral·lels dels sistemes origen i destí.
+Els valors més habituals són <literal>io=0x378</literal>,
+<literal>irq=7</literal>.
+
+</para>
+
+  <sect2>
+  <title>Requeriments</title>
+
+<itemizedlist>
+<listitem><para>
+
+Un ordinador destí, anomenat <emphasis>destí</emphasis>, on s'instal·larà el
+sistema &debian;.
+
+</para></listitem>
+<listitem><para>
+
+Suports d'instal·lació del sistema, consulteu
+<xref linkend="installation-media"/>.
+
+</para></listitem>
+<listitem><para>
+
+Un altre ordinador connectat a Internet, anomenat <emphasis>origen</emphasis>,
+que farà de passarel·la.
+
+</para></listitem>
+<listitem><para>
+
+Un cable Null-Modem DB-25. Consulteu el
+<ulink url="&url-plip-install-howto;">PLIP-Install-HOWTO</ulink> per a més
+informació sobre aquest cable i instruccions de com elaborar-ne el vostre
+propi.
+
+</para></listitem>
+</itemizedlist>
+
+  </sect2>
+
+  <sect2>
+  <title>Configuració de l'origen</title>
+<para>
+
+La següent seqüència d'intèrpret d'ordres és un exemple simple de com
+configurar l'ordinador origen com a passarel·la cap a Internet fent servir
+ppp0.
+
+<informalexample><screen>
+#!/bin/sh
+
+# Eliminem els mòduls que s'executen al nucli per evitar conflictes i per a
+# tornar-los a configurar manualment.
+modprobe -r lp parport_pc
+modprobe parport_pc io=<replaceable>0x378</replaceable> irq=<replaceable>7</replaceable>
+modprobe plip
+
+# Configurem la intefície PLIP (en aquest cas plip0, vegeu dmesg | grep plip)
+ifconfig <replaceable>plip0 192.168.0.2</replaceable> pointopoint <replaceable>192.168.0.1</replaceable> netmask 255.255.255.255 up
+
+# Configurem la passarel·la
+modprobe iptable_nat
+iptables -t nat -A POSTROUTING -o <replaceable>ppp0</replaceable> -j MASQUERADE
+echo 1 > /proc/sys/net/ipv4/ip_forward
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2>
+  <title>Instal·lació del destí</title>
+<para>
+
+Arrenqueu el suport d'instal·lació. És necessari executar la instal·lació
+en mode expert; introduïu <userinput>expert</userinput> a l'indicador
+d'arrencada. Si necessiteu establir paràmetres per mòduls del nucli,
+ho necessitareu també a l'indicador d'ordres de l'arrencada. Per exemple,
+per arrencar l'instal·lador i establir els valors de les opcions
+<quote>io</quote> i <quote>irq</quote> del mòdul parport_pc, introduïu a
+l'indicador d'ordres de l'arrencada:
+
+<informalexample><screen>
+expert parport_pc.io=<replaceable>0x378</replaceable> parport_pc.irq=<replaceable>7</replaceable>
+</screen></informalexample>
+
+A continuació hi ha les respostes recomanades de diverses fases
+de la instal·lació.
+
+</para>
+
+<orderedlist>
+<listitem><para>
+
+<guimenuitem>Carrega els components de l'instal·lador des del CD</guimenuitem>
+
+</para><para>
+
+Seleccioneu l'opció <userinput>plip-modules</userinput> de la llista;
+això farà disponibles els controladors de PLIP al sistema d'instal·lació.
+
+</para></listitem>
+<listitem><para>
+
+<guimenuitem>Detecta el maquinari de xarxa</guimenuitem>
+
+</para>
+
+ <itemizedlist>
+ <listitem><para>
+
+Si el destí <emphasis>té</emphasis> una targeta de xarxa, es mostrarà una
+llista dels controladors per a les targetes detectades. Si voleu
+imposar que el &d-i; utilitzi PLIP, heu de desseleccionar tots els mòduls
+llistats. Òbviament, si l'ordinador destí no té cap targeta de xarxa,
+l'instal·lador no mostrarà aquesta llista.
+
+ </para></listitem>
+ <listitem><para>
+
+Com que anteriorment no s'ha detectat/seleccionat cap xarxa, l'instal·lador
+us demanarà que seleccioneu un controlador de xarxa d'una llista.
+Seleccioneu el mòdul <userinput>plip</userinput>.
+
+ </para></listitem>
+ </itemizedlist>
+
+</listitem>
+<listitem><para>
+
+<guimenuitem>Configuració de la xarxa</guimenuitem>
+ 
+ <itemizedlist>
+ <listitem><para>
+
+Configuració automàtica de la xarxa amb DHCP: No
+
+ </para></listitem>
+ <listitem><para>
+
+Adreça IP: <userinput><replaceable>192.168.0.1</replaceable></userinput>
+
+ </para></listitem>
+ <listitem><para>
+
+Adreça punt a punt:
+<userinput><replaceable>192.168.0.2</replaceable></userinput>
+
+ </para></listitem>
+ <listitem><para>
+
+Adreces dels servidors de noms: podeu introduir les mateixes adreces que
+les utilitzades a l'origen (vegeu <filename>/etc/resolv.conf</filename>)
+
+ </para></listitem>
+ </itemizedlist>
+
+</para></listitem>
+</orderedlist>
+
+  </sect2>
+ </sect1>

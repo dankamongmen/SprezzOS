@@ -1,0 +1,258 @@
+<!-- original version: 64916 -->
+
+ <sect1 id="mail-setup">
+ <title>Configurer le courrier électronique</title>
+<para>
+
+Le courrier électronique tient aujourd'hui une grande place dans la vie des
+gens. Comme il est important que le système de courrier, avec ses nombreuses options,
+soit bien configuré, nous aborderons dans cette section ses principaux éléments.
+
+</para><para>
+
+Un système de courrier est composé de trois éléments. Il y a d'abord
+l'<firstterm>agent utilisateur</firstterm>, <emphasis>Mail User Agent, (MUA)</emphasis>
+qui est le programme avec lequel l'utilisateur lit et écrit son courrier.
+Ensuite il y a l'<firstterm>agent de transport</firstterm>,
+<emphasis>Mail Transfer Agent, (MTA)</emphasis>, programme qui transporte les courriers
+d'un ordinateur à l'autre. Enfin il y a l'<firstterm>agent de distribution</firstterm>,
+<emphasis>Mail Delivery Agent (MDA)</emphasis>,
+programme qui distribue le courrier dans les boîtes des utilisateurs.
+
+</para><para>
+
+Ces trois fonctions peuvent être effectuées par des programmes distincts,
+ou bien seulement par un ou deux programmes. Il est possible aussi que
+différents programmes accomplissent ces tâches pour différents types de courrier.
+
+</para><para>
+
+Sur Linux et les systèmes Unix, <command>mutt</command> est un lecteur très apprécié.
+Comme les programmes traditionnels de Linux, il est en mode texte. Il est souvent
+associé à <command>exim</command> ou <command>sendmail</command> comme MTA et à 
+<command>procmail</command> comme MDA.
+
+</para><para>
+
+Avec la popularité croissante des environnements de bureau graphique,
+des programmes comme <command>evolution</command> de GNOME,
+<command>kmail</command> de KDE ou <command>thunderbird</command> de Mozilla
+(disponible dans &debian; sous l'appellation <command>icedove</command><footnote>
+
+<para>
+<command>thunderbird</command> a été modifié en <command>icedove</command> pour
+des raisons légales. 
+</para>
+
+</footnote>) deviennent aussi populaires. Ils combinent les trois fonctions,
+MUA, MTA et MDA, mais ils peuvent &mdash; et le sont souvent &mdash; être utilisés
+avec les programmes traditionnels de &debian-gnu;.
+
+</para>
+
+  <sect2 id="mail-default">
+  <title>Configuration par défaut</title>
+<para>
+
+Même si vous comptez utiliser un programme graphique, il est important d'installer
+et de configurer un ensemble traditionnel MTA/MDA. En effet, certains utilitaires du système
+<footnote>
+
+<para>
+Par exemple, <command>cron</command>, <command>quota</command>,
+<command>logcheck</command>, <command>aide</command>, &hellip;
+</para>
+
+</footnote> peuvent envoyer des messages importants sous forme de courriels à
+l'administrateur du système.
+
+</para><para>
+
+Pour cette raison, les paquets <classname>exim4</classname> et
+<classname>mutt</classname> sont installés d'office (à moins que vous
+n'ayez désélectionné la tâche <quote>standard</quote> pendant l'installation).
+L'agent de transport du courrier <command>exim4</command>, combinant les fonctions MTA MDA,
+est un programme relativement petit mais très pratique. Par défaut, il est configuré
+pour n'envoyer des courriels que sur le système local. Les courriels adressés à
+l'administrateur (le compte root) sont envoyés à l'utilisateur créé pendant
+l'installation <footnote>
+<para>
+
+Le renvoi de courriel pour root vers le compte utilisateur est configuré dans
+le fichier <filename>/etc/aliases</filename>.. S'il n'existe pas de compte utilisateur,
+le courriel sera bien sûr envoyé au compte root.
+
+</para>
+
+</footnote>.
+
+</para><para>
+
+Quand des courriels système sont envoyés, ils sont ajoutés dans le fichier
+<filename>/var/mail/<replaceable>nom_utilisateur</replaceable></filename>.
+Les courriels peuvent être lus avec <command>mutt</command>.
+
+</para>
+  </sect2>
+
+  <sect2 id="mail-outgoing">
+  <title>Envoyer des courriels vers l'extérieur</title>
+<para>
+
+Comme il a été dit précédemment, le système &debian; installé ne gère l'envoi de courriel qu'en
+local et ne permet pas d'envoyer des messages vers l'extérieur ni d'en recevoir
+de l'extérieur.
+
+</para><para>
+
+Si vous désirez que <classname>exim4</classname> gère l'envoi de messages
+vers l'extérieur, lisez la section qui suit, elle vous présentera les
+options de configuration disponibles. N'oubliez pas de tester si
+l'envoi et la réception de courrier sont corrects.
+
+</para><para>
+
+Si vous avez l'intention d'utiliser un programme graphique avec le serveur
+de courrier de votre fournisseur d'accès à internet ou de votre entreprise,
+vous n'avez pas vraiment besoin de configurer <classname>exim4</classname>.
+Indiquez juste à votre programme de courrier les bons serveurs à utiliser pour
+envoyer et recevoir les messages.
+
+</para><para>
+
+Dans ce cas, vous aurez aussi à configurer certains programmes pour envoyer
+correctement des courriels. Par exemple, <command>reportbug</command>, un programme
+qui permet d'envoyer des rapports de bogues pour les paquets &debian;,
+s'attend à trouver <classname>exim4</classname>.
+
+</para><para>
+
+Pour indiquer à <command>reportbug</command> d'utiliser un serveur de courrier
+externe, lancez la commande <command>reportbug --configure</command>
+et répondez <quote>no</quote> à la question de savoir si un MTA est disponible.
+On vous demandera le serveur à utiliser pour envoyer les rapports de bogues.
+
+</para>
+  </sect2>
+
+  <sect2 id="config-mta">
+  <title>Configuration de Exim4</title>
+<para>
+
+Si vous désirez que votre système gère le courrier vers l'extérieur, vous devez
+reconfigurer la paquet <classname>exim4</classname> <footnote>
+
+<para>
+Vous pouvez bien sûr supprimer <classname>exim4</classname> et le remplacer par
+un autre MTA/MDA.
+</para>
+
+</footnote>:
+
+<informalexample><screen>
+# dpkg-reconfigure exim4-config
+</screen></informalexample>
+
+</para><para>
+
+Après avoir saisi cette commande (en tant que superutilisateur),
+il vous sera demandé si vous voulez diviser la configuration en petits fichiers.
+En cas de doute, choisissez l'option par défaut.
+
+</para><para>
+
+Plusieurs scénarios communs vous sont proposés. Choisissez celui qui vous paraît
+le plus conforme à vos besoins.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>site internet</term>
+<listitem><para>
+
+Votre système est connecté à un réseau et le courrier est expédié et reçu
+directement avec SMTP. Dans les écrans suivants, on vous posera quelques
+questions élémentaires comme le nom de votre machine pour le courrier, les
+domaines dont vous acceptez ou relayez les courriels.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>courrier envoyé par une machine relais (<emphasis>smarthost</emphasis>)</term>
+<listitem><para>
+
+Dans ce scénario, le courrier sortant est envoyé à une autre machine, appelé
+le <emphasis>smarthost</emphasis> qui expédie le courrier à sa destination.
+Cette machine relais garde les
+courriels qui vous sont adressés et vous permet de ne pas être constamment
+connecté. Vous devez donc récupérer vos courriels sur cette machine avec des
+programmes comme fetchmail.
+
+</para><para>
+
+Le plus souvent, le « smarthost » est le serveur de votre fournisseur d'accès à
+internet. C'est l'option adaptée à un système connecté par
+le réseau téléphonique. Le serveur peut être aussi celui d'une entreprise, ou bien
+même un autre système sur votre réseau.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>courrier envoyé par une machine relais ; pas de courrier local</term>
+<listitem><para>
+
+
+Cette option est presque la même que la précédente
+sauf que le système ne gère pas le courrier local. Les messages du système,
+par exemple pour l'administrateur, sont toujours gérés.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>distribution locale seulement</term>
+<listitem><para>
+
+C'est l'option par défaut.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>pas de configuration pour le moment</term>
+<listitem><para>
+Choisissez cette option si vous êtes absolument certain de savoir ce que vous
+faites. Le système de courrier ne sera pas configuré. Tant qu'il ne le sera
+pas, vous ne pourrez ni envoyer ni recevoir des courriels. Les messages
+importants venant des utilitaires du système ne vous parviendront pas.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Si aucun de ces scénarios ne s'accorde à vos besoins, ou si vous voulez un
+réglage très fin, vous devrez modifier les fichiers de configuration qui se
+trouvent dans le répertoire <filename>/etc/exim4</filename>. D'autres
+informations sur le programme <command>exim4</command> se trouvent dans
+<filename>/usr/share/doc/exim4</filename>. Le fichier <filename>README.Debian.gz</filename>
+contient d'autres informations sur la configuration de <classname>exim4</classname>. Il
+signale aussi d'autres sources d'informations. 
+
+</para><para>
+
+Il faut noter qu'envoyer des messages directement sur internet quand on ne
+possède pas de nom de domaine officiel peut provoquer le rejet des messages,
+à cause des mesures antispam prises par les serveurs de courriers.
+Il est préférable d'utiliser le serveur de son fournisseur d'accès à internet.
+Si vous le voulez malgré tout, vous pouvez utiliser une autre adresse que celle
+créée par défaut. Avec <classname>exim4</classname>, c'est possible en ajoutant
+une entrée dans <filename>/etc/email-addresses</filename>.
+
+</para>
+  </sect2>
+ </sect1>

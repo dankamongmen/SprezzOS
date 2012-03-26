@@ -1,0 +1,112 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 57313 -->
+<!-- updated 45405:57313 by Felipe Augusto van de Wiel (faw) 2009.02.10 -->
+
+ <sect1 id="pppoe" arch="not-s390">
+ <title>Instalando &debian-gnu; usando PPP sobre Ethernet (PPPoE)</title>
+
+<para>
+
+Em alguns países o PPP sobre Ethernet (PPPoE &mdash; <quote>PPP over
+Ethernet</quote>) é um protocolo comum para conexões banda larga (ADSL
+ou cabo) de Provedores de Serviço de Internet (<quote>Internet Service
+Providers</quote>). Configurar uma conexão de rede usando PPPoE não é
+suportado por padrão no instalador, mas pode-se fazer funcionar de
+forma bem simples. Esta seção explica como.
+
+</para><para>
+
+A conexão PPPoE configurada durante a instalação também ficará disponível
+após a reinicialização no sistema instalado (veja <xref linkend="boot-new"/>).
+
+</para><para>
+
+Para ter a opção de configurar e usar PPPoE durante a instalação, você
+terá que instalar usando uma das imagens de CD-ROM/DVD que estão disponíveis.
+Não é suportado para outros métodos de instalação (e.g. netboot<phrase
+condition="supports-floppy-boot"> ou disquete (<quote>floppy</quote></phrase>).
+
+</para><para>
+
+Instalar sobre PPPoE é praticamente o mesmo que qualquer outra instalação.
+Os seguintes passos explicam as diferenças.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+Inicialize o instalador com parâmetro de inicialização
+<userinput>modules=ppp-udeb</userinput><footnote arch="x86">
+
+<para>
+Veja <xref linkend="boot-screen"/> para informações sobre
+como adicionar um parâmetro de inicialização.
+</para>
+
+</footnote>
+Isto vai assegurar que o componente responsável pela configuração do PPPoE
+(<classname>ppp-udeb</classname>) será carregado e executado automaticamente.
+
+</para></listitem>
+<listitem><para>
+
+Siga os passos iniciais regulares de instalação (idioma, país, seleção
+de teclado; o carregamento de componentes adicionais do instalador<footnote>
+
+<para>
+
+O componente <classname>ppp-udeb</classname> é carregado como um dos
+componentes adicionar neste passo. Se você quiser instalar em prioridade
+média ou baixa (modo expert), você também pode manualmente selecionar
+o <classname>ppp-udeb</classname> ao invés de informar o parâmetro
+<quote>modules</quote> no prompt de inicialização.
+
+</para>
+
+</footnote>).
+
+</para></listitem>
+<listitem><para>
+
+O próximo passo é a detecção do hardware de rede, para identificar quaisquer
+placas Ethernet presentes no sistema.
+
+</para></listitem>
+<listitem><para>
+
+Após isto a configuração do PPPoE é iniciada. O instalador vai consultar
+todas as interfaces Ethernet detectadas na tentativa de encontrar um
+concentrador PPPoE (um tipo de servidor que lida com conexões PPPoE).
+
+</para><para>
+
+É possível que o concentrador não seja encontrado na primeira tentativa.
+Isto pode acontecer ocasionalmente em redes lentas ou carregadas ou com
+servidores defeituosos. Na maioria dos casos, uma segunda tentativa de
+detectar o concentrador terá sucesso, para tentar novamente, selecione
+<guimenuitem>Configurar e iniciar uma conexão PPPoE</guimenuitem> a partir
+do menu principal do instalador.
+
+</para></listitem>
+<listitem><para>
+
+Após o concentrador ser encontrado, o usuário será solicitado a digitar a
+informação de login (o nome de usuário e a senha PPPoE).
+
+</para></listitem>
+<listitem><para>
+
+Neste ponto o instalador usará as informações fornecidas para estabelecer
+uma conexão PPPoE. Se a informação correta foi fornecida, a conexão PPPoE
+deveria ser configurada e o instalador deveria ser capaz de usá-la para
+conectar-se à Internet e obter pacotes através dela (se necessário). Se
+a informação de login não está correta ou algum erro aparecer, o instalador
+vai parar, mas a configuração pode ser tentada novamente através da
+seleção da entrada do menu <guimenuitem>Configurar e iniciar uma conexão
+PPPoE</guimenuitem>.
+
+</para></listitem>
+</itemizedlist>
+
+ </sect1>

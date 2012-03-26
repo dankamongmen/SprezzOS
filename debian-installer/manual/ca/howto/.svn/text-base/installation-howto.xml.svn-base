@@ -1,0 +1,375 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+<appendix id="installation-howto">
+<title>Com Instal·lar</title>
+
+<para>
+
+Aquest document descriu com instal·lar &debian-gnu; &releasename; per
+&arch-title; (<quote>&architecture;</quote>) amb el nou &d-i;. És un passeig
+ràpid pel procés d'instal·lació el qual hauria de contenir tota la informació
+que necessiteu per la majoria d'instal·lacions. Quan sigui necessària mes
+informació us remetrem a explicacions més detallades a altres parts
+d'aquest document.
+
+</para>
+
+ <sect1 id="howto-preliminaries">
+ <title>Preliminars</title>
+<para>
+
+<phrase condition="unofficial-build">
+El debian-installer es troba encara en fase beta.
+</phrase>
+Si trobeu errors al llarg de la instal·lació per favor dirigiu-vos a la
+<xref linkend="submit-bug" /> per consultar la informació de com
+informar-ho. Si teniu preguntes les quals no estan respostes a aquest
+document, per favor informeu a la llista de correu debian-boot
+(&email-debian-boot-list;) o pregunteu al IRC (#debian-boot a la xarxa
+de OFTC).
+
+</para>
+ </sect1>
+
+ <sect1 id="howto-getting-images">
+ <title>Arrencada de l'instal·lador</title>
+<para>
+
+<phrase condition="unofficial-build">
+Podeu trobar alguns enllaços ràpids a les imatges dels CD a
+la <ulink url="&url-d-i;">
+pàgina inicial de &d-i; </ulink>.
+</phrase>
+L'equip de debian-cd construeix imatges dels CD que utilitzen el &d-i; a la
+<ulink url="&url-debian-cd;">pàgina de Debian CD</ulink>.
+Si voleu trobar més informació d'on descarregar-se els CDs, mireu 
+<xref linkend="official-cdrom" />.
+
+</para><para>
+
+Alguns mètodes d'instal·lació requereixen d'altres imatges a 
+mes a mes de les imatges dels CDs.
+<phrase condition="unofficial-build">
+La <ulink url="&url-d-i;">pàgina inicial de &d-i;</ulink> teniu enllaços
+a altres imatges.
+</phrase>
+A la <xref linkend="where-files" /> s'explica com podeu trobar imatges a
+rèpliques de &debian;
+
+</para><para>
+
+Les subseccions de baix us donaran detalls de quines imatges necessiteu
+aconseguir per cada mecanisme d'instal·lació.
+
+</para>
+
+  <sect2 id="howto-getting-images-cdrom">
+  <title>CDROM</title>
+
+<para>
+
+Hi ha dues imatges de CD diferents per netinst  que poden ser utilitzades
+per instal·lar &releasename; amb &d-i;. Aquestes imatges s'han fet amb la
+intenció d'arrencar des del CD i instal·lar els paquets addicionals fent ús
+d'una xarxa, d'ahí el nom netinst. La diferència entre les dues imatges
+és que a la imatge completa estan inclosos els paquets base, mentre que
+si esteu utilitzant la imatge «targeta de negocis» haureu de descarregar-los
+de la web. Si voleu, podeu aconseguir una imatge completa del CD a la qual
+no necessiteu la xarxa per instal·lar. Tan sols necessiteu el primer CD del
+conjunt de CDs de &debian;.
+
+</para><para>
+
+Descarregueu la que preferiu i graveu-la a un CD.
+<phrase arch="any-x86">Per arrencar el CD, necessiteu canviar la configuració de
+la vostra BIOS, com s'explica a la <xref linkend="bios-setup" />.</phrase>
+<phrase arch="powerpc">
+Per arrencar un PowerMac des de CD, premeu la tecla <keycap>c</keycap> mentre
+esteu arrencant. Mireu <xref linkend="boot-cd" /> per altres maners d'arrencar
+des de CD.</phrase>
+
+</para>
+  </sect2>
+
+  <sect2 condition="supports-floppy-boot" id="howto-getting-images-floppy">
+  <title>Disquet</title>
+<para>
+
+Si no podeu arrencar des de CD, podeu descarregar les imatges dels disquets
+&debian;. Necessiteu les imatges <filename>floppy/boot.img</filename>,
+<filename>floppy/root.img</filename> i possiblement un o més dels disquets
+amb controladors.
+
+</para><para>
+
+El disquet d'arrencada és el que conté la imatge <filename>boot.img</filename>.
+Quan arrenqueu aquest disquet, us suggerirà que inseriu un segon disquet
+&mdash; feu ús del que conté <filename>root.img</filename> dins.
+
+</para><para>
+
+Si esteu planejant fer la instal·lació per xarxa, normalment necessitareu
+el disquet <filename>floppy/net-drivers-1.img</filename>. Per targetes de
+xarxa PCMCIA o USB, i altres targetes menys usuals, també necessitareu un
+segon disquet, <filename>floppy/net-drivers-2.img</filename>.
+
+</para><para>
+
+Si teniu un CD, però no podeu arrencar des d'ell, aleshores arrenqueu des
+de disquet i feu ús de <filename>floppy/cd-drivers.img</filename> com disc
+de controladors, i completeu la instal·lació fent ús del CD.
+
+</para><para>
+
+Els disquets son un dels mitjans menys segurs, així que prepareu-vos per un
+munt de fallades als disquets (mireu la <xref linkend="unreliable-floppies" />).
+Cada fitxer <filename>.img</filename> que heu descarregat va a un únic
+disquet; podeu fer ús de l'ordre dd per escriure'l a /def/fd0 o
+equivalents (podeu trobar més detalls a la <xref linkend="create-floppy" />).
+Com que teniu més d'un disquet, no seria mala idea etiquetar-los.
+
+</para>
+  </sect2>
+
+  <sect2 condition="bootable-usb" id="howto-getting-images-usb">
+  <title>Clau de memòria USB</title>
+<para>
+
+També podeu instal·lar des de una clau de memòria USB. Per exemple un
+clauer USB pot ser un mitjà d'instal·lació de &debian; molt còmode per portar
+per tot arreu.
+
+</para><para>
+
+La forma més fàcil de preparar el vostre llapis de memòria USB és
+descarregar el fitxer <filename>hd-media/boot.img.gz</filename>, i
+utilitzar gunzip per extraure la imatge de 256 MiB d'aquest fitxer.
+Escriviu aquesta imatge directament al vostre llapis de memòria, que ha de
+ser com a mínim de 256 MiB de tamany. Per suposat, açò destruirà tot el que
+hi havia al llapis de memòria. Després mounteu el llapis de memòria, que
+ara ha de tenir un sistema de fitxers FAT. Ara, descarregueu una imatge del
+CD netinst de &debian;, i copieu el fitxer al llapis de memòria; qualsevol
+nom és bo sempre que acabe amb <literal>.iso</literal>.
+
+</para><para>
+
+Hi ha formes més flexibles per preparar un llapis de memòria per fer ús del
+debian-installer, i també és possible que funcioni amb llapis de memòria
+mes petits. Per més detalls, podeu mirar <xref linkend="boot-usb-files" />.
+
+</para><para arch="any-x86">
+
+Algunes BIOS poden arrencar directament de dispositius USB, i d'altres no.
+Heu de configurar la vostra BIOS per que arrenque des del «disc extraïble» o
+de <quote>USB-ZIP</quote> per fer que arrenque des del dispositiu USB. Podeu
+trobar ajudes i detalls a <xref linkend="usb-boot" />.
+
+</para><para arch="powerpc">
+
+Arrencar un sistema Macintosh des de un dispositiu d'emmagatzemament USB
+requereix usar manualment l'Open Firmware. Per a instrucciones, vegeu
+<xref linkend="usb-boot" />.
+
+</para>
+  </sect2>
+
+  <sect2 id="howto-getting-images-netboot">
+  <title>Arrencada des de la xarxa</title>
+<para>
+
+També és possible arrencar el &d-i; completament de la xarxa. Hi ha
+diferents mètodes per arrencar per xarxa depenent de la vostra arquitectura
+i configuració d'arrencada de xarxa. Els fitxers que podeu trobar a
+<filename>netboot/</filename> poden utilitzar-se per arrencar de la
+xarxa el &d-i;.
+
+</para><para arch="x86">
+
+La manera més fàcil per configurar-ho és probablement l'arrencada amb PXE.
+Desempaqueteu amb el tar el fitxer <filename>netboot/pxeboot.tar.gz</filename>
+a <filename>/srv/tftp</filename> o a un altre lloc al vostre servidor
+tftp. Configureu el vostre servidor DHCP per que envie als clients el fitxer
+<filename>/pxelinux.0</filename>, i amb una mica de sort tot anirà be.
+Si voleu instruccions més detallades, mireu <xref linkend="install-tftp" />.
+
+</para>
+  </sect2>
+
+  <sect2 arch="linux-any" id="howto-getting-images-hard-disk">
+  <title>Arrencada des del disc dur</title>
+
+<para>
+
+Es possible arrencar l'instal·lador sense fer ús d'un dispositiu extraïble,
+tan sols tenint un disc dur, que pot contenir un sistema operatiu diferent.
+Descarregueu <filename>hd-media/initrd.gz</filename>,
+<filename>hd-media/vmlinuz</filename>, i la imatge d'un CD de &debian; al
+directori principal del vostre disc dur. Assegureu-vos de que la imatge del
+CD ha de tenir el nom acabat amb <literal>.iso</literal>. Ara tan sols us
+queda arrencar el linux amb el initrd.
+<phrase arch="x86">
+A la <xref linkend="boot-initrd" /> s'explica com fer-ho.
+</phrase>
+
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="howto-installation">
+<title>Instal·lació</title>
+
+<para>
+
+Una vegada l'instal·lador ha començat, voreu la pantalla de benvinguda.
+Premeu &enterkey; per arrencar, o llegiu les instruccions per seleccionar
+altres mètodes i paràmetres (vegeu la <xref linkend="boot-parms" />).
+
+</para><para>
+
+Al cap d'una mica se ús demanarà que seleccioneu el vostre idioma. Feu ús de
+les fletxes per seleccionar un idioma i premeu &enterkey; per continuar.
+A continuació se ús preguntarà el vostre país, amb les eleccions possibles
+s'inclourà una llista de països on es parla el vostre idioma. Si no es troba
+a la llista curta, també disposeu d'una llista amb tots els països del mon.
+
+</para><para>
+
+És possible que necessiteu confirmar el vostre mapa de teclat. Escolliu el
+valor per defecte a no ser que en conegueu un millor.
+
+</para><para>
+
+Ara seieu mentre el debian-installer detecta el vostre maquinari, i
+carrega la resta de components des del CD, disquet, USB, etc.
+
+</para><para>
+
+Després l'instal·lador intentarà detectar el vostre maquinari de xarxa i
+configurar la xarxa mitjançant DHCP. Si no esteu en xarxa o no disposeu de
+DHCP, aleshores podreu configurar manualment la xarxa.
+
+</para><para>
+
+El proper pas configura el rellotge i el fus horari. L'instal·lador intentarà
+connectar-se a un servidor d'hora d'Internet per assegurar que l'hora del
+rellotge és correcta. El fus horari dependrà del país seleccionat anteriorment
+i l'instal·lador només demanarà triar-ne un si el país té diverses zones.
+
+</para><para>
+
+Aquest és el moment de fer particions als vostres discs. Primer tindreu
+l'oportunitat de triar si fer particions automàticament al disc sencer, o
+a l'espai buit disponible (vegeu <xref linkend="partman-auto" />). Recomenat
+si sou nous usuaris o si teniu pressa. Si no voleu fer particions
+automàticament, trieu <guimenuitem>Manual</guimenuitem> des del menú.
+
+</para><para arch="any-x86">
+
+Si teniu una partició amb DOS o Windows que voleu conservar,
+aneu amb molt de compte amb la partició automàtica. Si seleccioneu
+fer particions manualment, podeu fer ús de l'instal·lador per canviar el
+tamany d'una partició FAT o NTFS tan sols seleccionant la partició i
+especificat el nou tamany.
+
+</para><para>
+
+A la pròxima pantalla voreu la vostra taula de particions, com seran
+formatades les particions i on es muntaran. Seleccioneu una partició per
+modificar-la o esborrar-la. Si particioneu automàticament, tan sols podreu
+escollir <guimenuitem>Finalitza la partició i escriu els canvis al
+disc</guimenuitem> al menú, per
+utilitzar les opcions que heu triat. Recordeu d'assignar al menys una
+partició d'intercanvi i muntar una partició a <filename>/</filename>.
+Per a informació més detallada sobre com utilitzar el partidor, referiu-vos
+a <xref linkend="di-partition" />; a l'appendix <xref linkend="partitioning"
+/> també hi trobareu informació general sobre el procés de partició.
+
+</para><para>
+
+Ara el &d-i; formata les vostres particions i comença a instal·lar el
+sistema base, la qual cosa tardarà una mica. Desprès s'instal·larà el nucli.
+
+</para><para>
+
+El sistema base que heu instal·lat ja es pot utilitzar, però encara és
+una instal·lació molt mínima. Per tenir un sistema més funcional,
+el següent pas us permetrà instal·lar paquets addicionals tot
+i seleccionant tasques. Abans de poder instal·lar paquets, s'ha de
+configurar l'<classname>apt</classname>, ja que és allà on es defineix
+d'on s'obtindran els paquets.
+La tasca <quote>Sistema estàndard</quote> serà seleccionada per
+defecte i normalment s'hauria d'instal·lar. Seleccioneu també la tasca
+<quote>Entorn d'escriptori</quote> si voleu un escriptori gràfic després
+de completar el procés d'instal·lació. Vegeu <xref linkend="pkgsel"/>
+per a informació addicional.
+
+</para><para>
+
+A continuació de la instal·lació del sistema base es configuren els comptes
+d'usuari. Per omissió s'haurà d'indicar la contrasenya del compte
+<quote>root</quote> (administrador) i la informació necessària per crear un
+compte d'usuari normal.
+
+</para><para>
+
+L'últim pas és la instal·lació del gestor d'arrencada. Si l'instal·lador
+detecta altres sistemes operatius al vostre ordinador, els afegirà al menú
+d'arrencada i ho farà saber.
+<phrase arch="any-x86">Per defecte el GRUB s'instal·larà al sector d'arrencada
+del vostre primer disc dur, cosa que normalment serà una bona elecció.
+Podreu canviar-lo i instal·lar-lo a un altre lloc si ho desitgeu.
+</phrase>
+
+</para><para>
+
+El &d-i; ús notificarà que la instal·lació s'ha finalitzat. Traieu
+el cdrom o qualsevol mitjà d'arrencada que hajau utilitzat i premeu
+&enterkey; per arrencar de nou la màquina. Ara hauria d'iniciar-se el
+sistema acabat d'instal·lar, i us hauria de permetre l'entrada. Això
+s'explica en detall a <xref linkend="boot-new" />.
+
+</para><para>
+
+Si necessiteu més informació del procés d'instal·lació, vegeu el
+<xref linkend="d-i-intro" />.
+
+</para>
+ </sect1>
+
+ <sect1 id="howto-installation-report">
+ <title>Envieu un informe de la instal·lació</title>
+<para>
+
+Si heu fet la instal·lació amb èxit fent ús del &d-i;,
+preneu-vos una mica de temps per enviar-nos un informe.
+La manera més senzilla de fer-ho és instal·lant el paquet reportbug
+(<command>aptitude install reportbug</command>), configurar el
+<classname>reportbug</classname> com s'explica a
+<xref linkend="mail-outgoing"/>, i executar
+<command>reportbug installation-reports</command>.
+
+</para><para>
+
+Si no heu aconseguit completar la instal·lació o heu trobat algun
+altre problema, probablement heu trobat una errada al debian-installer.
+Per poder millorar el instal·lador, és necessari que el coneguem, així
+que per favor preneu-vos un temps per informar-lo. Podeu fer ús d'un
+informe d'instal·lació per informar-lo; si la instal·lació falla completament,
+mireu la <xref linkend="problem-report" />.
+
+</para>
+ </sect1>
+
+ <sect1 id="howto-installation-finally">
+ <title>I finalment&hellip;</title>
+<para>
+
+Esperem que la vostra instal·lació de &debian; sigui satisfactòria i que
+trobeu &debian; d'utilitat. Ara és possible que vulgueu llegir
+<xref linkend="post-install" />.
+
+</para>
+ </sect1>
+</appendix>
+

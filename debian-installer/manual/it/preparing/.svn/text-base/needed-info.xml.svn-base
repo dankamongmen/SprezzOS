@@ -1,0 +1,619 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64991 -->
+
+ <sect1 id="needed-info">
+ <!-- <title>Information You Will Need</title> -->
+ <title>Informazioni necessarie</title>
+
+  <sect2>
+  <!-- <title>Documentation</title> -->
+  <title>Documentazione</title>
+
+   <sect3>
+   <!-- <title>Installation Manual</title> -->
+   <title>Guida all'installazione</title>
+<para condition="for_cd">
+
+<!--
+This document you are now reading, in plain ASCII, HTML or PDF format.
+-->
+
+Il documento che si sta leggendo, in formato ASCII puro, HTML o PDF.
+
+</para>
+
+<itemizedlist condition="for_cd">
+
+&list-install-manual-files;
+
+</itemizedlist>
+
+<para condition="for_wdo">
+
+<!--
+The document you are now reading, which is the official version of the
+Installation Guide for the &releasename; release of &debian;; available
+in <ulink url="&url-release-area;/installmanual">various formats and
+translations</ulink>.
+-->
+
+Il documento che si sta leggendo è la versione ufficiale della Guida
+all'installazione per la release &releasename; di &debian;; è disponibile
+in <ulink url="&url-release-area;/installmanual">vari formati e parecchie
+lingue</ulink>.
+
+</para><para condition="for_alioth">
+
+<!--
+The document you are now reading, which is a development version of the
+Installation Guide for the next release of &debian;; available in
+<ulink url="&url-d-i-alioth-manual;">various formats and
+translations</ulink>.
+-->
+
+Il documento che si sta leggendo è la versione ufficiale della Guida
+all'installazione per la release &releasename; di &debian;; è disponibile
+in <ulink url="&url-d-i-alioth-manual;">vari formati e parecchie
+lingue</ulink>.
+
+</para>
+   </sect3>
+
+   <sect3>
+   <!-- <title>Hardware documentation</title> -->
+   <title>Documentazione hardware</title>
+<para>
+
+<!--
+Often contains useful information on configuring or using your hardware.
+-->
+
+Contiene informazioni utili sulla configurazione o l'utilizzo dell'hardware.
+
+</para>
+
+<!-- We need the arch dependence for the whole list to ensure proper xml
+     as long as not architectures have a paragraph -->
+<itemizedlist arch="x86;sparc;mips;mipsel">
+<listitem arch="x86"><para>
+
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>
+
+</para></listitem>
+
+<listitem arch="sparc"><para>
+
+<ulink url="&url-sparc-linux-faq;">Linux for SPARC Processors FAQ</ulink>
+
+</para></listitem>
+
+<listitem arch="mips;mipsel"><para>
+
+<ulink url="&url-linux-mips;">Linux/Mips website</ulink>
+
+</para></listitem>
+
+</itemizedlist>
+   </sect3>
+
+   <sect3 arch="s390">
+   <!-- <title>&arch-title; Hardware References</title> -->
+   <title>Informazioni sulla compatibilità hardware per &arch-title;</title>
+<para>
+
+<!--
+Documentation of &arch-title;-specific boot sequence, commands and device
+drivers (e.g. DASD, XPRAM, Console, OSA, HiperSockets and z/VM interaction)
+-->
+
+La documentazione specifica sulla sequenza d'avvio di &arch-title;, i
+comandi e i driver dei device (DASD, XPRAM, Console, OSA, HiperSocket
+e z/VM)
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink url="http://public.dhe.ibm.com/software/dw/linux390/docu/lk32dd04.pdf">Device Drivers, Features, and Commands (Linux Kernel 2.6.32)</ulink>
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+<!--
+IBM Redbook describing how Linux can be combined with z/VM on
+zSeries and &arch-title; hardware.
+-->
+
+Redbook IBM in cui è descritto come Linux possa essere combinato con z/VM
+su hardware zSeries e &arch-title;.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink
+url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">Linux
+for &arch-title;</ulink>
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+<!--
+IBM Redbook describing the Linux distributions available for the
+mainframe. It has no chapter about &debian; but the basic installation
+concepts are the same across all &arch-title; distributions.
+-->
+
+Redbook IBM in cui sono descritte le distribuzioni Linux disponibili per
+il mainframe. Non c'è un capitolo su &debian; ma i concetti di base riguardo
+l'installazione sono comuni per qualsiasi distribuzione per &arch-title;.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<ulink
+url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">Linux
+for IBM eServer zSeries and &arch-title;: Distributions</ulink>
+
+</para></listitem>
+</itemizedlist>
+   </sect3>
+  </sect2>
+
+  <sect2 id="fsohi">
+  <!-- <title>Finding Sources of Hardware Information</title> -->
+  <title>Ricerca d'informazioni sull'hardware</title>
+<para>
+
+<!--
+In many cases, the installer will be able to automatically detect your
+hardware. But to be prepared, we do recommend familiarizing
+yourself with your hardware before the install.
+-->
+
+Nella maggior parte dei casi il programma d'installazione è in grado di
+riconoscere l'hardware. Comunque è meglio prepararsi, si raccomanda di
+familiarizzare con il proprio hardware prima di iniziare l'installazione.
+
+</para><para>
+
+<!--
+Hardware information can be gathered from:
+-->
+
+Informazioni sull'hardware possono essere recuperate da:
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<!--
+The manuals that come with each piece of hardware.
+-->
+
+Manuali che sono venduti insieme a ciascun componente hardware.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+The BIOS setup screens of your computer. You can view these screens
+when you start your computer by pressing a combination of keys. Check
+your manual for the combination. Often, it is the <keycap>Delete</keycap> key.
+-->
+
+Schermate prodotte dal BIOS del computer. Si possono vedere queste
+schermate premendo all'accensione del computer una certa combinazione di
+tasti, vedere nel manuale della scheda madre qual è questa combinazione,
+spesso è il tasto <keycap>Canc</keycap>.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+The cases and boxes for each piece of hardware.
+-->
+
+Confezioni e scatole dei componenti hardware.
+
+</para></listitem>
+
+<listitem arch="any-x86"><para>
+
+<!--
+The System window in the Windows Control Panel.
+-->
+
+Consultando la finestra Sistema nel Pannello di controllo.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+System commands or tools in another operating system, including file
+manager displays. This source is especially useful for information
+about RAM and hard drive memory.
+-->
+
+Comandi di sistema oppure programmi di altri sistemi operativi. Queste
+fonti sono particolarmente utili per conoscere la quantità di RAM e la
+capacità del disco fisso.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Your system administrator or Internet Service Provider. These
+sources can tell you the settings you need to set up your
+networking and e-mail.
+-->
+
+L'amministratore di sistema o l'Internet Service Provider. Queste fonti
+possono fornire le impostazioni necessarie alla configurazione della
+rete e della posta elettronica.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+<table>
+<!-- <title>Hardware Information Needed for an Install</title> -->
+<title>Informazioni sull'hardware necessarie per l'installazione</title>
+<tgroup cols="2">
+<thead>
+<row>
+  <entry>Hardware</entry>
+  <entry><!-- Information You Might Need -->Informazioni</entry>
+</row>
+</thead>
+
+<tbody>
+<row arch="not-s390">
+  <entry morerows="5"><!-- Hard Drives -->Dischi fissi</entry>
+  <entry><!-- How many you have. -->Numero di dischi.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Their order on the system. -->
+  Il loro ordine sul sistema.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Whether IDE (also known as PATA), SATA or SCSI.</entry> -->
+  Se sono IDE (noti anche come PATA), SATA o SCSI.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Available free space. -->Spazio libero disponibile.</entry>
+</row>
+<row arch="not-s390"><entry><!-- Partitions. -->Partizioni.</entry></row>
+<row arch="not-s390">
+  <entry><!-- Partitions where other operating systems are installed. -->
+  Partizioni su cui sono installati altri sistemi operativi.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="5">Monitor</entry>
+  <entry><!-- Model and manufacturer. -->Modello e produttore.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Resolutions supported. -->Risoluzioni supportate.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Horizontal refresh rate. -->
+  Frequenza di rinfresco orizzontale.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Vertical refresh rate. -->
+  Frequenza di rinfresco verticale.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Color depth (number of colors) supported. -->
+  Profondità di colore (numero di colori) supportata.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Screen size. -->Dimensione dello schermo.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="3">Mouse</entry>
+  <entry><!-- Type: serial, PS/2, or USB. -->
+  Tipo: seriale, PS/2 o USB.</entry>
+</row>
+<row arch="not-s390"><entry><!-- Port. -->Porta.</entry></row>
+<row arch="not-s390"><entry><!-- Manufacturer. -->Produttore.</entry></row>
+<row arch="not-s390">
+  <entry><!-- Number of buttons. -->Numero di tasti.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="1"><!-- Network -->Rete</entry>
+  <entry><!-- Model and manufacturer. -->Modello e produttore.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Type of adapter. -->Tipo di scheda.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="1"><!-- Printer -->Stampante</entry>
+  <entry><!-- Model and manufacturer. -->Modello e produttore.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Printing resolutions supported. -->
+  Risoluzioni di stampa supportate.</entry>
+</row>
+
+<row arch="not-s390">
+  <entry morerows="2"><!-- Video Card -->Scheda video</entry>
+  <entry><!-- Model and manufacturer. -->Modello e produttore.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Video RAM available. -->RAM video disponibile.</entry>
+</row>
+<row arch="not-s390">
+  <entry><!-- Resolutions and color depths supported (these should be
+  checked against your monitor's capabilities). -->
+  Risoluzioni e profondità di colore supportate (queste devono essere
+  verificate con le capacità del monitor).</entry>
+</row>
+
+<row arch="s390">
+  <entry morerows="1">DASD</entry>
+  <entry><!-- Device number(s). -->Numero di dispositivi.</entry>
+</row>
+<row arch="s390">
+  <entry><!-- Available free space. -->Spazio libero disponibile.</entry>
+</row>
+
+<row arch="s390">
+  <entry morerows="2"><!-- Network -->Rete</entry>
+  <entry><!-- Type of adapter. -->Tipo di scheda.</entry>
+</row>
+<row arch="s390">
+  <entry><!-- Device numbers. -->Numero di dispositivi.</entry>
+</row>
+<row arch="s390">
+  <entry><!-- Relative adapter number for OSA cards. -->
+  Numero relativo per le schede OSA.</entry>
+</row>
+
+</tbody></tgroup></table>
+
+</para>
+  </sect2>
+
+  <sect2>
+  <!-- <title>Hardware Compatibility</title> -->
+  <title>Compatibilità hardware</title>
+<para>
+
+<!--
+Many brand name products work without trouble on &arch-kernel;. Moreover,
+hardware support in &arch-kernel; is improving daily. However, &arch-kernel; still does
+not run as many different types of hardware as some operating systems.
+-->
+
+Molti prodotti di marca funzionano senza problemi con &arch-kernel;. Inoltre
+l'hardware supportato da &arch-kernel; cresce quotidianamente anche se, purtroppo,
+ancora &arch-kernel; non funziona su parecchi tipi di hardware su cui invece
+funzionano altri sistemi operativi.
+
+</para><para arch="any-x86">
+
+<!--
+In particular, &arch-kernel; usually cannot run hardware that requires a
+running version of Windows to work.
+-->
+
+In particolare &arch-kernel; non può funzionare sull'hardware che richiede Windows
+per funzionare.
+
+</para><para arch="x86">
+
+<!--
+Although some Windows-specific hardware can be made to run on Linux,
+doing so usually requires extra effort. In addition, Linux drivers
+for Windows-specific hardware are usually specific to one Linux
+kernel. Therefore, they can quickly become obsolete.
+-->
+
+Nonostante che anche l'hardware specifico per Windows possa essere fatto
+funzionare sotto Linux, farlo di solito richiede del lavoro aggiuntivo.
+Inoltre i driver Linux per l'hardware specifico per Windows sono specifici
+per una versione del kernel, quindi diventano rapidamente obsoleti.
+
+</para><para arch="any-x86">
+
+<!--
+So called win-modems are the most common type of this hardware.
+However, printers and other equipment may also be Windows-specific.
+-->
+
+I cosiddetti win-modem sono l'esempio più comune di questo tipo di hardware.
+Purtroppo esistono stampanti e altro hardware che possono essere specifici
+per Windows.
+
+</para><para>
+
+<!--
+You can check hardware compatibility by:
+-->
+
+Si può verificare la compatibilità dell'hardware con:
+
+<itemizedlist>
+<listitem><para>
+
+<!--
+Checking manufacturers' web sites for new drivers.
+-->
+
+Cercando nel sito web del produttore dei nuovi driver.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Looking at web sites or manuals for information about emulation.
+Lesser known brands can sometimes use the drivers or settings for
+better-known ones.
+-->
+
+Cercando sui siti web o nei manuali informazioni sull'emulazione. I prodotti
+di marchi meno conosciuti qualche volta possono utilizzare i driver o le
+impostazioni di quelli più conosciuti.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Checking hardware compatibility lists for &arch-kernel; on web sites
+dedicated to your architecture.
+-->
+
+Verificando che l'hardware sia presente nell'elenco dell'hardware compatibile
+con &arch-kernel; pubblicato nei siti web dedicati alla propria architettura.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Searching the Internet for other users' experiences.
+-->
+
+Cercando su Internet le esperienze di altri utenti.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+
+  <sect2>
+  <!-- <title>Network Settings</title> -->
+  <title>Impostazione della rete</title>
+<para>
+
+<!--
+If your computer is connected to a network 24 hours a day (i.e., an
+Ethernet or equivalent connection &mdash; not a PPP connection), you
+should ask your network's system administrator for this information.
+-->
+
+Se il computer ha una connessione permanente alla rete (cioè una connessione
+Ethernet o equivalente, non una connessione PPP) si devono chiedere
+all'amministratore di sistema le seguenti informazioni:
+
+<itemizedlist>
+<listitem><para>
+
+<!--
+Your host name (you may be able to decide this on your own).
+-->
+
+Il proprio hostname (forse lo si può decidere da soli).
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Your domain name.
+-->
+
+Il proprio nome di dominio.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Your computer's IP address.
+-->
+
+L'indirizzo IP dell'elaboratore.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+The netmask to use with your network.
+-->
+
+La netmask da usare con la propria rete.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+The IP address of the default gateway system you should route to, if
+your network <emphasis>has</emphasis> a gateway.
+-->
+
+L'indirizzo IP del gateway su cui effettuare l'instradamento predefinito,
+<emphasis>se</emphasis> la propria rete ne ha uno.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+The system on your network that you should use as a DNS (Domain Name
+Service) server.
+-->
+
+Il sistema della propria rete da usare come server DNS (Domain Name Service).
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+<!--
+On the other hand, if your administrator tells you that a DHCP server
+is available and is recommended, then you don't need this information
+because the DHCP server will provide it directly to your computer
+during the installation process.
+-->
+
+D'altra parte se il proprio amministratore comunica che è possibile usare
+un server DHCP le informazioni precedenti sono inutili poiché il server
+DHCP le fornisce direttamente al proprio computer durante il processo
+d'installazione.
+
+</para><para arch="not-s390">
+
+<!--
+If you use a wireless network, you should also find out:
+-->
+
+Se si usa una rete wireless si deve anche conoscere:
+
+<itemizedlist>
+<listitem><para>
+
+<!--
+ESSID of your wireless network.
+-->
+
+L'ESSID della propria rete wireless.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+WEP security key (if applicable).
+-->
+
+La chiave WEP (se usata).
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+  </sect2>
+ </sect1>

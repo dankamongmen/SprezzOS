@@ -1,0 +1,394 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61147 -->
+
+ <sect1 id="hardware-supported">
+ <title>Maquinari suportat</title>
+<para>
+
+&debian; no imposa cap requeriment més enllà dels requeriments que
+demana el nucli Linux i el conjunt de ferramentes GNU. Per això,
+qualsevol arquitectura o plataforma per la qual s'haja portat el nucli
+Linux, les libc, <command>gcc</command>, etc. i per la qual s'haja
+portat &debian;, es pot executar &debian;. Visiteu la pàgina dels ports
+<ulink url="&url-ports;"></ulink> per obtenir més detalls dels
+sistemes on l'arquitectura &arch-title; s'ha comprovat amb &debian-gnu;.
+
+</para><para>
+
+Més que intentar descriure totes les configuracions diferents del
+maquinari que estan separades per &arch-title;, aquesta secció conté
+informació general i apunts d'on trobar més informació.
+
+</para>
+
+  <sect2><title>Arquitectures suportades</title>
+<para>
+
+&debian; GNU/Linux &release; suporta onze arquitectures principals i diverses
+variacions de cada arquitectura conegudes com <quote>sabors</quote>.
+
+</para><para>
+
+<informaltable>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Arquitectura</entry><entry>Nom a &debian;</entry>
+  <entry>Subarquitectura</entry><entry>Sabor</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Basada en Intel x86</entry>
+  <entry>i386</entry>
+  <entry></entry>
+  <entry></entry>
+</row>
+
+<row>
+  <entry>AMD64 &amp; Intel EM64T</entry>
+  <entry>amd64</entry>
+  <entry></entry>
+  <entry></entry>
+</row>
+
+<row>
+  <entry morerows="4">ARM</entry>
+  <entry morerows="4">armel</entry>
+  <entry>Intel IOP32x</entry>
+  <entry>iop32x</entry>
+</row><row>
+  <entry>Intel IXP4xx</entry>
+  <entry>ixp4xx</entry>
+</row><row>
+  <entry>Marvell Kirkwood</entry>
+  <entry>kirkwood</entry>
+</row><row>
+  <entry>Marvell Orion</entry>
+  <entry>orion5x</entry>
+</row><row>
+  <entry>Versatile</entry>
+  <entry>versatile</entry>
+</row>
+
+<row>
+  <entry morerows="1">HP PA-RISC</entry>
+  <entry morerows="1">hppa</entry>
+  <entry>PA-RISC 1.1</entry>
+  <entry>32</entry>
+</row><row>
+  <entry>PA-RISC 2.0</entry>
+  <entry>64</entry>
+</row>
+
+<row>
+  <entry>Intel IA-64</entry>
+  <entry>ia64</entry>
+  <entry></entry>
+  <entry></entry>
+</row>
+
+<row>
+  <entry morerows="3">MIPS (big endian)</entry>
+  <entry morerows="3">mips</entry>
+  <entry>SGI IP22 (Indy/Indigo 2)</entry>
+  <entry>r4k-ip22</entry>
+</row><row>
+  <entry>SGI IP32 (O2)</entry>
+  <entry>r5k-ip32</entry>
+</row><row>
+  <entry>MIPS Malta (32 bits)</entry>
+  <entry>4kc-malta</entry>
+</row><row>
+  <entry>MIPS Malta (64 bits)</entry>
+  <entry>5kc-malta</entry>
+</row>
+
+<row>
+  <entry morerows="2">MIPS (little endian)</entry>
+  <entry morerows="2">mipsel</entry>
+  <entry>Cobalt</entry>
+  <entry>cobalt</entry>
+ </row><row>
+  <entry>MIPS Malta (32 bits)</entry>
+  <entry>4kc-malta</entry>
+</row><row>
+  <entry>MIPS Malta (64 bits)</entry>
+  <entry>5kc-malta</entry>
+</row>
+
+<row>
+  <entry morerows="1">IBM/Motorola PowerPC</entry>
+  <entry morerows="1">powerpc</entry>
+  <entry>PowerMac</entry>
+  <entry>pmac</entry>
+</row><row>
+  <entry>PReP</entry>
+  <entry>prep</entry>
+</row>
+
+<row>
+  <entry morerows="1">Sun SPARC</entry>
+  <entry morerows="1">sparc</entry>
+  <entry>sun4u</entry>
+  <entry morerows="1">sparc64</entry>
+</row><row>
+  <entry>sun4v</entry>
+</row>
+
+<row>
+  <entry morerows="1">IBM S/390</entry>
+  <entry morerows="1">s390</entry>
+  <entry>IPL de VM-reader i DASD</entry>
+  <entry>generic</entry>
+</row><row>
+  <entry>IPL from tape</entry>
+  <entry>tape</entry>
+</row>
+
+</tbody></tgroup></informaltable>
+
+</para><para>
+
+Aquest document cobreix la instal·lació per a l'arquitectura
+<emphasis>&arch-title;</emphasis>. Si busqueu informació per qualsevol
+altra arquitectura suportada per &debian;, pegueu una ullada a les pàgines
+dels <ulink url="http://www.debian.org/ports/">ports de Debian</ulink>.
+
+</para>
+<caution arch="ia64"><para>
+
+L'arquitectura &arch-title; només suporta porcesadors Intel Itanium
+i no els més comuns procesadors de 64-bit de la familia EM64T (incloent
+p.e. Pentium&nbsp;D i el Core2&nbsp;Duo). Aquest sistemes són suportats
+per l'arquitectura <emphasis>amd64</emphasis> o, si preferiu un espai
+d'usuari de 32-bit, l'arquitectura <emphasis>i386</emphasis>.
+
+</para></caution>
+<para condition="new-arch">
+
+Aquesta és la primera distribució oficial de &debian-gnu; per l'arquitectura
+&arch-title;. Ha estat suficientment provada per ser alliberada.
+Tanmateix, com que no ha estat exposada (i per tant provada pels usuaris)
+a alguna de les arquitectures, podeu trobar algunes errades. Utilitzeu el
+nostre <ulink url="&url-bts;">Sistema de seguiment d'errors</ulink> per
+informar de qualsevol problema; assegureu-vos d'anomenar el fet que
+l'error és a la plataforma &arch-title;. També pot utilitzar-se si és
+necessari la <ulink url="&url-list-subscribe;">llista de correu
+debian-&arch-listname;</ulink>.
+
+</para>
+
+  </sect2>
+
+<!-- supported cpu docs -->
+&supported-amd64.xml;
+&supported-arm.xml;
+&supported-hppa.xml;
+&supported-i386.xml;
+&supported-ia64.xml;  <!-- FIXME: currently missing -->
+&supported-mips.xml;
+&supported-mipsel.xml;
+&supported-powerpc.xml;
+&supported-s390.xml;
+&supported-sparc.xml;
+
+  <sect2 arch="x86" id="laptops"><title>Ordinadors portàtils</title>
+<para>
+
+També estan suportats els ordinadors portàtils i avui en dia la majoria
+funcionen sense modificacions. En el cas que el portàtil contingui
+maquinari especialitzat o propietari, algunes funcions especifiques poden
+no estar suportades. Per vore si el vostre ordinador portàtil funciona
+correctament amb GNU/Linux, visiteu les
+<ulink url="&url-x86-laptop;">pàgines d'ordinadors portàtils amb Linux</ulink>
+
+</para>
+   </sect2>
+
+  <sect2 condition="defaults-smp">
+  <title>Processadors múltiples</title>
+<para>
+
+El suport de processadors múltiples &mdash; també anomenat
+<quote>multiprocés simètric</quote> o SMP &mdash; està disponible per
+aquesta arquitectura. La imatge del nucli estàndard de &debian; &release;
+s'ha compilat amb suport SMP. El nucli estàndard també és usable en
+sistemes que ni siguin SMP, però té una lleugera sobrecàrrega que
+causarà una petita reducció del rendiment. Per a ús normal del sistema
+això no es notarà.
+
+</para><para>
+
+Per optimitzar el nucli d'un sistema amb tan sols una CPU, hauríeu de
+reemplaçar el nucli estàndard de &debian;. <phrase arch="linux-any">Podeu trobar una discussió de
+com fer-ho a <xref linkend="kernel-baking"/>.  En aquest moment,
+(versió del nucli &kernelversion;) la manera de deshabilitar l'SMP és
+desseleccionar l'opció <quote>&smp-config-option;</quote> a la secció
+<quote>&smp-config-section;</quote> de la configuració del nucli.</phrase>
+
+</para>
+  </sect2>
+
+  <sect2 condition="smp-alternatives">
+  <title>Processadors múltiples</title>
+
+<para>
+
+El suport de processadors múltiples &mdash; també anomenat
+<quote>multiprocés simètric</quote> o SMP &mdash; està disponible per
+aquesta arquitectura. La imatge del nucli estàndard de &debian; &release;
+s'ha compilat amb suport <firstterm>SMP-alternatives</firstterm>. Açò
+vol dir que el nucli detecta el nombre de processadors (o nuclis de
+processador) i que automàticament desactivarà l'SMP a sistemes amb un
+processador.
+
+</para><para arch="i386">
+
+La variant 486 de la imatge del nucli dels paquets de &debian; per
+&arch-title; no es compila amb suport SMP.
+
+</para>
+  </sect2>
+
+  <sect2 condition="supports-smp">
+  <title>Processadors múltiples</title>
+<para>
+
+El suport de processadors múltiples &mdash; també anomenat
+<quote>multiprocés simètric</quote> o SMP &mdash; està disponible per
+aquesta arquitectura. Tanmateix, la imatge del nucli de la &debian; &release;
+estàndard no suporta SMP. Açò no n'impedeix la instal·lació, ja que el
+nucli no SMP estàndard hauria d'arrencar també a sistemes SMP; el nucli
+tan sols utilitzaria la primera CPU.
+
+</para><para>
+
+Per poder aprofitar múltiples processadors, heu de reemplaçar en nucli
+estàndard de &debian;. <phrase arch="linux-any">Podeu trobar discussions de com fer-ho a
+<xref linkend="kernel-baking"/>.  En aquest moment, (versió del nucli
+&kernelversion;) la forma d'habilitar l'SMP és seleccionar l'opció
+<quote>&smp-config-option;</quote> a la secció
+<quote>&smp-config-section;</quote> de la configuració del nucli.</phrase>
+
+</para>
+  </sect2>
+
+  <sect2 condition="supports-smp-sometimes">
+  <title>Processadors múltiples</title>
+<para>
+
+El suport de processadors múltiples &mdash; també anomenat
+<quote>multiprocés simètric</quote> o SMP &mdash; està disponible
+per aquesta arquitectura i està suportat per una imatge compilada del
+nucli a &debian;. Depenent del vostra mitjà d'instal·lació, s'instal·larà
+o no per defecte el nucli amb capacitats SMP. Açò no hauria d'impedir-ne
+la instal·lació, ja que el nucli no SMP estàndard hauria d'arrencar a
+sistemes SMP; simplement el nucli utilitzarà la primera CPU.
+
+</para><para>
+
+Per aprofitar els avantatges de tenir múltiples processadors, heu de
+comprovar si teniu instal·lat un nucli amb suport SMP, i si no, escollir
+un paquet amb un nucli apropiat.
+
+<phrase arch="linux-any">Podeu també construir el vostre nucli personalitzat amb SMP. Podeu trobar
+discussions de com fer-ho a <xref linkend="kernel-baking"/>.  En aquest
+moment (versió del nucli &kernelversion;) la manera d'habilitar l'SMP
+és seleccionar <quote>&smp-config-option;</quote> a la secció
+<quote>&smp-config-section;</quote> de la configuració del nucli.</phrase>
+
+</para>
+  </sect2>
+
+  <sect2 id="gfx" arch="not-s390"><title>Targeta gràfica</title>
+<para arch="x86">
+
+Hauríeu d'utilitzar una interfície de pantalla compatible amb VGA per la
+consola del terminal. Quasi totes les targetes gràfiques modernes són
+compatibles amb VGA. Estàndards antics com CGA, MDA, o HGA haurien de
+funcionar, assumint que no necessiteu suport X11. Fixeu-vos que les X11
+no es fan servir al procés d'instal·lació descrit en aquest document.
+
+</para><para>
+
+El suport de les interfícies gràfiques a &debian; ve determinat pel suport
+subjacent que es troba al sistema X11 de X.Org. La majoria de les
+targetes de vídeo AGP, PCI, PCIe i PCI-X funcionen a X.Org. Podeu trobar detalls
+dels busos, targetes, monitors i dispositius senyaladors a
+<ulink url="&url-xorg;"></ulink>.  &debian; &release; ve amb la versió
+&x11ver; de les X.Org.
+
+</para><para arch="mips">
+
+<!-- FIXME: mention explicit graphics chips and not system names -->
+El sistema de finestres X.Org X11 tan sols està suportat als SGI Indy
+i als O2.
+
+</para><para arch="sparc">
+
+La majoria d'opcions que normalment es poden trobar a màquines basades en
+l'arquitectura Sparc estan suportades. Hi ha disponibles controladors per
+als framebuffers sunbw2, suncg14, suncg3, suncg6, sunleo i suntcx, targetes
+Creator3D i Elite3D (controlador sunffb), targetes de vídeo basades en ATI
+PGX24/PGX64 (controlador ati), i targetes basades en PermediaII (controlador
+glint). Per a poder utilitzar una targeta Elite3D amb l'X.Org necessitareu
+instal·lar addicionalment el paquet <classname>afbinit</classname>, i llegir
+la documentació adjunta a aquest sobre com activar-la.
+
+</para><para arch="sparc">
+
+No és estrany en una configuració estàndard d'una màquina Sparc tenir
+dues targetes gràfiques. En aquest cas és possible que el nucli de Linux
+no dirigeixi la seva sortida cap a la targeta inicialment utilitzada pel
+microprogramari. La manca d'aquesta sortida a la consola pot ser
+malinterpretada com a què l'ordinador s'ha penjat (generalment, el
+darrer missatge que s'hi pot llegir és "Booting linux..."). Una solució
+és treure físicament una de les dues targetes; l'altra és deshabilitar-la
+utilitzant un paràmetre d'arrencada del nucli. També es pot utilitzar com
+alternativa una consola sèrie, si no es necessita o no es desitja la
+sortida gràfica. En alguns sistemes la utilització de la consola sèrie es
+pot activar automàticament desconnectant el teclat abans d'arrencar el
+sistema.
+
+</para>
+  </sect2>
+
+&network-cards.xml;
+&accessibility-hardware.xml;
+&supported-peripherals.xml;
+
+ </sect1>
+
+ <sect1 arch="not-s390" id="hardware-firmware">
+ <title>Dispositius que requereixen microprogramari</title>
+<para>
+
+A part de la disponibilitat d'un controlador de dispositiu, algun
+maquinari també requereix carregar l'anomenat <firstterm>firmware</firstterm>
+o <firstterm>microprogramari</firstterm> al dispositiu abans de que esdevingui
+operatiu. Això és comú en targetes de xarxa (especialment NIC sense fils),
+però per exemple alguns dispositius USB o inclús algunes controladores de
+discs durs també requereixen microprogramari.
+
+</para><para>
+
+En molts casos el microprogramari no és lliure d'acord amb el criteri
+emprat pel projecte &debian-gnu; i per tant no es pot incloure en la distribució
+principal ni en el sistema d'instal·lació. Si el controlador del
+dispositiu esta inclòs en la distribució i &debian-gnu; pot distribuir legalment
+el microprogramari, aquest estarà normalment disponible com un paquet
+separat a la secció «non-free» de l'arxiu.
+
+</para><para>
+
+No obstant, això no vol dir que aquest maquinari no es pugui emprar durant
+la instal·lació. Començant amb &debian-gnu; 5.0, &d-i; suporta carregar
+fitxers de microprogramari i paquets contenint microprogramari d'un mitja
+extraïble, com un disquet o un llapis USB. Vegeu
+<xref linkend="loading-firmware"/>  per a informació detallada de com
+carregar fitxers de microprogramari o paquets durant la instal·lació.
+
+</para>
+ </sect1>

@@ -1,0 +1,130 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64772 -->
+
+
+ <sect1 arch="linux-any" id="device-names">
+ <title>Noms dels dispositius a Linux</title>
+<para>
+
+Els noms dels discs i particions a Linux poden ser diferents que en altres
+sistemes operatius. Necessiteu saber els noms que utilitza Linux quan creeu
+i monteu particions. Aquest és l'esquema bàsic de noms:
+
+</para>
+<itemizedlist arch="not-s390">
+<listitem><para>
+
+La primera disquetera es diu <filename>/dev/fd0</filename>.
+
+</para></listitem>
+<listitem><para>
+
+La segona disquetera es diu <filename>/dev/fd1</filename>.
+
+</para></listitem>
+<listitem><para>
+
+El primer disc SCSI (relatiu a l'adreça de l'ID SCSI)
+<filename>/dev/sda</filename>.
+
+</para></listitem>
+<listitem><para>
+
+El segon disc SCSI (relatiu a l'adreça de l'ID SCSI)
+<filename>/dev/sdb</filename>, i així successivament.
+
+</para></listitem>
+<listitem><para>
+
+El primer CD-ROM SCSI s'anomena <filename>/dev/scd0</filename>, també
+conegut com a <filename>/dev/sr0</filename>.
+
+</para></listitem>
+<listitem><para>
+
+El disc mestre al controlador IDE primari s'anomena
+<filename>/dev/hda</filename>.
+
+</para></listitem>
+<listitem><para>
+
+El disc esclau al controlador IDE primari s'anomena
+<filename>/dev/hdb</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Els discs mestre i esclau del controlador secundari es poden anomenar
+<filename>/dev/hdc</filename> i <filename>/dev/hdd</filename>,
+respectivament.  Les controladores modernes poden tindre dos canals,
+amb l'efecte d'actuar com dos controladors.
+
+</para></listitem>
+</itemizedlist>
+
+<itemizedlist arch="s390">
+<listitem><para>
+
+El primer dispositiu DASD s'anomena
+<filename>/dev/dasda</filename>.
+
+</para></listitem>
+<listitem><para>
+
+El segon dispositiu DASD s'anomena
+<filename>/dev/dasdb</filename>, i així.
+
+</para></listitem>
+</itemizedlist>
+
+<para arch="not-s390">
+
+Les particions en cada disc es representen afegint un número decimal al
+nom del disc: <filename>sda1</filename> i <filename>sda2</filename>
+representen la primera i segona partició del primer disc SCSI del vostre
+sistema.
+
+</para><para arch="not-s390">
+
+Ací teniu un exemple real.  Assumim que teniu un sistema amb dos discs
+SCSI, un a l'adreça SCSI 2 i l'altre a l'adreça SCSI 4. El primer disc
+(a l'adreça 2) s'anomena <filename>sda</filename>, i el segon
+<filename>sdb</filename>. Si la unitat<filename>sda</filename> té tres
+particions, aquestes s'anomenaran <filename>sda1</filename>,
+<filename>sda2</filename> i <filename>sda3</filename>. La mateixa lògica
+s'aplica també al disc <filename>sdb</filename> i les seues particions.
+
+</para><para arch="not-s390">
+
+Teniu en compte que si teniu dos adaptadors de bus SCSI (és a dir,
+controladores), l'ordre de les unitats pot ser confús. La millor solució
+en aquest cas és estar atent als missatges d'arrencada, assumint que sabeu
+els models de les unitats i/o les seues capacitats.
+
+</para><para arch="x86">
+
+Linux representa les particions primàries fent servir el nom del disc,
+més els números 1 al 4. Per exemple, la primera partició primària al
+primer disc IDE és <filename>/dev/hda1</filename>. Les particions lògiques
+s'enumeren començant pel 5, així la primera partició lògica en aquest
+mateix disc és <filename>/dev/hda5</filename>. Recordeu que la partició
+estesa, que és la que integra les particions lògiques, no es pot
+utilitzar. Això és vàlid tant per a discs SCSI com per a discs IDE.
+
+</para><para arch="sparc">
+
+Les particions de disc Sun permeten 8 particions independents (o
+«slices»). La tercera partició és normalment (i s'aconsella que així
+siga) la partició de <quote>disc sencer</quote>. Aquesta partició
+referència tots els sectors del disc, i la utilitza el carregador (SILO,
+o el de Sun).
+
+</para><para arch="s390">
+
+Les particions en cada disc es representen afegint un número decimal al
+nom del disc: <filename>dasda1</filename> i <filename>dasda2</filename>
+representen la primera i segona partició del primer dispositiu DASD del
+vostre sistema.
+
+</para>
+ </sect1>

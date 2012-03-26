@@ -1,0 +1,61 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="pre-install-bios-setup">
+ <title>Configuració del maquinari i del sistema operatiu prèvia a la instal·lació</title>
+<para>
+
+Aquesta secció explica el procés de configuració prèvia a la instal·lació
+del maquinari, si s'escau, que cal fer abans d'instal·lar &debian;.
+Normalment es tracta de fer comprovacions dels ajusts del microprogramari
+del sistema, i de vegades de canviar-los. El <quote>microprogramari</quote>
+és el programari bàsic emprat pel maquinari; és absolutament necessari durant
+el procés d'arrencada (després d'engegar l'ordinador). Els problemes de
+maquinari coneguts que afecten la fiabilitat de &debian-gnu; en el vostre sistema
+també s'indiquen.
+
+</para>
+
+&bios-setup-i386.xml;
+&bios-setup-powerpc.xml;
+&bios-setup-sparc.xml;
+&bios-setup-s390.xml;
+
+  <sect2 arch="x86;powerpc" id="hardware-issues">
+  <title>Aspectes del maquinari que cal tenir en compte</title>
+
+   <formalpara arch="x86">
+   <title>Funcionalitats USB de la BIOS i teclats</title>
+<para>
+
+Si en lloc d'un teclat de tipus AT teniu un model USB, potser haureu
+d'habilitar l'emulació antiga de teclats AT en la configuració de la BIOS.
+Feu això només si el sistema d'instal·lació no pot fer funcionar el teclat
+en mode USB. Recíprocament, en alguns sistemes (especialment en els
+portàtils) potser caldrà deshabilitar el suport antic d'USB si el teclat
+no respon. Consulteu el manual de la placa base i cerqueu, a la BIOS, les
+opcions <quote>Legacy keyboard emulation</quote> o
+<quote>USB keyboard support</quote>.
+
+</para>
+   </formalpara>
+   <formalpara arch="powerpc">
+   <title>Visibilitat de la pantalla als Powermac OldWord</title>
+
+<para>
+
+Alguns Powermacs OldWord, especialment aquells amb el controlador de
+pantalla <quote>control</quote>, podrien no
+donar un mapa de colors amb resultats fiables visible quan la
+pantalla amb linux està configurada amb més de 256 colors. Si esteu
+experimentant aquest problema amb la vostra pantalla després de reiniciar
+(de vegades vegeu dades al monitor, però altres no vegeu res) o, si la
+pantalla es fa negra després d'arrencar l'instal·lador en comptes de mostrar
+la interfície d'usuari, proveu de canviar els paràmetres de pantalla al
+MacOS per utilitzar 256 colors en comptes de <quote>milers</quote> o
+<quote>milions</quote>.
+
+</para>
+   </formalpara>
+  </sect2>
+ </sect1>

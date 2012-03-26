@@ -1,0 +1,103 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 43641 -->
+
+
+  <sect2 arch="sparc" id="invoking-openboot"><title>Invocació d'OpenBoot</title>
+
+<para>
+
+OpenBoot ens ofereix les funcions bàsiques necessàries per arrencar
+l'arquitectura &arch-title;. És bastant similar en quan a funció a la BIOS
+a l'arquitectura x86, tot i que més polit. Les PROM d'arrencada de Sun
+tenen un interpret incorporat de «forth» el qual permet fer força
+coses amb la màquina, com ara diagnòstics i guions simples.
+
+</para><para>
+
+Per arribar a l'indicador d'arrencada necessiteu mantenir premuda la
+tecla <keycap>Stop</keycap> (en teclats antics de tipus 4, useu la
+tecla <keycap>L1</keycap>, si teniu un adaptador de teclat de PC, useu
+la tecla <keycap>Break</keycap>) i premeu la tecla <keycap>A</keycap>. La
+PROM d'arrencada us donarà un indicador, o <userinput>ok</userinput> o
+<userinput>&gt;</userinput>. És preferible tenir l'indicador
+<userinput>ok</userinput>. Si teniu l'indicador antic, premeu la
+tecla <keycap>n</keycap> per obtenir l'indicador actual.
+
+</para><para>
+
+Si esteu usant una consola sèrie, envieu una interrupció a la màquina.
+Amb Minicom, useu <keycap>Ctrl-A F</keycap>, amb cu, premeu
+<keycap>Enter</keycap>, després premeu <userinput>%~break</userinput>.
+Consulteu la documentació del vostre emulador de terminal si esteu usant
+un programa diferent.
+
+</para>
+  </sect2>
+
+  <sect2 arch="sparc" id="boot-dev-select-sun">
+  <title>Selecció del dispositiu d'arrencada</title>
+
+<para>
+
+Podeu usar OpenBoot per arrencar des d'un dispositiu específic, i també
+per canviar el dispositiu d'arrencada predeterminat. Tot i això, necessiteu
+saber alguns detalls sobre com OpenBoot anomena als dispositius; és prou
+diferent de com ho fa Linux, descrit a <xref linkend="device-names"/>.
+L'ordre pot variar una mica, depenent de quina versió d'OpenBoot
+tingueu. Podeu trobar més informació sobre OpenBoot a
+<ulink url="&url-openboot;">Guia de referència de Sun OpenBoot</ulink>.
+
+</para><para>
+
+Amb les noves versions, podeu usar dispositius OpenBoot com
+<quote>floppy</quote>, <quote>cdrom</quote>, <quote>net</quote>,
+<quote>disk</quote> o <quote>disk2</quote>. Aquests tenen significat
+obvi; el dispositiu <quote>net</quote> és per arrencar usant la xarxa.
+Addicionalment, el nom del dispositiu por especificar una determinada
+partició d'un disc, com <quote>disk2:a</quote> per arrencar disk2, primera
+partició. Tots els noms de dispositiu OpenBoot tenen la forma:
+
+<informalexample>
+<screen>
+<replaceable>nom-del-controlador</replaceable>@
+<replaceable>adreça-d'unitat</replaceable>:
+<replaceable>arguments-del-dispositiu</replaceable>
+</screen></informalexample>
+
+A antigues revisions d'OpenBoot, la nomenclatura de dispositius és una
+mica diferent: el dispositiu «floppy» s'anomena <quote>/fd</quote>, i
+els dispositius de disc SCSI tenen la forma
+<quote>sd(<replaceable>controlador</replaceable>,
+<replaceable>id-de-disc-objectiu</replaceable>,
+<replaceable>lun-de-disc</replaceable>)</quote>. L'ordre
+<userinput>show-devs</userinput> en les revisions més noves d'OpenBoot
+és útil per veure els dispositius configurats actualment. Per informació
+completa, sigui quina sigui la vostra revisió, vegeu la
+<ulink url="&url-openboot;">Guia de Referència de Sun OpenBoot</ulink>.
+
+</para><para>
+
+Per arrencar des d'un dispositiu específic, useu l'ordre
+<userinput>boot <replaceable>dispositiu</replaceable></userinput>. Podeu
+definir-ho com a opció predeterminada usant l'ordre
+<userinput>setenv</userinput>. De totes maneres, el nom de la variable
+a canviar varia entre revisions d'OpenBoot. A OpenBoot 1.x, useu l'ordre
+<userinput>setenv boot-from <replaceable>dispositiu</replaceable></userinput>.
+En revisions posteriors d'OpenBoot, useu l'ordre
+<userinput>setenv boot-device <replaceable>dispositiu</replaceable></userinput>.
+Tingueu en compte que això també és configurable usant l'ordre
+<command>eeprom</command> a Solaris, o modificant els fitxers apropiats
+a <filename>/proc/openprom/options/</filename>, per exemple sota Linux:
+
+<informalexample><screen>
+# echo disk1:1 &gt; /proc/openprom/options/boot-device
+</screen></informalexample>
+
+i sota Solaris:
+
+<informalexample><screen>
+eeprom boot-device=disk1:1
+</screen></informalexample>
+
+</para>
+  </sect2>

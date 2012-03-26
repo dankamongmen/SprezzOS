@@ -1,0 +1,250 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 67007 -->
+
+ <sect1 id="installation-media">
+ <title>Installationsmedien</title>
+
+<para>
+
+Dieses Kapitel wird Ihnen helfen, festzustellen, welche unterschiedlichen
+Medientypen Sie nutzen können, um &debian; zu installieren.
+Den Installationsmedien ist ein eigenes Kapitel gewidmet
+(<xref linkend="install-methods"/>), das die Vor- und Nachteile jedes Medientyps
+auflistet. Sie können noch einmal hierher zurückblättern, wenn Sie das Kapitel
+gelesen haben.
+
+</para>
+
+  <sect2 condition="supports-floppy-boot"><title>Disketten</title>
+<para>
+
+In einigen Fällen müssen Sie zunächst von Disketten booten.
+Normalerweise ist alles, was Sie benötigen, ein High-Density- (1440 Kilobytes)
+3,5 Zoll-Diskettenlaufwerk.
+
+</para><para arch="powerpc">
+
+Unter CHRP ist die Disketten-Unterstützung momentan nicht nutzbar.
+
+</para>
+  </sect2>
+
+  <sect2 arch="not-s390"><title>CD-ROM/DVD-ROM</title>
+
+<note><para>
+
+Wann immer in diesem Manual die Rede von <quote>CD-ROM</quote> ist, ist damit
+<quote>CD-ROM oder DVD-ROM</quote> gemeint, da beide Technologien aus Sicht
+des Betriebssystems fast gleich sind (mit Ausnahme einiger
+sehr alter nicht-standardkonformer CD-ROM-Laufwerke, die weder SCSI- noch
+IDE/ATAPI-kompatibel sind).
+
+</para></note><para>
+
+Eine CD-ROM-basierte Installation wird für einige Architekturen unterstützt.
+Auf Geräten, die das Starten von CD-ROM erlauben, sollte es
+Ihnen möglich sein, eine Installation komplett
+<phrase arch="non-s390">ohne Disketten</phrase>
+<phrase arch="s390">ohne Tapes</phrase>
+durchzuführen. Sogar auf einem System, das das Starten von CD-ROM nicht
+unterstützt, können Sie die CD-ROM in Kombination mit den anderen
+Techniken verwenden, um Ihr System zu installieren, sobald Sie auf
+anderem Wege gebootet haben; siehe <xref linkend="boot-installer"/>.
+
+</para><para arch="x86"> 
+
+SCSI-, SATA- und IDE/ATAPI-CD-ROMs werden unterstützt. Das
+<ulink url="&url-cd-howto;">Linux-CD-ROM-HowTo</ulink>
+enthält ausführliche Informationen über die Verwendung von CD-ROMs unter Linux.
+
+</para><para arch="x86"> 
+
+Es können auch externe USB-CD-ROM-Geräte verwendet werden, genauso wie
+FireWire-Geräte, die von den ohci1394 und sbp2-Treibern unterstützt werden.
+
+</para><para arch="arm"> 
+
+IDE/ATAPI-CD-ROM-Laufwerke werden auf allen ARM-Systemen unterstützt.
+
+</para><para arch="mips">
+
+Um auf SGI-Systemen von CD-ROM zu booten, erfordert es ein SCSI-CD-ROM-Laufwerk,
+das fähig ist, mit einer logischen Blockgröße von 512 Bytes umzugehen. Viele der
+auf dem PC-Markt erhältlichen SCSI-CD-ROM-Laufwerke haben diese Fähigkeit nicht.
+Wenn Ihr CD-ROM einen Jumper hat, der mit <quote>Unix/PC</quote> oder
+<quote>512/2048</quote> bezeichnet ist, stellen Sie ihn auf <quote>Unix</quote>
+bzw. <quote>512</quote>. Um die Installation zu starten, wählen Sie einfach
+den Eintrag <quote>System-Installation</quote> in der Firmware. 
+
+</para>
+  </sect2>
+
+  <sect2><title>Festplatten</title>
+
+<para>
+
+Das Starten des Installationssystem von einer Festplatte ist eine
+weitere Option für viele Architekturen. Dies erfordert, dass ein anderes
+Betriebssystem den Installer auf die Festplatte lädt.
+
+</para><para arch="sparc">
+
+Obwohl &arch-title; das Starten des Installers von SunOS (Solaris)
+nicht erlaubt, können Sie trotzdem von einer SunOS-Partition (UFS Slices)
+installieren.
+
+</para>
+  </sect2>
+
+  <sect2 condition="bootable-usb"><title>USB-Memory-Stick</title>
+
+<para>
+
+Viele &debian;-Rechner benötigen ihre Disketten- und/oder CD-ROM Laufwerke
+nur für die Installation und für Rettungsfälle. Wenn Sie einige
+Server betreiben, haben Sie wahrscheinlich schon daran gedacht, diese
+Laufwerke wegzulassen und einen USB-Memory-Stick für die Installation
+und (wenn nötig) zum Wiederherstellen des Systems zu verwenden. Das ist
+auch für kleine Systeme sinnvoll, die keinen Platz für überflüssige Laufwerke
+haben.
+
+</para>
+  </sect2>
+
+  <sect2><title>Netzwerk</title>
+
+<para>
+
+Das Netzwerk kann während der Installation verwendet werden, um für die
+Installation benötigte Dateien zu beziehen. Ob das Netzwerk genutzt wird oder
+nicht, hängt von der gewählten Installationsmethode ab sowie Ihren Antworten
+auf gewisse Fragen, die während der Installation gestellt werden. Das
+Installationssystem unterstützt die meisten Arten von Netzwerkverbindungen
+(inklusive PPPoE, allerdings nicht ISDN oder PPP), entweder über HTTP oder
+FTP. Nachdem die Installation abgeschlossen ist, können Sie Ihr System
+konfigurieren, ISDN oder PPP zu verwenden.
+
+</para><para condition="supports-tftp">
+
+Sie können das Installationssystem auch über das Netzwerk
+<emphasis>booten</emphasis>.
+<phrase arch="mips;mipsel">Dies ist die bevorzugte Installationsmethode für
+&arch-title;.</phrase>
+
+</para><para condition="supports-nfsroot">
+
+Die diskettenlose Installation per Netzwerk-Boot von einem Local Area Network
+(LAN-Netzwerk) incl. dem Einbinden aller lokalen Dateisystemen per NFS ist eine
+weitere Möglichkeit.
+
+</para>
+  </sect2>
+
+  <sect2><title>Un*x- oder GNU-System</title>
+
+<para>
+
+Wenn Sie ein anderes Unix-ähnliches System laufen haben, könnten Sie dieses
+zur Installation von &debian-gnu; verwenden, ohne den &d-i;, der im Rest dieses
+Handbuches beschrieben ist, zu verwenden. Diese Installationsmethode ist
+sinnvoll für Benutzer mit ansonsten nicht unterstützter Hardware oder auf
+Servern, die sich keine Abschaltung des Systems leisten können.
+Wenn Sie sich für diese Technik interessieren, lesen Sie <xref
+linkend="linux-upgrade"/>.
+
+</para>
+  </sect2>
+
+  <sect2><title>Unterstützte Speichersysteme</title>
+
+<para>
+
+Die &debian;-Boot-Medien beinhalten einen Kernel, der kompiliert ist,
+um die Anzahl der Systeme, auf denen er läuft, zu maximieren. Unglücklicherweise
+erzeugt dies einen größeren Kernel, der viele Treiber beinhaltet, die für
+Ihr Gerät gar nicht verwendet werden<phrase arch="linux-any">
+(siehe <xref linkend="kernel-baking"/>,
+um zu lernen, wie Sie einen eigenen Kernel kompilieren können)</phrase>.
+Grundsätzlich ist Unterstützung für möglichst viele Geräte wünschenswert, um
+sicherzustellen, dass &debian; auf einer umfangreichen Palette von Hardware
+installiert werden kann.
+
+</para><para arch="x86">
+
+Grundsätzlich beinhaltet das &debian;-Installationssystem Unterstützung für
+Diskettenlaufwerke, IDE-Laufwerke (IDE ist auch bekannt als PATA),
+IDE-Diskettenlaufwerke, Parallel-Port-IDE-Geräte, SATA- und
+SCSI-Controller und -Laufwerke, USB und FireWire. Zu den unterstützten
+Dateisystemen gehören FAT, Win-32 FAT-Erweiterungen (VFAT) und NTFS.
+
+</para><para arch="i386">
+
+Die Festplatten-Schnittstellen, die das <quote>AT</quote>-Festplatten-Interface
+emulieren &ndash; oft auch MFM, RLL, IDE oder PATA genannt &ndash; werden
+unterstützt. SATA- und SCSI-Disk-Controller von vielen verschiedenen Herstellern
+werden unterstützt. Lesen Sie das
+<ulink url="&url-hardware-howto;">Linux-Hardware-Compatibility-HowTo</ulink>
+für weitere Informationen.
+
+</para><para arch="sparc"> 
+
+Jedes vom Kernel unterstützte Speichersystem wird auch vom Boot-System
+unterstützt. Die folgenden SCSI-Treiber werden im Standard-Kernel
+unterstützt:
+
+<itemizedlist>
+<listitem><para>
+
+Sparc ESP
+
+</para></listitem>
+<listitem><para>
+
+PTI Qlogic, ISP
+
+</para></listitem>
+<listitem><para>
+
+Adaptec AIC7xxx
+
+</para></listitem>
+<listitem><para>
+
+NCR und Symbios 53C8XX
+
+</para></listitem>
+</itemizedlist>
+
+IDE-Systeme (wie der UltraSPARC 5) werden auch unterstützt. Siehe die
+<ulink url="&url-sparc-linux-faq;">Linux for SPARC Processors F.A.Q.</ulink>
+für weitere Informationen über vom Linux-Kernel unterstützte SPARC-Hardware.
+
+</para><para arch="powerpc"> 
+
+Alle Speichersysteme, die vom Linux-Kernel unterstützt werden, werden
+auch vom Boot-System unterstützt. Beachten Sie, dass der aktuelle Linux-Kernel
+Floppies auf CHRP-Systemen generell nicht unterstützt.
+
+</para><para arch="hppa">
+
+Alle Speichersysteme, die vom Linux-Kernel unterstützt werden, werden
+auch vom Boot-System unterstützt. Beachten Sie, dass der aktuelle Linux-Kernel
+Diskettenlaufwerke nicht unterstützt.
+
+</para><para arch="mips;mipsel">
+
+Alle vom Linux-Kernel unterstützten Speichersysteme werden auch vom
+Boot-System unterstützt.
+
+</para><para arch="s390">
+
+Alle vom Linux-Kernel unterstützten Speichersysteme werden auch vom
+Boot-System unterstützt. Das heißt, dass FBA und ECKD DASDs mit dem
+alten Linux-Disk-Layout (ldl) und dem neuen gängigen S/390-Disk-Layout
+(cdl) unterstützt werden.
+
+</para>
+
+  </sect2>
+
+ </sect1>

@@ -1,0 +1,109 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+
+   <sect3 id="localechooser">
+   <title>Selecció de les opcions de localització</title>
+
+<para>
+
+En la majoria dels casos, les primeres qüestions que us apareixeran
+faran referència a les opcions de localització a utilitzar en la
+instal·lació i pel sistema instal·lat. Les opcions de localització
+consisteixen en l'idioma, la ubicació i els locales.
+
+</para><para>
+
+L'idioma seleccionat s'utilitzarà en la resta del procés d'instal·lació,
+es disposa d'una traducció dels diferents quadres de diàleg.
+En cas de no existir una traducció de l'idioma seleccionat,
+l'instal·lador utilitzarà la traducció de l'anglès.
+
+</para><para>
+
+La ubicació geogràfica seleccionada (a sovint un país) s'utilitzarà
+posteriorment en el procés d'instal·lació per seleccionar el fus horari
+correcte i una rèplica de &debian; apropiada pel país indicat. L'idioma i
+el país s'utilitzaran per ajudar a determinar el locale predeterminat del
+sistema i definir la distribució correcta del teclat.
+
+</para><para>
+
+Primer se us demanarà que seleccioneu el vostre idioma preferit. Els
+noms dels idiomes estan llistats en anglès (banda esquerra) i en
+el propi idioma (banda dreta); els noms de la banda dreta
+es mostren utilitzant la tipografia pròpia de l'idioma. La llista
+està ordenada en funció dels noms en anglès. Al capdemunt de la llista
+hi ha un opció extra que permet seleccionar el locale <quote>C</quote>
+en comptes d'un idioma. Si seleccioneu el locale <quote>C</quote>
+la instal·lació es realitzarà en anglès; el sistema instal·lat
+no disposarà del suport per a la localització, ja que el paquet
+<classname>locales</classname> no estarà instal·lat.
+
+</para><para>
+
+A continuació se vos demanarà que escolliu una ubicació geogràfica. Si
+havíeu escollit un idioma reconegut com a oficial a més d'un país<footnote>
+
+<para>
+En termes tècnics: en cas que hi hagi  múltiples locales per l'idioma amb
+diferents codis de país.
+</para>
+
+</footnote>, se us mostrarà una llista amb tan sols eixos països. Per
+seleccionar un país que no és a la llista, trieu l'opció
+<guimenuitem>altres</guimenuitem> (l'ultima opció). Us trobareu aleshores amb
+una llista de continents; seleccionat el continent, arribareu a una llista amb
+els països rellevants del continent.
+
+</para><para>
+
+Si l'idioma tan sols té un país associat amb ell, es mostrarà una llista
+de països del continent o regió on es troba el país, que estarà marcat per
+defecte. Empreu l'opció <guibutton>Enrere</guibutton> per a escollir un
+país d’un altre continent.
+
+</para><note><para>
+
+És important que escolliu el país on viviu o on vos trobeu perquè determina
+el fus horari que es configurarà al sistema instal·lat.
+
+</para></note><para>
+
+Si heu escollit una combinació d'idioma i país per al qual no hi ha cap
+locale definit, i existeixen múltiples locales per a l'idioma, l'instal·lador
+vos permetrà escollir quin d'aquests locales preferiu com a locale
+predeterminat del sistema instal·lat<footnote>
+
+<para>
+Amb la prioritat mitjana i baixa sempre podreu escollir el vostre locale
+preferit entre aquells disponibles per a l'idioma escollit (si n'hi ha més
+d'un).
+</para>
+
+</footnote>. A la resta dels casos s'escollirà un locale per defecte basat
+en l'idioma i país escollits.
+
+</para><para>
+
+Tot locale predeterminat escollit com es descriu al paràgraf de dalt emprarà
+<firstterm>UTF-8</firstterm> com a codificació de caràcters.
+
+</para><para>
+
+Si esteu instal·lant amb una prioritat baixa, se vos donarà l'opció
+d'escollir locales addicionals, incloent els anomenats locales
+<quote>tradicionals</quote><footnote>
+
+<para>
+Els locales tradicionals són aquells que no empren UTF-8, sinó un dels
+estàndards més antics per a la codificació de caràcters com ISO&nbsp;8859-1
+(emprat pels idiomes de l'Europa occidental) o EUC-JP (emprat pel Japonés).
+</para>
+
+</footnote>, a generar per al sistema instal·lat. En aquest cas, se vos
+preguntarà quin dels locales escollits voleu que siga el locale predeterminat
+per al sistema instal·lat.
+
+</para>
+   </sect3>

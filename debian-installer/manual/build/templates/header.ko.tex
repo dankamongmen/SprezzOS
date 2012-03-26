@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% hangul typesetting along with jadetex
+%%%
+%%% (C) 2005  Dohyun Kim <nomosnomos@gmail.com>
+%%%
+%%% This program is free software; you can redistribute it and/or modify
+%%% it under the terms of version 2 of the GNU General Public License as
+%%% published by the Free Software Foundation.
+%%%
+%%% This program is distributed in the hope that it will be useful, but
+%%% WITHOUT ANY WARRANTY; without even the implied warranty of
+%%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+%%% General Public License for more details.
+%%%
+%%% You should have received a copy of the GNU General Public License
+%%% along with this program; if not, write to the Free Software
+%%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
+%%% USA 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\hangulfontnormal{outbtm}
+\def\hangulfontbold{outbtb}
+\def\hangulfonttitlenormal{outgtm}
+\def\hangulfonttitlebold{outgtb}
+\def\chaptername{Chapter}
+\let\ucshanguljadetex@character@orig\Character
+\def\Character#1{%
+  \expandafter\ifx\csname!#1\endcsname\relax
+    \hangulunichar{#1}%
+  \else
+    \ucshanguljadetex@character@orig{#1}%
+  \fi}
+\edef\ucshanguljadetex@f@series{\f@series}%
+\def\hangulunichar#1{%
+  \begingroup
+  \edef\temp@f@series{\f@series}%
+  \ifx\temp@f@series\ucshanguljadetex@f@series
+    \ifx\ProcessingMode{book-title-verso-mode}
+      \let\myhangulfont\hangulfonttitlenormal
+    \else    
+      \let\myhangulfont\hangulfontnormal
+    \fi
+  \else
+    \ifx\ProcessingMode{book-title-verso-mode}
+      \let\myhangulfont\hangulfonttitlebold
+    \else
+      \let\myhangulfont\hangulfontbold
+    \fi
+  \fi
+  \count2=#1                  % \count2   = "AC01
+  \divide\count2 256          % \count2   = "AC
+  \count4\count2              % \count4   = "AC
+  \divide\count2 16           % \count2   = "A    ; determined
+  \count255\count2            % \count255 = "A
+  \multiply\count255 16       % \count255 = "A0
+  \advance\count4 -\count255  % \count4   = "C    ; determined
+  \edef\mymyfont{\myhangulfont
+    \ifcase\count2  0\or 1\or 2\or 3\or 4\or 5\or 6\or 7\or
+                    8\or 9\or a\or b\or c\or d\or e\or f\fi
+    \ifcase\count4  0\or 1\or 2\or 3\or 4\or 5\or 6\or 7\or
+                    8\or 9\or a\or b\or c\or d\or e\or f\fi}%
+  \font\myfont\mymyfont\space at \f@size pt\relax
+  % calculate hangul char number
+  \count2=#1                  % \count2   = "AC01
+  \count255\count2            % \count255 = "AC01
+  \divide\count255 256        % \count255 = "AC
+  \multiply\count255 256      % \count255 = "AC00
+  \advance\count2 -\count255  % \count2   = "1    ; determined
+  \breakbeforehangulchar{#1}% allow linebreak before hangul chars
+  \myfont\char\count2 % print character
+  \hangulspacefactor{#1}% insert hangul spacefactor
+  \endgroup
+  \futurelet\nextglyph\breakbeforeasciioparen% allowbreak before ascii OP (
+}
+% disallow linebreak after OP
+\sfcode`\(=998
+\sfcode`\`=998
+\sfcode`\[=998
+\def\breakbeforehangulchar#1{%
+  \ifnum#1> 13311 
+  \ifnum#1< 64255 
+  \ifhmode
+  \ifdim\lastskip=0pt
+  \ifnum\spacefactor>998
+  \ifnum\spacefactor=1001
+    \discretionary{}{}{\kern-.085em}%
+  \else
+    \allowbreak
+  \fi\fi\fi\fi\fi\fi
+}
+\def\hangulspacefactor#1{%
+  \ifnum#1>13311
+    \ifnum#1<64255 \spacefactor=1001 \else% hangul, hanja
+    \ifnum#1=65288 \spacefactor=998  \else% （
+    \ifnum#1=65308 \spacefactor=998  \else% ＜
+    \ifnum#1=65339 \spacefactor=998  \else% ［
+    \ifnum#1=65371 \spacefactor=998       % ｛
+    \fi\fi\fi\fi\fi\else
+  \ifnum#1>12295
+  \ifnum#1<12316                       % 〈〉《》「」 etc
+    \ifodd#1 \else \spacefactor=998 \fi% 〈《「『【 etc
+  \fi\fi\fi
+}
+\def\breakbeforeasciioparen{\ifx (\nextglyph\allowbreak\fi}
+\linespread{1.3}

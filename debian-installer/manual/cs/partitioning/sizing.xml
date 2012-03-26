@@ -1,0 +1,52 @@
+<!-- $Id: sizing.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+ <sect1 id="partition-sizing">
+ <title>Počet a velikost oblastí</title>
+<para>
+
+Jako úplné minimum potřebuje GNU/&arch-kernel; jeden diskový oddíl. Tento
+oddíl je využit pro operační systém, programy a uživatelská data.
+Většina uživatelů navíc pokládá za nutnost mít vydělenou část disku
+pro virtuální paměť (swap). Tento oddíl slouží operačnímu systému jako
+odkládací prostor. Vydělení <quote>swap</quote> oblasti umožní efektivnější
+využití disku jako virtuální paměti. Je rovněž možné pro tento účel
+využít obyčejný soubor, ale není to doporučené řešení.
+
+</para><para>
+
+Většina uživatelů vyčlení pro GNU/&arch-kernel; více než jeden oddíl na disku.
+Jsou k tomu dva důvody. Prvním je bezpečnost, pokud dojde k poškození
+souborového systému, většinou se to týká pouze jednoho oddílu, takže
+potom musíte nahradit ze záloh pouze část systému. Minimálně můžete
+uvážit vydělení kořenového svazku souborů. Ten obsahuje zásadní
+komponenty systému. Jestliže dojde poškození nějakého dalšího oddílu,
+budete stále schopni spustit GNU/&arch-kernel; a provést nápravu, což vám může
+ušetřit novou instalaci systému.
+
+</para><para>
+
+Druhý důvod je obyčejně závažnější při produkčním nasazení.
+Představte si situaci, kdy nějaký proces začne nekontrolovaně zabírat
+diskový prostor. Pokud se jedná o proces se superuživatelskými právy,
+může zaplnit celý disk a naruší tak chod systému, poněvadž &arch-kernel;
+potřebuje při běhu vytvářet soubory. K takové situaci může dojít i z
+vnějších příčin, například se stanete obětí spamu a nevyžádané e-maily
+vám lehce zaplní celý disk. Rozdělením disku na více oddílů se lze
+před podobnými problémy uchránit. Pokud třeba vydělíte pro 
+<filename>/var/mail</filename> samostatnou oblast, bude systém
+fungovat, i když bude zahlcen nevyžádanou poštou.
+
+</para><para>
+
+Jedinou nevýhodou při používání více diskových oddílů je, že je
+obtížné dopředu odhadnout kapacitu jednotlivých oddílů. Jestliže
+vytvoříte některý oddíl příliš malý, budete muset systém instalovat
+znovu, a nebo se budete potýkat s přesunováním souborů z oddílu, jehož
+velikost jste podhodnotili. V opačném případě, kdy vytvoříte zbytečně
+velký oddíl, plýtváte diskovým prostorem, který by se dal využít
+jinde. Diskový prostor je dnes sice levný, ale proč vyhazovat peníze
+oknem?
+
+</para>
+ </sect1>

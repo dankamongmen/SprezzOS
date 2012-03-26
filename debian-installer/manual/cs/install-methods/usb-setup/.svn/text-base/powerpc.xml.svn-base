@@ -1,0 +1,125 @@
+<!-- $Id$ -->
+<!-- original version: 66590 -->
+
+   <sect3 arch="powerpc">
+   <title>Rozdělení USB klíčenky</title>
+<para>
+
+Protože většina USB klíčenek nebývá připravena pro zavádění přes Open
+Firmware, musíte klíčenku přerozdělit. Na Macintoshi spusťte příkaz
+<userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></userinput>, kde
+<userinput>/dev/sdX</userinput> je USB klíčenka. Nejprve musíte
+inicializovat novou tabulku oblastí příkazem <userinput>i</userinput>
+a pak můžete vytvořit novou oblast typu Apple_Bootstrap příkazem
+<userinput>C</userinput>. (Poznámka: první <quote>oblast</quote> bude
+vždy samotná tabulka oblastí.) Poté zadejte:
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>hformat /dev/<replaceable>sdX2</replaceable></userinput>
+</screen></informalexample>
+
+Příkaz <command>hformat</command> je obsažen v balíku
+<classname>hfsutils</classname>. Pozorně se přesvědčete, že používáte
+správný název zařízení!
+
+</para><para>
+
+Aby se po zavedení z USB klíčenky spustilo jádro, nainstalujeme na
+klíčenku zavaděč <command>yaboot</command>, který se umí nainstalovat
+na HFS oblast. Zavaděč můžete jednoduše konfigurovat úpravou textového
+souboru, což lze provést z libovolného operačního sytému, který
+podporuje souborový systém HFS.
+
+</para><para>
+
+Obvyklý nástroj <command>ybin</command>, jež je součástí
+<command>yaboot</command>u, zatím nepodporuje USB zařízení, takže
+budete muset <command>yaboot</command> nainstalovat ručně pomocí
+nástrojů z balíku <classname>hfsutils</classname>. Za předpokladu, že
+je vaše zvolená oblast <replaceable>/dev/sdX2</replaceable>, zadejte:
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>hmount <replaceable>/dev/sdX2</replaceable></userinput>
+<prompt>$</prompt> <userinput>hcopy -r /usr/lib/yaboot/yaboot :</userinput>
+<prompt>$</prompt> <userinput>hattrib -c UNIX -t tbxi :yaboot</userinput>
+<prompt>$</prompt> <userinput>hattrib -b :</userinput>
+<prompt>$</prompt> <userinput>humount</userinput>
+</screen></informalexample>
+
+Tímto zapíšete zavaděč do dané oblasti a pomocí HFS nástrojů ji
+označíte tak, že z ní bude Open Firmware schopný zavádět. Během
+procedury nesmí být oblast připojená jiným způsobem. Poté můžete
+připravit zbytek klíčenky běžnými unixovými utilitami.
+
+</para>
+   </sect3>
+
+   <sect3 arch="powerpc">
+   <title>Přidání obrazu instalačního systému</title>
+<para>
+
+Připojte oblast
+(<userinput>mount /dev/<replaceable>sdX2</replaceable> /mnt</userinput>)
+a nakopírujte na ni následující soubory:
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinux</filename> (jádro)
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename> (obraz ramdisku)
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot.conf</filename> (konfigurační soubor yabootu)
+
+</para></listitem>
+<listitem><para>
+
+<filename>boot.msg</filename> (volitelná zaváděcí hláška)
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Konfigurační soubor <filename>yaboot.conf</filename> by měl obsahovat
+následující řádky:
+
+<informalexample><screen>
+default=install
+root=/dev/ram
+
+message=/boot.msg
+
+image=/vmlinux
+        label=install
+        initrd=/initrd.gz
+        initrd-size=10000
+        read-only
+</screen></informalexample>
+
+Možná budete muset zvýšit hodnotu u parametru
+<userinput>initrd-size</userinput>, protože tato se mění v závislosti
+na obrazu, který zavádíte.
+
+</para><para>
+
+Pokud jste použili obraz <filename>hd-media</filename>, měli byste
+nyní na klíčenku nakopírovat ISO obraz s instalací &debian;u (jako
+běžný soubor)<footnote><para>
+
+Použít můžete obrazy typu businesscard, netinst nebo, pokud se vejde,
+dokonce celé první CD/DVD (viz část <xref linkend="official-cdrom"/>).
+Poznamenejme, že netboot obraz <filename>mini.iso</filename> není pro
+tento účel vhodný.
+
+</para></footnote> a následně USB klíčenku odpojit (<userinput>umount
+/mnt</userinput>).
+
+</para>
+   </sect3>

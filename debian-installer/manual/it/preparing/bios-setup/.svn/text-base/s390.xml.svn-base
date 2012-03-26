@@ -1,0 +1,198 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66909 -->
+
+  <sect2 arch="s390">
+  <!-- <title>BIOS Setup</title> -->
+  <title>Configurazione del BIOS</title>
+<para>
+
+<!--
+In order to install &debian-gnu; on a &arch-title; or zSeries
+machine you have first boot a kernel into the system.  The boot
+mechanism of this platform is inherently different to other ones,
+especially from PC-like systems: there are no floppy devices available
+at all. You will notice another big difference while you work with
+this platform: most (if not all) of the time you will work remote,
+with the help of some client session software like telnet, or a
+browser.  This is due to that special system architecture where the
+3215/3270 console is line-based instead of character-based.
+-->
+
+Per effettuare l'installazione di &debian-gnu; su una &arch-title; o su una
+macchina zSeries si deve prima far partire un kernel nel sistema. Il
+meccanismo d'avvio per questa piattaforma è intrinsecamente diverso dagli
+altri e in modo particolare da quello dei sistemi PC: non esistono lettori
+per dischetti. Quando di lavora con questa piattaforma si nota un'altra
+grossa differenza: per la maggior parte del tempo (per non dire sempre) si
+lavora da remoto con l'ausilio di alcuni programmi client per la gestione
+della sessione come telnet o un browser. Questo è dovuto alla particolare
+architettura del sistema in cui la console 3215/3270 è basata su righe
+anziché su caratteri.
+
+</para><para>
+
+<!--
+Linux on this platform runs either natively on the bare machine, in a
+so-called LPAR (Logical Partition) or in a virtual machine supplied by
+the VM system.  You can use a boot tape on all of those systems; you
+may use some other boot media, too, but those may not be generally
+available.  For example, you can use the virtual card reader of a
+virtual machine, or boot from the HMC (Hardware Management Console) of
+an LPAR if the HMC and this option is available for you.
+-->
+
+Su questa piattaforma Linux può funzionare sia direttamente sulla macchina,
+oppure in una LPAR (partizione logica) oppure in una macchina virtuale
+fornita dal sistema. Su tutti questi sistemi si può usare un nastro per
+l'avvio, si possono usare anche altri supporti ma non è detto che siano
+disponibili. Per esempio si può usare il lettore di schede virtuale di una
+macchina virtuale oppure fare l'avvio dalla HMC (Hardware Management Console)
+di una LPAR sempre che l'HCM e la possibilità di fare l'avvio siano state
+abilitate.
+
+</para><para>
+
+<!--
+Before you actually perform an installation, you have to go over some
+design and preparation steps.  IBM has made documentation available
+about the whole process, e.g. how to prepare an installation medium
+and how actually to boot from that medium.  Duplicating that information
+here is neither possible nor necessary.  However, we will describe
+here which kind of &debian;-specific data is needed and where to find it.
+Using both sources of information, you have to prepare your machine
+and the installation medium before you can perform a boot from it.
+When you see the welcome message in your client session, return to this
+document to go through the &debian;-specific installation steps.
+-->
+
+Prima di iniziare l'installazione è necessario pianificare ed effettuare
+alcune operazioni preliminari. IBM ha preparato parecchia documentazione
+sull'intero processo d'installazione, p.e. su come preparare il supporto
+d'installazione e su come usarlo per l'avvio. Copiare queste informazioni
+in questo documento non è permesso però non è nemmeno utile, verranno
+descritti solo i dati specifici di &debian; e dove poterli trovare. Basandosi
+su entrambe queste fonti d'informazione si dovrebbe essere in grado di
+preparare la macchina e il supporto per l'installazione prima di fare
+l'avvio. Quando appare il messaggio di benvenuto nella sessione riprendere
+questo documento e seguire i passi relativi all'installazione di &debian;.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390">
+  <!-- <title>Native and LPAR installations</title> -->
+  <title>Installazioni native e LPAR</title>
+<para>
+
+<!--
+Please refer to chapter 5 of the
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+Linux for &arch-title;</ulink>
+Redbook and chapter 3.2 of the
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink>
+Redbook on how to set up an LPAR for Linux.
+-->
+
+Fare riferimento al capitolo 5 del Redbook <ulink
+url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">Linux
+for &arch-title;</ulink> e al capitolo 3.2 del Redbook <ulink
+url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">Linux
+for IBM eServer zSeries and &arch-title;: Distributions</ulink> per la
+configurazione di una LPAR per Linux.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390">
+  <!-- <title>Installation as a VM guest</title> -->
+  <title>Installazione su una VM ospite</title>
+<para>
+
+<!--
+Please refer to chapter 6 of the
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+Linux for &arch-title;</ulink>
+Redbook and chapter 3.1 of the
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux for IBM eServer zSeries and  &arch-title;: Distributions</ulink>
+Redbook on how to set up a VM guest for running Linux.
+-->
+
+Fare riferimento al capitolo 6 del Redbook <ulink
+url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">Linux
+for &arch-title;</ulink> e al capitolo 3.1 del Redbook <ulink
+url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">Linux
+for IBM eServer zSeries and &arch-title;: Distributions</ulink> per la
+configurazione di una VM ospite per l'esecuzione di Linux.
+
+</para><para>
+
+<!--
+You need to copy all the files from the <filename>generic</filename>
+sub-directory to your CMS disk. Be sure to transfer
+<filename>kernel.debian</filename> and
+<filename>initrd.debian</filename> in binary mode with a fixed record
+length of 80 characters (by specifying <userinput>BINARY</userinput> and <userinput>LOCSITE
+FIX 80</userinput> in your FTP client).  <filename>parmfile.debian</filename> can be
+in either ASCII or EBCDIC format.
+
+A sample <filename>debian.exec</filename> script, which will punch the files in
+the proper order, is included with the images.
+-->
+
+È necessario copiare tutti i file dalla sotto-directory
+<filename>generic</filename> sul proprio disco CMS. Assicurarsi
+che il trasferimento di <filename>kernel.debian</filename> e
+<filename>initrd.debian</filename> avvenga in modalità binaria e
+con record di lunghezza fissa pari a 80 caratteri (specificando
+<userinput>BINARY</userinput> e <userinput>LOCSITE FIX 80</userinput>
+nel proprio client FTP). <filename>parmfile.debian</filename> può
+essere in formato ASCII o EBCDIC.
+
+Un semplice script <filename>debian.exec</filename>, che prepara i
+file nell'ordine corretto, è incluso nelle immagini.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390">
+  <!-- <title>Setting up an installation server</title> -->
+  <title>Preparazione di un server d'installazione</title>
+<para>
+
+<!--
+If you don't have a connection to the Internet (either directly or via
+a web proxy) you need to create a local installation server that can
+be accessed from your S/390. This server keeps all the packages
+you want to install and must make them available using NFS, HTTP or
+FTP.
+-->
+
+Se non si dispone di una connessione a Internet (né diretta né tramite un
+proxy) è necessario creare un server d'installazione locale a cui il
+proprio S/390 possa accedere. Questo server contiene tutti i pacchetti
+che si vuole installare e deve renderli disponibili tramite NFS, HTTP o
+FTP.
+
+</para><para>
+
+<!--
+The installation server needs to copy the exact directory structure
+from any &debian-gnu; mirror, but only the s390 and
+architecture-independent files are required. You can also copy the
+contents of all installation CDs into such a directory tree.
+-->
+
+È necessario che il server d'installazione abbia una copia della struttura
+delle directory identica a quella di un mirror &debian-gnu; per i soli file
+relativi all'architettura s390 e per i file indipendenti dall'architettura.
+Si può anche copiare il contenuto di tutti i CD d'installazione dentro
+questa struttura di directory.
+
+</para><para condition="FIXME">
+
+<emphasis>FIXME: more information needed &mdash; from a Redbook?</emphasis>
+
+</para>
+  </sect2>

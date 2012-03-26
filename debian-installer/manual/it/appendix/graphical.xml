@@ -1,0 +1,239 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 condition="gtk" id="graphical">
+ <!-- <title>The Graphical Installer</title> -->
+ <title>Installatore grafico</title>
+<para>
+
+<!--
+The graphical version of the installer is only available for a limited
+number of architectures, including &arch-title;. The functionality of
+the graphical installer is essentially the same as that of the regular
+installer as it basically uses the same programs, but with a different
+frontend.
+-->
+
+La versione grafica dell'installatore è disponibile soltanto su un numero
+limitato di architetture, fra le quali &arch-title;. La funzionalità
+dell'installatore grafico è quasi identica a quella dell'installatore
+tradizionale dato che entrambe le versioni hanno come base gli stessi
+programmi e differiscono soltanto per l'interfaccia.
+
+</para><para>
+
+<!--
+Although the functionality is identical, the graphical installer still has
+a few significant advantages. The main advantage is that it supports more
+languages, namely those that use a character set that cannot be displayed
+with the regular <quote>newt</quote> frontend. It also has a few usability
+advantages such as the option to use a mouse, and in some cases several
+questions can be displayed on a single screen.
+-->
+
+Nonostante la funzionalità sia identica, l'installatore grafico ha alcuni
+piccoli ma significativi vantaggi. Il vantaggio principale è che può
+supportare un numero maggiore di lingue, cioè le lingue che usano un set
+di caratteri che non può essere visualizzato con la tradizionale interfaccia
+<quote>newt</quote>. Ha anche vantaggi di usabilità, infatti è possibile
+usare il mouse e, in alcuni casi, le domande possono mostrate all'interno
+di un'unica schermata.
+
+</para><para arch="any-x86">
+
+<!--
+The graphical installer is available with all CD images and with the
+hd-media installation method. To boot the graphical installer simply select
+the relevant option from the boot menu. Expert and rescue mode for the
+graphical installer can be selected from the <quote>Advanced options</quote>
+menu. The previously used boot methods <userinput>installgui</userinput>,
+<userinput>expertgui</userinput> and <userinput>rescuegui</userinput> can
+still be used from the boot prompt which is shown after selecting the
+<quote>Help</quote> option in the boot menu.
+-->
+
+L'Installatore grafico è disponibile in tutte le immagini di CD e con il
+metodo d'installazione da disco fisso. Per avviare l'installatore grafico
+è sufficiente scegliere la voce corrispondente nel menu di avvio. Le
+modalità esperto e di ripristino dell'installatore grafico si trovano nel
+menu <quote>Opzioni avanzate</quote>. È comunque ancora possibile usare i
+vecchi metodi di avvio <userinput>installgui</userinput>,
+<userinput>expertgui</userinput> e <userinput>rescuegui</userinput> dal
+prompt di avvio che appare dopo aver selezionato <quote>Aiuto</quote> nel
+menu di avvio.
+
+</para><para arch="any-x86">
+
+<!--
+There is also a graphical installer image that can be netbooted. And there
+is a special <quote>mini</quote> ISO image<footnote id="gtk-miniiso">
+-->
+
+Esiste anche una immagine dell'installatore grafico che può essere avviata
+da rete; inoltre è disponibile un'immagine ISO speciale denominata
+<quote>mini</quote><footnote id="gtk-miniiso">
+
+<para>
+
+<!--
+The mini ISO image can be downloaded from a &debian; mirror as described
+in <xref linkend="downloading-files"/>.
+Look for <filename>netboot/gtk/mini.iso</filename>.
+-->
+
+L'immagine ISO mini può essere scaricata da qualsiasi mirror &debian; con
+la stessa procedura descritta in <xref linkend="downloading-files"/>. Si
+cerchi <filename>netboot/gtk/mini.iso</filename>.
+
+</para>
+
+<!--
+</footnote>, which is mainly useful for testing.
+-->
+
+</footnote>, che è particolarmente utile per i test.
+
+</para><para arch="powerpc">
+
+<!--
+For &arch-title;, currently only an experimental <quote>mini</quote> ISO
+image is available<footnote id="gtk-miniiso">
+-->
+
+Al momento per &arch-title; è disponibile soltanto un'immagine ISO
+sperimentale denominata <quote>mini</quote><footnote id="gtk-miniiso">
+
+<para>
+
+<!--
+The mini ISO image can be downloaded from a &debian; mirror as described
+in <xref linkend="downloading-files"/>.
+Look for <filename>netboot/gtk/mini.iso</filename>.
+-->
+
+L'immagine ISO mini può essere scaricata da qualsiasi mirror &debian; con
+la stessa procedura descritta in <xref linkend="downloading-files"/>. Si
+cerchi <filename>netboot/gtk/mini.iso</filename>.
+
+</para>
+
+<!--
+</footnote>. It should work on almost all PowerPC systems that have
+an ATI graphical card, but is unlikely to work on other systems.
+-->
+
+</footnote>. Dovrebbe funzionare sulla maggior parte dei sistemi PowerPC
+con scheda video ATI, ma è improbabile che funzioni su altri sistemi.
+
+</para><para>
+
+<!--
+Just as with the regular installer it is possible to add boot parameters
+when starting the graphical installer.
+-->
+
+Come per l'installatore tradizionale è possibile aggiungere dei parametri
+d'avvio anche per l'installatore grafico.
+
+</para>
+<note><para>
+
+<!--
+The graphical installer requires significantly more memory to run than
+the regular installer: &minimum-memory-gtk;. If insufficient memory is
+available, it will automatically fall back to the regular
+<quote>newt</quote> frontend.
+-->
+
+L'uso dell'installatore grafico richiede molta più memoria rispetto
+all'installatore tradizionale: almeno &minimum-memory-gtk;. Se la memoria
+disponibile non è sufficiente, viene automaticamente attivata l'interfaccia
+<quote>newt</quote>.
+
+</para><para>
+
+<!--
+If the amount of memory in your system is below &minimum-memory;,
+the graphical installer may fail to boot at all while booting the
+regular installer would still work. Using the regular installer is
+recommended for systems with little available memory.
+-->
+
+Se la quantità di memoria presente sul sistema è inferiore a &minimum-memory;,
+può risultare impossibile avviare la versione grafica dell'installatore
+invece la versione tradizionale potrebbe funzionare. Sui sistemi con poca
+memoria si raccomanda l'uso della versione tradizionale dell'installatore.
+
+</para></note>
+
+  <sect2 id="gtk-using">
+  <!-- <title>Using the graphical installer</title> -->
+  <title>Uso dell'installatore grafico</title>
+<para>
+
+<!--
+As already mentioned, the graphical installer basically works the same as
+the regular installer and thus the rest of this manual can be used to guide
+you through the installation process.
+-->
+
+Come già detto, l'installatore grafico funziona avendo come base gli stessi
+programmi della versione tradizionale e quindi questo manuale può essere
+usato come guida durante il processo d'installazione.
+
+</para><para>
+
+<!--
+If you prefer using the keyboard over the mouse, there are two things you
+need to know. To expand a collapsed list (used for example for the selection
+of countries within continents), you can use the <keycap>+</keycap> and
+<keycap>-</keycap> keys. For questions where more than one item can be
+selected (e.g. task selection), you first need to tab to the
+&BTN-CONT; button after making your selections; hitting
+enter will toggle a selection, not activate &BTN-CONT;.
+-->
+
+Se si preferisce usare la tastiera al posto del mouse si devono tenere
+presenti un paio di cose. Per espandere un elenco chiuso (per esempio la
+selezione dei paesi all'interno dei continenti) si possono usare i tasti
+<keycap>+</keycap> e <keycap>-</keycap>. Per domande che ammettono una
+risposta multipla (per esempio la selezione dei task) dopo aver effettuato
+le scelte si deve usare usare il tasto tab per spostarsi su
+&BTN-CONT;; la pressione del tasto invio cambia lo
+stato dell'ultima selezione e non attiva &BTN-CONT;.
+
+</para><para>
+
+<!--
+If a dialog offers additional help information, a <guibutton>Help</guibutton>
+button will be displayed. The help information can be accessed either by
+activating the button or by pressing the <keycap>F1</keycap> key.
+-->
+
+Se una finestra di dialogo dispone di un aiuto, viene mostrato il pulsante
+<guibutton>Aiuto</guibutton>. È possibile accedere alle informazioni
+d'aiuto usando il pulsante o premendo il tasto il <keycap>F1</keycap>.
+
+</para><para>
+
+<!--
+To switch to another console, you will also need to use the
+<keycap>Ctrl</keycap> key, just as with the X Window System. For example,
+to switch to VT2 (the first debug shell) you would use: <keycombo>
+<keycap>Ctrl</keycap> <keycap>Left Alt</keycap> <keycap>F2</keycap>
+</keycombo>. The graphical installer itself runs on VT5, so you can use
+<keycombo> <keycap>Left Alt</keycap> <keycap>F5</keycap> </keycombo>
+to switch back.
+-->
+
+Per passare su un'altra console è necessario usare anche il tasto
+<keycap>Ctrl</keycap>, esattamente come in X Window System. Per esempio,
+per passare al VT2 (la prima shell di debug) si devono premere
+<keycombo><keycap>Ctrl</keycap> <keycap>Alt</keycap>
+<keycap>F2</keycap></keycombo>. La versione grafica dell'installatore è
+eseguita sul VT5, quindi si deve usare <keycombo><keycap>Alt</keycap>
+<keycap>F5</keycap></keycombo> per tornare indietro.
+
+</para>
+  </sect2>
+ </sect1>

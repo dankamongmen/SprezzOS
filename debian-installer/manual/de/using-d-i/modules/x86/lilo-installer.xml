@@ -1,0 +1,67 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+  <sect3 arch="x86">
+  <title>Den <command>lilo</command>-Bootloader auf Festplatte installieren</title>
+<para>
+
+Der zweite &architecture;-Bootloader heißt <command>lilo</command>.
+Es ist ein altes, komplexes Programm, das viele Funktionen bietet,
+inklusive DOS-, Windows- und OS/2-Boot-Management. Lesen Sie bitte
+aufmerksam die Instruktionen im Verzeichnis
+<filename>/usr/share/doc/lilo/</filename>, wenn Sie spezielle Anforderungen
+haben; sehen Sie sich auch das <ulink url="&url-lilo-howto;">LILO
+mini-HowTo</ulink> an.
+
+</para>
+<note><para>
+
+Im Moment erstellt die LILO-Installation nur Menüeinträge für andere
+Betriebssysteme, falls diese <firstterm>chainloading</firstterm> unterstützen
+(das BIOS lädt LILO, LILO lädt das OS). Sie müssen deswegen nach der
+Installation von LILO noch Menüeinträge für GNU/Linux oder GNU/Hurd manuell
+erstellen.
+
+</para></note>
+<para>
+
+Der &d-i; bietet Ihnen drei Auswahlmöglichkeiten an, wo der
+<command>lilo</command>-Bootloader installiert werden kann:
+
+<variablelist>
+<varlistentry>
+<term>Master Boot Record (MBR)</term><listitem><para>
+
+Auf diesem Wege bekommt <command>lilo</command> die volle Kontrolle über
+den Boot-Prozess.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>new &debian; partition (Ihre neue &debian;-Partition)</term><listitem><para>
+
+Wählen Sie diesen Punkt, wenn Sie einen anderen Bootmanager benutzen möchten.
+<command>lilo</command> wird sich an den Anfang der neuen &debian;-Partition
+installieren und als Sekundär-Bootloader fungieren.
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>Other Choice (Andere Auswahl)</term><listitem><para>
+
+Nützlich für erfahrene Benutzer, die <command>lilo</command> irgendwo anders
+installieren möchten. In diesem Fall werden Sie nach dem genauen Ort
+gefragt. Sie können traditionelle Gerätenamen wie
+<filename>/dev/hda</filename> oder <filename>/dev/sda</filename> verwenden.
+
+</para></listitem></varlistentry>
+</variablelist>
+
+</para><para>
+ 
+Wenn Sie nach diesem Schritt Windows 9x (oder DOS) nicht mehr booten können,
+müssen Sie mit einer Windows 9x- (oder MS-DOS-) Boot-Diskette starten und den
+Befehl <userinput>fdisk /mbr</userinput> verwenden, um den MS-DOS Master Boot
+Record neu zu installieren &ndash; dies bedeutet dann allerdings, dass Sie eine
+andere Möglichkeit finden müssen, um &debian; zu starten!
+
+</para>
+  </sect3>

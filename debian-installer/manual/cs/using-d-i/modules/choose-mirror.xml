@@ -1,0 +1,65 @@
+<!-- $Id: choose-mirror.xml 66744 2011-08-04 17:57:06Z mck-guest $ -->
+<!-- original version: 66398 -->
+
+  <sect3 id="choose-mirror">
+  <title>Výběr síťového zrcadla</title>
+<para>
+
+Tato komponenta se spustí pouze v případě, že instalační program
+potřebuje nahrát své další komponenty nebo základní systém ze sítě.
+
+</para><para>
+
+Nejprve se zobrazí seznam zemí se zrcadly &debian;u, přičemž předvolena
+bude země, kterou jste vybrali na začátku instalace.
+
+<itemizedlist>
+<listitem><para>
+
+Po výběru země se nabídne seznam zrcadel v dané zemi. Dobrou volbou
+bývají <quote>hlavní</quote> zrcadla, která mají tvar
+ftp.<replaceable>kód_země</replaceable>.debian.org.
+
+</para></listitem>
+<listitem><para>
+
+Pokud nechcete použít oficiální zrcadlo, vyberte v seznamu zemí
+možnost <userinput>zadat informace ručně</userinput>. Budete dotázáni
+na jméno počítače, ze kterého se mají části &debian;u stáhnout.
+
+</para><para>
+
+Zajímavou volbou může být polooficiální zrcadlo
+<userinput>cdn.debian.net</userinput>, což je ve skutečnosti jen alias
+na jedno z oficiálních zrcadel, které by vám zrovna mělo být nejblíže.
+
+</para></listitem>
+</itemizedlist>
+
+<!-- Nekde se to jeste pta na adresar a distribuci, ale kde? -->
+
+Další otázka se bude ptát na nastavení proxy serveru. Proxy server
+slouží jako prostředník mezi vámi a Internetem &mdash; místo abyste se
+obrátili přímo na server v Internetu, komunikujete se svým proxy
+serverem. Proxy server předává vaše dotazy cílovému serveru
+v Internetu, vyzvedne od něj odpověď a tu pak předá vašemu počítači.
+Většina domácích uživatelů zde nemusí nastavovat nic, proxy server se
+obvykle vyskytuje jako součást firewallu pro větší nebo podnikové
+sítě.
+
+</para><para>
+
+Na závěr se zvolené zrcadlo otestuje a automaticky se z něj stáhnou
+potřebné balíky. Pokud se vyskytne problém (server není dostupný,
+neobsahuje zvolenou verzi &debian;u, apod.), můžete si ze seznamu vybrat
+jiné zrcadlo<footnote><para>
+
+Je-li zvolené zrcadlo dlouhodobě nedostupné, je možné, že již
+neexistuje, protože seznam zrcadel se vytváří před vyjitím stabilní
+verze &debian;u, což mohlo být před několika měsíci (a v některých
+případech i před několika lety).
+
+</para></footnote>, případně zkusit jiné nastavení proxy serveru.
+
+</para>
+  </sect3>

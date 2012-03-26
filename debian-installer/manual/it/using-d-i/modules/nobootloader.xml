@@ -1,0 +1,44 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61133 -->
+
+   <sect3 id="nobootloader">
+   <!-- <title>Continue Without Boot Loader</title> -->
+   <title>Continua senza un boot loader</title>
+<para>
+
+<!--
+This option can be used to complete the installation even when no boot
+loader is to be installed, either because the arch/subarch doesn't
+provide one, or because none is desired (e.g. you will use existing
+boot loader).
+-->
+
+Questa opzione può essere usata per completare l'installazione senza che
+sia necessariamente installato un boot loader, perché non ne esiste uno
+per l'architettura/sottoarchitettura in uso oppure perché non lo si vuole
+installare (per esempio si vuole usare il boot loader già esistente).
+</para><para>
+
+<!--
+If you plan to manually configure your bootloader, you should check the
+name of the installed kernel in <filename>/target/boot</filename>.
+You should also check that directory for the presence of an
+<firstterm>initrd</firstterm>; if one is present, you will probably have
+to instruct your bootloader to use it. Other information you will need
+are the disk and partition you selected for your <filename>/</filename>
+filesystem and, if you chose to install <filename>/boot</filename> on a
+separate partition, also your <filename>/boot</filename> filesystem.
+-->
+
+Se si pensa di configurare manualmente il proprio boot loader si deve
+verificare in <filename>/target/boot</filename> il nome del kernel, sempre
+nella stessa directory si deve vedere se c'è un <firstterm>initrd</firstterm>;
+se è presente probabilmente si dovrà configurare il boot loader in modo
+che lo usi. Altre informazioni di cui si ha bisogno sono il disco e la
+partizione scelta per il file system <filename>/</filename> e, se
+<filename>/boot</filename> è stata installata su una partizione diversa,
+delle stesse informazioni anche per il file system di
+<filename>/boot</filename>.
+
+</para>
+   </sect3>

@@ -1,0 +1,301 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56326 -->
+
+ <sect1 id="mount-encrypted-volumes">
+ <!-- <title>Mounting encrypted volumes</title> -->
+ <title>Montare volumi cifrati</title>
+<para>
+
+<!--
+If you created encrypted volumes during the installation and assigned
+them mount points, you will be asked to enter the passphrase for each
+of these volumes during the boot. The actual procedure differs
+slightly between dm-crypt and loop-AES.
+-->
+
+Se durante l'installazione si creano dei volumi cifrati e si assegnano a
+dei punti di mount allora, durante l'avvio, viene richiesto l'inserimento
+della passphrase per ognuno di questi volumi. La procedura da seguire è
+leggermente diversa fra dm-crypt e loop-AES.
+
+</para>
+
+  <sect2 id="mount-dm-crypt">
+  <!-- <title>dm-crypt</title> -->
+  <title>dm-crypt</title>
+<para>
+
+<!--
+For partitions encrypted using dm-crypt you will be shown the following
+prompt during the boot:
+-->
+
+Le partizioni cifrate con dm-crypt sono mostrate durante l'avvio con un
+prompt simile a questo:
+
+<informalexample><screen>
+Starting early crypto disks... <replaceable>part</replaceable>_crypt(starting)
+Enter LUKS passphrase:
+</screen></informalexample>
+
+<!--
+In the first line of the prompt, <replaceable>part</replaceable> is the
+name of the underlying partition, e.g. sda2 or md0.
+You are now probably wondering
+<emphasis>for which volume</emphasis> you are actually entering the
+passphrase. Does it relate to your <filename>/home</filename>? Or to
+<filename>/var</filename>? Of course, if you have just one encrypted
+volume, this is easy and you can just enter the passphrase you used
+when setting up this volume. If you set up more than one encrypted
+volume during the installation, the notes you wrote down as the last
+step in <xref linkend="partman-crypto"/> come in handy. If you did not
+make a note of the mapping between
+<filename><replaceable>part</replaceable>_crypt</filename> and the mount
+points before, you can still find it
+in <filename>/etc/crypttab</filename>
+and <filename>/etc/fstab</filename> of your new system.
+-->
+
+Nella prima riga la <replaceable>part</replaceable> è il nome della
+partizione sottostante, per esempio sda2 o md0.
+Probabilmente adesso si vorrebbe conosce <emphasis>per quale
+volume</emphasis> si sta inserendo la passphrase. Si tratta di
+<filename>/home</filename>? Oppure di <filename>/var</filename>?
+Certamente se nel sistema esiste un solo volume cifrato la risposta è
+semplice, si deve inserire la stessa passphrase usata durante la
+configurazione. Invece, se durante l'installazione sono stati preparati
+più volumi cifrati, gli appunti presi durante l'ultimo passo descritto
+in <xref linkend="partman-crypto"/> risultano molto utili. Se non si
+hanno appunti su come sono mappati i diversi
+<filename><replaceable>part</replaceable>_crypt</filename> sui vari punti di
+mount allora si possono trovare nei file <filename>/etc/crypttab</filename>
+e <filename>/etc/fstab</filename> del nuovo sistema.
+
+</para><para>
+
+<!--
+The prompt may look somewhat different when an encrypted root file system is
+mounted. This depends on which initramfs generator was used to generate the
+initrd used to boot the system. The example below is for an initrd generated
+using <classname>initramfs-tools</classname>:
+-->
+
+Il prompt potrebbe essere leggermente diverso quando viene montato il file
+system di root. Dipende da quale strumento è stato usato per la creazione
+dell'initramfs per l'avvio del sistema. Il prossimo esempio si riferisce a
+un initrd creato con <classname>initramfs-tools</classname>:
+
+<informalexample><screen>
+Begin: Mounting <emphasis>root file system</emphasis>... ...
+Begin: Running /scripts/local-top ...
+Enter LUKS passphrase:
+</screen></informalexample>
+
+</para><para>
+
+<!--
+No characters (even asterisks) will be shown while entering the passphrase.
+If you enter the wrong passphrase, you have two more tries to correct it.
+After the third try the boot process will skip this volume and continue to
+mount the next filesystem. Please see <xref linkend="crypto-troubleshooting"/>
+for further information.
+-->
+
+Durante l'inserimento della passphrase non sono mostrati dei caratteri,
+nemmeno degli asterischi. Se la passphrase inserita è sbagliata si hanno
+a disposizione altri due tentativi, dopo il terzo tentativo il processo di
+avvio salta il montaggio del volume e prosegue con il filesystem successivo.
+Si veda <xref linkend="crypto-troubleshooting"/> per maggiori informazioni.
+
+</para><para>
+
+<!--
+After entering all passphrases the boot should continue as usual.
+-->
+
+L'avvio prosegue normalmente dopo l'inserimento di tutte le passphrase.
+
+</para>
+  </sect2>
+
+  <sect2 id="mount-loop-aes">
+  <!-- <title>loop-AES</title> -->
+  <title>loop-AES</title>
+<para>
+
+<!--
+For partitions encrypted using loop-AES you will be shown the following
+prompt during the boot:
+-->
+
+Per le partizioni cifrate con loop-AES viene mostrato il seguente prompt
+durante l'avvio:
+
+<informalexample><screen>
+Checking loop-encrypted file systems.
+Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</replaceable>)
+Password:
+</screen></informalexample>
+
+</para><para>
+
+<!--
+No characters (even asterisks) will be shown while entering the passphrase.
+If you enter the wrong passphrase, you have two more tries to correct it.
+After the third try the boot process will skip this volume and continue to
+mount the next filesystem. Please see <xref linkend="crypto-troubleshooting"/>
+for further information.
+-->
+
+Durante l'inserimento della passphrase non sono mostrati dei caratteri,
+nemmeno degli asterischi. Se la passphrase inserita è sbagliata si hanno
+a disposizione altri due tentativi, dopo il terzo tentativo il processo di
+avvio salta il montaggio del volume e prosegue con il filesystem successivo.
+Si veda <xref linkend="crypto-troubleshooting"/> per maggiori informazioni.
+
+</para><para>
+
+<!--
+After entering all passphrases the boot should continue as usual.
+-->
+
+L'avvio prosegue normalmente dopo l'inserimento di tutte le passphrase.
+
+</para>
+  </sect2>
+
+  <sect2 id="crypto-troubleshooting">
+  <!-- <title>Troubleshooting</title> -->
+  <title>Risoluzione dei problemi</title>
+<para>
+
+<!--
+If some of the encrypted volumes could not be mounted because a wrong
+passphrase was entered, you will have to mount them manually after the
+boot. There are several cases.
+-->
+
+Se alcuni dei volumi cifrati non sono stati montati perché è stata
+inserita una passphrase sbagliata, è comunque possibile montarli
+manualmente al termine dell'avvio. Si possono verificare diversi casi:
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<!--
+The first case concerns the root partition. When it is not mounted
+correctly, the boot process will halt and you will have to reboot the
+computer to try again.
+-->
+
+Il primo caso riguarda la partizione root. Quando non è correttamente
+montata il processo di avvio si arresta ed è necessario riavviare la
+macchina per fare un nuovo tentativo.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+The easiest case is for encrypted volumes holding data like
+<filename>/home</filename> or <filename>/srv</filename>. You can
+simply mount them manually after the boot. For loop-AES this is
+a one-step operation:
+-->
+
+Il caso più semplice riguarda i volumi che contengono dati, come
+<filename>/home</filename> o <filename>/srv</filename>. Si possono montare
+manualmente al termine dell'avvio. Con loop-AES questa operazione richiede
+un solo comando:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
+<prompt>Password:</prompt>
+</screen></informalexample>
+
+<!--
+where <replaceable>/mount_point</replaceable> should be replaced by
+the particular directory (e.g. <filename>/home</filename>). The only
+difference from an ordinary mount is that you will be asked to enter
+the passphrase for this volume.
+-->
+
+dove <replaceable>/mount_point</replaceable> deve essere sostituito dalla
+directory specifica (per esempio <filename>/home</filename>). L'unica
+differenza rispetto a un normale mount è la richiesta di inserire la
+passphrase del volume.
+
+</para><para>
+
+<!--
+For dm-crypt this is a bit trickier. First you need to register the
+volumes with <application>device mapper</application> by running:
+-->
+
+Con dm-crypt è leggermente più complesso. Prima si devono registrare i
+volumi con <application>device mapper</application> eseguendo:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>
+</screen></informalexample>
+
+<!--
+This will scan all volumes mentioned
+in <filename>/etc/crypttab</filename> and will create appropriate
+devices under the <filename>/dev</filename> directory after entering
+the correct passphrases. (Already registered volumes will be skipped,
+so you can repeat this command several times without worrying.) After
+successful registration you can simply mount the volumes the usual
+way:
+-->
+
+Questo esegue la scansione di tutti i volumi elencati in
+<filename>/etc/crypttab</filename> e dopo aver richiesto la passphrase
+crea i rispettivi file di device nella directory <filename>/dev</filename>.
+I volumi già registrati sono saltati, quindi è possibile ripetere più
+volte questo comando senza preoccupazioni. Se la registrazione avviene
+con successo è possibile montare i volumi nel modo consueto:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
+</screen></informalexample>
+
+</para></listitem>
+<listitem><para>
+
+<!--
+If any volume holding noncritical system files could not be mounted
+(<filename>/usr</filename> or <filename>/var</filename>), the system
+should still boot and you should be able to mount the volumes manually
+like in the previous case. However, you will also need to (re)start
+any services usually running in your default runlevel because it is
+very likely that they were not started. The easiest way to achieve
+this is by switching to the first runlevel and back by entering
+-->
+
+Se alcuni dei volumi che contengono file non critici per il sistema non
+possono essere montati (<filename>/usr</filename> o <filename>/var</filename>)
+l'avvio dovrebbe continuare e dovrebbe essere possibile montare i volumi
+manualmente con la stessa procedura descritta al punto precedente. Inoltre
+è necessario anche (ri)avviare tutti i servizi che sono normalmente in
+esecuzione nel runlevel predefinito dato che, molto probabilmente, non
+sono partiti. Il modo più semplice per fare questa operazione è passare
+al primo runlevel e poi tornare indietro; dal prompt della shell eseguire:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>init 1</userinput>
+</screen></informalexample>
+
+<!--
+at the shell prompt and pressing <keycombo> <keycap>Control</keycap>
+<keycap>D</keycap> </keycombo> when asked for the root password.
+-->
+
+poi premere <keycombo> <keycap>Control</keycap> <keycap>D</keycap>
+</keycombo> quando viene richiesta la password di root.
+
+</para></listitem>
+</itemizedlist>
+  </sect2>
+ </sect1>

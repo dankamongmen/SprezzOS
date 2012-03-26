@@ -1,0 +1,54 @@
+<!-- $Id: mips.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="mips" id="boot-tftp"><title>Zavedení z TFTP</title>
+   <sect3><title>TFTP zavádění na SGI</title>
+<para>
+
+Na počítačích SGI vstupte do <quote>command monitoru</quote>, kde
+příkazem
+
+<informalexample><screen>
+bootp():
+</screen></informalexample>
+
+zavedete Linux a spustíte instalaci &debian;u. Aby to fungovalo, budete
+možná muset v <quote>command monitoru</quote> zrušit proměnnou
+<envar>netaddr</envar> příkazem
+
+<informalexample><screen>
+unsetenv netaddr
+</screen></informalexample>
+
+</para>
+   </sect3>
+  </sect2>
+
+
+  <sect2 arch="mips"><title>Zaváděcí parametry</title>
+   <sect3>
+   <title>SGI</title>
+<para>
+
+Na počítačích SGI můžete přidat zaváděcí parametry příkazu
+<command>bootp():</command> v <quote>command monitoru</quote>.
+
+</para><para>
+
+Pokud jste například bootp/dhcp serveru explicitně nezadali název
+souboru, který se má zavést, můžete teď zadat jeho jméno a umístění.
+Například
+
+<informalexample><screen>
+bootp():/boot/tftpboot.img
+</screen></informalexample>
+
+Další parametry jádra můžete zadat přes <command>append</command>:
+
+<informalexample><screen>
+bootp(): append="root=/dev/sda1"
+</screen></informalexample>
+
+</para>
+   </sect3>
+  </sect2>

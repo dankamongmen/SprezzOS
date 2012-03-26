@@ -1,0 +1,104 @@
+<!-- original version: 65193 -->
+
+ <sect1 id="minimum-hardware-reqts">
+<title>Matériel minimum</title>
+<para>
+
+Une fois rassemblées les informations sur votre matériel, vérifiez que
+vous pouvez faire le type d'installation souhaité.
+
+</para><para arch="not-s390">
+
+Selon vos besoins, vous pouvez continuer avec du matériel inférieur au
+matériel recommandé dans le tableau ci-dessous. Cependant, la plupart des
+utilisateurs seront frustrés s'ils ignorent ces suggestions.
+
+</para><para arch="any-x86">
+
+Un Pentium 4, 1&nbsp;GHz, est la configuration minimale recommandée
+pour une machine de bureau.
+
+</para><para arch="powerpc">
+
+Tout PowerPC OldWorld ou NewWorld convient
+parfaitement pour une machine de bureau.
+
+</para>
+
+<table>
+<title>Configuration matérielle minimale recommandée</title>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Type d'installation</entry>
+  <entry>RAM (minimum)</entry>
+  <entry>RAM (recommandée)</entry>
+  <entry>Disque dur</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Sans desktop</entry>
+  <entry>64 megaoctets</entry>
+  <entry>256 megaoctets</entry>
+  <entry>1 gigaoctet</entry>
+</row><row arch="not-s390">
+  <entry>Avec desktop</entry>
+  <entry>128 megaoctets</entry>
+  <entry>512 megaoctets</entry>
+  <entry>5 gigaoctets</entry>
+</row>
+
+</tbody></tgroup></table>
+
+
+<para>
+
+La quantité de mémoire nécessaire est inférieure à celle donnée dans le tableau.
+Selon l'architecture, il est possible d'installer &debian; avec 20&nbsp;Mo (sur s390)
+ou 60&nbsp;Mo (sur amd64). Il en va de même pour l'espace disque,
+surtout si vous choisissez une à une les applications à installer. Voyez
+<xref linkend="tasksel-size-list"/> pour vous faire une idée de l'espace disque nécessaire.
+
+</para>
+
+<para arch="not-s390">
+
+Il est possible de faire fonctionner un environnement de bureau sur de vieilles
+machines ou des machines bas de gamme mais il est alors recommandé d'installer
+un gestionnaire graphique moins gourmand en ressources que les
+environnements de bureau de GNOME et KDE. Par exemple, <classname>xfce4</classname>,
+<classname>icewm</classname> et <classname>wmaker</classname>, mais il en
+existe d'autres.
+
+</para>
+
+<para>
+
+Il n'est pas possible d'indiquer des valeurs minimum concernant la
+mémoire et l'espace disque nécessaires à un serveur. Tout dépend de 
+l'utilisation qui en sera faite.
+
+</para>
+<para>
+
+Il faut remarquer que ces mesures ne comptabilisent pas tous les
+fichiers, comme les fichiers des utilisateurs, la messagerie et
+les données. Il vaut toujours mieux prévoir large quand il s'agit de
+ses propres fichiers et données.
+</para>
+
+<para>
+L'espace disque nécessaire au bon fonctionnement du système &debian-gnu; est
+pris en compte dans ces valeurs recommandées.
+En particulier, la partition <filename>/var</filename> dans &debian; contient
+beaucoup d'informations sur l'état du système. Les fichiers de <command>dpkg</command>
+(contenant des informations sur tous les paquets installés) peuvent facilement
+atteindre 40&nbsp;Mo&nbsp;; <command>apt-get</command> y met les paquets
+téléchargés avant de les installer. Au moins 200&nbsp;Mo
+devraient être attribués à <filename>/var</filename> et beaucoup plus si
+vous installez un environnement de bureau.
+</para>
+
+ </sect1>

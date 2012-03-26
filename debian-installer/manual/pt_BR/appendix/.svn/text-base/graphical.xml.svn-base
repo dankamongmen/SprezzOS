@@ -1,0 +1,147 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56145 -->
+<!-- updated 48015:6145 by Felipe Augusto van de Wiel (faw) 2008.11.10 -->
+
+ <sect1 condition="gtk" id="graphical">
+ <title>O Instalador Gráfico</title>
+<para>
+
+A versão gráfica do instalador está disponível somente para um número
+limitado de arquiteturas, incluindo &arch-title;. A funcionalidade do
+instalador gráfico é essencialmente a mesma do instalador regular pois
+basicamente usa os mesmos programas, mas com uma interface diferente.
+
+</para><para>
+
+Embora a funcionalidade seja idêntica, o instalador gráfico tem algumas
+algumas vantagens significativas. A principal vantagem é que ele suporta
+mais idiomas, nominalmente aquelas que usam um conjunto de caracteres que
+não pode ser exibido com a interface regular <quote>newt</quote>. Ele também
+tem algumas vantagens de usabilidade como a opção de usar um mouse e, em
+alguns casos, várias questões podem ser exibidas numa única tela.
+
+</para><para arch="any-x86">
+
+O instalador gráfico está disponível em todas as imagens de CD e no
+método de instalação via hd-media. Para inicializar o instalador
+gráfico simplesmente selecione a opção relevante do menu de inicialização.
+Os modos <quote>expert</quote> e <quote>rescue</quote> para o instalador
+gráfico podem ser selecionados a partir do menu <quote>Advanced Options</quote>
+(Opções Avançadas). Os métodos de inicialização usados anteriormente
+<userinput>installgui</userinput>, <userinput>expertgui</userinput> e
+<userinput>rescuegui</userinput> ainda podem ser usados a partir do prompt
+de inicialização que é exibido após selecionar a opção <quote>Help</quote>
+(Ajuda) no menu de inicialização.
+
+</para><para arch="any-x86">
+
+Há também uma imagem do instalador gráfico que pode ser inicializada pela rede.
+E há uma imagem especial <quote>mini</quote> ISO<footnote id="gtk-miniiso">
+
+<para>
+A imagem mini ISO pode ser baixada a partir de um espelho &debian; como
+descrito em <xref linkend="downloading-files"/>.
+Procure por <filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>, que é principalmente útil para testes.
+
+</para><para arch="powerpc">
+
+Para &arch-title; atualmente apenas uma imagem <quote>mini</quote> ISO
+experimental está disponível<footnote id="gtk-miniiso">
+
+<para>
+A imagem mini ISO pode ser baixada a partir de um espelho &debian; como
+descrito em <xref linkend="downloading-files"/>.
+Procure por <filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>. Deveria funcional em quase todos os sistemas PowerPC que
+têm uma placa gráfica ATI, mas é improvável que funcione em outros
+sistemas.
+
+</para><para>
+
+Da mesma forma que com o instalador tradicional é possível adicionar
+parâmetros de inicialização quando iniciar o instalador gráfico. Um desses
+parâmetros permite configurar o mouse para uso como canhoto. Outros permitem
+selecionar o dispositivo de mouse (e.g. para um mouse serial) e o protocolo
+do mouse. Veja <xref linkend="boot-parms"/> para os parâmetros
+válidos<phrase arch="x86"> e <xref linkend="boot-screen"/> para informações
+sobre como passá-los</phrase>.
+
+</para>
+<note><para>
+
+O instalador gráfico requer significativamente mais memória para ser
+executado do que o instalador regular: &minimum-memory-gtk;. Se não
+há memória suficiente disponível, o instalador automaticamente mudará
+para a interface regular <quote>newt</quote>.
+
+</para><para>
+
+Se a quantidade de memória no seu sistema é menor que &minimum-memory;,
+o instalador gráfico pode falhar para inicializar, no entanto a
+inicialização do instalador tradicional ainda pode funcionar. Usar o
+instalador tradicional é recomendado para sistemas com pouca memória
+disponível.
+
+</para></note>
+
+  <sect2 id="gtk-using">
+  <title>Usando o instalador gráfico</title>
+<para>
+
+Como já foi mencionado, o instalador gráfico basicamente funciona da mesma
+forma que o instalador regular e portanto o resto deste manual pode ser
+usado para guiá-lo através do processo de instalação.
+
+</para><para>
+
+Se você preferir usar o teclado ao invés do mouse, há duas coisas que você
+precisa saber. Para expandir uma lista condensada (usada por exemplo para a
+seleção de países dentro de continentes), você pode usar as teclas
+<keycap>+</keycap> e <keycap>-</keycap>. Para questões onde mais de um item
+pode ser selecionado (e.g. seleção de tarefas), você primeiro precisa usar
+o tab para pular até o botão &BTN-CONT; após fazer suas seleções;
+pressionando enter irá alternar uma seleção, não irá ativar &BTN-CONT;.
+
+</para><para>
+
+Para mudar para outro console, você também precisará usar a tecla
+<keycap>Ctrl</keycap>, da mesma forma que o X Window System. Por exemplo,
+para mudar para o VT2 (o primeiro shell de depuração) você usará: <keycombo>
+<keycap>Ctrl</keycap> <keycap>Alt Esquerdo</keycap> <keycap>F2</keycap>
+</keycombo>. O instalador gráfico é executado no VT5, portanto você pode
+usar <keycombo> <keycap>Alt Esquerdo</keycap> <keycap>F5</keycap> </keycombo>
+para voltar ao instalador.
+
+</para>
+  </sect2>
+
+  <sect2 id="gtk-issues">
+  <title>Problemas conhecidos</title>
+<para>
+
+A interface gráfica do instalador é relativamente nova e por causa disso há
+alguns problemas conhecidos. Nós continuamos trabalhando para resolvê-los.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+A informação em algumas telas ainda não está agradavelmente formatada em
+colunas como deveria ser.
+
+</para></listitem>
+<listitem><para>
+
+Suporte para <quote>touchpads</quote> ainda não é ótimo.
+
+</para></listitem>
+</itemizedlist>
+
+  </sect2>
+ </sect1>

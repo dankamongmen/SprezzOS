@@ -1,0 +1,218 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+   <sect3 id="apt-setup">
+   <title>apt konfigurieren</title>
+
+<para>
+
+Eines der Programme, die zur Paketinstallation auf einem &debian-gnu;-System
+verwendet werden können, ist  <command>apt-get</command> aus dem Paket
+<classname>apt</classname><footnote>
+
+<para>
+Beachten Sie, dass das Programm, das letztendlich die Pakete installiert,
+<command>dpkg</command> heißt. Allerdings ist dies mehr ein
+Low-Level-Programm (was unter anderem bedeutet, dass es nicht direkt vom
+Benutzer aufgerufen wird). <command>apt-get</command> spielt eine Stufe
+höher und wird <command>dpkg</command> nach Bedarf aufrufen. Es weiß, wie
+es die Pakete von Ihrer CD, über Netzwerk oder sonst woher bekommen kann.
+Außerdem kann es automatisch andere Pakete mit installieren, die benötigt
+werden, damit die Pakete, die Sie installieren möchten, korrekt funktionieren.
+</para>
+
+</footnote>.
+Es gibt auch andere Frontends (Bedienoberflächen, die anders aussehen können,
+aber im Hintergrund die gleichen Prozesse nutzen) für die Paketverwaltung wie
+<command>aptitude</command> oder <command>synaptic</command>. Diese Frontends
+werden für neue &debian;-Benutzer empfohlen, da sie einige zusätzliche Funktionen
+(wie Paketsuche und Statusüberprüfungen) in einer hübschen Oberfläche integriert
+haben. <command>aptitude</command> ist jetzt das empfohlene Werkzeug für das
+Paketmanagement.
+
+</para><para>
+
+<command>apt</command> muss konfiguriert werden, so dass es weiß, woher es
+benötigte Pakete bekommen kann. Das Ergebnis dieser Konfiguration wird in die
+Datei <filename>/etc/apt/sources.list</filename> geschrieben. Sie können sie
+anschauen und an Ihre Bedürfnisse anpassen, nachdem die Installation beendet
+ist.
+
+</para><para>
+
+Wenn Sie mit Standard-Priorität installieren, kümmert sich der Installer
+größtenteils automatisch um die Konfiguration, basierend auf der
+Installationsmethode, die Sie nutzen, und unter Umständen auch durch
+Verwendung von vorher im Installationsverlauf bereits von Ihnen getroffenen
+Entscheidungen. In den meisten Fällen wird der Installer automatisch
+einen Spiegel-Server für Sicherheitsaktualisierungen hinzufügen sowie,
+falls Sie die Stable-Distribution installieren, einen Spiegel-Server für
+den <quote>Volatile</quote>-Aktualisierungs-Service.
+
+</para><para>
+
+Wenn Sie mit einer niedrigeren Priorität installieren (z.B. im Experten-Modus),
+haben Sie die Möglichkeit, mehr Entscheidungen selbst zu treffen. Sie können
+wählen, ob Sie den Sicherheits- oder Volatile-Aktualisierungs-Service nutzen
+möchten oder nicht und ob Sie Pakete aus den <quote>contrib</quote>- und
+<quote>non-free</quote>-Bereichen des Archivs verwenden möchten.
+
+ </para>
+
+    <sect4 id="apt-setup-cdset">
+    <title>Von mehr als einer CD oder DVD installieren</title>
+
+<para>
+
+Wenn Sie von einer CD oder DVD installieren, die Teil eines Sets mehrerer
+Disks ist, wird der Installer Sie fragen, ob Sie weitere CDs oder DVDs
+scannen möchten. Falls Sie tatsächlich weitere Disks aus diesem Set
+vorliegen haben, sollten Sie dies vielleicht tun, so dass der Installer
+die Pakete, die auf diesen Disks enthalten sind, verwenden kann.
+
+</para><para>
+
+Falls Sie jedoch keine weiteren CDs oder DVDs haben, ist dies kein Problem:
+es ist nicht zwingend nötig, diese zu verwenden. Falls Sie auch keinen
+Internet-Spiegel-Server verwenden (wie im nächsten Abschnitt beschrieben),
+kann dies bedeuten, dass nicht alle Pakete installiert werden können, die
+Sie im nächsten Schritt der Installation über die Programmgruppen auswählen.
+
+</para>
+<note><para>
+
+Pakete sind auf den CDs (und DVDs) in der Reihenfolge Ihrer Popularität
+enthalten. Dies bedeutet, dass für die meisten Anwendungsfälle nur die ersten
+CDs eines Sets benötigt werden; nur sehr wenige Leute benutzen wirklich
+Pakete von den letzten CDs eines Sets.
+
+</para><para>
+
+Das heißt ebenfalls, dass es einfach Geldverschwendung ist, einen kompletten
+CD-Satz zu kaufen oder herunterzuladen und zu brennen, da Sie die meisten
+davon nie nutzen werden. In den meisten Fällen werden Sie besser fahren, wenn
+Sie sich lediglich die ersten 3 bis 8 CDs besorgen und alle weiteren,
+zusätzlichen Pakete, die Sie benötigen könnten, über das Internet von einem
+Spiegel-Server installieren. Das Gleiche gilt für DVD-Sets: die erste, oder
+vielleicht die ersten zwei DVDs, werden für die meisten Bedürfnisse ausreichen.
+
+</para><para>
+
+Eine einfache Richtlinie ist, dass für eine reguläre Arbeitsplatz-Installation
+(unter Verwendung der GNOME-Desktop-Umgebung) nur die ersten drei CDs benutzt
+werden. Für die alternativen Desktop-Umgebungen (KDE oder Xfce) werden
+zusätzliche CDs benötigt. Die erste DVD deckt alle drei Desktop-Umgebungen ab.
+
+</para></note>
+<para>
+
+Falls Sie mehrere CDs oder DVDs scannen, wird der Installer Sie auffordern,
+die Disk auszutauschen, wenn Pakete von einer anderen CD/DVD gebraucht werden,
+als gerade im Laufwerk ist. Beachten Sie, dass nur CDs oder DVDs gescannt
+werden sollten, die zu dem gleichen Set gehören. Die Reihenfolge, in der sie
+gescannt werden, ist nicht wirklich von Bedeutung, aber es reduziert die
+Wahrscheinlichkeit von Fehlern, wenn sie in aufsteigender Reihenfolge
+eingelegt werden.
+
+</para>
+    </sect4>
+
+    <sect4 id="apt-setup-mirror">
+    <title>Einen Internet-Spiegel-Server verwenden</title>
+
+<para>
+
+Eine Frage, die Ihnen in den meisten Fällen gestellt wird, ist, ob Sie
+einen Internet-Spiegel-Server als Paketquelle verwenden möchten oder nicht.
+Meistens können Sie die Standardantwort übernehmen, aber es gibt einige
+Ausnahmen.
+
+</para><para>
+
+Falls Sie <emphasis>nicht</emphasis> von einer Komplett-CD oder -DVD
+(bzw. einem Komplett-CD/DVD-Image) installieren, sollten Sie auf jeden
+Fall einen Internet-Spiegel-Server verwenden, da Sie ansonsten nur ein sehr
+minimalistisches System erhalten werden. Wenn Sie aber nur über eine
+relativ langsame Internet-Verbindung verfügen, empfiehlt es sich in diesem
+Fall, im nächsten Schritt <emphasis>nicht</emphasis> die
+<literal>Arbeitsplatz</literal>-Programmgruppe zur Installation auszuwählen.
+
+</para><para>
+
+Wenn Sie von einer Komplett-CD (bzw. einem Komplett-CD-Image) installieren,
+ist es nicht zwingend erforderlich, einen
+Internet-Spiegel-Server zu verwenden, aber es wird trotzdem dringend empfohlen,
+da eine einzelne CD nur eine limitierte Anzahl von Paketen enthält.
+Sollten Sie nur über eine relativ langsame Internet-Verbindung
+verfügen, wird hier trotzdem empfohlen, <emphasis>keinen</emphasis>
+Internet-Spiegel-Server auszuwählen, sondern die Installation unter der
+Verwendung der auf der CD verfügbaren Pakete zu beenden und zusätzliche
+Pakete nach der Installation hinzuzufügen (also nach dem Neustart, wenn
+Sie Ihr neues System gebootet haben).
+
+</para><para>
+
+Wenn Sie von einer DVD (bzw. einem DVD-Image) installieren, sollten alle
+Pakete, die während der Installation benötigt werden, auf der ersten DVD
+enthalten sein. Das Gleiche gilt, wenn Sie mehrere CDs gescannt haben, wie
+im vorherigen Abschnitt beschrieben. Die Nutzung eines Internet-Spiegel-Servers
+ist in diesen Fällen optional.
+
+</para><para>
+
+Ein Vorteil davon, einen Internet-Spiegel-Servers zu verwenden, ist, dass
+Aktualisierungen, die seit der Erstellung der CDs/DVDs durchgeführt wurden
+und die Teil einer Zwischen-Veröffentlichung (<quote>point release</quote>)
+sind, sofort während der Installation verfügbar sind, so dass die Lebensdauer
+der CDs/DVDs verlängert wird, ohne die Sicherheit oder Stabilität des
+installierten Systems zu beeinträchtigen.
+
+</para><para>
+
+Alles in Allem: einen Internet-Spiegel-Server auszuwählen ist grundsätzlich
+eine gute Idee, außer Sie haben eine langsame Internet-Verbindung. Wenn
+die derzeit aktuelleste Version eines Pakets auf der CD/DVD enthalten ist,
+wird der Installer sie auf jeden Fall verwenden. Die Summe der
+herunterzuladenen Daten (falls Sie einen Internet-Spiegel-Server auswählen)
+hängt also von folgenden Faktoren ab:
+
+<orderedlist>
+<listitem><para>
+
+die Programmgruppen, die Sie im nächsten Installationsschritt auswählen,
+
+</para></listitem>
+<listitem><para>
+
+welche Pakete für diese Programmgruppen benötigt werden,
+
+</para></listitem>
+<listitem><para>
+
+welche dieser Pakete auf den CDs oder DVDs, die Sie gescannt haben, enthalten
+sind, und
+
+</para></listitem>
+<listitem><para>
+
+ob eventuell aktualisierte Versionen von Paketen, die auf den CDs oder
+DVDs enthalten sind, auf einem Internet-Spiegel-Server bereitstehen
+(entweder auf einem regulären Paket-Spiegel-Server oder auf einem Spiegel-Server
+für Sicherheits- oder Volatile-Updates).
+
+</para></listitem>
+</orderedlist>
+
+</para><para>
+
+Beachten Sie, dass eine Zwischen-Veröffentlichung (<quote>point
+release</quote>) dazu führen kann, dass einige Pakete über das
+Internet heruntergeladen werden könnten, obwohl Sie keinen
+Internet-Spiegel-Server ausgewählt haben, nämlich wenn ein Sicherheits-
+oder Volatile-Update für diese Pakete verfügbar ist und wenn die
+entsprechenden Dienste (Sicherheits-Update oder Volatile-Update) konfiguriert
+wurden.
+
+</para>
+</sect4>
+   </sect3>

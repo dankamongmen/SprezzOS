@@ -1,0 +1,34 @@
+<!-- $Id: clock-setup-finish.xml 64781 2010-09-18 15:58:51Z mck-guest $ -->
+<!-- original version: 64742 -->
+
+   <sect3 arch="not-s390" id="system-clock">
+   <title>Nastavení systémových hodin</title>
+
+<para>
+
+&d-i; se může zeptat, zda jsou hardwarové hodiny počítače nastaveny na
+univerzální časové pásmo (UTC). Systém se snaží odpověď odhadnout
+například podle nalezených operačních systémů. Při expertní instalaci
+se otázka zobrazí vždy.
+
+<phrase arch="powerpc">
+
+Hardwarové hodiny v Macintoshích jsou standardně nastaveny na místní
+čas. Jestliže budete mít duální zavádění, tak možnost UTC zamítněte.
+
+</phrase><phrase arch="any-x86">
+
+Jestli budou na počítači i Windows nebo DOS, možnost hardwarových
+hodin v UTC zamítněte, protože zmíněné systémy s touto možností
+pracovat neumí.
+
+</phrase>
+
+</para><para>
+
+V tento okamžik se &d-i; pokusí uložit aktuální čas do hardwarových
+hodin počítače. V závislosti na předchozí odpovědi bude čas uložen buď
+v UTC nebo v místním čase.
+
+</para>
+  </sect3>

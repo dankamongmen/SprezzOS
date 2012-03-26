@@ -1,0 +1,181 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56326 -->
+
+ <sect1 id="mount-encrypted-volumes">
+ <title>Muntar volums xifrats</title>
+
+<para>
+
+Si heu creat volums xifrats a la instal·lació i els heu assignat
+punts de muntatge, se us preguntarà que introduïu la contrasenya per
+cada volum a l'arrencada. El procediment actual canvia lleugerament entre
+dm-crypt i loop-AES.
+
+</para>
+
+  <sect2 id="mount-dm-crypt">
+  <title>dm-crypt</title>
+
+<para>
+
+A les particions xifrades amb dm-crypt se us mostrarà l'indicador
+següent a l'arrencada:
+
+<informalexample><screen>
+Arrancant els primers discs xifrats... <replaceable>part</replaceable>_crypt (s'està començant)
+Introduïu la contrasenya LUKS:
+</screen></informalexample>
+
+A la primera línia de l'indicador, <replaceable>part</replaceable> és el
+nom de la partició subjacent, p.ex. sda2 o md0. Us preguntareu probablement
+<emphasis>quin és el volum</emphasis> pel qual esteu introduint ara la
+contrasenya. És la que es refereix al vostre <filename>/home</filename>? O to
+<filename>/var</filename>? Per suposat, si xifreu tan sols un volum,
+és fàcil tan sols donant la paraula de pas que heu utilitzat quan heu
+configurat el volum. Si heu configurat més d'un volum xifrat a la
+instal·lació, us seran útils les notes que heu escrit a l'últim pas de
+<xref linkend="partman-crypto"/>. Si no vàreu fer una nota del mapatge
+dels <filename><replaceable>part</replaceable>_crypt</filename> i els punt
+de muntatge abans, encara podeu trobar-ho a
+<filename>/etc/crypttab</filename>
+i a <filename>/etc/fstab</filename> del vostre nou sistema.
+
+</para><para>
+
+L'indicador es pot mostrar diferent quan està muntat el sistema de fitxers
+arrel xifrat. Açò depen de quin generador de initramfs es va utilitzar per
+generar el initrd utilitzat per arrencar el sistema. L'exemple de baix és
+per un initrd generat amb <classname>initramfs-tools</classname>:
+
+<informalexample><screen>
+Begin: Muntant el <emphasis>sistema de fitxers arrel</emphasis>... ...
+Begin: Executant /scripts/local-top ...
+Introduïu la contrasenya LUKS:
+</screen></informalexample>
+
+</para><para>
+
+No es mostrarà cap caràcter (ni asteriscs) mentre introduïu la contrasenya.
+Si introduïu una contrasenya incorrecta, tindreu dos intents més per
+corregir-ho. Després del tercer intent, el procés d'arrencada obviarà
+aquest volum i continuarà per muntar el pròxim sistema de fitxers. Vegeu
+<xref linkend="crypto-troubleshooting"/> per obtenir més informació.
+
+</para><para>
+
+Després d'introduir totes les contrasenyes l'arrencada hauria de continuar
+de forma normal.
+
+</para>
+  </sect2>
+
+  <sect2 id="mount-loop-aes">
+  <title>loop-AES</title>
+
+<para>
+
+A les particions xifrades amb loop-AES voreu l'indicador següent a
+l'arrencada:
+
+<informalexample><screen>
+Comprovant els sistemes de fitxes loop-encrypted.
+Configurant /dev/loop<replaceable>X</replaceable> (/<replaceable>puntdemuntatge</replaceable>)
+Contrasenya:
+</screen></informalexample>
+
+</para><para>
+
+No es mostrarà cap caràcter (ni asteriscs) mentre introduïu la contrasenya.
+Si introduïu una contrasenya incorrecta, tindreu dos intents més per
+corregir-ho. Després del tercer intent, el procés d'arrencada obviarà
+aquest volum i continuarà per muntar el pròxim sistema de fitxers. Vegeu
+<xref linkend="crypto-troubleshooting"/> per obtenir més informació.
+
+</para><para>
+
+Després d'introduir totes les contrasenyes l'arrencada continuarà de forma
+normal.
+
+</para>
+  </sect2>
+
+  <sect2 id="crypto-troubleshooting">
+  <title>Resolució de problemes</title>
+
+<para>
+
+Si algun volum xifrat no s'ha pogut muntar degut a que s'ha introduït una
+contrasenya incorrecta, haureu de muntar-los manualment després de
+l'arrencada. Hi ha casos diferents.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+El primer cas fa referència a la partició arrel. Quan no es munta
+correctament, el procés d'arrencada s'aturarà i haureu de reiniciar
+l'ordinador per provar altra vegada.
+
+</para></listitem>
+<listitem><para>
+
+El cas més senzill és per volums xifrats que contenen dades com és
+<filename>/home</filename> o <filename>/srv</filename>. Podeu simplement
+muntar-lo manualment després de l'arrencada. Per loop-AES aquest és una
+operació d'un pas:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
+<prompt>Password:</prompt>
+</screen></informalexample>
+
+on <replaceable>/mount_point</replaceable> hauria de reemplaçar-se pel
+directori particular(p.e. <filename>/home</filename>). L'única diferència
+de un punt de muntatge normal és que se us demanarà d'introduir la
+contrasenya per aquest volum.
+
+</para><para>
+
+Per dm-crypt açò és una mica més difícil. Primer necessitareu registrar
+els volums amb <application>device mapper</application> executant:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>
+</screen></informalexample>
+
+Açò buscarà a tots els volums anomenats a
+<filename>/etc/crypttab</filename> i crearà els dispositius apropiats al
+directori <filename>/dev</filename> després d'introduir les contrasenyes
+correctes. (Als volums ja registrats no ho farà, així que podeu repetir
+aquesta ordre més vegades sense preocupar-se). Després d'un registre
+correcte podeu muntar els volums de la forma habitual:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
+</screen></informalexample>
+
+</para></listitem>
+<listitem><para>
+
+Si qualsevol volum que continga sistemes de fitxers no crítics no és
+muntat (<filename>/usr</filename> o <filename>/var</filename>), el sistema
+encara podria arrencar i hauríeu de ser capaços de muntar els volums
+manualment com al cas anterior. Però, necessitareu tornar a iniciar alguns
+serveis que s'executen al vostre nivell d'execució per defecte ja que és
+molt probable que no s'haja engegat. La forma més senzilla d'aconseguir-ho
+és canviar al primer nivell d'execució i tornar a entrar amb
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>init 1</userinput>
+</screen></informalexample>
+
+a l'interpret d'ordres i prement  <keycombo> <keycap>Control</keycap>
+<keycap>D</keycap> </keycombo> quan us demane la contrasenya.
+
+</para></listitem>
+</itemizedlist>
+
+  </sect2>
+ </sect1>
+

@@ -1,0 +1,129 @@
+<!-- original version: 66809 -->
+
+ <sect1 id="loading-firmware" arch="not-s390">
+ <title>Télécharger des microprogrammes (<emphasis>firmware</emphasis>) manquants</title>
+<para>
+
+Certains périphériques exigent des microprogrammes pour fonctionner.
+Voyez <xref linkend="hardware-firmware"/>. Dans la plupart des cas, le périphérique ne fonctionnera pas
+si le microprogramme n'est pas disponible. Parfois les fonctionnalités de base
+ne sont pas affectées par l'absence du microprogramme et seules les fonctionnalités
+avancées exigent sa présence.
+
+</para><para>
+
+Quand un pilote de périphérique demande un microprogramme qui n'est pas disponible,
+l'installateur debian affiche un écran qui propose de télécharger le microprogramme.
+Si cette option est choisie, les fichiers du microprogramme ou les paquets contenant ce
+microprogramme seront cherchés sur les périphériques disponibles. Une fois trouvé,
+le microprogramme sera placé au bon endroit, (<filename>/lib/firmware</filename>), et
+le module du pilote sera rechargé.   
+
+</para>
+<note><para>
+
+Quels périphériques sont examinés et quels systèmes de fichiers sont reconnus, cela
+dépend de l'architecture, de la méthode d'installation et aussi du moment dans le
+processus d'installation. Pendant les premières étapes de ce processus, il est probable
+que le microprogramme sera correctement chargé depuis une disquette avec un système de fichiers FAT
+ou une clé USB.
+<phrase arch="x86">Sur les architectures i386 et amd64, les microprogrammes peuvent être chargés sur des cartes
+SD ou MMC.</phrase>
+
+</para></note>
+<para>
+
+Il est possible d'éviter l'étape du chargement d'un microprogramme si l'on sait
+que le périphérique fonctionnera sans microprogramme ou que le périphérique n'est pas
+nécessaire pendant l'installation.
+
+</para>
+
+
+  <sect2><title>Préparer le support</title>
+<para>
+
+Les images sur CD officielles ne comportent pas de microprogrammes non libres.
+La méthode la plus commune pour télécharger ces microprogrammes est de les placer 
+sur un support amovible comme une clé USB.
+Cependant on peut trouver des CD non officiels comportant ces microprogrammes 
+à l'adresse suivante, <ulink url="&url-firmware-cds;"/>.
+
+Les fichiers du microprogramme ou le paquet les contenant doivent être
+dans le répertoire racine ou dans un répertoire nommé <filename>/firmware</filename>
+du système de fichiers utilisé (partition de disque dur, disquette, clé USB).
+Il est recommandé d'utiliser le système de fichiers FAT car
+ce système sera certainement reconnu dans les premières étapes du processus d'installation.
+
+</para><para>
+
+Des archives (<emphasis>tarballs</emphasis> ou fichiers zip) contenant les paquets pour les microprogrammes les plus courants
+sont disponibles sur
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-tarballs;"/>
+</para></listitem>
+</itemizedlist>
+
+Il suffit de télécharger la bonne version des fichiers et de les placer sur
+le système de fichiers du support.
+
+
+</para><para>
+
+Si le microprogramme voulu n'est pas inclus dans le fichier tar, vous pouvez aussi
+trouver des paquets spécifiques dans la section <emphasis>non-free</emphasis> de l'archive.
+La liste suivante indique la plupart des microprogrammes disponibles sous forme de paquets.
+Elle n'est certainement pas complète et elle peut contenir des paquets qui ne sont pas des microprogrammes.
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-packages;"/>
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Il est aussi possible de copier des microprogrammes sous forme de simple fichier sur le support.
+Ces fichiers peuvent être pris par exemple sur un système déjà installé ou donnés par
+un vendeur de matériel.
+
+</para>
+  </sect2>
+
+  <sect2><title>Microprogrammes et système installé</title>
+<para>
+
+Tout microprogramme chargé pendant l'installation est copié automatiquement
+sur le système installé. Dans la plupart des cas, le périphérique qui demandait
+le microprogramme fonctionnera correctement une fois la machine relancée sur le nouveau
+système installé. Cependant si le système installé utilise une autre version du noyau
+que celle utilisée par l'installateur, il existe un risque léger que le microprogramme
+ne puisse être chargé, à cause de la différences des versions. 
+
+</para><para>
+
+Si le microprogramme chargé était sous forme de paquet, l'installateur debian
+installera aussi ce paquet dans le nouveau système installé et ajoutera 
+automatiquement la section <emphasis>non-free</emphasis> de l'archive debian dans
+le fichier <filename>sources.list</filename> d'apt. Ainsi le microprogramme sera
+automatiquement mis à jour quand une nouvelle version apparaît.  
+
+</para><para>
+
+Si l'étape de chargement du microprogramme a été évitée pendant l'installation,
+le périphérique ne fonctionnera pas correctement sur le système installé.
+Il faudra installer le microprogramme <emphasis>manuellement</emphasis>.
+
+</para>
+<note><para>
+
+Quand le microprogramme provient de simples fichiers, une fois copié sur
+le système installé, il ne sera <emphasis>pas</emphasis> automatiquement mis à jour,
+sauf s'il existe un paquet correspondant à ce microprogramme et que ce paquet
+est installé quand l'installation est terminée.  
+
+</para></note>
+  </sect2>
+ </sect1>

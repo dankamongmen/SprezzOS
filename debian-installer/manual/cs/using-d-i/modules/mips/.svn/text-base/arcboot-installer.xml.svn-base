@@ -1,0 +1,68 @@
+<!-- $Id$ -->
+<!-- original version: 35613 -->
+
+  <sect3 arch="mips">
+  <title>Instalovat zavaděč <command>Arcboot</command> na pevný disk</title>
+<para>
+
+Zavaděč na počítačích SGI se jmenuje <command>arcboot</command>
+a musí ležet na stejném disku jako jádro (o to se postará instalační
+program automaticky). <command>Arcboot</command> umožňuje mít v souboru
+<filename>/etc/arcboot.conf</filename> různé konfigurace. Každá
+konfigurace musí mít unikátní jméno, výchozí konfigurace vytvořená
+instalačním programem se nazývá <quote>linux</quote>.
+Poté, co se <command>arcboot</command> nainstaluje, můžete zavádět
+systém z disku tak, že ve firmwaru nastavíte následující proměnné:
+
+<informalexample><screen>
+<userinput>setenv SystemPartition scsi(<replaceable>scsi</replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</userinput>
+<userinput>setenv OSLoadPartition scsi(<replaceable>scsi</replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(<replaceable>oblast</replaceable>)</userinput>
+<userinput>setenv OSLoader arcboot</userinput>
+<userinput>setenv OSLoadFilename <replaceable>záznam</replaceable></userinput>
+<userinput>setenv AutoLoad yes</userinput>
+</screen></informalexample>
+
+a pak napíšete <command>boot</command>.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term><replaceable>scsi</replaceable></term>
+<listitem><para>
+
+je SCSI sběrnice, ze které se má zavádět. Pro řadiče na zíkladní desce
+to je <userinput>0</userinput>.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><replaceable>disk</replaceable></term>
+<listitem><para>
+
+je SCSI ID pevného disku, na kterém je <command>arcboot</command>
+nainstalován.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><replaceable>oblast</replaceable></term>
+<listitem><para>
+
+je pořadové číslo oblasti, na které se nachází
+<filename>/etc/arcboot.conf</filename>.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><replaceable>záznam</replaceable></term>
+<listitem><para>
+
+je jméno záznamu v <filename>/etc/arcboot.conf</filename>, který se má
+zavést. Implicitně to je <quote>linux</quote>.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+  </sect3>

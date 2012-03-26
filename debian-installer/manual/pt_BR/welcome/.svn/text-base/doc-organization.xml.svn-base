@@ -1,0 +1,123 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56322 -->
+<!-- reviewed by Marco Carvalho (macs) 2005.12.31 -->
+<!-- reviewed by Felipe Augusto van de Wiel (faw) 2006.04.10 -->
+
+ <sect1 id="doc-organization">
+ <title>Organização Deste Documento</title>
+
+<para>
+
+Este documento tem a intenção de servir como o primeiro
+manual para usuários &debian;. Ele tenta assumir algumas
+coisas quando possíveis sobre seu nível de experiência. No entanto,
+nós assumimos que você tem um entedimento geral de como o hardware
+no seu computador funciona.
+
+</para><para>
+
+Usuários experientes também podem encontrar algumas referências para
+informações interessantes neste documento, incluindo o tamanho
+mínimo de instalação, detalhes sobre os hardwares suportados pelo
+sistema de instalação do &debian;, e assim por diante. Nós encorajamos
+usuários experientes a darem uma olhada neste documento.
+
+</para><para>
+
+Em geral, este manual é organizado de uma forma linear, guiando-o
+através do processo de instalação do início até o final. Aqui estão os
+passos para a instalação do &debian-gnu;, e as seções deste documento
+relacionadas com cada passo:
+
+<orderedlist>
+<listitem><para>
+
+Determinar se o seu hardware atende aos requerimentos de uso do
+sistema de instalação, em <xref linkend="hardware-req"/>.
+
+</para></listitem>
+<listitem><para>
+
+Cópia de segurança do seu sistema, fazer quaisquer planejamentos
+necessários e configurações de hardware antes de instalar o &debian;, em
+<xref linkend="preparing"/>. Se você estiver preparando um sistema 
+multi-inicialização, pode ser que você tenha que criar um espaço
+particionável em seu disco rígido para uso do &debian;.
+
+</para></listitem>
+<listitem><para>
+
+Em <xref linkend="install-methods"/>, você poderá obter os arquivos necessários
+de instalação para o método de instalação que escolheu.
+
+</para></listitem>
+<listitem><para>
+
+<xref linkend="boot-installer"/> descreve o processo de iniciar o programa
+de instalação. Este capítulo também discute procedimentos relacionados
+à solução de problemas durante este passo.
+
+</para></listitem>
+<listitem><para>
+
+Realizar a instalação atual seguindo os passos em
+<xref linkend="d-i-intro"/>. Isto envolve escolher seu idioma, configurar
+os módulos dos controladores de periféricos, configurar sua conexão de rede,
+assim os arquivos restantes da instalação poderão ser obtidos diretamente a
+partir de um servidor do &debian; (se não estiver instalando a partir de um CD),
+particionar seus discos rígidos e instalar o sistema básico, para então 
+escolher e instalar as tarefas (<quote>tasks</quote>).
+(Algumas informações básicas sobre configuração de partições para o seu
+sistema &debian; é explicado em <xref linkend="partitioning"/>.)
+
+</para></listitem>
+<listitem><para>
+
+Iniciar em seu novo sistema instalado, a partir de <xref linkend="boot-new"/>.
+
+</para>
+</listitem>
+</orderedlist>
+
+</para><para>
+
+Assim que tiver seu sistema instalado, você poderá ler
+<xref linkend="post-install"/>. Este capítulo explica onde
+encontrar mais informações sobre o Unix e o &debian;, e como
+substituir seu kernel atual.
+
+<!-- XXX FIXME: Se quiser construir seu próprio sistema de instalação
+a partir do código fonte, tenha certeza de ler
+<xref linkend="boot-floppy-techinfo"/>. -->
+
+</para><para>
+
+Finalmente, informações sobre este documento e como contribuir para
+sua melhoria podem ser encontradas em <xref linkend="administrivia"/>.
+
+</para>
+
+ </sect1>
+
+ <sect1 condition="FIXME">
+ <title>Sua Ajuda na Documentação é Bem Vinda</title>
+
+<para>
+
+Qualquer ajuda, sugestão, e especialmente, patches, são
+enormemente apreciados. Versões sendo trabalhadas deste
+documento podem ser encontradas em
+<ulink url="&url-d-i-alioth-manual;">
+</ulink>. Lá você encontrará uma lista de todas as diferentes
+arquiteturas e idiomas em que este documento está disponível.
+
+</para><para>
+
+O fonte também está disponível publicamente; veja
+<xref linkend="administrivia"/> para mais detalhes sobre como contribuir.
+Nós agradecemos sugestões, comentários, patches, e relatórios de bugs
+(use o pacote <classname>installation-guide</classname> para bugs, mas
+verifique primeiro se a falha já não foi relatada).
+
+</para>
+ </sect1>

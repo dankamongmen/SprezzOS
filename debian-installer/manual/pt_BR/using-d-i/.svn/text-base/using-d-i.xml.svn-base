@@ -1,0 +1,413 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61189 -->
+<!-- updated 46722:56428 by Felipe Augusto van de Wiel (faw) 2008.11.10 -->
+<!-- updated 56428:61189 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+ <chapter id="d-i-intro"><title>Usando o &debian; Installer</title>
+
+ <sect1><title>Como o programa de instalação Funciona</title>
+<para>
+
+O &debian; installer consiste em um número de componentes de propósitos
+especiais para fazer cada tarefa de instalação. Cada componente faz
+sua tarefa, perguntando ao usuário questões necessárias para fazer seu
+trabalho. Estas questões possuem prioridades definidas e a prioridade
+das questões a serem mostradas é configurada quando o programa de
+instalação se inicia.
+
+</para><para>
+
+Quando uma instalação padrão é feita, somente questões essenciais
+(alta prioridade) são feitas. Isto resulta em um processo de instalação
+altamente automatizado com pouca interação com o usuário. Os componentes
+são automaticamente executados em seqüência; que componentes são executados
+dependem principalmente do método de instalação que está usando em seu
+hardware. O programa de instalação usará valores padrões para questões
+que não forem perguntadas.
+
+</para><para>
+
+Se ocorrer um problema, o usuário verá uma tela de erro e o menu do
+programa de instalação será mostrado para selecionar uma ação alternativa.
+Se não existirem problemas, o usuário nunca verá o menu do programa de
+instalação, mas simplesmente responderá questões para cada componente por vez.
+Notificações de erros sérios são marcadas para <quote>crítica</quote>, então o
+usuário será notificado.
+
+</para><para>
+
+Alguns dos valores padrões que o programa de instalação utiliza podem ser
+influenciados passando parâmetros de inicialização quando o &d-i; é iniciado.
+Por exemplo, se deseja forçar a configuração de rede estática (DHCP é usado
+por padrão se estiver disponível) você deverá adicionar o parâmetro de
+inicialização <userinput>netcfg/disable_dhcp=true</userinput>.
+Veja <xref linkend="installer-args"/> para ver as opções disponíveis.
+
+</para><para>
+
+Usuários avançados podem estar mais confiantes com uma interface
+dirigida por menus, onde cada passo é controlado pelo usuário ao
+invés da instalação fazendo cada passo automaticamente na
+seqüência. Para usar o programa em modo manual, no método
+via menus, adicione o argumento de inicialização
+<userinput>priority=medium</userinput>.
+
+</para><para>
+
+Caso seu hardware requerer opções especiais para os módulos do kernel
+durante sua instalação, você precisará iniciar o programa de instalação
+em modo <quote>expert</quote>. Isto pode ser feito ou usando o comando
+<command>expert</command> para iniciar o programa de instalação ou adicionando
+o argumento de inicialização <userinput>priority=low</userinput>.
+O modo expert lhe da controle total sobre o &d-i;.
+
+</para><para condition="gtk">
+
+Para esta arquitetura o &d-i; dá suporte a duas interface de usuário
+diferentes: uma baseada em caracteres e uma gráfica. A interface baseada
+em caracteres é usada por padrão a menos que você selecione a opção
+<quote>Graphical install</quote> (<quote>Instalação gráfica</quote>) no
+menu de inicialização. Para mais informações sobre o instalador gráfico,
+por favor, veja <xref linkend="graphical"/>.
+
+</para><para condition="not-gtk">
+
+Para esta arquitetura o instalador usa uma interface de usuário baseada em
+caracter. Uma interface de usuário gráfica não está disponível no momento.
+
+</para><para>
+
+No ambiente baseado em caractere não há suporte para o uso do mouse.
+Aqui estão as teclas que você pode usar para navegar pelas diversas
+caixas de diálogo. A tecla <keycap>Tab</keycap> ou seta para
+<keycap>direita</keycap> move <quote>para frente</quote>, e
+<keycombo> <keycap>Shift</keycap> <keycap>Tab</keycap></keycombo> ou
+seta para <keycap>esquerda</keycap> movem <quote>para trás</quote>
+entre os botões mostrados e seleções.
+A seta para <keycap>cima</keycap> e <keycap>baixo</keycap> selecionam
+os diferentes itens dentro de uma lista com rolagem, e também
+movem a lista. Em adição, em listas longas, você poderá digitar a
+letra que fará a lista rolar diretamente para a seção que inicia por
+aquela letra e usar <keycap>Pg-Up</keycap> e
+<keycap>Pg-Down</keycap> para rolar a lista em seções. A
+<keycap>barra de espaço</keycap> seleciona um item como uma checkbox.
+Use a tecla &enterkey; para ativar as escolhas.
+
+</para><para>
+
+Alguns diálogos podem oferecer informação adicional de ajuda. Se a
+ajuda está disponível, há uma indicação na linha inferior da tela
+informando que a ajuda pode ser acessada apertando a tecla
+<keycap>F1</keycap>.
+
+</para><para arch="s390">
+
+O S/390 não suporta consoles virtuais. Você terá que abrir uma segunda
+ou terceira seção de ssh para ver os logs descritos abaixo.
+
+</para><para>
+
+As mensagens de erro e logs são direcionados para o quarto console.
+Você poderá acessar este console digitando <keycombo><keycap>Left Alt</keycap>
+<keycap>F4</keycap></keycombo>
+(pressione a tecla <keycap>Alt</keycap> esquerda enquanto pressiona a tecla de
+função <keycap>F4</keycap>); volte para o processo de instalação
+principal pressionando
+<keycombo><keycap>Left Alt</keycap><keycap>F1</keycap></keycombo>.
+
+</para><para>
+
+Esta mensagens também podem ser encontradas no arquivo
+<filename>/var/log/syslog</filename>. Após a instalação, esta mensagem
+de log é copiada para <filename>/var/log/syslog</filename>
+em seu novo sistema. As outras mensagens de instalação podem ser encontradas em
+<filename>/var/log/</filename> durante a instalação, e
+<filename>/var/log/installer/</filename> após o computador ser iniciado
+com o sistema recém instalado.
+
+</para>
+ </sect1>
+
+
+  <sect1 id="modules-list"><title>Introdução aos componentes</title>
+<para>
+
+Aqui está uma lista dos componentes instalados com uma breve
+descrição do propósito de cada um. Detalhes que você poderá precisar
+saber sobre usar cada componente em particular podem ser encontrado
+em <xref linkend="module-details"/>.
+
+</para>
+
+<variablelist>
+<varlistentry>
+
+<term>main-menu</term><listitem><para>
+
+Mostra a lista de componentes para o usuário durante a operação
+de instalação, e inicia um componente quando ele for
+selecionado. As questões do menu principal são ajustadas para
+prioridade medium, assim se sua prioridade for ajustada para
+high ou critical (high é o padrão), você não verá o
+menu. Por outro lado, se existir um erro que requeira sua intervenção,
+a prioridade da questão pode ser temporariamente abaixada para lhe
+permitir resolvê-lo, neste caso o menu aparecerá.
+
+</para><para>
+
+Você poderá retornar para o menu principal selecionando o botão
+&BTN-GOBACK; repetidamente para voltar todo o caminho do componente
+sendo executado atualmente.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>localechooser</term><listitem><para>
+
+Permite ao usuário selecionar opções de localização para instalação e para os
+sistemas instalados: idioma, país e <quote>locales</quote>. O instalador irá
+exibir mensagens no idioma selecionado, a menos que a tradução para este idioma
+esteja completa algumas mensagens podem ser exibidas em Inglês.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>console-setup</term><listitem><para>
+
+Mostra uma lista de teclados, no qual o usuário pode escolher o modelo que
+é exatamente igual ao que possui.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>hw-detect</term><listitem><para>
+
+Detecta automaticamente a maioria dos hardware do sistema, incluindo placas
+de rede, unidades de disco e PCMCIA.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>cdrom-detect</term><listitem><para>
+
+Procura por um CD de instalação do &debian; e monta.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>netcfg</term><listitem><para>
+
+Configura as conexões de rede do computador para que ele possa se
+conectar a internet.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>iso-scan</term><listitem><para>
+
+Procura por imagens ISO (arquivos <filename>.iso</filename>) em discos rígidos.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>choose-mirror</term><listitem><para>
+
+Mostra uma lista de arquivos espelhos (mirrors) do &debian;. O usuário pode
+escolher a origem dos pacotes de instalação.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>cdrom-checker</term><listitem><para>
+
+Verifica a integridade de um CD-ROM. Desta forma, o usuário pode ter
+certeza que seu CD-ROM de instalação não foi corrompido.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>lowmem</term><listitem><para>
+
+O lowmem tenta detectar sistemas com pouca memória e então faz várias
+checagens para remover partes desnecessárias do &d-i; da memória
+(pelo custo de algumas características).
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>anna</term><listitem><para>
+
+Anna é quase um APT. Instala pacotes que foram baixados
+de um mirror selecionado.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>user-setup</term><listitem><para>
+
+Configura a senha do root e adiciona um usuário não-root.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>clock-setup</term><listitem><para>
+
+Atualiza o relógio do sistema e determina se o relógio está configurado
+para UTC ou não.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>tzsetup</term><listitem><para>
+
+Seleciona o fuso horário, baseado na localização selecionada anteriormente.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>partman</term><listitem><para>
+
+Permite ao usuário particionar discos conectados ao sistema, cria
+sistemas de arquivos nas partições selecionadas e anexa-os aos pontos
+de montagem. Também estão incluídos recursos interessantes como um modo
+completamente automático ou suporte LVM. Esta é a ferramenta preferida de
+particionamento no &debian;.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>partitioner</term><listitem><para>
+
+Permite ao usuário particionar discos conectados ao sistema. Um
+programa de particionamento apropriado para a arquitetura do seu
+computador será selecionado.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>partconf</term><listitem><para>
+
+Mostra uma lista de partições, e cria um sistema de
+arquivos nas partições selecionadas de acordo com as
+instruções do usuário.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>lvmcfg</term><listitem><para>
+
+Ajuda o usuário com a configuração do
+<firstterm>LVM</firstterm> (Logical Volume Manager).
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>mdcfg</term><listitem><para>
+
+Permite ao usuário configurar o <firstterm>RAID</firstterm> (Redundant
+Array of Inexpensive Disks) via software. Este RAID software é
+normalmente superior a controladoras RAID IDE baratas (pseudo hardware)
+encontradas em placas mãe mais novas.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>base-installer</term><listitem><para>
+
+Instala o conjunto mais básico de pacotes que permitirá que
+o computador funcione sob o &debian-gnu; quando reinicializado.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>apt-setup</term><listitem><para>
+
+Configura o apt, quase automaticamente, com base em a partir de
+qual mídia o instalador está sendo executado.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>pkgsel</term><listitem><para>
+
+Usa o <classname>tasksel</classname> para selecionar e instalar
+software adicional.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>os-prober</term><listitem><para>
+
+Detecta os sistemas operacionais instalados atualmente no
+computador e passa esta informação para a instalação do
+gerenciador de partida, que pode lhe oferecer a possibilidade de adicionar
+os sistemas detectados no menu de inicialização. Isto da ao usuário facilidade
+de selecionar que sistema operacional deverá ser usado na partida do sistema.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>bootloader-installer</term><listitem><para>
+
+Os vários instaladores de gerenciadores de inicialização instalam
+cada qual um programa gerenciador de inicialização no disco rígido, o qual
+é necessário para que o computador inicie usando &arch-kernel; sem utilizar um
+disquete ou um CD-ROM. Muitos gerenciadores de inicialização permitem que
+o usuário escolha um sistema operacional alternativo a cada vez que o
+computador inicia.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>shell</term><listitem><para>
+
+Permite ao usuário executar um shell a partir do menu, ou no segundo
+console.
+
+</para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>save-logs</term><listitem><para>
+
+Oferece um método para o usuário gravar informações em um disquete,
+rede, disco rígido ou outra mídia quando problemas são encontrados, para
+que problemas no software instalador sejam relatados corretamente para os
+desenvolvedores &debian; posteriormente.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+ </sect1>
+
+&using-d-i-components.xml;
+&loading-firmware.xml;
+
+</chapter>
+

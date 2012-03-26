@@ -1,0 +1,344 @@
+<!-- $Id: install-tftp.xml 66210 2011-01-08 14:40:38Z mck-guest $ -->
+<!-- original version: 65994 -->
+
+ <sect1 condition="supports-tftp" id="install-tftp">
+ <title>Příprava souborů pro zavedení ze sítě pomocí TFTP</title>
+<para>
+
+Pokud je váš počítač připojen do lokální sítě, můžete jej zavést ze
+sítě pomocí TFTP. Jestliže chcete pomocí TFTP zavést instalační
+systém, musíte na vzdáleném počítači nakopírovat zaváděcí soubory do
+specifických adresářů a povolit zavádění vaší stanice.
+
+</para><para>
+
+Musíte nastavit TFTP server a často i DHCP server
+<phrase condition="supports-rarp"> nebo RARP </phrase>
+<phrase condition="supports-bootp"> nebo BOOTP </phrase> server.
+
+</para><para>
+
+<phrase condition="supports-rarp"> Klientovi můžete sdělit jeho IP
+adresu protokolem RARP (Reverse Address Resolution Protocol) nebo BOOTP.
+</phrase>
+
+<phrase condition="supports-bootp"> BOOTP je IP protokol, který
+informuje počítač o jeho IP adrese a prozradí mu, odkud si má stáhnout
+zaváděcí obraz.
+</phrase>
+
+DHCP (Dynamic Host Configuration Protocol) je flexibilnější, zpětně
+kompatibilní rozšíření protokolu BOOTP. Některé systémy mohou být
+nastaveny pouze pomocí DHCP.
+
+</para><para arch="powerpc">
+
+Pokud máte NewWorld Power Macintosh, je lepší použít místo BOOTP
+protokol DHCP, protože některé novější počítače se neumí protokolem
+BOOTP zavést.
+
+</para><para arch="hppa">
+
+Některé starší stroje HPPA (tj. 715/75) používají místo BOOTP protokol
+RBOOTD. Pro tyto účely slouží v &debian;u balík
+<classname>rbootd</classname>.
+
+</para><para>
+
+Pro přenos zaváděcího obrazu ke klientovi se používá protokol TFTP
+(Trivial File Transfer Protocol). Teoreticky můžete použít server na
+libovolné platformě, která jej implementuje. Ukázky v této kapitole se
+vztahují k operačním systémům SunOS 4.x, SunOS 5.x (neboli Solaris) a
+GNU/Linux.
+
+<note arch="x86"><para>
+
+Pokud na serveru běží &debian;, doporučujeme použít TFTP server
+<classname>tftp-hpa</classname> od stejného autora jako zavaděč
+<classname>syslinux</classname>, protože by mezi nimi mělo nastat
+nejméně problémů. Vhodnou alternativou je i
+<classname>atftpd</classname>.
+
+</para></note></para>
+
+&tftp-rarp.xml;
+&tftp-dhcp.xml;
+&tftp-bootp.xml;
+
+  <sect2 id="tftpd">
+  <title>Povolení TFTP serveru</title>
+<para>
+
+Aby vám TFTP server fungoval, měli byste nejprve zkontrolovat,
+zda je <command>tftpd</command> povolen.
+
+</para><para>
+
+V případě balíku <classname>tftpd-hpa</classname> existují dva
+způsoby, jak službu provozovat. Jednak se může
+<classname>tftpd-hpa</classname> spouštět jako samostatný daemon při
+startu systému, nebo může jeho spuštění zajišťovat systémový daemon
+<classname>inetd</classname> v okamžik, kdy je ho potřeba. Způsob,
+který zrovna používáte, můžete zvolit při instalaci balíku, respektive
+ho můžete kdykoliv změnit rekonfigurací balíku.
+
+</para><note><para>
+
+TFTP servery historicky používaly pro uložení nabízených obrazů
+adresář <filename>/tftpboot</filename>. Aby byl &debian; v souladu se
+standardem <ulink url="&url-fhs-home;">FHS</ulink>, mohou debianí
+balíky používat jiná umístění. Například
+<classname>tftpd-hpa</classname> implicitně používá adresář
+<filename>/srv/tftp</filename>. Je proto možné, že budete
+muset cesty uváděné v této kapitole upravit pro konkrétní situaci.
+
+</para></note><para>
+
+Všechny alternativní <command>in.tftpd</command> v &debian;u by měly
+automaticky zaznamenávat všechny požadavky, které jim byly zaslány, do
+systémových logů. To se hodí zejména v situaci, kdy zavádění neprobíhá
+tak, jak má. Některé TFTP servery umí zvýšit svou upovídanost
+parametrem <userinput>-v</userinput>.
+
+</para><para arch="mips">
+
+Pokud je vaším TFTP serverem GNU/Linux s jádrem 2.4.X a instalujete na
+počítač SGI, musíte na něm následujícím příkazem vypnout <quote>Path
+MTU discovery</quote>:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc</userinput>
+</screen></informalexample>
+
+Pokud tak neučiníte, PROM na SGI nebude moci stáhnout jádro.
+Dále zkontrolujte že TFTP pakety jsou posílány z portu menšího než
+32767, protože jinak by se přenos zastavil po prvním paketu.
+Rozsah zdrojových portů, které má TFTP server používat se nastaví
+příkazem:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>echo "2048 32767" &gt; /proc/sys/net/ipv4/ip_local_port_range</userinput>
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 id="tftp-images">
+  <title>Přesun TFTP obrazů na místo</title>
+<para>
+
+Dále je potřeba umístit příslušný TFTP obraz (viz
+<xref linkend="where-files"/>) do adresáře, kde má
+<command>tftpd</command> uloženy obrazy.
+Bohužel TFTP klient očekává jméno
+souboru v určitém tvaru, pro který neexistují žádné závazné
+standardy. Proto ještě musíte na příslušný obraz vytvořit odkaz, který
+<command>tftpd</command> použije pro zavedení konkrétního klienta.
+
+</para><para arch="powerpc">
+
+Na strojích NewWorld Power Macintosh budete muset nastavit jako
+zaváděcí TFTP obraz zavaděč <command>yaboot</command>.
+<command>Yaboot</command> si pak sám přes TFTP stáhne obrazy jádra a
+RAMdisku. Z adresáře <filename>netboot/</filename> musíte stáhnout
+následující soubory:
+
+<itemizedlist>
+<listitem><para>
+
+<filename>vmlinux</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>initrd.gz</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>yaboot.conf</filename>
+
+</para></listitem>
+<listitem><para>
+
+<filename>boot.msg</filename>
+
+</para></listitem>
+</itemizedlist>
+
+</para><para arch="x86">
+
+Pro PXE zavádění by mělo být vše potřebné v souboru
+<filename>netboot/netboot.tar.gz</filename>. Tento archiv stačí
+rozbalit do adresáře, kde <command>tftpd</command> uchovává zaváděcí
+obrazy. Ujistěte se, že je váš dhcp server nastaven tak, aby jako
+jméno souboru pro zavedení zasílal <filename>pxelinux.0</filename>.
+
+</para><para arch="ia64">
+
+Pro PXE zavádění by mělo být vše potřebné v souboru
+<filename>netboot/netboot.tar.gz</filename>. Tento archiv stačí
+rozbalit do adresáře, kde <command>tftpd</command> uchovává zaváděcí
+obrazy. Ujistěte se, že je váš dhcp server nastaven tak, aby jako
+jméno souboru pro zavedení zasílal
+<filename>/debian-installer/ia64//elilo.efi</filename>.
+
+</para>
+
+   <sect3 arch="sparc">
+   <title>TFTP zavádění na počítačích SPARC</title>
+<para>
+
+Některé počítače SPARC přidávají k názvu souboru jména podarchitektur
+jako třeba <quote>SUN4M</quote> nebo <quote>SUN4C</quote>. Pokud třeba
+máte počítač s podarchitekturou SUN4C a IP adresa je 192.168.1.3, pak
+jméno souboru bude <filename>C0A80103.SUN4C</filename>. Převod IP
+adresy na hexadecimální čísla můžete provést jednoduše v shellu
+příkazem
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>printf '%.2x%.2x%.2x%.2x\n' <replaceable>10 0 0 4</replaceable></userinput>
+</screen></informalexample>
+
+kde čísla <replaceable>10 0 0 4</replaceable> představují IP adresu (v
+tomto případě 10.0.0.4). Výsledek ještě musíte převést na velká
+písmena a případně připojit název podarchitektury.
+
+</para><para>
+
+Jestliže jste vše zadali správně, měl by příkaz <userinput>boot
+net</userinput> zadaný v OpenPROM nahrát obraz. Pokud obraz nebyl
+nalezen, zkontrolujte logy svého tftp serveru, abyste zjistili, o jaký
+obraz počítač požádal.
+
+</para><para>
+
+Některé sparc systémy můžete donutit hledat konkrétní soubor přidáním
+jména souboru na konec OpenPROM příkazu <userinput>boot</userinput>
+(např. <userinput>boot net muj-sparc.obraz</userinput>). Soubor musí
+samozřejmě ležet v adresáři prohledávaném TFTP serverem.
+
+</para>
+   </sect3>
+
+   <sect3 arch="mips">
+   <title>TFTP zavádění na SGI</title>
+<para>
+
+U počítačů SGI se můžete spolehnout na <command>bootpd</command>,
+že předá správné jméno TFTP souboru. Jméno se zadává v souboru
+<filename>/etc/bootptab</filename> jako parametr
+<userinput>bf=</userinput> nebo v souboru
+<filename>/etc/dhcpd.conf</filename> parametrem
+<userinput>filename=</userinput>.
+
+</para>
+   </sect3>
+  </sect2>
+
+<!-- FIXME: commented out since it seems too old to be usable and a current
+            way is not known
+
+  <sect2 id="tftp-low-memory">
+  <title>TFTP instalace na systémech s nedostatkem paměti</title>
+<para>
+
+Na některých systémech se standardní instalační RAMdisk a zaváděcí
+TFTP obraz nemusí vlézt do paměti. V takovém případě musíte navíc přes
+NFS připojit také kořenový adresář. Tento postup je shodný s instalací
+na bezdiskové nebo bezdatové klienty.
+
+</para><para>
+
+Nejprve proveďte všechny kroky podle <xref linkend="install-tftp"/>.
+
+<orderedlist>
+<listitem><para>
+
+Nakopírujte obraz linuxového jádra (<userinput>a.out</userinput> verzi
+pro vaši architekturu) na TFTP server.
+
+</para></listitem>
+<listitem><para>
+
+Na NFS serveru rozbalte kořenový archiv. (NFS i TFTP mohou běžet na
+stejném počítači):
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>cd /tftpboot</userinput>
+<prompt>#</prompt> <userinput>tar xvzf root.tar.gz</userinput>
+</screen></informalexample>
+
+Ujistěte se, že používáte GNU <command>tar</command>, protože některé
+implementace (konkrétně ta na SunOS) pracují (chybně) se zařízeními
+jako s obyčejnými soubory.
+
+</para></listitem>
+<listitem><para>
+
+Na klienta exportujte adresář
+<filename>/tftpboot/debian-sparc-root</filename> (s rootovským
+přístupem). Tj. do souboru <filename>/etc/exports</filename> přidejte
+následující řádek (toto je GNU/Linux syntaxe - pro SunOS by to mělo
+být podobné):
+
+<informalexample><screen>
+/tftpboot/debian-sparc-root <replaceable>klient</replaceable>(rw,no_root_squash)
+</screen></informalexample>
+
+Poznámka: <replaceable>klient</replaceable> je jméno nebo IP adresa
+instalovaného počítače tak, jak ji vidí server, když se klient zavádí.
+
+</para></listitem>
+<listitem><para>
+
+Vytvořte symbolický odkaz z klientské IP adresy, v tečkové notaci,
+na soubor <filename>debian-sparc-root</filename> v adresáři
+<filename>/tftpboot</filename>.
+Například pokud je IP adresa klienta 192.168.1.3, napište:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>ln -s debian-sparc-root 192.168.1.3</userinput>
+</screen></informalexample>
+
+</para></listitem>
+</orderedlist>
+
+</para>
+
+  </sect2>
+
+  <sect2 condition="supports-nfsroot">
+  <title>Instalace za použití TFTP a NFS</title>
+<para>
+
+Instalace přes TFTP a použití kořenového adresáře přes NFS je podobné
+jako <xref linkend="tftp-low-memory"/>, protože nebudete do paměti
+nahrávat RAMdisk, ale zavedete systém z kořenového souborového systému
+připojeného přes NFS. Musíte pak nahradit symbolický odkaz, aby
+ukazoval na jádro (například <filename>linux-a.out</filename>) a ne na
+tftp obraz.
+
+</para><para>
+
+RARP/TFTP vyžadují, aby všechny démony běžely na stejném serveru.
+(Stanice totiž odešle TFTP požadavek tomu, kdo odpoví na RARP
+zprávu).
+
+</para><para>
+
+Nyní máte nachystáno vše potřebné a můžete přejít k zavedení klientské
+stanice &mdash; <xref linkend="boot-tftp"/>.
+
+</para>
+
+  </sect2>
+
+END FIXME -->
+
+ </sect1>

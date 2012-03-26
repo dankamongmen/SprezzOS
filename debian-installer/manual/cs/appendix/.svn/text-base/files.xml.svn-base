@@ -1,0 +1,379 @@
+<!-- $Id$ -->
+<!-- original version: 65939 -->
+
+ <sect1 arch="linux-any" id="linuxdevices"><title>Zařízení v Linuxu</title>
+<para>
+
+V Linuxu existuje v adresáři <filename>/dev</filename> spousta
+speciálních souborů nazývaných soubory zařízení. V unixovém světě se k
+hardwaru přistupuje právě přes tyto soubory, které se ovšem chovají
+jinak, než obyčejné soubory. Soubor zařízení je vlastně abstraktní
+rozhraní k systémovému ovladači, který komunikuje přímo s
+hardwarem. Nejběžnějšími typy souborů zařízení jsou bloková a znaková
+zařízení, méně rozšířené jsou pak pojmenované
+<firstterm>roury</firstterm>. V následujícím výpisu je uvedeno několik
+nejdůležitějších souborů.
+
+</para><para>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>fd0</filename></entry>
+  <entry>první disketová mechanika</entry>
+</row><row>
+  <entry><filename>fd1</filename></entry>
+  <entry>druhá disketová mechanika</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>hda</filename></entry>
+  <entry>pevný disk IDE / CD-ROM na prvním IDE řadiči (Master)</entry>
+</row><row>
+  <entry><filename>hdb</filename></entry>
+  <entry>pevný disk IDE / CD-ROM na prvním IDE řadiči (Slave)</entry>
+</row><row>
+  <entry><filename>hdc</filename></entry>
+  <entry>pevný disk IDE / CD-ROM na druhém IDE řadiči (Master)</entry>
+</row><row>
+  <entry><filename>hdd</filename></entry>
+  <entry>pevný disk IDE / CD-ROM na druhém IDE řadiči (Slave)</entry>
+</row><row>
+  <entry><filename>hde</filename></entry>
+  <entry>pevný disk IDE / CD-ROM na přídavném IDE řadiči (Slave)</entry>
+</row><row>
+  <entry><filename>hdf</filename></entry>
+  <entry>pevný disk IDE / CD-ROM na přídavném IDE řadiči (Slave)</entry>
+</row><row>
+  <entry><filename>hda1</filename></entry>
+  <entry>první oblast na prvním pevném IDE disku</entry>
+</row><row>
+  <entry><filename>hdd15</filename></entry>
+  <entry>patnáctá oblast na čtvrtém pevném IDE disku</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sda</filename></entry>
+  <entry>pevný disk SCSI s nejnižším SCSI ID (tj. 0)</entry>
+</row><row>
+  <entry><filename>sdb</filename></entry>
+  <entry>pevný disk SCSI s nejbližším vyšším SCSI ID (tj. 1)</entry>
+</row><row>
+  <entry><filename>sdc</filename></entry>
+  <entry>pevný disk SCSI s nejbližším vyšším SCSI ID (tj. 2)</entry>
+</row><row>
+  <entry><filename>sda1</filename></entry>
+  <entry>první oblast na prvním pevném SCSI disku</entry>
+</row><row>
+  <entry><filename>sdd10</filename></entry>
+  <entry>desátá oblast na čtvrtém pevném SCSI disku</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>sr0</filename> nebo <filename>scd0</filename></entry>
+  <entry>SCSI CD-ROM s nejnižším SCSI ID</entry>
+</row><row>
+  <entry><filename>sr1</filename> nebo <filename>scd1</filename></entry>
+  <entry>SCSI CD-ROM s nejbližším vyšším SCSI ID</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>ttyS0</filename></entry>
+  <entry>sériový port 0, pod MS-DOSem COM1</entry>
+</row><row>
+  <entry><filename>ttyS1</filename></entry>
+  <entry>sériový port 1, pod MS-DOSem COM2</entry>
+</row><row>
+  <entry><filename>lp0</filename></entry>
+  <entry>první paralelní port</entry>
+</row><row>
+  <entry><filename>lp1</filename></entry>
+  <entry>druhý paralelní port</entry>
+</row><row>
+  <entry><filename>psaux</filename></entry>
+  <entry>rozhraní myši na portu PS/2</entry>
+</row><row>
+  <entry><filename>gpmdata</filename></entry>
+  <entry>pseudozařízení - jenom opakuje data získaná z GPM
+         (ovladač myši)</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>cdrom</filename></entry>
+  <entry>symbolický odkaz na CD-ROM mechaniku</entry>
+</row><row>
+  <entry><filename>mouse</filename></entry>
+  <entry>symbolický odkaz na rozhraní myši</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+<informaltable><tgroup cols="2"><tbody>
+<row>
+  <entry><filename>null</filename></entry>
+  <entry>cokoliv pošlete na toto zařízení, zmizí beze stopy</entry>
+</row><row>
+  <entry><filename>zero</filename></entry>
+  <entry>z tohoto zařízení můžete až do nekonečna číst nuly</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+  <sect2 arch="not-s390" id="device-mouse">
+  <title>Nastavení myši</title>
+
+<para>
+
+Myš můžete používat jak na konzoli, tak v prostředí X Window.  Obvykle
+stačí nainstalovat balík <filename>gpm</filename> a příslušný X
+server. Oboje by mělo používat jako zařízení myši soubor
+<filename>/dev/input/mice</filename>. Správný komunikační protokol
+bývá v gpm <userinput>exps2</userinput>, v systému X Window
+<userinput>ExplorerPS/2</userinput>. Příslušné konfigurační soubory
+jsou <filename>/etc/gpm.conf</filename> a
+<filename>/etc/X11/xorg.conf</filename>.
+
+</para><para>
+
+Aby myš fungovala, musí být zavedeny některé moduly jádra. Ve většině
+případů jsou správné moduly rozpoznány a zavedeny
+automaticky. Výjimkou mohou být staré sériové a sběrnicové myši<footnote>
+
+<para>
+
+Sériové myši mají obvykle konektor tvaru D s devíti otvory. Sběrnicové
+myši mají kulatý 8 pinový konektor. Pozor, neplést s 6 pinovým kulatým
+konektorem myší PS/2 a 4 pinovým kulatým konektorem ADB.
+
+</para>
+
+</footnote>, které jsou dnes spíše raritou ve velmi starých
+počítačích. Typické moduly, které jsou potřeba pro různé typy myší:
+
+<informaltable><tgroup cols="2"><thead>
+<row>
+  <entry>Modul</entry>
+  <entry>Popis</entry>
+</row>
+</thead><tbody>
+<row>
+  <entry>psmouse</entry>
+  <entry>PS/2 myši (měl by být rozpoznán automaticky)</entry>
+</row>
+<row>
+  <entry>usbhid</entry>
+  <entry>USB myši (měl by být rozpoznán automaticky)</entry>
+</row>
+<row>
+  <entry>sermouse</entry>
+  <entry>Většina sériových myší</entry>
+</row>
+<row>
+  <entry>logibm</entry>
+  <entry>Sběrnicová myš připojená k adaptérové kartě Logitech</entry>
+</row>
+<row>
+  <entry>inport</entry>
+  <entry>Sběrnicová myš připojená ke kartě ATI nebo Microsoft InPort</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+Pro zavedení modulu s ovladačem můžete použít příkaz
+<command>modconf</command> z balíku stejného jména a hledat v
+kategorii <userinput>kernel/drivers/input/mouse</userinput>.
+
+</para><para arch="powerpc">
+
+Na PowerPC nastavte v souboru <filename>/etc/X11/XF86Config</filename>
+nebo <filename>/etc/X11/XF86Config-4</filename> zařízení myši na
+<userinput>"/dev/input/mice"</userinput>.
+
+</para><para arch="powerpc">
+
+Novější jádra umožňují emulovat třítlačítkovou myš i na myši
+jednotlačítkové. Stačí do souboru
+<filename>/etc/sysctl.conf</filename> přidat následující řádky.
+
+<informalexample><screen>
+# emulace 3 tlačítek
+# zapne emulaci
+/dev/mac_hid/mouse_button_emulation = 1
+# signál prostředního tlačítka posílej klávesou  F11
+/dev/mac_hid/mouse_button2_keycode = 87
+# signál pravého tlačítka posílej klávesou  F12
+/dev/mac_hid/mouse_button3_keycode = 88
+# programem showkey můžete zjistit (a použít) kódy jiných kláves.
+</screen></informalexample>
+
+</para>
+  </sect2>
+ </sect1>
+
+ <sect1 id="tasksel-size-list">
+ <title>Místo potřebné pro úlohy</title>
+<para>
+
+Standardní instalace na architektuře amd64 s jádrem 2.6 zabere na disku
+včetně všech standardních balíků &std-system-size;MB. Menší instalace bez úlohy
+<quote>Standardní systém</quote> zabere &base-system-size;MB.
+
+</para><important><para>
+
+V obou případech je zabrané místo počítáno <emphasis>po</emphasis>
+dokončení instalace a smazání všech dočasných souborů. Výpočet také
+nebere v úvahu režii souborového systému, například pro žurnálovací
+soubory. To znamená, že <emphasis>během</emphasis> instalace a také
+později při samotném používání systému bude potřeba mnohem více
+místa na dočasné soubory (stažené balíky) a uživatelská data.
+
+</para></important><para>
+
+Následující tabulka ukazuje velikosti úloh tak, jak je vypisuje
+program aptitude. Protože se mohou balíky v některých úlohách
+překrývat, je možné, že celková velikost instalovaných úloh bude
+menší než součet jejich velikostí.
+
+</para><para>
+
+Ve výchozím nastavení se instaluje desktopové prostředí GNOME.
+Některá jiná desktopová prostředí můžete nainstalovat buď pomocí
+speciálního instalačního CD, nebo použitím zaváděcího parametru při
+zavádění instalátoru (viz <xref linkend="pkgsel"/>).
+
+</para><para>
+
+Při určování velikostí diskových oblastí budete muset čísla uvedená
+v tabulce přidat k velikosti standardního systému. Většina z hodnot ve
+sloupci <quote>Instalovaná velikost</quote> skončí
+v <filename>/usr</filename>, při instalaci je však ještě třeba počítat
+s hodnotami ze sloupce <quote>Stáhne se</quote>, které se (dočasně)
+uloží v adresáři <filename>/var</filename>.
+
+</para><para>
+
+<informaltable><tgroup cols="4">
+<thead>
+<row>
+  <entry>Úloha</entry>
+  <entry>Instalovaná velikost (MB)</entry>
+  <entry>Stáhne se (MB)</entry>
+  <entry>Místo během instalace (MB)</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Desktopové prostředí</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+  <entry>&nbsp;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;GNOME (výchozí)</entry>
+  <entry>&task-desktop-gnome-inst;</entry>
+  <entry>&task-desktop-gnome-dl;</entry>
+  <entry>&task-desktop-gnome-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;KDE</entry>
+  <entry>&task-desktop-kde-inst;</entry>
+  <entry>&task-desktop-kde-dl;</entry>
+  <entry>&task-desktop-kde-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;Xfce</entry>
+  <entry>&task-desktop-xfce-inst;</entry>
+  <entry>&task-desktop-xfce-dl;</entry>
+  <entry>&task-desktop-xfce-tot;</entry>
+</row>
+<row>
+  <entry>&nbsp;&nbsp;&bull;&nbsp;LXDE</entry>
+  <entry>&task-desktop-lxde-inst;</entry>
+  <entry>&task-desktop-lxde-dl;</entry>
+  <entry>&task-desktop-lxde-tot;</entry>
+</row>
+
+<row>
+  <entry>Notebook<footnote><para>
+
+Tato úloha se dosti překrývá s úlohou Desktoppové prostředí, tzn. pokud
+nainstalujete obě, zabere tato úloha jen několik dalších MB.
+
+  </para></footnote></entry>
+
+  <entry>&task-laptop-inst;</entry>
+  <entry>&task-laptop-dl;</entry>
+  <entry>&task-laptop-tot;</entry>
+</row>
+
+<row>
+  <entry>Webový server</entry>
+  <entry>&task-web-inst;</entry>
+  <entry>&task-web-dl;</entry>
+  <entry>&task-web-tot;</entry>
+</row>
+
+<row>
+  <entry>Tiskový server</entry>
+  <entry>&task-print-inst;</entry>
+  <entry>&task-print-dl;</entry>
+  <entry>&task-print-tot;</entry>
+</row>
+
+<row>
+  <entry>DNS server</entry>
+  <entry>&task-dns-inst;</entry>
+  <entry>&task-dns-dl;</entry>
+  <entry>&task-dns-tot;</entry>
+</row>
+
+<row>
+  <entry>Souborový server</entry>
+  <entry>&task-file-inst;</entry>
+  <entry>&task-file-dl;</entry>
+  <entry>&task-file-tot;</entry>
+</row>
+
+<row>
+  <entry>Poštovní server</entry>
+  <entry>&task-mail-inst;</entry>
+  <entry>&task-mail-dl;</entry>
+  <entry>&task-mail-tot;</entry>
+</row>
+
+<row>
+  <entry>SQL databáze</entry>
+  <entry>&task-sql-inst;</entry>
+  <entry>&task-sql-dl;</entry>
+  <entry>&task-sql-tot;</entry>
+</row>
+
+<row>
+  <entry>SSH server</entry>
+  <entry>&task-ssh-inst;</entry>
+  <entry>&task-ssh-dl;</entry>
+  <entry>&task-ssh-tot;</entry>
+</row>
+
+</tbody>
+</tgroup></informaltable>
+
+</para><para>
+
+Instalujete-li v jiném jazyce než angličtině, je možné, že
+<command>tasksel</command> automaticky nainstaluje
+<firstterm>lokalizační úlohu</firstterm> pro daný jazyk. Velikost
+lokalizační úlohy závisí na tom, co do ní její tvůrci umístili za
+balíky.
+
+</para>
+ </sect1>

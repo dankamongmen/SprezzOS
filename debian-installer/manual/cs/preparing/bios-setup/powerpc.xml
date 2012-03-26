@@ -1,0 +1,52 @@
+<!-- $Id: powerpc.xml 55098 2008-08-18 12:13:27Z mck-guest $ -->
+<!-- original version: 54285 -->
+
+  <sect2 arch="powerpc" id="invoking-openfirmware">
+  <title>Vyvolání OpenFirmwaru</title>
+<para>
+
+Na systémech &arch-title; obvykle není třeba BIOS (nazývaný
+OpenFirmware) nastavovat. PReP a CHRP jsou vybaveny OpenFirmwarem,
+ale protože se bohužel způsob vyvolání liší u každého výrobce, budete
+se muset podívat do dokumentace ke svému počítači.
+
+</para><para>
+
+Na &arch-title; Macintoshích vyvoláte OpenFirmware při zavádění
+klávesami <keycombo><keycap>Command (čtyřlístek/Apple)</keycap>
+<keycap>Option</keycap> <keycap>o</keycap> <keycap>f</keycap></keycombo>.
+Klávesy se většinou začnou odchytávat po <quote>zvonku</quote>, ale
+načasování se liší od modelu k modelu.
+Více tipů má <ulink url="&url-netbsd-powerpc-faq;"></ulink>.
+
+</para><para>
+
+Prompt OpenFirmwaru vypadá takto:
+
+<informalexample><screen>
+ok
+0 &gt;
+</screen></informalexample>
+
+</para><para>
+
+Na starších modelech &arch-title; Maců je standardní a někdy jediná
+možnost komunikace OpenFirmwaru s uživatelem přes sériový (modemový)
+port. Jestliže na některém z těchto strojů vyvoláte OpenFirmware,
+uvidíte pouze černou obrazovku. V takovém případě musíte pro
+komunikaci s OpenFirmwarem použít terminálový program na jiném
+počítači připojeném přes sériový port.
+
+</para><para>
+
+OpenFirmware na béžových počítačích OldWorld G3 je ve verzích 2.0f1
+a 2.4 pokažený. Dokud se firmware nezazáplatuje, nebudou tyto stroje
+schopny zavést systém z pevného disku. Záplata je obsažená v utilitě
+<application>System Disk 2.3.1</application> a je dostupná na adrese
+<ulink
+url="ftp://ftp.apple.com/developer/macosxserver/utilities/SystemDisk2.3.1.smi.bin"></ulink>.
+V MacOS utilitu rozbalte, spusťte a tlačítkem
+<guibutton>Save</guibutton> uložte záplatu do nvram.
+
+</para>
+  </sect2>

@@ -1,0 +1,100 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 condition="supports-floppy-boot" id="create-floppy">
+ <title>Creació de disquets a partir d'imatges de disquet</title>
+<para>
+
+Normalment, els disquets arrencables es fan servir com a darrer recurs per
+arrencar l'instal·lador en maquinari que no pot arrencar des del CD o per
+altres mitjans.
+
+</para><para arch="powerpc">
+
+L'arrencada de l'instal·lador amb disquets falla en les unitats de disquet
+USB dels Mac.
+
+</para><para>
+
+Les imatges de disquet són fitxers que contenen, <emphasis>en pla (raw)</emphasis>,
+el contingut sencer d'un disquet. Igual com en el cas del fitxer
+<filename>boot.img</filename>, no hi ha prou de copiar-les al disquet.
+Cal fer servir un programa que escriu al disquet la imatge <emphasis>en pla</emphasis>.
+Això és així perquè aquestes imatges són representacions exactes del disquet;
+cal fer una <emphasis>còpia per sectors</emphasis> de les dades del fitxer al disquet.
+
+</para><para>
+
+Hi ha mètodes diferents per crear disquets d'imatges de disquet. Aquesta
+secció descriu com crear-los des de les imatges de disc en diverses
+plataformes.
+
+</para><para>
+
+Abans de crear els disquets, haureu de descarregar-los primer des de les
+repliques de &debian;, com s'explica a <xref linkend="downloading-files"/>.
+<phrase arch="i386">Si ja teniu un CD-ROM o DVD d'instal·ació, les imatges
+dels disquets poden estar també incloses al CD/DVD.</phrase>
+
+</para><para>
+
+Independentment del mètode emprat, recordeu que hauríeu de blocar
+els disquets contra l'escriptura una vegada els hàgiu escrit,
+per cerciorar-vos que no s'espatllen accidentalment.
+
+</para>
+
+  <sect2><title>Confecció de les imatges de disquet en un sistema Linux o Unix</title>
+<para>
+
+Per a escriure imatges de disquet als disquets, probablement us caldrà tenir
+accés de superusuari al sistema. Poseu un disquet verge i en bon estat a la
+disquetera. Després, feu servir l'ordre
+
+<informalexample><screen>
+$ dd if=<replaceable>nom-de-fitxer</replaceable> of=/dev/fd0 bs=1024 conv=sync ; sync
+</screen></informalexample>
+
+on <replaceable>nom-de-fitxer</replaceable> és un dels fitxers imatge del
+disquet. <filename>/dev/fd0</filename> és el nom usual de dispositiu per
+a la disquetera, però podria ser diferent en la vostra màquina
+<phrase arch="sparc"> (a Solaris, és <filename>/dev/fd/0</filename>)</phrase>.
+Potser se us retornarà a l'indicador abans que el Unix haja acabat el procés
+d'escriptura del disquet, per tant mireu el pilot de la disquetera per
+assegurar-vos que el llum està apagat i que el disquet ha parat de fer
+voltes abans d'extraure'l. En alguns sistemes cal una ordre per expulsar-lo
+<phrase arch="sparc"> (a Solaris, empreu <command>eject</command>, consulteu
+el manual)</phrase>.
+
+</para><para>
+
+Alguns sistemes proven de muntar automàticament el disquet quan l'introduïu
+a la disquetera. Podríeu haver de deshabilitar aquesta funcionalitat perquè
+l'ordinador puga escriure el disquet <emphasis>en pla (raw mode)</emphasis>.
+La manera de fer això varia segons el sistema operatiu emprat.
+<phrase arch="sparc">En Solaris, ho podeu fer saltant-vos la gestió de volums.
+Primer, assegureu-vos que el disquet s'ha automuntat
+(empreu <command>volcheck</command> o l'ordre equivalent, en el gestor de fitxers).
+Després empreu una ordre <command>dd</command> de la forma donada abans, tot
+reemplaçant <filename>/dev/fd0</filename> amb
+<filename>/vol/rdsk/<replaceable>nom-del-disquet</replaceable></filename>,
+on <replaceable>nom-del-disquet</replaceable> és el nom del disquet indicat
+quan fou formatat (els disquets sense nom tenen per defecte el nom
+<filename>unnamed_floppy</filename>). En altres sistemes, demaneu-hi a
+l'administrador del sistema.
+</phrase>
+
+</para><para arch="powerpc">
+
+Si s'escriu un disquet en un Linux powerpc, caldrà extraure'l. El programa
+<command>eject</command> ho fa, això; potser l'haureu d'instal·lar.
+
+</para>
+
+  </sect2>
+
+&floppy-i386.xml; <!-- can be used for other arches -->
+&floppy-powerpc.xml;
+
+ </sect1>
+

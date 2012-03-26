@@ -1,0 +1,105 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65193 -->
+
+ <sect1 id="minimum-hardware-reqts">
+<title>Minimale Hardware-Anforderungen</title>
+<para>
+
+Sobald Sie Informationen über die Hardware Ihres Computers gefunden
+haben, überprüfen Sie, ob diese Hardware die Art der Installation zulässt,
+die Sie durchführen wollen.
+
+</para><para arch="not-s390">
+
+Abhängig von Ihren Bedürfnissen können Sie auch mit weniger als der unten
+aufgelisteten Hardware auskommen. Die meisten Benutzer riskieren
+jedoch, im Nachhinein frustriert zu sein, wenn Sie diese Empfehlungen
+ignorieren.
+
+</para><para arch="any-x86">
+
+Für Desktop-Systeme wird mindestens ein Pentium 4 mit 1 GHz empfohlen.
+
+</para><para arch="powerpc">
+
+Jeder OldWorld- oder NewWorld-PowerPC eignet sich für ein Desktop-System.
+
+</para>
+
+<table>
+<title>Empfohlene minimale Systemanforderungen</title>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Art der Installation</entry>
+  <entry>Arbeitsspeicher (minimal)</entry>
+  <entry>Arbeitsspeicher (empfohlen)</entry>
+  <entry>Festplatte</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Ohne Desktop</entry>
+  <entry>64 Megabyte</entry>
+  <entry>256 Megabyte</entry>
+  <entry>1 Gigabyte</entry>
+</row><row arch="not-s390">
+  <entry>Mit Desktop</entry>
+  <entry>128 Megabyte</entry>
+  <entry>512 Megabyte</entry>
+  <entry>5 Gigabyte</entry>
+</row>
+
+</tbody></tgroup></table>
+
+<para>
+
+Die absoluten Minimalanforderungen an den Arbeitsspeicher sind um einiges
+geringer als in der Tabelle angegeben. Abhängig von der Architektur ist es
+möglich, &debian; mit extrem wenig Arbeitsspeicher zu installieren (bei s390
+sind mindestens 20MB, bei amd64 mindestens 60MB erforderlich).
+Dasselbe gilt für die Anforderungen an den freien
+Platz auf der Festplatte, speziell wenn Sie die Anwendungen, die Sie
+installieren, einzeln auswählen; siehe <xref linkend="tasksel-size-list"/>
+für zusätzliche Informationen über benötigten Festplattenplatz.
+
+</para><para arch="not-s390">
+
+Es ist möglich, eine grafische Desktop-Umgebung auch auf älteren oder
+Low-End-Systemen laufen zu lassen, aber in diesem Fall wird empfohlen,
+einen Window-Manager zu installieren, der weniger ressourcen-hungrig ist
+als die GNOME- oder KDE-Desktop-Umgebung; Sie könnten zum Beispiel
+<classname>xfce4</classname>, <classname>icewm</classname> oder
+<classname>wmaker</classname> verwenden, aber es gibt auch noch weitere.
+
+</para><para>
+
+Es ist praktisch unmöglich, für Server-Installationen generelle
+Speicher- oder Festplattenplatzanforderungen anzugeben, da dies sehr davon
+abhängt, wozu der Server verwendet wird.
+
+</para><para>
+
+Bedenken Sie, dass diese Angaben nicht die anderen Daten enthalten, die
+normalerweise auf solchen Systemen vorhanden sind, wie die Dateien der
+Benutzer, E-Mails und Daten. Es ist immer ratsam, bei der Erwägung des
+für Ihre eigenen Dateien benötigten Platzes großzügig zu sein.
+
+</para><para>
+
+Der zum reibungslosen Betrieb des &debian-gnu;-Systems selbst nötige
+Festplattenplatz ist bereits in die Empfehlungen mit eingerechnet.
+Erwähnt werden muss hier das Verzeichnis/die Partition
+<filename>/var</filename>, das viele &debian;-spezifische Statusinformationen
+wie Protokolldateien enthält, zusätzlich zu dem regulären Inhalt. Die
+<command>dpkg</command>-spezifischen Dateien (mit Informationen über alle
+installierten Pakete) können z.B leicht 40MB beanspruchen. Auch legt
+<command>apt-get</command> heruntergeladene Pakete dort ab, bevor Sie
+installiert werden. Sie sollten immer mindestens 200MB für
+<filename>/var</filename> bereithalten bzw. sogar erheblich mehr, wenn Sie
+eine grafische Desktop-Umgebung installieren.
+
+</para>
+
+ </sect1>

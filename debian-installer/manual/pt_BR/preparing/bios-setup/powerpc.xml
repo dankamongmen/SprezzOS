@@ -1,0 +1,53 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 54285 -->
+<!-- updated 46722:54285 by Felipe Augusto van de Wiel (faw) 2008.07.17 -->
+
+  <sect2 arch="powerpc" id="invoking-openfirmware">
+  <title>Executando o OpenFirmware</title>
+<para>
+
+Normalmente não existe a necessidade de configurar a BIOS (chamada
+OpenFirmware) em sistemas &arch-title;. O PReP e CHRP são equipados
+com o OpenFirmware, mas infelizmente, os métodos usados para chamá-lo
+variam de fabricante para fabricante. Você terá que consultar a
+documentação do hardware que vem com sua máquina.
+
+</para><para>
+
+Em máquinas Macintosh &arch-title;, você chama o OpenFirmware pressionando
+a combinação de teclas
+<keycombo><keycap>Command (Comando/trevo/maçã/Apple)</keycap><keycap>Option (Opção)</keycap><keycap>o</keycap><keycap>f</keycap></keycombo>
+durante a inicialização. Geralmente ele checará se esta combinação foi
+pressionada após a inicialização, mas o tempo exato varia de modelo para
+modelo. Veja a <ulink url="&url-netbsd-powerpc-faq;"></ulink> para mais dicas.
+
+</para><para>
+
+O prompt de comandos do OpenFirmware se parecerá com isto:
+
+<informalexample><screen>
+ok
+0 &gt;
+</screen></informalexample>
+
+Note que em antigos Macs modelo &arch-title;, a entrada e saída padrão, e
+algumas vezes acessível só por cabo, para interação do usuário com o
+OpenFirmware é feita através da porta serial (modem). Se chamar o OpenFirmware
+em uma destas máquinas, você verá somente uma tela preta. Neste caso, um
+programa terminal sendo executado em outro computador, conectado à porta do
+modem, é necessário para interagir com o OpenFirmware.
+
+</para><para>
+
+O OpenFirmware em máquinas OldWorld Beige G3, versões OF 2.0f1 e 2.4,
+está com problemas. Estas máquinas provavelmente não serão capazes de
+inicializar através do disco rígido a menos que o firmware seja
+corrigido. Um patch para o firmware está incluído no utilitário
+<application>System Disk 2.3.1</application> disponibilizado pela Apple em
+<ulink url="ftp://ftp.apple.com/developer/macosxserver/utilities/SystemDisk2.3.1.smi.bin"></ulink>.
+Após descompactar o utilitário no MacOS e carregá-lo, selecione o botão
+<guibutton>Salvar</guibutton> (<quote>Save</quote>) para que os patches
+do firmware sejam instalados na nvram.
+
+</para>
+  </sect2>

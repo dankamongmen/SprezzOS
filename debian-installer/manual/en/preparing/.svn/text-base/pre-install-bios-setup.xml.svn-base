@@ -1,0 +1,57 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id$ -->
+
+ <sect1 id="pre-install-bios-setup">
+ <title>Pre-Installation Hardware and Operating System Setup</title>
+<para>
+
+This section will walk you through pre-installation hardware setup, if
+any, that you will need to do prior to installing &debian;.  Generally,
+this involves checking and possibly changing firmware settings for
+your system.  The <quote>firmware</quote> is the core software used by the
+hardware; it is most critically invoked during the bootstrap process
+(after power-up). Known hardware issues affecting the reliability of
+&debian-gnu; on your system are also highlighted.
+
+</para>
+
+&bios-setup-i386.xml;
+&bios-setup-powerpc.xml;
+&bios-setup-sparc.xml;
+&bios-setup-s390.xml;
+
+  <sect2 arch="x86;powerpc" id="hardware-issues">
+  <title>Hardware Issues to Watch Out For</title>
+
+   <formalpara arch="x86">
+   <title>USB BIOS support and keyboards</title>
+<para>
+
+If you have no AT-style keyboard and only a USB model, you may need
+to enable legacy AT keyboard emulation in your BIOS setup. Only do this if
+the installation system fails to use your keyboard in USB mode. Conversely,
+for some systems (especially laptops) you may need to disable legacy USB
+support if your keyboard does not respond.
+Consult your main board manual and look in the BIOS for <quote>Legacy
+keyboard emulation</quote> or <quote>USB keyboard support</quote> options.
+
+</para>
+   </formalpara>
+
+   <formalpara arch="powerpc">
+   <title>Display-visibility on OldWorld Powermacs</title>
+
+<para>
+Some OldWorld Powermacs, most notably those with the <quote>control</quote>
+display driver, may not reliably produce a colormap under Linux when the
+display is configured for more than 256 colors. If you are experiencing such
+issues with your display after rebooting (you can sometimes see data on
+the monitor, but on other occasions cannot see anything) or, if the screen
+turns black after booting the installer instead of showing you the user
+interface, try changing your display settings under MacOS to use 256
+colors instead of <quote>thousands</quote> or <quote>millions</quote>.
+
+</para>
+   </formalpara>
+  </sect2>
+ </sect1>

@@ -1,0 +1,23 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 35595 -->
+
+
+  <sect2 arch="hppa"><title>Particionar per a &arch-title;</title>
+<para>
+
+PALO, el carregador de HPPA, requereix una partició de tipus
+<quote>F0</quote> en algun lloc dins les primeres 2 GiB. Aquí és on es
+guardarà el carregador, un nucli opcional i el disc RAM, per tant feu-l'ho
+suficientment gran almenys per aquest &mdash; 4 Mib (jo prefereixo
+8&ndash;16 MiB). Un requeriment addicional de la firma és que el nucli
+Linux ha d'estar dins dels primers 2 GiB del disc. Això s'aconsegueix
+normalment incloent la partició arrel ext2 sencera dins dels primers
+2 GiB del disc. Alternativament podeu crear una petita partició ext2
+aprop de l'inici del disc i muntar-la a <filename>/boot</filename>,
+aquest és el directori on el(s) nucli(s) Linux es guardaran.
+<filename>/boot</filename> necessita ser suficientment gran com per
+contenir tots els nuclis (i còpies de seguretat) que es vulguin carregar;
+25&ndash;50 MiB és normalment suficient.
+
+</para>
+  </sect2>

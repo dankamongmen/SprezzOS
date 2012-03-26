@@ -1,0 +1,109 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id: localechooser.xml 64916 2010-10-08 22:15:00Z holger-guest $ -->
+
+
+   <sect3 id="localechooser">
+   <title>Selecting Localization Options</title>
+
+<para>
+
+In most cases the first questions you will be asked concern the selection
+of localization options to be used both for the installation and for the
+installed system. The localization options consist of language, location
+and locales.
+
+</para><para>
+
+The language you choose will be used for the rest of the installation
+process, provided a translation of the different dialogs is available.
+If no valid translation is available for the selected language, the
+installer will default to English.
+
+</para><para>
+
+The selected geographic location (in most cases a country) will be used
+later in the installation process to select the correct time zone and a
+&debian; mirror appropriate for that country.
+Language and country together will help determine the default locale for
+your system and select the correct keyboard layout.
+
+</para><para>
+
+You will first be asked to select your preferred language. The language
+names are listed both in English (left side) and in the language itself
+(right side); the names on the right side are also shown in the proper
+script for the language. The list is sorted on the English names.
+At the top of the list is an extra option that allows you to select the
+<quote>C</quote> locale instead of a language. Choosing the <quote>C</quote>
+locale will result in the installation proceding in English; the installed
+system will have no localization support as the <classname>locales</classname>
+package will not be installed.
+
+</para><para>
+
+Next you will be asked to select your geographic location. If you selected
+a language that is recognized as an official language for more than one
+country<footnote>
+
+<para>
+In technical terms: where multiple locales exist for that language with
+differing country codes.
+</para>
+
+</footnote>, you will be shown a list of only those countries. To select a
+country that is not in that list, choose <guimenuitem>other</guimenuitem>
+(the last option). You will then be presented with a list of continents;
+selecting a continent will lead to a list of relevant countries on that
+continent.
+
+</para><para>
+
+If the language has only one country associated with it, a list of countries
+will be displayed for the continent or region the country belongs to, with
+that country selected as the default. Use the <guibutton>Go Back</guibutton>
+option to select countries on a different continent.
+
+</para><note><para>
+
+It is important to select the country where you live or where you are
+located as it determines the time zone that will be configured for the
+installed system.
+
+</para></note><para>
+
+If you selected a combination of language and country for which no locale is
+defined and there exist multiple locales for the language, then the installer
+will allow you to choose which of those locales you prefer as the default
+locale for the installed system<footnote>
+
+<para>
+At medium and low priority you can always select your preferred locale from
+those available for the selected language (if there's more than one).
+</para>
+
+</footnote>. In all other cases a default locale will be selected based on
+the selected language and country.
+
+</para><para>
+
+Any default locale selected as described in the previous paragraph will use
+<firstterm>UTF-8</firstterm> as character encoding.
+
+</para><para>
+
+If you are installing at low priority, you will have the option
+of selecting additional locales, including so-called <quote>legacy</quote>
+locales<footnote>
+
+<para>
+Legacy locales are locales which do not use UTF-8, but one of the older
+standards for character encoding such as ISO&nbsp;8859-1 (used by West
+European languages) or EUC-JP (used by Japanese).
+</para>
+
+</footnote>, to be generated for the installed system; if you do, you will
+be asked which of the selected locales should be the default for the
+installed system.
+
+</para>
+   </sect3>

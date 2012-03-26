@@ -1,0 +1,130 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56511 -->
+<!-- updated 46722:56511 by Felipe Augusto van de Wiel (faw) 2008.11.11 -->
+
+   <sect3 id="pkgsel">
+   <title>Selecionando e Instalando Programas</title>
+
+<para>
+
+Durante o processo de instalação, lhe será dada a oportunidade de selecionar
+programas adicionais para serem instalados. Ao invés de pegar pacotes
+individuais de programas em &num-of-distrib-pkgs; pacotes disponíveis, esse
+estágio do processo de instalação foca na seleção e instalação de coleções
+de programas pré-definidas para rapidamente configurar seu computador a 
+executar várias tarefas.
+
+</para><para>
+
+<!-- TODO: Should explain popcon first -->
+
+Então, você tem a habilidade de escolher <emphasis>tarefas
+(<quote>tasks</quote>)</emphasis> primeiro, e depois adicionar mais pacotes
+individuais.  Essas tarefas representam, de forma ampla, um número de
+diferentes serviços ou itens que você quer fazer com seu computador, como
+<quote>Ambiente Desktop</quote>, <quote>Servidor Web</quote>, ou
+<quote>Servidor de Impressão</quote><footnote>
+
+<para>
+
+Você deve ter isso definido no momento que esta lista for apresentada, o
+instalador está meramente invocando o programa <command>tasksel</command>. Ele
+pode ser executado a qualquer momento após a instalação para instalar mais
+pacotes (ou removê-los), ou você pode usar uma ferramenta mais aprimorada
+como o <command>aptitude</command>.
+Se você estiver procurando por um pacote específico, após ter sido
+concluída a instalação, simplesmente execute 
+<userinput>aptitude install<replaceable>pacote</replaceable></userinput>, 
+onde <replaceable>pacote</replaceable> é o nome do pacote que você
+está procurando.
+
+</para>
+
+</footnote>. <xref linkend="tasksel-size-list"/> lista o espaço
+requerido para as tarefas disponíveis.
+
+</para><para>
+
+Algumas tarefas podem estar pré-selecionadas com base nas características do
+computador que está sendo usado. Se você discordar dessas seleções você
+pode desmarcá-las. Você pode até mesmo optar por não instalar nenhuma das
+tarefas neste momento.
+
+</para>
+<note><para>
+
+<!-- TODO: Explain the "Standard system" task first -->
+
+A menos que você esteja usando os CDs especiais para KDE ou Xfce, a tarefa
+<quote>Ambiente Desktop</quote> instalará o ambiente de área de trabalho
+GNOME.
+
+</para><para>
+
+Não é possível selecionar interativamente uma área de trabalho diferente
+durante a instalação. No entanto, <emphasis>é</emphasis> possível fazer com
+que o &d-i; instale um ambiente de área de trabalho KDE ao invés do GNOME
+usando pré-configuração (veja <xref linkend="preseed-pkgsel"/>) ou adicionando
+o parâmetro <literal>desktop=kde</literal> no prompt de inicialização quando
+iniciar o instalador. Alternativamente, o ambiente de área de trabalho leve
+Xfce pode ser selecionado usando <literal>desktop=xfce</literal>.
+
+</para><para>
+
+Note que isto só funcionará se os pacotes dos quais o KDE ou Xfce dependem
+estiverem disponíveis. Se você está instalando usando uma única imagem de CD
+completo, os pacotes terão que ser baixados de um espelhos pois a maioria dos
+pacotes necessário só são incluídos em CDs posteriores; instalar o KDE ou Xfce
+desta forma deveria funcionar bem se você está usando uma imagem de DVD ou
+qualquer outro método de instalação.
+
+</para><para>
+
+As várias tarefas de servidor irão instalar programas de forma aproximada ao
+que se segue.
+Servidor DNS: <classname>bind9</classname>;
+Servidor de Arquivo: <classname>samba</classname>, <classname>nfs</classname>;
+Servidor de correio eletrônico: <classname>exim4</classname>, <classname>spamassassin</classname>,
+<classname>uw-imap</classname>;
+Servidor de Impressão: <classname>cups</classname>;
+Banco de Dados SQL: <classname>postgresql</classname>;
+Servidor web: <classname>apache2</classname>.
+
+</para></note>
+<para>
+
+Uma vez que você tenha selecionado suas tarefas, selecione &BTN-CONT;.
+Neste ponto, o <command>aptitude</command> instalará os pacotes que
+são parte das tarefas que você selecionou. Se um programa em particular
+precisa de mais informações do usuário, elas serão solicitadas durante
+o processo de instalação.
+
+</para>
+<note><para>
+
+Na interface de usuário padrão do instalador, você pode usar a barra de espaço
+para selecionar uma tarefa.
+
+</para></note>
+<para>
+
+Você deveria estar ciente de que especialmente a tarefa Desktop é muito
+grande. Especialmente quando instalando de um CD-ROM normal em combinação
+com um espelho de pacotes que não está no CD-ROM, o instalador pode querer
+obter vários pacotes através da rede. Se você tem uma conexão de Internet
+relativamente lenta, isto pode demorar bastante. Não há opção para cancelar
+a instalação de pacotes uma vez que ela tenha começado.
+
+</para><para>
+
+Mesmo quando pacotes estão inclusos no CD-ROM, o instalador pode obtê-los
+de um espelho se a versão disponível no espelho é mais recente que a
+inclusa no CD-ROM. Se você está instalando a distribuição estável
+(<quote>stable</quote>), isto pode acontecer após um lançamento pontual
+(<quote>point release</quote> -- uma atualização da lançamento original da
+versão estável); se você está instalando a distribuição de testes
+(<quote>testing</quote>) isto irá acontecer se você estiver usando uma
+imagem antiga.
+
+</para>
+   </sect3>

@@ -1,0 +1,121 @@
+<!-- $Id$ -->
+<!-- original version: 64916 -->
+
+ <sect1 condition="gtk" id="graphical">
+ <title>Grafický instalátor</title>
+<para>
+
+Grafická verze instalačního systému je dostupná pouze na několika
+architekturách, kam patří i &arch-title;. Funkcionalita grafického
+instalátoru je shodná s textovou verzí, protože se jedná o stejné
+programy, liší se pouze vzhled.
+
+</para><para>
+
+Přestože je funkcionalita stejná, přesto přináší grafická verze
+několik výhod. Tou hlavní je, že podporuje více jazyků, konkrétně ty,
+jejichž znaková sada se nedá zobrazit v běžném rozhraní
+<quote>newt</quote>. Grafické rozhraní také zlepšuje použitelnost tím,
+že můžete volitelně používat myš a že je v některých případech
+zobrazeno více otázek na jediné obrazovce (typicky zadání hesla a jeho
+ověření).
+
+</para><para arch="any-x86">
+
+Grafický instalátor je dostupný na všech obrazech CD a také při
+instalaci z pevného disku metodou hd-media. Pro zavedení grafického
+instalátoru jednoduše z menu vyberte příslušnou položku. Expertní a
+záchranný režim grafického instlátoru je schovaný v menu
+<quote>Advanced options</quote>. Dříve používané příkazy
+<userinput>installgui</userinput>, <userinput>expertgui</userinput>
+resp. <userinput>rescuegui</userinput> stále můžete použít, ovšem
+musíte z nabídky vybrat položku <quote>Help</quote>, která mj. zobrazí
+výzvu <prompt>boot:</prompt>.
+
+</para><para arch="any-x86">
+
+Existuje i obraz grafického instalátoru, který je možno zavést ze sítě,
+a speciální <quote>mini</quote> ISO obraz<footnote id="gtk-miniiso">
+
+<para>
+Mini ISO můžete stáhnout ze zrcadla &debian;u stejně jako ostatní
+soubory v <xref linkend="downloading-files"/>, hledejte něco s názvem
+<filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>, ktery se používá hlavně pro testování.
+
+</para><para arch="powerpc">
+
+Pro &arch-title; je nyní dostupný pouze experimentální
+<quote>mini</quote> ISO obraz<footnote id="gtk-miniiso">
+
+<para>
+Mini ISO můžete stáhnout ze zrcadla &debian;u stejně jako ostatní
+soubory v <xref linkend="downloading-files"/>, hledejte něco s názvem
+<filename>netboot/gtk/mini.iso</filename>.
+</para>
+
+</footnote>. Měl by fungovat na téměř všech systémech PowerPC s
+grafickou kartou ATI, což se nedá říci o ostatních systémech.
+
+</para><para>
+
+Při startu grafického instalátoru můžete používat zaváděcí parametry
+stejně, jako u tradiční verze.
+
+</para><note><para>
+
+Grafický instalátor vyžaduje pro běh mnohem více paměti než tradiční
+verze: &minimum-memory-gtk;. Pokud instalace zjistí nedostatek paměti,
+automaticky se přepne do tradičního frontendu <quote>newt</quote>.
+
+</para><para>
+
+Máte-li však méně paměti než &minimum-memory;, je možné, že se
+grafická instalace vůbec nezavede, zatímco tradiční verze může stále
+fungovat. Pro počítače s minimem dostupné paměti je doporučeno použít
+rovnou tradiční verzi.
+
+</para></note>
+
+  <sect2 id="gtk-using">
+  <title>Používání grafického instalátoru</title>
+<para>
+
+Jak jsme již zmínili, grafický instalátor pracuje úplně stejně jako
+instalátor textový a tedy můžete pro instalaci plně využít informací
+sepsaných ve zbytku příručky.
+
+</para><para>
+
+Preferujete-li ovládání pomocí klávesnice, měli byste vědět dvě
+věci. Pro rozbalení/sbalení seznamu (např. při výběru kontinentů
+a zemí) můžete použít klávesy <keycap>+</keycap> a <keycap>-</keycap>.
+U otázek, kde můžete vybrat více než jednu možnost (např. výběr úloh),
+musíte pro pokračování dále nejprve přeskákat tabulátorem na tlačítko
+&BTN-CONT; a poté stisknout &enterkey;. Pokud byste stiskli &enterkey;
+rovnou, změnili byste výběr položky, ale na tlačítko &BTN-CONT; by to
+nemělo žádný vliv.
+
+</para><para>
+
+Pokud dialog obsahuje další nápovědu, zobrazí se tlačítko
+<guibutton>Nápověda</guibutton>. Kromě aktivování tlačítka (myší nebo
+klávesnicí) můžete nápovědu vyvolat také klávesou <keycap>F1</keycap>.
+
+</para><para>
+
+Pro přepnutí do jiné konzoly musíte kromě <keycap>Levého Altu</keycap>
+a funkční klávesy stisknout i klávesu <keycap>Ctrl</keycap>, stejně
+jako v systému X Window. Například pro přepnutí do druhého virtuálního
+terminálu (kde běží ladicí shell) byste použili:
+<keycombo> <keycap>Ctrl</keycap> <keycap>Levý Alt</keycap>
+<keycap>F2</keycap> </keycombo>. Grafická instalace běží na pátém
+virtuálním terminálu, takže pro přepnutí zpět můžete použít klávesovou
+kombinaci <keycombo> <keycap>Levý Alt</keycap>
+<keycap>F2</keycap> </keycombo>.
+
+</para>
+  </sect2>
+ </sect1>

@@ -1,0 +1,45 @@
+<!-- $Id: sparc.xml 58202 2009-04-10 19:14:38Z mck-guest $ -->
+<!-- original version: 58021 -->
+
+  <sect2 arch="sparc" id="boot-tftp"><title>Zavedení z TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+Na strojích s OpenBootem jednoduše vstupte do <quote>boot
+monitoru</quote> (viz <xref linkend="invoking-openboot"/>) a zadejte
+příkaz <userinput>boot net</userinput> pro zavedení z TFTP a RARP
+serveru nebo <userinput>boot net:bootp</userinput>
+(resp. <userinput>boot net:dhcp</userinput>) pro zavedení z TFTP
+a BOOTP (resp. DHCP) serveru. Speciální zaváděcí parametry pro &d-i;
+můžete zadat na konec příkazu <userinput>boot</userinput>.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="sparc"><title>Zavedení z CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<para>
+
+Většina verzí OpenBootu podporuje příkaz <userinput>boot
+cdrom</userinput>, což je jednoduchý alias k zavedení ze SCSI zařízení
+s ID 6 (nebo ze sekundárního master zařízení na systémech IDE).
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="sparc"><title>Chybová hláška <quote>IDPROM</quote></title>
+<para>
+
+Jestliže nemůžete zavést systém kvůli hlášce o problému s
+<quote>IDPROM</quote>, pak je pravděpodobné, že se vybila baterie
+NVRAM, která uchovává nastavení firmwaru. Více informací naleznete v
+dokumentu <ulink url="&url-sun-nvram-faq;">Sun NVRAM FAQ</ulink>.
+
+</para>
+  </sect2>

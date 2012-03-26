@@ -1,0 +1,77 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65170 -->
+
+
+  <sect2 arch="i386"><title>Suport de CPU, plaques base i vídeo</title>
+<para>
+
+La informació completa pertinent als dispositius suportats es pot trobar al
+<ulink url="&url-hardware-howto;">COM ES FA de compatibilitat de maquinari de Linux</ulink>.
+Aquesta secció merament destaca els detalls principals.
+
+</para>
+
+   <sect3><title>CPU</title>
+<para>
+
+Casi tots els processadors basats en x86 (IA-32) en ús als ordinadors
+personals estan suportats, incloses totes les varietats de les sèries
+«Pentium» d'Intel. Açò també inclou els processadors de 32 bits AMD i
+VIA (antic Cyrix), i els processadors com l'Athlon XP i l'Intel
+P4 Xeon.
+
+</para><para>
+
+D'altra banda, &debian; GNU/Linux &releasename; <emphasis>no</emphasis>
+funcionarà en processadors 386 o anteriors. Malgrat el nom de l'arquitectura
+«i386», suport pels processadors reals 80386 (i els seus clons), es va
+abandonar amb el llançaments de &debian; Sarge (r3.1)<footnote>
+
+<para>
+Hem intentat evitar-ho durant molt de temps, però s'ha fet necessari degut
+a una sèrie desafortunada de problemes amb el compilador i el nucli,
+començant amb un error de programació a la ABI C++ donada pel GCC.
+Encara haurieu de poguer executar &debian; GNU/Linux a processadors 80386
+si compileu el vostre nucli i compileu tots els paquets des de les fonts,
+però això és fora de l'abast d'aquest manual.
+</para>
+
+</footnote>. (Cap versió de Linux ha suportat mai els xips 286 o anteriors
+de la sèrie). Tots els i486 i posteriors estan encara suportats<footnote>
+
+<para>
+
+Molts paquets &debian; aniran més ràpid a ordinadors moderns com a efecte
+secundari positiu d'abandonar el suport per aquests xips antics. El i486,
+introduït a 1989, té tres opcodes (bswap, cmpxchg i xadd) que l'i386,
+introduït a 1986, no tenia. Abans aquests no es podien utilitzar fàcilment
+als paquets &debian;; ara sí.
+
+</para>
+
+</footnote>.
+
+</para>
+<note><para>
+
+Si el vostre sistema te un processador de 64 bits de les families AMD64 o
+Intel EM64T, possiblement voldreu utilitzar l'instal·lador per
+l'arquitectura amd64 en comptes de l'instal·lador de l'arquitectura
+i386 (32 bits).
+
+</para></note>
+   </sect3>
+
+   <sect3 id="bus"><title>Bus E/S</title>
+<para>
+
+El bus del sistema és part de la placa base, permetent a la CPU
+comunicar-se amb els perifèrics tals com els dispositius d'emmagatzemament.
+El vostre ordinador ha d'usar ISA, EISA, PCI, PCIe, PCI-X o VESA Local Bus (VLB,
+alguns cops anomenat el bus VL). Imprescindiblement tots els ordinadors
+personals venuts als últims anys utilitza un d'aquests.
+
+</para>
+   </sect3>
+  </sect2>
+

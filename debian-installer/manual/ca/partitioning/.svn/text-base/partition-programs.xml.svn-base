@@ -1,0 +1,140 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="partition-programs">
+ <title>Programes de &debian; per fer particions</title>
+<para>
+
+Els desenvolupadors de &debian; han adaptat nombroses varietats de programes
+per fer particions a fi que funcionen en diversos tipus de discs durs i
+arquitectures d'ordinador. Tot seguit hi ha una llista dels programes adients
+per a la vostra arquitectura.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term><command>partman</command></term>
+<listitem><para>
+
+És l'eina de &debian; recomanada per fer particions. Aquesta navalla suïssa també
+pot redimensionar particions, crear sistemes de fitxers
+<phrase arch="any-x86"> (<quote>formatar</quote> en terminologia de Windows)</phrase>
+i associar-los a punts de muntatge.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdisk.txt">
+<term><command>fdisk</command></term>
+<listitem><para>
+
+És el partidor de discs original del Linux, adequat per als experts.
+
+</para><para>
+
+Aneu amb compte si teniu particions de FreeBSD. Els nuclis d'instal·lació
+permeten l'ús d'aquestes particions, però la manera com
+l'<command>fdisk</command> els representa (o no) pot fer que els noms de
+dispositiu diferisquen. Vegeu el
+<ulink url="&url-linux-freebsd;">COM ES FA Linux+FreeBSD</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="cfdisk.txt">
+<term><command>cfdisk</command></term>
+<listitem><para>
+
+És un partidor de discs d'ús senzill, apte per a tothom.
+
+</para><para>
+
+Tingueu en compte que el <command>cfdisk</command> no reconeix particions
+FreeBSD en absolut i que, novament, els noms de dispositiu poden diferir.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="atari-fdisk.txt">
+<term><command>atari-fdisk</command></term>
+<listitem><para>
+
+És la versió de l'<command>fdisk</command> per a l'Atari.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="amiga-fdisk.txt">
+<term><command>amiga-fdisk</command></term>
+<listitem><para>
+
+És la versió de l'<command>fdisk</command> per a l'Amiga.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="mac-fdisk.txt">
+<term><command>mac-fdisk</command></term>
+<listitem><para>
+
+És la versió de l'<command>fdisk</command> per al Mac.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="pmac-fdisk.txt">
+<term><command>pmac-fdisk</command></term>
+<listitem><para>
+
+És la versió de l'<command>fdisk</command> per al PowerMac, emprada també
+pels sistemes BVM i Motorola VMEbus.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdasd.txt">
+<term><command>fdasd</command></term>
+<listitem><para>
+
+És la versió de l'<command>fdisk</command> per a &arch-title;; Llegiu el manual
+de l'fdasd o bé el capítol 13è de
+<ulink url="http://oss.software.ibm.com/developerworks/opensource/linux390/docu/l390dd08.pdf">
+Device Drivers and Installation Commands</ulink> per a més detalls.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Un d'aquests programes s'executarà de manera predeterminada quan seleccioneu
+<guimenuitem>Partir un disc dur</guimenuitem> (o paregut). Es podria
+utilitzar una eina de fer particions des de la línia d'ordres al VT2,
+malgrat que no es recomana.
+
+</para><para arch="any-x86">
+
+Recordeu que heu de marcar la partició d'arrencada com a
+<quote>Arrencable</quote>.
+
+</para><para condition="mac-fdisk.txt">
+
+Un aspecte important quan particioneu discs de tipus Mac és que la partició
+d'intercanvi s'identifica pel nom; s'ha d'anomenar <quote>swap</quote>.
+Totes les particions linux del Mac són del mateix tipus, Apple_UNIX_SRV2.
+Llegiu el manual. També podeu llegir el
+<ulink url="&url-mac-fdisk-tutorial;">Tutorial de mac-fdisk</ulink>, el qual
+inclou els passos que heu de fer si voleu compartir el disc amb un MacOS.
+
+</para>
+
+&partition-hppa.xml;
+&partition-x86.xml;
+&partition-ia64.xml;
+&partition-mips.xml;
+&partition-powerpc.xml;
+&partition-sparc.xml;
+
+ </sect1>

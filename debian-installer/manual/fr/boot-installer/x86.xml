@@ -1,0 +1,462 @@
+<!-- original version:  66988 -->
+
+  <sect2 arch="any-x86"><title>Amorcer depuis un cédérom</title>
+
+&boot-installer-intro-cd.xml;
+
+<!-- We'll comment the following section until we know exact layout -->
+<!-- 
+Le cédérom n°&nbsp;1 des cédéroms officiels de &debian; pour
+      &arch-title; vous présentera une invite <prompt>boot:</prompt> sur la
+      plupart des matériels. Appuyez sur <keycap>F4</keycap> pour afficher la
+      liste des options du noyau disponibles à partir desquelles
+      amorcer. Tapez simplement le nom de la saveur (idepci, vanilla,
+      compact, bf24) après l'invite de <prompt>boot:</prompt> et validez par
+      &enterkey;.
+
+</para><para>
+
+Si votre matériel ne supporte pas l'amorçage d'images multiples,
+      insérez un des autres cédéroms dans le lecteur. Il semble que la
+      plupart des lecteurs de cédéroms SCSI soient incapables de gérer
+l'amorçage d'images multiples de <command>isolinux</command>, les
+      possesseurs de tels lecteurs de cédéroms devraient essayer le
+      cédérom 2 (vanilla), 3 (compact) ou 5 (bf2.4).
+
+</para><para>
+
+Les cédéroms numéro 2 à 5 amorceront chacun sur une saveur différente
+dépendant du cédérom inséré. cf.<xref linkend="kernel-choice"/>
+pour une discussion sur les différentes
+variantes. Voici comment sont disposées les variantes sur les
+      différents cédéroms&nbsp;:
+
+<variablelist>
+<varlistentry>
+<term>CD 1</term><listitem><para>
+
+           Sur les nouveaux matériels, il permet une sélection
+           d'images de noyau à amorcer. Sur les vieux matériels, il
+           amorcera le noyau en saveur «&nbsp;idepci&nbsp;»&nbsp;;
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 2</term><listitem><para>
+
+Amorce la saveur «&nbsp;vanilla&nbsp;»&nbsp;;
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 3</term><listitem><para>
+
+Amorce la saveur «&nbsp;compact&nbsp;»&nbsp;;
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 4</term><listitem><para>
+
+Amorce la saveur «&nbsp;idepci&nbsp;»&nbsp;;
+
+</para></listitem></varlistentry>
+<varlistentry>
+<term>CD 5</term><listitem><para>
+
+Amorce la saveur «&nbsp;bf2.4&nbsp;».
+
+</para></listitem></varlistentry>
+
+ </variablelist>
+
+</para><para>
+
+-->
+
+</sect2>
+
+ <sect2 arch="any-x86" id="boot-win32">
+  <title>Amorcer depuis Windows</title>
+
+<para>
+Pour lancer l'installateur à partir de Windows, vous devez
+
+<itemizedlist>
+<listitem><para>
+disposer d'un CD-ROM/DVD-ROM ou d'une clé USB d'installation. Consultez les sections <xref linkend="official-cdrom"/>
+et <xref linkend="boot-usb-files"/>.
+</para></listitem>
+<listitem><para>
+
+ou télécharger un exécutable Windows autonome, disponible dans le fichier
+tools/win32-loader/stable/win32-loader.exe sur les miroirs &debian;.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+<para>
+Quand vous insérez le CD-ROM/DVD-ROM, un programme de pré-installation doit normalement
+être lancé. Si Windows ne l'exécute pas ou si vous utilisez une clé USB, vous pouvez le lancer
+vous-même en exécutant la commande <command>setup.exe</command> sur le périphérique.   
+</para>
+<para>
+Ce programme pose quelques questions préliminaires et prépare le système pour le lancement
+de l'installateur &debian-gnu;.
+</para>
+
+  </sect2>
+
+
+  <sect2 arch="x86" id="install-from-dos">
+  <title>Amorcer depuis DOS</title>
+
+<para>
+
+Démarrez sur MS-DOS (pas sur Windows). Vous pouvez par exemple
+démarrer sur un disque de dépannage ou de diagnostic.
+</para>
+<para>
+Si vous pouvez accéder au disque d'installation, modifiez le disque courant
+pour le lecteur de cédérom, par exemple :
+
+<informalexample><screen>
+d:
+</screen></informalexample>.  
+
+Sinon, modifiez le disque courant pour le disque dur que vous avez
+préalablement préparé selon la méthode expliquée dans <xref linkend="files-loadlin"/>.
+</para>
+<para>
+Allez dans le répertoire de la variante choisie, par exemple :
+
+<informalexample><screen>
+cd \&x86-install-dir;
+</screen></informalexample>
+
+Si vous préférez le mode graphique de l'installateur, allez dans
+le sous-répertoire <filename>gtk</filename> :
+
+<informalexample><screen>
+cd gtk
+</screen></informalexample>
+
+Puis lancez la commande <command>install.bat</command>. Le noyau sera chargé
+et l'installateur lancé.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="x86" id="boot-initrd">
+  <title>Amorcer à partir de Linux avec <command>LILO</command>
+  ou <command>GRUB</command></title>
+
+<para>
+Pour amorcer l'installateur sur un disque dur, vous devez d'abord télécharger
+les fichiers et les installer comme l'explique la section
+<xref linkend="boot-drive-files"/>.
+</para>
+
+<para>
+Si vous voulez utiliser le disque seulement pour l'amorçage et ensuite 
+utiliser le réseau pour télécharger tous les paquets, vous devez récupérer 
+le fichier <filename>netboot/debian-installer/&architecture;/initrd.gz</filename> et le
+noyau qui lui correspond, <filename>netboot/debian-installer/&architecture;/linux</filename>.
+Vous pourrez ainsi repartitionner le disque sur lequel se trouve l'installateur.
+Toutefois cette opération demande un grand soin.
+</para>
+
+<para>
+Si vous voulez préserver une partition de ce disque, vous pouvez
+télécharger le fichier <filename>hd-media/initrd.gz</filename> et le noyau
+correspondant&nbsp;; copiez aussi une image CD ou DVD sur le disque (assurez-vous
+que le nom de cette image finit en <literal>.iso</literal>). L'installateur
+peut alors se lancer à partir du disque dur et s'installer à partir de cette
+image, sans avoir besoin du réseau.
+</para>
+
+<para>
+
+Pour <command>LILO</command>, vous devez configurer deux choses essentielles
+dans <filename>/etc/lilo.conf</filename>&nbsp;:
+<itemizedlist>
+<listitem><para>
+
+le chargement de <filename>initrd.gz</filename> au moment de l'amorçage&nbsp;;
+
+</para></listitem>
+<listitem><para>
+
+l'utilisation par le noyau <filename>vmlinuz</filename> d'un disque virtuel
+en mémoire comme sa partition racine.
+
+</para></listitem>
+</itemizedlist>
+
+Voici un exemple de fichier <filename>/etc/lilo.conf</filename>&nbsp;:
+
+</para><para>
+
+<informalexample><screen>
+image=/boot/newinstall/vmlinuz
+       label=newinstall
+       initrd=/boot/newinstall/initrd.gz
+</screen></informalexample>
+
+Pour plus de précisions, référez-vous aux pages de manuel de
+<citerefentry><refentrytitle>initrd</refentrytitle>
+<manvolnum>4</manvolnum></citerefentry> et de 
+<citerefentry><refentrytitle>lilo.conf</refentrytitle>
+<manvolnum>5</manvolnum></citerefentry>. Exécutez maintenant
+<userinput>lilo</userinput> et relancez la machine.
+</para>
+
+<para>
+La procédure pour <command>GRUB1</command> est relativement similaire.
+Cherchez le fichier <filename>menu.lst</filename> dans le répertoire
+<filename>/boot/grub/</filename> (parfois <filename>/boot/boot/grub/</filename>),
+et ajoutez une entrée pour l'installateur, par exemple en supposant que
+<filename>/boot</filename> soit sur la premiere partition du premier disque du système&nbsp;:
+
+<informalexample><screen>
+title  New Install
+root   (hd0,0)
+kernel /boot/newinstall/vmlinuz
+initrd /boot/newinstall/initrd.gz
+</screen></informalexample>
+
+</para>
+
+<para>
+
+La procédure pour <command>GRUB2</command> est semblable. Le fichier s'appelle
+<filename>grub.cfg</filename> au lieu de <filename>menu.lst</filename>. Une entrée
+pour l'installateur pourrait être celle-ci :
+
+<informalexample><screen>
+menuentry 'New Install' {
+insmod part_msdos
+insmod ext2
+set root='(hd0,msdos1)'
+linux /boot/newinstall/vmlinuz
+initrd /boot/newinstall/initrd.gz
+}
+</screen></informalexample>
+
+</para>
+
+<para>
+À partir de maintenant, il ne devrait plus y avoir de différences
+entre <command>GRUB</command> et <command>LILO</command>.
+</para>
+</sect2>
+
+<sect2 arch="any-x86" condition="bootable-usb" id="usb-boot">
+<title>Amorcer sur une clé USB</title>
+
+<para>
+Supposons que tout a été préparé comme l'expliquent les sections
+<xref linkend="boot-dev-select"/> et <xref linkend="boot-usb-files"/>. 
+Branchez maintenant votre clé USB dans un port libre et relancez la machine.
+Le système devrait se lancer et une invite <prompt>boot:</prompt> apparaître.
+Maintenant, vous pouvez saisir des paramètres optionnels ou simplement
+appuyer sur la touche &enterkey;.
+</para>
+
+</sect2>
+
+  <sect2 arch="x86" condition="supports-floppy-boot" id="floppy-boot">
+  <title>Amorcer depuis des disquettes</title>
+<para>
+
+Vous devez avoir déjà téléchargé les images de disquettes nécessaires
+à partir des images présentes dans <xref linkend="create-floppy"/>. 
+<!-- missing-doc FIXME If you need to, you can also modify the boot floppy; see\
+<xref linkend="rescue-replace-kernel"/>. -->
+</para>
+<para>
+
+Pour amorcer depuis la disquette d'amorçage, placez-la dans le premier 
+lecteur de disquette, éteignez la machine comme 
+vous le faites habituellement puis rallumez-la.
+
+</para><para>
+
+Pour réaliser l'installation à partir d'un lecteur LS-120 (version ATAPI) 
+avec un jeu de disquettes, vous devrez préciser l'emplacement virtuel du 
+lecteur de disquette. On utilise le paramètre d'amorçage
+<emphasis>root=</emphasis>, en indiquant le périphérique que le 
+pilote ide-floppy aura simulé. Par exemple si votre lecteur est connecté sur 
+la première interface IDE en seconde position sur le câble, entrez
+<userinput>install root=/dev/hdc</userinput> à l'invite de démarrage.
+
+</para><para>
+
+Remarquez bien que sur certaines machines <keycombo><keycap>Control</keycap>
+<keycap>Alt</keycap> <keycap>Delete</keycap></keycombo> ne remet pas 
+correctement la machine à zéro. Éteindre la machine est alors recommandé. Si 
+vous installez depuis un système d'exploitation existant, (p. ex. à partir 
+d'une machine MS-DOS), vous n'aurez pas le choix. Sinon, éteignez la
+machine et rallumez-la.
+
+</para><para>
+
+La disquette sera lue et vous devriez apercevoir un écran 
+présentant la disquette d'amorçage et l'invite <prompt>boot:</prompt> au bas de
+l'écran.
+</para>
+
+<para>
+
+Une fois que vous avez appuyé sur la touche &enterkey;, vous devez voir le 
+message
+<computeroutput>Loading...</computeroutput> suivi par
+<computeroutput>Uncompressing Linux...</computeroutput> et ensuite un écran
+rempli d'informations sur les éléments matériels de votre machine. Vous
+pouvez trouver un complément d'information sur cette phase dans la
+<xref linkend="kernel-msgs"/>.
+</para>
+
+<para>
+Après avoir démarré depuis la disquette d'amorçage, la disquette root est
+demandée. Insérez-la puis pressez la touche &enterkey; et le contenu est
+chargé en mémoire. L'<command>installateur Debian</command> est 
+automatiquement lancé.
+</para>
+</sect2>
+
+  <sect2 arch="x86" id="boot-tftp"><title>Amorcer avec TFTP</title>
+ 
+&boot-installer-intro-net.xml;
+ 
+<para>
+
+Il y a plusieurs façons d'amorcer avec TFTP sur une machine i386.
+
+</para>
+
+   <sect3><title>Carte réseau ou carte mère avec PXE</title>
+<para>
+
+Il est possible que votre interface réseau ou votre carte mère permette
+l'amorçage PXE. C'est une réimplémentation de l'amorçage TFTP par 
+<trademark class="trade">Intel</trademark>. Dans ce cas, vous pourrez 
+configurer votre bios pour qu'il s'amorce sur le réseau.
+
+</para>
+   </sect3>
+
+   <sect3><title>Carte réseau avec ROM de démarrage réseau</title>
+<para>
+
+Une carte d'interface réseau peut offrir la possibilité de démarrer par TFTP.
+
+</para><para condition="FIXME">
+
+Dites-nous (<email>&email-debian-boot-list;</email>) comment vous 
+avez fait. Veuillez vous référer à ce document.
+
+</para>
+   </sect3>
+
+   <sect3><title>Etherboot</title>
+<para>
+Le <ulink url="http://www.etherboot.org">projet etherboot</ulink> offre des
+disquettes d'amorçage et même des ROM qui permettent l'amorçage par TFTP.
+</para>
+</sect3>
+</sect2>
+
+  <sect2 arch="x86" id="boot-screen">
+<title>L'écran d'amorçage</title>
+<para>
+Quand l'installateur démarre, apparaît un écran montrant le logo &debian;
+et un menu&nbsp;: 
+
+<informalexample><screen>
+Installer boot menu
+
+Install
+Graphical install
+Advanced options             >
+Help
+Install with speech synthesis
+
+Press ENTER to boot or TAB to edit a menu entry
+</screen></informalexample>
+
+Selon la méthode d'installation utilisée, l'option <quote>Graphical install</quote>
+est, ou non, disponible. Les images pouvant s'installer sur deux architectures ont
+une variante 64 bits pour chaque option, ce qui double presque le nombre d'options.
+
+</para>
+<para>
+Pour une installation normale, sélectionnez l'entrée <quote>Install</quote>
+ou l'entrée <quote>Graphical install</quote> en utilisant les touches avec
+flèche du clavier ou en tapant la première lettre en surbrillance.
+L'entrée <quote>Install</quote> est pré-sélectionnée.
+Vous pouvez maintenant appuyer sur la touche &enterkey; pour
+lancer l'installateur.
+</para>
+<para>
+L'entrée <quote>Advanced options</quote> donne accès à un second menu
+qui permet d'amorcer l'installateur en mode <quote>expert</quote> ou mode <quote>rescue</quote>.
+Il est aussi utilisé pour les installations automatisées.
+</para>
+<para>
+Si vous voulez ajouter des paramètres d'amorçage pour l'installateur ou pour le noyau,
+appuyez sur la touche &tabkey;. La commande d'amorçage pour l'entrée du menu choisie est affichée
+et l'on peut ajouter des options. Les écrans d'aide listent les principales options possibles.
+Appuyez sur la touche &enterkey; pour lancer l'installateur avec vos options. Pour revenir au menu et
+annuler toutes vos saisies, appuyez sur la touche &escapekey;.
+</para> 
+<para>
+Quand vous sélectionnez l'entrée <quote>Help</quote>, un premier écran
+présente tous les écrans d'aide disponibles. Il n'est pas possible de revenir
+au menu d'amorçage une fois dans l'aide. Cependant les écrans F3 et F4 listent
+des commandes équivalentes aux commandes d'amorçage listées dans le menu principal.
+Tous les écrans d'aide ont une invite permettant de saisir une commande&nbsp;:
+
+<informalexample><screen>
+Press F1 for the help index, or ENTER to boot:
+</screen></informalexample>
+
+Vous pouvez alors appuyer sur la touche &enterkey; pour amorcer l'installateur
+avec les options par défaut ou bien saisir une commande particulière avec les
+paramètres d'amorçage nécessaires.
+Les écrans d'aide listent certains paramètres utiles.
+Si vous ajoutez des paramètres à la ligne de commande, n'oubliez pas
+d'indiquer la méthode d'amorçage (la valeur par défaut est
+<userinput>install</userinput>) et un espace avant le premier paramètre
+(par exemple, <userinput>install fb=false</userinput>). 
+
+<note><para>
+
+Le clavier à cet instant est supposé être un clavier de type <quote>American English</quote>.
+Si votre carte clavier est agencée autrement, les caractères affichés sur l'écran
+seront parfois différents de ceux que vous saisissez. Il existe sur Wikipedia un 
+<ulink url="&url-us-keymap;">schéma de la carte clavier US</ulink> qui peut vous aider à saisir les
+bons caractères.
+
+</para></note>
+<note><para>
+Si le BIOS du système est configuré pour utiliser une console série, il se peut
+que l'écran graphique initial ne s'affiche pas au moment de l'amorçage de l'installateur,
+ni le menu d'amorçage.
+Cela peut aussi arriver si vous installez le système depuis une machine distante qui offre une
+interface texte à la console VGA, par exemple la console texte
+<quote>integrated Lights Out</quote> (iLO) de Compaq ou la 
+<quote>Integrated Remote Assistant</quote> (IRA) de HP.
+</para>
+<para>
+
+Pour sauter l'écran d'amorçage graphique, vous pouvez appuyer sur la touche &escapekey;
+pour obtenir l'invite d'amorçage en mode texte, ou appuyer sur la touche <quote>H</quote> puis
+sur la touche &enterkey; pour sélectionner l'option <quote>Help</quote> décrite plus haut.
+Toute saisie sera alors affichée sur la ligne d'invite. Pour empêcher l'installateur
+d'utiliser le tampon vidéo dans la suite de l'installation, vous pouvez
+ajouter le paramètre <userinput>vga=normal fb=false</userinput> à l'invite d'amorçage.
+
+</para></note>
+
+</para>
+  </sect2>

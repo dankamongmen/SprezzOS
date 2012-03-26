@@ -1,0 +1,59 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 50619 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2007.05.27 -->
+<!-- updated 46101:50619 by Felipe Augusto van de Wiel (faw) 2008.02.06 -->
+
+   <sect3 id="netcfg"><title>Configurando a Rede</title>
+<para>
+
+Assim que entrar neste passo, se o sistema detectar que tem
+mais que um dispositivo de rede, lhe será perguntado sobre qual dispositivo
+será sua interface <emphasis>primária</emphasis> da interface de rede,
+i.e. a que será usada pelo processo de instalação. As outras interfaces
+não serão configuradas neste passo. Você poderá configurar interfaces
+adicionais após a instalação estar concluída; veja a página de
+manual <citerefentry><refentrytitle>interfaces</refentrytitle> <manvolnum>5</manvolnum></citerefentry>.
+
+</para><para>
+
+Por padrão, o &d-i; tenta configurar a rede do seu computador automaticamente
+via DHCP. Se a detecção do DHCP for feita com sucesso, este passo estará
+concluído. Se a detecção falhar, poderá ser devido a uma série de fatores,
+desde um cabo de rede desconectado a uma configuração falha do DHCP. Ou
+talvez não tenha um servidor DHCP em sua rede local. Para melhores detalhes,
+veja as mensagens de erro no quarto console virtual. Em qualquer caso,
+o sistema lhe perguntará se deseja repetir ou se deseja fazer a
+configuração manual. Os servidores DHCP são algumas vezes lentos em suas
+respostas, assim tente novamente se estiver certo que tudo está funcionando
+bem.
+
+</para><para>
+
+A configuração manual de rede lhe pergunta sobre algumas questões
+sobre sua rede como o
+<computeroutput>endereço IP</computeroutput>,
+<computeroutput>Máscara de Rede</computeroutput>,
+<computeroutput>Gateway</computeroutput>,
+<computeroutput>Endereço do servidor de nomes</computeroutput> e um
+<computeroutput>nome de máquina (hostname)</computeroutput>.
+Se tiver uma interface de rede sem fio (wireless), você será perguntado
+para fornecer seu <computeroutput>Wireless ESSID</computeroutput> e
+uma <computeroutput>chave WEP</computeroutput>. Preencha as questões de
+<xref linkend="needed-info"/>.
+
+</para><note><para>
+
+Alguns detalhes técnicos você pode, ou não, achar úteis: o programa
+assume que o endereço IP de rede é o E-bit-a-bit (<quote>bitwise-AND</quote>)
+do IP do seu sistema e da sua máscara de rede. O endereço de broadcast padrão
+é calculado como o OU-bit-a-bit (<quote>bitwise OR</quote>) do endereço IP do
+seu sistema com a negação-bit-a-bit (<quote>bitwise negation</quote>) da
+máscara de rede. Ele também descobrirá seu gateway. Se você não souber
+qualquer uma dessas respostas, use as suposições do sistema &mdash; se
+necessário você pode alterá-las editando o arquivo
+<filename>/etc/network/interfaces</filename> uma vez que o sistema esteja
+instalado.
+
+</para></note>
+
+   </sect3>

@@ -1,0 +1,47 @@
+<!-- $Id: boot-installer.xml 64781 2010-09-18 15:58:51Z mck-guest $ -->
+<!-- original version: 64740 -->
+
+<chapter id="boot-installer"><title>Zavedení instalačního systému</title>
+
+<!-- Include only archs that are documented to avoid build-errors -->
+<!-- The arch="..." condition can be deleted when al archs are present -->
+
+ <sect1 arch="arm;any-x86;ia64;mips;mipsel;s390;powerpc;sparc">
+ <title>Zavedení instalátoru na &arch-title;</title>
+
+<warning arch="any-x86;powerpc"><para>
+
+Máte-li na svém počítači jiné operační systémy, které chcete zachovat
+(tzv. duální zavádění), měli byste se <emphasis>před</emphasis>
+zavedením instalačního systému ujistit, že jsou tyto operační systémy
+skutečně vypnuté a ne jen uspané. Instalace nového operačního systému
+může narušit stav uspaného operačního systému (což může po jeho
+probuzení vést k nestabilitě systému nebo i ztrátě dat).
+
+</para></warning><note condition="gtk"><para>
+
+Informace o zavedení grafického instalátoru naleznete v kapitole
+<xref linkend="graphical"/>.
+
+</para></note>
+
+<!-- This info is so architecture dependent, that I have turned the -->
+<!-- structure inside out for this chapter. Each arch has a document. -->
+
+&boot-installer-arm.xml;
+<!-- &boot-installer-hppa.xml; -->
+&boot-installer-x86.xml;
+&boot-installer-ia64.xml;
+&boot-installer-mips.xml;
+&boot-installer-mipsel.xml;
+&boot-installer-s390.xml;
+&boot-installer-powerpc.xml;
+&boot-installer-sparc.xml;
+
+ </sect1>
+
+&boot-installer-accessibility.xml;
+&boot-installer-parameters.xml;
+&boot-installer-trouble.xml;
+
+</chapter>

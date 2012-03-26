@@ -1,0 +1,61 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+
+  <sect2 arch="mips" id="boot-tftp"><title>Booten per TFTP</title>
+
+   <sect3>
+   <title>SGI TFTP-Boot</title>
+<para>
+
+Wenn Sie den Kommandomonitor erreicht haben, nutzen Sie
+
+<informalexample><screen>
+bootp():
+</screen></informalexample>
+
+um Linux auf SGI-Maschinen zu booten und die &debian;-Installation zu starten.
+Um dies zu ermöglichen, müssen Sie eventuell die
+<envar>netaddr</envar>-Umgebungsvariable deaktivieren. Tippen Sie dazu
+
+<informalexample><screen>
+unsetenv netaddr
+</screen></informalexample>
+
+in den Kommandomonitor ein.
+
+</para>
+  </sect3>
+
+  </sect2>
+
+  <sect2 arch="mips"><title>Boot-Parameter</title>
+
+   <sect3>
+   <title>SGI TFTP-Boot</title>
+<para>
+
+Bei SGI-Maschinen können Sie Boot-Parameter zum
+<command>bootp():</command>-Befehl im Kommandomonitor hinzufügen.
+
+</para><para>
+
+Hinter dem <command>bootp():</command>-Kommando können Sie den Pfad
+und den Namen der Datei angegeben, die gebootet werden soll, wenn
+nicht explizit eine vom BOOTP/DHCP-Server vorgeben wird. Ein Beispiel:
+
+<informalexample><screen>
+bootp():/boot/tftpboot.img
+</screen></informalexample>
+
+Weitere Kernelparameter können per <command>append</command>-Befehl
+angegeben werden:
+
+<informalexample><screen>
+bootp(): append="root=/dev/sda1"
+</screen></informalexample>
+
+</para>
+  </sect3>
+
+  </sect2>

@@ -1,0 +1,70 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 65315 -->
+
+
+  <sect2 condition="supports-bootp" id="tftp-bootp">
+  <title>Configurar un servidor BOOTP</title>
+<para>
+
+Hi ha dos servidors de BOOTP a GNU/Linux. El primér és el
+<command>bootpd</command> de CMU. L'altre és també un servidor de
+DHCP, el <command>dhcpd</command> de ISC. A &debian-gnu; són als
+paquets <classname>bootp</classname> i <classname>dhcp3-server</classname>
+de &debian-gnu; respectivament.
+
+</para><para>
+
+Per fer servir el <command>bootpd</command> de CMU, elimineu el comentari
+(o bé afegiu) la línia important al <filename>/etc/inetd.conf</filename>. A
+&debian-gnu;, podeu executar <userinput>update-inetd --enable bootps</userinput>,
+i després <userinput>/etc/init.d/inetd reload</userinput> per aconseguir-ho.
+En el cas que el servidor BOOTP no utilitze &debian;, la línia en qüestió
+seria com aquesta:
+
+<informalexample><screen>
+bootps  dgram  udp  wait  root  /usr/sbin/bootpd  bootpd -i -t 120
+</screen></informalexample>
+
+Ara, podeu crear un fitxer <filename>/etc/bootptab</filename>. Aquest
+té el mateix tipus de format críptic i familiar com els antics fitxers de
+BSD <filename>printcap</filename>, <filename>termcap</filename>, i
+<filename>disktab</filename> . Vegeu la pàgina de manual del
+<filename>bootptab</filename> per obtenir més informació. Pel
+<command>bootpd</command> de CMU, necessitareu saber l'adreça màquina (MAC)
+del client. Un exemple de <filename>/etc/bootptab</filename>:
+
+<informalexample><screen>
+client:\
+  hd=/tftpboot:\
+  bf=tftpboot.img:\
+  ip=192.168.1.90:\
+  sm=255.255.255.0:\
+  sa=192.168.1.1:\
+  ha=0123456789AB:
+</screen></informalexample>
+
+Necessitareu canviar al menys l'opció <quote>ha</quote>, que especifica
+la adreça màquina del client. L'opció <quote>bf</quote> especifica
+quin fitxer hauria de descarregar un client via TFTP; per més detalls,
+vegeu <xref linkend="tftp-images"/>.
+
+<phrase arch="mips">
+En màquines SGI tan sols heu d'introduir l'ordre monitor i escriure
+<userinput>printenv</userinput>. El valor de la variable
+<userinput>eaddr</userinput> és l'adreça màquina (MAC).
+</phrase>
+
+</para><para>
+
+Per altra banda, configurar el BOOTP amb el <command>dhcpd</command> d'ISC
+és molt fàcil, ja que considera els clients BOOTP com un cas un poc especial
+de clients de DHCP. A algunes arquitectures necessitareu d'una configuració
+complexa per arrencar els clients via BOOTP. Si aquest és el vostre cas,
+llegiu la secció <xref linkend="dhcpd"/>. Altrament, ho aconseguireu
+de forma senzilla afegint la directiva <userinput>allow bootp</userinput>
+al bloc de configuració per la xarxa que conté el client al fitxer
+<filename>/etc/dhcp3/dhcpd.conf</filename>, i reiniciant el
+<command>dhcpd</command> amb <userinput>/etc/init.d/dhcp3-server restart</userinput>.
+
+</para>
+  </sect2>

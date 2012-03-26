@@ -1,0 +1,41 @@
+<!-- $Id: base-installer.xml 64781 2010-09-18 15:58:51Z mck-guest $ -->
+<!-- original version: 64743 -->
+
+<para>
+
+Během instalace základního systému jsou hlášky o rozbalování
+a nastavování balíků přesměrovány na třetí virtuální konzoli
+<userinput>tty4</userinput>. Můžete se na ni přepnout klávesami
+<keycombo> <keycap>Levý Alt</keycap> <keycap>F4</keycap> </keycombo>,
+zpět se dostanete kombinací <keycombo> <keycap>Levý Alt</keycap>
+<keycap>F1</keycap> </keycombo>.
+
+</para><para>
+
+Tyto jsou hlášky jsou také uloženy do souboru
+<filename>/var/log/syslog</filename>, což se může hodit v případě, že
+instalujete systém přes sériovou konzoli,
+
+</para><para>
+
+Během instalace se nainstaluje i jádro &arch-kernel;. Při standardní
+prioritě vám &d-i; vybere jádro, které nejvíce odpovídá vašemu
+hardwaru. Při nižších prioritách si budete moci sami vybrat
+ze seznamu dostupných jader.
+
+</para><para>
+
+Při instalaci balíků se automaticky nainstalují také balíky, které
+jsou instalovanými balíku doporučovány. Doporučené balíky nejsou pro
+funčnost zvoleného software striktně vyžadovány, nicméně nějakým
+způsobem rozšiřují jeho funkcionalitu a v očích správců balíků by se
+měly instalovat společně.
+
+</para><note><para>
+
+Z technických důvodů se balíky instalované jako součást základního
+systému instalují <emphasis>bez</emphasis> doporučených balíků.
+Pravidlo popsané výše tedy začíná platit až po instalaci základního
+systému.
+
+</para></note>

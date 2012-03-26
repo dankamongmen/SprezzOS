@@ -1,0 +1,47 @@
+<!-- original version: 64740 -->
+
+<chapter id="boot-installer"><title>Démarrer le système d'installation</title>
+
+<!-- Include only archs that are documented to avoid build-errors -->
+<!-- The arch="..." condition can be deleted when al archs are present -->
+ <sect1 arch="arm;any-x86;ia64;mips;mipsel;s390;powerpc;sparc">
+
+<title>Démarrer l'installateur sur &arch-title;</title>
+
+<!-- This info is so architecture dependent, that I have turned the   -->
+<!-- structure inside out for this chapter. Each arch has a document. -->
+<!-- Note: arch hppa is currently missing -->
+
+<warning arch="any-x86;powerpc"><para>
+Si vous voulez conserver les autres systèmes d'exploitation existants sur votre
+machine, vous devez les éteindre <emphasis>avant</emphasis> de lancer l'installateur.
+L'installation d'un système alors qu'un autre système a été mise en veille peut
+endommager ou détruire l'état du système mis en veille.
+</para></warning>
+
+<note condition="gtk"><para>
+
+Voyez <xref linkend="graphical"/> pour savoir comment amorcer
+l'installateur graphique.
+
+</para></note>
+
+&boot-installer-arm.xml;
+<!-- &boot-installer-hppa.xml; -->
+&boot-installer-x86.xml;
+&boot-installer-ia64.xml;
+&boot-installer-mips.xml;
+&boot-installer-mipsel.xml;
+&boot-installer-s390.xml;
+&boot-installer-powerpc.xml;
+&boot-installer-sparc.xml;
+
+ </sect1>
+
+&boot-installer-accessibility.xml;
+&boot-installer-parameters.xml;
+&boot-installer-trouble.xml;
+
+</chapter>
+
+

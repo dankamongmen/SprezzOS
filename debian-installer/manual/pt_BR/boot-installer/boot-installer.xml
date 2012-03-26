@@ -1,0 +1,55 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 61147 -->
+<!-- updated 43782:44407 by Felipe Augusto van de Wiel (faw) 2007.02.18 -->
+<!-- updated 44407:49985 by Felipe Augusto van de Wiel (faw) 2008.02.06 -->
+<!-- updated 49985:61147 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+<chapter id="boot-installer"><title>Iniciando o sistema de instalação</title>
+
+<!-- Incluir somente arquitetura que são documentadas para evitar erros de -->
+<!-- construção. -->
+<!-- A condição arch="..." pode ser apagada quando todas as arquiteturas -->
+<!-- estiverem presentes -->
+ <sect1 arch="arm;any-x86;ia64;mips;mipsel;s390;powerpc;sparc">
+ <title>Inicializando o Programa de Instalação na &arch-title;</title>
+
+<!-- Esta informação é dependente de arquitetura, por isto deixei a -->
+<!-- estrutura fora deste capítulo. Cada arquitetura tem seu próprio -->
+<!-- documento. -->
+<!-- Nota: A arquitetura hppa atualmente está faltando -->
+
+<warning arch="any-x86;powerpc"><para>
+
+Se você possui quaisquer outros sistemas operacionais em seu sistema que
+você deseja manter (configuração <quote>dual-boot</quote>), você deveria
+ter certeza de que eles foram desligados de forma correta
+<emphasis>antes</emphasis> de inicializar o instalador. Instalar um sistema
+operacional enquanto outro sistema operacional está em hibernação (foi
+suspendido em disco) pode resultar em perda do, ou danos ao estado do sistema
+operacional suspendido, o que pode causar problemas quando for reinicializado.
+
+</para></warning>
+<note condition="gtk"><para>
+
+Para informações sobre como inicializar o instalador gráfico, veja
+<xref linkend="graphical"/>.
+
+</para></note>
+
+&boot-installer-arm.xml;
+<!-- &boot-installer-hppa.xml; -->
+&boot-installer-x86.xml;
+&boot-installer-ia64.xml;
+&boot-installer-mips.xml;
+&boot-installer-mipsel.xml;
+&boot-installer-s390.xml;
+&boot-installer-powerpc.xml;
+&boot-installer-sparc.xml;
+
+ </sect1>
+
+&boot-installer-accessibility.xml;
+&boot-installer-parameters.xml;
+&boot-installer-trouble.xml;
+
+</chapter>

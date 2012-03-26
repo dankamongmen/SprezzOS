@@ -1,0 +1,47 @@
+<!-- $Id: iso-scan.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+  <sect3 id="iso-scan">
+  <title>Hledání instalačního ISO obrazu</title>
+<para>
+
+Při instalaci metodou <emphasis>hd-media</emphasis> nastane okamžik,
+kdy budete muset instalační program navést k ISO obrazu instalačního
+systému &debian;u, na kterém se nachází zbytek instalačních
+souborů. Abyste obraz nemuseli hledat ručně, pomůže vám s tímto úkolem
+komponenta <command>iso-scan</command>.
+
+</para><para>
+
+<command>iso-scan</command> nejprve připojí všechna bloková zařízení
+(např. diskové oblasti), na kterých se nachází známý souborový systém
+a poté na nich hledá soubory končící příponou
+<filename>.iso</filename> (resp. <filename>.ISO</filename>). Po
+nalezení každého iso obrazu si <command>iso-scan</command> zkontroluje
+jeho obsah a zjistí, zda se jedná o planý obraz instalačního CD. Pokud
+ano, máme vyhráno a instalace může pokračovat. V opačném případě se
+hledá další obraz.  Pokud toto hledání neuspěje, ještě není vše
+ztraceno. První pokus totiž kvůli rychlosti prohledává pouze kořenový
+adresář a první úroveň jeho podadresářů. Tzn. nalezne
+<filename>/<replaceable>cokoliv</replaceable>.iso</filename>,
+<filename>/data/<replaceable>cokoliv</replaceable>.iso</filename>, ale
+ne
+<filename>/data/tmp/<replaceable>cokoliv</replaceable>.iso</filename>.
+
+</para><para>
+
+Selhalo-li tedy první hledání, <command>iso-scan</command> se zeptá,
+zda chcete spustit důkladnější proces. Tento druhý pokus se nedívá
+pouze do nejvyšších adresářů, ale opravdu prohledá celý disk.
+
+</para><para>
+
+Pokud <command>iso-scan</command> neuspěje ani na druhý pokus, vraťte
+se zpět do původního operačního systému a zkontrolujte, zda má soubor
+správnou příponu (končící na <filename>.iso</filename>), zda je umístěn
+na souborovém systému, který umí &d-i; rozpoznat a zda není iso obraz
+poškozený (zkontrolujte kontrolní součet). Zkušenější unixoví
+uživatelé mohou vše provést bez restartu počítače na druhé konzoli.
+
+</para>
+  </sect3>

@@ -1,0 +1,3140 @@
+# Hungarian translation of Debian Installation Guide preparing
+# SZERVÁC Attila <sas@321.hu>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-29 05:56+0000\n"
+"PO-Revision-Date: 2007-03-18 16:25+0100\n"
+"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"Language-Team: Hungarian <debian-l10n-hungarian@lists.debian>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-Language: Hungarian\n"
+
+#. Tag: title
+#: preparing.xml:5
+#, no-c-format
+msgid "Before Installing &debian-gnu;"
+msgstr "A &debian-gnu; telepítése előtt"
+
+#. Tag: para
+#: preparing.xml:6
+#, no-c-format
+msgid ""
+"This chapter deals with the preparation for installing &debian; before you "
+"even boot the installer. This includes backing up your data, gathering "
+"information about your hardware, and locating any necessary information."
+msgstr ""
+"E fejezet a &debian; telepítés előkészületeit tárgyalja a telepítő indítása "
+"előtt. Szól az adatok mentéséről, a hardver adatainak begyűjtéséről, és "
+"bármilyen szükséges információ helyének meghatározásáról."
+
+#. Tag: title
+#: preparing.xml:19
+#, no-c-format
+msgid "Overview of the Installation Process"
+msgstr "A telepítő folyamat áttekintése"
+
+#. Tag: para
+#: preparing.xml:20
+#, no-c-format
+msgid ""
+"First, just a note about re-installations. With &debian;, a circumstance "
+"that will require a complete re-installation of your system is very rare; "
+"perhaps mechanical failure of the hard disk would be the most common case."
+msgstr ""
+"Először csak egy megjegyzés az újratelepítésről. A &debian; esetében az "
+"olyan körülmény, mely újratelepítést igényelne rendkívül ritka; talán a "
+"merevlemez mechanikai hibája a leggyakrabb eset."
+
+#. Tag: para
+#: preparing.xml:27
+#, no-c-format
+msgid ""
+"Many common operating systems may require a complete installation to be "
+"performed when critical failures take place or for upgrades to new OS "
+"versions. Even if a completely new installation isn't required, often the "
+"programs you use must be re-installed to operate properly in the new OS."
+msgstr ""
+"Nagyon sok általános operációs rendszer teljes újratelepítést igényel számos "
+"kritikus hiba esetén vagy új verzióra való áttéréskor. Ezeknél a "
+"rendszereknél, még ha a teljes újratelepítés el is kerülhető, nagyon sokszor "
+"a programokat újra kell telepíteni, hogy működjenek az új rendszer alatt."
+
+#. Tag: para
+#: preparing.xml:35
+#, no-c-format
+msgid ""
+"Under &debian-gnu;, it is much more likely that your OS can be repaired "
+"rather than replaced if things go wrong. Upgrades never require a wholesale "
+"installation; you can always upgrade in-place. And the programs are almost "
+"always compatible with successive OS releases. If a new program version "
+"requires newer supporting software, the &debian; packaging system ensures "
+"that all the necessary software is automatically identified and installed. "
+"The point is, much effort has been put into avoiding the need for re-"
+"installation, so think of it as your very last option. The installer is "
+"<emphasis>not</emphasis> designed to re-install over an existing system."
+msgstr ""
+"A &debian-gnu; esetében a rendszer szinte mindig javítható, ha valami "
+"tönkremegy. A frissítések sohasem igényelnek teljes újratelepítést. A "
+"programok szinte mindig kompatibilisek a rendszer új kiadásaival. Ha egy "
+"program új változata újabb támogató szoftvereket igényel, a &debian; "
+"csomagoló rendszer biztosítja az összes szükséges szoftver azonosítását és "
+"telepítését. A fő cél az újratelepítés elkerülése, ezért erre mindig végső "
+"lehetőségként gondolj. A telepítőnek <emphasis>nem</emphasis> célja egy "
+"létező rendszerre való újratelepítés."
+
+#. Tag: para
+#: preparing.xml:48
+#, no-c-format
+msgid ""
+"Here's a road map for the steps you will take during the installation "
+"process."
+msgstr "Ez itt a telepítő lépéseinek útiterve."
+
+#. Tag: para
+#: preparing.xml:56
+#, no-c-format
+msgid ""
+"Back up any existing data or documents on the hard disk where you plan to "
+"install."
+msgstr ""
+"Mentsd el a létező adatokat vagy dokumentumokat a merevlemez azon részéről, "
+"melyre telepítesz."
+
+#. Tag: para
+#: preparing.xml:62
+#, no-c-format
+msgid ""
+"Gather information about your computer and any needed documentation, before "
+"starting the installation."
+msgstr ""
+"Gyűjtsd össze a gép adatait és ha kell, a szükséges leírásokat a telepítés "
+"megkezdése előtt."
+
+#. Tag: para
+#: preparing.xml:68
+#, no-c-format
+msgid "Create partitionable space for &debian; on your hard disk."
+msgstr ""
+"Hozz létre particionálható területet a &debian; számára a merevlemezen."
+
+#. Tag: para
+#: preparing.xml:73
+#, no-c-format
+msgid ""
+"Locate and/or download the installer software and any specialized driver "
+"files your machine requires (except &debian; CD users)."
+msgstr ""
+"Töltsd le a telepítő szoftvert és ha kell, a gép által igényelt kiegészítő "
+"meghajtó fájlokat (a &debian; CD-felhasználóknak nem kell)."
+
+#. Tag: para
+#: preparing.xml:79
+#, no-c-format
+msgid ""
+"Set up boot tapes/floppies/USB sticks, or place boot files (most &debian; CD "
+"users can boot from one of the CDs)."
+msgstr ""
+"Hozd létre az indító szalagot/flopikat/USB meghajtókat, vagy töltsd le az "
+"indító fájlokat (a &debian; CD-felhasználók általában tudnak az egyik CD-"
+"lemezről indítani)."
+
+#. Tag: para
+#: preparing.xml:85
+#, no-c-format
+msgid "Boot the installation system."
+msgstr "Indítsd el a telepítő rendszert."
+
+#. Tag: para
+#: preparing.xml:90
+#, no-c-format
+msgid "Select the installation language."
+msgstr "Válaszd ki a telepítés nyelvét."
+
+#. Tag: para
+#: preparing.xml:95
+#, no-c-format
+msgid "Activate the ethernet network connection, if available."
+msgstr "Aktiváld az ethernet hálózati kapcsolatot, ha elérhető."
+
+#. Tag: para
+#: preparing.xml:101
+#, no-c-format
+msgid "Configure one network interface."
+msgstr "Állíts be egy hálózati csatolót."
+
+#. Tag: para
+#: preparing.xml:106
+#, no-c-format
+msgid "Open an ssh connection to the new system."
+msgstr "Nyiss egy ssh kapcsolatot az új rendszerre."
+
+#. Tag: para
+#: preparing.xml:111
+#, no-c-format
+msgid "Attach one or more DASDs (Direct Access Storage Device)."
+msgstr "Csatolj egy vagy több DASD (Direct Access Storage Device) eszközt."
+
+#. Tag: para
+#: preparing.xml:117
+#, no-c-format
+msgid "Create and mount the partitions on which &debian; will be installed."
+msgstr ""
+"Hozd létre és csatold a partíciókat, melyre a &debian; rendszert telepíteni "
+"akarod."
+
+#. Tag: para
+#: preparing.xml:122
+#, no-c-format
+msgid ""
+"Watch the automatic download/install/setup of the <firstterm>base system</"
+"firstterm>."
+msgstr ""
+"Kövesd az <firstterm>alaprendszer</firstterm> automata letöltését/"
+"telepítését/beállítását."
+
+#. Tag: para
+#: preparing.xml:128
+#, no-c-format
+msgid ""
+"Install a <firstterm>boot loader</firstterm> which can start up &debian-gnu; "
+"and/or your existing system."
+msgstr ""
+"Telepíts egy <firstterm>boot betöltő</firstterm> programot, mely képes "
+"indítani a &debian-gnu; rendszert és/vagy a gépen már meglévő más rendszert."
+
+#. Tag: para
+#: preparing.xml:134
+#, no-c-format
+msgid "Load the newly installed system for the first time."
+msgstr "Töltsd be az újonnan telepített rendszert először."
+
+#. Tag: para
+#: preparing.xml:141
+#, fuzzy, no-c-format
+#| msgid ""
+#| "For &arch-title; you have the option of using <phrase arch=\"x86\">a</"
+#| "phrase> <phrase arch=\"powerpc\">an experimental</phrase> graphical "
+#| "version of the installation system. For more information about this "
+#| "graphical installer, see <xref linkend=\"graphical\"/>."
+msgid ""
+"For &arch-title; you have the option of using <phrase arch=\"any-x86\">a</"
+"phrase> <phrase arch=\"powerpc\">an experimental</phrase> graphical version "
+"of the installation system. For more information about this graphical "
+"installer, see <xref linkend=\"graphical\"/>."
+msgstr ""
+"A jelen &arch-title; architektúrához lehetőség van a telepítő <phrase arch="
+"\"x86\">egy</phrase> <phrase arch=\"powerpc\">egy kísérleti</phrase> "
+"grafikus változata használatára. Több adatért a grafikus telepítőről lásd a "
+"<xref linkend=\"graphical\"/> részt."
+
+#. Tag: para
+#: preparing.xml:149
+#, no-c-format
+msgid ""
+"If you have problems during the installation, it helps to know which "
+"packages are involved in which steps. Introducing the leading software "
+"actors in this installation drama:"
+msgstr ""
+"Ha gondok adódnak a telepítés során, jó, ha tudjuk, mely csomag mely "
+"lépésben szerepel. A fő szoftverek a telepítéskor:"
+
+#. Tag: para
+#: preparing.xml:155
+#, no-c-format
+msgid ""
+"The installer software, <classname>debian-installer</classname>, is the "
+"primary concern of this manual. It detects hardware and loads appropriate "
+"drivers, uses <classname>dhcp-client</classname> to set up the network "
+"connection, runs <classname>debootstrap</classname> to install the base "
+"system packages, and runs <classname>tasksel</classname> to allow you to "
+"install certain additional software. Many more actors play smaller parts in "
+"this process, but <classname>debian-installer</classname> has completed its "
+"task when you load the new system for the first time."
+msgstr ""
+"E kézikönyv fő tárgya a telepítő szoftver, a <classname>debian-installer</"
+"classname>. Érzékeli a hardvert és betölti a szükséges meghajtókat, a "
+"<classname>dhcp-client</classname> segítségével beállítja a hálózati "
+"kapcsolatot, a <classname>debootstrap</classname> programmal telepíti az "
+"alaprendszer csomagjait és futtatja a <classname>tasksel</classname> "
+"programot lehetővé téve egyes további szoftverek telepítését. Több program "
+"szerepet játszik e folyamat kis részeiben, de a <classname>debian-installer</"
+"classname> elvégezte teendőit az új rendszer 1. betöltésével."
+
+#. Tag: para
+#: preparing.xml:167
+#, no-c-format
+msgid ""
+"To tune the system to your needs, <classname>tasksel</classname> allows you "
+"to choose to install various predefined bundles of software like a Web "
+"server or a Desktop environment."
+msgstr ""
+"A rendszer hangolásához a <classname>tasksel</classname> lehetővé teszi "
+"előre megadott szoftver-kötegek telepítését, mint például Web kiszolgáló "
+"vagy Asztali környezet."
+
+#. Tag: para
+#: preparing.xml:173
+#, no-c-format
+msgid ""
+"One important option during the installation is whether or not to install a "
+"graphical desktop environment, consisting of the X Window System and one of "
+"the available graphical desktop environments. If you choose not to select "
+"the <quote>Desktop environment</quote> task, you will only have a relatively "
+"basic, command line driven system. Installing the Desktop environment task "
+"is optional because it requires a fairly large amount of disk space, and "
+"because many &debian-gnu; systems are servers which don't really have any "
+"need for a graphical user interface to do their job."
+msgstr ""
+"Fontos, hogy a telepítés alatt telepítünk-e grafikus asztali környezetet "
+"vagy sem, mely az X11 alap ablakozó rendszerből és valamely grafikus asztali "
+"környezetből áll. Ha kiveszed az <quote>Asztali környezet</quote> feladatot, "
+"csak egy alap, főleg parancssor-vezérelt rendszert kapsz. Az Asztali "
+"környezet feladat telepítése opcionális, mert sok helyet foglal és mert sok "
+"&debian-gnu; rendszer alapvetően kiszolgáló, melynek nincs szüksége grafikus "
+"felhasználói felületre."
+
+#. Tag: para
+#: preparing.xml:185
+#, no-c-format
+msgid ""
+"Just be aware that the X Window System is completely separate from "
+"<classname>debian-installer</classname>, and in fact is much more "
+"complicated. Installation and troubleshooting of the X Window System is not "
+"within the scope of this manual."
+msgstr ""
+"Tehát ne feledd el: az X11 ablakozó rendszer teljesen elkülönül a "
+"<classname>debian-installer</classname> működésétől és egy sokkal "
+"összetettebb dolog. Az  X ablakozó rendszer telepítésének és hibajavításának "
+"teljesen átfogó leírása nem célja e kézikönyvnek."
+
+#. Tag: title
+#: preparing.xml:200
+#, no-c-format
+msgid "Back Up Your Existing Data!"
+msgstr "Mentsd el létező adataid!"
+
+#. Tag: para
+#: preparing.xml:201
+#, no-c-format
+msgid ""
+"Before you start, make sure to back up every file that is now on your "
+"system. If this is the first time a non-native operating system has been "
+"installed on your computer, it's quite likely you will need to re-partition "
+"your disk to make room for &debian-gnu;. Anytime you partition your disk, "
+"you run a risk of losing everything on the disk, no matter what program you "
+"use to do it. The programs used in installation are quite reliable and most "
+"have seen years of use; but they are also quite powerful and a false move "
+"can cost you. Even after backing up, be careful and think about your answers "
+"and actions. Two minutes of thinking can save hours of unnecessary work."
+msgstr ""
+"A telepítés előtt, mentsd el fontos fájljaid. Ha most először telepítesz egy "
+"nem a géppel szállított operációs rendszert, valószínűleg újra kell "
+"particionálnod a lemezt, hogy helyet csinálj a &debian-gnu; rendszernek. Egy "
+"lemez particionálásakor mindig számításba kell venni az adatok elvesztését, "
+"függetlenül a használt programtól. A telepítéskor használt programok elég "
+"megbízhatók és évek óta használtak, de épp, mivel nagyon hatásosak, a "
+"felhasználó hibái drágák lehetnek. A mentés után is figyelmesen kell őket "
+"használni, és átgondolni az adott válaszokat és műveleteket. 2 perc "
+"gondolkodással akár több óra kellemetlen és szükségtelen munka takarítható "
+"meg."
+
+#. Tag: para
+#: preparing.xml:214
+#, no-c-format
+msgid ""
+"If you are creating a multi-boot system, make sure that you have the "
+"distribution media of any other present operating systems on hand. "
+"Especially if you repartition your boot drive, you might find that you have "
+"to reinstall your operating system's boot loader, or in many cases the whole "
+"operating system itself and all files on the affected partitions."
+msgstr ""
+"Ha több-rendszeres telepítést készítesz, legyenek meg a terjesztési "
+"médiumok. Főleg az indító meghajtó újraparticionálásakor szükség lehet a "
+"boot betöltő újratelepítésére, vagy akár az egész operációs rendszerére és "
+"az érintett partíciók fájljaira."
+
+#. Tag: title
+#: preparing.xml:232
+#, no-c-format
+msgid "Information You Will Need"
+msgstr "A szükséges információk"
+
+#. Tag: title
+#: preparing.xml:235
+#, no-c-format
+msgid "Documentation"
+msgstr "Dokumentáció"
+
+#. Tag: title
+#: preparing.xml:238
+#, no-c-format
+msgid "Installation Manual"
+msgstr "Telepítő kézikönyv"
+
+#. Tag: para
+#: preparing.xml:240
+#, no-c-format
+msgid "This document you are now reading, in plain ASCII, HTML or PDF format."
+msgstr "E dokumentum ASCII, HTML és PDF formában."
+
+#. Tag: itemizedlist
+#: preparing.xml:246
+#, no-c-format
+msgid "&list-install-manual-files;"
+msgstr "&list-install-manual-files;"
+
+#. Tag: para
+#: preparing.xml:252
+#, no-c-format
+msgid ""
+"The document you are now reading, which is the official version of the "
+"Installation Guide for the &releasename; release of &debian;; available in "
+"<ulink url=\"&url-release-area;/installmanual\">various formats and "
+"translations</ulink>."
+msgstr ""
+"E dokumentum, mely a &debian; &releasename; kiadás Telepítő Útmutató "
+"hivatalos változata <ulink url=\"&url-release-area;/installmanual"
+"\">különböző formátumok és fordítások</ulink> hivatkozásain mindig elérhető."
+
+#. Tag: para
+#: preparing.xml:261
+#, no-c-format
+msgid ""
+"The document you are now reading, which is a development version of the "
+"Installation Guide for the next release of &debian;; available in <ulink url="
+"\"&url-d-i-alioth-manual;\">various formats and translations</ulink>."
+msgstr ""
+"E dokumentum, mely a &debian; következő kiadásához tartozó Telepítő Útmutató "
+"fejlesztői változata <ulink url=\"&url-d-i-alioth-manual;\">különböző "
+"formátumok és fordítások</ulink> hivatkozásain mindig elérhető."
+
+#. Tag: title
+#: preparing.xml:273
+#, no-c-format
+msgid "Hardware documentation"
+msgstr "Hardver leírás"
+
+#. Tag: para
+#: preparing.xml:274
+#, no-c-format
+msgid ""
+"Often contains useful information on configuring or using your hardware."
+msgstr ""
+"Hasznos adatokat tartalmaz az adott hardver beállításáról vagy használatáról."
+
+#. Tag: ulink
+#: preparing.xml:285
+#, no-c-format
+msgid "Linux Hardware Compatibility HOWTO"
+msgstr "Linux Hardver Kompatibilitási HOGYAN"
+
+#. Tag: ulink
+#: preparing.xml:291
+#, no-c-format
+msgid "Linux for SPARC Processors FAQ"
+msgstr "Linux SPARC Processzorokra GYIK"
+
+#. Tag: ulink
+#: preparing.xml:297
+#, no-c-format
+msgid "Linux/Mips website"
+msgstr "Linux/Mips weblap"
+
+#. Tag: title
+#: preparing.xml:306
+#, no-c-format
+msgid "&arch-title; Hardware References"
+msgstr "&arch-title; Hardver referenciák"
+
+#. Tag: para
+#: preparing.xml:307
+#, no-c-format
+msgid ""
+"Documentation of &arch-title;-specific boot sequence, commands and device "
+"drivers (e.g. DASD, XPRAM, Console, OSA, HiperSockets and z/VM interaction)"
+msgstr ""
+
+#. Tag: ulink
+#: preparing.xml:318
+#, no-c-format
+msgid "Device Drivers, Features, and Commands (Linux Kernel 2.6.32)"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:323
+#, no-c-format
+msgid ""
+"IBM Redbook describing how Linux can be combined with z/VM on zSeries and "
+"&arch-title; hardware."
+msgstr ""
+"Az IBM Redbook leírja a Linux és z/VM együttesét zSeries és &arch-title; "
+"hardveren."
+
+#. Tag: ulink
+#: preparing.xml:333
+#, no-c-format
+msgid "Linux for &arch-title;"
+msgstr "Linux &arch-title; architektúrára"
+
+#. Tag: para
+#: preparing.xml:339
+#, no-c-format
+msgid ""
+"IBM Redbook describing the Linux distributions available for the mainframe. "
+"It has no chapter about &debian; but the basic installation concepts are the "
+"same across all &arch-title; distributions."
+msgstr ""
+"Az IBM Redbook leírja a mainframe gépekre elérhető Linux-terjesztéseket. "
+"Nincs &debian; fejezete, de az alap telepítő elvek egyformák minden &arch-"
+"title; terjesztésen."
+
+#. Tag: ulink
+#: preparing.xml:350
+#, no-c-format
+msgid "Linux for IBM eServer zSeries and &arch-title;: Distributions"
+msgstr "Linux IBM eServer zSeries és &arch-title; architektúrára: Terjesztések"
+
+#. Tag: title
+#: preparing.xml:360
+#, no-c-format
+msgid "Finding Sources of Hardware Information"
+msgstr "Hardver-adatok forrásai"
+
+#. Tag: para
+#: preparing.xml:361
+#, no-c-format
+msgid ""
+"In many cases, the installer will be able to automatically detect your "
+"hardware. But to be prepared, we do recommend familiarizing yourself with "
+"your hardware before the install."
+msgstr ""
+"Általában a telepítő felismeri a hardvert. De a felkészülésért, ajánljuk a "
+"hardverrel való megismerkedést a telepítés előtt."
+
+#. Tag: para
+#: preparing.xml:367
+#, no-c-format
+msgid "Hardware information can be gathered from:"
+msgstr "A hardver-adatok beszerzési helyei:"
+
+#. Tag: para
+#: preparing.xml:374
+#, no-c-format
+msgid "The manuals that come with each piece of hardware."
+msgstr "Az egyes hardverekkel adott kézikönyvek."
+
+#. Tag: para
+#: preparing.xml:379
+#, no-c-format
+msgid ""
+"The BIOS setup screens of your computer. You can view these screens when you "
+"start your computer by pressing a combination of keys. Check your manual for "
+"the combination. Often, it is the <keycap>Delete</keycap> key."
+msgstr ""
+"A gép BIOS beállító képernyője. Ez a gép bekapcsolásakor egy billentyű-"
+"kombinációval megnézhető. A kombinációt az alaplap leírásában leled. Ez "
+"gyakran a <keycap>Delete</keycap> billentyű (a gép sokszor kiírja)."
+
+#. Tag: para
+#: preparing.xml:386
+#, no-c-format
+msgid "The cases and boxes for each piece of hardware."
+msgstr "Az egyes hardverek csomagolásai és dobozai."
+
+#. Tag: para
+#: preparing.xml:392
+#, no-c-format
+msgid "The System window in the Windows Control Panel."
+msgstr "A rendszer ablak az esetleges windows vezérlőpultban."
+
+#. Tag: para
+#: preparing.xml:398
+#, no-c-format
+msgid ""
+"System commands or tools in another operating system, including file manager "
+"displays. This source is especially useful for information about RAM and "
+"hard drive memory."
+msgstr ""
+"Egy már használt operációs rendszer rendszer-parancsai és eszközei ideértve "
+"a fájlkezelő programok által írtakat. Ez különösen jó a RAM és merevlemez "
+"adatokhoz."
+
+#. Tag: para
+#: preparing.xml:405
+#, no-c-format
+msgid ""
+"Your system administrator or Internet Service Provider. These sources can "
+"tell you the settings you need to set up your networking and e-mail."
+msgstr ""
+"A rendszergazda vagy Internet szolgáltató. Ezek megadják a szükséges "
+"hálózati és email beállításokat."
+
+#. Tag: title
+#: preparing.xml:417
+#, no-c-format
+msgid "Hardware Information Needed for an Install"
+msgstr "Egy telepítéshez szükséges hardver adatok"
+
+#. Tag: entry
+#: preparing.xml:421
+#, no-c-format
+msgid "Hardware"
+msgstr "Hardver"
+
+#. Tag: entry
+#: preparing.xml:421
+#, no-c-format
+msgid "Information You Might Need"
+msgstr "A sokszor szükséges adatok"
+
+#. Tag: entry
+#: preparing.xml:427
+#, no-c-format
+msgid "Hard Drives"
+msgstr "Merevlemezek"
+
+#. Tag: entry
+#: preparing.xml:428
+#, no-c-format
+msgid "How many you have."
+msgstr "Számuk."
+
+#. Tag: entry
+#: preparing.xml:430
+#, no-c-format
+msgid "Their order on the system."
+msgstr "Sorrendjük a rendszeren."
+
+#. Tag: entry
+#: preparing.xml:432
+#, no-c-format
+msgid "Whether IDE (also known as PATA), SATA or SCSI."
+msgstr ""
+
+#. Tag: entry
+#: preparing.xml:434 preparing.xml:486
+#, no-c-format
+msgid "Available free space."
+msgstr "Elérhető szabad hely."
+
+#. Tag: entry
+#: preparing.xml:435
+#, no-c-format
+msgid "Partitions."
+msgstr "Partíciók."
+
+#. Tag: entry
+#: preparing.xml:437
+#, no-c-format
+msgid "Partitions where other operating systems are installed."
+msgstr "A más rendszereket tartalmazó partíciók."
+
+#. Tag: entry
+#: preparing.xml:441
+#, no-c-format
+msgid "Monitor"
+msgstr "Monitor"
+
+#. Tag: entry
+#: preparing.xml:442 preparing.xml:462 preparing.xml:468 preparing.xml:474
+#, no-c-format
+msgid "Model and manufacturer."
+msgstr "Modell és gyártó"
+
+#. Tag: entry
+#: preparing.xml:444
+#, no-c-format
+msgid "Resolutions supported."
+msgstr "Támogatott felbontások."
+
+#. Tag: entry
+#: preparing.xml:445
+#, no-c-format
+msgid "Horizontal refresh rate."
+msgstr "Vízszintes frissítés."
+
+#. Tag: entry
+#: preparing.xml:446
+#, no-c-format
+msgid "Vertical refresh rate."
+msgstr "Függőleges frissítés."
+
+#. Tag: entry
+#: preparing.xml:448
+#, no-c-format
+msgid "Color depth (number of colors) supported."
+msgstr "Támogatott színmélység (színek száma)."
+
+#. Tag: entry
+#: preparing.xml:450
+#, no-c-format
+msgid "Screen size."
+msgstr "Képernyő méret."
+
+#. Tag: entry
+#: preparing.xml:453
+#, no-c-format
+msgid "Mouse"
+msgstr "Egér"
+
+#. Tag: entry
+#: preparing.xml:454
+#, no-c-format
+msgid "Type: serial, PS/2, or USB."
+msgstr "Típus: soros, PS/2, vagy USB."
+
+#. Tag: entry
+#: preparing.xml:456
+#, no-c-format
+msgid "Port."
+msgstr "Port."
+
+#. Tag: entry
+#: preparing.xml:457
+#, no-c-format
+msgid "Manufacturer."
+msgstr "Gyártó."
+
+#. Tag: entry
+#: preparing.xml:458
+#, no-c-format
+msgid "Number of buttons."
+msgstr "Gombok száma."
+
+#. Tag: entry
+#: preparing.xml:461 preparing.xml:489
+#, no-c-format
+msgid "Network"
+msgstr "Hálózat"
+
+#. Tag: entry
+#: preparing.xml:464 preparing.xml:490
+#, no-c-format
+msgid "Type of adapter."
+msgstr "Adapter típusa."
+
+#. Tag: entry
+#: preparing.xml:467
+#, no-c-format
+msgid "Printer"
+msgstr "Nyomtató"
+
+#. Tag: entry
+#: preparing.xml:470
+#, no-c-format
+msgid "Printing resolutions supported."
+msgstr "Támogatott nyomtatási felbontások."
+
+#. Tag: entry
+#: preparing.xml:473
+#, no-c-format
+msgid "Video Card"
+msgstr "Videó kártya"
+
+#. Tag: entry
+#: preparing.xml:476
+#, no-c-format
+msgid "Video RAM available."
+msgstr "Elérhető videó RAM."
+
+#. Tag: entry
+#: preparing.xml:478
+#, no-c-format
+msgid ""
+"Resolutions and color depths supported (these should be checked against your "
+"monitor's capabilities)."
+msgstr ""
+"Támogatott felbontások és színmélységek (ezt a monitor képességeivel is "
+"össze kell vetni)."
+
+#. Tag: entry
+#: preparing.xml:483
+#, no-c-format
+msgid "DASD"
+msgstr "DASD"
+
+#. Tag: entry
+#: preparing.xml:484
+#, no-c-format
+msgid "Device number(s)."
+msgstr "Eszközszám(ok)."
+
+#. Tag: entry
+#: preparing.xml:492
+#, no-c-format
+msgid "Device numbers."
+msgstr "Eszközszámok."
+
+#. Tag: entry
+#: preparing.xml:493
+#, no-c-format
+msgid "Relative adapter number for OSA cards."
+msgstr "Relatív adapter szám OSA kártyákhoz."
+
+#. Tag: title
+#: preparing.xml:501
+#, no-c-format
+msgid "Hardware Compatibility"
+msgstr "Hardver kompatibilitás"
+
+#. Tag: para
+#: preparing.xml:503
+#, no-c-format
+msgid ""
+"Many brand name products work without trouble on &arch-kernel;. Moreover, "
+"hardware support in &arch-kernel; is improving daily. However, &arch-kernel; "
+"still does not run as many different types of hardware as some operating "
+"systems."
+msgstr ""
+"A legtöbb neves termék jól működik &arch-kernel;. Ráadásul a &arch-kernel; "
+"általi hardver támogatás naponta növekszik. Ezzel együtt van még olyan "
+"operációs rendszer, mely még több hardvert támogat."
+
+#. Tag: para
+#: preparing.xml:509
+#, no-c-format
+msgid ""
+"In particular, &arch-kernel; usually cannot run hardware that requires a "
+"running version of Windows to work."
+msgstr ""
+"Például &arch-kernel; alatt sokszor nem fut olyan hardver, mely megköveteli "
+"egy aktuális Windows-verzió futását."
+
+#. Tag: para
+#: preparing.xml:514
+#, no-c-format
+msgid ""
+"Although some Windows-specific hardware can be made to run on Linux, doing "
+"so usually requires extra effort. In addition, Linux drivers for Windows-"
+"specific hardware are usually specific to one Linux kernel. Therefore, they "
+"can quickly become obsolete."
+msgstr ""
+"Bár sok Windows-specifikus hardver működtethető Linuxon, ez sokszor külön "
+"beállítást igényel. Sokszor ezek csak egy bizonyos Linux-kernellel működnek, "
+"ezért hamar elavulnak."
+
+#. Tag: para
+#: preparing.xml:521
+#, no-c-format
+msgid ""
+"So called win-modems are the most common type of this hardware. However, "
+"printers and other equipment may also be Windows-specific."
+msgstr ""
+"Az úgynevezett win-modemek a legtipikusabb példái ezeknek. E mellett egyes "
+"nyomtatók és hasonlók is ide tartoznak."
+
+#. Tag: para
+#: preparing.xml:526
+#, no-c-format
+msgid "You can check hardware compatibility by:"
+msgstr "A kompatibilitás ellenőrzése:"
+
+#. Tag: para
+#: preparing.xml:531
+#, no-c-format
+msgid "Checking manufacturers' web sites for new drivers."
+msgstr "A gyártó weblapján új meghajtók ellenőrzése."
+
+#. Tag: para
+#: preparing.xml:536
+#, no-c-format
+msgid ""
+"Looking at web sites or manuals for information about emulation. Lesser "
+"known brands can sometimes use the drivers or settings for better-known ones."
+msgstr ""
+"Weblapok és kézikönyvek az emulációról. A kevésbé ismert márkák sokszor "
+"ismertebbek meghajtóit vagy beállításait használják."
+
+#. Tag: para
+#: preparing.xml:543
+#, no-c-format
+msgid ""
+"Checking hardware compatibility lists for &arch-kernel; on web sites "
+"dedicated to your architecture."
+msgstr ""
+"Az architektúrának megfelelő &arch-kernel; weblapok hardver kompatibilitási "
+"listáinak ellenőrzése."
+
+#. Tag: para
+#: preparing.xml:549
+#, no-c-format
+msgid "Searching the Internet for other users' experiences."
+msgstr "Más felhasználók tapasztalatai az Interneten."
+
+#. Tag: title
+#: preparing.xml:560
+#, no-c-format
+msgid "Network Settings"
+msgstr "Hálózati beállítások"
+
+#. Tag: para
+#: preparing.xml:562
+#, no-c-format
+msgid ""
+"If your computer is connected to a network 24 hours a day (i.e., an Ethernet "
+"or equivalent connection &mdash; not a PPP connection), you should ask your "
+"network's system administrator for this information."
+msgstr ""
+"Ha a gép folyamatosan hálózaton van (például ethernet vagy hasonló kapcsolat "
+"&mdash; nem PPP), a hálózati rendszergazda megadja."
+
+#. Tag: para
+#: preparing.xml:569
+#, no-c-format
+msgid "Your host name (you may be able to decide this on your own)."
+msgstr "Gépnév (általában önállóan megadható)."
+
+#. Tag: para
+#: preparing.xml:574
+#, no-c-format
+msgid "Your domain name."
+msgstr "Tartomány (domain) név"
+
+#. Tag: para
+#: preparing.xml:579
+#, no-c-format
+msgid "Your computer's IP address."
+msgstr "A gép IP címe."
+
+#. Tag: para
+#: preparing.xml:584
+#, no-c-format
+msgid "The netmask to use with your network."
+msgstr "Az adott hálózat hálózati maszkja."
+
+#. Tag: para
+#: preparing.xml:589
+#, no-c-format
+msgid ""
+"The IP address of the default gateway system you should route to, if your "
+"network <emphasis>has</emphasis> a gateway."
+msgstr ""
+"Az alapértelmezett átjáró IP címe az útválasztáshoz, ha a hálózatnak "
+"<emphasis>van</emphasis> átjárója."
+
+#. Tag: para
+#: preparing.xml:595
+#, no-c-format
+msgid ""
+"The system on your network that you should use as a DNS (Domain Name "
+"Service) server."
+msgstr ""
+"A hálózaton DNS (Domain Name Service) kiszolgálóként használható rendszer."
+
+#. Tag: para
+#: preparing.xml:603
+#, no-c-format
+msgid ""
+"On the other hand, if your administrator tells you that a DHCP server is "
+"available and is recommended, then you don't need this information because "
+"the DHCP server will provide it directly to your computer during the "
+"installation process."
+msgstr ""
+"Ha a rendszergazda azt mondja, hogy DHCP kiszolgáló elérhető és ajánlott, "
+"akkor nincs szükség ezekre az adatokra, mert a DHCP kiszolgáló közvetlenül "
+"átadja ezeket a gépnek a telepítő folyamat során."
+
+#. Tag: para
+#: preparing.xml:610
+#, no-c-format
+msgid "If you use a wireless network, you should also find out:"
+msgstr "Drótnélküli hálózat esetén ezek is kellenek:"
+
+#. Tag: para
+#: preparing.xml:615
+#, no-c-format
+msgid "ESSID of your wireless network."
+msgstr "A drótnélküli hálózathoz tartozó ESSID."
+
+#. Tag: para
+#: preparing.xml:620
+#, no-c-format
+msgid "WEP security key (if applicable)."
+msgstr "WEP biztonsági kulcs (ha alkalmazható)"
+
+#. Tag: title
+#: preparing.xml:637
+#, no-c-format
+msgid "Meeting Minimum Hardware Requirements"
+msgstr "Szükséges hardverkövetelmények"
+
+#. Tag: para
+#: preparing.xml:638
+#, no-c-format
+msgid ""
+"Once you have gathered information about your computer's hardware, check "
+"that your hardware will let you do the type of installation that you want to "
+"do."
+msgstr ""
+"Ha megvannak a gép adatai, ellenőrizd, hogy megfelelnek-e a tervezett "
+"telepítési módnak."
+
+#. Tag: para
+#: preparing.xml:644
+#, no-c-format
+msgid ""
+"Depending on your needs, you might manage with less than some of the "
+"recommended hardware listed in the table below. However, most users risk "
+"being frustrated if they ignore these suggestions."
+msgstr ""
+"Igény szerint az alábbi táblázatban ajánlott pár hardvernél gyengébb is "
+"kipróbálható. Ám sok felhasználót felkavarhat, ha fittyet hány e "
+"javaslatokra."
+
+#. Tag: para
+#: preparing.xml:650
+#, fuzzy, no-c-format
+msgid ""
+"A Pentium 4, 1GHz system is the minimum recommended for a desktop system."
+msgstr "Egy 1/2-1GHz rendszer ajánlott egy asztali rendszerhez."
+
+#. Tag: para
+#: preparing.xml:655
+#, no-c-format
+msgid "Any OldWorld or NewWorld PowerPC can serve well as a desktop system."
+msgstr "Bármilyen OldWorld vagy NewWorld PowerPC jó asztali rendszernek."
+
+#. Tag: title
+#: preparing.xml:662
+#, no-c-format
+msgid "Recommended Minimum System Requirements"
+msgstr "Ajánlott legkisebb hardverkövetelmények"
+
+#. Tag: entry
+#: preparing.xml:666
+#, no-c-format
+msgid "Install Type"
+msgstr "Telepítő típus"
+
+#. Tag: entry
+#: preparing.xml:667
+#, no-c-format
+msgid "RAM (minimal)"
+msgstr "RAM (minimális)"
+
+#. Tag: entry
+#: preparing.xml:668
+#, no-c-format
+msgid "RAM (recommended)"
+msgstr "RAM (ajánlott)"
+
+#. Tag: entry
+#: preparing.xml:669
+#, no-c-format
+msgid "Hard Drive"
+msgstr "Merevlemez"
+
+#. Tag: entry
+#: preparing.xml:675
+#, no-c-format
+msgid "No desktop"
+msgstr "Asztal nélkül"
+
+#. Tag: entry
+#: preparing.xml:676
+#, no-c-format
+msgid "64 megabytes"
+msgstr "64 megabájt"
+
+#. Tag: entry
+#: preparing.xml:677
+#, no-c-format
+msgid "256 megabytes"
+msgstr "256 megabájt"
+
+#. Tag: entry
+#: preparing.xml:678
+#, no-c-format
+msgid "1 gigabyte"
+msgstr "1 gigabájt"
+
+#. Tag: entry
+#: preparing.xml:680
+#, no-c-format
+msgid "With Desktop"
+msgstr "Asztallal"
+
+#. Tag: entry
+#: preparing.xml:681
+#, fuzzy, no-c-format
+#| msgid "512 megabytes"
+msgid "128 megabytes"
+msgstr "512 megabájt"
+
+#. Tag: entry
+#: preparing.xml:682
+#, no-c-format
+msgid "512 megabytes"
+msgstr "512 megabájt"
+
+#. Tag: entry
+#: preparing.xml:683
+#, fuzzy, no-c-format
+msgid "5 gigabytes"
+msgstr "5 gigabájt"
+
+#. Tag: para
+#: preparing.xml:688
+#, no-c-format
+msgid ""
+"The actual minimum memory requirements are a lot less then the numbers "
+"listed in this table. Depending on the architecture, it is possible to "
+"install &debian; with as little as 20MB (for s390) to 60MB (for amd64). The "
+"same goes for the disk space requirements, especially if you pick and choose "
+"which applications to install; see <xref linkend=\"tasksel-size-list\"/> for "
+"additional information on disk space requirements."
+msgstr ""
+"A tényleges legkisebb memória sokkal kevesebb, mint e táblázat számai. "
+"Architektúrától függően a &debian; telepítése minden funkcióval együtt is "
+"lehetséges 20MB (s390) és 60MB (amd64) között is. A lemezre is ez áll "
+"különös tekintettel a választott alkalmazásokra; lásd a <xref linkend="
+"\"tasksel-size-list\"/> részt további adatokért erről."
+
+#. Tag: para
+#: preparing.xml:698
+#, no-c-format
+msgid ""
+"It is possible to run a graphical desktop environment on older or low-end "
+"systems, but in that case it is recommended to install a window manager that "
+"is less resource-hungry than those of the GNOME or KDE desktop environments; "
+"alternatives include <classname>xfce4</classname>, <classname>icewm</"
+"classname> and <classname>wmaker</classname>, but there are others to choose "
+"from."
+msgstr ""
+"A Debian segítségével lehetőség van nagyon régi gépeken is nagy grafikus "
+"asztali környezetek használatára és vannak erre szabottak is illetve "
+"egyszerűbb ablakkezelők, melyek nem olyan böhömök, mint a GNOME vagy KDE; a "
+"legjobb ilyen az <classname>xfce4</classname>, de az <classname>icewm</"
+"classname> vagy <classname>wmaker</classname> mellett vannak még mások is."
+
+#. Tag: para
+#: preparing.xml:707
+#, no-c-format
+msgid ""
+"It is practically impossible to give general memory or disk space "
+"requirements for server installations as those very much depend on what the "
+"server is to be used for."
+msgstr ""
+"Kiszolgálóknál nem lehet pontosan megmondani az átlagos memória és hely "
+"igényt, mert ez nagyban attól függ, mire használjuk a kiszolgálót."
+
+#. Tag: para
+#: preparing.xml:713
+#, no-c-format
+msgid ""
+"Remember that these sizes don't include all the other materials which are "
+"usually to be found, such as user files, mail, and data. It is always best "
+"to be generous when considering the space for your own files and data."
+msgstr ""
+"Ne feledd, e méretek nem tartalmaznak minden fájlt, a felhasználói fájlokat, "
+"leveleket és adatokat. Mindig légy bőkezű a saját fájljaid és adatait "
+"számára adott hellyel."
+
+#. Tag: para
+#: preparing.xml:720
+#, no-c-format
+msgid ""
+"Disk space required for the smooth operation of the &debian-gnu; system "
+"itself is taken into account in these recommended system requirements. "
+"Notably, the <filename>/var</filename> partition contains a lot of state "
+"information specific to &debian; in addition to its regular contents, like "
+"logfiles. The <command>dpkg</command> files (with information on all "
+"installed packages) can easily consume 40MB. Also, <command>apt-get</"
+"command> puts downloaded packages here before they are installed. You should "
+"usually allocate at least 200MB for <filename>/var</filename>, and a lot "
+"more if you install a graphical desktop environment."
+msgstr ""
+"A &debian-gnu; rendszer alapjainak sima használatához szükséges helyet "
+"szintén beszámítottuk ezekbe az ajánlott rendszer-követelményekbe. Főleg a "
+"<filename>/var</filename> tartalmaz sok állapot adatot a &debian; "
+"rendszerről szabványos napló fájljaival együtt. A <command>dpkg</command> "
+"fájlok (a telepített csomagok adataival) könnyen elérhetik a 40 MB méretet. "
+"Az <command>apt-get</command> is ide teszi a letöltött fájlokat telepítés "
+"előtt. Általában legalább 200 MB helyet számíts a <filename>/var</filename> "
+"számára és többet grafikus asztali környezet telepítése esetén."
+
+#. Tag: title
+#: preparing.xml:744
+#, no-c-format
+msgid "Pre-Partitioning for Multi-Boot Systems"
+msgstr "Több-rendszeres gép elő-particionálása"
+
+#. Tag: para
+#: preparing.xml:745
+#, no-c-format
+msgid ""
+"Partitioning your disk simply refers to the act of breaking up your disk "
+"into sections. Each section is then independent of the others. It's roughly "
+"equivalent to putting up walls inside a house; if you add furniture to one "
+"room it doesn't affect any other room."
+msgstr ""
+"A lemez particionálása annak részekre választását jelenti. Minden rész "
+"független egymástól. Ez a házban lévő falakhoz hasonló; egy bútor egy "
+"szobában nincs hatással a másik szobára."
+
+#. Tag: para
+#: preparing.xml:752
+#, no-c-format
+msgid ""
+"Whenever this section talks about <quote>disks</quote> you should translate "
+"this into a DASD or VM minidisk in the &arch-title; world. Also a machine "
+"means an LPAR or VM guest in this case."
+msgstr ""
+"Bár e szakaszban a <quote>lemezek</quote> szót használjuk DASD vagy VM mini-"
+"lemez eszközökre is értjük egy &arch-title; világban. Az LPAR vagy VM vendég "
+"gépeket is jelenti ez esetben."
+
+#. Tag: para
+#: preparing.xml:758
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you already have an operating system on your system <phrase arch="
+#| "\"x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, "
+#| "Solaris, FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, "
+#| "OS/390, &hellip;) </phrase> and want to stick Debian on the same disk, "
+#| "you will need to repartition the disk. Debian requires its own hard disk "
+#| "partitions. It cannot be installed on Windows or MacOS partitions. It may "
+#| "be able to share some partitions with other Unix systems, but that's not "
+#| "covered here. At the very least you will need a dedicated partition for "
+#| "the Debian root."
+msgid ""
+"If you already have an operating system on your system <phrase arch=\"any-"
+"x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, "
+"FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, "
+"&hellip;) </phrase> and want to stick &debian; on the same disk, you will "
+"need to repartition the disk. &debian; requires its own hard disk "
+"partitions. It cannot be installed on Windows or MacOS partitions. It may be "
+"able to share some partitions with other Unix systems, but that's not "
+"covered here. At the very least you will need a dedicated partition for the "
+"&debian; root."
+msgstr ""
+"Ha már van egy másik rendszered is a gépen <phrase arch=\"x86\"> (OpenBSD, "
+"NetBSD, FreeBSD, Solaris, MacOS, OS/2, Windows 9x/NT/2000/XP/2003/"
+"Vista/7&hellip;)</phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, "
+"&hellip;) </phrase> és arra a lemezre akarod tenni a &debian; rendszert is, "
+"szükség lehet a lemez újraparticionálására. A &debian; önálló partíciókat "
+"igényel. A Windows vagy MacOS partíciótól külön kell választani, ha ezeket "
+"megtartanánk. Képes megosztani partíciókat egyéb Unix rendszerekkel, de ezt "
+"itt nem írjuk. Legalább a &debian; gyökér számára önálló partíciót kell adni."
+
+#. Tag: para
+#: preparing.xml:777
+#, fuzzy, no-c-format
+#| msgid ""
+#| "You can find information about your current partition setup by using a "
+#| "partitioning tool for your current operating system<phrase arch=\"x86\">, "
+#| "such as fdisk or PartitionMagic</phrase><phrase arch=\"powerpc\">, such "
+#| "as Drive Setup, HD Toolkit, or MacTools</phrase><phrase arch=\"s390\">, "
+#| "such as the VM diskmap</phrase>. Partitioning tools always provide a way "
+#| "to show existing partitions without making changes."
+msgid ""
+"You can find information about your current partition setup by using a "
+"partitioning tool for your current operating system<phrase arch=\"any-"
+"x86\">, such as fdisk or PartitionMagic</phrase><phrase arch=\"powerpc\">, "
+"such as Drive Setup, HD Toolkit, or MacTools</phrase><phrase arch=\"s390\">, "
+"such as the VM diskmap</phrase>. Partitioning tools always provide a way to "
+"show existing partitions without making changes."
+msgstr ""
+"A már meglévő rendszerhez tartozó particionáló eszközzel megtudhatók a "
+"jelenlegi partíciók<phrase arch=\"x86\">, ilyen például az fdisk vagy "
+"pqmagic</phrase><phrase arch=\"powerpc\">, ilyen például a Drive Setup, HD "
+"Toolkit, vagy MacTools</phrase><phrase arch=\"s390\">, ilyen például a VM "
+"diskmap</phrase>. A partíciós eszközökkel mindig megnézhetők a létező "
+"partíciók módosítás nélkül."
+
+#. Tag: para
+#: preparing.xml:786
+#, no-c-format
+msgid ""
+"In general, changing a partition with a file system already on it will "
+"destroy any information there. Thus you should always make backups before "
+"doing any repartitioning. Using the analogy of the house, you would probably "
+"want to move all the furniture out of the way before moving a wall or you "
+"risk destroying it."
+msgstr ""
+"Általában egy partíció és a rajta lévő fájlrendszer cseréje törli az ott "
+"lévő adatokat. Ezért mentsd őket az újraparticionálás előtt. A ház "
+"példájával élve, a bútorok kivihetők az utcára a falak elmozdítása előtt, "
+"így biztosan nem sérülnek."
+
+#. Tag: emphasis
+#: preparing.xml:796
+#, no-c-format
+msgid "FIXME: write about HP-UX disks?"
+msgstr "FIXME: mi van a HP-UX lemezekkel?"
+
+#. Tag: para
+#: preparing.xml:798
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If your computer has more than one hard disk, you may want to dedicate "
+#| "one of the hard disks completely to Debian. If so, you don't need to "
+#| "partition that disk before booting the installation system; the "
+#| "installer's included partitioning program can handle the job nicely."
+msgid ""
+"If your computer has more than one hard disk, you may want to dedicate one "
+"of the hard disks completely to &debian;. If so, you don't need to partition "
+"that disk before booting the installation system; the installer's included "
+"partitioning program can handle the job nicely."
+msgstr ""
+"Ha a gépben több merevlemez van, az egyik a Debian rendszerre szánható. "
+"Ilyenkor már mehet is a telepítés, az elvégzi a particionálást."
+
+# FIXME !
+#. Tag: para
+#: preparing.xml:805
+#, fuzzy, no-c-format
+msgid ""
+"If your machine has only one hard disk, and you would like to completely "
+"replace the current operating system with &debian-gnu;, you also can wait to "
+"partition as part of the installation process (<xref linkend=\"di-partition"
+"\"/>), after you have booted the installation system. However this only "
+"works if you plan to boot the installer system from tapes, CD-ROM or files "
+"on a connected machine. Consider: if you boot from files placed on the hard "
+"disk, and then partition that same hard disk within the installation system, "
+"thus erasing the boot files, you'd better hope the installation is "
+"successful the first time around. At the least in this case, you should have "
+"some alternate means of reviving your machine like the original system's "
+"installation tapes or CDs."
+msgstr ""
+"Ha a gépben 1 merevlemez van és teljesen a &debian-gnu; rendszerre szánnád, "
+"szintén el is kezdheted a telepítést, a telepítő rendszer elindítása után "
+"particionál (<xref linkend=\"partman\"/>). De ez csak akkor megy, mikor a "
+"telepítőt szalagos vagy CD-ROM eszközről vagy kapcsolt gépen lévő fájlokról "
+"indítod. Világos, hogy ha az indító fájlokat a merevlemezre rakjuk, majd "
+"ugyanazt a merevlemezt particionáljuk, ez sokszor törli az indító fájlokat."
+
+#. Tag: para
+#: preparing.xml:820
+#, no-c-format
+msgid ""
+"If your machine already has multiple partitions, and enough space can be "
+"provided by deleting and replacing one or more of them, then you too can "
+"wait and use the &debian; installer's partitioning program. You should still "
+"read through the material below, because there may be special circumstances "
+"like the order of the existing partitions within the partition map, that "
+"force you to partition before installing anyway."
+msgstr ""
+"Ha a gépen már több partíció van és elég hely biztosítható egy vagy több "
+"partíció törlésével vagy áthelyezésével, akkor is rögtön indítható a "
+"&debian; telepítő, melyre lehet számítani a particionáláskor. Érdemes lehet "
+"elolvasni az alábbiakat, melyben vannak különleges esetek, például a létező "
+"partíciós tábla partícióinak sorrendje, mely egyes esetekben a telepítés "
+"előtti particionálásra késztet."
+
+#. Tag: para
+#: preparing.xml:830
+#, no-c-format
+msgid ""
+"If your machine has a FAT or NTFS filesystem, as used by DOS and Windows, "
+"you can wait and use &debian; installer's partitioning program to resize the "
+"filesystem."
+msgstr ""
+"Ha a gépen 1 vagy több FAT vagy NTFS fájlrendszer van, melyet DOS és Windows "
+"használ, a &debian; telepítő particionálója ezeket képes átméretezni."
+
+#. Tag: para
+#: preparing.xml:836
+#, no-c-format
+msgid ""
+"If none of the above apply, you'll need to partition your hard disk before "
+"starting the installation to create partitionable space for &debian;. If "
+"some of the partitions will be owned by other operating systems, you should "
+"create those partitions using native operating system partitioning programs. "
+"We recommend that you do <emphasis>not</emphasis> attempt to create "
+"partitions for &debian-gnu; using another operating system's tools. Instead, "
+"you should just create the native operating system's partitions you will "
+"want to retain."
+msgstr ""
+"Ha a fentiek egyike sem igaz, a telepítés előtt particionálni kell a "
+"&debian; számára szükséges hely létrehozásához. Ha egyes partíciókat később "
+"majd más rendszerek fogják használni, azok saját particionáló programjaival "
+"is létre lehet majd hozni. Egyes particionáló programok hibái miatt "
+"ajánljuk, <emphasis>ne</emphasis> más rendszerek particionáló programjaival "
+"hozd létre a &debian-gnu; partícióit. Legfeljebb azok saját partícióit hozd "
+"majd létre azokkal."
+
+#. Tag: para
+#: preparing.xml:848
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you are going to install more than one operating system on the same "
+#| "machine, you should install all other system(s) before proceeding with "
+#| "Linux installation. Windows and other OS installations may destroy your "
+#| "ability to start Linux, or encourage you to reformat non-native "
+#| "partitions."
+msgid ""
+"If you are going to install more than one operating system on the same "
+"machine, you should install all other system(s) before proceeding with "
+"&debian; installation. Windows and other OS installations may destroy your "
+"ability to start &debian;, or encourage you to reformat non-native "
+"partitions."
+msgstr ""
+"Ha több rendszert is telepítesz egy gépre, és kezdő vagy ebben, akkor "
+"általában jobb, ha előbb a többi rendszert rakod fel Linuxod előtt. Az újabb "
+"Windowsok és egyes operációs rendszerek telepítése után általában újra "
+"indíthatóvá kell tenni a Linuxot, vagy teljesen lerombolják azt, vagy nem-"
+"saját partícióik újraformázására köteleznek."
+
+#. Tag: para
+#: preparing.xml:856
+#, no-c-format
+msgid ""
+"You can recover from these actions or avoid them, but installing the native "
+"system first saves you trouble."
+msgstr ""
+"Ezek általában megoldhatók vagy elkerülhetők, de a többi rendszer előbbi "
+"telepítése átmenetileg megspórol egy kis tanulást."
+
+#. Tag: para
+#: preparing.xml:861
+#, fuzzy, no-c-format
+#| msgid ""
+#| "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
+#| "parttype; partitions should appear before all other partitions on the "
+#| "disk, especially MacOS boot partitions. This should be kept in mind when "
+#| "pre-partitioning; you should create a &arch-parttype; placeholder "
+#| "partition to come <emphasis>before</emphasis> the other bootable "
+#| "partitions on the disk. (The small partitions dedicated to Apple disk "
+#| "drivers are not bootable.) You can delete the placeholder with the Debian "
+#| "partition tools later during the actual install, and replace it with "
+#| "&arch-parttype; partitions."
+msgid ""
+"In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
+"parttype; partitions should appear before all other partitions on the disk, "
+"especially MacOS boot partitions. This should be kept in mind when pre-"
+"partitioning; you should create a &arch-parttype; placeholder partition to "
+"come <emphasis>before</emphasis> the other bootable partitions on the disk. "
+"(The small partitions dedicated to Apple disk drivers are not bootable.) You "
+"can delete the placeholder with the &debian; partition tools later during "
+"the actual install, and replace it with &arch-parttype; partitions."
+msgstr ""
+"Annak érdekében, hogy az OpenFirmware automatikusan indítsa a &debian-gnu; "
+"rendszert, előbb a &arch-parttype; partícióknak meg kell előzniük másokat, "
+"főleg a MacOS indító partíciókat. Erre figyelni kell particionáláskor. Létre "
+"kell hozni egy &arch-parttype; hely-fenntartó partíciót más indítható "
+"partíciók <emphasis>előtt</emphasis> a lemezen. (A kis Apple lemez-meghajtók "
+"számára fenntartott partíciók nem indíthatók.) A létrehozott partíció a "
+"tényleges telepítéskor végleges &arch-parttype; partíciókra cserélhető."
+
+#. Tag: para
+#: preparing.xml:873
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you currently have one hard disk with one partition (a common setup "
+#| "for desktop computers), and you want to multi-boot the native operating "
+#| "system and Debian, you will need to:"
+msgid ""
+"If you currently have one hard disk with one partition (a common setup for "
+"desktop computers), and you want to multi-boot the native operating system "
+"and &debian;, you will need to:"
+msgstr ""
+"Ha 1 merevlemezed van 1 partícióval (általános az asztali gépeknél) és a "
+"&debian; mellé más rendszert is akarsz, a lépések legegyszerűbb sora:"
+
+#. Tag: para
+#: preparing.xml:880
+#, no-c-format
+msgid "Back up everything on the computer."
+msgstr "Mentsd el a gépről a legfontosabb adataidat."
+
+#. Tag: para
+#: preparing.xml:885
+#, no-c-format
+msgid ""
+"Boot from the native operating system installer media such as CD-ROM or "
+"tapes. <phrase arch=\"powerpc\">When booting from a MacOS CD, hold the "
+"<keycap>c</keycap> key while booting to force the CD to become the active "
+"MacOS system.</phrase>"
+msgstr ""
+"Indíts a másik rendszer telepítő médiumáról, ilyen például a CD-ROM vagy "
+"szalag. <phrase arch=\"powerpc\">MacOS CD lemezről indításkor tartsd le a "
+"<keycap>c</keycap> billentyűt hogy a CD legyen az aktív MacOS rendszer.</"
+"phrase>"
+
+#. Tag: para
+#: preparing.xml:895
+#, no-c-format
+msgid ""
+"Use the native partitioning tools to create native system partition(s). "
+"Leave either a place holder partition or free space for &debian-gnu;."
+msgstr ""
+"Használd a partíciós eszközöket az adott rendszer partíciói létrehozásához. "
+"Az elején feltétlenül hagyj egy hely-fenntartó partíciót vagy üres helyet a "
+"&debian-gnu; számára."
+
+#. Tag: para
+#: preparing.xml:902
+#, no-c-format
+msgid "Install the native operating system on its new partition."
+msgstr "Telepítsd az adott rendszert új partíciójára."
+
+#. Tag: para
+#: preparing.xml:907
+#, no-c-format
+msgid ""
+"Boot back into the native system to verify everything's OK, and to download "
+"the &debian; installer boot files."
+msgstr ""
+"Ellenőrizd, hogy az adott rendszer indul és töltsd le a &debian; telepítő "
+"indító fájlokat."
+
+#. Tag: para
+#: preparing.xml:913
+#, no-c-format
+msgid "Boot the &debian; installer to continue installing &debian;."
+msgstr "Indítsd a &debian; telepítőt és futtasd le a &debian; telepítését."
+
+#. Tag: title
+#: preparing.xml:927
+#, no-c-format
+msgid "Partitioning From DOS or Windows"
+msgstr "Particionálás DOS-ban vagy Windowsból"
+
+#. Tag: para
+#: preparing.xml:928
+#, no-c-format
+msgid ""
+"If you are manipulating existing FAT or NTFS partitions, it is recommended "
+"that you either use the scheme below or native Windows or DOS tools. "
+"Otherwise, it is not really necessary to partition from DOS or Windows; the "
+"&debian; partitioning tools will generally do a better job."
+msgstr ""
+"Ha létező FAT vagy NTFS partíciót kezelsz, ajánlott az alábbi mód használata "
+"esetleg az azokat használó rendszerek beépített eszközeinek alkalmazása. "
+"Amúgy nem érdemes az adott rendszereket használni; a &debian; particionáló "
+"eszközök sokkal jobb munkát végeznek."
+
+#. Tag: para
+#: preparing.xml:936
+#, no-c-format
+msgid ""
+"But if you have a large IDE disk, and are not using LBA addressing, overlay "
+"drivers (sometimes provided by hard disk manufacturers), or a new (post "
+"1998) BIOS that supports large disk access extensions, then you must locate "
+"your &debian; boot partition carefully. In this case, you will have to put "
+"the boot partition into the first 1024 cylinders of your hard disk (usually "
+"around 524 megabytes, without BIOS translation). This may require that you "
+"move an existing FAT or NTFS partition."
+msgstr ""
+"Ha nagy IDE lemezed van, és nem használsz sem LBA címzést, sem átfedő "
+"meghajtókat (a merevlemez-gyártók gyakran mellékelik) sem új (1998 utáni) "
+"BIOS-t, mely támogatja a nagy lemezekhez való hozzáférési bővítéseket, akkor "
+"ennek megfelelően kell megadni a &debian; indító partíciót. Ebben az esetben "
+"a merevlemez első 1024 cilinderére kell tenni (BIOS általi módosítás nélkül "
+"körülbelül 524 MB). Ez a létező FAT vagy NTFS partíció áthelyezését "
+"igényelheti."
+
+#. Tag: title
+#: preparing.xml:950
+#, no-c-format
+msgid "Lossless Repartitioning When Starting From DOS, Win-32 or OS/2"
+msgstr ""
+"Veszteségmentes újraparticionálás DOS-ból, Win-32-ből vagy OS/2-ből indítva"
+
+#. Tag: para
+#: preparing.xml:953
+#, no-c-format
+msgid ""
+"One of the most common installations is onto a system that already contains "
+"DOS (including Windows 3.1), Win32 (such as Windows 95, 98, Me, NT, 2000, "
+"XP, 2003, Vista, 7), or OS/2, and it is desired to put &debian; onto the "
+"same disk without destroying the previous system. Note that the installer "
+"supports resizing of FAT and NTFS filesystems as used by DOS and Windows. "
+"Simply start the installer and when you get to the partitioning step, select "
+"the option for <menuchoice> <guimenuitem>Manual</guimenuitem> </menuchoice> "
+"partitioning, select the partition to resize, and specify its new size. So "
+"in most cases you should not need to use the method described below."
+msgstr ""
+"Az egyik legnépszerűbb telepítés egy olyan gépre telepíteni, melyen már van "
+"egy DOS (+ netán Windows 3.1), Win32 (mondjuk 95, 98, Me, NT, 2000, XP, "
+"2003, Vista, 7) vagy OS/2 és a &debian; ugyanarra a lemezre menne a korábbi "
+"rendszer megőrzésével. A telepítő támogatja az e rendszerek által használt "
+"FAT és NTFS fájlrendszerek átméretezését. Indítsd a telepítőt, válaszd ki a "
+"<menuchoice> <guimenuitem>Kézi szerkesztés</guimenuitem> </menuchoice> "
+"lehetőséget, jelöld ki az átméretezendő partíciót és add meg az új méretét. "
+"A legtöbb esetben ez tökéletesen működik és egyáltalán nem lesz szükség az "
+"alább leírt módra."
+
+#. Tag: para
+#: preparing.xml:965
+#, no-c-format
+msgid ""
+"Before going any further, you should have decided how you will be dividing "
+"up the disk. The method in this section will only split a partition into two "
+"pieces. One will contain the original OS and the other will be used for "
+"&debian;. During the installation of &debian;, you will be given the "
+"opportunity to use the &debian; portion of the disk as you see fit, i.e., as "
+"swap or as a file system."
+msgstr ""
+"Mielőtt továbbmennénk, el kell dönteni, hogyan legyen felosztva a lemez. "
+"Ebben a részben egyszerűen csak 2 újra osztunk egy partíciót. Egy az eredeti "
+"rendszert tartalmazza majd, a másik a &debian; számára készül. A &debian; "
+"telepítése során lehetőség lesz a &debian; rész ízlés szerinti "
+"felhasználására, például cserehelyként és fájlrendszerként."
+
+#. Tag: para
+#: preparing.xml:974
+#, no-c-format
+msgid ""
+"The idea is to move all the data on the partition to the beginning, before "
+"changing the partition information, so that nothing will be lost. It is "
+"important that you do as little as possible between the data movement and "
+"repartitioning to minimize the chance of a file being written near the end "
+"of the partition as this will decrease the amount of space you can take from "
+"the partition."
+msgstr ""
+"A terv az összes adat mozgatása a partíció elejére a partíció adatok "
+"módosítása előtt, így semmi nem vész el. A lehető legkevesebbet végezzük az "
+"adatok mozgatása és az újraparticionálás közt, így gyakorlatilag nincs "
+"esély, hogy közben egy fájl a partíció végéhez közel íródjon, így lehet a "
+"legnagyobb új partíciót létrehozni."
+
+#. Tag: para
+#: preparing.xml:983
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The first thing needed is a copy of <command>fips</command> which is "
+#| "available in the <filename>tools/</filename> directory on your nearest "
+#| "&debian; mirror. Unzip the archive and copy the files <filename>RESTORRB."
+#| "EXE</filename>, <filename>FIPS.EXE</filename> and <filename>ERRORS.TXT</"
+#| "filename> to a bootable floppy. A bootable floppy can be created using "
+#| "the command <filename>sys a:</filename> under DOS. <command>fips</"
+#| "command> comes with very good documentation which you may want to read. "
+#| "You will definitely need to read the documentation if you use a disk "
+#| "compression driver or a disk manager. Create the disk and read the "
+#| "documentation <emphasis>before</emphasis> you defragment the disk."
+msgid ""
+"The first thing needed is a copy of <command>fips</command>. Unzip the "
+"archive and copy the files <filename>RESTORRB.EXE</filename>, <filename>FIPS."
+"EXE</filename> and <filename>ERRORS.TXT</filename> to a bootable floppy. A "
+"bootable floppy can be created using the command <filename>sys a:</filename> "
+"under DOS. <command>fips</command> comes with very good documentation which "
+"you may want to read. You will definitely need to read the documentation if "
+"you use a disk compression driver or a disk manager. Create the disk and "
+"read the documentation <emphasis>before</emphasis> you defragment the disk."
+msgstr ""
+"Először szükség lesz egy <command>fips</command> programra, mely elérhető a "
+"legközelebbi &debian; tükör <filename>tools/</filename> könyvtárából. "
+"Csomagold ki az archívumot és másold a <filename>RESTORRB.EXE</filename>, "
+"<filename>FIPS.EXE</filename> és <filename>ERRORS.TXT</filename> fájlokat "
+"egy indítható flopira. Indítható flopi a <filename>sys a:</filename> "
+"paranccsal hozható létre DOS-ban. A <command>fips</command> nagyon jó "
+"dokumentációval rendelkezik, melyet érdemes elolvasni. El kell, ha "
+"lemeztömörítő-meghajtót vagy egy lemezkezelőt használsz. Hozd létre a lemezt "
+"és olvasd el a dokumentációt <emphasis>mielőtt</emphasis> töredezettség-"
+"mentesíted a lemezt."
+
+#. Tag: para
+#: preparing.xml:995
+#, no-c-format
+msgid ""
+"The next thing needed is to move all the data to the beginning of the "
+"partition. <command>defrag</command>, which comes standard with DOS 6.0 and "
+"later, can easily do the job. See the <command>fips</command> documentation "
+"for a list of other software that may do the trick. Note that if you have "
+"Windows 9x, you must run <command>defrag</command> from there, since DOS "
+"doesn't understand VFAT, which is used to support for long filenames, used "
+"in Windows 95 and higher."
+msgstr ""
+"Ezután minden adatot a partíció elejére kel mozgatni. A <command>defrag</"
+"command> parancs, mely a DOS 6.0+ része könnyen elvégzi ezt. Lásd a "
+"<command>fips</command> dokumentációját más hasonló szoftverekért. Windows 9x"
+"+ esetén a <command>defrag</command> parancsot onnan kell futtatni, mert a "
+"DOS nem érti a VFAT-ot, mely hosszú fájlneveket támogat e rendszereken."
+
+#. Tag: para
+#: preparing.xml:1005
+#, no-c-format
+msgid ""
+"After running the defragmenter (which can take a while on a large disk), "
+"reboot with the <command>fips</command> disk you created in the floppy "
+"drive. Simply type <filename>a:\\fips</filename> and follow the directions."
+msgstr ""
+"A töredezettség-mentesítő után (mely nagy lemezeknél eltarthat egy ideig) "
+"indíts újra a <command>fips</command> lemezzel, mely a flopi-meghajtóban "
+"van. Gépeld be ezt: <filename>a:\\fips</filename> és kövesd az utasításokat."
+
+#. Tag: para
+#: preparing.xml:1011
+#, no-c-format
+msgid ""
+"Note that there are many other partition managers out there, in case "
+"<command>fips</command> doesn't do the trick for you."
+msgstr ""
+"Jó tudni, hogy egyéb partíció-kezelők is vannak, ha a <command>fips</"
+"command> nem válna be."
+
+#. Tag: title
+#: preparing.xml:1019
+#, no-c-format
+msgid "Partitioning for DOS"
+msgstr "Particionálás DOS számára"
+
+#. Tag: para
+#: preparing.xml:1021
+#, no-c-format
+msgid ""
+"If you are partitioning for DOS drives, or changing the size of DOS "
+"partitions, using &debian; tools, many people experience problems working "
+"with the resulting FAT partitions. For instance, some have reported slow "
+"performance, consistent problems with <command>scandisk</command>, or other "
+"weird errors in DOS or Windows."
+msgstr ""
+"DOS meghajtók particionálásakor, vagy DOS partíciók átméretezésekor &debian; "
+"eszközökkel, többen gondokat észleltek a kapott FAT partíciókkal való munka "
+"során. Például egyeseknél lassú működés, állandó <command>scandisk</command> "
+"gondok, vagy fura hibák jelentkeztek DOS-ban vagy Windowsban."
+
+#. Tag: para
+#: preparing.xml:1029
+#, no-c-format
+msgid ""
+"Apparently, whenever you create or resize a partition for DOS use, it's a "
+"good idea to fill the first few sectors with zeros. You should do this prior "
+"to running DOS's <command>format</command> command by executing the "
+"following command from &debian;:"
+msgstr ""
+"Ha létrehozol vagy átméretezel egy partíciót DOS-hoz, nullázd az első pár "
+"szektort. Ezt megteheted a DOS <command>format</command> parancsát megelőzve "
+"az alábbi paranccsal &debian;:"
+
+#. Tag: screen
+#: preparing.xml:1036
+#, no-c-format
+msgid "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
+msgstr "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
+
+#. Tag: title
+#: preparing.xml:1047
+#, no-c-format
+msgid "Partitioning from SunOS"
+msgstr "Particionálás SunOS alól"
+
+#. Tag: para
+#: preparing.xml:1049
+#, no-c-format
+msgid ""
+"It's perfectly fine to partition from SunOS; in fact, if you intend to run "
+"both SunOS and &debian; on the same machine, it is recommended that you "
+"partition using SunOS prior to installing &debian;. The Linux kernel "
+"understands Sun disk labels, so there are no problems there. SILO supports "
+"booting Linux and SunOS from any of EXT2 (Linux), UFS (SunOS), romfs or "
+"iso9660 (CDROM) partitions."
+msgstr ""
+"A SunOS hibátlanul particionál; ha a &debian; mellett ezt is használod, "
+"particionálj ebből a &debian; telepítése előtt. A Linux kernel megérti a Sun "
+"lemez-címkéket, ezért minden rendben lesz. A SILO támogatja a Linux és SunOS "
+"indítását bármilyen EXT2 (Linux), UFS (SunOS), romfs vagy iso9660 (CD-ROM) "
+"partíciókról."
+
+#. Tag: title
+#: preparing.xml:1061
+#, no-c-format
+msgid "Partitioning from Linux or another OS"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1063
+#, no-c-format
+msgid ""
+"Whatever system you are using to partition, make sure you create a "
+"<quote>Sun disk label</quote> on your boot disk. This is the only kind of "
+"partition scheme that the OpenBoot PROM understands, and so it's the only "
+"scheme from which you can boot. In <command>fdisk</command>, the <keycap>s</"
+"keycap> key is used to create Sun disk labels. You only need to do this on "
+"drives that do not already have a Sun disk label. If you are using a drive "
+"that was previously formatted using a PC (or other architecture) you must "
+"create a new disk label, or problems with the disk geometry will most likely "
+"occur."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1075
+#, no-c-format
+msgid ""
+"You will probably be using <command>SILO</command> as your boot loader (the "
+"small program which runs the operating system kernel). <command>SILO</"
+"command> has certain requirements for partition sizes and location; see "
+"<xref linkend=\"partitioning\"/>."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1090
+#, no-c-format
+msgid "MacOS/OSX Partitioning"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1092
+#, no-c-format
+msgid ""
+"The <application>Apple Drive Setup</application> application can be found in "
+"the <filename>Utilities</filename> folder on the MacOS CD. It will not "
+"adjust existing partitions; it is limited to partitioning the entire disk at "
+"once. The disk driver partitions don't show up in <application>Drive Setup</"
+"application>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1099
+#, no-c-format
+msgid ""
+"Remember to create a placeholder partition for GNU/Linux, preferably "
+"positioned first in the disk layout. it doesn't matter what type it is, it "
+"will be deleted and replaced later inside the &debian-gnu; installer."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1105
+#, no-c-format
+msgid ""
+"If you are planning to install both MacOS 9 and OS X, it is best to create "
+"separate partitions for OS 9 and OS X. If they are installed on the same "
+"partition, <application>Startup Disk</application> (and reboot) must be used "
+"to select between the two; the choice between the two systems can't be made "
+"at boot time. With separate partitions, separate options for OS 9 and OS X "
+"will appear when holding the <keycap>option</keycap> key at boot time, and "
+"separate options can be installed in the <application>yaboot</application> "
+"boot menu as well. Also, Startup Disk will de-bless all other mountable "
+"partitions, which can affect GNU/Linux booting. Both OS 9 and OS X "
+"partitions will be accessible from either OS 9 or OS X."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1118
+#, no-c-format
+msgid ""
+"GNU/Linux is unable to access information on UFS partitions, but does "
+"support HFS+ (aka MacOS Extended) partitions. OS X requires one of these two "
+"types for its boot partition. MacOS 9 can be installed on either HFS (aka "
+"MacOS Standard) or HFS+. To share information between the MacOS and GNU/"
+"Linux systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT "
+"partitions are supported by both MacOS and Linux."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1138
+#, no-c-format
+msgid "Pre-Installation Hardware and Operating System Setup"
+msgstr "Telepítés-előtti hardver és operációs rendszer beállítás"
+
+#. Tag: para
+#: preparing.xml:1139
+#, no-c-format
+msgid ""
+"This section will walk you through pre-installation hardware setup, if any, "
+"that you will need to do prior to installing &debian;. Generally, this "
+"involves checking and possibly changing firmware settings for your system. "
+"The <quote>firmware</quote> is the core software used by the hardware; it is "
+"most critically invoked during the bootstrap process (after power-up). Known "
+"hardware issues affecting the reliability of &debian-gnu; on your system are "
+"also highlighted."
+msgstr ""
+"E szakasz átvisz a telepítés-előtti hardver beállításon, ha van, ami "
+"szükséges a &debian; telepítése előtt. Általában ellenőrizzük, és ha kell "
+"cseréljük a firmware beállításokat. A <quote>firmware</quote> a hardverbe "
+"épített mag szoftver; általában az indítási folyamatban játszik szerepet (a "
+"bekapcsolás után). A &debian-gnu; megbízhatóságára ható jól ismert hardver "
+"gondokat is hangsúlyozzuk."
+
+#. Tag: title
+#: preparing.xml:1161
+#, no-c-format
+msgid "Invoking the BIOS Set-Up Menu"
+msgstr "A BIOS beállító menü behívása"
+
+#. Tag: para
+#: preparing.xml:1163
+#, no-c-format
+msgid ""
+"BIOS provides the basic functions needed to boot your machine to allow your "
+"operating system to access your hardware. Your system probably provides a "
+"BIOS setup menu, which is used to configure the BIOS. Before installing, you "
+"<emphasis>must</emphasis> ensure that your BIOS is set up correctly; not "
+"doing so can lead to intermittent crashes or an inability to install "
+"&debian;."
+msgstr ""
+"A BIOS egy a gép indításához szükséges eszköz, vagyis egy olyan, mellyel "
+"indítható az operációs rendszer, mely hozzáfér a hardverhez. A hagyományos "
+"rendszereken BIOS van, s valószínűleg egy BIOS beállító menü, mellyel "
+"konfigurálható. Telepítés előtt biztosnak <emphasis>kell</emphasis> lenni, "
+"hogy a BIOS beállításai helyesek; e nélkül váratlan összeomlások lehetnek "
+"vagy lehetetlenné válik a &debian; telepítése."
+
+#. Tag: para
+#: preparing.xml:1172
+#, no-c-format
+msgid ""
+"The rest of this section is lifted from the <ulink url=\"&url-pc-hw-faq;\"></"
+"ulink>, answering the question, <quote>How do I enter the CMOS configuration "
+"menu?</quote>. How you access the BIOS (or <quote>CMOS</quote>) "
+"configuration menu depends on who wrote your BIOS software:"
+msgstr ""
+"E szakasz további része a <ulink url=\"&url-pc-hw-faq;\"></ulink> cím "
+"<quote>Hogy léphetek a CMOS beállító menübe?</quote> kérdés válaszából "
+"származik. A BIOS (vagy <quote>CMOS</quote>) beállító menü elérési módja "
+"attól függ, ki írta az adott BIOS szoftvert:"
+
+#. Tag: term
+#: preparing.xml:1186
+#, no-c-format
+msgid "AMI BIOS"
+msgstr "AMI BIOS"
+
+#. Tag: para
+#: preparing.xml:1187
+#, no-c-format
+msgid "<keycap>Delete</keycap> key during the POST (power on self test)"
+msgstr "<keycap>Delete</keycap> a POST alatt (bekapcsolás utáni ön-teszt)"
+
+#. Tag: term
+#: preparing.xml:1195
+#, no-c-format
+msgid "Award BIOS"
+msgstr "Award BIOS"
+
+#. Tag: para
+#: preparing.xml:1196
+#, no-c-format
+msgid ""
+"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </"
+"keycombo>, or <keycap>Delete</keycap> key during the POST"
+msgstr ""
+"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </"
+"keycombo> vagy <keycap>Delete</keycap> a POST alatt"
+
+#. Tag: term
+#: preparing.xml:1205
+#, no-c-format
+msgid "DTK BIOS"
+msgstr "DTK BIOS"
+
+#. Tag: para
+#: preparing.xml:1206
+#, no-c-format
+msgid "<keycap>Esc</keycap> key during the POST"
+msgstr "<keycap>Esc</keycap> a POST alatt"
+
+#. Tag: term
+#: preparing.xml:1213
+#, no-c-format
+msgid "IBM PS/2 BIOS"
+msgstr "IBM PS/2 BIOS"
+
+#. Tag: para
+#: preparing.xml:1214
+#, no-c-format
+msgid ""
+"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</keycap> "
+"</keycombo> after <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+"keycap><keycap>Delete</keycap> </keycombo>"
+msgstr ""
+"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</keycap> "
+"</keycombo> a <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+"keycap><keycap>Delete</keycap> </keycombo> után"
+
+#. Tag: term
+#: preparing.xml:1228
+#, no-c-format
+msgid "Phoenix BIOS"
+msgstr "Phoenix BIOS"
+
+#. Tag: para
+#: preparing.xml:1229
+#, no-c-format
+msgid ""
+"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </"
+"keycombo> or <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>S</"
+"keycap> </keycombo> or <keycap>F1</keycap>"
+msgstr ""
+"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </"
+"keycombo> vagy <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+"keycap><keycap>S</keycap> </keycombo> vagy <keycap>F1</keycap>"
+
+#. Tag: para
+#: preparing.xml:1245
+#, no-c-format
+msgid ""
+"Information on invoking other BIOS routines can be found in <ulink url="
+"\"&url-invoking-bios-info;\"></ulink>."
+msgstr ""
+"Adatok más BIOS rutinok meghívásához itt: <ulink url=\"&url-invoking-bios-"
+"info;\"></ulink>."
+
+#. Tag: para
+#: preparing.xml:1250
+#, no-c-format
+msgid ""
+"Some &arch-title; machines don't have a CMOS configuration menu in the BIOS. "
+"They require a software CMOS setup program. If you don't have the "
+"Installation and/or Diagnostics diskette for your machine, you can try using "
+"a shareware/freeware program. Try looking in <ulink url=\"&url-simtel;\"></"
+"ulink>."
+msgstr ""
+"Pár &arch-title; gépen nincs CMOS beállító menü a BIOS területén. Ezek "
+"szoftveres CMOS beállítást igényelnek. Ha nincs Telepítő és/vagy "
+"diagnosztikai lemezed a géphez, legrosszabb esetben egy shareware/freeware "
+"program kell. Próbálkozhatsz itt: <ulink url=\"&url-simtel;\"></ulink>."
+
+#. Tag: title
+#: preparing.xml:1261 preparing.xml:1579
+#, no-c-format
+msgid "Boot Device Selection"
+msgstr "Indító eszköz választás"
+
+#. Tag: para
+#: preparing.xml:1263
+#, no-c-format
+msgid ""
+"Many BIOS setup menus allow you to select the devices that will be used to "
+"bootstrap the system. Set this to look for a bootable operating system on "
+"<filename>A:</filename> (the first floppy disk), then optionally the first "
+"CD-ROM device (possibly appearing as <filename>D:</filename> or <filename>E:"
+"</filename>), and then from <filename>C:</filename> (the first hard disk). "
+"This setting enables you to boot from either a floppy disk or a CD-ROM, "
+"which are the two most common boot devices used to install &debian;."
+msgstr ""
+"A legtöbb BIOS beállító menü lehetővé teszi a rendszert indító eszközök "
+"kiválasztását. Ez dönti el, milyen sorrendben keressen indítható operációs "
+"rendszereket az eszközökön, sok BIOS esetén olyen buta nevekkel, mint "
+"<filename>A:</filename> (az 1. flopi lemez), majd az 1. CD-ROM eszköz (talán "
+"úgy jelenik meg, mint <filename>D:</filename> vagy <filename>E:</filename>), "
+"majd <filename>C:</filename> (az 1. merevlemez). E beállítás teszi lehetővé "
+"egy flopi vagy egy CD-ROM indítását, melyek a &debian; telepítésének "
+"legnépszerűbb eszközei."
+
+#. Tag: para
+#: preparing.xml:1274
+#, no-c-format
+msgid ""
+"If you have a newer SCSI controller and you have a CD-ROM device attached to "
+"it, you are usually able to boot from the CD-ROM. All you have to do is "
+"enable booting from a CD-ROM in the SCSI-BIOS of your controller."
+msgstr ""
+"Újabb SCSI vezérlőre kötött CD-ROM eszköz esetén általában lehet erről "
+"indítani. Csak be kell kapcsolni a CD-ROM indítást a vezérlő SCSI-BIOS "
+"részén."
+
+#. Tag: para
+#: preparing.xml:1281
+#, no-c-format
+msgid ""
+"Another popular option is to boot from a USB storage device (also called a "
+"USB memory stick or USB key). Some BIOSes can boot directly from a USB "
+"storage device, but some cannot. You may need to configure your BIOS to boot "
+"from a <quote>Removable drive</quote> or even from <quote>USB-ZIP</quote> to "
+"get it to boot from the USB device."
+msgstr ""
+"Egy másik népszerű lehetőség egy USB tároló eszközről indítás (USB kulcs "
+"vagy pendrive is a neve). Pár BIOS tud közvetlenül egy USB tároló eszközről "
+"indítani, egyesek nem. Ha nem látsz pont ilyet, még mindig működhet az "
+"<quote>Eltávolítható meghajtó</quote> vagy <quote>USB-ZIP</quote> beállítás "
+"USB eszközről indításhoz."
+
+#. Tag: para
+#: preparing.xml:1289
+#, no-c-format
+msgid ""
+"Here are some details about how to set the boot order. Remember to reset the "
+"boot order after &arch-kernel; is installed, so that you restart your "
+"machine from the hard drive."
+msgstr ""
+"Íme pár részlet az indító sorrend beállításához. A telepítés után érdemes "
+"majd úgy beállítani, hogy rögtön a merevlemezről induljon."
+
+#. Tag: title
+#: preparing.xml:1298
+#, no-c-format
+msgid "Changing the Boot Order on IDE Computers"
+msgstr "Indító sorrend cseréje IDE gépeken"
+
+#. Tag: para
+#: preparing.xml:1301
+#, no-c-format
+msgid ""
+"As your computer starts, press the keys to enter the BIOS utility. Often, it "
+"is the <keycap>Delete</keycap> key. However, consult the hardware "
+"documentation for the exact keystrokes."
+msgstr ""
+"A gép indulásakor üsd le a BIOS beállító billentyűt. Ez gyakran a "
+"<keycap>Delete</keycap> billentyű. Ha amúgy nem derül ki, akkor "
+"természetesen nézd meg az alaplap füzetében."
+
+#. Tag: para
+#: preparing.xml:1308
+#, no-c-format
+msgid ""
+"Find the boot sequence in the setup utility. Its location depends on your "
+"BIOS, but you are looking for a field that lists drives."
+msgstr ""
+"Keresd meg az indító sorrendet a beállító segéd-programban. Helye BIOS-"
+"függő, de megtalálod a meghajtókat soroló mezőt."
+
+#. Tag: para
+#: preparing.xml:1313
+#, no-c-format
+msgid "Common entries on IDE machines are C, A, cdrom or A, C, cdrom."
+msgstr "Sok buta IDE gépben van C, A, cdrom vagy A, C, cdrom bejegyzés."
+
+#. Tag: para
+#: preparing.xml:1318
+#, no-c-format
+msgid "C is the hard drive, and A is the floppy drive."
+msgstr "E buta gépekben a C egy merevlemez, az A egy flopi meghajtó."
+
+#. Tag: para
+#: preparing.xml:1324
+#, no-c-format
+msgid ""
+"Change the boot sequence setting so that the CD-ROM or the floppy is first. "
+"Usually, the <keycap>Page Up</keycap> or <keycap>Page Down</keycap> keys "
+"cycle through the possible choices."
+msgstr ""
+"Állítsd be, hogy a CD-ROM legyen az 1., a flopi a 2. indító. Általában a "
+"<keycap>Page Up</keycap> vagy <keycap>Page Down</keycap> billentyűk köröznek "
+"a lehetséges választások közt."
+
+#. Tag: para
+#: preparing.xml:1332
+#, no-c-format
+msgid ""
+"Save your changes. Instructions on the screen tell you how to save the "
+"changes on your computer."
+msgstr "Mentsd módosításaid. A képernyő utasításai megmondják, hogyan."
+
+#. Tag: title
+#: preparing.xml:1342
+#, no-c-format
+msgid "Changing the Boot Order on SCSI Computers"
+msgstr "Indító sorrend módosítása SCSI gépeken"
+
+#. Tag: para
+#: preparing.xml:1346
+#, no-c-format
+msgid ""
+"As your computer starts, press the keys to enter the SCSI setup utility."
+msgstr "A gép indulása után, üsd le a SCSI beállításba lépő billentyűt."
+
+#. Tag: para
+#: preparing.xml:1351
+#, no-c-format
+msgid ""
+"You can start the SCSI setup utility after the memory check and the message "
+"about how to start the BIOS utility displays when you start your computer."
+msgstr ""
+"A SCSI beállító program elindítható miután a memória ellenőrzés megvolt és "
+"megjelent a BIOS segéd-program indítása módjának üzenete."
+
+#. Tag: para
+#: preparing.xml:1357
+#, no-c-format
+msgid ""
+"The keystrokes you need depend on the utility. Often, it is "
+"<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>. However, "
+"consult your hardware documentation for the exact keystrokes."
+msgstr ""
+"A billentyűk a használt segéd-programtól függenek. Gyakran "
+"<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>. Azért olvasd "
+"el a hardver leírását a pontos adatokért."
+
+#. Tag: para
+#: preparing.xml:1365
+#, no-c-format
+msgid "Find the utility for changing the boot order."
+msgstr "Keresd meg az indító sorrend beállítást."
+
+#. Tag: para
+#: preparing.xml:1370
+#, no-c-format
+msgid ""
+"Set the utility so that the SCSI ID of the CD drive is first on the list."
+msgstr ""
+"Állítsd be, hogy a CD meghajtó SCSI azonosítója legyen az 1. a listában."
+
+#. Tag: para
+#: preparing.xml:1376
+#, no-c-format
+msgid ""
+"Save your changes. Instructions on the screen tell you how to save the "
+"changes on your computer. Often, you must press <keycap>F10</keycap>."
+msgstr ""
+"Mentsd módosításaid. A képernyőn lévő utasítások megmondják, hogyan. Gyakran "
+"az <keycap>F10</keycap> billentyűvel."
+
+#. Tag: title
+#: preparing.xml:1390
+#, no-c-format
+msgid "Miscellaneous BIOS Settings"
+msgstr "Egyéb BIOS beállítások"
+
+#. Tag: title
+#: preparing.xml:1392
+#, no-c-format
+msgid "CD-ROM Settings"
+msgstr "CD-ROM beállítások"
+
+#. Tag: para
+#: preparing.xml:1393
+#, no-c-format
+msgid ""
+"Some BIOS systems (such as Award BIOS) allow you to automatically set the CD "
+"speed. You should avoid that, and instead set it to, say, the lowest speed. "
+"If you get <userinput>seek failed</userinput> error messages, this may be "
+"your problem."
+msgstr ""
+"Pár BIOS rendszer (például Award BIOS) megpróbálja önműködően beállítani a "
+"CD sebességet. Ha túlhajtja, kézzel is beállítható. Ha sok <userinput>seek "
+"failed</userinput> üzenet jön, akkor jó ez."
+
+#. Tag: title
+#: preparing.xml:1403
+#, no-c-format
+msgid "Extended vs. Expanded Memory"
+msgstr "Kiterjesztett vagy kibővített memória"
+
+#. Tag: para
+#: preparing.xml:1404
+#, no-c-format
+msgid ""
+"If your system provides both ex<emphasis>ten</emphasis>ded and "
+"ex<emphasis>pan</emphasis>ded memory, set it so that there is as much "
+"extended and as little expanded memory as possible. &arch-kernel; requires "
+"extended memory and cannot use expanded memory."
+msgstr ""
+"Ha a rendszer ki<emphasis>ter</emphasis>jesztett és ki<emphasis>bőv</"
+"emphasis>ített memóriát is ad, állítsd a lehető legtöbb kiterjesztett "
+"memóriára. A &arch-kernel; kiterjesztett memóriát használ, a bővített "
+"memória területet mellőzi."
+
+#. Tag: title
+#: preparing.xml:1414
+#, no-c-format
+msgid "Virus Protection"
+msgstr "Virus Protection"
+
+#. Tag: para
+#: preparing.xml:1415
+#, no-c-format
+msgid ""
+"Disable any virus-warning features your BIOS may provide. If you have a "
+"virus-protection board or other special hardware, make sure it is disabled "
+"or physically removed while running GNU/&arch-kernel;. These aren't "
+"compatible with GNU/&arch-kernel;; moreover, due to the file system "
+"permissions and protected memory of the &arch-kernel; kernel, viruses are "
+"almost unheard of<footnote> <para> After installation you can enable Boot "
+"Sector protection if you want. This offers no additional security in &arch-"
+"kernel; but if you also run Windows it may prevent a catastrophe. There is "
+"no need to tamper with the Master Boot Record (MBR) after the boot manager "
+"has been set up. </para> </footnote>."
+msgstr ""
+"Kapcsold ki a vírus-figyelmeztetést. GNU/&arch-kernel; alatt a &arch-kernel; "
+"kernel által adott fájlrendszer jogok és védett memória miatt a vírusok "
+"ártalmatlanok<footnote> <para> A telepítés után bekapcsolhatod a Boot "
+"Szektor védelmet. Ez nincs hatással a &arch-kernel; védelmére, de ha "
+"Windowst is használnál, katasztrófát előzhet meg. A Mester Boot Rekord (MBR) "
+"szempontjából nincs semmi tennivaló a boot kezelő beállítása után. </para> </"
+"footnote>."
+
+#. Tag: title
+#: preparing.xml:1436
+#, no-c-format
+msgid "Shadow RAM"
+msgstr "Shadow RAM"
+
+#. Tag: para
+#: preparing.xml:1437
+#, no-c-format
+msgid ""
+"Your motherboard may provide <emphasis>shadow RAM</emphasis> or BIOS "
+"caching. You may see settings for <quote>Video BIOS Shadow</quote>, "
+"<quote>C800-CBFF Shadow</quote>, etc. <emphasis>Disable</emphasis> all "
+"shadow RAM. Shadow RAM is used to accelerate access to the ROMs on your "
+"motherboard and on some of the controller cards. &arch-kernel; does not use "
+"these ROMs once it has booted because it provides its own faster 32-bit "
+"software in place of the 16-bit programs in the ROMs. Disabling the shadow "
+"RAM may make some of it available for programs to use as normal memory. "
+"Leaving the shadow RAM enabled may interfere with &arch-kernel; access to "
+"hardware devices."
+msgstr ""
+"Az alaplap talán ilyet nyújt: <emphasis>shadow RAM</emphasis> vagy BIOS "
+"gyorstár. Talán ilyet látsz: <quote>Video BIOS Shadow</quote>, <quote>C800-"
+"CBFF Shadow</quote> és így tovább. Legyen <emphasis>Disable</emphasis>, vagy "
+"kikapcsolt minden árnyék RAM. Az árnyék RAM az alaplapi ROM és pár vezérlő "
+"kártya elérésének gyorsítását szolgálja. A &arch-kernel; nem használja "
+"ezeket, saját, gyorsabb szoftvere van erre. Az árnyék RAM kikapcsolása "
+"elérhetővé teszi más programoknak; az árnyék RAM bekapcsolása ütközhet a "
+"hardver eszközök &arch-kernel; elérésével."
+
+#. Tag: title
+#: preparing.xml:1454
+#, no-c-format
+msgid "Memory Hole"
+msgstr "Memory Hole"
+
+#. Tag: para
+#: preparing.xml:1455
+#, no-c-format
+msgid ""
+"If your BIOS offers something like <quote>15&ndash;16 MB Memory Hole</"
+"quote>, please disable that. &arch-kernel; expects to find memory there if "
+"you have that much RAM."
+msgstr ""
+"Ha a BIOS ilyesmit ad: <quote>15&ndash;16 MB Memory Hole</quote>, kapcsold "
+"ki ezt. A &arch-kernel; jól használja és várja a memória területet, ha van "
+"ennyi."
+
+#. Tag: para
+#: preparing.xml:1461
+#, no-c-format
+msgid ""
+"We have a report of an Intel Endeavor motherboard on which there is an "
+"option called <quote>LFB</quote> or <quote>Linear Frame Buffer</quote>. This "
+"had two settings: <quote>Disabled</quote> and <quote>1 Megabyte</quote>. Set "
+"it to <quote>1 Megabyte</quote>. When disabled, the installation floppy was "
+"not read correctly, and the system eventually crashed. At this writing we "
+"don't understand what's going on with this particular device &mdash; it just "
+"worked with that setting and not without it."
+msgstr ""
+"Van egy Intel Endeavor alaplap, melyen van egy <quote>LFB</quote> vagy "
+"<quote>Linear Frame Buffer</quote> opció. Beállításai: <quote>Disabled</"
+"quote> és <quote>1 Megabyte</quote>. Állítsd erre: <quote>1 Megabyte</"
+"quote>. Kikapcsoláskor a telepítő flopi nem olvas rendesen, és a gép mindig "
+"összeomlik. Mikor ezt írom, nem értjük, mi van ezzel az eszközzel &mdash; a "
+"lényeg, hogy működik így, e nélkül nem."
+
+#. Tag: title
+#: preparing.xml:1477
+#, no-c-format
+msgid "Advanced Power Management"
+msgstr "Advanced Power Management"
+
+#. Tag: para
+#: preparing.xml:1478
+#, no-c-format
+msgid ""
+"If your motherboard provides Advanced Power Management (APM), configure it "
+"so that power management is controlled by APM. Disable the doze, standby, "
+"suspend, nap, and sleep modes, and disable the hard disk's power-down timer. "
+"&arch-kernel; can take over control of these modes, and can do a better job "
+"of power-management than the BIOS."
+msgstr ""
+"Ha az alaplap APM támogatást nyújt, állítsd be, hogy ez felügyelje az "
+"energia gazdálkodást. Kapcsold ki a készenlét, felfüggesztés és alvó módokat "
+"és a merevlemez leállító időzítőt. A &arch-kernel; jobban kezeli e módokat."
+
+#. Tag: title
+#: preparing.xml:1496
+#, no-c-format
+msgid "Invoking OpenFirmware"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1497
+#, no-c-format
+msgid ""
+"There is normally no need to set up the BIOS (called OpenFirmware) on &arch-"
+"title; systems. PReP and CHRP are equipped with OpenFirmware, but "
+"unfortunately, the means you use to invoke it vary from manufacturer to "
+"manufacturer. You'll have to consult the hardware documentation which came "
+"with your machine."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1505
+#, no-c-format
+msgid ""
+"On &arch-title; Macintoshes, you invoke OpenFirmware with "
+"<keycombo><keycap>Command (cloverleaf/Apple)</keycap><keycap>Option</"
+"keycap><keycap>o</keycap><keycap>f</keycap></keycombo> while booting. "
+"Generally it will check for these keystrokes after the chime, but the exact "
+"timing varies from model to model. See <ulink url=\"&url-netbsd-powerpc-faq;"
+"\"></ulink> for more hints."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1513
+#, no-c-format
+msgid ""
+"The OpenFirmware prompt looks like this: <informalexample><screen>\n"
+"ok\n"
+"0 &gt;\n"
+"</screen></informalexample> Note that on older model &arch-title; Macs, the "
+"default and sometimes hardwired I/O for OpenFirmware user interaction is "
+"through the serial (modem) port. If you invoke OpenFirmware on one of these "
+"machines, you will just see a black screen. In that case, a terminal program "
+"running on another computer, connected to the modem port, is needed to "
+"interact with OpenFirmware."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1526
+#, no-c-format
+msgid ""
+"The OpenFirmware on OldWorld Beige G3 machines, OF versions 2.0f1 and 2.4, "
+"is broken. These machines will most likely not be able to boot from the hard "
+"drive unless the firmware is patched. A firmware patch is included in the "
+"<application>System Disk 2.3.1</application> utility, available from Apple "
+"at <ulink url=\"ftp://ftp.apple.com/developer/macosxserver/utilities/"
+"SystemDisk2.3.1.smi.bin\"></ulink>. After unpacking the utility in MacOS, "
+"and launching it, select the <guibutton>Save</guibutton> button to have the "
+"firmware patches installed to nvram."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1546
+#, no-c-format
+msgid "Invoking OpenBoot"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1548
+#, no-c-format
+msgid ""
+"OpenBoot provides the basic functions needed to boot the &arch-title; "
+"architecture. This is rather similar in function to the BIOS in the x86 "
+"architecture, although much nicer. The Sun boot PROMs have a built-in forth "
+"interpreter which lets you do quite a number of things with your machine, "
+"such as diagnostics and simple scripts."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1556
+#, no-c-format
+msgid ""
+"To get to the boot prompt you need to hold down the <keycap>Stop</keycap> "
+"key (on older type 4 keyboards, use the <keycap>L1</keycap> key, if you have "
+"a PC keyboard adapter, use the <keycap>Break</keycap> key) and press the "
+"<keycap>A</keycap> key. The boot PROM will give you a prompt, either "
+"<userinput>ok</userinput> or <userinput>&gt;</userinput>. It is preferred to "
+"have the <userinput>ok</userinput> prompt. So if you get the old style "
+"prompt, hit the <keycap>n</keycap> key to get the new style prompt."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1568
+#, no-c-format
+msgid ""
+"If you are using a serial console, send a break to the machine. With "
+"Minicom, use <keycap>Ctrl-A F</keycap>, with cu, hit <keycap>Enter</keycap>, "
+"then type <userinput>%~break</userinput>. Consult the documentation of your "
+"terminal emulator if you are using a different program."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1581
+#, no-c-format
+msgid ""
+"You can use OpenBoot to boot from specific devices, and also to change your "
+"default boot device. However, you need to know some details about how "
+"OpenBoot names devices; it's considerably different from Linux device "
+"naming, described in <xref linkend=\"device-names\"/>. Also, the command "
+"will vary a bit, depending on what version of OpenBoot you have. More "
+"information about OpenBoot can be found in the <ulink url=\"&url-openboot;"
+"\">Sun OpenBoot Reference</ulink>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1591
+#, no-c-format
+msgid ""
+"Typically, with newer revisions, you can use OpenBoot devices such as "
+"<quote>floppy</quote>, <quote>cdrom</quote>, <quote>net</quote>, "
+"<quote>disk</quote>, or <quote>disk2</quote>. These have the obvious "
+"meanings; the <quote>net</quote> device is for booting from the network. "
+"Additionally, the device name can specify a particular partition of a disk, "
+"such as <quote>disk2:a</quote> to boot disk2, first partition. Full OpenBoot "
+"device names have the form: <informalexample> <screen>\n"
+"<replaceable>driver-name</replaceable>@\n"
+"<replaceable>unit-address</replaceable>:\n"
+"<replaceable>device-arguments</replaceable>\n"
+"</screen></informalexample> In older revisions of OpenBoot, device naming is "
+"a bit different: the floppy device is called <quote>/fd</quote>, and SCSI "
+"disk devices are of the form <quote>sd(<replaceable>controller</"
+"replaceable>, <replaceable>disk-target-id</replaceable>, <replaceable>disk-"
+"lun</replaceable>)</quote>. The command <userinput>show-devs</userinput> in "
+"newer OpenBoot revisions is useful for viewing the currently configured "
+"devices. For full information, whatever your revision, see the <ulink url="
+"\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1614
+#, no-c-format
+msgid ""
+"To boot from a specific device, use the command <userinput>boot "
+"<replaceable>device</replaceable></userinput>. You can set this behavior as "
+"the default using the <userinput>setenv</userinput> command. However, the "
+"name of the variable to set changed between OpenBoot revisions. In OpenBoot "
+"1.x, use the command <userinput>setenv boot-from <replaceable>device</"
+"replaceable></userinput>. In later revisions of OpenBoot, use the command "
+"<userinput>setenv boot-device <replaceable>device</replaceable></userinput>. "
+"Note, this is also configurable using the <command>eeprom</command> command "
+"on Solaris, or modifying the appropriate files in <filename>/proc/openprom/"
+"options/</filename>, for example under Linux: <informalexample><screen>\n"
+"# echo disk1:1 &gt; /proc/openprom/options/boot-device\n"
+"</screen></informalexample> and under Solaris:"
+msgstr ""
+
+#. Tag: screen
+#: preparing.xml:1633
+#, no-c-format
+msgid "eeprom boot-device=disk1:1"
+msgstr "eeprom boot-device=disk1:1"
+
+#. Tag: title
+#: preparing.xml:1643
+#, no-c-format
+msgid "BIOS Setup"
+msgstr "BIOS beállítás"
+
+#. Tag: para
+#: preparing.xml:1644
+#, no-c-format
+msgid ""
+"In order to install &debian-gnu; on a &arch-title; or zSeries machine you "
+"have first boot a kernel into the system. The boot mechanism of this "
+"platform is inherently different to other ones, especially from PC-like "
+"systems: there are no floppy devices available at all. You will notice "
+"another big difference while you work with this platform: most (if not all) "
+"of the time you will work remote, with the help of some client session "
+"software like telnet, or a browser. This is due to that special system "
+"architecture where the 3215/3270 console is line-based instead of character-"
+"based."
+msgstr ""
+"A &debian-gnu; telepítéséhez &arch-title; vagy zSeries gépen először el kell "
+"indítani egy kernelt a rendszeren. E platform indító módja teljesen eltér "
+"másoktól, főleg a PC-jellegű rendszerektől: még flopik sincsenek. A másik "
+"nagy eltérés, hogy általában (ha nem mindig) távolról dolgozol egy ügyfél "
+"folyamat szoftver, mint telnet vagy egy böngésző segítségével. Ez igaz arra "
+"a különleges rendszer felépítésre, ahogy 3215/3270 konzol sor-alapú és nem "
+"karakter-alapú."
+
+#. Tag: para
+#: preparing.xml:1656
+#, no-c-format
+msgid ""
+"Linux on this platform runs either natively on the bare machine, in a so-"
+"called LPAR (Logical Partition) or in a virtual machine supplied by the VM "
+"system. You can use a boot tape on all of those systems; you may use some "
+"other boot media, too, but those may not be generally available. For "
+"example, you can use the virtual card reader of a virtual machine, or boot "
+"from the HMC (Hardware Management Console) of an LPAR if the HMC and this "
+"option is available for you."
+msgstr ""
+"A Linux e platformon futhat natívan egy úgynevezett LPAR (Logikai Partíció) "
+"területén vagy egy a VM rendszer által adott virtuális gépen. Indító szalag "
+"mindig használható; sokszor más indító média is, de ezek nem mindig "
+"általánosan elérhetők. Például használható egy virtuális gép virtuális "
+"kártya olvasója vagy egy LPAR HMC része, ha a HMC és e lehetőség elérhető."
+
+#. Tag: para
+#: preparing.xml:1666
+#, no-c-format
+msgid ""
+"Before you actually perform an installation, you have to go over some design "
+"and preparation steps. IBM has made documentation available about the whole "
+"process, e.g. how to prepare an installation medium and how actually to boot "
+"from that medium. Duplicating that information here is neither possible nor "
+"necessary. However, we will describe here which kind of &debian;-specific "
+"data is needed and where to find it. Using both sources of information, you "
+"have to prepare your machine and the installation medium before you can "
+"perform a boot from it. When you see the welcome message in your client "
+"session, return to this document to go through the &debian;-specific "
+"installation steps."
+msgstr ""
+"Telepítés előtt egyes tervezési és előkészületi lépések szükségesek. Az IBM "
+"leírja az egész folyamatot, például, hogyan készítsünk elő egy telepítő "
+"médiumot és hogyan indítsunk róla. Ezt nem ismételjük. De leírjuk, mely "
+"&debian;-specifikus adatok kellenek és hol vannak. E 2 forrás használatával "
+"elő kell készíteni a gépet és a telepítő médiumot indítás előtt. Az üdvözlő "
+"képernyő megjelenése után térj vissza e dokumentumra a &debian;-specifikus "
+"telepítő lépésekhez."
+
+#. Tag: title
+#: preparing.xml:1683
+#, no-c-format
+msgid "Native and LPAR installations"
+msgstr "Natív és LPAR telepítés"
+
+#. Tag: para
+#: preparing.xml:1684
+#, no-c-format
+msgid ""
+"Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/"
+"pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook "
+"and chapter 3.2 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
+"Distributions</ulink> Redbook on how to set up an LPAR for Linux."
+msgstr ""
+"Lásd a <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987."
+"pdf\"> Linux &arch-title; gépre</ulink> 5. és <ulink url=\"http://www."
+"redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux IBM eServer "
+"zSeries és &arch-title; gépre: Terjesztések</ulink> 3.2. fejezetét LPAR "
+"beállításához Linuxra."
+
+#. Tag: title
+#: preparing.xml:1698
+#, no-c-format
+msgid "Installation as a VM guest"
+msgstr "Telepítés VM ügyfélként"
+
+#. Tag: para
+#: preparing.xml:1700
+#, no-c-format
+msgid ""
+"Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/"
+"pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook "
+"and chapter 3.1 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
+"Distributions</ulink> Redbook on how to set up a VM guest for running Linux."
+msgstr ""
+"Lásd a <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987."
+"pdf\"> Linux &arch-title; gépre</ulink> 6. és <ulink url=\"http://www."
+"redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux IBM eServer "
+"zSeries és &arch-title; gépre: Terjesztések</ulink> 3.1. fejezetét egy VM "
+"ügyfél beállításához Linux futtatására."
+
+#. Tag: para
+#: preparing.xml:1710
+#, fuzzy, no-c-format
+#| msgid ""
+#| "You need to copy all the files from the <filename>generic</filename> sub-"
+#| "directory to your CMS disk. Be sure to transfer <filename>kernel.debian</"
+#| "filename> and <filename>initrd.debian</filename> in binary mode with a "
+#| "fixed record length of 80 characters."
+msgid ""
+"You need to copy all the files from the <filename>generic</filename> sub-"
+"directory to your CMS disk. Be sure to transfer <filename>kernel.debian</"
+"filename> and <filename>initrd.debian</filename> in binary mode with a fixed "
+"record length of 80 characters. <filename>parmfile.debian</filename> can be "
+"in either ASCII or EBCDIC format. A sample <filename>debian.exec</filename> "
+"script, which will punch the files in the proper order, is included with the "
+"images."
+msgstr ""
+"A <filename>generic</filename> könyvtárban lévő fájlokat a CMS lemezre kell "
+"másolni. A <filename>kernel.debian</filename> és <filename>initrd.debian</"
+"filename> átvitele rögzített 80-karakteres bináris módban történjen."
+
+#. Tag: title
+#: preparing.xml:1726
+#, no-c-format
+msgid "Setting up an installation server"
+msgstr "Egy telepítő kiszolgáló beállítása"
+
+#. Tag: para
+#: preparing.xml:1728
+#, no-c-format
+msgid ""
+"If you don't have a connection to the Internet (either directly or via a web "
+"proxy) you need to create a local installation server that can be accessed "
+"from your S/390. This server keeps all the packages you want to install and "
+"must make them available using NFS, HTTP or FTP."
+msgstr ""
+"Internet kapcsolat nélkül (közvetlen vagy web proxy) egy az adott S/390 "
+"által elérhető helyi telepítő kiszolgáló létrehozása szükséges. E kiszolgáló "
+"tárolja a telepítendő csomagokat és elérhetővé kell tennie őket NFS, HTTP "
+"vagy FTP módon."
+
+#. Tag: para
+#: preparing.xml:1736
+#, no-c-format
+msgid ""
+"The installation server needs to copy the exact directory structure from any "
+"&debian-gnu; mirror, but only the s390 and architecture-independent files "
+"are required. You can also copy the contents of all installation CDs into "
+"such a directory tree."
+msgstr ""
+"A telepítő kiszolgálóra egy &debian-gnu; tükör könyvtár felépítése kell, de "
+"csak az s390 és gép-független fájlok kötelezők. Egy telepítő CD tartalma is "
+"odamásolható."
+
+#. Tag: emphasis
+#: preparing.xml:1745
+#, no-c-format
+msgid "FIXME: more information needed &mdash; from a Redbook?"
+msgstr "FIXME: több adat kell &mdash; egy Vörös könyvből?"
+
+#. Tag: title
+#: preparing.xml:1752
+#, no-c-format
+msgid "Hardware Issues to Watch Out For"
+msgstr "Kivédendő hardver gondok"
+
+#. Tag: title
+#: preparing.xml:1755
+#, no-c-format
+msgid "USB BIOS support and keyboards"
+msgstr "USB BIOS támogatás és billentyűzetek"
+
+#. Tag: para
+#: preparing.xml:1756
+#, no-c-format
+msgid ""
+"If you have no AT-style keyboard and only a USB model, you may need to "
+"enable legacy AT keyboard emulation in your BIOS setup. Only do this if the "
+"installation system fails to use your keyboard in USB mode. Conversely, for "
+"some systems (especially laptops) you may need to disable legacy USB support "
+"if your keyboard does not respond. Consult your main board manual and look "
+"in the BIOS for <quote>Legacy keyboard emulation</quote> or <quote>USB "
+"keyboard support</quote> options."
+msgstr ""
+"Ha nincs AT-billentyűzeted csak USB modelled, lehet, hogy be kell kapcsolni "
+"a régi AT billentyűzet emulációt a BIOS beállításban. Csak akkor tedd, ha a "
+"telepítő rendszer nem tudja használni a billentyűzetedet USB módban. Más "
+"rendszereken meg (főleg laptopokon) ki kell kapcsolni az USB támogatást, ha "
+"a billentyűzet nem válaszol. Lásd az alaplap kézikönyvét és a BIOS "
+"<quote>Régi billentyűzet emuláció</quote> vagy <quote>USB billentyűzet "
+"támogatás</quote> opcióit."
+
+#. Tag: title
+#: preparing.xml:1770
+#, no-c-format
+msgid "Display-visibility on OldWorld Powermacs"
+msgstr "Kijelző-láthatóság régi Powermaceken"
+
+#. Tag: para
+#: preparing.xml:1772
+#, no-c-format
+msgid ""
+"Some OldWorld Powermacs, most notably those with the <quote>control</quote> "
+"display driver, may not reliably produce a colormap under Linux when the "
+"display is configured for more than 256 colors. If you are experiencing such "
+"issues with your display after rebooting (you can sometimes see data on the "
+"monitor, but on other occasions cannot see anything) or, if the screen turns "
+"black after booting the installer instead of showing you the user interface, "
+"try changing your display settings under MacOS to use 256 colors instead of "
+"<quote>thousands</quote> or <quote>millions</quote>."
+msgstr ""
+"Néhány régi Powermac, főleg a <quote>control</quote> kijelző meghajtósak nem "
+"tudnak megbízható szín-térképet készíteni Linux alatt több, mint 256 szín "
+"esetén. Ha ilyen hibákat látsz indítás után (néha látod az adatokat a "
+"monitoron, néha érthetetlen okból semmit) vagy a képernyő feketévé válik a "
+"telepítő indítása után és nem adja a felhasználói felületet, módosítsd a "
+"kijelző beállításokat MacOS alatt 256 színre <quote>ezrek</quote> vagy "
+"<quote>milliók</quote> helyett."
+
+#~ msgid ""
+#~ "Installation instructions and device drivers (DASD, XPRAM, Console, tape, "
+#~ "z90 crypto, chandev, network) for Linux on &arch-title; using kernel 2.4"
+#~ msgstr ""
+#~ "Telepítési utasítások és eszköz-meghajtók (DASD, XPRAM, Konzol, szalag, "
+#~ "z90 crypto, chandev, hálózat) Linuxra &arch-title; architektúrán 2.4 "
+#~ "kernellel."
+
+#~ msgid "Device Drivers and Installation Commands"
+#~ msgstr "Eszköz-meghajtók és telepítő parancsok"
+
+#~ msgid "Linux/Alpha FAQ"
+#~ msgstr "Linux/Alpha GYIK"
+
+#~ msgid "Partitioning in Tru64 UNIX"
+#~ msgstr "Partíciók Tru64 Unixban"
+
+#~ msgid ""
+#~ "Tru64 UNIX, formerly known as Digital UNIX, which is in turn formerly "
+#~ "known as OSF/1, uses the partitioning scheme similar to the BSD "
+#~ "<quote>disk label</quote>, which allows for up to eight partitions per "
+#~ "disk drive. The partitions are numbered <quote>1</quote> through to "
+#~ "<quote>8</quote> in Linux and <quote>lettered</quote> <quote>a</quote> "
+#~ "through to <quote>h</quote> in UNIX. Linux kernels 2.2 and higher always "
+#~ "correspond <quote>1</quote> to <quote>a</quote>, <quote>2</quote> to "
+#~ "<quote>b</quote> and so on. For example, <filename>rz0e</filename> in "
+#~ "Tru64 UNIX would most likely be called <filename>sda5</filename> in Linux."
+#~ msgstr ""
+#~ "A Tru64 UNIX, korábban Digital UNIX, korábban OSF/1 a BSD <quote>lemez-"
+#~ "címke</quote> módhoz hasonló partíciós sémát használ, melyben 8 partíció "
+#~ "lehet meghajtónként. A partíciók <quote>1</quote> és <quote>8</quote> "
+#~ "közt számozottak a Linuxban és <quote>betűjelet</quote> kapnak <quote>a</"
+#~ "quote> és <quote>h</quote> közt Unixban. A 2.2 és újabb Linux kernelek az "
+#~ "<quote>1</quote> számot illesztik az <quote>a</quote> betűhöz, a "
+#~ "<quote>2</quote> számot a <quote>b</quote> betűhöz, és így tovább. "
+#~ "Például a Tru64 UNIX <filename>rz0e</filename> az <filename>sda5</"
+#~ "filename> nevet kapja Linuxban."
+
+#~ msgid ""
+#~ "Partitions in a Tru64 disk label may overlap. Moreover, if this disk will "
+#~ "be used from Tru64, the <quote>c</quote> partition is required to span "
+#~ "the entire disk (thus overlapping all other non-empty partitions). Under "
+#~ "Linux this makes <filename>sda3</filename> identical to <filename>sda</"
+#~ "filename> (<filename>sdb3</filename> to <filename>sdb</filename>, if "
+#~ "present, and so on). However, the partman partitioning tool used by &d-i; "
+#~ "cannot handle overlapping partitions at present. As a result, it is "
+#~ "currently not recommended to share disks between Tru64 and Debian. "
+#~ "Partitions on Tru64 disks can be mounted under Debian after installation "
+#~ "has been completed."
+#~ msgstr ""
+#~ "A Tru64 lemezcímke partíciók átfedhetnek. Ráadásul, ha a lemez Tue64 "
+#~ "alatt használt, a <quote>c</quote> partíciónak az egész lemezt át kell "
+#~ "fognia (így átfedi a nem-üres partíciókat). Linux alatt így az "
+#~ "<filename>sda3</filename> <filename>sda</filename> lesz (az "
+#~ "<filename>sdb3</filename> <filename>sdb</filename> és így tovább). Ezzel "
+#~ "szemben a &d-i; által használt partman partíciós eszköz jelenleg nem "
+#~ "támogatja az átfedő partíciókat. Ezért jelenleg nem ajánlott a lemezek "
+#~ "megosztása Debian és Tru64 közt. A Tru64 lemezek partíciói Debian alatt "
+#~ "felcsatolhatók a telepítés után."
+
+#~ msgid ""
+#~ "Another conventional requirement is for the <quote>a</quote> partition to "
+#~ "start from the beginning of the disk, so that it always includes the boot "
+#~ "block with the disk label. If you intend to boot Debian from that disk, "
+#~ "you need to size it at least 2MB to fit aboot and perhaps a kernel. Note "
+#~ "that this partition is only required for compatibility; you must not put "
+#~ "a file system onto it, or you'll destroy data."
+#~ msgstr ""
+#~ "Egy másik szokásos elvárás, hogy az <quote>a</quote> partíció a lemez "
+#~ "elején legyen, így ez mindig tartalmazza az indító blokkot a lemez-"
+#~ "címkével. Ha a Debian rendszert erről a lemezről akarod indítani, "
+#~ "legalább 2 MB legyen az aboot és esetleg a kernel számára. E partíció "
+#~ "csak a kompatibilitás miatt szükséges; nem kell fájlrendszert tenni rá "
+#~ "vagy törölni az adatokat."
+
+#~ msgid ""
+#~ "It is possible, and indeed quite reasonable, to share a swap partition "
+#~ "between UNIX and Linux. In this case it will be needed to do a "
+#~ "<command>mkswap</command> on that partition every time the system is "
+#~ "rebooted from UNIX into Linux, as UNIX will damage the swap signature. "
+#~ "You may want to run <command>mkswap</command> from the Linux start-up "
+#~ "scripts before adding swap space with <command>swapon -a</command>."
+#~ msgstr ""
+#~ "Általában érdemes megosztani egy csere partíciót a Linux és UNIX között. "
+#~ "Ez esetben a <command>mkswap</command> parancsot mindig le kell futtatni "
+#~ "a Linux indításakor UNIX után, mert a UNIX tönkreteszi a swap aláírást. A "
+#~ "<command>mkswap</command> parancsot a Linux indító parancs-fájljaiból "
+#~ "kell futtatni mielőtt a <command>swapon -a</command> hozzáadja a "
+#~ "cserehelyet."
+
+#~ msgid ""
+#~ "If you want to mount UNIX partitions under Linux, note that Digital UNIX "
+#~ "can use two different file system types, UFS and AdvFS, of which Linux "
+#~ "only understands the former."
+#~ msgstr ""
+#~ "Ha Linux alatt UNIX partíciót csatolnál, megjegyezzük, hogy a Digital "
+#~ "UNIX 2 eltérő fájlrendszert ismer, az UFS-t és az AdvFS-t, a Linux csak "
+#~ "az előbbit ismeri."
+
+#~ msgid "Partitioning in Windows NT"
+#~ msgstr "Particionálás Windows NT-ben"
+
+#~ msgid ""
+#~ "Windows NT uses the PC-style partition table. If you are manipulating "
+#~ "existing FAT or NTFS partitions, it is recommended that you use the "
+#~ "native Windows NT tools (or, more conveniently, you can also repartition "
+#~ "your disk from the AlphaBIOS setup menu). Otherwise, it is not really "
+#~ "necessary to partition from Windows; the Linux partitioning tools will "
+#~ "generally do a better job. Note that when you run NT, the Disk "
+#~ "Administrator may offer to write a <quote>harmless signature</quote> on "
+#~ "non-Windows disks if you have any. <emphasis>Never</emphasis> let it do "
+#~ "that, as this signature will destroy the partition information."
+#~ msgstr ""
+#~ "A Windows NT PC-stílusú partíciós táblát használ. Ha létező FAT vagy NTFS "
+#~ "partíciót kezelsz, ajánlott az NT-s eszközök használata (vagy az "
+#~ "AlphaBIOS menü is képes a lemezek újraparticionálására). Egyébként nem "
+#~ "ajánlott Windowsból particionálni; a Linux partíciós eszközök sokkal jobb "
+#~ "munkát végeznek. Az NT hajlamos felajánlani a más rendszert tartalmazó "
+#~ "lemezek <quote>ártalmatlan aláírását</quote>. <emphasis>SOHA NE</"
+#~ "emphasis> tedd meg ezt, mert ez az aláírás tönkre fogja tenni a partíciós "
+#~ "adatokat."
+
+#~ msgid ""
+#~ "If you plan to boot Linux from an ARC/AlphaBIOS/ARCSBIOS console, you "
+#~ "will need a (small) FAT partition for MILO. 5 MB is quite sufficient. If "
+#~ "Windows NT is installed, its 6 MB bootstrap partition can be employed for "
+#~ "this purpose. Debian &releasename; does not support installing MILO. If "
+#~ "you already have MILO installed on your system, or install MILO from "
+#~ "other media, Debian can still be booted from ARC."
+#~ msgstr ""
+#~ "Ha a Linuxot egy ARC/AlphaBIOS/ARCSBIOS konzolról szeretnéd indítani, a "
+#~ "MILO számára szükség lesz egy (kis) FAT partícióra. 5 MB elég, ha netán "
+#~ "NT is lenne telepítve, a 6 MB bootstrap partíciója felhasználható e "
+#~ "célra. A Debian &releasename; nem támogatja a MILO telepítését. Ha már "
+#~ "van egy telepített MILO a rendszeren, vagy más médiáról kerül "
+#~ "telepítésre, a Debian indítható ARC konzolról."
+
+#~ msgid ""
+#~ "With the exception of the BVM and Motorola VMEbus computers, the only "
+#~ "supported installation method for m68k systems is booting from a local "
+#~ "disk or floppy using an AmigaOS/TOS/MacOS-based bootstrap, for these "
+#~ "machines you will need the original operating system in order to boot "
+#~ "Linux. In order to boot Linux on the BVM and Motorola VMEbus machines you "
+#~ "will need the <quote>BVMBug</quote> or <quote>16xBug</quote> boot ROMs."
+#~ msgstr ""
+#~ "A BVM és Motorola VMEbus gépek kivételével az m68k  rendszerek egyetlen "
+#~ "támogatott telepítési módja a helyi lemezről vagy flopiról indítás az "
+#~ "AmigaOS/TOS/MacOS-alapú bootstrap használatával, e gépeknél szükség van "
+#~ "az eredeti rendszerre a Linux indításához. A BVM és Motorola VMEbus "
+#~ "gépeken a <quote>BVMBug</quote> vagy <quote>16xBug</quote> boot ROM "
+#~ "eszközökre van szükség."
+
+#~ msgid "Linux/m68k FAQ"
+#~ msgstr "Linux/m68k GYIK"
+
+#~ msgid "Whether IDE or SCSI (most m68k computers are SCSI)."
+#~ msgstr "IDE vagy SCSI-felület (a legtöbb m68k gép SCSI)."
+
+#~ msgid ""
+#~ "A 68030 or better processor is recommended for m68k installs. You may get "
+#~ "by with a little less drive space than shown."
+#~ msgstr ""
+#~ "Egy 68030 vagy jobb processzor ajánlott egy m68k telepítéshez. A leírtnál "
+#~ "kicsit kevesebb hellyel is el lehet boldogulni."
+
+#~ msgid "Partitioning in AmigaOS"
+#~ msgstr "Particionálás AmigaOS rendszerben"
+
+#~ msgid ""
+#~ "If you are running AmigaOS, you can use the <command>HDToolBox</command> "
+#~ "program to adjust your native partitions prior to installation."
+#~ msgstr ""
+#~ "Ha AmigaOS rendszert futtatsz, használd a <command>HDToolBox</command> "
+#~ "programot az eredeti partíciók állításához a telepítés előtt."
+
+#~ msgid "Partitioning in Atari TOS"
+#~ msgstr "Particionálás Atari TOS rendszerben"
+
+#~ msgid ""
+#~ "Atari partition IDs are three ASCII characters, use <quote>LNX</quote> "
+#~ "for data and <quote>SWP</quote> for swap partitions. If using the low "
+#~ "memory installation method, a small Minix partition is also needed (about "
+#~ "2 MB), for which the partition ID is <quote>MNX</quote>. Failure to set "
+#~ "the appropriate partition IDs not only prevents the Debian installation "
+#~ "process from recognizing the partitions, but also results in TOS "
+#~ "attempting to use the Linux partitions, which confuses the hard disk "
+#~ "driver and renders the whole disk inaccessible."
+#~ msgstr ""
+#~ "Egy Atari partíció azonosító 3 ASCII karakter, az  <quote>LNX</quote> az "
+#~ "adat, az <quote>SWP</quote> a cserepartíció. Alacsony memóriás partíciós "
+#~ "módnál egy kis Minix partíció is szükséges (körülbelül 2 MB) <quote>MNX</"
+#~ "quote> partíció azonosítóval. A partíció azonosítók hibás megadása nem "
+#~ "csupán megakadályozza a Debian telepítő folyamatot a partíciók "
+#~ "felismerésében, de azt is eredményezi, hogy a TOS a Linux partíciót "
+#~ "akarja használni, mely összezavarja a merevlemez-meghajtót és az egész "
+#~ "lemezt elérhetetlenné teheti."
+
+#~ msgid ""
+#~ "There are a multitude of third party partitioning tools available (the "
+#~ "Atari <command>harddisk</command> utility doesn't permit changing the "
+#~ "partition ID); this manual cannot give detailed descriptions for all of "
+#~ "them. The following description covers <command>SCSITool</command> (from "
+#~ "Hard+Soft GmBH)."
+#~ msgstr ""
+#~ "Számos partíciós eszköz elérhető (az Atari <command>harddisk</command> "
+#~ "eszköz teszi lehetővé a partíció azonosító módosítását); e kézikönyv nem "
+#~ "adhat részletes leírást mindegyikről. Az alábbi leírás a "
+#~ "<command>SCSITool</command> programot tárgyalja (a Hard+Soft GmBH "
+#~ "terméke)."
+
+#~ msgid ""
+#~ "Start <command>SCSITool</command> and select the disk you want to "
+#~ "partition (<guimenu>Disk</guimenu> menu, item <guimenuitem>select</"
+#~ "guimenuitem>)."
+#~ msgstr ""
+#~ "Indítsd el a <command>SCSITool</command> programot és válaszd ki a "
+#~ "particionálandó lemezt (<guimenu>Disk</guimenu> menü, "
+#~ "<guimenuitem>kijelölés</guimenuitem> elem)."
+
+#~ msgid ""
+#~ "From the <guimenu>Partition</guimenu> menu, select either "
+#~ "<guimenuitem>New</guimenuitem> to add new partitions or change the "
+#~ "existing partition sizes, or <guimenuitem>Change</guimenuitem> to change "
+#~ "one specific partition. Unless you have already created partitions with "
+#~ "the right sizes and only want to change the partition ID, "
+#~ "<guimenuitem>New</guimenuitem> is probably the best choice."
+#~ msgstr ""
+#~ "A <guimenu>Partíciók</guimenu> menüből válaszd az <guimenuitem>Új</"
+#~ "guimenuitem> menüpontot új partíciók létrehozásához vagy a "
+#~ "<guimenuitem>Módosítás</guimenuitem> pontot egy partíció módosításához. "
+#~ "Kivéve, ha már megvannak a megfelelő partícióid és csak a partíció "
+#~ "azonosítót akarod módosítani, válaszd az <guimenuitem>Új</guimenuitem> "
+#~ "menüpontot."
+
+#~ msgid ""
+#~ "Write down the Linux names for each of the partitions you created or "
+#~ "changed for use with Linux &mdash; see <xref linkend=\"device-names\"/>."
+#~ msgstr ""
+#~ "Írd le a Linux neveket minden partícióhoz, melyet létrehoztál vagy "
+#~ "módosítottál a Linux használatához &mdash; lásd a <xref linkend=\"device-"
+#~ "names\"/> részt."
+
+#~ msgid ""
+#~ "Quit <command>SCSITool</command> using the <guimenuitem>Quit</"
+#~ "guimenuitem> item from the <guimenu>File</guimenu> menu. The computer "
+#~ "will reboot to make sure the changed partition table is used by TOS. If "
+#~ "you changed any TOS/GEM partitions, they will be invalidated and have to "
+#~ "be reinitialized (we told you to back up everything on the disk, didn't "
+#~ "we?)."
+#~ msgstr ""
+#~ "Lépj ki a <command>SCSITool</command> programból a <guimenuitem>Quit</"
+#~ "guimenuitem> használatával a <guimenu>File</guimenu> menüből. A gép "
+#~ "újraindul, hogy a TOS az új partíciós táblát használja. A TOS/GEM "
+#~ "módosítása esetén érvénytelenítve és újra inicializálandók lesznek "
+#~ "(mondtuk, hogy ments mindent a lemezről, ugye?)"
+
+#~ msgid ""
+#~ "There is a partitioning tool for Linux/m68k called <command>atari-fdisk</"
+#~ "command> in the installation system, but for now we recommend you "
+#~ "partition your disk using a TOS partition editor or some disk tool. If "
+#~ "your partition editor doesn't have an option to edit the partition type, "
+#~ "you can do this crucial step at a later stage (from the booted temporary "
+#~ "install RAMdisk). <command>SCSITool</command> is only one of the "
+#~ "partition editors we know of which supports selection of arbitrary "
+#~ "partition types. There may be others; select the tool that suits your "
+#~ "needs."
+#~ msgstr ""
+#~ "Van egy <command>atari-fdisk</command> Linux/m68k partícionáló eszköz a "
+#~ "telepítő rendszerben, de erre az esetre még egy TOS partíció szerkesztő "
+#~ "vagy valamilyen lemez-kezelő eszköz használatát ajánljuk. Ha a partíció "
+#~ "szerkesztődben nincs mód a partíció típus szerkesztésére, e fontos lépést "
+#~ "megteheted később (a betöltött átmeneti telepítő RAMlemez alól). A "
+#~ "<command>SCSITool</command> ez általunk ismert egyetlen tetszőleges "
+#~ "partíció típusok kiválasztását támogató partíció szerkesztő. Lehetnek "
+#~ "mások is; választ bármit, ami megfelel."
+
+#~ msgid "Partitioning in MacOS"
+#~ msgstr "Particionálás MacOSban"
+
+#~ msgid ""
+#~ "Partitioning tools for Macintosh tested include <command>pdisk</command>, "
+#~ "<command>HD SC Setup</command> 7.3.5 (Apple), <command>HDT</command> 1.8 "
+#~ "(FWB), <command>SilverLining</command> (LaCie), and <command>DiskTool</"
+#~ "command> (Tim Endres, GPL). Full versions are required for <command>HDT</"
+#~ "command> and <command>SilverLining</command>. The Apple tool requires a "
+#~ "patch in order to recognize third-party disks (a description on how to "
+#~ "patch <command>HD SC Setup</command> using <command>ResEdit</command> can "
+#~ "be found at <ulink url=\"http://www.euronet.nl/users/ernstoud/patch.html"
+#~ "\"></ulink>)."
+#~ msgstr ""
+#~ "A tesztelt Macintoshos partíciós eszközök: <command>pdisk</command>, "
+#~ "<command>HD SC Setup</command> 7.3.5 (Apple), <command>HDT</command> 1.8 "
+#~ "(FWB), <command>SilverLining</command> (LaCie) és <command>DiskTool</"
+#~ "command> (Tim Endres, GPL). A <command>HDT</command> és "
+#~ "<command>SilverLining</command> teljes verziója kell. Az Apple eszköz egy "
+#~ "foltot igényel külső lemezek megértéséhez (egy a <command>HD SC Setup</"
+#~ "command> (amely <command>ResEdit</command>-et használ) foltozásáról szóló "
+#~ "leírás itt: <ulink url=\"http://www.euronet.nl/users/ernstoud/patch.html"
+#~ "\"></ulink>)."
+
+#~ msgid ""
+#~ "For IDE based Macs, you need to use <command>Apple Drive Setup</command> "
+#~ "to create empty space for the Linux partitions, and complete the "
+#~ "partitioning under Linux, or use the MacOS version of pdisk available for "
+#~ "download from <ulink url=\"http://homepage.mac.com/alk/downloads/pdisk."
+#~ "sit.hqx\">Alsoft</ulink>."
+#~ msgstr ""
+#~ "Az IDE alapú Macekhez használható az <command>Apple Drive Setup</command> "
+#~ "üres hely létrehozására a Linux partíciókhoz, a teljes particionálás "
+#~ "elvégezhető Linuxból vagy a pdisk MacOS verziójából, mely elérhető itt: "
+#~ "<ulink url=\"http://homepage.mac.com/alk/downloads/pdisk.sit.hqx"
+#~ "\">Alsoft</ulink>."
+
+#~ msgid ""
+#~ "Atari TT RAM boards are notorious for RAM problems under Linux; if you "
+#~ "encounter any strange problems, try running at least the kernel in ST-"
+#~ "RAM. Amiga users may need to exclude RAM using a booter memfile. <phrase "
+#~ "condition=\"FIXME\"><emphasis> FIXME: more description of this needed. </"
+#~ "emphasis></phrase>"
+#~ msgstr ""
+#~ "Az Atari TT RAM lapok örökös RAM gondokkal küzdenek Linux alatt; fura "
+#~ "hibák esetén futtasd legalább a kernelt ST-RAM területen. Az Amiga "
+#~ "felhasználóknak lehet, hogy RAM-kizárás kell egy indító memória-fájllal. "
+#~ "<phrase condition=\"FIXME\"><emphasis> FIXME: több leírás kell. </"
+#~ "emphasis></phrase>"
+
+#~ msgid "Whether IDE or SCSI (most computers are IDE)."
+#~ msgstr "IDE vagy SCSI-felület (a legtöbb gép IDE)."
+
+#~ msgid ""
+#~ "When <classname>debian-installer</classname> finishes, before the first "
+#~ "system load, you have only a very basic command line driven system. The "
+#~ "graphical interface which displays windows on your monitor will not be "
+#~ "installed unless you select it with <classname>tasksel</classname>. It's "
+#~ "optional because many &debian-gnu; systems are servers which don't really "
+#~ "have any need for a graphical user interface to do their job."
+#~ msgstr ""
+#~ "Mikor a <classname>debian-installer</classname> végzett, a rendszer 1. "
+#~ "betöltése előtt csak egy nagyon kis, parancs-vezérelt rendszer áll épp "
+#~ "készen. A grafikus felület, mely ablakokat jelenít meg, csak a "
+#~ "<classname>tasksel</classname> által települ. Ez választható, mert sok "
+#~ "&debian-gnu; rendszer kiszolgálóként üzemel, melynek nincs szüksége "
+#~ "grafikus felhasználói felületre."
+
+#~ msgid "<entry>RAM</entry>"
+#~ msgstr "<entry>RAM</entry>"
+
+#~ msgid "450 megabytes"
+#~ msgstr "450 megabájt"
+
+#~ msgid "Server"
+#~ msgstr "Kiszolgáló"
+
+#~ msgid "4 gigabytes"
+#~ msgstr "4 gigabájt"
+
+#~ msgid ""
+#~ "Here is a sampling of some common Debian system configurations. You can "
+#~ "also get an idea of the disk space used by related groups of programs by "
+#~ "referring to <xref linkend=\"tasksel-size-list\"/>."
+#~ msgstr ""
+#~ "Itt egy pár általános Debian rendszer konfigurációs példa. Az egyes "
+#~ "program-csoportok által használt lemezterületről a <xref linkend="
+#~ "\"tasksel-size-list\"/> rész ír."
+
+#~ msgid "Standard Server"
+#~ msgstr "Átlagos kiszolgáló"
+
+#~ msgid ""
+#~ "This is a small server profile, useful for a stripped down server which "
+#~ "does not have a lot of niceties for shell users. It includes an FTP "
+#~ "server, a web server, DNS, NIS, and POP. For these 100MB of disk space "
+#~ "would suffice, and then you would need to add space for any data you "
+#~ "serve up."
+#~ msgstr ""
+#~ "Ez egy kis kiszolgáló összeállítás, melyen a legkevesebb dolog van a "
+#~ "shell felhasználóknak. Tartalmaz egy FTP egy web, DNS, NIS és POP "
+#~ "kiszolgálót. Ezekre 100 MB és a tárolt adatokra szükséges hely elég."
+
+#~ msgid "Desktop"
+#~ msgstr "Asztal"
+
+#~ msgid ""
+#~ "A standard desktop box, including the X window system, full desktop "
+#~ "environments, sound, editors, etc. You'll need about 2GB using the "
+#~ "standard desktop task, though it can be done in far less."
+#~ msgstr ""
+#~ "Ez egy nagy méretű munkaasztal, tartalmazza az X ablakozó rendszert, "
+#~ "robusztus asztali környezetet, hangokat, szerkesztőket, és így tovább. "
+#~ "Ehhez körülbelül 2 GB kell, de egyénileg, okosan válogatva sokkal "
+#~ "kevesebb is elég lehet."
+
+#~ msgid "Work Console"
+#~ msgstr "Munka konzol"
+
+#~ msgid ""
+#~ "A more stripped-down user machine, without the X window system or X "
+#~ "applications. Possibly suitable for a laptop or mobile computer. The size "
+#~ "is around 140MB."
+#~ msgstr ""
+#~ "Egy nagyon kis felhasználói gép, X ablakozó rendszer és X alkalmazások "
+#~ "nélkül. Sokszor nagyon alkalmas laptopra vagy bármilyen hordozható gépre. "
+#~ "140 MB körül van."
+
+#~ msgid "Developer"
+#~ msgstr "Fejlesztő"
+
+#~ msgid ""
+#~ "A desktop setup with all the development packages, such as Perl, C, C++, "
+#~ "etc. Size is around 475MB. Assuming you are adding X11 and some "
+#~ "additional packages for other uses, you should plan around 800MB for this "
+#~ "type of machine."
+#~ msgstr ""
+#~ "Egy asztali telepítés teljes fejlesztői csomagokkal, mint például a Perl, "
+#~ "C, C++ és így tovább. Mintegy 475 MB. X11 és pár más csomaggal 800 MB "
+#~ "körül lehet tervezni."

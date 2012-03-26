@@ -1,0 +1,216 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id: boot-new.xml 64916 2010-10-08 22:15:00Z holger-guest $ -->
+
+<chapter id="boot-new">
+ <title>Booting Into Your New &debian; System</title>
+
+ <sect1 id="base-boot"><title>The Moment of Truth</title>
+<para>
+
+Your system's first boot on its own power is what electrical engineers
+call the <quote>smoke test</quote>.
+
+</para><para arch="any-x86">
+
+If you did a default installation, the first thing you should see when you
+boot the system is the menu of the <classname>grub</classname><phrase arch="x86"> or possibly
+the <classname>lilo</classname> bootloader</phrase>.
+The first choices in the menu will be for your new &debian; system. If you
+had any other operating systems on your computer (like Windows) that were
+detected by the installation system, those will be listed lower down in the
+menu.
+
+</para><para>
+
+If the system fails to start up correctly, don't panic. If the installation
+was successful, chances are good that there is only a relatively minor
+problem that is preventing the system from booting &debian;. In most cases
+such problems can be fixed without having to repeat the installation.
+One available option to fix boot problems is to use the installer's
+built-in rescue mode (see <xref linkend="rescue"/>).
+
+</para><para>
+
+If you are new to &debian; and &arch-kernel;, you may need some help from more
+experienced users.
+<phrase arch="x86">For direct on-line help you can try the IRC channels
+#debian or #debian-boot on the OFTC network. Alternatively you can contact
+the <ulink url="&url-list-subscribe;">debian-user mailing list</ulink>.</phrase>
+<phrase arch="not-x86">For less common architectures like &arch-title;,
+your best option is to ask on the
+<ulink url="&url-list-subscribe;">debian-&arch-listname; mailing
+list</ulink>.</phrase>
+You can also file an installation report as described in
+<xref linkend="submit-bug"/>. Please make sure that you describe your problem
+clearly and include any messages that are displayed and may help others to
+diagnose the issue.
+
+</para><para arch="any-x86">
+
+If you had any other operating systems on your computer that were not detected
+or not detected correctly, please file an installation report.
+
+</para>
+
+
+  <sect2 arch="powerpc"><title>OldWorld PowerMacs</title>
+<para>
+
+If the machine fails to boot after completing the installation, and
+stops with a <prompt>boot:</prompt> prompt, try typing
+<userinput>Linux</userinput> followed by &enterkey;. (The default boot
+configuration in <filename>quik.conf</filename> is labeled Linux). The
+labels defined in <filename>quik.conf</filename> will be displayed if
+you press the <keycap>Tab</keycap> key at the <prompt>boot:</prompt>
+prompt. You can also try booting back into the installer, and editing
+the <filename>/target/etc/quik.conf</filename> placed there by the
+<guimenuitem>Install Quik on a Hard Disk</guimenuitem> step. Clues
+for dealing with <command>quik</command> are available at
+<ulink url="&url-powerpc-quik-faq;"></ulink>.
+
+</para><para>
+
+To boot back into MacOS without resetting the nvram, type
+<userinput>bye</userinput> at the OpenFirmware prompt (assuming MacOS
+has not been removed from the machine). To obtain an OpenFirmware
+prompt, hold down the <keycombo> <keycap>command</keycap>
+<keycap>option</keycap> <keycap>o</keycap> <keycap>f</keycap>
+</keycombo> keys while cold booting the machine. If you need to reset
+the OpenFirmware nvram changes to the MacOS default in order to boot
+back to MacOS, hold down the <keycombo> <keycap>command</keycap>
+<keycap>option</keycap> <keycap>p</keycap> <keycap>r</keycap>
+</keycombo> keys while cold booting the machine.
+
+</para><para>
+
+If you use <command>BootX</command> to boot into the installed system,
+just select your desired kernel in the <filename>Linux
+Kernels</filename> folder, un-choose the ramdisk option, and add
+a root device corresponding to your installation;
+e.g. <userinput>/dev/hda8</userinput>.
+
+</para>
+   </sect2>
+
+
+  <sect2 arch="powerpc"><title>NewWorld PowerMacs</title>
+<para>
+
+On G4 machines and iBooks, you can hold down the
+<keycap>option</keycap> key and get a graphical screen with a button
+for each bootable OS, &debian-gnu; will be a button with a small penguin
+icon.
+
+</para><para>
+
+If you kept MacOS and at some point it changes the OpenFirmware
+<envar>boot-device</envar> variable you should reset OpenFirmware to
+its default configuration.  To do this hold down the <keycombo>
+<keycap>command</keycap> <keycap>option</keycap> <keycap>p</keycap>
+<keycap>r</keycap> </keycombo> keys while cold booting the machine.
+
+</para><para>
+
+The labels defined in <filename>yaboot.conf</filename> will be
+displayed if you press the <keycap>Tab</keycap> key at the
+<prompt>boot:</prompt> prompt.
+
+</para><para>
+
+Resetting OpenFirmware on G3 or G4 hardware will cause it to boot
+&debian-gnu; by default (if you correctly partitioned and placed the
+Apple_Bootstrap partition first).  If you have &debian-gnu; on a SCSI disk
+and MacOS on an IDE disk this may not work and you will have to enter
+OpenFirmware and set the <envar>boot-device</envar> variable,
+<command>ybin</command> normally does this automatically.
+
+</para><para>
+
+After you boot &debian-gnu; for the first time you can add any additional
+options you desire (such as dual boot options) to
+<filename>/etc/yaboot.conf</filename> and run <command>ybin</command>
+to update your boot partition with the changed configuration.  Please
+read the <ulink url="&url-powerpc-yaboot-faq;">yaboot HOWTO</ulink>
+for more information.
+
+</para>
+   </sect2>
+ </sect1>
+
+&mount-encrypted.xml;
+
+ <sect1 id="login">
+ <title>Log In</title>
+
+<para>
+
+Once your system boots, you'll be presented with the login
+prompt.  Log in using the personal login and password you
+selected during the installation process. Your system is now ready for use.
+
+</para><para>
+
+If you are a new user, you may want to explore the documentation which
+is already installed on your system as you start to use it. There are
+currently several documentation systems, work is proceeding on
+integrating the different types of documentation. Here are a few
+starting points.
+
+</para><para>
+
+Documentation accompanying programs you have installed can be found in
+<filename>/usr/share/doc/</filename>, under a subdirectory named after the
+program (or, more precise, the &debian; package that contains the program).
+However, more extensive documentation is often packaged separately in
+special documentation packages that are mostly not installed by default.
+For example, documentation about the package management tool
+<command>apt</command> can be found in the packages
+<classname>apt-doc</classname> or <classname>apt-howto</classname>.
+
+</para><para>
+
+In addition, there are some special folders within the
+<filename>/usr/share/doc/</filename> hierarchy. Linux HOWTOs are
+installed in <emphasis>.gz</emphasis> (compressed) format, in
+<filename>/usr/share/doc/HOWTO/en-txt/</filename>. After installing
+<classname>dhelp</classname>, you will find a browsable index of
+documentation in <filename>/usr/share/doc/HTML/index.html</filename>.
+
+</para><para>
+
+One easy way to view these documents using a text based browser is to
+enter the following commands:
+
+<informalexample><screen>
+$ cd /usr/share/doc/
+$ w3m .
+</screen></informalexample>
+
+The dot after the <command>w3m</command> command tells it to show the
+contents of the current directory.
+
+</para><para>
+
+If you have a graphical desktop environment installed, you can also use
+its web browser. Start the web browser from the application menu and
+enter <userinput>/usr/share/doc/</userinput> in the address bar.
+
+</para><para>
+
+You can also type <userinput>info
+<replaceable>command</replaceable></userinput> or <userinput>man
+<replaceable>command</replaceable></userinput> to see documentation on
+most commands available at the command prompt. Typing
+<userinput>help</userinput> will display help on shell commands. And
+typing a command followed by <userinput>--help</userinput> will
+usually display a short summary of the command's usage. If a command's
+results scroll past the top of the screen, type
+<userinput>|&nbsp;more</userinput> after the command to cause the results
+to pause before scrolling past the top of the screen. To see a list of all
+commands available which begin with a certain letter, type the letter
+and then two tabs.
+
+</para>
+
+ </sect1>
+</chapter>

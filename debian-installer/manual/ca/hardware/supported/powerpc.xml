@@ -1,0 +1,431 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+
+  <sect2 arch="powerpc"><title>Suport de CPU, plaques base i vídeo</title>
+<para>
+
+De cara a &debian-gnu; &release; només són compatibles les subarquitectures PMac
+(Power-Macintosh or PowerMac) i PreP.
+
+<!--
+Hi ha quatre grans subarquitectures de <emphasis>&architecture;</emphasis>:
+PMac (Power-Macintosh o PowerMac), PReP, APUS (Amiga Power-UP System), i
+les màquines CHRP. Cada subarquitectura té el seu propi mètode d'arrencada.
+A més, hi ha quatre variants del nucli, que funcionen amb variants de CPU
+diferents.
+
+</para><para>
+
+Ports a altres arquitectures <emphasis>&architecture;</emphasis>, com ara
+l'arquitectura Be-Box i MBX, estant en marxa però encara no estan
+disponibles a &debian;. És probable que en el futur hi hagi un port de
+64 bits.
+-->
+
+</para>
+
+   <sect3><title>Variants del nucli</title>
+
+<para>
+
+Hi ha dues variants del nucli per a PowerPC a &debian;, segons el tipus de
+CPU:
+
+<variablelist>
+<varlistentry>
+<term>powerpc</term>
+<listitem><para>
+
+La majoria de sistemes utilitzen aquesta variant, que funciona amb els
+processadors PowerPC 601, 603, 604, 740, 750 i 7400. Tots els sistemes Apple
+PowerMac fins al G4 inclòs utilitzen un d'aquests processadors.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>power64</term>
+<listitem><para>
+
+Els nuclis pel power64 suporten els CPU següents:
+
+</para><para>
+
+El processador POWER3 s'utilitza en servidors IBM de 64 bits més antics: els
+models coneguts inclouen l'IntelliStation POWER Model 265, els pSeries 610 i
+640, i el RS/6000 7044-170, 7043-260, i 7044-270.
+
+</para><para>
+
+El processador POWER4 s'utilitza en servidor IBM de 64 bits més recents:
+els models coneguts inclouen els pSeries 615, 630, 650, 655, 670, i 690.
+
+</para><para>
+
+Els sistemes que utilitzen l'Apple G5 (el processador PPC970FX) estan basats
+al l'arquitectura POWER4, i utilitzen aquest sabor pel nucli.
+
+</para></listitem>
+</varlistentry>
+
+<!--
+<varlistentry>
+<term>prep</term>
+<listitem><para>
+
+Aquest sabor del nucli suporta la subaquitectura PReP.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>apus</term>
+<listitem><para>
+
+L'Amiga Power-UP System funciona amb aquesta variant del nucli, però en
+aquest moment es troba desactivat.
+
+</para></listitem>
+</varlistentry>
+-->
+</variablelist>
+
+</para>
+
+   </sect3>
+
+   <sect3><title>Subarquitectura Power Macintosh (pmac)</title>
+
+<para>
+
+Apple (i alguns altres fabricants &mdash; Power Computing, per exemple)
+fabricaven unes sèries d'ordinadors Macintosh basats en el processadors
+PowerPC. Estan categoritzats com a NuBus (no suportat per &debian;),
+OldWorld i NewWorld.
+
+</para><para>
+
+Els sistemes OldWorld són la majoria de Power Macintosh amb una disquetera i
+un bus PCI. La majoria dels Power Macintosh basats en 603, 603e, 604 i 604e
+són màquines OldWorld. Els models de PowerPC pre-iMac de Apple que utilitzen
+un esquema de anomenar-los de quatre dígits, excepte els sistemes de color
+beige, són també Oldword.
+
+</para><para>
+
+Els anomenats NewWorld PowerMacs són qualsevol PowerMac en caixes de plàstic
+de color translúcid models posteriors. Això inclou tots els iMacs, iBooks,
+sistemes G4, sistemes G3 de color blau, i la majoria de PowerBooks fabricats
+durant i després del 1999. Els NewWorld PowerMacs també són coneguts per
+utilitzar el sistema <quote>ROM en RAM</quote> per a MacOS, i van ser fabricats des de la
+meitat de 1998 cap endavant.
+
+</para><para>
+
+Les especificacions per al maquinari Apple són disponibles a
+<ulink url="http://www.info.apple.com/support/applespec.html">AppleSpec</ulink>,
+i, per a maquinari més antic,
+<ulink url="http://www.info.apple.com/support/applespec.legacy/index.html">AppleSpec Legacy</ulink>.
+
+</para><para>
+
+<informaltable>
+<tgroup cols="3">
+<colspec colname="c1"/>
+<colspec colname="c2"/>
+<colspec colname="c3"/>
+<thead>
+<row>
+  <entry namest="c1" nameend="c2">Model nom/número</entry>
+  <entry>Generació</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry morerows="27">Apple</entry>
+  <entry>iMac Bondi Blue, 5 Flavors, Slot Loading</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>iMac Summer 2000, Early 2001</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>iMac G5</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>iBook, iBook SE, iBook Dual USB</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>iBook2</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>iBook G4</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>Power Macintosh Blue and White (B&amp;W) G3</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>Power Macintosh G4 PCI, AGP, Cube</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>Power Macintosh G4 Gigabit Ethernet</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>Power Macintosh G4 Digital Audio, Quicksilver</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>Power Macintosh G5</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>PowerBook G3 FireWire Pismo (2000)</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>PowerBook G3 Lombard (1999)</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>PowerBook G4 Titanium</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>PowerBook G4 Aluminum</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>Xserve G5</entry>
+  <entry>NewWorld</entry>
+</row><row>
+  <entry>Performa 4400, 54xx, 5500</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>Performa 6360, 6400, 6500</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>Power Macintosh 4400, 5400</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>Power Macintosh 7200, 7300, 7500, 7600</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>Power Macintosh 8200, 8500, 8600</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>Power Macintosh 9500, 9600</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>Power Macintosh (Beige) G3 Minitower</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>Power Macintosh (Beige) Desktop, All-in-One</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>PowerBook 2400, 3400, 3500</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>PowerBook G3 Wallstreet (1998)</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>Twentieth Anniversary Macintosh</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>Workgroup Server 7250, 7350, 8550, 9650, G3</entry>
+  <entry>OldWorld</entry>
+</row>
+
+<row>
+  <entry morerows="1">Power Computing</entry>
+  <entry>PowerBase, PowerTower / Pro, PowerWave</entry>
+  <entry>OldWorld</entry>
+</row><row>
+  <entry>PowerCenter / Pro, PowerCurve</entry>
+  <entry>OldWorld</entry>
+</row>
+
+<row>
+  <entry>UMAX</entry>
+  <entry>C500, C600, J700, S900</entry>
+  <entry>OldWorld</entry>
+</row>
+
+<row>
+  <entry>APS</entry>
+  <entry>APS Tech M*Power 604e/2000</entry>
+  <entry>OldWorld</entry>
+</row>
+
+<row>
+  <entry>Motorola</entry>
+  <entry>Starmax 3000, 4000, 5000, 5500</entry>
+  <entry>OldWorld</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+   </sect3>
+
+   <sect3><title>Subarquitectura PReP</title>
+
+<para>
+
+<informaltable>
+<tgroup cols="2">
+<colspec colname="c1"/>
+<colspec colname="c2"/>
+<thead>
+<row>
+  <entry namest="c1" nameend="c2">Model nom/número</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry morerows="4">Motorola</entry>
+  <entry>Firepower, PowerStack Series E, PowerStack II</entry>
+</row><row>
+  <entry>MPC 7xx, 8xx</entry>
+</row><row>
+  <entry>MTX, MTX+</entry>
+</row><row>
+  <entry>MVME2300(SC)/24xx/26xx/27xx/36xx/46xx</entry>
+</row><row>
+  <entry>MCP(N)750</entry>
+</row>
+
+<row>
+  <entry morerows="3">IBM RS/6000</entry>
+  <entry>40P, 43P</entry>
+</row><row>
+  <entry>Power 830/850/860 (6070, 6050)</entry>
+</row><row>
+  <entry>6030, 7025, 7043</entry>
+</row><row>
+  <entry>p640</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+   </sect3>
+
+   <sect3><title>Subarquitectura CHRP (no suportada)</title>
+
+<para>
+
+<informaltable>
+<tgroup cols="2">
+<colspec colname="c1"/>
+<colspec colname="c2"/>
+<thead>
+<row>
+  <entry namest="c1" nameend="c2">Model nom/número</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>IBM RS/6000</entry>
+  <entry>B50, 43P-150, 44P</entry>
+</row>
+<row>
+  <entry>Genesi</entry>
+  <entry>Pegasos I, Pegasos II</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+   </sect3>
+
+   <sect3><title>Subarquitectura APUS (no suportada)</title>
+
+<para>
+
+<informaltable>
+<tgroup cols="2">
+<colspec colname="c1"/>
+<colspec colname="c2"/>
+<thead>
+<row>
+  <entry namest="c1" nameend="c2">Model nom/número</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Amiga Power-UP Systems (APUS)</entry>
+  <entry>A1200, A3000, A4000</entry>
+</row>
+</tbody></tgroup></informaltable>
+
+</para>
+
+   </sect3>
+
+   <sect3><title>Subarquitectura Nubus PowerMac subarchitecture
+(no suportada)</title>
+
+<para>
+
+Els sistemes NuBus no estan en aquest moment suportats per &debian;/powerpc.
+El nucli monolític de l'arquitectura Linux/PPC no està suportat per
+aquestes màquines; en lloc d'això, s'ha de utilitzar el micronucli Mklinux
+Mach, que &debian; encara no suporta. Açò inclou les següents:
+
+<itemizedlist>
+<listitem><para>
+
+Power Macintosh 6100, 7100, 8100
+
+</para></listitem>
+<listitem><para>
+
+Performa 5200, 6200, 6300
+
+</para></listitem>
+<listitem><para>
+
+Powerbook 1400, 2300, i 5300
+
+</para></listitem>
+<listitem><para>
+
+Workgroup Server 6150, 8150, 9150
+
+</para></listitem>
+</itemizedlist>
+
+Un nucli de linux per aquestes màquines amb suport limitat està disponible
+a <ulink url="http://nubus-pmac.sourceforge.net/"></ulink>.
+
+</para>
+
+   </sect3>
+
+   <sect3><title>Macs no PowerPC</title>
+
+<para>
+
+Els ordinadors Macintosh que utilitzen processadors de la sèrie 680x0
+<emphasis>no</emphasis> estan a la família PowerPC sinó que són màquines
+m68k. Aquests models comencen amb la sèrie <quote>Mac II</quote>, continuen
+a la família <quote>LC</quote>, aleshores les sèries Centris, i acaba amb
+els Quadras i Performas. Aquests models tenen normalment un nombre Romà
+de 3 digins com Mac IIcx, LCIII o Quadra 950.
+
+</para><para>
+
+Aquest rang de models comença amb el Mac II (Mac II, Mac IIx, IIcx, IIci,
+IIsi, IIvi, IIvx, IIfx), i els LC (LC, LCII, III, III+, 475, 520,
+550, 575, 580, 630), després els  Mac TV, aleshores els Centris (610, 650,
+660AV), els Quadra (605, 610, 630, 650, 660AV, 700, 800, 840AV, 900,
+950), i finalment els Performa 200-640CD.
+
+</para><para>
+
+Als portàtils, van començar amb el Mac Portable, després el Powerbook
+100-190cs i els PowerBook Duo 210-550c (excloent el PowerBook 500
+que és Nubus, llegiu la secció de dalt).
+
+</para>
+
+   </sect3>
+ </sect2>

@@ -1,0 +1,187 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56322 -->
+<!-- updated from 28672 to 33719 by André Luís Lopes (andrelop) 2006.04.20 -->
+<!-- updated to 40811 by Felipe Augusto van de Wiel (faw) 2006.09.22 -->
+<!-- updated 40811:43943 by Felipe Augusto van de Wiel (faw) 2007.01.15 -->
+
+ <sect1 id="install-overview">
+ <title>Visão do processo de instalação</title>
+<para>
+
+Primeiro apenas uma nota sobre reinstalações. Com a &debian;, a
+circunstância de requerer uma reinstalação completa do seu sistema
+é muito rara; talvez falhas mecânicas de um disco rígido podem ser
+a causa mais comum.
+
+</para><para>
+
+Muitos sistemas operacionais podem requerer a instalação completa
+ser feita quando falhas críticas são descobertas o quando são
+necessárias atualizações para novas versões do SO. Até mesmo caso
+uma nova instalação completa não seja requerida, os programas
+deverão ser freqüentemente re-instalados para funcionar adequadamente
+no novo SO.
+
+</para><para>
+
+Sob a &debian-gnu;, é muito mais provável que o sistema seja reparado ao invés de
+substituído, caso algo saia errado. A atualização nunca requer
+uma completa reinstalação; você poderá sempre atualizar seu sistema. E
+os programas são, em sua maioria, compatíveis com lançamentos de OS
+sucessivos. Caso uma nova versão do programa requeira uma nova versão de
+um software, o sistema de empacotamento da &debian; se assegura que todos
+os programas necessários estejam automaticamente identificados e
+instalados. O ponto é, muito esforço foi
+colocado para evitar a necessidade de reinstalação, assim pense que isso
+seja uma última opção. O programa de instalação não está preparado para
+fazer reinstalações através de um sistema operacional existente.
+</para><para>
+
+Aqui está o mapa da mina dos passos que deverá seguir durante o processo
+de reinstalação.
+
+</para>
+
+<orderedlist>
+<listitem><para>
+
+Faça o backup de dados ou documentos existentes no disco rígido que deseja
+instalar o sistema.
+
+</para></listitem>
+<listitem><para>
+
+Obter informações sobre seu computador e documentação necessária antes
+de iniciar a instalação.
+
+</para></listitem>
+<listitem><para>
+
+Crie o espaço na tabela de partição para a &debian; em seu disco rígido.
+
+</para></listitem>
+<listitem><para>
+
+Localize e/ou baixe o programa de instalação e qualquer
+arquivos de controladores especializados que sua máquina precise
+(exceto para usuários que possuem o CD da &debian;).
+
+</para></listitem>
+<listitem><para>
+
+Configure tapes de inicialização/disquetes/cartões de memória USB ou coloque os
+arquivos de partida (a maioria dos usuários de CD da &debian; podem inicializar a
+partir de um dos CDs).
+
+</para></listitem>
+<listitem><para>
+
+Inicie o sistema de instalação.
+
+</para></listitem>
+<listitem arch="not-s390"><para>
+
+Selecione o idioma da instalação.
+
+</para></listitem>
+<listitem arch="not-s390"><para>
+
+Ative sua conexão de rede ethernet, se disponível.
+
+</para></listitem>
+
+<listitem arch="s390"><para>
+
+Configure uma placa de rede.
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+Abra uma conexão ssh com o novo sistema.
+
+</para></listitem>
+<listitem arch="s390"><para>
+
+Conecte ou ou mais DASDs (Direct Access Storage Device - Dispositivo de
+Armazenamento de Acesso Direto).
+
+</para></listitem>
+
+<listitem><para>
+
+Crie e monte as partições que terá o sistema &debian; instalado.
+
+</para></listitem>
+<listitem><para>
+
+Assista o download/configuração/instalação automática do
+<firstterm>sistema básico</firstterm>.
+
+</para></listitem>
+<listitem><para>
+
+Instale um <firstterm>gerenciador de partida</firstterm>
+que poderá iniciar a &debian-gnu; e/ou seu sistema existente.
+
+</para></listitem>
+<listitem><para>
+
+Carregue o novo sistema instalado pela primeira vez.
+
+</para></listitem>
+</orderedlist>
+
+<para condition="gtk">
+
+Para &arch-title;, você tem a opção de usar
+<phrase arch="any-x86">uma versão</phrase>
+<phrase arch="powerpc">uma versão experimental</phrase>
+gráfica do sistema de instalação. Para mais informações sobre
+este instalador gráfico, veja <xref linkend="graphical"/>.
+
+</para><para>
+
+Se tiver problemas durante a instalação ele lhe ajudará saber que
+pacotes estão envolvidos com quais passos. Faremos a introdução dos
+programas atores neste drama da instalação:
+
+</para><para>
+
+O programa de instalação, <classname>debian-installer</classname>, é
+a parte fundamental deste manual. Ele detecta e carrega os controladores
+de dispositivos apropriados, utiliza o <classname>dhcp-client</classname>
+para configurar uma conexão de rede, executa o
+<classname>debootstrap</classname> para fazer a instalação dos pacotes do
+sistema base e executa o <classname>tasksel</classname> para permitir a
+você instalar certos software adicionais. Muito mais atores fazem pontas
+neste processo e o <classname>debian-installer</classname> completará sua
+tarefa quando carregar o novo sistema pela primeira vez.
+
+</para><para>
+
+Para acertar o sistema de acordo com suas necessidades, o
+<classname>tasksel</classname> lhe permite optar pela instalação de vários
+conjuntos pré-definidos de softwares, como um servidor Web ou um ambiente
+Desktop.
+
+</para><para>
+
+Uma opção importante durante a instalação é quando ou não instalar o
+ambiente de desktop gráfico, constituído pelo X Window System e um
+dos ambientes de desktop gráficos disponíveis.
+Se você optar por não selecionar a tarefa <quote>Ambiente desktop</quote>,
+você terá somente um sistema relativamente básico, orientado por linha de
+comando. Instalar a tarefa de Ambiente desktop é opcional pois requer uma
+grande quantidade de espaço em disco, e porque muitos sistemas &debian-gnu; são
+servidores que realmente não tem nenhuma necessidade para uma interface de
+usuário gráfica para fazer o seu trabalho.
+
+</para><para arch="not-s390">
+
+Apenas esteja atento ao fato que o X Window System é completamente independente
+do <classname>debian-installer</classname> e de fato é muito mais complicado.
+A instalação e solução de problemas da instalação do X Window System não será
+coberta por este manual.
+
+</para>
+ </sect1>

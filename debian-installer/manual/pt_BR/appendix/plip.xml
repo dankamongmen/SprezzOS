@@ -1,0 +1,191 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 39644 -->
+<!-- translated by Marco Carvalho (macs) 2005.12.30 -->
+<!-- revised by Herbert Parentes Fortes Neto (hpfn) 2006.08.06 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.08.21 -->
+
+ <sect1 id="plip" arch="x86">
+ <title>Instalando &debian-gnu; por Linha IP Paralela (PLIP)</title>
+
+<para>
+
+Esta seção explica como instalar o &debian-gnu; em um computador sem
+placa Ethernet, mas apenas com um gateway remoto conectado por
+um cabo Modem-Nulo (também chamado cabo Impressora-Nula). O computador
+gateway pode ser conectado à uma rede que tenha um espelho &debian;
+(ex.: a Internet).
+
+</para><para>
+
+No exemplo neste apêndice nós iremos configurar uma conexão PLIP usando
+um gateway conectado à Internet por uma conexão discada (ppp0).
+Nós usaremos os endereços IP 192.168.0.1 e 192.168.0.2 para a interface
+PLIP no sistema alvo e no sistema origem respectivamente (estes endereços
+não devem estar sendo usados no espaço de endereços de sua rede).
+
+</para><para>
+
+A conexão PLIP configurada durante a instalação também deve estar disponível
+após a reinicialização no sistema instalado (veja <xref linkend="boot-new"/>).
+
+</para><para>
+
+Antes de você iniciar, você precisa verificar a configuração da BIOS (endereço
+base de E/S e IRQ) para a porta paralela tanto no sistema origem como no
+alvo. Os valores mais comuns são <literal>io=0x378</literal>,
+<literal>irq=7</literal>.
+
+</para>
+
+  <sect2>
+  <title>Requisitos</title>
+
+<itemizedlist>
+<listitem><para>
+
+Um computador alvo, chamado <emphasis>alvo</emphasis>, onde o &debian; será
+instalado.
+
+</para></listitem>
+<listitem><para>
+
+Mídia de instalação do sistema; veja <xref linkend="installation-media"/>.
+
+</para></listitem>
+<listitem><para>
+
+Outro computador conectado à Internet, chamado <emphasis>origem</emphasis>,
+que funcionará como gateway.
+
+</para></listitem>
+<listitem><para>
+
+Um cabo Modem-Nulo DB-25. Veja o
+<ulink url="&url-plip-install-howto;">PLIP-Install-HOWTO</ulink> para mais
+informações sobre este cabo e instruções para fazer você mesmo o seu.
+
+</para></listitem>
+</itemizedlist>
+
+  </sect2>
+
+  <sect2>
+  <title>Configurando a origem</title>
+<para>
+
+O script shell a seguir é um exemplo simples de como configurar o
+computador origem como um gateway Internet usando ppp0
+
+<informalexample><screen>
+#!/bin/sh
+
+# Removemos módulos do kernel que estão rodando para evitar conflitos e para
+# reconfigurar manualmente
+modprobe -r lp parport_pc
+modprobe parport_pc io=<replaceable>0x378</replaceable> irq=<replaceable>7</replaceable>
+modprobe plip
+
+# Configuramos a interface plip (plip0 para mim, veja dmesg | grep plip)
+ifconfig <replaceable>plip0 192.168.0.2</replaceable> pointopoint <replaceable>192.168.0.1</replaceable> netmask 255.255.255.255 up
+
+# Configuramos o gateway
+modprobe iptable_nat
+iptables -t nat -A POSTROUTING -o <replaceable>ppp0</replaceable> -j MASQUERADE
+echo 1 > /proc/sys/net/ipv4/ip_forward
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2>
+  <title>Instalando o alvo</title>
+<para>
+
+Inicie a mídia de instalação. A instalação precisa ser executada em
+modo expert; entre <userinput>expert</userinput> no prompt de
+inicialização. Se você precisar definir parâmetros para os módulos do
+kernel, você também precisará fazer isso no prompt de inicialização.
+Por exemplo, para inicializar o instalador e configurar valores para
+as opções <quote>io</quote> e <quote>irq</quote> do módulo parport_pc,
+digite o seguinte no prompt de inicialização:
+
+<informalexample><screen>
+expert parport_pc.io=<replaceable>0x378</replaceable> parport_pc.irq=<replaceable>7</replaceable>
+</screen></informalexample>
+
+Abaixo estão as respostas que devem ser dadas nos
+vários estágios da instalação.
+
+</para>
+
+<orderedlist>
+<listitem><para>
+
+<guimenuitem>Carregar componentes do instalador do CD</guimenuitem>
+
+</para><para>
+
+Selecione a opção <userinput>plip-modules</userinput> da lista; isto
+disponibilizará os drivers PLIP para o sistema de instalação.
+
+</para></listitem>
+<listitem><para>
+
+<guimenuitem>Detectar dispositivos de rede</guimenuitem>
+
+</para>
+
+ <itemizedlist>
+ <listitem><para>
+
+Se o alvo <emphasis>tiver</emphasis> uma placa de rede, uma lista de módulos
+de drivers para as placas detectadas será mostrada. Se você quiser forçar o
+&d-i; para usar plip no lugar, você deve desmarcar todos os módulos de driver
+listados. Obviamente, se o alvo não tiver placa de rede, o instalador não
+mostrará esta lista.
+
+ </para></listitem>
+ <listitem><para>
+
+Devido à nenhuma placa de rede ser detectada/selecionada antes, o instalador
+irá perguntar se você quer selecionar um módulo de driver de uma lista.
+Selecione o módulo <userinput>plip</userinput>.
+
+ </para></listitem>
+ </itemizedlist>
+
+</listitem>
+<listitem><para>
+
+<guimenuitem>Configure the network</guimenuitem>
+
+ <itemizedlist>
+ <listitem><para>
+
+Auto-configure network with DHCP: No
+
+ </para></listitem>
+ <listitem><para>
+
+IP address: <userinput><replaceable>192.168.0.1</replaceable></userinput>
+
+ </para></listitem>
+ <listitem><para>
+
+Point-to-point address:
+<userinput><replaceable>192.168.0.2</replaceable></userinput>
+
+ </para></listitem>
+ <listitem><para>
+
+Name server addresses: você pode colocar o mesmo endereço usado na origem
+(veja <filename>/etc/resolv.conf</filename>)
+
+ </para></listitem>
+ </itemizedlist>
+
+</para></listitem>
+</orderedlist>
+
+  </sect2>
+ </sect1>

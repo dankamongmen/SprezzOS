@@ -1,0 +1,33 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- $Id: clock-setup-finish.xml 64742 2010-09-16 22:17:47Z sthibault $ -->
+
+   <sect3 arch="not-s390" id="system-clock">
+   <title>Setting the System Clock</title>
+
+<para>
+
+The installer may ask you if the computer's clock is set to UTC. Normally
+this question is avoided if possible and the installer tries to work out
+whether the clock is set to UTC based on things like what other operating
+systems are installed. 
+
+</para><para>
+
+In expert mode you will always be able to choose
+whether or not the clock is set to UTC.
+<phrase arch="powerpc">Macintosh hardware clocks are normally
+set to local time. If you want to dual-boot, select local time instead of
+UTC.</phrase>
+<phrase arch="any-x86">Systems that (also) run Dos or Windows are normally
+set to local time. If you want to dual-boot, select local time
+instead of UTC.</phrase>
+
+</para><para>
+
+At this point &d-i; will also attempt to save the current time to the
+system's hardware clock. This will be done either in UTC or local time,
+depending on the selection that was just made.
+
+</para>
+
+   </sect3>

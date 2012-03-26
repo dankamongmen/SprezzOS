@@ -1,0 +1,670 @@
+# Hungarian translation of Debian Installation Guide Installation Howto
+# SZERVÁC Attila <sas@321.hu>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Debian Installer Manual Installation HOWTO\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-12-29 12:07+0000\n"
+"PO-Revision-Date: 2007-02-22 22:43+0100\n"
+"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-Language: Hungarian\n"
+
+#. Tag: title
+#: installation-howto.xml:5
+#, no-c-format
+msgid "Installation Howto"
+msgstr "Telepítő Hogyan"
+
+#. Tag: para
+#: installation-howto.xml:7
+#, no-c-format
+msgid ""
+"This document describes how to install &debian-gnu; &releasename; for the "
+"&arch-title; (<quote>&architecture;</quote>) with the new &d-i;. It is a "
+"quick walkthrough of the installation process which should contain all the "
+"information you will need for most installs. When more information can be "
+"useful, we will link to more detailed explanations in other parts of this "
+"document."
+msgstr ""
+"E dokumentum leírja a &debian-gnu; &releasename; telepítését &arch-title; "
+"(<quote>&architecture;</quote>) gépre az új &d-i; által. Ez a telepítés "
+"lépéseinek gyors áttekintése, mely tartalmazza a legtöbb telepítéshez "
+"szükséges összes adatot. Ahol több adat is hasznos lehet, hivatkozunk e "
+"dokumentum más részeiben lévő részletesebb leírásokra."
+
+#. Tag: title
+#: installation-howto.xml:19
+#, no-c-format
+msgid "Preliminaries"
+msgstr "Elöljáróban"
+
+#. Tag: para
+#: installation-howto.xml:20
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> The debian-installer is still in a "
+"beta state. </phrase> If you encounter bugs during your install, please "
+"refer to <xref linkend=\"submit-bug\"/> for instructions on how to report "
+"them. If you have questions which cannot be answered by this document, "
+"please direct them to the debian-boot mailing list (&email-debian-boot-"
+"list;) or ask on IRC (#debian-boot on the OFTC network)."
+msgstr ""
+"<phrase condition=\"unofficial-build\"> Ez még mindig a debian-installer "
+"béta állapota. </phrase> Ha hibát találsz, nézd meg az alábbi: <xref linkend="
+"\"submit-bug\"/> részt a jelentés módjáról. Ha e dokumentum nem válaszol egy "
+"kérdésedre, fordulj a debian-boot listához (&email-debian-boot-list;) vagy "
+"tedd fel IRC-n (#debian-boot az OFTC hálózaton)."
+
+#. Tag: title
+#: installation-howto.xml:36
+#, no-c-format
+msgid "Booting the installer"
+msgstr "A telepítő indítása"
+
+#. Tag: para
+#: installation-howto.xml:37
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> For some quick links to CD images, "
+"check out the <ulink url=\"&url-d-i;\"> &d-i; home page</ulink>. </phrase> "
+"The debian-cd team provides builds of CD images using &d-i; on the <ulink "
+"url=\"&url-debian-cd;\">Debian CD page</ulink>. For more information on "
+"where to get CDs, see <xref linkend=\"official-cdrom\"/>."
+msgstr ""
+"<phrase condition=\"unofficial-build\"> Gyors CD-kép elérésekhez, lásd a "
+"<ulink url=\"&url-d-i;\"> &d-i; honlapot</ulink>. </phrase> A Debian-CD "
+"csapat biztosít &d-i; programot adó CD-képeket a <ulink url=\"&url-debian-cd;"
+"\">Debian CD oldalon</ulink>. További adatok a CD-képek letöltéséről: <xref "
+"linkend=\"official-cdrom\"/>."
+
+#. Tag: para
+#: installation-howto.xml:47
+#, no-c-format
+msgid ""
+"Some installation methods require other images than CD images. <phrase "
+"condition=\"unofficial-build\"> The <ulink url=\"&url-d-i;\">&d-i; home "
+"page</ulink> has links to other images. </phrase> <xref linkend=\"where-files"
+"\"/> explains how to find images on &debian; mirrors."
+msgstr ""
+"Egyes telepítő módok a CD-képektől eltérő képeket kívánnak. <phrase "
+"condition=\"unofficial-build\"> A <ulink url=\"&url-d-i;\">&d-i; honlap</"
+"ulink> hivatkozásokat ad ezekre. A </phrase> <xref linkend=\"where-files\"/> "
+"leírás szól a képek eléréséről a &debian; tükrökön."
+
+#. Tag: para
+#: installation-howto.xml:57
+#, no-c-format
+msgid ""
+"The subsections below will give the details about which images you should "
+"get for each possible means of installation."
+msgstr ""
+"Az alábbi alfejezetek leírják, mely képek kellenek az egyes telepítő "
+"módokhoz."
+
+#. Tag: title
+#: installation-howto.xml:65
+#, no-c-format
+msgid "CDROM"
+msgstr "CD-ROM"
+
+#. Tag: para
+#: installation-howto.xml:67
+#, no-c-format
+msgid ""
+"There are two different netinst CD images which can be used to install "
+"&releasename; with the &d-i;. These images are intended to boot from CD and "
+"install additional packages over a network, hence the name 'netinst'. The "
+"difference between the two images is that on the full netinst image the base "
+"packages are included, whereas you have to download these from the web if "
+"you are using the business card image. If you'd rather, you can get a full "
+"size CD image which will not need the network to install. You only need the "
+"first CD of the set."
+msgstr ""
+"2 hálózati telepítő CD-kép van, mely a &releasename; telepítésére "
+"használható a &d-i; eszközzel. E képek célja a CD-ről való indítás és "
+"további csomagok telepítése hálózatról, ezért neve: 'netinst'. A teljes "
+"netinst kép tartalmazza az alap csomagokat az úgynevezett 'business card' "
+"kép esetében ezeket is a hálózatról kell letölteni. Teljes CD-kép is "
+"letölthető, ekkor az alaptelepítéshez nem lesz szükséged hálózatra. A CD "
+"készlet első CD-képe elég lehet, de jellemzően a 2.-4. CD-képen még vannak "
+"magyar kiegészítők."
+
+#. Tag: para
+#: installation-howto.xml:78
+#, no-c-format
+msgid ""
+"Download whichever type you prefer and burn it to a CD. <phrase arch=\"any-"
+"x86\">To boot the CD, you may need to change your BIOS configuration, as "
+"explained in <xref linkend=\"bios-setup\"/>.</phrase> <phrase arch=\"powerpc"
+"\"> To boot a PowerMac from CD, press the <keycap>c</keycap> key while "
+"booting. See <xref linkend=\"boot-cd\"/> for other ways to boot from CD. </"
+"phrase>"
+msgstr ""
+"Töltsd le a választott típust és írd ki egy CD lemezre. <phrase arch=\"any-"
+"x86\">A CD indításához, a BIOS beállításaid meg kell feleljenek a <xref "
+"linkend=\"bios-setup\"/> részben leírtaknak.</phrase> <phrase arch=\"powerpc"
+"\"> Egy PowerMac CD-képről indításához, nyomd le a <keycap>c</keycap> "
+"billentyűt indításkor. Lásd a <xref linkend=\"boot-cd\"/> részt a CD-kép "
+"indítás módjairól. </phrase>"
+
+#. Tag: title
+#: installation-howto.xml:92
+#, no-c-format
+msgid "Floppy"
+msgstr "Floppi"
+
+#. Tag: para
+#: installation-howto.xml:93
+#, no-c-format
+msgid ""
+"If you can't boot from CD, you can download floppy images to install "
+"&debian;. You need the <filename>floppy/boot.img</filename>, the "
+"<filename>floppy/root.img</filename> and one or more of the driver disks."
+msgstr ""
+"Ha nem tudsz CD lemezről indítani, akár flopiról is telepítheted a &debian; "
+"rendszert. Szükség lesz majd a <filename>floppy/boot.img</filename> és "
+"<filename>floppy/root.img</filename> fájlra és legalább egy meghajtó "
+"lemezre. "
+
+#. Tag: para
+#: installation-howto.xml:99
+#, no-c-format
+msgid ""
+"The boot floppy is the one with <filename>boot.img</filename> on it. This "
+"floppy, when booted, will prompt you to insert a second floppy &mdash; use "
+"the one with <filename>root.img</filename> on it."
+msgstr ""
+"Az indító floppi a <filename>boot.img</filename> nevű. E floppi indítása "
+"után kérni fogja a 2. lemezt &mdash; itt használd majd a <filename>root.img</"
+"filename> nevűt."
+
+#. Tag: para
+#: installation-howto.xml:105
+#, no-c-format
+msgid ""
+"If you're planning to install over the network, you will usually need the "
+"<filename>floppy/net-drivers-1.img</filename>. For PCMCIA or USB networking, "
+"and some less common network cards, you will also need a second driver "
+"floppy, <filename>floppy/net-drivers-2.img</filename>."
+msgstr ""
+"Ha hálózati telepítést tervezel, általában a <filename>floppy/net-drivers-1."
+"img</filename> fájl is kell majd. A PCMCIA vagy USB hálózathoz és pár "
+"kevésbé általános hálózati kártyához pedig a <filename>floppy/net-drivers-2."
+"img</filename>."
+
+#. Tag: para
+#: installation-howto.xml:112
+#, no-c-format
+msgid ""
+"If you have a CD, but cannot boot from it, then boot from floppies and use "
+"<filename>floppy/cd-drivers.img</filename> on a driver disk to complete the "
+"install using the CD."
+msgstr ""
+"Ha van egy jól megírt CD-lemezed és a CD-eszközöd is jó, de nem tudsz róla "
+"indítani, mert különleges programot igényel, akkor indíts a floppikról és "
+"használd a <filename>floppy/cd-drivers.img</filename> floppit, hogy onnan "
+"már a CD-lemezről telepíthess."
+
+#. Tag: para
+#: installation-howto.xml:118
+#, no-c-format
+msgid ""
+"Floppy disks are one of the least reliable media around, so be prepared for "
+"lots of bad disks (see <xref linkend=\"unreliable-floppies\"/>). Each "
+"<filename>.img</filename> file you downloaded goes on a single floppy; you "
+"can use the dd command to write it to /dev/fd0 or some other means (see "
+"<xref linkend=\"create-floppy\"/> for details). Since you'll have more than "
+"one floppy, it's a good idea to label them."
+msgstr ""
+"A floppi lemezek a legmegbízhatatlanabb médiumok közé tartoznak, készül fel "
+"sok rossz flopira (lásd a <xref linkend=\"unreliable-floppies\"/>) részt. "
+"Minden <filename>.img</filename> fájlt külön floppira kell írnod; "
+"használatod dd parancsot a /dev/fd0 eszközre íráshoz vagy más módot (lásd a "
+"<xref linkend=\"create-floppy\"/> részt a részletekért)."
+
+#. Tag: title
+#: installation-howto.xml:131
+#, no-c-format
+msgid "USB memory stick"
+msgstr "USB memória meghajtó"
+
+#. Tag: para
+#: installation-howto.xml:132
+#, no-c-format
+msgid ""
+"It's also possible to install from removable USB storage devices. For "
+"example a USB keychain can make a handy &debian; install medium that you can "
+"take with you anywhere."
+msgstr ""
+"USB tároló eszközökről is telepíthetsz. Például egy USB kulcstartó egy igen "
+"barátságos &debian; telepítő médium lehet, ami mindig könnyen veled lehet."
+
+#. Tag: para
+#: installation-howto.xml:138
+#, no-c-format
+msgid ""
+"The easiest way to prepare your USB memory stick is to download <filename>hd-"
+"media/boot.img.gz</filename>, and use gunzip to extract the 256 MB image "
+"from that file. Write this image directly to your memory stick, which must "
+"be at least 256 mb in size. Of course this will destroy anything already on "
+"the memory stick. Then mount the memory stick, which will now have a FAT "
+"filesystem on it. Next, download a &debian; netinst CD image, and copy that "
+"file to the memory stick; any filename is ok as long as it ends in <literal>."
+"iso</literal>."
+msgstr ""
+"Az USB memória meghajtó felkészítésének legjobb módja, ha letöltöd a "
+"<filename>hd-media/boot.img.gz</filename> fájlt, és a gunzip programmal "
+"kibontod belőle a 256 MB méretű képet. Írd ki a képet a meghajtón lévő "
+"partícióra, mely legalább 256 MB kell legyen. Csatold fel a partíciót, amely "
+"FAT fájlrendszert tartalmazzon. Töltsd le a netinst CD képet és másold e "
+"fájlt a csatolt partícióra; bármilyen fájlnév megfelel, csak legyen a vége "
+"<literal>.iso</literal>."
+
+#. Tag: para
+#: installation-howto.xml:149
+#, no-c-format
+msgid ""
+"There are other, more flexible ways to set up a memory stick to use the "
+"debian-installer, and it's possible to get it to work with smaller memory "
+"sticks. For details, see <xref linkend=\"boot-usb-files\"/>."
+msgstr ""
+"Más, rugalmasabb módok is vannak egy ilyen memória meghajtó beállításához a "
+"&debian; Telepítőhöz, és kisebb eszközökkel is működhet. A részletekért lásd "
+"a <xref linkend=\"boot-usb-files\"/> részt."
+
+#. Tag: para
+#: installation-howto.xml:155
+#, no-c-format
+msgid ""
+"Some BIOSes can boot USB storage directly, and some cannot. You may need to "
+"configure your BIOS to boot from a <quote>removable drive</quote> or even a "
+"<quote>USB-ZIP</quote> to get it to boot from the USB device. For helpful "
+"hints and details, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Néhány BIOS tud közvetlenül USB tárolóról indulni, mások nem. Próbáld ki a "
+"lehetőségeket, jó lehet a <quote>removable drive</quote>, de akár még a "
+"<quote>USB-ZIP</quote> beállítás is. Ennek leírását lásd a <xref linkend="
+"\"usb-boot\"/> részben."
+
+#. Tag: para
+#: installation-howto.xml:162
+#, no-c-format
+msgid ""
+"Booting Macintosh systems from USB storage devices involves manual use of "
+"Open Firmware. For directions, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Macintoshként ismert rendszerek USB tároló eszközökről indítása az Open "
+"Firmware kézi használatát igényli. Ennek leírását is megtalálod a <xref "
+"linkend=\"usb-boot\"/> részben."
+
+#. Tag: title
+#: installation-howto.xml:171
+#, no-c-format
+msgid "Booting from network"
+msgstr "Indítás hálózatról"
+
+#. Tag: para
+#: installation-howto.xml:172
+#, no-c-format
+msgid ""
+"It's also possible to boot &d-i; completely from the net. The various "
+"methods to netboot depend on your architecture and netboot setup. The files "
+"in <filename>netboot/</filename> can be used to netboot &d-i;."
+msgstr ""
+"A &d-i; indítása teljesen hálózatról is végezhető. A hálózati indítás módjai "
+"mind a gép és a hálózati indítás beállításaitól függenek. A "
+"<filename>netboot/</filename> könyvtárban lévő fájlok használhatók a &d-i; "
+"hálózati indításához."
+
+#. Tag: para
+#: installation-howto.xml:178
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The easiest thing to set up is probably PXE netbooting. Untar the file "
+#| "<filename>netboot/pxeboot.tar.gz</filename> into <filename>/var/lib/"
+#| "tftpboot</filename> or wherever is appropriate for your tftp server. Set "
+#| "up your DHCP server to pass filename <filename>/pxelinux.0</filename> to "
+#| "clients, and with luck everything will just work. For detailed "
+#| "instructions, see <xref linkend=\"install-tftp\"/>."
+msgid ""
+"The easiest thing to set up is probably PXE netbooting. Untar the file "
+"<filename>netboot/pxeboot.tar.gz</filename> into <filename>/srv/tftp</"
+"filename> or wherever is appropriate for your tftp server. Set up your DHCP "
+"server to pass filename <filename>/pxelinux.0</filename> to clients, and "
+"with luck everything will just work. For detailed instructions, see <xref "
+"linkend=\"install-tftp\"/>."
+msgstr ""
+"E hálózati indítás beállításának egyik legkönnyebb módja a PXE. Bontsd ki a "
+"<filename>netboot/pxeboot.tar.gz</filename> fájlt a <filename>/var/lib/"
+"tftpboot</filename>-ba, vagy ahol tftp-t tartod. Mondd meg a DHCP "
+"kiszolgálónak, hogy az ügyfeleknek a <filename>/pxelinux.0</filename> fájlt "
+"adja, és ha minden ok, minden menni fog. Bővebben a <xref linkend=\"install-"
+"tftp\"/> részben."
+
+#. Tag: title
+#: installation-howto.xml:192
+#, no-c-format
+msgid "Booting from hard disk"
+msgstr "Indítás merevlemezről"
+
+#. Tag: para
+#: installation-howto.xml:193
+#, no-c-format
+msgid ""
+"It's possible to boot the installer using no removable media, but just an "
+"existing hard disk, which can have a different OS on it. Download "
+"<filename>hd-media/initrd.gz</filename>, <filename>hd-media/vmlinuz</"
+"filename>, and a &debian; CD image to the top-level directory of the hard "
+"disk. Make sure that the CD image has a filename ending in <literal>.iso</"
+"literal>. Now it's just a matter of booting linux with the initrd. <phrase "
+"arch=\"x86\"> <xref linkend=\"boot-initrd\"/> explains one way to do it. </"
+"phrase>"
+msgstr ""
+"Létező merevlemezről is indítható a telepítő, melyen most más OS van. Töltsd "
+"le a <filename>hd-media/initrd.gz</filename>, <filename>hd-media/vmlinuz</"
+"filename> és egy &debian; CD kép fájlt a gyökérbe. A CD kép nevének vége "
+"legyen <literal>.iso</literal>. Ez az initrd indítás. Az <phrase arch="
+"\"x86\"> <xref linkend=\"boot-initrd\"/> leírja a módot. </phrase>"
+
+#. Tag: title
+#: installation-howto.xml:210
+#, no-c-format
+msgid "Installation"
+msgstr "Telepítés"
+
+#. Tag: para
+#: installation-howto.xml:211
+#, no-c-format
+msgid ""
+"Once the installer starts, you will be greeted with an initial screen. Press "
+"&enterkey; to boot, or read the instructions for other boot methods and "
+"parameters (see <xref linkend=\"boot-parms\"/>)."
+msgstr ""
+"A telepítő indítása után egy üdvözlő képernyő fogad. Üsd le az &enterkey; "
+"billentyűt az indításhoz vagy olvasd el a lehetőségeket más indítási "
+"módokhoz és paraméterekhez (lásd: <xref linkend=\"boot-parms\"/>)."
+
+#. Tag: para
+#: installation-howto.xml:217
+#, no-c-format
+msgid ""
+"After a while you will be asked to select your language. Use the arrow keys "
+"to pick a language and press &enterkey; to continue. Next you'll be asked to "
+"select your country, with the choices including countries where your "
+"language is spoken. If it's not on the short list, a list of all the "
+"countries in the world is available."
+msgstr ""
+"Sikeres indítás esetén egy hosszú, görgethető listát adó nyelv-választó "
+"párbeszéd-ablakot kapsz, melyben kiválaszthatod nyelvedet. Használd a fel-le "
+"nyíl billentyűket míg saját nyelved lesz kijelölt, és ekkor üsd le az "
+"&enterkey; billentyűt a folytatáshoz. Ezután az országodat lehet "
+"kiválasztani."
+
+#. Tag: para
+#: installation-howto.xml:225
+#, no-c-format
+msgid ""
+"You may be asked to confirm your keyboard layout. Choose the default unless "
+"you know better."
+msgstr ""
+"Ezután a billentyű-kiosztásodat lehet megerősíteni. Szokásos qwertz "
+"billentyűnél jó az alap, egyszerűen lépj tovább."
+
+#. Tag: para
+#: installation-howto.xml:230
+#, no-c-format
+msgid ""
+"Now sit back while debian-installer detects some of your hardware, and loads "
+"the rest of itself from CD, floppy, USB, etc."
+msgstr ""
+"A &debian; Telepítő most gyorsan felderíti a legfontosabb eszközeidet, és "
+"betölti önmaga hátralévő részét a CD-lemezről, floppiról, vagyis az általad "
+"használt eszközről."
+
+#. Tag: para
+#: installation-howto.xml:235
+#, no-c-format
+msgid ""
+"Next the installer will try to detect your network hardware and set up "
+"networking by DHCP. If you are not on a network or do not have DHCP, you "
+"will be given the opportunity to configure the network manually."
+msgstr ""
+"Ezután a telepítő megpróbálja felismerni hálózati eszközödet és beállítani a "
+"hálózatot DHCP kiszolgálóval. Ha nem vagy hálózaton, vagy azon nincs DHCP, "
+"akkor természetesen lehetőséged nyílik megadnod hálózati adataidat."
+
+#. Tag: para
+#: installation-howto.xml:241
+#, no-c-format
+msgid ""
+"The next step is setting up your clock and time zone. The installer will try "
+"to contact a time server on the Internet to ensure the clock is set "
+"correctly. The time zone is based on the country selected earlier and the "
+"installer will only ask to select one if a country has multiple zones."
+msgstr ""
+
+#. Tag: para
+#: installation-howto.xml:248
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Now it is time to partition your disks. First you will be given the "
+#| "opportunity to automatically partition either an entire drive, or "
+#| "available free space on a drive (guided partitioning). This is "
+#| "recommended for new users or anyone in a hurry. If you do not want to "
+#| "autopartition, choose <guimenuitem>Manual</guimenuitem> from the menu."
+msgid ""
+"Now it is time to partition your disks. First you will be given the "
+"opportunity to automatically partition either an entire drive, or available "
+"free space on a drive (see <xref linkend=\"partman-auto\"/>). This is "
+"recommended for new users or anyone in a hurry. If you do not want to "
+"autopartition, choose <guimenuitem>Manual</guimenuitem> from the menu."
+msgstr ""
+"Most kell a lemezek particionálásáról dönteni. Adott a lehetőség, hogy a "
+"telepítő ezt elvégezze automatikusan akár az egész lemezen, akár bármely "
+"lemez szabad részén (irányított particionálás). Ez ajánlott az új "
+"felhasználóknak vagy bárkinek, akinek kapkodni kell. Ha nem akarsz automata "
+"particionálást, a <guimenuitem>Kézi</guimenuitem> beállítást válaszd."
+
+#. Tag: para
+#: installation-howto.xml:256
+#, no-c-format
+msgid ""
+"If you have an existing DOS or Windows partition that you want to preserve, "
+"be very careful with automatic partitioning. If you choose manual "
+"partitioning, you can use the installer to resize existing FAT or NTFS "
+"partitions to create room for the &debian; install: simply select the "
+"partition and specify its new size."
+msgstr ""
+"Ha van egy létező DOS vagy Windows partíciód és valamiért meg akarod "
+"tartani, figyelj az automatikus választásnál. Ha a partíciók kézi "
+"összeállítását választod és most nincs fenntartott hely a &debian; számára, "
+"a FAT vagy NTFS partícióidat átméretezheted, hogy létrehozd ezt a helyet: "
+"egyszerűen válaszd ki az átméretezendő partíciót és add meg új méretét."
+
+#. Tag: para
+#: installation-howto.xml:263
+#, fuzzy, no-c-format
+#| msgid ""
+#| "On the next screen you will see your partition table, how the partitions "
+#| "will be formatted, and where they will be mounted. Select a partition to "
+#| "modify or delete it. If you did automatic partitioning, you should just "
+#| "be able to choose <guimenuitem>Finish partitioning and write changes to "
+#| "disk</guimenuitem> from the menu to use what it set up. Remember to "
+#| "assign at least one partition for swap space and to mount a partition on "
+#| "<filename>/</filename>. <xref linkend=\"partitioning\"/> has more "
+#| "information about partitioning."
+msgid ""
+"On the next screen you will see your partition table, how the partitions "
+"will be formatted, and where they will be mounted. Select a partition to "
+"modify or delete it. If you did automatic partitioning, you should just be "
+"able to choose <guimenuitem>Finish partitioning and write changes to disk</"
+"guimenuitem> from the menu to use what it set up. Remember to assign at "
+"least one partition for swap space and to mount a partition on <filename>/</"
+"filename>. For more detailed information on how to use the partitioner, "
+"please refer to <xref linkend=\"di-partition\"/>; the appendix <xref linkend="
+"\"partitioning\"/> has more general information about partitioning."
+msgstr ""
+"A következő képernyőn mutatja, hogy lesznek a partíciók formázva és hova "
+"lesznek csatolva. Válassz egy partíciót ha módosítani vagy törölni akarod. "
+"Ha a partíciók automatikus beállítását választottad, csak a "
+"<guimenuitem>Particionálás befejezése és változások lemezre írása</"
+"guimenuitem> pontra kell térni a menüből a beállítások használatára. Ne "
+"felejts legalább 1 partíciót cserehelyként jelölni és egy partíciót "
+"megjelölni a <filename>/</filename> könyvtárként csatoláshoz. Aprólékosabb "
+"leírást erről <xref linkend=\"partitioning\"/> részben lehet fellelni."
+
+#. Tag: para
+#: installation-howto.xml:276
+#, no-c-format
+msgid ""
+"Now &d-i; formats your partitions and starts to install the base system, "
+"which can take a while. That is followed by installing a kernel."
+msgstr ""
+"A &d-i; megformázza a formázásra jelölt új partíciókat és elkezdi az "
+"alaprendszer telepítését, mely géptől függően eltarthat egy pár percig. A "
+"kernelt is e folyamat végén telepíti."
+
+#. Tag: para
+#: installation-howto.xml:281
+#, no-c-format
+msgid ""
+"The base system that was installed earlier is a working, but very minimal "
+"installation. To make the system more functional the next step allows you to "
+"install additional packages by selecting tasks. Before packages can be "
+"installed <classname>apt</classname> needs to be configured as that defines "
+"from where the packages will be retrieved. The <quote>Standard system</"
+"quote> task will be selected by default and should normally be installed. "
+"Select the <quote>Desktop environment</quote> task if you would like to have "
+"a graphical desktop after the installation. See <xref linkend=\"pkgsel\"/> "
+"for additional information about this step."
+msgstr ""
+"A korábban telepített alaprendszer egy működő, de nagyon kis telepítés. A "
+"rendszer hasznosabbá tételéhez a következő lépés lehetővé teszi további "
+"csomagok telepítését feladatok kiválasztásával. A csomagok telepítése előtt "
+"az <classname>apt</classname> számára meg kell adni, honnan szedje le a "
+"csomagokat. A <quote>Szabvány rendszer</quote> feladat alapból kijelölt és "
+"telepítésre kerül. Az <quote>Asztali környezet</quote> maradjon kijelölt, ha "
+"grafikus asztal használatát szeretnéd a telepítés után. Lásd a <xref linkend="
+"\"pkgsel\"/> részt további leírásért e lépésről."
+
+#. Tag: para
+#: installation-howto.xml:293
+#, fuzzy, no-c-format
+msgid ""
+"Installation of the base system is followed by setting up user accounts. By "
+"default you will need to provide a password for the <quote>root</quote> "
+"(administrator) account and information necessary to create one regular user "
+"account."
+msgstr ""
+"A következő lépések beállítják az időzónát és órát. A telepítő ezt "
+"önműködően megkísérli és csak akkor kérdez, ha nem sikerül. Ezt a "
+"felhasználói fiókok beállítása követi. Alap esetben meg kell adnod egy "
+"<quote>root</quote> (adminisztrátor) jelszót és egy sima felhasználói fiók "
+"létrehozásához szükséges adatokat."
+
+#. Tag: para
+#: installation-howto.xml:300
+#, no-c-format
+msgid ""
+"The last step is to install a boot loader. If the installer detects other "
+"operating systems on your computer, it will add them to the boot menu and "
+"let you know. <phrase arch=\"any-x86\">By default GRUB will be installed to "
+"the master boot record of the first harddrive, which is generally a good "
+"choice. You'll be given the opportunity to override that choice and install "
+"it elsewhere. </phrase>"
+msgstr ""
+"Utolsó lépésként pedig a boot betöltő telepítését végzi el. Ha a telepítő "
+"más rendszert is érzékelt, hozzáadja az indító menühöz és tudatja ezt. "
+"<phrase arch=\"any-x86\">Alapértelmezetten a GRUB betöltő kerül telepítésre, "
+"éspedig az 1. merevlemez MBR részébe, mely általában jó választás. E "
+"lehetőség felülbírálható és a boot betöltő máshová is telepíthető. </phrase>"
+
+#. Tag: para
+#: installation-howto.xml:310
+#, no-c-format
+msgid ""
+"&d-i; will now tell you that the installation has finished. Remove the cdrom "
+"or other boot media and hit &enterkey; to reboot your machine. It should "
+"boot up into the newly installed system and allow you to log in. This is "
+"explained in <xref linkend=\"boot-new\"/>."
+msgstr ""
+"A &d-i; most értesít, hogy a telepítés megtörtént. Távolítsd el a CD lemezt "
+"vagy a telepítéskor használt indító médiát és üsd le az &enterkey; "
+"billentyűt a gép újraindításához. Ez elindítja majd az éppen most telepített "
+"rendszert és lehetővé teszi a bejelentkezést. Ezt a <xref linkend=\"boot-new"
+"\"/> részben ismertetjük."
+
+#. Tag: para
+#: installation-howto.xml:317
+#, no-c-format
+msgid ""
+"If you need more information on the install process, see <xref linkend=\"d-i-"
+"intro\"/>."
+msgstr ""
+"Ha több adat érdekel a telepítő folyamatról, nézz bele ebbe: <xref linkend="
+"\"d-i-intro\"/>."
+
+#. Tag: title
+#: installation-howto.xml:326
+#, no-c-format
+msgid "Send us an installation report"
+msgstr "Küldj nekünk telepítési beszámolót"
+
+#. Tag: para
+#: installation-howto.xml:327
+#, no-c-format
+msgid ""
+"If you successfully managed an installation with &d-i;, please take time to "
+"provide us with a report. The simplest way to do so is to install the "
+"reportbug package (<command>aptitude install reportbug</command>), configure "
+"<classname>reportbug</classname> as explained in <xref linkend=\"mail-"
+"outgoing\"/>, and run <command>reportbug installation-reports</command>."
+msgstr ""
+"Ha sikerült a telepítés a &d-i; eszközzel, kérjük, szánj rá egy kis időt, "
+"hogy ezt jelentsd nekünk. A legegyszerűbb módja ennek a reportbug csomag "
+"telepítése (például ezzel a paranccsal: <command>aptitude install reportbug</"
+"command>), állítsd be a <classname>reportbug</classname> programot a <xref "
+"linkend=\"mail-outgoing\"/> rész szerint és futtasf ezt: <command>reportbug "
+"installation-reports</command>."
+
+#. Tag: para
+#: installation-howto.xml:337
+#, no-c-format
+msgid ""
+"If you did not complete the install, you probably found a bug in debian-"
+"installer. To improve the installer it is necessary that we know about them, "
+"so please take the time to report them. You can use an installation report "
+"to report problems; if the install completely fails, see <xref linkend="
+"\"problem-report\"/>."
+msgstr ""
+"Ha a telepítés közben bármikor hiba történt, valószínűleg találtál egy hibát "
+"a telepítőben. Hogy a telepítőt folyamatosan egyre jobbá tegyük, tudnunk "
+"kell ezekről, ezért kérjük, jelezd e hibát. A fent már ismertetett egyszerű "
+"telepítési beszámolóval megteheted ezt; ha a telepítés egyáltalán nem "
+"sikerült valamilyen okból, olvasd el most a <xref linkend=\"problem-report\"/"
+"> részt."
+
+#. Tag: title
+#: installation-howto.xml:349
+#, no-c-format
+msgid "And finally&hellip;"
+msgstr "És végül&hellip;"
+
+#. Tag: para
+#: installation-howto.xml:350
+#, no-c-format
+msgid ""
+"We hope that your &debian; installation is pleasant and that you find "
+"&debian; useful. You might want to read <xref linkend=\"post-install\"/>."
+msgstr ""
+"Reméljük, a &debian; telepítésed igazán kellemes lett, és használatba véve "
+"jónak fogod találni a &debian; rendszert. Érdemes elolvasni a <xref linkend="
+"\"post-install\"/> részt."

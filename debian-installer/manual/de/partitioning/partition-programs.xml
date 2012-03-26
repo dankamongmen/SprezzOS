@@ -1,0 +1,145 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="partition-programs">
+ <title>&debian;-Partitionierungsprogramme</title>
+<para>
+
+Es wurden mehrere Variationen der Partitionierungsprogramme von den
+Entwicklern in &debian; eingepflegt, um mit verschiedenen Festplattentypen
+und Rechnerarchitekturen funktionieren zu können. Hier eine Liste der
+Programme, die für Ihre Architektur verfügbar sind:
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term><command>partman</command></term>
+<listitem><para>
+
+Das bevorzugte Partitionierungswerkzeug in &debian;. Dieses Schweizer Messer
+unter den Partitionierungsprogrammen kann auch die Größe von bestehenden
+Partitionen verändern sowie Dateisysteme erstellen
+<phrase arch="any-x86"> (in der Windows-Sprache <quote>formatieren</quote>) </phrase>
+und die Einbindungspunkte zuweisen.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdisk.txt">
+<term><command>fdisk</command></term>
+<listitem><para>
+
+Der Original-Linux-Festplatten-Partitionierer, gut für Gurus.
+
+</para><para>
+
+Seien Sie vorsichtig, wenn Sie bestehende FreeBSD-Partitionen auf Ihrem
+Rechner haben. Die Installationskernel bieten Unterstützung für diesen
+Partitionstyp, aber die Art und Weise, wie <command>fdisk</command> sie
+darstellt (oder eventuell nicht), kann verursachen, dass sich die Gerätebezeichnungen
+unterscheiden. Lesen Sie dazu das
+<ulink url="&url-linux-freebsd;">Linux+FreeBSD-HowTo</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="cfdisk.txt">
+<term><command>cfdisk</command></term>
+<listitem><para>
+
+Ein einfach zu nutzender Festplatten-Partitionierer im Vollbildmodus
+für den Rest der Welt.
+
+</para><para>
+
+Beachten Sie, dass <command>cfdisk</command> FreeBSD-Partitionen nicht
+versteht und sich deswegen Gerätebezeichnungen unterscheiden können
+(siehe oben).
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="atari-fdisk.txt">
+<term><command>atari-fdisk</command></term>
+<listitem><para>
+
+Version von <command>fdisk</command> für Atari.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="amiga-fdisk.txt">
+<term><command>amiga-fdisk</command></term>
+<listitem><para>
+
+Version von <command>fdisk</command> für Amiga.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="mac-fdisk.txt">
+<term><command>mac-fdisk</command></term>
+<listitem><para>
+
+Version von <command>fdisk</command> für Mac.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="pmac-fdisk.txt">
+<term><command>pmac-fdisk</command></term>
+<listitem><para>
+
+Version von <command>fdisk</command> für PowerMac, wird auch von BVM- und
+Motorola-VMEbus-Systemen benutzt.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="fdasd.txt">
+<term><command>fdasd</command></term>
+<listitem><para>
+
+&arch-title;-Version von <command>fdisk</command>; lesen Sie die
+Handbuchseite von fdasd oder das Kapitel 13 in
+<ulink url="http://oss.software.ibm.com/developerworks/opensource/linux390/docu/l390dd08.pdf">
+Device Drivers and Installation Commands</ulink>, wenn Sie detaillierte Informationen
+benötigen.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Eines dieser Programme wird standardmäßig gestartet, wenn Sie
+<guimenuitem>Eine Festplatte partitionieren</guimenuitem> (oder ähnliches)
+wählen. Es könnte möglich sein, ein anderes Programm auf der zweiten
+virtuellen Konsole VT2 zu benutzen, aber dies wird nicht empfohlen.
+
+</para><para arch="any-x86">Denken Sie daran, die Boot-Partition als
+<quote>Bootable</quote> (boot-fähig) zu markieren.
+
+</para><para condition="mac-fdisk.txt">
+
+Eine wichtige Sache beim Partitionieren von Festplatten des Mac-Typs
+ist, dass die Swap-Partition aufgrund Ihres Namens identifiziert
+wird; sie muss deswegen mit <quote>swap</quote> bezeichnet sein. Alle
+Mac-Linux-Partitionen haben den gleichen Partitionstyp, Apple_UNIX_SRV2.
+Lesen Sie bitte das Handbuch. Wir empfehlen ebenfalls, das
+<ulink url="&url-mac-fdisk-tutorial;">mac-fdisk-Tutorial</ulink> zu lesen,
+wo Informationen enthalten sind, die Sie befolgen sollten, wenn Sie eine
+Festplatte mit MacOS gleichzeitig nutzen wollen.
+
+</para>
+
+&partition-hppa.xml;
+&partition-x86.xml;
+&partition-ia64.xml;
+&partition-mips.xml;
+&partition-powerpc.xml;
+&partition-sparc.xml;
+
+ </sect1>

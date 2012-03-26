@@ -1,0 +1,25 @@
+<!-- $Id$ -->
+<!-- original version: 24582 -->
+
+  <sect3 arch="sparc">
+  <title>Instalovat zavaděč <command>SILO</command> na pevný disk</title>
+<para>
+
+Standardní zavaděč na architektuře &architecture; se jmenuje
+<quote>silo</quote>.  Kompletní dokumentace se nachází v adresáři
+<filename>/usr/share/doc/silo/</filename>. <command>SILO</command> se
+používá a konfiguruje, až na několik výjimek, podobně jako
+<command>LILO</command>.  <command>SILO</command> však umožňuje zavést
+libovolné jádro na disku, a to ani nemusí být uvedeno v konfiguračním
+souboru <filename>/etc/silo.conf</filename>.  To je umožněno tím, že
+<command>SILO</command> umí číst linuxové oblasti a navíc je
+<filename>/etc/silo.conf</filename> čten až při zavádění, takže odpadá
+spouštění <command>silo</command> po každé instalaci nového jádra (jak
+je to nutné se zavaděčem <command>LILO</command>).
+<command>SILO</command> také umí číst oblasti UFS, což znamená, že
+může zavést systém i z oblastí SunOSu a Solarisu.  Jistě tušíte, že
+<command>SILO</command> je dobrá volba, pokud chcete instalovat
+GNU/Linux na počítač sdílený se systémy SunOS/Solaris.
+
+</para>
+  </sect3>

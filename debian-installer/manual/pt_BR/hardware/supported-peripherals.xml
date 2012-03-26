@@ -1,0 +1,40 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 59840 -->
+<!-- updated 29467:35612 by André Luís Lopes (andrelop) 2006.04.20 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.12.25 -->
+<!-- updated 43499:43939 by Felipe Augusto van de Wiel (faw) 2007.01.15 -->
+<!-- updated 56244:59840 by Felipe Augusto van de Wiel (faw) 2010.05.17 -->
+
+ <sect2 id="supported-peripherals">
+ <title>Suporte a periféricos e outros hardwares</title>
+<para arch="not-s390">
+
+O &arch-kernel; suporta uma larga variedade de dispositivos de hardware
+como mouses, impressoras, scanners, PCMCIA e dispositivos USB. No
+entanto, a maioria destes dispositivos não são requeridos durante a
+instalação do sistema.
+
+</para><para arch="x86">
+O hardware USB geralmente funciona bem,
+somente teclados USB podem requerer configurações adicionais
+(veja <xref linkend="hardware-issues"/>).
+
+</para><para arch="x86">
+
+Novamente, veja o
+<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>
+para determinar se seu hardware específico é suportado ou não pelo Linux.
+
+</para><para arch="s390">
+
+A instalação de pacotes do XPRAM e tape não são suportados por este
+sistema. Todos os pacotes que você deseja instalar precisam estar
+disponíveis no DASD ou através de uma rede usando o NFS, HTTP ou FTP.
+
+</para><para arch="mipsel">
+
+A Cobalt RaQ não possui supporte para dispositivos adicionais mas a Qube
+tem um slot PCI.
+
+</para>
+ </sect2>

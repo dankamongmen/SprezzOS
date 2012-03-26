@@ -1,0 +1,1191 @@
+# translation of post-install.po to Russian
+# Russian L10N Team <debian-l10n-russian@lists.debian.org>, 2004.
+# Yuri Kozlov <kozlov.y@gmail.com>, 2004, 2005, 2006, 2007.
+# Yuri Kozlov <yuray@komyakino.ru>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: post-install\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-10-10 12:35+0000\n"
+"PO-Revision-Date: 2010-10-24 20:16+0400\n"
+"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
+"Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. Tag: title
+#: post-install.xml:5
+#, no-c-format
+msgid "Next Steps and Where to Go From Here"
+msgstr "Следующие шаги и что делать дальше"
+
+#. Tag: title
+#: post-install.xml:13
+#, no-c-format
+msgid "Shutting down the system"
+msgstr "Выключение системы"
+
+#. Tag: para
+#: post-install.xml:15
+#, no-c-format
+msgid ""
+"To shut down a running &debian-gnu; system, you must not reboot with the "
+"reset switch on the front or back of your computer, or just turn off the "
+"computer. &debian-gnu; should be shut down in a controlled manner, otherwise "
+"files might get lost and/or disk damage might occur. If you run a desktop "
+"environment, there is usually an option to <quote>log out</quote> available "
+"from the application menu that allows you to shutdown (or reboot) the system."
+msgstr ""
+"Чтобы выключить работающую &debian-gnu; систему, вы не должны использовать "
+"кнопку сброса на передней панели корпуса компьютера или просто выключать "
+"электропитание. &debian-gnu; нужно выключать правильно, иначе можно потерять "
+"файлы и/или повредить жёсткий диск. Если вы работаете в окружении рабочего "
+"стола, то обычно есть возможность <quote>завершить сеанс</quote> из меню "
+"приложений, которая позволяет выключить (или перезагрузить) систему."
+
+#. Tag: para
+#: post-install.xml:25
+#, no-c-format
+msgid ""
+"Alternatively you can press the key combination <keycombo> <keycap>Ctrl</"
+"keycap> <keycap>Alt</keycap> <keycap>Del</keycap> </keycombo> <phrase arch="
+"\"powerpc\"> or <keycombo> <keycap>Control</keycap> <keycap>Shift</keycap> "
+"<keycap>Power</keycap> </keycombo> on Macintosh systems</phrase>. A last "
+"option is to log in as root and type one of the commands <command>poweroff</"
+"command>, <command>halt</command> or <command>shutdown -h now</command> if "
+"either of the key combinations do not work or you prefer to type commands; "
+"use <command>reboot</command> to reboot the system."
+msgstr ""
+"Также можно нажать комбинацию клавиш <keycombo> <keycap>Ctrl</keycap> "
+"<keycap>Alt</keycap> <keycap>Del</keycap> </keycombo> <phrase arch=\"powerpc"
+"\"> или <keycombo> <keycap>Control</keycap> <keycap>Shift</keycap> "
+"<keycap>Power</keycap> </keycombo> на системах Macintosh</phrase>. Если "
+"комбинация клавиш не работает или вы предпочитаете вводить команды, то как "
+"последний вариант можно войти в систему под именем root и выполнить одну из "
+"следующих команд: <command>poweroff</command>, <command>halt</command> или "
+"<command>shutdown -h now</command>; для перезагрузки системы используйте "
+"команду <command>reboot</command>."
+
+#. Tag: title
+#: post-install.xml:46
+#, no-c-format
+msgid "If You Are New to Unix"
+msgstr "Если вы новичок в Unix"
+
+#. Tag: para
+#: post-install.xml:47
+#, no-c-format
+msgid ""
+"If you are new to Unix, you probably should go out and buy some books and do "
+"some reading. A lot of valuable information can also be found in the <ulink "
+"url=\"&url-debian-reference;\">Debian Reference</ulink>. This <ulink url="
+"\"&url-unix-faq;\">list of Unix FAQs</ulink> contains a number of UseNet "
+"documents which provide a nice historical reference."
+msgstr ""
+"Если вы новичок в Unix, то, вероятно, вам стоит купить несколько книг и что-"
+"нибудь почитать. Много полезной информации можно найти в <ulink url=\"&url-"
+"debian-reference;\">справочнике по Debian</ulink>. В <ulink url=\"&url-unix-"
+"faq;\">списке Unix FAQs</ulink> содержатся ссылки на некоторые интересные "
+"документы UseNet."
+
+#. Tag: para
+#: post-install.xml:55
+#, no-c-format
+msgid ""
+"Linux is an implementation of Unix. The <ulink url=\"&url-ldp;\">Linux "
+"Documentation Project (LDP)</ulink> collects a number of HOWTOs and online "
+"books relating to Linux. Most of these documents can be installed locally; "
+"just install the <classname>doc-linux-html</classname> package (HTML "
+"versions) or the <classname>doc-linux-text</classname> package (ASCII "
+"versions), then look in <filename>/usr/share/doc/HOWTO</filename>. "
+"International versions of the LDP HOWTOs are also available as &debian; "
+"packages."
+msgstr ""
+"Linux &mdash; это одна из реализаций Unix. <ulink url=\"&url-ldp;\">Linux "
+"Documentation Project (LDP)</ulink> собирает различные HOWTO и электронные "
+"книги, посвящённые Linux. Большинство из этих документов можно получить "
+"просто установив пакет <classname>doc-linux-html</classname> (HTML версия) "
+"или пакет <classname>doc-linux-text</classname> (ASCII версия), а затем "
+"перейти в каталог <filename>/usr/share/doc/HOWTO</filename>. Переводы LDP "
+"HOWTO также доступны в виде пакетов &debian;."
+
+#. Tag: title
+#: post-install.xml:76
+#, no-c-format
+msgid "Orienting Yourself to &debian;"
+msgstr "Самостоятельное ориентирование в &debian;"
+
+#. Tag: para
+#: post-install.xml:77
+#, no-c-format
+msgid ""
+"&debian; is a little different from other distributions. Even if you're "
+"familiar with Linux in other distributions, there are things you should know "
+"about &debian; to help you to keep your system in a good, clean state. This "
+"chapter contains material to help you get oriented; it is not intended to be "
+"a tutorial for how to use &debian;, but just a very brief glimpse of the "
+"system for the very rushed."
+msgstr ""
+"&debian; слегка отличается от других дистрибутивов. Даже если вы знакомы с "
+"другими дистрибутивами Linux, есть вещи, которые вы должны знать о &debian;, "
+"чтобы поддерживать систему в рабочем состоянии. Эта глава содержит "
+"материалы, которые помогут вам ориентироваться; она не является руководством "
+"по использованию &debian;, она всего лишь кратко описывает систему для "
+"занятых людей."
+
+#. Tag: title
+#: post-install.xml:88
+#, no-c-format
+msgid "&debian; Packaging System"
+msgstr "Система управления пакетами &debian;"
+
+#. Tag: para
+#: post-install.xml:89
+#, no-c-format
+msgid ""
+"The most important concept to grasp is the &debian; packaging system. In "
+"essence, large parts of your system should be considered under the control "
+"of the packaging system. These include: <itemizedlist> <listitem><para> "
+"<filename>/usr</filename> (excluding <filename>/usr/local</filename>) </"
+"para></listitem> <listitem><para> <filename>/var</filename> (you could make "
+"<filename>/var/local</filename> and be safe in there) </para></listitem> "
+"<listitem><para> <filename>/bin</filename> </para></listitem> "
+"<listitem><para> <filename>/sbin</filename> </para></listitem> "
+"<listitem><para> <filename>/lib</filename> </para></listitem> </"
+"itemizedlist> For instance, if you replace <filename>/usr/bin/perl</"
+"filename>, that will work, but then if you upgrade your <classname>perl</"
+"classname> package, the file you put there will be replaced. Experts can get "
+"around this by putting packages on <quote>hold</quote> in <command>aptitude</"
+"command>."
+msgstr ""
+"Наиболее важно разобраться в системе управления пакетами &debian;. В "
+"сущности, большая часть системы находится под контролем системы управления "
+"пакетами. Сюда входят: <itemizedlist> <listitem><para> <filename>/usr</"
+"filename> (кроме <filename>/usr/local</filename>) </para></listitem> "
+"<listitem><para> <filename>/var</filename> (вы можете сделать <filename>/var/"
+"local</filename>, там меняться ничего не будет) </para></listitem> "
+"<listitem><para> <filename>/bin</filename> </para></listitem> "
+"<listitem><para> <filename>/sbin</filename> </para></listitem> "
+"<listitem><para> <filename>/lib</filename> </para></listitem> </"
+"itemizedlist> Например, если вы замените <filename>/usr/bin/perl</filename>, "
+"он будет работать, но позже, если вы обновите пакет <classname>perl</"
+"classname>, файл, который вы положили будет заменён. Эксперты могут обойти "
+"это, установив на пакеты флаг <quote>hold</quote> в <command>aptitude</"
+"command>."
+
+#. Tag: para
+#: post-install.xml:130
+#, no-c-format
+msgid ""
+"One of the best installation methods is apt. You can use the command line "
+"version <command>apt-get</command> or full-screen text version "
+"<application>aptitude</application>. Note apt will also let you merge main, "
+"contrib, and non-free so you can have export-restricted packages as well as "
+"standard versions."
+msgstr ""
+"Один из лучших методов установки пакетов &mdash; apt. Вы можете использовать "
+"версию для командной строки <command>apt-get</command> или полноэкранную "
+"текстовую версию <application>aptitude</application>. Заметим, что apt также "
+"позволяет объединить main, contrib и non-free, так что вы можете "
+"устанавливать имеющие экспортные ограничения пакеты вместе с обычными."
+
+#. Tag: title
+#: post-install.xml:141
+#, no-c-format
+msgid "Application Version Management"
+msgstr "Управление версиями приложений"
+
+#. Tag: para
+#: post-install.xml:142
+#, no-c-format
+msgid ""
+"Alternative versions of applications are managed by update-alternatives. If "
+"you are maintaining multiple versions of your applications, read the update-"
+"alternatives man page."
+msgstr ""
+"Альтернативность версий приложений управляется с помощью программы update-"
+"alternatives. Если вы работаете с несколькими версиями одного приложения, "
+"прочитайте страницу руководства к update-alternatives."
+
+#. Tag: title
+#: post-install.xml:152
+#, no-c-format
+msgid "Cron Job Management"
+msgstr "Управление заданиями cron"
+
+#. Tag: para
+#: post-install.xml:153
+#, no-c-format
+msgid ""
+"Any jobs under the purview of the system administrator should be in "
+"<filename>/etc</filename>, since they are configuration files. If you have a "
+"root cron job for daily, weekly, or monthly runs, put them in <filename>/etc/"
+"cron.{daily,weekly,monthly}</filename>. These are invoked from <filename>/"
+"etc/crontab</filename>, and will run in alphabetic order, which serializes "
+"them."
+msgstr ""
+"Любые работы относящиеся к администрированию системы должны проводится в "
+"каталоге <filename>/etc</filename>, так как там расположены конфигурационные "
+"файлы. Если у вас есть ежедневные, еженедельные или ночные задания cron для "
+"суперпользователя, поместите их в каталог <filename>/etc/cron.{daily,weekly,"
+"monthly}</filename>. Они вызываются из <filename>/etc/crontab</filename> и "
+"запускаются в алфавитном порядке."
+
+#. Tag: para
+#: post-install.xml:162
+#, no-c-format
+msgid ""
+"On the other hand, if you have a cron job that (a) needs to run as a special "
+"user, or (b) needs to run at a special time or frequency, you can use either "
+"<filename>/etc/crontab</filename>, or, better yet, <filename>/etc/cron.d/"
+"whatever</filename>. These particular files also have an extra field that "
+"allows you to stipulate the user account under which the cron job runs."
+msgstr ""
+"С другой стороны, если задания: (а) нужно запускать от определённого "
+"пользователя или (b) нужно запустить в определённое время или с определённой "
+"частотой, вы можете использовать или <filename>/etc/crontab</filename>, или, "
+"что лучше, <filename>/etc/cron.d/имя_задания</filename>. Это особые файлы, "
+"они содержат дополнительное поле, позволяющее вам указать учётную запись "
+"пользователя, от которого будет выполняться задание cron."
+
+#. Tag: para
+#: post-install.xml:171
+#, no-c-format
+msgid ""
+"In either case, you just edit the files and cron will notice them "
+"automatically. There is no need to run a special command. For more "
+"information see cron(8), crontab(5), and <filename>/usr/share/doc/cron/"
+"README.Debian</filename>."
+msgstr ""
+"В любом случае, просто отредактируйте файлы, и cron обнаружит эти изменения "
+"автоматически. Не нужно запускать специальную команду. Подробная информация "
+"доступна в cron(8), crontab(5) и <filename>/usr/share/doc/cron/README."
+"Debian</filename>."
+
+#. Tag: title
+#: post-install.xml:186
+#, no-c-format
+msgid "Further Reading and Information"
+msgstr "Что почитать"
+
+#. Tag: para
+#: post-install.xml:187
+#, no-c-format
+msgid ""
+"If you need information about a particular program, you should first try "
+"<userinput>man <replaceable>program</replaceable></userinput>, or "
+"<userinput>info <replaceable>program</replaceable></userinput>."
+msgstr ""
+"Если вам требуется информация по определённой программе, сначала, попробуйте "
+"выполнить <userinput>man <replaceable>название программы</replaceable></"
+"userinput> или <userinput>info <replaceable>название программы</"
+"replaceable></userinput>."
+
+#. Tag: para
+#: post-install.xml:193
+#, no-c-format
+msgid ""
+"There is lots of useful documentation in <filename>/usr/share/doc</filename> "
+"as well. In particular, <filename>/usr/share/doc/HOWTO</filename> and "
+"<filename>/usr/share/doc/FAQ</filename> contain lots of interesting "
+"information. To submit bugs, look at <filename>/usr/share/doc/debian/bug*</"
+"filename>. To read about &debian;-specific issues for particular programs, "
+"look at <filename>/usr/share/doc/(package name)/README.Debian</filename>."
+msgstr ""
+"Также, есть много полезной документации в каталоге <filename>/usr/share/doc</"
+"filename>. В частности, в каталогах <filename>/usr/share/doc/HOWTO</"
+"filename> и <filename>/usr/share/doc/FAQ</filename> содержится море "
+"интересных сведений. Информацию об ошибках смотрите в <filename>/usr/share/"
+"doc/debian/bug*</filename>. Отличия в работе определённой программы, "
+"касающиеся &debian;, смотрите в файле <filename>/usr/share/doc/(имя пакета )/"
+"README.Debian</filename>."
+
+#. Tag: para
+#: post-install.xml:204
+#, no-c-format
+msgid ""
+"The <ulink url=\"http://www.debian.org/\">Debian web site</ulink> contains a "
+"large quantity of documentation about &debian;. In particular, see the "
+"<ulink url=\"http://www.debian.org/doc/FAQ/\">Debian GNU/Linux FAQ</ulink> "
+"and the <ulink url=\"http://www.debian.org/doc/user-manuals#quick-reference"
+"\">Debian Reference</ulink>. An index of more &debian; documentation is "
+"available from the <ulink url=\"http://www.debian.org/doc/ddp\">Debian "
+"Documentation Project</ulink>. The &debian; community is self-supporting; to "
+"subscribe to one or more of the Debian mailing lists, see the <ulink url="
+"\"http://www.debian.org/MailingLists/subscribe\"> Mail List Subscription</"
+"ulink> page. Last, but not least, the <ulink url=\"http://lists.debian.org/"
+"\">Debian Mailing List Archives</ulink> contain a wealth of information on "
+"&debian;."
+msgstr ""
+"<ulink url=\"http://www.debian.org/\">Веб-сайт Debian</ulink> содержит "
+"огромное количество документации по &debian;. В частности, посмотрите <ulink "
+"url=\"http://www.debian.org/doc/FAQ/\">Debian GNU/Linux FAQ</ulink> и <ulink "
+"url=\"http://www.debian.org/doc/user-manuals#quick-reference\">Справочник по "
+"Debian</ulink>. Каталог документации Debian находится по адресу<ulink url="
+"\"http://www.debian.org/doc/ddp\">Проект Документации Debian</ulink>. Можно "
+"обратиться с вопросом к сообществу &debian; подписавшись на один или более "
+"списков рассылки Debian <ulink url=\"http://www.debian.org/MailingLists/"
+"subscribe\">Подписка на списки рассылки</ulink>. Также, не последнее место "
+"занимают <ulink url=\"http://lists.debian.org/\">Архивы списков рассылки "
+"Debian</ulink>, содержащие ценную информацию о &debian;."
+
+#. Tag: para
+#: post-install.xml:222
+#, no-c-format
+msgid ""
+"A general source of information on GNU/Linux is the <ulink url=\"http://www."
+"tldp.org/\">Linux Documentation Project</ulink>. There you will find the "
+"HOWTOs and pointers to other very valuable information on parts of a GNU/"
+"Linux system."
+msgstr ""
+"Общая информация о GNU/Linux есть в <ulink url=\"http://www.tldp.org/"
+"\">проекте документации Linux</ulink>. Здесь вы найдёте разные HOWTO и "
+"ссылки на другие превосходные источники информации на компоненты системы GNU/"
+"Linux."
+
+#. Tag: title
+#: post-install.xml:238
+#, no-c-format
+msgid "Setting Up Your System To Use E-Mail"
+msgstr "Настройка почты"
+
+#. Tag: para
+#: post-install.xml:239
+#, no-c-format
+msgid ""
+"Today, email is an important part of many people's life. As there are many "
+"options as to how to set it up, and as having it set up correctly is "
+"important for some &debian; utilities, we will try to cover the basics in "
+"this section."
+msgstr ""
+"Сегодня электронная почта (email) &mdash; это очень важная часть жизни "
+"многих людей. Так как при настройке почты используется много параметров, а "
+"правильность настройки влияет на многие программы в &debian;, в этом разделе "
+"мы попытаемся описать основные моменты настройки."
+
+#. Tag: para
+#: post-install.xml:246
+#, no-c-format
+msgid ""
+"There are three main functions that make up an e-mail system. First there is "
+"the <firstterm>Mail User Agent</firstterm> (MUA) which is the program a user "
+"actually uses to compose and read mails. Then there is the <firstterm>Mail "
+"Transfer Agent</firstterm> (MTA) that takes care of transferring messages "
+"from one computer to another. And last there is the <firstterm>Mail Delivery "
+"Agent</firstterm> (MDA) that takes care of delivering incoming mail to the "
+"user's inbox."
+msgstr ""
+"Почтовая система состоит из трёх частей. Первая: <firstterm>пользовательский "
+"почтовый агент [Mail User Agent]</firstterm> (MUA) &mdash; это программа, с "
+"которой работает пользователь для написания и чтения писем. Вторая: "
+"<firstterm>агент пересылки почты [Mail Transfer Agent]</firstterm> (MTA) "
+"&mdash; отвечает за пересылку сообщений между компьютерами. Третья: "
+"<firstterm>агент доставки почты [Mail Delivery Agent]</firstterm> (MDA) "
+"&mdash; отвечает за доставку входящей почты в почтовый ящик пользователя."
+
+#. Tag: para
+#: post-install.xml:256
+#, no-c-format
+msgid ""
+"These three functions can be performed by separate programs, but they can "
+"also be combined in one or two programs. It is also possible to have "
+"different programs handle these functions for different types of mail."
+msgstr ""
+"Данные части могут выполняться разными программами, но могут быть и "
+"объединены в одной или двух программах. Также можно настроить, чтобы разные "
+"виды почты обрабатывались разными программами."
+
+#. Tag: para
+#: post-install.xml:262
+#, no-c-format
+msgid ""
+"On Linux and Unix systems <command>mutt</command> is historically a very "
+"popular MUA. Like most traditional Linux programs it is text based. It is "
+"often used in combination with <command>exim</command> or <command>sendmail</"
+"command> as MTA and <command>procmail</command> as MDA."
+msgstr ""
+"Исторически, в системах Linux и Unix очень популярным MUA является "
+"<command>mutt</command>. Как и большинство классических программ Linux он "
+"имеет текстовый интерфейс. Часто он используется в связке с <command>exim</"
+"command> или <command>sendmail</command>, работающих в качестве MTA и "
+"<command>procmail</command> в качестве MDA."
+
+#. Tag: para
+#: post-install.xml:269
+#, no-c-format
+msgid ""
+"With the increasing popularity of graphical desktop systems, the use of "
+"graphical e-mail programs like GNOME's <command>evolution</command>, KDE's "
+"<command>kmail</command> or Mozilla's <command>thunderbird</command> (in "
+"&debian; available as <command>icedove</command><footnote> <para> The reason "
+"that <command>thunderbird</command> has been renamed to <command>icedove</"
+"command> in &debian; has to do with licensing issues. Details are outside "
+"the scope of this manual. </para> </footnote>) is becoming more popular. "
+"These programs combine the function of a MUA, MTA and MDA, but can &mdash; "
+"and often are &mdash; also be used in combination with the traditional Linux "
+"tools."
+msgstr ""
+"В связи с ростом популярности систем с графическим рабочим столом, "
+"становятся более востребованными почтовые программы с графическим "
+"интерфейсом типа GNOME <command>evolution</command>, KDE <command>kmail</"
+"command> или Mozilla <command>thunderbird</command> (в &debian; имеет "
+"название <command>icedove</command><footnote> <para> Причиной переименования "
+"<command>thunderbird</command> в <command>icedove</command> стала проблема с "
+"лицензией. Подробности выходят за рамки этого руководства. </para> </"
+"footnote>). В этих программах объединены функции MUA, MTA и MDA, но они "
+"могут (так часто и происходит) использоваться совместно с классическими "
+"утилитами Linux."
+
+#. Tag: title
+#: post-install.xml:289
+#, no-c-format
+msgid "Default E-Mail Configuration"
+msgstr "Почтовая конфигурация по умолчанию"
+
+#. Tag: para
+#: post-install.xml:290
+#, no-c-format
+msgid ""
+"Even if you are planning to use a graphical mail program, it is important "
+"that a traditional MTA/MDA is also installed and correctly set up on your "
+"&debian-gnu; system. Reason is that various utilities running on the "
+"system<footnote> <para> Examples are: <command>cron</command>, "
+"<command>quota</command>, <command>logcheck</command>, <command>aide</"
+"command>, &hellip; </para> </footnote> can send important notices by e-mail "
+"to inform the system administrator of (potential) problems or changes."
+msgstr ""
+"Даже если вы планируете использовать почтовую программу с графическим "
+"интерфейсом, очень важно, чтобы в системе &debian-gnu; также были "
+"установлены и правильно настроены классические MTA/MDA. Они нужны для "
+"различных утилит, которые работают в системе <footnote> <para> Примеры: "
+"<command>cron</command>, <command>quota</command>, <command>logcheck</"
+"command>, <command>aide</command>, &hellip; </para> </footnote>, чтобы они "
+"могли послать важные уведомления по почте системному администратору о "
+"(потенциальных) проблемах или изменениях."
+
+#. Tag: para
+#: post-install.xml:305
+#, no-c-format
+msgid ""
+"For this reason the packages <classname>exim4</classname> and "
+"<classname>mutt</classname> will be installed by default (provided you did "
+"not unselect the <quote>standard</quote> task during the installation). "
+"<classname>exim4</classname> is a combination MTA/MDA that is relatively "
+"small but very flexible. By default it will be configured to only handle e-"
+"mail local to the system itself and e-mails addressed to the system "
+"administrator (root account) will be delivered to the regular user account "
+"created during the installation<footnote> <para> The forwarding of mail for "
+"root to the regular user account is configured in <filename>/etc/aliases</"
+"filename>. If no regular user account was created, the mail will of course "
+"be delivered to the root account itself. </para> </footnote>."
+msgstr ""
+"По этой причине по умолчанию устанавливаются пакеты <classname>exim4</"
+"classname> и <classname>mutt</classname> (если вы не отменили задачу "
+"<quote>стандарт</quote> во время установки). <classname>exim4</classname> "
+"&mdash; это комбинация MTA/MDA, имеет относительно небольшой размер, но "
+"очень гибок в конфигурировании. По умолчанию, он настраивается на обработку "
+"только локальной почты самой системы, а почта, предназначенная системному "
+"администратору (учётная запись root), будет доставлена на учётную запись "
+"обычного пользователя, созданного во время установки<footnote> <para> "
+"Пересылка почты root на учётную запись обычного пользователя настраивается в "
+"файле <filename>/etc/aliases</filename>. Если учётная запись обычного "
+"пользователя не была создана, почта, естественно, будет направляться самой "
+"учётной записи root. </para> </footnote>."
+
+#. Tag: para
+#: post-install.xml:324
+#, no-c-format
+msgid ""
+"When system e-mails are delivered they are added to a file in <filename>/var/"
+"mail/<replaceable>account_name</replaceable></filename>. The e-mails can be "
+"read using <command>mutt</command>."
+msgstr ""
+"При доставке почты она добавляется в файл <filename>/var/mail/"
+"<replaceable>учётная_запись</replaceable></filename>. Почту можно читать с "
+"помощью <command>mutt</command>."
+
+#. Tag: title
+#: post-install.xml:334
+#, no-c-format
+msgid "Sending E-Mails Outside The System"
+msgstr "Отправка почты из системы"
+
+#. Tag: para
+#: post-install.xml:335
+#, no-c-format
+msgid ""
+"As mentioned earlier, the installed &debian; system is only set up to handle "
+"e-mail local to the system, not for sending mail to others nor for receiving "
+"mail from others."
+msgstr ""
+"Как было упомянуто ранее, установленная система &debian; настроена для "
+"обработки только локальной почты, она не может отправлять или принимать "
+"почту от других систем."
+
+#. Tag: para
+#: post-install.xml:341
+#, no-c-format
+msgid ""
+"If you would like <classname>exim4</classname> to handle external e-mail, "
+"please refer to the next subsection for the basic available configuration "
+"options. Make sure to test that mail can be sent and received correctly."
+msgstr ""
+"Если вы хотите, чтобы <classname>exim4</classname> обрабатывал внешнюю "
+"почту, перейдите в следующий подраздел, в котором описаны основные параметры "
+"настройки. Обязательно протестируйте приём и отправку почтовых сообщений."
+
+#. Tag: para
+#: post-install.xml:347
+#, no-c-format
+msgid ""
+"If you intend to use a graphical mail program and use a mail server of your "
+"Internet Service Provider (ISP) or your company, there is not really any "
+"need to configure <classname>exim4</classname> for handling external e-mail. "
+"Just configure your favorite graphical mail program to use the correct "
+"servers to send and receive e-mail (how is outside the scope of this manual)."
+msgstr ""
+"Если вы будете использовать почтовую программу с графическим интерфейсом с "
+"почтовым сервером вашего провайдера интернет (ISP) или вашей компании, то "
+"необязательно настраивать <classname>exim4</classname> для обработки внешней "
+"почты. Просто укажите в любимой почтовой программе с графическим интерфейсом "
+"нужные серверы для отправки и приёма сообщений (не описано в данном "
+"руководстве)."
+
+#. Tag: para
+#: post-install.xml:356
+#, no-c-format
+msgid ""
+"However, in that case you may need to configure individual utilities to "
+"correctly send e-mails. One such utility is <command>reportbug</command>, a "
+"program that facilitates submitting bug reports against &debian; packages. "
+"By default it expects to be able to use <classname>exim4</classname> to "
+"submit bug reports."
+msgstr ""
+"Однако, в этом случае вам потребуется правильно настроить отдельные утилиты, "
+"чтобы они могли отправлять почту. Одной из таких утилит является "
+"<command>reportbug</command>, программа для отправки сообщений об ошибках в "
+"пакетах &debian;. По умолчанию, она настроена на использование "
+"<classname>exim4</classname>."
+
+#. Tag: para
+#: post-install.xml:364
+#, no-c-format
+msgid ""
+"To correctly set up <command>reportbug</command> to use an external mail "
+"server, please run the command <command>reportbug --configure</command> and "
+"answer <quote>no</quote> to the question if an MTA is available. You will "
+"then be asked for the SMTP server to be used for submitting bug reports."
+msgstr ""
+"Чтобы правильно настроить <command>reportbug</command> на использование "
+"внешнего почтового сервера, запустите команду <command>reportbug --"
+"configure</command> и ответьте <quote>нет</quote> на вопрос о доступности "
+"MTA. Затем вас попросят указать сервер SMTP, который нужно использовать для "
+"отправки сообщений об ошибках."
+
+#. Tag: title
+#: post-install.xml:375
+#, no-c-format
+msgid "Configuring the Exim4 Mail Transport Agent"
+msgstr "Настройка агента пересылки почты Exim4"
+
+#. Tag: para
+#: post-install.xml:376
+#, no-c-format
+msgid ""
+"If you would like your system to also handle external e-mail, you will need "
+"to reconfigure the <classname>exim4</classname> package<footnote> <para> You "
+"can of course also remove <classname>exim4</classname> and replace it with "
+"an alternative MTA/MDA. </para> </footnote>:"
+msgstr ""
+"Если вы хотите, чтобы система также работала с внешней почтой, то вам нужно "
+"перенастроить пакет <classname>exim4</classname><footnote> <para> Конечно, "
+"также вы можете удалить <classname>exim4</classname> и заменить его другим "
+"MTA/MDA. </para> </footnote>:"
+
+#. Tag: screen
+#: post-install.xml:388
+#, no-c-format
+msgid "# dpkg-reconfigure exim4-config"
+msgstr "# dpkg-reconfigure exim4-config"
+
+#. Tag: para
+#: post-install.xml:390
+#, no-c-format
+msgid ""
+"After entering that command (as root), you will be asked if you want split "
+"the configuration into small files. If you are unsure, select the default "
+"option."
+msgstr ""
+"После ввода этой команды (имея права суперпользователя), вас спросят, хотите "
+"ли вы разделить конфигурацию на маленькие файлы. Если не знаете что делать, "
+"выберите установку по умолчанию."
+
+#. Tag: para
+#: post-install.xml:396
+#, no-c-format
+msgid ""
+"Next you will be presented with several common mail scenarios. Choose the "
+"one that most closely resembles your needs."
+msgstr ""
+"Затем вам будет предложено несколько общих почтовых сценариев. Выберите тот, "
+"который подходит вам больше всего."
+
+#. Tag: term
+#: post-install.xml:405
+#, no-c-format
+msgid "internet site"
+msgstr "интернет-сайт"
+
+#. Tag: para
+#: post-install.xml:406
+#, no-c-format
+msgid ""
+"Your system is connected to a network and your mail is sent and received "
+"directly using SMTP. On the following screens you will be asked a few basic "
+"questions, like your machine's mail name, or a list of domains for which you "
+"accept or relay mail."
+msgstr ""
+"Ваша система подключена к сети, почта отправляется и получается напрямую по "
+"протоколу SMTP. На следующих экранах вам зададут несколько основных "
+"вопросов, таких как почтовое имя вашей машины или список доменов, для "
+"которых вы принимаете или передаёте почту."
+
+#. Tag: term
+#: post-install.xml:417
+#, no-c-format
+msgid "mail sent by smarthost"
+msgstr "отправка почты через компьютер-шлюз (smarthost)"
+
+#. Tag: para
+#: post-install.xml:418
+#, no-c-format
+msgid ""
+"In this scenario your outgoing mail is forwarded to another machine, called "
+"a <quote>smarthost</quote>, which takes care of sending the message on to "
+"its destination. The smarthost also usually stores incoming mail addressed "
+"to your computer, so you don't need to be permanently online. That also "
+"means you have to download your mail from the smarthost via programs like "
+"fetchmail."
+msgstr ""
+"По этому сценарию ваша исходящая почта переправляется на другую машину, "
+"называемую <quote>smarthost</quote>, которая и отправит письмо по "
+"назначению. Smarthost обычно ещё и хранит входящую почту, адресованную "
+"вашему компьютеру, так что вам не надо постоянно находиться в сети. Это "
+"также означает, что вам нужно загружать почту со smarthost с помощью "
+"программ типа fetchmail."
+
+#. Tag: para
+#: post-install.xml:428
+#, no-c-format
+msgid ""
+"In a lot of cases the smarthost will be your ISP's mail server, which makes "
+"this option very suitable for dial-up users. It can also be a company mail "
+"server, or even another system on your own network."
+msgstr ""
+"В большинстве случаев, в качестве smarthost используется почтовый сервер "
+"вашего ISP, что очень подходит пользователям, которые используют модемное "
+"подключение по телефонной линии. Также это может быть почтовый сервер "
+"компании или другая система в вашей сети."
+
+#. Tag: term
+#: post-install.xml:438
+#, no-c-format
+msgid "mail sent by smarthost; no local mail"
+msgstr "отправка почты через smarthost; локальная почта отсутствует"
+
+#. Tag: para
+#: post-install.xml:439
+#, no-c-format
+msgid ""
+"This option is basically the same as the previous one except that the system "
+"will not be set up to handle mail for a local e-mail domain. Mail on the "
+"system itself (e.g. for the system administrator) will still be handled."
+msgstr ""
+"То же самое, что и предыдущее значение, кроме того, что система не будет "
+"настроена на обработку почты локального домена. Почта от самой системы "
+"(например, для системного администратора) всё равно будет обработана."
+
+#. Tag: term
+#: post-install.xml:450
+#, no-c-format
+msgid "local delivery only"
+msgstr "доставка только локальной почты"
+
+#. Tag: para
+#: post-install.xml:451
+#, no-c-format
+msgid "This is the option your system is configured for by default."
+msgstr "Настроено в системе по умолчанию."
+
+#. Tag: term
+#: post-install.xml:459
+#, no-c-format
+msgid "no configuration at this time"
+msgstr "в данный момент конфигурация отсутствует"
+
+#. Tag: para
+#: post-install.xml:460
+#, no-c-format
+msgid ""
+"Choose this if you are absolutely convinced you know what you are doing. "
+"This will leave you with an unconfigured mail system &mdash; until you "
+"configure it, you won't be able to send or receive any mail and you may miss "
+"some important messages from your system utilities."
+msgstr ""
+"Выберите этот вариант, если вы абсолютно уверены в том, что делаете. Это "
+"оставит вас с ненастроенной почтовой системой; до тех пор пока вы не "
+"настроите её, вы не сможете отправлять или получать почту и вы можете "
+"пропустить некоторые важные сообщения от ваших системных утилит."
+
+#. Tag: para
+#: post-install.xml:471
+#, no-c-format
+msgid ""
+"If none of these scenarios suits your needs, or if you need a finer grained "
+"setup, you will need to edit configuration files under the <filename>/etc/"
+"exim4</filename> directory after the installation is complete. More "
+"information about <classname>exim4</classname> may be found under <filename>/"
+"usr/share/doc/exim4</filename>; the file <filename>README.Debian.gz</"
+"filename> has further details about configuring <classname>exim4</classname> "
+"and explains where to find additional documentation."
+msgstr ""
+"Если ни один из этих сценариев не подходит, или нужна более тонкая "
+"настройка, то после завершения установки вам нужно отредактировать файлы "
+"конфигурации в каталоге <filename>/etc/exim4</filename>. Дополнительную "
+"информацию про <classname>exim4</classname> можно найти в каталоге "
+"<filename>/usr/share/doc/exim4</filename>; в файле <filename>README.Debian."
+"gz</filename> содержатся дополнительные подробности о настройке "
+"<classname>exim4</classname> и указано где найти дополнительную документацию."
+
+#. Tag: para
+#: post-install.xml:482
+#, no-c-format
+msgid ""
+"Note that sending mail directly to the Internet when you don't have an "
+"official domain name, can result in your mail being rejected because of anti-"
+"spam measures on receiving servers. Using your ISP's mail server is "
+"preferred. If you still do want to send out mail directly, you may want to "
+"use a different e-mail address than is generated by default. If you use "
+"<classname>exim4</classname> as your MTA, this is possible by adding an "
+"entry in <filename>/etc/email-addresses</filename>."
+msgstr ""
+"Заметим, что если у вас нет официального доменного имени и вы отправляете "
+"почту в интернет напрямую, это может привести к тому, что ваша почта не "
+"будет приниматься серверами, так как на них установлены средства борьбы со "
+"спамом. Предпочтительней использовать почтовый сервер ISP. Если вы всё равно "
+"хотите отправлять почту напрямую, то вам нужно использовать другой почтовый "
+"адрес, а не сгенерированный по умолчанию. Если в качестве MTA используется "
+"<classname>exim4</classname>, это это делается добавлением записи в файл "
+"<filename>/etc/email-addresses</filename>."
+
+#. Tag: title
+#: post-install.xml:500
+#, no-c-format
+msgid "Compiling a New Kernel"
+msgstr "Сборка нового ядра"
+
+#. Tag: para
+#: post-install.xml:501
+#, no-c-format
+msgid ""
+"Why would someone want to compile a new kernel? It is often not necessary "
+"since the default kernel shipped with &debian; handles most configurations. "
+"Also, &debian; often offers several alternative kernels. So you may want to "
+"check first if there is an alternative kernel image package that better "
+"corresponds to your hardware. However, it can be useful to compile a new "
+"kernel in order to:"
+msgstr ""
+"Зачем пересобирать ядро? Обычно этого делать не нужно, так как ядро, "
+"устанавливаемое по умолчанию в &debian;, подходит для многих конфигураций. "
+"Кроме этого, в &debian; есть ещё несколько сборок ядра. Поэтому, сначала "
+"проверьте, может другой пакет с ядром лучше подходит для вашего компьютера. "
+"Однако, полезно пересобрать ядро в следующих случаях:"
+
+#. Tag: para
+#: post-install.xml:511
+#, no-c-format
+msgid ""
+"handle special hardware needs, or hardware conflicts with the pre-supplied "
+"kernels"
+msgstr ""
+"если установлено специфичное оборудование или возникает конфликт аппаратного "
+"обеспечения со стандартным ядром"
+
+#. Tag: para
+#: post-install.xml:517
+#, no-c-format
+msgid ""
+"use options of the kernel which are not supported in the pre-supplied "
+"kernels (such as high memory support)"
+msgstr ""
+"чтобы задействовать свойства, которых нет в поставляемых сборках ядра "
+"(например, поддержка high memory)"
+
+#. Tag: para
+#: post-install.xml:523
+#, no-c-format
+msgid "optimize the kernel by removing useless drivers to speed up boot time"
+msgstr ""
+"для оптимизации ядра, удаляя ненужные драйверы для уменьшения времени "
+"загрузки"
+
+#. Tag: para
+#: post-install.xml:528
+#, no-c-format
+msgid "create a monolithic instead of a modularized kernel"
+msgstr "создания монолитного ядра, без модулей"
+
+#. Tag: para
+#: post-install.xml:533
+#, no-c-format
+msgid "run an updated or development kernel"
+msgstr "для установки обновлённого или разрабатываемого ядра"
+
+#. Tag: para
+#: post-install.xml:538
+#, no-c-format
+msgid "learn more about linux kernels"
+msgstr "чтобы больше узнать о ядрах linux"
+
+#. Tag: title
+#: post-install.xml:547
+#, no-c-format
+msgid "Kernel Image Management"
+msgstr "Управление образами ядра"
+
+#. Tag: para
+#: post-install.xml:548
+#, no-c-format
+msgid "Don't be afraid to try compiling the kernel. It's fun and profitable."
+msgstr "Не бойтесь пересобирать ядро. Это забавно и полезно."
+
+#. Tag: para
+#: post-install.xml:552
+#, no-c-format
+msgid ""
+"To compile a kernel the &debian; way, you need some packages: "
+"<classname>fakeroot</classname>, <classname>kernel-package</classname>, "
+"<classname>linux-source-2.6</classname> and a few others which are probably "
+"already installed (see <filename>/usr/share/doc/kernel-package/README.gz</"
+"filename> for the complete list)."
+msgstr ""
+"Чтобы собрать ядро по технологии &debian;, вам потребуются некоторые пакеты: "
+"<classname>fakeroot</classname>, <classname>kernel-package</classname>, "
+"<classname>linux-source-2.6</classname> и некоторые другие, которые, "
+"вероятно, уже установлены (в <filename>/usr/share/doc/kernel-package/README."
+"gz</filename> есть полный список)."
+
+#. Tag: para
+#: post-install.xml:561
+#, no-c-format
+msgid ""
+"This method will make a .deb of your kernel source, and, if you have non-"
+"standard modules, make a synchronized dependent .deb of those too. It's a "
+"better way to manage kernel images; <filename>/boot</filename> will hold the "
+"kernel, the System.map, and a log of the active config file for the build."
+msgstr ""
+"С помощью этого метода создаётся .deb файл из исходных текстов ядра, а "
+"также, если у вас имеются нестандартные модули, делается .deb файл с "
+"синхронизированными зависимостями. Это наилучший способ управления образами "
+"ядра; в <filename>/boot</filename> лежит ядро, System.map и журнальный "
+"конфигурационный файл от сборки."
+
+#. Tag: para
+#: post-install.xml:569
+#, no-c-format
+msgid ""
+"Note that you don't <emphasis>have</emphasis> to compile your kernel the "
+"<quote>&debian; way</quote>; but we find that using the packaging system to "
+"manage your kernel is actually safer and easier. In fact, you can get your "
+"kernel sources right from Linus instead of <classname>linux-source-2.6</"
+"classname>, yet still use the <classname>kernel-package</classname> "
+"compilation method."
+msgstr ""
+"Заметим, что вам <emphasis>не обязательно</emphasis> собирать ядро <quote>по "
+"технологии &debian;</quote>; но мы пришли к выводу, что управлять ядрами с "
+"помощью системы управления пакетами на самом деле безопаснее и легче. "
+"Фактически, вы можете получить исходные тексты ядра прямо у Линуса, а не в "
+"виде <classname>linux-source-2.6</classname>, и собрать ядро с помощью "
+"<classname>kernel-package</classname>."
+
+#. Tag: para
+#: post-install.xml:578
+#, no-c-format
+msgid ""
+"Note that you'll find complete documentation on using <classname>kernel-"
+"package</classname> under <filename>/usr/share/doc/kernel-package</"
+"filename>. This section just contains a brief tutorial."
+msgstr ""
+"Заметим, что полную документацию по использованию <classname>kernel-package</"
+"classname> можно найти в <filename>/usr/share/doc/kernel-package</filename>. "
+"Этот раздел содержит лишь краткое руководство."
+
+#. Tag: para
+#: post-install.xml:585
+#, no-c-format
+msgid ""
+"Hereafter, we'll assume you have free rein over your machine and will "
+"extract your kernel source to somewhere in your home directory<footnote> "
+"<para> There are other locations where you can extract kernel sources and "
+"build your custom kernel, but this is easiest as it does not require special "
+"permissions. </para> </footnote>. We'll also assume that your kernel version "
+"is &kernelversion;. Make sure you are in the directory to where you want to "
+"unpack the kernel sources, extract them using <userinput>tar xjf /usr/src/"
+"linux-source-&kernelversion;.tar.bz2</userinput> and change to the directory "
+"<filename>linux-source-&kernelversion;</filename> that will have been "
+"created."
+msgstr ""
+"Далее мы предполагаем, что вы можете делать на своей машине что угодно и "
+"распаковываете исходные тексты ядра в домашний каталог<footnote> <para> Есть "
+"несколько мест куда можно распаковывать исходные тексты и собрать своё ядро, "
+"но это самый лёгкий способ без необходимости раздачи специальных прав.</"
+"para> </footnote>. Также мы предполагаем, что у вас ядро версии "
+"&kernelversion;. Проверьте, что вы находитесь в каталоге куда хотите "
+"распаковать исходные тексты ядра, распакуйте их с помощью команды "
+"<userinput>tar xjf /usr/src/linux-source-&kernelversion;.tar.bz2</userinput> "
+"и перейдите в только что появившийся каталог<filename>linux-source-"
+"&kernelversion;</filename>."
+
+#. Tag: para
+#: post-install.xml:605
+#, no-c-format
+msgid ""
+"Now, you can configure your kernel. Run <userinput>make xconfig</userinput> "
+"if X11 is installed, configured and being run; run <userinput>make "
+"menuconfig</userinput> otherwise (you'll need <classname>libncurses5-dev</"
+"classname> installed). Take the time to read the online help and choose "
+"carefully. When in doubt, it is typically better to include the device "
+"driver (the software which manages hardware peripherals, such as Ethernet "
+"cards, SCSI controllers, and so on) you are unsure about. Be careful: other "
+"options, not related to a specific hardware, should be left at the default "
+"value if you do not understand them. Do not forget to select <quote>Kernel "
+"module loader</quote> in <quote>Loadable module support</quote> (it is not "
+"selected by default). If not included, your &debian; installation will "
+"experience problems."
+msgstr ""
+"Теперь вы можете выполнить настройку ядра. Если установлены, настроены и "
+"запущены X11, то запустите <userinput>make xconfig</userinput>, иначе "
+"<userinput>make menuconfig</userinput> (вам потребуется установить пакет "
+"<classname>libncurses5-dev</classname>). Внимательно прочитайте "
+"интерактивную документацию и внимательно выберите нужные параметры. Если что-"
+"то непонятно, обычно лучше включить драйвер устройства (программное "
+"обеспечение, которое управляет установленным оборудованием, например, "
+"картами Ethernet, SCSI-контроллерами и так далее). Будьте осторожны: для "
+"других параметров, не относящихся к определённому аппаратному обеспечению, "
+"нужно оставить значения по умолчанию, если вы не понимаете, что они делают. "
+"Не забудьте выбрать <quote>Kernel module loader</quote> в <quote>Loadable "
+"module support</quote> (не включён по умолчанию). Если его не включить, "
+"возникнут проблемы с установкой  &debian;."
+
+#. Tag: para
+#: post-install.xml:620
+#, no-c-format
+msgid ""
+"Clean the source tree and reset the <classname>kernel-package</classname> "
+"parameters. To do that, do <userinput>make-kpkg clean</userinput>."
+msgstr ""
+"Очистите дерево исходных текстов и сбросьте параметры <classname>kernel-"
+"package</classname>. Для этого выполните <userinput>make-kpkg clean</"
+"userinput>."
+
+#. Tag: para
+#: post-install.xml:625
+#, no-c-format
+msgid ""
+"Now, compile the kernel: <userinput>fakeroot make-kpkg --initrd --"
+"revision=custom.1.0 kernel_image</userinput>. The version number of "
+"<quote>1.0</quote> can be changed at will; this is just a version number "
+"that you will use to track your kernel builds. Likewise, you can put any "
+"word you like in place of <quote>custom</quote> (e.g., a host name). Kernel "
+"compilation may take quite a while, depending on the power of your machine."
+msgstr ""
+"Теперь соберите ядро: <userinput>fakeroot make-kpkg --initrd --"
+"revision=custom.1.0 kernel_image</userinput>. Номер версии <quote>1.0</"
+"quote> можно изменить; этот номер версии нужен только для отслеживания ваших "
+"сборок. Более того, вы можете добавить любое слово вместо <quote>custom</"
+"quote> (например, имя машины). Сборка ядра может занять некоторое время в "
+"зависимости от мощности машины."
+
+#. Tag: para
+#: post-install.xml:635
+#, no-c-format
+msgid ""
+"Once the compilation is complete, you can install your custom kernel like "
+"any package. As root, do <userinput>dpkg -i ../&kernelpackage;-"
+"&kernelversion;-<replaceable>subarchitecture</"
+"replaceable>_custom.1.0_&architecture;.deb</userinput>. The "
+"<replaceable>subarchitecture</replaceable> part is an optional sub-"
+"architecture, <phrase arch=\"i386\"> such as <quote>686</quote>, </phrase> "
+"depending on what kernel options you set. <userinput>dpkg -i</userinput> "
+"will install the kernel, along with some other nice supporting files. For "
+"instance, the <filename>System.map</filename> will be properly installed "
+"(helpful for debugging kernel problems), and <filename>/boot/config-"
+"&kernelversion;</filename> will be installed, containing your current "
+"configuration set. Your new kernel package is also clever enough to "
+"automatically update your boot loader to use the new kernel. If you have "
+"created a modules package, you'll need to install that package as well."
+msgstr ""
+"После завершения сборки вы можете установить собранное ядро как обычный "
+"пакет. От суперпользователя выполните <userinput>dpkg -i ../&kernelpackage;-"
+"&kernelversion;-<replaceable>субархитектура</"
+"replaceable>_custom.1.0_&architecture;.deb</userinput>. Часть "
+"<replaceable>субархитектура</replaceable> &mdash; это необязательная "
+"субархитектура, <phrase arch=\"i386\"> например, <quote>686</quote>, </"
+"phrase> зависящая от установленных параметров ядра. <userinput>dpkg -i</"
+"userinput> установит ядро вместе с некоторыми полезными файлами поддержки. "
+"Например, будет правильно установлен <filename>System.map</filename> "
+"(полезен при отладке проблем с ядром), а также <filename>/boot/config-"
+"&kernelversion;</filename>, содержащий параметры сборки ядра. Также, пакет "
+"способен автоматически использовать системный загрузчик платформы для "
+"обновления загрузки. Если вы создали пакет с модулями, то вам нужно "
+"установить и его."
+
+#. Tag: para
+#: post-install.xml:655
+#, no-c-format
+msgid ""
+"It is time to reboot the system: read carefully any warning that the above "
+"step may have produced, then <userinput>shutdown -r now</userinput>."
+msgstr ""
+"Настало время перезагрузить систему: внимательно прочитайте все "
+"предупреждения, которые могут появиться, затем наберите <userinput>shutdown -"
+"r now</userinput>."
+
+#. Tag: para
+#: post-install.xml:660
+#, no-c-format
+msgid ""
+"For more information on &debian; kernels and kernel compilation, see the "
+"<ulink url=\"&url-kernel-handbook;\">Debian Linux Kernel Handbook</ulink>. "
+"For more information on <classname>kernel-package</classname>, read the fine "
+"documentation in <filename>/usr/share/doc/kernel-package</filename>."
+msgstr ""
+"Подробней о ядрах &debian; и сборке ядра смотрите в <ulink url=\"&url-kernel-"
+"handbook;\">Debian Linux Kernel Handbook</ulink>. Полная информация о "
+"<classname>kernel-package</classname> лежит в каталоге <filename>/usr/share/"
+"doc/kernel-package</filename>."
+
+#. Tag: title
+#: post-install.xml:676
+#, no-c-format
+msgid "Recovering a Broken System"
+msgstr "Восстановление неработающей системы"
+
+#. Tag: para
+#: post-install.xml:677
+#, no-c-format
+msgid ""
+"Sometimes, things go wrong, and the system you've carefully installed is no "
+"longer bootable. Perhaps the boot loader configuration broke while trying "
+"out a change, or perhaps a new kernel you installed won't boot, or perhaps "
+"cosmic rays hit your disk and flipped a bit in <filename>/sbin/init</"
+"filename>. Regardless of the cause, you'll need to have a system to work "
+"from while you fix it, and rescue mode can be useful for this."
+msgstr ""
+"Иногда что-то идёт неправильно, и система, которую вы аккуратно установили "
+"больше не загружается. Возможно, испортились настройки системного загрузчика "
+"во время изменения, или не хочет загружаться новое ядро, или космические "
+"лучи попали в жёсткий диск и исправили единичку на нолик в файле <filename>/"
+"sbin/init</filename>. В любом случае, вам нужна система с которой можно всё "
+"исправить, и режим восстановления может помочь в этом."
+
+#. Tag: para
+#: post-install.xml:687
+#, no-c-format
+msgid ""
+"To access rescue mode, type <userinput>rescue</userinput> at the "
+"<prompt>boot:</prompt> prompt, or boot with the <userinput>rescue/"
+"enable=true</userinput> boot parameter. You'll be shown the first few "
+"screens of the installer, with a note in the corner of the display to "
+"indicate that this is rescue mode, not a full installation. Don't worry, "
+"your system is not about to be overwritten! Rescue mode simply takes "
+"advantage of the hardware detection facilities available in the installer to "
+"ensure that your disks, network devices, and so on are available to you "
+"while repairing your system."
+msgstr ""
+"Чтобы войти в режим восстановления, введите <userinput>rescue</userinput> "
+"после приглашения <prompt>boot:</prompt>, или загрузитесь с параметром "
+"загрузки <userinput>rescue/enable=true</userinput> . В начале вы пройдёте по "
+"нескольким диалогам программы установки, на которых есть пометка в углу "
+"экрана, что это режим восстановления, а не полная установка. Не волнуйтесь, "
+"ваши данные не исчезнут! Режим восстановления использует программу установки "
+"только для определения имеющихся устройств, таких как диски и сетевые "
+"устройства, и они будут доступны во время восстановления системы."
+
+#. Tag: para
+#: post-install.xml:702
+#, no-c-format
+msgid ""
+"Instead of the partitioning tool, you should now be presented with a list of "
+"the partitions on your system, and asked to select one of them. Normally, "
+"you should select the partition containing the root file system that you "
+"need to repair. You may select partitions on RAID and LVM devices as well as "
+"those created directly on disks."
+msgstr ""
+"Вместо программы разметки, вам покажут список разделов, имеющихся в системе, "
+"попросят выбрать один из них. Обычно, нужно выбрать раздел, содержащий "
+"корневую систему, которую нужно восстановить. Кроме созданных "
+"непосредственно на дисках, вы можете выбирать разделы на устройствах RAID и "
+"LVM."
+
+#. Tag: para
+#: post-install.xml:710
+#, no-c-format
+msgid ""
+"If possible, the installer will now present you with a shell prompt in the "
+"file system you selected, which you can use to perform any necessary "
+"repairs. <phrase arch=\"any-x86\"> For example, if you need to reinstall the "
+"GRUB boot loader into the master boot record of the first hard disk, you "
+"could enter the command <userinput>grub-install '(hd0)'</userinput> to do "
+"so. </phrase>"
+msgstr ""
+"Если возможно, программа установки запустит оболочку командной строки в "
+"выбранной файловой системе, где вы сможете провести любые дополнительные "
+"процедуры восстановления. <phrase arch=\"x86\"> Например, для переустановки "
+"системного загрузчика GRUB в главную загрузочную запись первого жёсткого "
+"диска, введите команду <userinput>grub-install '(hd0)'</userinput>. </phrase>"
+
+#. Tag: para
+#: post-install.xml:722
+#, no-c-format
+msgid ""
+"If the installer cannot run a usable shell in the root file system you "
+"selected, perhaps because the file system is corrupt, then it will issue a "
+"warning and offer to give you a shell in the installer environment instead. "
+"You may not have as many tools available in this environment, but they will "
+"often be enough to repair your system anyway. The root file system you "
+"selected will be mounted on the <filename>/target</filename> directory."
+msgstr ""
+"Иногда программе установки не удаётся запустить оболочку командной строки в "
+"выбранной корневой файловой системе. Возможной причиной может быть "
+"повреждение файловой системы, и в этом случае выдаётся предупреждение и "
+"предлагается запустить оболочку командной строки в среде программы "
+"установки. Здесь не так много полезных программ, но и их часто достаточно "
+"для восстановления системы. Выбранная корневая файловая система будет "
+"смонтирована в каталог <filename>/target</filename>."
+
+#. Tag: para
+#: post-install.xml:731
+#, no-c-format
+msgid "In either case, after you exit the shell, the system will reboot."
+msgstr ""
+"В обоих случаях, после выхода из оболочки командной строки система будет "
+"перезагружена."
+
+#. Tag: para
+#: post-install.xml:735
+#, no-c-format
+msgid ""
+"Finally, note that repairing broken systems can be difficult, and this "
+"manual does not attempt to go into all the things that might have gone wrong "
+"or how to fix them. If you have problems, consult an expert."
+msgstr ""
+"И напоследок заметим, что восстановление нерабочей системы может оказаться "
+"очень трудным делом, и это руководство не пытается описать все возможные "
+"случаи, которые могут произойти и способы их решения. Если у вас есть "
+"проблемы &mdash; обратитесь к профессионалам."

@@ -1,0 +1,646 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 53452 -->
+<!-- updated 48421:53452 by Felipe Augusto van de Wiel (faw) 2008.06.10 -->
+
+ <sect1 id="boot-parms"><title>Parâmetros de Inicialização</title>
+<para arch="linux-any">
+
+Os parâmetros de inicialização são parâmetros passados ao kernel do
+Linux que são geralmente usados para fazer que os periféricos funcionem
+adequadamente. Para a maior parte, o kernel poderá auto-detectar
+informações sobre seus periféricos. No entanto, em alguns casos
+você terá que ajudar um pouco o kernel.
+
+</para><para>
+
+Se esta for a primeira vez que iniciou o sistema, tente os parâmetros
+padrões de inicialização (i.e., não passe parâmetros) e veja se o
+sistema funciona corretamente. Ele provavelmente funcionará. Caso
+não seja esse o caso, reinicie mais tarde e descubra qualquer
+parâmetro especial que precisa para informar ao sistema sobre seu hardware.
+
+</para><para arch="linux-any">
+
+Informações sobre muitos parâmetros de inicialização poderão
+ser encontrados no <ulink url="http://www.tldp.org/HOWTO/BootPrompt-HOWTO.html">Linux
+BootPrompt HOWTO</ulink>, o que inclui dicas para hardwares obscuros. Esta seção
+contém somente um resumo para os parâmetros mais usados. Algumas dicas
+comuns estão incluídas abaixo em
+<xref linkend="boot-troubleshooting"/>.
+
+</para><para arch="linux-any">
+
+Quando o kernel inicia, uma mensagem
+
+<informalexample><screen>
+Memory:<replaceable>avail</replaceable>k/<replaceable>total</replaceable>k available
+</screen></informalexample>
+
+deverá ser mostrada durante o processo.
+<replaceable>total</replaceable> deverá conferir com a quantidade
+total de memória RAM, em kilobytes. Caso não conferir com a
+quantidade total de memória RAM que tem instalado, você precisará usar
+o parâmetro <userinput>mem=<replaceable>ram</replaceable></userinput>,
+onde <replaceable>ram</replaceable> será ajustado para a quantidade de
+memória, seguindo os sufixos <quote>k</quote> para kilobytes, ou
+<quote>m</quote> para megabytes.
+<userinput>mem=64m</userinput> significa 64MB de RAM.
+
+</para><para arch="linux-any" condition="supports-serial-console">
+
+Caso estiver inicializando a partir de um console serial,
+o kernel geralmente auto-detectará isto.
+Caso tenha uma placa de vídeo (framebuffer) e um teclado também
+conectados ao computador que deseje inicializar via console serial,
+você poderá ter que passar o argumento
+<userinput>console=<replaceable>device</replaceable></userinput>
+ao kernel, onde <replaceable>device</replaceable> é
+seu dispositivo serial, que normalmente é algo como
+<filename>ttyS0</filename>.
+
+</para><para arch="sparc">
+
+Para a &arch-title; os dispositivos seriais são <filename>ttya</filename> ou
+<filename>ttyb</filename>.
+Alternativamente, ajuste as variáveis do OpenPROM <envar>input-device</envar> e
+<envar>output-device</envar> apontando para
+<filename>ttya</filename>.
+
+</para>
+
+
+  <sect2 id="installer-args"><title>Parâmetros da instalação da &debian;</title>
+<para>
+
+O sistema de instalação reconhece alguns parâmetros adicionais de inicialização
+<footnote>
+
+<para>
+
+Com os kernels atuais (2.6.9 ou posteriores), você pode usar 32 opções de
+linha de comando e 32 opções de ambiente. Se esses números forem excedidos,
+o kernel irá entrar em pânico (panic).
+
+</para>
+
+</footnote>
+que podem ser úteis.
+
+</para><para>
+
+Um número de parâmetros tem um <quote>formato abreviado</quote> que ajuda a
+evitar as limitações das opções de linha de comando do kernel e torna
+mais fácil informar os parâmetros. Se um parâmetro tem um formato abreviado,
+ele será listado entre parênteses atrás da forma longa (normal). Exemplos
+neste manual normalmente usarão o formato abreviado.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>debconf/priority (priority)</term>
+<listitem><para>
+
+Este parâmetro definirá qual o a prioridade mais baixa de mensagens que
+serão mostradas.
+
+</para><para>
+
+A instalação padrão usa <userinput>priority=high</userinput>.
+Isto significa que ambas mensagens com prioridade <quote>high</quote> (alta) e
+<quote>critical</quote> (crítica) serão mostradas, mas não as de prioridade
+média e baixa. Caso encontre problemas, o programa de instalação ajustará a
+prioridade conforme necessário.
+
+</para><para>
+
+Se adicionar <userinput>priority=medium</userinput> como parâmetro de
+inicialização, lhe será mostrado um menu de instalação e ganhará mais controle
+através da instalação
+Quando <userinput>priority=low</userinput> for usado, todas as mensagens
+são mostradas (esta opção é equivalente ao método de inicialização
+<emphasis>expert</emphasis>).
+Com <userinput>priority=critical</userinput> o sistema de instalação
+mostrará somente mensagens críticas e tentará fazer a coisa certa sem bagunça.
+
+</para></listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term>DEBIAN_FRONTEND</term>
+<listitem><para>
+
+Este parâmetro de inicialização controla o tipo da interface de usuário
+usada para o programa de instalação. Os parâmetros possíveis são:
+
+<itemizedlist>
+<listitem>
+<para><userinput>DEBIAN_FRONTEND=noninteractive</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=text</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=newt</userinput></para>
+</listitem><listitem>
+<para><userinput>DEBIAN_FRONTEND=gtk</userinput></para>
+</listitem>
+</itemizedlist>
+
+A interface padrão é <userinput>DEBIAN_FRONTEND=newt</userinput>.
+<userinput>debconf/frontend=text</userinput> pode ser preferível para
+a instalação através de console serial. Geralmente, somente a interface
+com o usuário <userinput>newt</userinput> está disponível na mídia padrão
+de instalação. Em arquiteturas que suportam, o instalador gráfico usa a
+interface <userinput>gtk</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term>BOOT_DEBUG</term>
+<listitem><para>
+
+Definindo este parâmetro de boot como 2 fará com que o processo de boot do
+instalador seja logado com mais informações. Definindo como 3 fará com que
+shells de depuração estejam disponíveis em pontos estratégicos do processo
+de boot. (Sair do shell continua o processo de boot).
+
+<variablelist>
+<varlistentry>
+<term><userinput>BOOT_DEBUG=0</userinput></term>
+<listitem><para>Este é o padrão.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=1</userinput></term>
+<listitem><para>Mais detalhes que o normal.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=2</userinput></term>
+<listitem><para>Diversas informações de depuração.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><userinput>BOOT_DEBUG=3</userinput></term>
+<listitem><para>
+
+Interpretadores de comandos são executados em vários pontos do
+processo de inicialização para permitir depuração detalhada. Saia do
+interpretador de comandos para continuar a inicialização do sistema.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+</para></listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term>INSTALL_MEDIA_DEV</term>
+<listitem><para>
+
+O valor do parâmetro é o caminho para o dispositivo que carregará o
+&debian; installer. Por exemplo,
+<userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</userinput>
+
+</para><para>
+
+A inicialização por disquete, que normalmente procura por todos os
+disquetes que pode para encontrar o disquete raiz, pode ser modificada
+por este parâmetro para procurar somente em um único dispositivo.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>lowmem</term>
+<listitem><para>
+
+Pode ser usada para forçar o instalador a um baixo nível de memória mais
+alto do que o usado por padrão pelo instalador baseado na memória disponível.
+Valores possíveis são 1 e 2. Veja também <xref linkend="lowmem"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/framebuffer (fb)</term>
+<listitem><para>
+
+Algumas arquiteturas utilizam o framebuffer do kernel para fornecer a
+instalação em um grande número de idiomas. Caso o framebuffer cause um
+problema em seu sistema, você pode desabilitar este recurso com o parâmetro
+<userinput>fb=false</userinput>. Sintomas do problema são mensagens de erro
+sobre o bterm ou bogl, uma tela preta ou congelamento (<quote>freeze</quote>)
+alguns minutos após iniciar a instalação.
+
+</para><para arch="x86">
+
+O argumento <userinput>video=vga16:off</userinput> também pode ser usado para
+desativar o uso do framebuffer no kernel. Tais problemas foram reportados em
+máquinas Dell Inspiron com placa Radeon Mobile.
+
+</para><para arch="hppa">
+
+Tais problemas foram relatados no hppa.
+
+</para><note arch="sparc"><para>
+
+Por causa de problemas de exibição em alguns sistemas, o suporte a
+framebuffer é <emphasis>desativado por padrão</emphasis> na &arch-title;.
+Isto pode resultar em uma tela não não bonita em sistemas que suportam
+adequadamente o framebuffer, como os que utilizam placas gráficas ATI.
+Se ver estes problemas durante a instalação, tente inicializar usando o
+parâmetro <userinput>debian-installer/framebuffer=true</userinput> ou,
+de forma abreviada, <userinput>fb=true</userinput>.
+
+</para></note></listitem>
+</varlistentry>
+
+<varlistentry arch="not-s390">
+<term>debian-installer/theme (theme)</term>
+<listitem><para>
+
+Um tema determina a aparência do instalador na interface do usuário (cores,
+ícones, etc.). Quais temas estão disponíveis difere por interface.  Atualmente
+tanto a interface newt quanto a gtk têm apenas o tema <quote>dark</quote>, que
+foi desenhado para usuários com deficiência visual. Configure o tema
+inicializando com
+<userinput>theme=<replaceable>dark</replaceable></userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>netcfg/disable_dhcp</term>
+<listitem><para>
+
+Por padrão, o &d-i; automaticamente detecta a configuração de rede
+através do DHCP. Caso a detecção seja realizada, você não terá a chance de
+revisar e alterar as configurações obtidas. Você verá somente a
+configuração manual de rede caso a detecção do DHCP falhe.
+
+</para><para>
+
+Se tiver um servidor DHCP em sua rede local, mas deseja evita-lo por
+algum motivo (e.g. ele envia respostas incorretas), você pode usar o
+parâmetro <userinput>netcfg/disable_dhcp=true</userinput> para evitar
+a configuração da rede via DHCP e entrar com os dados manualmente.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>hw-detect/start_pcmcia</term>
+<listitem><para>
+
+Ajuste seu valor para <userinput>false</userinput> evitando que o sistema
+inicie os serviços PCMCIA, caso lhe tragam problemas. Alguns modelos de
+notebooks apresentam este mal comportamento.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>disk-detect/dmraid/enable (dmraid)</term>
+<listitem><para>
+
+Defina como <userinput>true</userinput> para habilitar o suporte a discos
+Serial ATA RAID (também chamado de ATA RAID, BIOS RAID ou falso RAID) no
+instalador. Note que esse suporte atualmente é experimental. Informações
+adicionais podem ser encontradas no
+<ulink url="&url-d-i-wiki;">Wiki do Debian Installer</ulink>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/url (url)</term>
+<listitem><para>
+
+Especifique uma url para o arquivo de configuração que será baixado e usado
+para fazer a instalação automática. Veja <xref linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/file (file)</term>
+<listitem><para>
+
+Especifique o caminho o arquivo de configuração que será
+carregado para realizar a configuração automática. Veja
+<xref linkend="automatic-install"/>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>preseed/interactive</term>
+<listitem><para>
+
+Definir para <userinput>true</userinput> para exibir perguntas mesmo se elas
+tiverem sido pré-configuradas. Pode ser útil para testar ou depurar um
+arquivo de pré-configuração. Note que isso não terá efeito nos parâmetros
+que são passados como parâmetros de inicialização, mas para aqueles em que
+uma sintaxe especial possa ser usada. Veja <xref linkend="preseed-seenflag"/>
+para detalhes.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>auto-install/enable (auto)</term>
+<listitem><para>
+
+Atrasar perguntas que normalmente são feitas antes da pré-configuração é
+possível até depois da rede ser configurada.
+Veja <xref linkend="preseed-auto"/> para detalhes sobre como usar isso
+para automatizar instalações.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>finish-install/keep-consoles</term>
+<listitem><para>
+
+Durante a instalação a partir do console serial ou de gerenciamento,
+os consoles virtuais regulares (VT1 a VT6) normalmente são desabilitados
+em <filename>/etc/inittab</filename>.
+Configure para <userinput>true</userinput> para evitar isto.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>cdrom-detect/eject</term>
+<listitem><para>
+
+Automaticamente, antes de reiniciar, o &d-i; ejetará a mídia ótica
+usada durante a instalação. Isto pode ser desnecessário caso o sistema
+não esteja inicializando diretamente através da unidade de
+CD. Em alguns casos, podem até mesmo ser desnecessário, por exemplo
+se a unidade ótica não puder sozinha carregar uma nova mídia e o
+usuário não está lá para fazer isto manualmente. Muitos slots de
+mídias, slim-line e unidades estilo caddy não podem inserir
+automaticamente mídia.
+</para><para>
+
+Defina esta opção para <userinput>false</userinput> para impedir que a mídia seja
+ejetada automaticamente, e tenha cuidado para que seu sistema não inicialize
+automaticamente através da unidade óptica após a instalação inicial.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>debian-installer/allow_unauthenticated</term>
+<listitem><para>
+
+Por padrão o instalador requer que os repositórios sejam autenticados
+usando uma chave gpg conhecida. Defina para <userinput>true</userinput> para
+desabilitar essa autenticação.
+<emphasis role="bold">Aviso: inseguro, não recomendado.</emphasis>
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry arch="mips;mipsel">
+<term>ramdisk_size</term>
+<listitem><para>
+
+Este parâmetro deveria já estar definido para um valor correto onde for
+necessário; defina-o apenas se você estiver vendo erros durante a
+inicialização que indicam que o ramdisk não pode ser completamente
+carregado. O valor é em kB.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="gtk">
+<term>mouse/protocol</term>
+<listitem><para>
+
+Para a interface gtk (instalador gráfico), usuários podem configurar
+o protocolo do mouse a ser usado definindo este parâmetro.
+Os valores aceitos são<footnote>
+
+<para>
+Veja a página man para
+<citerefentry><refentrytitle>directfbrc</refentrytitle>
+<manvolnum>5</manvolnum></citerefentry> para informações adicionais.
+</para>
+
+</footnote>:
+<userinput>PS/2</userinput>, <userinput>IMPS/2</userinput>,
+<userinput>MS</userinput>, <userinput>MS3</userinput>,
+<userinput>MouseMan</userinput> e <userinput>MouseSystems</userinput>.
+Na maioria dos casos o protocolo padrão (<quote>default</quote> deveria
+funcionar corretamente.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="gtk">
+<term>mouse/device</term>
+<listitem><para>
+
+Para a interface gtk (instalador gráfico), usuários podem especificar o
+dispositivo de mouse a ser usado definindo este parâmetro. Isto é útil se
+o mouse está conectado a uma porta serial (mouse serial). Exemplo:
+<userinput>mouse/device=<replaceable>/dev/ttyS1</replaceable></userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="gtk">
+<term>mouse/left</term>
+<listitem><para>
+
+Para a interface gtk (instalador gráfico), usuários podem mudar o mouse para
+operar como canhotos definindo este parâmetro para <userinput>true</userinput>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry condition="gtk">
+<term>directfb/hw-accel</term>
+<listitem><para>
+
+Para a interface gtk (instalador gráfico), a aceleração de hardware no
+directfb é desabilitada por padrão. Defina este parâmetro como
+<userinput>true</userinput> para habilitá-la.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>rescue/enable</term>
+<listitem><para>
+
+Defina como <userinput>true</userinput> para entrar no modo <quote>rescue
+(recuperação)</quote> ao invés de executar uma instalação normal. Veja
+<xref linkend="rescue"/>.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+  </sect2>
+
+  <sect2 id="preseed-args">
+  <title>Usando parâmetros de inicialização para responder questões</title>
+<para>
+
+Com algumas exceções, um valor pode ser definido no prompt de inicialização
+para qualquer questão perguntada durante a instalação, embora isto só seja
+realmente útil em casos específicos. Instruções gerais de como fazer isto
+podem ser encontradas em <xref linkend="preseed-bootparms"/>. Alguns exemplos
+específicos estão listados abaixo.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term>debian-installer/locale (locale)</term>
+<listitem><para>
+
+Pode ser usado para definir tanto a língua como o país para a instalação.
+Isto só funcionará se o locale for suportado no &debian;.
+Por exemplo, use <userinput>locale=de_CH</userinput> para selecionar alemão
+como língua e Suíça como país.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>anna/choose_modules (modules)</term>
+<listitem><para>
+
+Pode ser usado para automaticamente carregar componentes do instalador que
+não são carregados por padrão.
+Exemplos de componentes opcionais que podem ser úteis são
+<classname>openssh-client-udeb</classname> (para que você possa usar
+<command>scp</command> durante a instalação)<phrase arch="not-s390"> e
+<classname>ppp-udeb</classname> (veja <xref linkend="pppoe"/>)</phrase>.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>netcfg/disable_dhcp</term>
+<listitem><para>
+
+Defina como <userinput>true</userinput> se você quer desabilitar o DHCP e
+forçar uma configuração de rede estática.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>mirror/protocol (protocol)</term>
+<listitem><para>
+
+Por padrão o instalador usará o protocolo http para baixar os arquivos dos
+espelhos &debian; e trocar isto para ftp durante as instalações em prioridade
+normal não é possível. Definindo este parâmetro para
+<userinput>ftp</userinput>, você pode forçar o instalador a usar este
+protocolo. Note que você não pode selecionar um espelho ftp a partir de uma
+lista, você terá que informar o nome da máquina manualmente.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>tasksel:tasksel/first (tasks)</term>
+<listitem><para>
+
+Pode ser usado para selecionar tarefas que não estarão disponíveis a partir
+da lista interativa de tarefas, como a tarefas <literal>kde-desktop</literal>.
+Veja <xref linkend="pkgsel"/> para informações adicionais.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+  </sect2>
+
+  <sect2 id="module-parms">
+  <title>Passando parâmetros para os módulos do kernel</title>
+<para>
+
+Se os drivers são compilados fazendo parte do kernel, você pode passar
+parâmetros para eles como descrito na documentação do kernel. Contudo, se os
+drivers são compilados como módulos e porque os módulos do kernel são
+carregados de maneira um pouco diferente durante uma instalação do que quando
+se inicializa um sistema instalado, não é possível passar parâmetros para os
+módulos como normalmente você faria. Ao invés disso, você precisa usar uma
+sintaxe especial reconhecida pelo instalador a qual irá então garantir que
+os parâmetros são salvos nos arquivos de configuração apropriados e irão,
+dessa forma, ser usados quando os módulos forem realmente carregados. Os
+parâmetros também serão propagados automaticamente para a configuração
+do sistema instalado.
+
+</para><para>
+
+Note que agora é bem raro ter que passar parâmetros para os módulos. Na
+maioria dos casos, o kernel será capaz de detectar o hardware presente no
+sistema e definir bons padrões. Contudo, em algumas situações, talvez ainda
+seja necessário definir parâmetros manualmente.
+
+</para><para>
+
+A sintaxe à ser usada para definir parâmetros é:
+
+<informalexample><screen>
+<replaceable>module_name</replaceable>.<replaceable>parameter_name</replaceable>=<replaceable>value</replaceable>
+</screen></informalexample>
+
+Se você precisar passar múltiplos parâmetros para o mesmo módulo ou para
+diferentes módulos, apenas repita isso. Por exemplo, para definir que uma
+antiga placa de rede 3Com use o conector BNC (coax) e IRQ 10, você deve
+passar:
+
+<informalexample><screen>
+3c509.xcvr=3 3c509.irq=10
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 id="module-blacklist">
+  <title>Barrando (blacklisting) módulos do kernel</title>
+<para>
+
+Algumas vezes pode ser necessário barrar um módulo para prevenir que ele
+seja automaticamente carregado pelo kernel e udev. Uma razão pode ser que
+um módulo em particular cause problemas com seu hardware. O kernel algumas
+vezes também lista dois drivers diferentes para o mesmo dispositivo. Isto
+pode fazer com que o dispositivo não funcione corretamente se os drivers
+conflitarem ou se o driver errado for carregado primeiro.
+
+</para><para>
+
+Você pode barrar um módulo usando a seguinte sintaxe:
+<userinput><replaceable>nome_do_módulo</replaceable>.blacklist=yes</userinput>.
+Isto fará com que o módulo seja barrado em
+<filename>/etc/modprobe.d/blacklist.local</filename> tanto durante a
+instalação quanto para o sistema instalado.
+
+</para><para>
+
+Note que um módulo pode ainda ser carregado pelo sistema de instalação.
+Você pode evitar que isto aconteça executando a instalação no modo
+expert e desmarcando o módulo da lista de módulos exibida durante as
+fases de detecção de hardware.
+
+</para>
+  </sect2>
+ </sect1>

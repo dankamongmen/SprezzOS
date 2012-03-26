@@ -1,0 +1,102 @@
+<!-- original version: 64916 -->
+
+   <sect3 id="localechooser">
+   <title>Choix des paramètres régionaux</title>
+
+<para>
+
+Les premières questions posées concernent le choix des paramètres régionaux qui
+seront utilisés à la fois pour l'installation et dans le système à installer.
+Ces paramètres sont la langue, le pays (territoire ou région) et les
+<emphasis>locales</emphasis>.
+
+
+</para><para>
+
+L'installation se fera dans la langue choisie, à condition que la traduction
+des dialogues existe. Quand il n'existe pas de traduction pour la langue
+choisie, l'installateur utilise l'anglais.
+
+</para><para>
+
+Le pays choisi sera utilisé pendant l'installation pour configurer 
+votre fuseau horaire et le miroir &debian; correspondant à votre zone 
+géographique. Les choix du pays et de la langue déterminent la locale
+par défaut de votre système ainsi que le choix de la carte clavier.
+
+</para><para>
+
+On vous demandera d'abord de choisir une langue. 
+Les noms des langues sont affichés en anglais (côté gauche) et dans la langue
+elle-même (côté droit). Les noms sur la droite sont aussi affichés avec leur
+propre script. La liste est triée selon les noms anglais.
+Une option supplémentaire, au sommet de la liste, permet de choisir la locale
+<quote>C</quote> au lieu d'une langue. L'installation se fera alors en anglais.
+Le système qui sera installé ne sera pas localisé, puisque le paquet
+<classname>locales</classname> n'aura pas été installé.
+
+</para><para>
+
+Ensuite vous devrez choisir une zone géographique.
+Si vous avez choisi une langue qui est reconnue comme la langue
+officielle dans au moins deux pays <footnote>
+
+<para>
+
+Techniquement parlant : plusieurs locales existent pour cette langue avec des codes de pays
+différents.
+
+</para>
+
+</footnote>, on vous présentera une liste constituée par ces pays.
+Pour choisir un pays qui ne se trouve pas dans cette liste, sélectionnez la dernière option,
+<guimenuitem>autre</guimenuitem>. Une liste des continents sera affichée. En choisissant un
+continent, vous obtiendrez une liste des pays de ce continent.
+
+</para><para>
+
+Si vous avez choisi une langue qui n'est associée qu'à un seul pays, 
+ce pays sera automatiquement sélectionné dans une liste où apparaissent
+tous les autres pays appartenant au continent ou à la région du
+pays sélectionné. Pour choisir un pays dans un autre continent, il faut
+utiliser le bouton <guibutton>Retour</guibutton>.
+
+</para><note><para>
+
+Il est important de choisir le pays dans lequel on vit car le pays
+détermine le fuseau horaire du système installé.
+
+</para></note>
+
+<para>
+S'il n'existe aucune locale pour la combinaison de langue et de pays
+choisis et si, pour cette langue, il existe plusieurs locales,
+l'installateur offre la possiblité de choisir la locale par défaut pour
+le système à installer <footnote>
+<para>
+Avec une priorité <quote>medium</quote> ou <quote>low</quote>, vous
+pouvez toujours choisir la locale que vous préférez parmi celles
+disponibles pour votre langue.
+</para>
+</footnote>. Dans tous les autres cas, la locale par défaut
+sera définie en fonction du pays et de la langue choisis.
+</para>
+<para>
+Toutes les locales par défaut choisies de la manière décrite dans le
+paragraphe précédent possèdent le codage <firstterm>UTF-8</firstterm>.
+</para>
+
+<para>
+Si vous faites une installation avec une priorité
+<emphasis>low</emphasis>, vous pourrez choisir d'ajouter d'autres
+locales, comme par exemple d'anciennes locales (<emphasis>Legacy
+locales</emphasis>) <footnote>
+<para>
+Les <emphasis>Legacy locales</emphasis> sont des locales qui n'utilisent
+pas le codage UTF-8, mais d'anciennes normes de codage comme
+ISO&nbsp;8859-1 pour les Européens ou EUC-JP pour les Japonais.
+</para>
+</footnote>, qui seront installées sur le nouveau système. Dans ce cas,
+il vous sera demandé de choisir quelle sera la locale par défaut.
+</para>
+   </sect3>

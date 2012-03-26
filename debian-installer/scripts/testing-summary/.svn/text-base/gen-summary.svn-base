@@ -1,0 +1,314 @@
+#!/usr/bin/perl
+# Summary of udebs in testing vs those in unstable.
+use strict;
+use warnings;
+
+my $mirror=shift || "/org/ftp.debian.org/ftp/";
+# only the arches we care about
+my @arches=qw(amd64 armel i386 ia64 kfreebsd-amd64 kfreebsd-i386 mips mipsel powerpc s390 sparc);
+my @dists=qw(testing unstable);
+
+my %packageversions;
+my %seenpackages;
+my %pooldirs;
+my %poolfiles;
+my %lastbinfromsource;
+my %inconsistent;
+my %bin_nmu;
+my %frozen;
+my %has_debs;
+my @annotations;
+
+sub markup {
+	my $text=shift;
+	$text=~s/\#(\d\d\d\d+)/<a href="http:\/\/bugs.debian.org\/$1">#$1<\/a>/g;
+	return $text;
+}
+
+sub between_versions {
+	my $version=shift;
+	my $low=shift;
+	my $high=shift;
+	if ((! length $low || system('dpkg','--compare-versions', $low, '<<', $version) == 0) &&
+	    (! length $high || system('dpkg','--compare-versions', $high, '>=', $version) == 0)) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+sub older_version {
+	my $version=shift;
+	my $high=shift;
+	if (length $high && system('dpkg','--compare-versions', $high, '>>', $version) == 0) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+sub archname {
+	my %arch=map { $_ => 1 } @_;
+	my %seen;
+	my %unseen=map { $_ => 1 } @arches;
+	foreach my $arch (@arches) {
+		if (exists $arch{$arch}) {
+			$seen{$arch}=1;
+			delete $unseen{$arch}
+		}
+	}
+	if (! %unseen) {
+		return "all";
+	}
+	elsif (keys %unseen > keys %seen) {
+		return join(",", keys %seen);
+	}
+	else {
+		return join(",", map { "!$_" } keys %unseen);
+	}
+}
+
+sub encode_str {
+	my $str=shift;
+
+	$str =~ s/([^A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg;
+}
+
+foreach my $dist (@dists) {
+	foreach my $arch (@arches) {
+		my $pkgfile="$mirror/dists/$dist/main/debian-installer/binary-$arch/Packages.gz";
+		open(PKG, "zcat $pkgfile |") || die "cannot read $pkgfile: $!";
+		local $/="\n\n";
+		while (<PKG>) {
+			my ($package)=m/Package: (.*)\n/;
+			my ($version)=m/Version: (.*)\n/;
+			if (! length $package || ! length $version) {
+				print STDERR "Parse failure. Stanza: $_";
+			}
+			else {
+				my ($source)=m/Source: (.*)\n/;
+				if (! defined $source) {
+					$source=$package;
+				}
+				else {
+					# Source line can include a version if binNMU'ed
+					$source=~s/ .*$//;
+				}
+
+				# Assume that source packages maintained by d-i team don't
+				# have debs and others do; exceptions in deb-exceptions
+				my ($maintainer)=m/Maintainer: (.*)\n/;
+				if (defined $maintainer && $maintainer !~ /debian-boot/) {
+					$has_debs{$source}=1;
+				}
+
+				# Check for binNMUs; correct version to source version
+				if ($version =~ /\+b[1-9]$/) {
+					if (! $bin_nmu{$source}) {
+						$bin_nmu{$source}=1;
+						push @annotations, {arch => $arch, package => $source, annotation => "has binary NMU in $dist" };
+					}
+					$version =~ s/\+b[1-9]$//
+				}
+				if ($dist eq 'testing' && 
+				    exists $packageversions{$source}{$dist}{$arch} &&
+				    $packageversions{$source}{$dist}{$arch} ne $version) {
+					if (! $inconsistent{$source}) {
+						$inconsistent{$source}=1;
+						push @annotations, {arch => $arch, package => $source, annotation => "inconsistent binary versions in testing" };
+					}
+					push @annotations, {arch => $arch, detail => 1, package => $source, annotation => "binary package $package at version $version on arch $arch, while $lastbinfromsource{$source} is version $packageversions{$source}{$dist}{$arch}" };
+				}
+				else {
+					$packageversions{$source}{$dist}{$arch} = $version;
+					$lastbinfromsource{$source}=$package;
+					$seenpackages{$source}=1;
+					my ($filename)=m/Filename: (.*)\n/;
+					push @{$poolfiles{$source}{$arch}}, $filename;
+					my ($pooldir)=m/Filename: (.*)\/.*?\n/;
+					$pooldirs{$source}=$pooldir;
+				}
+			}
+		}
+	}
+	close PKG;
+}
+
+# Process exceptions for source packages with debs
+if (open (EXC, "deb-exceptions")) { 
+	while (<EXC>) {
+		next if /^#/;
+		next unless length;
+
+		my ($package)=m/^([^ ]*) [01]\n/;
+		my ($has_deb)=m/^[^ ]* ([01])\n/;
+		if (defined $package && defined $has_deb) {
+			$has_debs{$package}=$has_deb;
+		}
+	}
+	close EXC;
+} else {
+	print STDERR "failed to read package excepions file: $!\n";
+}
+
+# Collate transitions for multiple arches
+my %transitions;
+foreach my $package (keys %seenpackages) {
+	foreach my $arch (@arches) {
+		my $key="$package";
+		my %seen;
+		foreach my $dist (@dists) {
+			if (exists $packageversions{$package}{$dist}{$arch}) {
+				my $version=$packageversions{$package}{$dist}{$arch};
+				$key.=" $version";
+				$seen{$version}++;
+			}
+		}
+		my $dup=0;
+		foreach my $key (keys %seen) {
+			$dup=1 if $seen{$key} > 1;
+		}
+		
+		push @{$transitions{$package}{$key}}, $arch if ! $dup && %seen;
+	}
+}
+
+if (open (ANN, "annotations")) {
+	while (<ANN>) {
+		chomp;
+		next if /^#/;
+		next unless length;
+
+		my ($user, $package, $version, $annotation) = split(' ', $_, 4);
+		next unless defined $annotation && length $annotation;
+		push @annotations, {user => $user, package => $package,
+			version => $version, annotation => markup($annotation)};
+	}
+	close ANN;
+} else {
+	print STDERR "failed to read annotations: $!\n";
+}
+
+# Read packages in freeze file
+if (open (FREEZE, "freeze")) {
+	while (<FREEZE>) {
+		next if /^#/;
+		next unless length;
+
+		my ($package)=m/block-udeb (.*)\n/;
+		if (defined $package) {
+			$frozen{$package}=1;
+		}
+	}
+	close FREEZE;
+} else {
+	print STDERR "failed to read frozen packages file: $!\n";
+}
+
+print "<html><head><title>udeb testing summary</title></head><body>\n";
+
+print "<h1>udeb testing summary</h1>\n";
+	
+print "<table border=1><tr align=left><th>source package</th><th>debs</th><th>arches</th>";
+foreach my $dist (@dists) {
+	print "<th>$dist</th>";
+}
+print "<th>age (days)</th><th>frozen</th><th>utils</th></tr>\n";
+my $numcols=5 + @dists;
+
+foreach my $package (sort keys %seenpackages) {
+	foreach my $transition (keys %{$transitions{$package}}) {
+		print "<tr><td><a href=\"http://packages.debian.org/unstable/source/$package\">$package</a></td>";
+		if (exists $has_debs{$package} && $has_debs{$package}==1) {
+			print "<td align=\"center\">x</td>";
+		} else {
+			print "<td>\&nbsp;</td>";
+		}
+		print "<td>".archname(@{$transitions{$package}{$transition}})."</td>";
+		my $some_arch=@{$transitions{$package}{$transition}}[0];
+		my @vers;
+		foreach my $dist (@dists) {
+			my $version=$packageversions{$package}{$dist}{$some_arch};
+			if (! defined $version) {
+				$version="-";
+				push @vers, '';
+				print "<td>-</td>";
+			}
+			else {
+				push @vers, $version;
+				if ($dist eq 'testing') {
+					print "<td><a href=\"http://release.debian.org/migration/testing.pl?package=" . encode_str($package) . "\">$version</a></td>";
+				}
+				else {
+					print "<td><a href=\"http://packages.debian.org/changelog:$package\">$version</a></td>";
+				}
+			}
+		}
+		# Looking at the file modification date may not be
+		# safe. FIXME
+		my $minage;
+		foreach my $file (@{$poolfiles{$package}{$some_arch}}) {
+			my $age=-M $mirror.$file;
+			if (defined $age && (! defined $minage || $minage > $age)) {
+				$minage=$age;
+			}
+		}
+		if (! defined $minage) {
+			$minage="unknown";
+		}
+		else {
+			$minage=int($minage);
+		}
+		print "<td>".$minage."</td>";
+		if (exists $frozen{$package}) {
+			print "<td align=\"center\">yes</td>";
+		} else {
+			print "<td align=\"center\"><font color=\"red\">NO</font></td>";
+		}
+		print "<td><a href=\"http://release.debian.org/migration/testing.pl?package=$package\">t</a>
+               <a href=\"http://buildd.debian.org/~luk/status/package.php?p=$package\">b</a>
+               <a href=\"http://packages.qa.debian.org/$package\">s</a></td>";
+		print "</tr>\n";
+			
+		foreach my $ann (@annotations) {
+			if ($package eq $ann->{package} && 
+			    (! exists $ann->{version} || between_versions($ann->{version}, $vers[0], $vers[1])) &&
+			    (! exists $ann->{arch} || grep $ann->{arch}, @{$transitions{$package}{$transition}}[0])) {
+				print "<tr><td></td><td colspan=".($numcols-1)."><b>$ann->{annotation}</b>";
+				if (exists $ann->{user}) {
+				print " <i>-- $ann->{user}</i>";
+				}
+				if (exists $ann->{version} && older_version($ann->{version}, $vers[1])) {
+					print " (re an older version)";
+				}
+				print "</td></tr>\n";
+			}
+		}
+	}
+}
+	
+print "</table><hr>\n";
+
+my $date=`LANG=C TZ=GMT date`;
+chomp $date;
+
+print <<"EOS"
+To update annotations on this web page, edit
+scripts/testing-summary/annotations in d-i svn.
+<p>
+See also:
+<ul>
+<li>
+<a href="http://ftp-master.debian.org/testing/hints/" target="_blank">dak hint files (RMs)</a>
+</li><li>
+<a href="http://ftp-master.debian.org/d-i" target="_blank">consistency check of sources of udebs</a>
+</li><li>
+<a href="http://ftp-master.debian.org/~vorlon/d-i-builddeps.html" target="_blank">consistency check of build dependencies</a>
+</li>
+</ul>
+<hr>
+$date
+</html>
+EOS

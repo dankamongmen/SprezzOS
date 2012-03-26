@@ -1,0 +1,73 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="sparc" id="sparc-cpus">
+    <title>Suport de CPU i plaques base</title>
+<para>
+
+Existeixen nombroses subarquitectures diferents pel maquinari basat
+en Sparc, identificades pels següents noms: sun4, sun4c, sun4d, sun4m,
+sun4u o sun4v. A continuació es mostra una llista que descriu quines
+màquines inclouen i quin nivell de suport s'espera per cada una d'elles.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>sun4, sun4c, sun4d, sun4m</term>
+
+<listitem><para>
+
+Cap d'aquestes subarquitectures de 32 bits (sparc32) està suportada. Per a
+una llista completa de màquines que pertanyen a aquestes subarquitectures,
+consulteu la <ulink url="http://en.wikipedia.org/wiki/SPARCstation">pàgina
+de la Viquipèdia SPARCstation</ulink>.
+
+</para><para>
+
+Etch va ser la última versió de &debian; amb suport per a sparc32, però
+inclús llavors només per a sistemes sun4m. El suport per a altres
+subarquitectures de 32 bits ja s'havia aturat després de versions
+anteriors.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4u</term>
+
+<listitem><para>
+
+Aquesta subarquitectura inclou totes les màquines de 64 bits (sparc64)
+basades en el processador UltraSparc i els seus clons. La majoria de
+les màquines estan ben suportades, si bé per algunes podeu tenir algun
+problema quan arrenqueu des del CD degut a errors al microprogramari o
+al gestor d'arrencada (problema que es pot evitar utilitzant l'arrencada
+via xarxa). Utilitzeu el nucli sparc64 o sparc64-smp en les configuracions
+UP i SMP respectivament.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4v</term>
+
+<listitem><para>
+
+Aquesta és la darrera inclusió a la família Sparc, la qual inclou màquines
+basades en les CPU Niagara multinucli. De moment, aquestes CPU només estan
+disponibles als servidors T1000 i T2000 de Sun, i estan ben suportades.
+Utilitzeu el nucli sparc64-smp.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Noteu que les CPU SPARC64 de Fujitsu utilitzades per la família de
+servidors PRIMEPOWER no estan suportades degut a la manca de suport per
+part del nucli Linux.
+
+</para>
+  </sect2>

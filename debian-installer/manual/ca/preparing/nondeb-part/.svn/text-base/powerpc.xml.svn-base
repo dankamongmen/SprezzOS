@@ -1,0 +1,46 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+
+  <sect2 arch="powerpc"><title>Fer particions a MacOS/OSX</title>
+
+<para>
+
+Podeu trobar el <application>Apple Drive Setup</application> al directori
+<filename>Utilitats</filename>al disc de MacOS. Això no redimensionarà les
+particions existents; sols permet partir tot el disc alhora. Les
+unitats de disc i les particions no es mostren a <application>Drive
+Setup</application>
+
+</para><para>
+
+Recordi crear una partició on poder instal·lar GNU/Linux, a ésser possible
+al principi del disc. No és important el tipus que sigui, més endavant serà
+esborrada i reemplaçada per l'instal·lador de &debian-gnu;.
+
+</para><para>
+
+Si teniu intenció d'instal·lar tant MacOS 9 com OS X, és millor crear
+particions distintes per a MacOS 9 i per OS X. Si han d'ésser instal·lats
+a la mateixa partició heu d'usar <application>Startup Disk</application> i
+reengegar per poder seleccionar una d'elles; no podeu escollir al moment
+d'arrencar. Si teniu particions separades apareixeran distintes opcions
+per OS 9 i OS X mentre premeu la tecla <keycap>opció</keycap> durant
+l'engegada i també podeu instal·lar distintes opcions al menú de
+<application>yaboot</application>. De la mateixa manera, Startup Disk
+des-beneirà totes les demés particions muntables, cosa que pot afectar a
+l'engegada de GNU/Linux. Les particions tant de OS 9 com de OS X seran
+accessibles des de OS 9 o OS X.
+
+</para><para>
+
+GNU/Linux no pot accedir a la informació de les particions UFS però si que
+té suport per particions HFS+ (també conegut com MacOS Extended). OS X
+demana un d'aquests dos tipus per la seva partició d'engegada. Podeu
+instal·lar MacOS 9 tant a una partició HFS (també conegut com MacOS
+Standard) o HFS+. Si voleu compartir informació entre els sistemes MacOS i
+GNU/Linux un canvi de particions és recomanable. Les particions HFS, HFS+
+i MS-DOS FAT són suportades tant per MacOS com per Linux
+
+</para>
+  </sect2>

@@ -1,0 +1,273 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 48595 -->
+<!-- translated by Felipe Augusto van de Wiel (faw) 2007.01.21 -->
+
+ <sect1 id="mail-setup">
+ <title>Configurando Seu Sistema para Usar E-Mail</title>
+<para>
+
+Hoje, e-mail é uma parte importante na vida de muitas pessoas. Como há
+muitas opções para configurá-lo, e como tê-lo configurado corretamente é
+importante para alguns utilitários &debian;, nós vamos tentar cobrir o
+básico nesta seção.
+
+</para><para>
+
+Há três funções principais que fazem um sistema de e-mail. Primeiro há o
+<firstterm>Mail User Agent</firstterm> (MUA) que é o programa que o usuário
+atualmente usa para escrever e ler e-mails. Então há o <firstterm>Mail
+Transfer Agent</firstterm> (MTA) que cuida de transferir as mensagens de um
+computador para outro. E finalmente há o <firstterm>Mail Delivery
+</firstterm> (MDA) que cuida de entregar os e-mails que chegam na caixa de
+entrada do usuário.
+
+</para><para>
+
+Estas três funções podem ser realizadas por programas separados, mas elas
+podem ser combinadas em um ou dois programas. Também é possível ter diferentes
+programas gerenciando estas funções para diferentes tipos de e-mail.
+
+</para><para>
+
+Em sistemas Linux e Unix, <command>mutt</command> é historicamente um MUA
+muito popular. Como a maioria dos tradicionais programas Linux ele é baseado
+em modo texto. Ele é frequentemente usado em combinação com o
+<command>exim</command> ou o <command>sendmail</command> como MTA e
+<command>procmail</command> como MDA.
+
+</para><para>
+
+Com o aumento da popularidade dos sistema desktop gráficos, o uso de
+programas de e-mail gráficos como o <command>evolution</command> do GNOME,
+<command>kmail</command> do KDE ou <command>thunderbird</command> do
+Mozilla (no &debian; disponível como <command>icedove</command><footnote>
+
+<para>
+A razão pela qual o <command>thunderbird</command> foi renomeado para
+<command>icedove</command> no &debian; está ligada a problemas de licenciamento.
+Detalhes estão fora do escopo deste manual.
+</para>
+
+</footnote>) está ficando mais popular. Estes programas combinam a função
+do MUA, MTA e MDA, mas podem &mdash; e frequentemente são &mdash; também
+usados combinados com as tradicionais ferramentas Linux.
+
+</para>
+
+  <sect2 id="mail-default">
+  <title>Configuração de E-Mail Padrão</title>
+<para>
+
+Mesmo se você estiver planejando usar um programa de e-mail gráfico, é
+importante que o tradicional MTA/MDA também esteja instalado e corretamente
+configurado no seu sistema &debian-gnu;. A razão é que vários utilitários sendo
+executados no sistema<footnote>
+
+<para>
+Exemplos são: <command>cron</command>, <command>quota</command>,
+<command>logcheck</command>, <command>aide</command>, &hellip;
+</para>
+
+</footnote> podem mandar notícias importantes por e-mail para informar ao
+administrador do sistema sobre (potenciais) problemas ou mudanças.
+
+</para><para>
+
+Por esta razão os pacotes <classname>exim4</classname> e
+<classname>mutt</classname> serão instalador por padrão (desde que você
+não tenha desmarcado a tarefa <quote>padrão</quote> (standard) durante
+a instalação). <classname>exim4</classname> é uma combinação de MTA/MDA
+e é relativamente pequeno mas muito flexível. Por padrão ele será configurado
+para apenas manusear e-mails localmente para o próprio sistema e e-mails
+endereçados para o administrador do sistema (conta root) serão entregues
+para uma conta de usuário regular criada durante a instalação<footnote>
+
+<para>
+O encaminhamento de e-mail do root para uma conta de usuário regular é
+configurada em <filename>/etc/aliases</filename>. Se nenhuma conta de
+usuário regular foi criada, o e-mail, é claro, será entregue para a
+própria conta do root.
+</para>
+
+</footnote>.
+
+</para><para>
+
+Quando os e-mails de sistema são entregues eles são adicionados a um arquivo em
+<filename>/var/mail/<replaceable>nome_da_conta</replaceable></filename>.
+Os e-mails podem ser lidos usando <command>mutt</command>.
+
+</para>
+  </sect2>
+
+  <sect2 id="mail-outgoing">
+  <title>Enviando E-Mail para Fora do Sistema</title>
+<para>
+
+Como mencionado anteriormente, o sistema &debian; instalado é configurado para
+apenas manusear e-mails locais aos sistema, não para enviar e-mails para outros
+nem para receber e-mails de outros.
+
+</para><para>
+
+Se você gostaria que o <classname>exim4</classname> manuseasse e-mails
+externos, por favor veja na próxima subseção para as opções de configuração
+básica disponíveis. Tenha certeza de testar se os e-mails podem ser enviados
+e recebidos corretamente.
+
+</para><para>
+
+Se você pretende usar um programa de e-mail gráfico e usar um servidor de
+e-mails do seu Provedor de Serviços de Internet (ISP &mdash; Internet Service
+Provider) ou de sua companhia, não há realmente nenhuma necessidade para
+configurar o <classname>exim4</classname> para gerenciar e-mails externos.
+Apenas configure seu programa de e-mails gráfico favorito para usar os
+servidores corretos para mandar e receber e-mails (como está fora do
+escopo deste manual).
+
+</para><para>
+
+No entanto, neste caso você pode precisar configurar utilitários individuais
+para corretamente enviar e-mails. Um exemplo de utilitário é o
+<command>reportbug</command>, um programa que facilita o envio de relatórios
+de bug em pacotes &debian;. Por padrão ele espera ser capaz de usar o
+<classname>exim4</classname> para enviar relatórios de bug.
+
+</para><para>
+
+Para corretamente configurar o <command>reportbug</command> para usar um
+servidor de e-mail externo, por favor, execute o comando
+<command>reportbug --configure</command> e responda <quote>não</quote> para
+a questão se um MTA está disponível. Você serão então questionado sobre o
+servidor SMTP a ser usado para enviar relatórios de bug.
+
+</para>
+  </sect2>
+
+  <sect2 id="config-mta">
+  <title>Configurando o Exim4 Mail Transport Agent</title>
+<para>
+
+Se você gostaria que seu sistema também manuseasse e-mails externos, você
+precisará reconfigurar o pacote <classname>exim4</classname><footnote>
+
+<para>
+Você pode, é claro, também remover o <classname>exim4</classname> e
+substituí-lo por uma alternativa de MTA/MDA.
+</para>
+
+</footnote>:
+
+<informalexample><screen>
+# dpkg-reconfigure exim4-config
+</screen></informalexample>
+
+</para><para>
+
+Após executar o comando (como root), você será questionado se quer quer
+dividir a configuração em pequenos arquivos. Se não tiver certeza, selecione
+a opção padrão.
+
+</para><para>
+
+A seguir você será apresentado a diversos cenários comuns de e-mail. Escolha
+aquele que mais se aproxima a suas necessidades.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>site internet</term>
+<listitem><para>
+
+Seu sistema está conectado à uma rede e e seus e-mails são enviados e
+recebidos diretamente usando SMTP. Nas telas a seguinte você será
+questionado em algumas perguntas básicas, como nome da máquina de e-mail,
+ou uma lista de domínios para os quais você aceita ou retransmite e-mails.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>e-mail enviado por smarthost</term>
+<listitem><para>
+
+Neste cenário os e-mails que saem são encaminhados para outra máquina,
+chamada de <quote>smarthost</quote>, que toma o cuidado de enviar as
+mensagens para os seus destinos.
+O smarthost também, usualmente, armazena e-mails que chegam endereçados
+para o seu computador, portanto você não precisa estar permanentemente
+online. Isto também significa que você terá que baixar os seus e-mails
+do smarthost através de programas como o fetchmail.
+
+</para><para>
+
+Em vários casos o smarthost é o servidor de e-mail do seu ISP, o que
+faz esta opção muito indicada para usuários de linha discada. Também
+é possível que seja o servidor de e-mail da companhia/empresa, ou um
+outros sistema em sua própria rede.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>e-mail enviado pelo smarthost; sem e-mails locais</term>
+<listitem><para>
+
+Esta opção é basicamente a mesma que a anterior exceto que o sistema
+não será configurado para manusear e-mails para o domínio local. E-mails
+do próprio sistema (e.g. para o administrador do sistema) ainda será
+manuseado.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>apenas entrega local</term>
+<listitem><para>
+
+Esta é a opção que seu sistema é configurados por padrão.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>nenhuma configuração neste momento</term>
+<listitem><para>
+
+Escolha esta opção se você está absolutamente convencido de que você
+sabe o que está fazendo. Isto irá deixar você com um sistema de e-mail
+não configurado &mdash; até que você configure-o, você não será capaz
+de enviar ou receber quaisquer e-mails e você pode perder mensagens
+importantes dos seus utilitários de sistema.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Se nenhuma destes cenários atende suas necessidades, ou se você precisa
+de uma configuração mais detalhada, você pode editar os arquivos de
+configuração no diretório <filename>/etc/exim4</filename> após a
+instalaçõa ter sido completada. Mais informações sobre o
+<classname>exim4</classname> podem ser encontrados em
+<filename>/usr/share/doc/exim4</filename>; o arquivo
+<filename>README.Debian.gz</filename> possui mais detalhes sobre a
+configuração do <classname>exim4</classname> e explica onde encontrar
+documentação adicional.
+
+</para><para>
+
+Note que enviar um e-mail diretamente para a Internet quando você não
+tem um nome de domínio oficial, pode resultar no seu e-mail sendo
+rejeitado por causa de medidas anti-spam nos servidores que recebem a
+mensagem. Usar o servidor de e-mail do seu ISP é preferível. Se você
+ainda quiser enviar e-mails diretamente, você pode querer usar um
+endereço de e-mail diferente do que é gerado por padrão. Se você usar
+<classname>exim4</classname> como seu MTA, isto é possível através da
+adição de uma entrada em <filename>/etc/email-addresses</filename>.
+
+</para>
+  </sect2>
+ </sect1>

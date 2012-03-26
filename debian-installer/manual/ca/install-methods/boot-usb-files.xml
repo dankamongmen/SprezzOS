@@ -1,0 +1,162 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 57590 -->
+
+ <sect1 condition="bootable-usb" id="boot-usb-files">
+ <title>Preparació dels fitxers per arrencar amb el llapis de memòria USB</title>
+
+<para>
+
+Hi ha dos mètodes d'instal·lació possibles si arrenqueu des d'un llapis USB.
+La primera opció és instal·lar-ho tot per xarxa. La segona consisteix en
+copiar una imatge de CD al llapis USB i utilitzar aquesta imatge com a font
+dels paquets, amb la possibilitat de combinar-ho amb una rèplica. Aquesta
+darrera opció és la més habitual.
+
+</para><para>
+
+Per al primer mètode d'instal·lació necessitareu descarregar una imatge de
+l'instal·lador del directori <filename>netboot</filename> (a la ubicació
+esmentada a <xref linkend="where-files"/>) i a continuació utilitzar la
+<quote>manera flexible</quote> de copiar els fitxers al llapis USB que
+s'explica a continuació.
+
+</para><para>
+
+Les imatges per a la instal·lació del segon mètode es poden trobar al
+directori <filename>hd-media</filename>, i podeu utilitzar tant la
+<quote>manera fàcil</quote> com la <quote>manera flexible</quote> de copiar la
+imatge al llapis USB. Per aquest mètode d'instal·lació també necessitareu
+descarregar-vos una imatge de CD. La imatge d'instal·lació i la imatge de CD
+s'han de basar en la mateixa versió del &d-i;. Si no coincideixen és possible
+que trobeu errors<footnote>
+
+<para>
+El missatge d'error que és més probable que veieu és que no es poden trobar
+els mòduls del nucli. Això vol dir que la versió dels udeb de mòduls del nucli
+inclosos a la imatge de CD és diferent a la versió del nucli que s'està
+executant.
+</para>
+
+</footnote> durant la instal·lació.
+
+</para><para>
+
+Per preparar el llapis USB, necessitareu un sistema amb GNU/Linux que suporti
+dispositius USB. Els sistemes GNU/Linux actuals normalment reconeixen
+automàticament els llapis USB així que es connecten. Si no és el cas, hauríeu
+de comprovar que s'ha carregat el mòdul usb-storage del nucli. Quan connecteu
+el llapis USB, aquest estarà representat per un dispositiu anomenat
+<filename>/dev/sdX</filename>, on la <quote>X</quote> és una lletra en
+minúscules (a-z). Hauríeu de poder veure de quin dispositiu es tracta més
+exactament executant l'ordre <command>dmesg</command> després de connectar-lo.
+Per escriure-hi, és possible que calgui desactivar la protecció d'escriptura
+del llapis USB.
+
+</para>
+<warning><para>
+
+Aneu en compte, tots els procediments que es descriuen en aquesta secció
+destruiran tot el que hi hagi al dispositiu. Assegureu-vos que esteu
+utilitzant el nom de dispositiu corresponent al llapis USB. Si utilitzeu un
+nom de dispositiu incorrecte podeu arribar a perdre les dades de, per exemple,
+el disc dur principal.
+
+</para></warning>
+<para>
+
+Fixeu-vos que el llapis USB ha de tenir una mida mínima de 256 MiB (és
+possible configurar amb llapis amb menys capacitat si seguiu
+<xref linkend="usb-copy-flexible"/>).
+
+</para>
+
+  <sect2 id="usb-copy-easy">
+  <title>Copia dels fitxers &mdash; la manera fàcil</title>
+<para>
+
+Hi ha un fitxer complet <filename>hd-media/boot.img.gz</filename>
+que conté tots el fitxers de l'instal·lador (incloent el nucli)
+<phrase arch="x86"> així com <command>SYSLINUX</command> i el seu fitxer de
+configuració.</phrase>
+<phrase arch="powerpc">així com <classname>yaboot</classname> i el seu fitxer
+de configuració.</phrase>
+
+</para><para>
+
+Fixeu-vos que, tot i semblar còmode, aquest mètode té un desavantatge: la mida
+lògica del dispositiu estarà limitada a 256 MiB, encara que la capacitat del
+llapis USB sigui superior. Si voleu utilitzar-lo per a altres propòsits haureu
+de tornar a partir el llapis USB i crear nous sistemes de fitxers per disposar
+de tota la seva capacitat. Un altre desavantatge és que no podeu copiar una
+imatge de CD sencera al llapis, només les imatges de CD reduïdes
+(<quote>businesscard</quote> o <quote>netinst</quote>).
+
+</para><para arch="x86">
+
+Per utilitzar aquesta imatge tan sols heu d'extreure-la directament al llapis
+USB:
+
+<informalexample><screen>
+# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>
+</screen></informalexample>
+
+</para><para arch="powerpc">
+
+Creeu una partició de tipus «Apple_Bootstrap» al vostre llapis USB utilitzant
+l'ordre <userinput>C</userinput> del <command>mac-fdisk</command> i
+extraieu-hi la imatge directament:
+
+<informalexample><screen>
+# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>
+</screen></informalexample>
+
+</para><para>
+
+Després d'això, munteu el llapis de memòria USB
+<phrase arch="x86">(<userinput>mount
+/dev/<replaceable>sdX</replaceable> /mnt</userinput>),</phrase>
+<phrase arch="powerpc">(<userinput>mount
+/dev/<replaceable>sdX2</replaceable> /mnt</userinput>),</phrase>
+que ara tindrà
+<phrase arch="x86">un sistema de fitxers FAT,</phrase>
+<phrase arch="powerpc">un sistema de fitxers HFS,</phrase>
+i copieu-hi una imatge ISO tipus <quote>businesscard</quote> o
+<quote>netinst</quote>.
+Finalment desmunteu el llapis (<userinput>umount /mnt</userinput>).
+
+</para>
+  </sect2>
+
+  <sect2 id="usb-copy-flexible">
+  <title>Copia dels fitxers &mdash; la manera flexible</title>
+<para>
+
+Si voleu més flexibilitat o voleu saber que esteu fent, heu de seguir aquest
+mètode per posar els fitxers al vostre llapis. Un avantatge d'utilitzar aquest
+mètode és que, si el llapis USB té prou capacitat, podreu copiar-hi una imatge
+ISO de CD sencera.
+
+</para>
+
+&usb-setup-x86.xml;
+&usb-setup-powerpc.xml;
+
+   </sect2>
+
+   <!-- TODO: doesn't this section belong later? -->
+   <sect2 arch="x86">
+   <title>Arrencada des d'un llapis USB</title>
+<warning><para>
+
+Si el sistema rebutja arrencar des del llapis de memòria, el llapis
+podria tenir un registre inicial d'arrencada invàlid (MBR). Per reparar-ho,
+utilitzeu l'ordre <command>install-mbr</command> del paquet
+<classname>mbr</classname>:
+
+<informalexample><screen>
+# install-mbr /dev/<replaceable>sdX</replaceable>
+</screen></informalexample>
+
+</para></warning>
+  </sect2>
+ </sect1>

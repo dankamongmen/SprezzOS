@@ -1,0 +1,140 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56290 -->
+<!-- translated by Felipe Augusto van de Wiel (faw) 2008.11.11 -->
+
+ <sect1 id="loading-firmware" arch="not-s390">
+ <title>Carregando firmwares</title>
+<para>
+
+Como descrito em <xref linkend="hardware-firmware"/>, alguns dispositivos
+requerem que um firmware seja carregado. Na maioria dos casos o dispositivo
+não funcionará se o firmware não estiver disponível; algumas vezes
+funcionalidades básicas não são desativadas se o firmware está faltando e
+o firmware só é necessário para habilitar recursos adicionais.
+
+</para><para>
+
+Se o driver de dispositivo requer um firmware que não está disponível,
+o &d-i; exibirá uma caixa de diálogo oferecendo a opção de carregar o
+firmware que está faltando. Se esta opção for selecionada, o &d-i;
+varrerá os dispositivos disponíveis em busca de arquivos de firmware
+ou pacotes contendo firmware. Se encontrado, o firmware será copiado
+para o local correto (<filename>/lib/firmware</filename>) e o módulo
+do driver será carregado.
+
+</para>
+<note><para>
+
+Quais dispositivos são verificados e para quais sistemas de arquivos há
+suporte depende da arquitetura, do método de instalação e do estágio de
+instalação. Especialmente durante os estágios iniciais da instalação,
+carregar o firmware tem mais chances de sucesso a partir de um disquete
+ou pendrive formatado como FAT.
+<phrase arch="x86">No i386 e amd64 o firmware também pode ser carregado
+a partir de um cartão SD ou MMC.</phrase>
+
+</para></note>
+<para>
+
+Note que é possível pular o carregamento de firmware se você sabe que
+o dispositivo também funciona sem ele, ou se o dispositivo não é
+necessário durante a instalação.
+
+</para>
+<warning><para>
+
+Suporte para o carregamento de firmware ainda é relativamente básico e
+tende a melhorar nas próximas versões do instalador. Por exemplo, no seu
+estado atual, o &d-i; não exibirá qualquer alerta se você escolher carregar
+um firmware que está faltando mas o firmware requisitado não for encontrado.
+Por favor, relate quaisquer problemas que encontrar enviando um relatório
+de instalação (veja <xref linkend="submit-bug"/>).
+
+</para></warning>
+
+  <sect2><title>Preparando uma mídia</title>
+<para>
+
+Embora em alguns casos o firmware também possa ser carregado a partir de
+uma partição no disco rígido, o método mais comum para carregar um
+firmware será a partir de alguma mídia removível como um disquete ou
+pendrive USB.
+Os arquivos arquivos de firmware ou pacotes devem ser colocados no
+diretório raiz ou em um diretório chamado <filename>/firmware</filename>
+do sistema de arquivos da mídia. O sistema de arquivos recomendado para
+uso é FAT pois é o que se tem mais certeza de que haverá suporte nos
+estágios iniciais da instalação.
+
+</para><para>
+
+Arquivos (<quote>tarballs</quote> contendo os atuais pacotes para os
+firmwares mais comuns estão disponíveis a partir de:
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-tarballs;"/>
+</para></listitem>
+</itemizedlist>
+
+Baixe o <quote>tarball</quote> para a versão correta e descompacte-o no
+sistema de arquivos da mídia.
+
+</para><para>
+
+Se o firmware que você precisa não está incluído no tarball, você
+pode baixar os pacotes de firmware específicos (da seção non-free)
+do repositório. A lista a seguir dá uma visão geral dos pacotes de
+firmware disponíveis mas não garante-se que esteja completa e também
+pode conter pacotes que não são firmware:
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-packages;"/>
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Também é possível copiar arquivos de firmware individuais para a mídia.
+Arquivos de firmware podem ter sido obtidos, por exemplo, de um sistema
+já instalado ou de um fornecedor de hardware.
+
+</para>
+  </sect2>
+
+  <sect2><title>Firmware e o sistema instalado</title>
+<para>
+
+Qualquer firmware carregado durante a instalação será copiado automaticamente
+para o sistema instalado. Na maioria dos casos isto garantirá que o dispositivo
+que requer o firmware também funcione corretamente após o equipamento ser
+reinicializado no sistema instalado. No entanto, se o sistema instalado usar
+uma versão de kernel diferente da usada pelo instalado há uma pequena chance
+que o firmware não possa ser carregado.
+
+</para><para>
+
+Se o firmware for carregado a partir de um pacote de firmware, o &d-i;
+também instalará este pacote para o sistema instalado e automaticamente
+adicionará a seção non-free do repositório de pacotes no arquivo
+<filename>sources.list</filename> do APT. Isto possui a vantagem de que
+o firmware será atualizado automaticamente se uma nova versão for
+disponibilizada.
+
+</para><para>
+
+Se o carregamento do firmware for pulado durante a instalação, os
+dispositivos relevantes provavelmente não funcionarão no sistema instalado
+até que o firmware (pacote) seja manualmente instalado.
+
+</para>
+<note><para>
+
+Se o firmware foi carregado a partir de arquivos de firmware, o arquivo
+copiado para o sistema instalado <emphasis>não</emphasis> será automaticamente
+atualizado a menos que o pacote de firmware correspondente (se disponível)
+seja instalado após a instalação ter sido compeltada.
+
+</para></note>
+  </sect2>
+ </sect1>

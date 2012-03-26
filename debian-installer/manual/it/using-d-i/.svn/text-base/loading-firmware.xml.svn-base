@@ -1,0 +1,238 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66809 -->
+
+ <sect1 id="loading-firmware" arch="not-s390">
+ <!-- <title>Loading Missing Firmware</title> -->
+ <title>Caricare i firmware mancanti</title>
+<para>
+
+<!--
+As described in <xref linkend="hardware-firmware"/>, some devices require
+firmware to be loaded. In most cases the device will not work at all
+if the firmware is not available; sometimes basic functionality is not
+impaired if it is missing and the firmware is only needed to enable
+additional features.
+-->
+
+Come descritto in <xref linkend="hardware-firmware"/>, alcuni dispositivi
+possono richiedere il caricamento di un firmware. Nella maggior parte dei
+casi questi dispositivi non funzionano senza; qualche volta sono attive
+solo alcune funzioni di base e il firmware è necessario per attivare le
+funzionalità aggiuntive.
+
+</para><para>
+
+<!--
+If a device driver requests firmware that is not available, &d-i; will
+display a dialog offering to load the missing firmware. If this option
+is selected, &d-i; will scan available devices for either loose firmware
+files or packages containing firmware. If found, the firmware will be
+copied to the correct location (<filename>/lib/firmware</filename>) and
+the driver module will be reloaded.
+-->
+
+Quando un dispositivo richiede un firmware non disponibile, &d-i; mostra
+una finestra di dialogo dando la possibilità di caricare il firmware
+mancante. Se si utilizza questa opzione, &d-i; cerca all'interno dei
+dispositivi disponibili i singoli file col firmware oppure i pacchetti
+contenenti il firmware. Se la ricerca ha successo, il firmware verrà
+copiato nella directory corretta (<filename>/lib/firmware</filename>) e
+il modulo con il driver verrà ricaricato.
+
+</para>
+<note><para>
+
+<!--
+Which devices are scanned and which file systems are supported depends on
+the architecture, the installation method and the stage of the installation.
+Especially during the early stages of the installation, loading the firmware
+is most likely to succeed from a FAT-formatted floppy disk or USB stick.
+<phrase arch="x86">On i386 and amd64 firmware can also be loaded from an
+MMC or SD card.</phrase>
+-->
+
+In quali dispositivi viene effettuata la ricerca e quali sono i
+filesystem supportati dipendono dall'architettura, dal metodo
+d'installazione e dalla fase dell'installazione. In particolare è molto
+probabile che durante le prime fasi dell'installazione funzioni il
+caricamento dei firmware da dischetti o chiavette USB con un filesystem
+FAT. <phrase arch="x86">Sulle architetture i386 e amd64 i firmware
+possono anche essere caricati da una MMC o SD.</phrase>
+
+</para></note>
+<para>
+
+<!--
+Note that it is possible to skip loading the firmware if you know the
+device will also function without it, or if the device is not needed during
+the installation.
+-->
+
+Notare che si può saltare il caricamento del firmware se il dispositivo
+può funzionare senza oppure se il dispositivo non è necessario durante
+l'installazione.
+
+</para>
+
+  <sect2>
+  <!-- <title>Preparing a medium</title> -->
+  <title>Preparazione del supporto</title>
+<para>
+
+<!--
+Official CD images do not include non-free firmware. The most common
+method to load such firmware is from some removable medium such as a USB
+stick. Alternatively, unofficial CD builds containing non-free firmware
+can be found at <ulink url="&url-firmware-cds;"/>.
+
+To prepare a USB stick (or other medium like a hard drive partition, or floppy
+disk), the firmware files or packages must be placed in either the root directory
+or a directory named <filename>/firmware</filename> of the file system on
+the medium. The recommended file system to use is FAT as that is most
+certain to be supported during the early stages of the installation.
+-->
+
+Le immagini ufficiali dei CD non contengono il firmware non-free. Il
+metodo più comune per caricare il firmware non-free è da un supporto
+removibile come una chiavetta USB. In alternativa è possibile trovare
+in <ulink url="&url-firmware-cds;"/> le immagini di CD non ufficiali
+contenenti il firmware non-free.
+
+Per preparare una chiavetta USB (o un qualsiasi altro supporto come una
+partizione del disco fisso o un dischetto) occorre copiare i file o i
+pacchetti con il firmware nella directory principale o in una directory
+con nome <filename>/firmware</filename> del filesystem sul supporto. Si
+raccomanda l'uso di un filesystem FAT dato che è quello supportato sino
+dalle prime fasi dell'installazione.
+
+</para><para>
+
+<!--
+Tarballs and zip files containing current packages for the most common firmware are
+available from:
+-->
+
+Dei tarball e dei file zip contenenti i pacchetti con i firmware più
+comuni sono disponibili da:
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-tarballs;"/>
+</para></listitem>
+</itemizedlist>
+
+<!--
+Just download the tarball or zip file for the correct release and unpack it to
+the file system on the medium.
+-->
+
+È sufficiente scaricare il tarball o il file zip adatto al proprio rilascio e
+scompattarlo nel filesystem del supporto.
+
+</para><para>
+
+<!--
+If the firmware you need is not included in the tarball, you can also
+download specific firmware packages from the (non-free section of the)
+archive. The following overview should list most available firmware
+packages but is not guaranteed to be complete and may also contain
+non-firmware packages:
+-->
+
+Se il firmware di cui si ha bisogno non è incluso nel tarball, è
+possibile scaricare gli specifici pacchetti con il firmware dalla
+sezione non-free dell'archivio. La panoramica seguente dovrebbe
+elencare i principali pacchetti con firmware disponibili ma non si
+garantisce che sia completa e potrebbe anche contenere dei pacchetti
+senza firmware.
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-packages;"/>
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+<!--
+It is also possible to copy individual firmware files to the medium. Loose
+firmware could be obtained for example from an already installed system or
+from a hardware vendor.
+-->
+
+È anche possibile copiare i singoli file con il firmware nel supporto.
+I singoli firmware possono essere recuperati, per esempio, da altri
+sistemi già installati oppure dal produttore dell'hardware.
+
+</para>
+  </sect2>
+
+  <sect2>
+  <!-- <title>Firmware and the Installed System</title> -->
+  <title>Firmware sul sistema installato</title>
+<para>
+
+<!--
+Any firmware loaded during the installation will be copied automatically
+to the installed system. In most cases this will ensure that the device
+that requires the firmware will also work correctly after the system is
+rebooted into the installed system. However, if the installed system runs
+a different kernel version from the installer there is a slight chance that
+the firmware cannot be loaded due to version skew.
+-->
+
+Tutti i firmware caricati durante l'installazione verranno copiati sul
+sistema installato; nella maggior parte dei casi quasto assicura che il
+dispositivo che ha bisogno del firmware funzioni correttamente anche
+dopo aver riavviato il sistema. Tuttavia, se il sistema installato
+utilizza una versione del kernel diversa da quella usata per
+l'installazione c'è la possibilità che il firmware non possa essere
+caricato a causa della differenza fra le versioni.
+
+</para><para>
+
+<!--
+If the firmware was loaded from a firmware package, &d-i; will also install
+this package for the installed system and will automatically add the non-free
+section of the package archive in APT's <filename>sources.list</filename>.
+This has the advantage that the firmware should be updated automatically if
+a new version becomes available.
+-->
+
+Se il firmware è stato caricato da un pacchetto, &d-i; installa il
+pacchetto sul sistema finale e aggiunge automaticamente la sezione
+non-free dell'archivio nel <filename>sources.list</filename> di APT.
+Questo ha il vantaggio che quando è disponibile una nuova versione del
+firmware questo verrà aggiornato automaticamente.
+
+</para><para>
+
+<!--
+If loading the firmware was skipped during the installation, the relevant
+device will probably not work with the installed system until the firmware
+(package) is installed manually.
+-->
+
+Se il caricamento del firmware è stato saltato durante l'installazione,
+i dispositivi che hanno bisogno del firmware non funzioneranno fino a
+quando il firmware (o il pacchetto) non verrà installato manualmente.
+
+</para>
+<note><para>
+
+<!--
+If the firmware was loaded from loose firmware files, the firmware copied to
+the installed system will <emphasis>not</emphasis> be automatically updated
+unless the corresponding firmware package (if available) is installed after
+the installation is completed.
+-->
+
+Se i firmware sono stati caricati da file singoli, i firmware verranno
+copiati nel sistema installato ma <emphasis>non</emphasis> saranno
+aggiornati automaticamente a meno che, una volta completata
+l'installazione, non venga installato (se disponibile) il relativo
+pacchetto.
+
+</para></note>
+  </sect2>
+ </sect1>

@@ -1,0 +1,114 @@
+<!-- $Id$ -->
+<!-- original version: 66809 -->
+
+ <sect1 id="loading-firmware" arch="not-s390">
+ <title>Nahrání chybějícího firmwaru</title>
+<para>
+
+Jak je zmíněno v <xref linkend="hardware-firmware"/>, některá zařízení
+vyžadují pro svou práci kromě ovladače zařízení také firmware. Ve
+většině případů znamená chybějící firmware nefunkční zařízení.
+Existují však výjimky, kdy zařízení bez firmwaru funguje alespoň v
+základním režimu a firmware je potřeba až pro povolení speciálních
+vlastností.
+
+</para><para>
+
+Pokud ovladač zařízení vyžaduje firmware, který není k dispozici,
+&d-i; nabídne jeho nahrání z výměnných médií. Budete-li souhlasit,
+&d-i; prozkoumá dostupná zařízení, na kterých hledá buď samotné
+soubory s firmwarem, nebo balíky obsahující firmware. Je-li firmware
+nalezen, nakopíruje se do <filename>/lib/firmware</filename> a
+příslušný modul je znovu zaveden.
+
+</para><note><para>
+
+To, která zařízení jsou prohledána a které souborové systémy
+prozkoumány, závisí na architektuře, typu instalačních médií a fáze
+instalace. Obzvláště v počátcích instalace budete mít největší šanci
+na úspěch s disketou nebo USB klíčenkou formátovanou souborovým
+systémem FAT. <phrase arch="x86">Na architekturách i386 a amd64 je
+možné zavést firmware také z MMC nebo SD karty.</phrase>
+
+</para></note><para>
+
+Pokud víte, že zařízení není pro instalaci potřeba, nebo pokud
+zařízení funguje i bez firmwaru, můžete zavedení firmwaru přeskočit.
+
+</para>
+
+  <sect2><title>Příprava média</title>
+<para>
+
+Oficiální obrazy CD neobsahují nesvobodný firmware. Nejčastější způsob
+zavedení takového firmwaru je z nějakého výměnného média, jako je USB
+klíčenka. (Alternativně můžete použít neoficiální obrazy CD z <ulink
+url="&url-firmware-cds;"/>, které obsahují některý nesvobodný firmware
+přímo v sobě.)
+
+Při přípravě USB klíčenky (nebo jiného média jako třeba diskové
+oblasti nebo diskety) se soubory s firmwarem musí nacházet buď v kořenovém
+adresáři, nebo v adresáři <filename>/firmware</filename>. Doporučený
+souborový systém je FAT, protože je podporovaný hned v úvodní části
+instalace.
+
+</para><para>
+
+Archivy obsahující nejnovější balíky pro nejběžnější firmware jsou
+dostupné z:
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-tarballs;"/>
+</para></listitem>
+</itemizedlist>
+
+Stačí stáhnout archiv pro příslušné vydání a rozbalit jej na médium.
+
+</para><para>
+
+Jestliže se požadovaný firmware v archivu nenachází, můžete se zkusit
+podívat do sekce non-free. Následující přehled by měl obsahovat
+většinu dostupných balíků s firmwarem (nemusí být úplný):
+
+<itemizedlist>
+<listitem><para>
+<ulink url="&url-firmware-packages;"/>
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Na médium je také možné zkopírovat jednotlivé soubory s firmwarem
+(tzn. ne balíky). Takovéto soubory můžete obvykle získat z již
+instalovaného systému, nebo od dodavatele hardwaru.
+
+</para>
+  </sect2>
+
+  <sect2><title>Firmware a instalovaný systém</title>
+<para>
+
+Všechny firmwary, které se zavedou během instalace, se automaticky
+nakopírují do instalovaného systému. To by mělo zajistit, že zařízení
+vyžadující firmware budou fungovat i po restartu do nového systému.
+Stále zde však existuje drobné riziko v případě, kdy nainstalovaný
+systém používá jinou verzi jádra, než instalační systém. V takovém
+případě je možné, že se firmware nepodaří zavést kvůli rozdílné verzi.
+
+</para><para>
+
+Pokud byl firmware nainstalován z balíku s firmwarem, &d-i; do
+instalovaného systému nainstaluje i tento balík a automaticky přidá do
+konfiguračního souboru <filename>sources.list</filename> sekci non-free.
+Výhodou je to, že se firmware bude aktualizovat automaticky.
+
+</para><para>
+
+Jestliže jste při instalaci přeskočili možnost nahrání firmwaru,
+nebude dané zařízení nejspíš fungovat ani v nainstalovaném systému.
+Pro jeho zprovoznění budete muset doinstalovat firmware ručně.
+
+</para>
+  </sect2>
+ </sect1>

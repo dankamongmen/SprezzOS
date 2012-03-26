@@ -1,0 +1,111 @@
+<!-- $Id$ -->
+<!-- original version: 66909 -->
+
+  <sect2 arch="s390">
+  <title>Nastavení BIOSu</title>
+<para>
+
+Abyste mohli na počítač S/390 nebo zSeries nainstalovat &debian-gnu;, musíte
+nejprve zavést do systému jádro. Zaváděcí mechanismus je na této
+platformě diametrálně odlišný od ostatních systémů, obzvláště od
+kategorie PC (například zde není k dispozici disketová mechanika).
+Při práci s touto platformou si asi všimnete dalšího velkého rozdílu:
+většinu času (pokud ne všechen) budete pracovat vzdáleně za použití
+klientských programů telnetu nebo www prohlížeče. Je tomu tak kvůli
+speciální systémové architektuře, kde je konzola 3215/3270 řádková
+místo znaková.
+
+</para><para>
+
+Linux může na této platformě běžet nativně na skutečném počítači v
+takzvané LPAR (logické oblasti), nebo ve virtuálním počítači
+vytvořeném systémem VM. Na všech těchto systémech můžete použít
+zavádění z pásky. Také byste mohli použít jiná zaváděcí média, ale ta
+většinou nejsou k dispozici. Například můžete využít virtuální čtečku
+karet virtuálního počítače, nebo, pokud instalujete do LPAR, zavést
+systém z HMC (hardwarová konzola pro správu systému).
+
+</para><para>
+
+Než začnete s vlastní instalací, měli byste si projít několik
+přípravných kroků. Firma IBM celý proces zdokumentovala (mj. jak
+vytvořit instalační médium a jak z něj zavést systém) a není zde
+tedy potřeba tyto informace duplikovat. Krátce se však zmíníme
+o krocích specifických pro &debian;. Podle uvedených zdrojů byste si
+měli připravit počítač a instalační médium a poté z něj zavést
+instalaci. Jakmile uvidíte uvítací zprávu instalačního systému,
+pokračujte dál za pomoci tohoto manuálu.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390">
+  <title>Nativní (LPAR) instalace</title>
+<para>
+
+Pro nastavení LPAR pro instalaci Linuxu si v červených knihách
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+Linux for &arch-title;</ulink> a
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink>
+nastudujte kapitoly 5 a 3.2.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390">
+  <title>Instalace jako host systému VM</title>
+
+<para>
+
+Pro nastavení hosta systému VM pro instalaci Linuxu si v červených
+knihách
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf">
+Linux for &arch-title;</ulink> a
+<ulink url="http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf">
+Linux for IBM eServer zSeries and  &arch-title;: Distributions</ulink>
+přečtěte kapitoly 6 a 3.1.
+
+</para><para>
+
+Dále budete muset zkopírovat všechny soubory z podadresáře
+<filename>generic</filename> na váš CMS disk. Ujistěte se, že soubory
+<filename>kernel.debian</filename>
+a <filename>initrd.debian</filename> přenášíte v binárním módu
+s pevnou šířkou záznamu 80 znaků (zadáním příkazů
+<userinput>BINARY</userinput> a <userinput>LOCSITE FIX 80</userinput>
+ve svém FTP klientovi). Soubor <filename>parmfile.debian</filename>
+může být uložen v kódování ASCII nebo EBCDIC.
+
+Spolu s obrazy nalezeznete ukázkový skript <filename>debian.exec</filename>,
+který nakopne soubory ve správném pořadí.
+
+</para>
+  </sect2>
+
+  <sect2 arch="s390">
+  <title>Nastavení instalačního serveru</title>
+
+<para>
+
+Pokud nemáte připojení k Internetu (ať už přímo nebo přes proxy),
+musíte si vytvořit lokální instalační server, který bude dostupný
+z instalovaného S/390 a na kterém budou umístěny všechny balíčky, jež
+chcete instalovat. Tyto balíčky musí být dostupné přes NFS, HTTP nebo
+FTP.
+
+</para><para>
+
+Instalační server potřebuje přesnou kopii adresářové struktury
+libovolného zrcadla &debian;u. Vyžadovány jsou samozřejmě pouze soubory
+architektury s390 a soubory na architektuře nezávislé. Do takto
+vytvořené struktury můžete také nakopírovat obsah všech instalačních
+CD.
+
+</para>
+
+<para condition="FIXME">
+<emphasis>FIXME: more information needed - from a Redbook?</emphasis>
+</para>
+
+  </sect2>

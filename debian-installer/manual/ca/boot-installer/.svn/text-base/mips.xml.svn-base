@@ -1,0 +1,62 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+
+  <sect2 arch="mips" id="boot-tftp"><title>Arrencada amb TFTP</title>
+
+   <sect3>
+   <title>Arrencada amb TFTP en SGI</title>
+<para>
+
+Després d'entrar al monitor d'ordres, utilitzeu
+
+<informalexample><screen>
+bootp():
+</screen></informalexample>
+
+en màquines SGI per arrencar linux i començar la instal·lació
+del programari de &debian;. Per tal que això funcioni, potser haureu de
+desactivar la variable d'entorn <envar>netaddr</envar>. Per fer-ho
+teclegeu
+
+<informalexample><screen>
+unsetenv netaddr
+</screen></informalexample>
+
+al monitor d'ordres.
+
+</para>
+  </sect3>
+
+  </sect2>
+
+  <sect2 arch="mips"><title>Paràmetres d'arrencada</title>
+
+   <sect3>
+   <title>Arrencada amb TFTP en SGI</title>
+<para>
+
+En màquines SGI, podeu afegir paràmetres d'arrencada a l'ordre
+<command>bootp():</command> del monitor d'ordres.
+
+</para><para>
+
+Seguint l'ordre <command>bootp():</command>, podeu indicar el camí i el
+nom del fitxer per arrencar en cas que no ho hàgiu fet explícitament
+mitjançant el servidor bootp/dhcp. Exemple:
+
+<informalexample><screen>
+bootp():/boot/tftpboot.img
+</screen></informalexample>
+
+També es poden passar altres paràmetres del nucli amb
+<command>append</command>:
+
+<informalexample><screen>
+bootp(): append="root=/dev/sda1"
+</screen></informalexample>
+
+</para>
+  </sect3>
+
+  </sect2>

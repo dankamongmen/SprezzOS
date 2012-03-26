@@ -1,0 +1,150 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66987 -->
+
+ <sect1 id="boot-installer-accessibility" arch="not-s390">
+ <title>Barrierefreiheit</title>
+<para>
+
+Einige Nutzer könnten eventuell spezielle Unterstützung benötigen, zum
+Beispiel aufgrund einer Sehbehinderung.
+<phrase arch="ia64;powerpc;x86">USB-Braillezeilen werden automatisch
+erkannt (serielle Geräte, die über einen Seriell-auf-USB-Adapter angeschlossen
+sind, allerdings nicht), aber die meisten anderen</phrase>
+<phrase arch="arm;hppa;mips;mipsel;sparc">Die meisten</phrase>
+Funktionalitäten für Barrierefreiheit müssen manuell aktiviert werden.
+<phrase arch="x86">Auf Rechnern, die dies unterstützen, gibt das Boot-Menü
+einen Piepton aus, wenn es bereit ist, Tastatureingaben zu verarbeiten.</phrase>
+Es können <phrase arch="x86">dann</phrase> einige Boot-Parameter angegeben
+werden, um diese Funktionalitäten zu aktivieren<phrase arch="x86"> (lesen Sie
+dazu auch <xref linkend="boot-screen"/>)</phrase>. Beachten Sie, dass vom
+Bootloader auf den meisten Architekturen die Tastatur so interpretiert wird,
+als wäre es eine Tastatur mit QWERTY-Layout.
+
+</para>
+
+  <sect2 arch="ia64;powerpc;x86">
+  <title>USB-Braillezeilen</title>
+<para>
+
+USB-Braillezeilen sollten automatisch erkannt werden. Es wird dann automatisch
+eine Textversion des Installers ausgewählt und Hardware-Unterstützung für die
+Braillezeile wird automatisch in das Zielsystem installiert. Sie müssen im
+Boot-Menü also einfach nur &enterkey; drücken. Sobald
+<classname>brltty</classname> gestartet ist, können Sie im Einstellungsmenü
+ein Braillezeilengerät auswählen. Dokumentation über Tastenkürzel für
+Braillezeilengeräte ist auf der <ulink
+url="&url-brltty-driver-help;"><classname>brltty</classname>-Webseite</ulink>
+verfügbar.
+
+</para>
+  </sect2>
+
+  <sect2 arch="ia64;powerpc;x86">
+  <title>Serielle Braillezeilen</title>
+<para>
+
+Serielle Braillezeilen können nicht sicher automatisch erkannt werden
+(dies könnte einige davon beschädigen). Daher müssen Sie den Boot-Parameter
+<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>port</replaceable>,<replaceable>table</replaceable></userinput>
+angeben, um <classname>brltty</classname> mitzuteilen, welcher Treiber
+benutzt werden soll. Sie sollten <replaceable>driver</replaceable> durch
+den zweistelligen Buchstabencode des Treibers ersetzen, den Sie für Ihre
+Braillezeile benötigen (siehe dazu das
+<ulink url="&url-brltty-manual;">brltty Reference Manual</ulink>
+(Referenz-Handbuch)).
+<replaceable>port</replaceable> sollten Sie durch den Namen des seriellen
+Anschlusses ersetzen, an den die Braillezeile angeschlossen ist;
+<userinput>ttyS0</userinput> ist der Standardwert,
+<userinput>ttyUSB0</userinput> kann üblicherweise verwendet werden, wenn
+ein Seriell-auf-USB-Adapter eingesetzt wird.
+<replaceable>table</replaceable> ist der Name der Braille-Tabelle, die
+verwendet werden soll (siehe das
+<ulink url="&url-brltty-manual;">brltty-Referenz-Handbuch</ulink>);
+die englische Tabelle ist der Standard. Beachten Sie, dass Sie die
+verwendete Tabelle später im Einstellungsmenü noch ändern können.
+Dokumentation über Tastenkürzel für Braillezeilengeräte ist auf der <ulink
+url="&url-brltty-driver-help;"><classname>brltty</classname>-Webseite</ulink>
+verfügbar.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86">
+  <title>Software-Sprachausgabe (Software-Sprachsynthesizer)</title>
+<para>
+
+Die Unterstützung für Software-Sprachausgabe kann aktiviert werden, indem diese
+Funktionalität im Boot-Menü durch Drücken von <userinput>s</userinput> &enterkey;
+ausgewählt wird. Die erste Frage (Sprache) wird in Englisch gesprochen, der Rest
+der Installation in der ausgewählten Sprache (falls diese in
+<classname>espeak</classname> verfügbar ist).
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86">
+  <title>Hardware-Sprachausgabe (Hardware-Sprachsynthesizer)</title>
+<para>
+
+Treiberunterstützung für Hardware-Sprachausgabe-Geräte ist nur zusammen mit der
+Unterstützung für den grafischen Installer verfügbar. Sie müssen daher
+im Boot-Menü einen <quote>Graphical install</quote>-Eintrag auswählen.
+
+</para><para> 
+
+Hardware-Sprachausgabe-Geräte können nicht automatisch erkannt werden.
+Sie müssen daher den Boot-Parameter
+<userinput>speakup.synth=<replaceable>driver</replaceable></userinput>
+angeben, um <classname>speakup</classname> mitzuteilen, welcher Treiber
+verwendet werden soll. Ersetzen Sie dabei <replaceable>driver</replaceable>
+durch den Code des Treibers, den Sie für Ihr Gerät benötigen (eine
+Auflistung der Treiber-Codes finden Sie
+<ulink url="&url-speakup-driver-codes;">hier</ulink>). Es wird dann
+automatisch die Textversion des Installers ausgewählt und
+Hardware-Unterstützung für Sprachausgabe-Geräte wird automatisch in das
+Zielsystem installiert.
+
+</para>
+  </sect2>
+
+  <sect2 arch="linux-any"><title>Interne Boards/Karten</title>
+<para>
+
+Einige Geräte für Barrierefreiheit sind letztendig Steckkarten, die innerhalb
+des Rechners eingesteckt werden und die den Text direkt aus dem Videospeicher
+auslesen. Damit sie funktionieren, muss die Framebuffer-Unterstützung
+deaktiviert werden (verwenden Sie dazu den Boot-Parameter
+<userinput arch="x86">vga=normal</userinput> <userinput>fb=false</userinput>).
+Dies reduziert allerdings die Anzahl der zur Verfügung stehenden Sprachen.
+
+</para><para arch="x86">
+
+Falls gewünscht kann vor der Eingabe des Boot-Parameters eine Textversion des
+Bootloaders aktiviert werden, indem die Taste <userinput>h</userinput> gefolgt
+von &enterkey; gedrückt wird.
+
+</para>
+  </sect2>
+
+  <sect2><title>Theme mit hohem Kontrast</title>
+<para>
+
+Für Nutzer mit verminderter Sehkraft kann der Installer ein spezielles
+Theme mit extra hohem Kontrast verwenden. Um es zu aktivieren, verwenden
+Sie den Boot-Parameter <userinput>theme=dark</userinput>.
+
+</para>
+  </sect2>
+
+  <sect2><title>Voreinstellung</title>
+<para>
+
+Alternativ kann &debian; durch die Verwendung von Voreinstellung vollständig
+automatisiert installiert werden. Dies ist in <xref linkend="appendix-preseed"/>
+dokumentiert.
+
+</para>
+  </sect2>
+
+ </sect1>
+

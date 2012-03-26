@@ -1,0 +1,374 @@
+<!-- $Id: ia64.xml 65135 2010-10-24 11:02:21Z mck-guest $ -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="ia64"><title>Zavedení z CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<note><title>Obsah CD</title><para>
+
+Existují tři varianty instalačních CD. <emphasis>Malé
+síťové</emphasis> CD obsahuje pouze soubory instalačního programu
+a proto se vleze na malé CD velikosti vizitky. Pro instalaci
+základního systému (a dalších balíků) však vyžaduje síťové
+připojení. <emphasis>Plné síťové</emphasis> CD obsahuje kromě
+instalačního programu také základní systém, ale pro instalaci
+čehokoliv dalšího vyžaduje síť. Třetí možností je <emphasis>sada
+CD</emphasis>, která obsahuje kompletní systém a tudíž nevyžaduje
+připojení k síti.
+
+</para></note><para>
+
+Architektura &arch-title; používá další generaci Extensible Firmware Interface
+(EFI) od Intelu. Na rozdíl od tradičního BIOSu, který ví o zaváděcím
+zařízení velmi málo (zná jen tabulku oblastí a hlavní zaváděcí
+sektor), umí EFI číst a zapisovat soubory z oblastí, na kterých je
+souborový systém FAT16 nebo FAT32. Tím se zaváděcí proces velmi
+zjednoduší, protože systémový zavaděč a EFI firmware mají k dispozici
+celou oblast na uložení potřebných souborů. To znamená, že systémový
+disk na &arch-title; obsahuje místo zaváděcího bloku malou oblast,
+která je celá vyhrazená pro EFI.
+
+</para><para>
+
+Instalační CD &debian;u obsahují malou EFI oblast, ve které je uložen
+zavaděč <command>ELILO</command>, jeho konfigurační soubor, instalační
+jádro a prvotní souborový systém (initrd). (Samozřejmě, že EFI oblast
+je přítomna i v nainstalovaném systému.)
+
+</para><para>
+
+Zavaděč EFI se spouští jako poslední krok inicializace
+firmwaru. Zobrazí menu, ze kterého si můžete vybrat různé
+položky. Menu se může na různých systémech lišit, ale většinou by se
+tam měly vyskytovat položky <command>Boot Option Maintenance
+Menu</command> a <command>EFI Shell (Built-in)</command>. První metoda
+je preferovaná, ale pokud není dostupná, nebo s ní CD neumí zavádět,
+použijte druhou možnost.
+
+</para><warning><title>Důležité</title><para>
+
+Zavaděč EFI po nějaké době spustí implicitní akci, obvykle první
+položku z menu. (Odpočítávání je vidět dole na obrazovce.) Pokud
+propásnete správný okamžik, budete muset počítač znovu
+restartovat. Jestliže však byla implicitní akce <command>EFI
+Shell</command>, můžete se ještě vrátit zpět příkazem
+<command>exit</command>.
+
+</para></warning>
+
+   <sect3 arch="ia64" id="bootable-cd">
+   <title>Možnost 1: Zavádění z menu Boot Option Maintenance</title>
+
+<itemizedlist>
+<listitem><para>
+
+Vložte CD do DVD/CD mechaniky a restartujte počítač. Po dokončení
+inicializace systému se zobrazí menu zavaděče EFI.
+
+</para></listitem>
+<listitem><para>
+
+Ze zaváděcího menu vyberte šipkami <command>Boot Maintenance</command>
+a stiskněte &enterkey; - zobrazí se nové menu.
+
+</para></listitem>
+<listitem><para>
+
+V něm vyberte <command>Boot From a File</command>, což vám nabídne
+seznam zařízení, které firmware našel. Mezi nimi by měly být řádky
+obsahující text <command>Debian Inst [Acpi ...</command> nebo
+<command>Removable Media Boot</command> (zbytek řádku by měl být
+stejný).
+
+</para></listitem>
+<listitem><para>
+
+Z obou možností ukazujících na DVD/CD mechaniku si jednu
+vyberte. Volba <command>Removable Media Boot</command> okamžitě spustí
+zavádění, zatímco <command>Debian Inst [Acpi ...</command> ještě
+zobrazí výpis adresáře ze zaváděcí části CD, ve kterém musíte vybrat
+<command>[Treat like Removable Media Boot]</command>.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+Nyní se zobrazí uvítací obrazovka instalačního systému &debian;u, kde si
+můžete vybrat jádro a případné parametry.
+
+</para>
+   </sect3>
+
+
+   <sect3 arch="ia64" id="boot-with-efi">
+   <title>Volba 2: Zavádění z EFI shellu</title>
+<para>
+
+Pokud se zavádění prvním způsobem nezdaří, zaveďte instalační CD
+následujícími kroky:
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+Vložte CD do DVD/CD mechaniky a restartujte počítač. Po dokončení
+inicializace systému se zobrazí menu zavaděče EFI.
+
+</para></listitem>
+<listitem><para>
+
+Ze zaváděcího menu vyberte šipkami <command>EFI Shell</command>
+a stiskněte &enterkey;.  EFI Shell si zjistí všechna zaveditelná
+zařízení a zobrazí je na konzoli. Rozpoznaná zaváděcí zařízení budou
+zobrazena ve tvaru
+<filename>fs<replaceable>n</replaceable>:</filename>, všechna ostatní
+bloková zařízení budou pojmenována
+<filename>blk<replaceable>n</replaceable>:</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Prozkoumejte výstup shellu a hledejte CD mechaniku &mdash; s největší
+pravděpodobností to bude zařízení <filename>fs0:</filename>.
+
+</para></listitem>
+<listitem><para>
+
+Pro výběr požadovaného zařízení zadejte
+<command>fs<replaceable>n</replaceable>:</command>, kde
+<replaceable>n</replaceable> je číslo oblasti a stiskněte
+&enterkey;. Toto číslo se nyní zobrazí jako součást výzvy.
+
+</para></listitem>
+<listitem><para>
+
+Zadejte příkaz <command>elilo</command>, což spustí zavádění.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+V EFI shellu též můžete použít zkrácenou variantu zápisu:
+<command>fs<replaceable>n</replaceable>:elilo</command>.  Nyní se
+zobrazí uvítací obrazovka instalačního systému &debian;u, kde si můžete
+vybrat jádro a případné parametry.
+
+</para>
+   </sect3>
+
+   <sect3 arch="ia64" id="kernel-option-menu">
+   <title>Výběr instalačního jádra a zaváděcích parametrů</title>
+<para>
+
+Zavaděč zobrazí menu a textové okno s výzvou
+<classname>Boot:</classname>. Šipky slouží pro výběr položek z menu,
+jakýkoliv napsaný text se zobrazí v textovém okně. Funkčními klávesami
+můžete zobrazit různé nápovědné obrazovky. Obrazovka
+<classname>General</classname> vysvětluje význam položek v menu,
+<classname>Params</classname> popisuje běžné parametry příkazového
+řádku.
+
+</para><para>
+
+Instalovat můžete buď pomocí monitoru a klávesnice, nebo přes sériovou
+linku. Pro první možnost vyberte položku obsahující řetězec
+<computeroutput>[VGA console]</computeroutput>, pro druhou pak položku
+obsahující text <computeroutput>[<replaceable>BAUDY</replaceable> baud
+serial console]</computeroutput>, kde <replaceable>BAUDY</replaceable>
+je rychlost sériové konzole. V menu jsou přednastaveny jsou
+nejobvyklejší rychlosti pro zařízení <filename>ttyS0</filename>.
+
+</para><para>
+
+Ve většině případů budete chtít, aby instalační program použil stejnou
+rychlost, jakou používáte pro spojení k EFI konzoli. Tuto rychlost
+můžete zjistit v EFI shellu příkazem <command>baud</command>.
+
+</para><para>
+
+Pokud v menu neexistuje položka pro sériové zařízení resp. rychlost,
+kterou chcete použít, můžete změnit nastavení existujícího záznamu
+tak, že do textového okna <classname>Boot:</classname> zadáte
+příslušné parametry. Například
+<command>console=ttyS1,57600n8</command> použije konzolu na zařízení
+<filename>ttyS1</filename> o rychlosti 57600 baudů.
+
+</para><note><para>
+
+Většina systémů &arch-title; používá implicitní nastavení konzoly
+o rychlosti 9600 baudů. Toto nastavení je velmi pomalé a překreslování
+instalačních obrazovek by trvalo neúměrně dlouho. Zkuste buď zvýšit
+přenosovou rychlost, nebo použijte instalaci v textovém režimu (pokyny
+naleznete v menu <classname>Params</classname>).
+
+</para></note><warning><para>
+
+Vyberete-li špatný typ konzole, bude vše probíhat zdánlivě dobře až do
+startu jádra. V tom okamžiku se ztratí veškeré vstupy a výstupy
+a budete muset počítač restartovat.
+
+</para></warning><para>
+
+Na obrazovce <classname>General</classname> si přečtěte popis jader
+a nejvhodnějších instalačních režimů. Jádro, které vyberete, se
+použije jak pro instalaci, tak v novém systému. Pokud s instalačním
+jádrem zaznamenáte nějaké problémy, je pravděpodobné, že se s těmito
+problémy potkáte i v instalovaném systému. Pro volitelné zaváděcí
+parametry byste si měli prostudovat část <xref linkend="boot-parms"/>
+dále v textu. Instalační systém spustíte následovně:
+
+</para>
+
+<itemizedlist>
+
+<listitem><para>
+
+Šipkami vyberte nejvhodnější verzi jádra a instalační režim.
+
+</para></listitem>
+<listitem><para>
+
+Volitelně zadejte zaváděcí parametry do textového okna. (Zde se
+zadávají parametry jádra, jako např. sériová konzole.)
+
+</para></listitem>
+<listitem><para>
+
+Stiskněte &enterkey;, což spustí zavádění jádra, po kterém se objeví
+první obrazovka instalačního programu &debian;u.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+Pokračujte další kapitolou, kde si nastavíte jazyk instalace, síť
+a diskové oblasti.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="ia64" id="boot-tftp"><title>Zavedení z TFTP</title>
+<para>
+
+Zavádění systému &arch-title; ze sítě je téměř shodné se zaváděním
+z CD. Jediný rozdíl spočívá ve způsobu, jakým se nahraje jádro. EFi
+umí stahovat a spouštět soubory ze serveru na síti.
+
+</para>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+Zavedení systému &arch-title; ze sítě vyžaduje dva architekturně
+specifické zásahy. Na straně zaváděcího serveru musí být DHCP a TFTP
+nastaveny pro zaslání souboru <command>elilo</command> a na klientovi
+musíte v zavaděči EFI definovat novou zaváděcí volbu, kterou povolíte
+stahování ze sítě.
+
+</para>
+
+   <sect3 arch="ia64" id="boot-tftp-server">
+   <title>Nastavení TFTP serveru</title>
+<para>
+
+Vhodný TFTP záznam pro zavádění ze sítě vypadá nějak takto:
+
+<informalexample><screen>
+host mcmuffin {
+        hardware ethernet 00:30:6e:1e:0e:83;
+        fixed-address 10.0.0.21;
+        filename "debian-installer/ia64/elilo.efi";
+}
+</screen></informalexample>
+
+Cílem je dostat <command>elilo.efi</command> na klienta.
+
+</para><para>
+
+Ve svém tftpboot adresáři rozbalte soubor
+<filename>netboot.tar.gz</filename>, čímž se vytvoří adresářový strom
+<filename>debian-installer</filename> obsahující zaváděcí soubory pro
+IA-64. Typické tftp adresáře bývají <filename>/var/lib/tftp</filename>
+nebo <filename>/tftpboot</filename>.
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>cd /var/lib/tftp</userinput>
+<prompt>#</prompt> <userinput>tar xvfz /home/user/netboot.tar.gz</userinput>
+./
+./debian-installer/
+./debian-installer/ia64/
+[...]
+</screen></informalexample>
+
+</para><para>
+
+Soubor <filename>elilo.conf</filename>, který se zde také rozbalí, by
+měl fungovat na většině konfigurací <quote>sám od sebe</quote>. Pokud
+potřebujete tento soubor změnit (např. chcete použít jiné jádro),
+naleznete jej v adresáři <filename>debian-installer/ia64/</filename>.
+
+Dokonce je možné mít různé konfigurační soubory pro různé
+klienty. Místo souboru <filename>elilo.conf</filename> totiž můžete
+pojmenovat konfigurační soubory podle IP adresy klienta zapsané
+v šestnáctkové soustavě s příponou
+<filename>.conf</filename>. Podrobnosti naleznete v dokumentaci
+k balíku <classname>elilo</classname>.
+
+</para>
+   </sect3>
+
+   <sect3 arch="ia64" id="boot-tftp-client">
+   <title>Nastavení klienta</title>
+<para>
+
+Nastavení klienta pro podporu zavádění z TFTP začněte zavedením do EFI
+a aktivováním menu <guimenu>Boot Option Maintenance Menu</guimenu>.
+
+<itemizedlist>
+<listitem><para>
+
+Přidejte zaváděcí volbu.
+
+</para></listitem>
+<listitem><para>
+
+Vyberte řádek <guimenuitem>Load File [Acpi()/.../Mac()]</guimenuitem>
+a stiskněte &enterkey;. Pokud je podobných řádků více, vyberte ten,
+který obsahuje MAC adresu rozhraní, ze kterého chcete zavádět.
+
+</para></listitem>
+<listitem><para>
+
+Záznam pojmenujte třeba <userinput>Netboot</userinput>, uložte jej
+a vraťte se zpět do menu se zaváděcími volbami.
+
+</para></listitem>
+</itemizedlist>
+
+Měli byste vidět právě vytvořenou položku. Tu stačí vybrat a provede
+se DHCP dotaz vedoucí k nahrání <filename>elilo.efi</filename> z TFTP
+serveru.
+
+</para><para>
+
+Po stažení tohoto souboru se zobrazí výzva zavaděče, který očekává
+název jádra pro zavedení. Stejně jako u instalace z CD vyberte
+požadované jádro a po chvíli by se měla zobrazit úvodní obrazovka
+instalačního programu.
+
+</para><para>
+
+Pokračujte další kapitolou, kde si vyberete instalační jazyk,
+nastavíte síť a rozdělíte disky.
+
+</para>
+
+   </sect3>
+  </sect2>

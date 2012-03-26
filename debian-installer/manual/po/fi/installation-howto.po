@@ -1,0 +1,655 @@
+# Finnish translation of installation-guide 20060430 installation howto.
+# Copyright (C) 2006 Free Software Foundation, Inc.
+# Tapio Lehtonen <tale@debian.org>, 2006, 2008.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: installation-guide 20060430 installation howto 36744\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2010-12-29 12:07+0000\n"
+"PO-Revision-Date: 2008-11-08 23:06+0200\n"
+"Last-Translator: Esko Arajärvi <edu@iki.fi>\n"
+"Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. Tag: title
+#: installation-howto.xml:5
+#, no-c-format
+msgid "Installation Howto"
+msgstr "Asennus-Howto"
+
+#. Tag: para
+#: installation-howto.xml:7
+#, no-c-format
+msgid ""
+"This document describes how to install &debian-gnu; &releasename; for the "
+"&arch-title; (<quote>&architecture;</quote>) with the new &d-i;. It is a "
+"quick walkthrough of the installation process which should contain all the "
+"information you will need for most installs. When more information can be "
+"useful, we will link to more detailed explanations in other parts of this "
+"document."
+msgstr ""
+"Tämä ohje kuvaa &debian-gnu; version &releasename; asennuksen "
+"arkkitehtuurille &arch-title; (<quote>&architecture;</quote>) uudella "
+"asentimella &d-i;. Asennuksen pikainen läpikäynti antanee riittävästi tietoa "
+"useimpiin asennuksiin. Kun lisätieto voi olla hyödyllistä, annetaan viite "
+"yksityiskohtaisempiin kuvauksiin tämän ohjeen muissa osissa."
+
+#. Tag: title
+#: installation-howto.xml:19
+#, no-c-format
+msgid "Preliminaries"
+msgstr "Valmistelevat toimet"
+
+#. Tag: para
+#: installation-howto.xml:20
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> The debian-installer is still in a "
+"beta state. </phrase> If you encounter bugs during your install, please "
+"refer to <xref linkend=\"submit-bug\"/> for instructions on how to report "
+"them. If you have questions which cannot be answered by this document, "
+"please direct them to the debian-boot mailing list (&email-debian-boot-"
+"list;) or ask on IRC (#debian-boot on the OFTC network)."
+msgstr ""
+"<phrase condition=\"unofficial-build\"> Debianin asennin on yhä "
+"testausvaiheessa. </phrase> Jos löydät vikoja asennuksen aikana, ole hyvä ja "
+"tutustu lukuun <xref linkend=\"submit-bug\"/> josta löydät ohjeen vioista "
+"ilmoittamiseen. Mikäli kysymyksiisi ei löydy vastausta tästä ohjeesta, kysy "
+"sähköpostilistalla debian-boot (&email-debian-boot-list;) tai irkissä "
+"(kanava #debian-boot IRC-verkossa OFTC)."
+
+#. Tag: title
+#: installation-howto.xml:36
+#, no-c-format
+msgid "Booting the installer"
+msgstr "Asentimen käynnistys"
+
+#. Tag: para
+#: installation-howto.xml:37
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> For some quick links to CD images, "
+"check out the <ulink url=\"&url-d-i;\"> &d-i; home page</ulink>. </phrase> "
+"The debian-cd team provides builds of CD images using &d-i; on the <ulink "
+"url=\"&url-debian-cd;\">Debian CD page</ulink>. For more information on "
+"where to get CDs, see <xref linkend=\"official-cdrom\"/>."
+msgstr ""
+"<phrase condition=\"unofficial-build\"> CD-otokset löytyvät <ulink url="
+"\"&url-d-i;\">&d-i;</ulink>:in seittisivustosta. </phrase> Debian-cd -"
+"työryhmä tarjoaa asenninta käyttävät CD-otokset <ulink url=\"&url-debian-cd;"
+"\">Debianin CD-sivulla</ulink>. Lisää tietoa CD-levyjen hankinnasta löytyy "
+"kohdasta <xref linkend=\"official-cdrom\"/>."
+
+#. Tag: para
+#: installation-howto.xml:47
+#, no-c-format
+msgid ""
+"Some installation methods require other images than CD images. <phrase "
+"condition=\"unofficial-build\"> The <ulink url=\"&url-d-i;\">&d-i; home "
+"page</ulink> has links to other images. </phrase> <xref linkend=\"where-files"
+"\"/> explains how to find images on &debian; mirrors."
+msgstr ""
+"Jotkut asennustavat vaativat muita kuin CD-otoksia. <phrase condition="
+"\"unofficial-build\"> <ulink url=\"&url-d-i;\">&d-i; -seittisivusto</ulink> "
+"sisältää muiden otosten osoitteet. </phrase> <xref linkend=\"where-files\"/> "
+"selvittää miten otokset löytyvät &debian;in peilikopioista."
+
+#. Tag: para
+#: installation-howto.xml:57
+#, no-c-format
+msgid ""
+"The subsections below will give the details about which images you should "
+"get for each possible means of installation."
+msgstr ""
+"Seuraavat aliluvut kertovat yksityiskohtaisemmin mitä otosta olisi missäkin "
+"asennustavassa käytettävä."
+
+#. Tag: title
+#: installation-howto.xml:65
+#, no-c-format
+msgid "CDROM"
+msgstr "CD-levy"
+
+#. Tag: para
+#: installation-howto.xml:67
+#, no-c-format
+msgid ""
+"There are two different netinst CD images which can be used to install "
+"&releasename; with the &d-i;. These images are intended to boot from CD and "
+"install additional packages over a network, hence the name 'netinst'. The "
+"difference between the two images is that on the full netinst image the base "
+"packages are included, whereas you have to download these from the web if "
+"you are using the business card image. If you'd rather, you can get a full "
+"size CD image which will not need the network to install. You only need the "
+"first CD of the set."
+msgstr ""
+"Netinst-CD:itä on kaksi, näillä voi asentaa version &releasename; käyttäen "
+"asenninta &d-i;. Nämä otokset on tarkoitettu käynnistymään CD-levyltä ja "
+"noutamaan lisää asennuspaketteja verkosta. Ne ovat verkkoasennusta varten, "
+"tästä nimi \"netinst\". Otokset eroavat siten, että täydessä "
+"verkkoasennuslevyllä on mukana peruspaketit, jotka on käyntikorttilevyn eli "
+"\"businesscard CD\":n kanssa noudettava netistä. Ilman verkkoyhteyttä "
+"voidaan asentaa viralliselta CD-levyltä. Virallisten CD-levyjen ensimmäinen "
+"levy riittää asennukseen."
+
+#. Tag: para
+#: installation-howto.xml:78
+#, no-c-format
+msgid ""
+"Download whichever type you prefer and burn it to a CD. <phrase arch=\"any-"
+"x86\">To boot the CD, you may need to change your BIOS configuration, as "
+"explained in <xref linkend=\"bios-setup\"/>.</phrase> <phrase arch=\"powerpc"
+"\"> To boot a PowerMac from CD, press the <keycap>c</keycap> key while "
+"booting. See <xref linkend=\"boot-cd\"/> for other ways to boot from CD. </"
+"phrase>"
+msgstr ""
+"Nouda mieluisa CD-otos ja kirjoita se CD-aihiolle. <phrase arch=\"any-"
+"x86\">Käynnistettäessä CD-levyltä voi olla tarpeen muuttaa BIOS:n asetuksia, "
+"kuten neuvotaan luvussa <xref linkend=\"bios-setup\"/>. </phrase> <phrase "
+"arch=\"powerpc\"> PowerMac käynnistyy CD-levyltä painettaessa näppäintä "
+"<keycap>c</keycap> koneen käynnistyessä. Luvussa <xref linkend=\"boot-cd\"/> "
+"on muita tapoja käynnistää CD-levyltä. </phrase>"
+
+#. Tag: title
+#: installation-howto.xml:92
+#, no-c-format
+msgid "Floppy"
+msgstr "Levyke"
+
+#. Tag: para
+#: installation-howto.xml:93
+#, no-c-format
+msgid ""
+"If you can't boot from CD, you can download floppy images to install "
+"&debian;. You need the <filename>floppy/boot.img</filename>, the "
+"<filename>floppy/root.img</filename> and one or more of the driver disks."
+msgstr ""
+"Jos käynnistys CD-levyltä ei ole mahdollista, voidaan noutaa levykeotokset "
+"&debian;in asentamiseksi. Tarvitaan <filename>floppy/boot.img</filename>, "
+"<filename>floppy/root.img</filename> ja yksi tai useampi ajurilevykkeistä."
+
+#. Tag: para
+#: installation-howto.xml:99
+#, no-c-format
+msgid ""
+"The boot floppy is the one with <filename>boot.img</filename> on it. This "
+"floppy, when booted, will prompt you to insert a second floppy &mdash; use "
+"the one with <filename>root.img</filename> on it."
+msgstr ""
+"Käynnistyslevyke on se johon kirjoitettiin <filename>boot.img</filename>. "
+"Tämä levyke kehoittaa käynnistettäessä asettamaan toisen levykkeen asemaan "
+"&mdash; käytä sitä jolle kirjoitettiin <filename>root.img</filename>."
+
+#. Tag: para
+#: installation-howto.xml:105
+#, no-c-format
+msgid ""
+"If you're planning to install over the network, you will usually need the "
+"<filename>floppy/net-drivers-1.img</filename>. For PCMCIA or USB networking, "
+"and some less common network cards, you will also need a second driver "
+"floppy, <filename>floppy/net-drivers-2.img</filename>."
+msgstr ""
+"Jos on tarkoitus asentaa verkosta, tarvitaan useimmiten <filename>floppy/net-"
+"drivers-1.img</filename>. Jos verkkoliitäntä on PCMCIA tai USB, tai "
+"harvinaisempi verkkokortti, tarvitaan myös toinen levyke, <filename>floppy/"
+"net-drivers-2.img</filename>."
+
+#. Tag: para
+#: installation-howto.xml:112
+#, no-c-format
+msgid ""
+"If you have a CD, but cannot boot from it, then boot from floppies and use "
+"<filename>floppy/cd-drivers.img</filename> on a driver disk to complete the "
+"install using the CD."
+msgstr ""
+"Jos käytössä on CD-asema, mutta siltä ei voi käynnistää konetta, "
+"käynnistetään levykkeiltä ja käytetään otosta <filename>floppy/cd-drivers."
+"img</filename> ajurilevykkeenä, jotta asennusta voidaan jatkaa CD-levyltä."
+
+#. Tag: para
+#: installation-howto.xml:118
+#, no-c-format
+msgid ""
+"Floppy disks are one of the least reliable media around, so be prepared for "
+"lots of bad disks (see <xref linkend=\"unreliable-floppies\"/>). Each "
+"<filename>.img</filename> file you downloaded goes on a single floppy; you "
+"can use the dd command to write it to /dev/fd0 or some other means (see "
+"<xref linkend=\"create-floppy\"/> for details). Since you'll have more than "
+"one floppy, it's a good idea to label them."
+msgstr ""
+"Levykkeet ovat hyvin epäluotettavia taltioita, kannattaa varautua "
+"toimimattomiin levykkeisiin (katso <xref linkend=\"unreliable-floppies\"/>). "
+"Jokainen noutamasi <filename>.img</filename>-otos kirjoitetaan omalle "
+"levykkeelleen; komennolla dd laitteelle /dev/fd0 tai muulla tavoin (katso "
+"tarkemmin luvusta <xref linkend=\"create-floppy\"/>). Levykkeitä on useampi "
+"kuin yksi, ne on hyvä merkitä tunnisteella."
+
+#. Tag: title
+#: installation-howto.xml:131
+#, no-c-format
+msgid "USB memory stick"
+msgstr "USB-muisti"
+
+#. Tag: para
+#: installation-howto.xml:132
+#, no-c-format
+msgid ""
+"It's also possible to install from removable USB storage devices. For "
+"example a USB keychain can make a handy &debian; install medium that you can "
+"take with you anywhere."
+msgstr ""
+"Asennus on mahdollista myös irrotettavalta USB-muistilaitteelta. Esimerkiksi "
+"USB-avaimenperä on kätevä asennustaltio &debian;ille, sen voi ottaa mukaansa "
+"kaikkialle."
+
+#. Tag: para
+#: installation-howto.xml:138
+#, no-c-format
+msgid ""
+"The easiest way to prepare your USB memory stick is to download <filename>hd-"
+"media/boot.img.gz</filename>, and use gunzip to extract the 256 MB image "
+"from that file. Write this image directly to your memory stick, which must "
+"be at least 256 mb in size. Of course this will destroy anything already on "
+"the memory stick. Then mount the memory stick, which will now have a FAT "
+"filesystem on it. Next, download a &debian; netinst CD image, and copy that "
+"file to the memory stick; any filename is ok as long as it ends in <literal>."
+"iso</literal>."
+msgstr ""
+"Helpoin tapa valmistella USB-muisti on noutaa <filename>hd-media/boot.img."
+"gz</filename>, ja purkaa siitä gunzipillä 256 Mt otos. Tämä otos "
+"kirjoitetaan sellaisenaan vähintään 256 Mt kokoiselle USB-muistille. Tämä "
+"tietenkin tuhoaa USB-muistin entisen sisällön. Sitten USB-muisti liitetään, "
+"siinä on nyt FAT-tiedostojärjestelmä. Seuraavaksi noudetaan &debian;in "
+"verkkoasennus CD-otos ja kopioidaan otos USB-muistille; tiedostonimellä ei "
+"ole väliä kunhan sen loppuosa on <literal>.iso</literal>."
+
+#. Tag: para
+#: installation-howto.xml:149
+#, no-c-format
+msgid ""
+"There are other, more flexible ways to set up a memory stick to use the "
+"debian-installer, and it's possible to get it to work with smaller memory "
+"sticks. For details, see <xref linkend=\"boot-usb-files\"/>."
+msgstr ""
+"On muita joustavampia tapoja valmistella USB-muisti debian-asentimen "
+"käyttöön. Pienempienkin muistien käyttö on mahdollista. Lisätietoja löytyy "
+"luvusta <xref linkend=\"boot-usb-files\"/>."
+
+#. Tag: para
+#: installation-howto.xml:155
+#, no-c-format
+msgid ""
+"Some BIOSes can boot USB storage directly, and some cannot. You may need to "
+"configure your BIOS to boot from a <quote>removable drive</quote> or even a "
+"<quote>USB-ZIP</quote> to get it to boot from the USB device. For helpful "
+"hints and details, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Jotkut BIOSit osaavat käynnistää USB-muistilta, jotkut eivät. BIOS-asetukset "
+"on ehkä tehtävä käynnistymään laitteelta <quote>removable drive</quote> tai "
+"<quote>USB-ZIP</quote> jotta USB-muistilta voidaan käynnistää. Jos "
+"käynnistys USB-muistilta ei onnistu, voidaan käynnistää levykkeeltä ja "
+"käyttää USB-muistia asennuksen loppuosaan. Hyödyllisiä vinkkejä ja tarkempia "
+"yksityiskohtia löytyy luvusta <xref linkend=\"usb-boot\"/>."
+
+#. Tag: para
+#: installation-howto.xml:162
+#, no-c-format
+msgid ""
+"Booting Macintosh systems from USB storage devices involves manual use of "
+"Open Firmware. For directions, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Macintosh-järjestelmien käynnistäminen USB-muistilaitteelta edellyttää Open "
+"Firmwaren käytön osaamista. Luvusta <xref linkend=\"usb-boot\"/> löytyy "
+"ohjeita."
+
+#. Tag: title
+#: installation-howto.xml:171
+#, no-c-format
+msgid "Booting from network"
+msgstr "Verkkokäynnistys"
+
+#. Tag: para
+#: installation-howto.xml:172
+#, no-c-format
+msgid ""
+"It's also possible to boot &d-i; completely from the net. The various "
+"methods to netboot depend on your architecture and netboot setup. The files "
+"in <filename>netboot/</filename> can be used to netboot &d-i;."
+msgstr ""
+"&d-i; on mahdollista käynnistää kokonaan verkosta. Erilaiset "
+"verkkokäynnistystavat riippuvat arkkitehtuurista ja verkkokäynnistyksen "
+"asetuksista. Hakemiston <filename>netboot/</filename> tiedostoja voidaan "
+"käyttää &d-i;:in verkkokäynnistykseen."
+
+#. Tag: para
+#: installation-howto.xml:178
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The easiest thing to set up is probably PXE netbooting. Untar the file "
+#| "<filename>netboot/pxeboot.tar.gz</filename> into <filename>/var/lib/"
+#| "tftpboot</filename> or wherever is appropriate for your tftp server. Set "
+#| "up your DHCP server to pass filename <filename>/pxelinux.0</filename> to "
+#| "clients, and with luck everything will just work. For detailed "
+#| "instructions, see <xref linkend=\"install-tftp\"/>."
+msgid ""
+"The easiest thing to set up is probably PXE netbooting. Untar the file "
+"<filename>netboot/pxeboot.tar.gz</filename> into <filename>/srv/tftp</"
+"filename> or wherever is appropriate for your tftp server. Set up your DHCP "
+"server to pass filename <filename>/pxelinux.0</filename> to clients, and "
+"with luck everything will just work. For detailed instructions, see <xref "
+"linkend=\"install-tftp\"/>."
+msgstr ""
+"Helpoin tapa lienee PXE-verkkokäynnistys. Pura tiedosto <filename>netboot/"
+"pxeboot.tar.gz</filename> hakemistoon <filename>/srv/tftp</filename> tai "
+"muuhun tftp-palvelimen käyttämään hakemistoon. Tee DHCP-palvelimen asetukset "
+"antamaan tiedostonimi <filename>/pxelinux.0</filename> asiakaskoneille, ja "
+"pienellä tuurilla kaikki toimii. Yksityiskohtaisemmat ohjeet löytyvät "
+"luvusta <xref linkend=\"install-tftp\"/>."
+
+#. Tag: title
+#: installation-howto.xml:192
+#, no-c-format
+msgid "Booting from hard disk"
+msgstr "Käynnistys kiintolevyltä"
+
+#. Tag: para
+#: installation-howto.xml:193
+#, no-c-format
+msgid ""
+"It's possible to boot the installer using no removable media, but just an "
+"existing hard disk, which can have a different OS on it. Download "
+"<filename>hd-media/initrd.gz</filename>, <filename>hd-media/vmlinuz</"
+"filename>, and a &debian; CD image to the top-level directory of the hard "
+"disk. Make sure that the CD image has a filename ending in <literal>.iso</"
+"literal>. Now it's just a matter of booting linux with the initrd. <phrase "
+"arch=\"x86\"> <xref linkend=\"boot-initrd\"/> explains one way to do it. </"
+"phrase>"
+msgstr ""
+"Asennin on mahdollista käynnistää käyttämättä irrotettavia muistilaitteita "
+"koneen kiintolevyltä, jossa voi olla joku muu käyttöjärjestelmä. Nouda "
+"<filename>hd-media/initrd.gz</filename>, <filename>hd-media/vmlinuz</"
+"filename> ja &debian; CD-otos kiintolevyn juurihakemistoon. Varmistu CD-"
+"otoksen tiedostonimen päättyvän <literal>.iso</literal>. Nyt pitää vain "
+"käynnistää linux initrd:llä. <phrase arch=\"x86\"> <xref linkend=\"boot-"
+"initrd\"/> selvittää yhden tavan. </phrase>"
+
+#. Tag: title
+#: installation-howto.xml:210
+#, no-c-format
+msgid "Installation"
+msgstr "Asennus"
+
+#. Tag: para
+#: installation-howto.xml:211
+#, no-c-format
+msgid ""
+"Once the installer starts, you will be greeted with an initial screen. Press "
+"&enterkey; to boot, or read the instructions for other boot methods and "
+"parameters (see <xref linkend=\"boot-parms\"/>)."
+msgstr ""
+"Kun asennin käynnistyy näkyy asentimen aloitusruutu. Käynnistys tapahtuu "
+"näppäilemällä &enterkey;. Ohjeista selviävät muut käynnistystavat ja -"
+"parametrit (katso <xref linkend=\"boot-parms\"/>)."
+
+#. Tag: para
+#: installation-howto.xml:217
+#, no-c-format
+msgid ""
+"After a while you will be asked to select your language. Use the arrow keys "
+"to pick a language and press &enterkey; to continue. Next you'll be asked to "
+"select your country, with the choices including countries where your "
+"language is spoken. If it's not on the short list, a list of all the "
+"countries in the world is available."
+msgstr ""
+"Hetken päästä valitaan käytettävä kieli. Nuolinäppäimillä siirrytään kielen "
+"kohdalle ja jatketaan näppäilemällä &enterkey;. Seuraavaksi valitaan maa "
+"niiden joukosta joissa valittua kieltä puhutaan. Jos haluttu maa ei ole "
+"lyhyessä listassa, käytettävissä on myös maailman kaikkien maiden lista."
+
+#. Tag: para
+#: installation-howto.xml:225
+#, no-c-format
+msgid ""
+"You may be asked to confirm your keyboard layout. Choose the default unless "
+"you know better."
+msgstr ""
+"Asennin ehkä kysyy vahvistusta käytettävälle näppäinasettelulle. Käytä "
+"oletusarvoa paitsi jos tiedät paremman vaihtoehdon."
+
+#. Tag: para
+#: installation-howto.xml:230
+#, no-c-format
+msgid ""
+"Now sit back while debian-installer detects some of your hardware, and loads "
+"the rest of itself from CD, floppy, USB, etc."
+msgstr ""
+"Nyt voit huilata sillä välin kun Debianin asennin tunnistaa laitteistoa ja "
+"lataa loput osansa CD-levyltä, levykkeeltä, USB-muistilta jne."
+
+#. Tag: para
+#: installation-howto.xml:235
+#, no-c-format
+msgid ""
+"Next the installer will try to detect your network hardware and set up "
+"networking by DHCP. If you are not on a network or do not have DHCP, you "
+"will be given the opportunity to configure the network manually."
+msgstr ""
+"Seuraavaksi asennin tunnistaa verkkolaitteita ja yrittää tehdä "
+"verkkoasetukset DHCP:llä. Jos verkkoyhteyttä ei ole tai jos DHCP:tä ei ole, "
+"verkkoasetukset voi tehdä itse."
+
+#. Tag: para
+#: installation-howto.xml:241
+#, no-c-format
+msgid ""
+"The next step is setting up your clock and time zone. The installer will try "
+"to contact a time server on the Internet to ensure the clock is set "
+"correctly. The time zone is based on the country selected earlier and the "
+"installer will only ask to select one if a country has multiple zones."
+msgstr ""
+"Seuraava askel on kellon ja aikavyöhykkeen asetus. Asennin yrittää ottaa "
+"yhteyden Internetissä olevaan aikapalvelimeen oikean kellonajan "
+"varmistamiseksi. Aikavyöhyke perustuu aiemmin valittuun maa-asetukseen ja "
+"asennin kysyy aikavyöhykettä vain, jos maassa käytetään useampia vyöhykkeitä."
+
+#. Tag: para
+#: installation-howto.xml:248
+#, no-c-format
+msgid ""
+"Now it is time to partition your disks. First you will be given the "
+"opportunity to automatically partition either an entire drive, or available "
+"free space on a drive (see <xref linkend=\"partman-auto\"/>). This is "
+"recommended for new users or anyone in a hurry. If you do not want to "
+"autopartition, choose <guimenuitem>Manual</guimenuitem> from the menu."
+msgstr ""
+"Nyt tehdään levyosiot. Ensin on mahdollista tehdä levyosiot automaattisesti "
+"käyttäen koko levyä tai levyn vapaata tilaa (katso <xref linkend=\"partman-"
+"auto\"/>). Tätä suositellaan uusille käyttäjille tai kiireisille "
+"asentajille. Jos et halua automaattista osioiden tekoa, valikosta löytyy "
+"<guimenuitem>Osioi itse</guimenuitem>."
+
+#. Tag: para
+#: installation-howto.xml:256
+#, no-c-format
+msgid ""
+"If you have an existing DOS or Windows partition that you want to preserve, "
+"be very careful with automatic partitioning. If you choose manual "
+"partitioning, you can use the installer to resize existing FAT or NTFS "
+"partitions to create room for the &debian; install: simply select the "
+"partition and specify its new size."
+msgstr ""
+"Mikäli levyllä on ennestään DOS- tai Windows-osioita jotka halutaan "
+"säilyttää on syytä olla tarkkana jos osiot tehdään automaattisesti. "
+"Tehtäessä osiot itse voidaan asentimella tehdä tilaa &debian;in asentamiseen "
+"muuttamalla levyllä olevien FAT- tai NTFS-osioiden kokoa: valitaan osio ja "
+"määritetään sen uusi koko."
+
+#. Tag: para
+#: installation-howto.xml:263
+#, no-c-format
+msgid ""
+"On the next screen you will see your partition table, how the partitions "
+"will be formatted, and where they will be mounted. Select a partition to "
+"modify or delete it. If you did automatic partitioning, you should just be "
+"able to choose <guimenuitem>Finish partitioning and write changes to disk</"
+"guimenuitem> from the menu to use what it set up. Remember to assign at "
+"least one partition for swap space and to mount a partition on <filename>/</"
+"filename>. For more detailed information on how to use the partitioner, "
+"please refer to <xref linkend=\"di-partition\"/>; the appendix <xref linkend="
+"\"partitioning\"/> has more general information about partitioning."
+msgstr ""
+"Seuraavassa ruudussa näkyy osiotaulu, miten osiot tullaan alustamaan ja "
+"liitoskohdat. Osiota muokataan tai poistetaan valitsemalla se. Jos osiot "
+"tehtiin automaattisesti, valikossa on <guimenuitem>Lopeta osioiden teko ja "
+"tallenna muutokset levylle</guimenuitem> joka valitsemalla otetaan tehdyt "
+"osiot käyttöön. Muista varata ainakin yksi osio sivutustilaksi ja liittää "
+"yksi osio juuriosioksi <filename>/</filename>. Tarkempaa tietoa osioinnin "
+"käytöstä on kohdassa <xref linkend=\"di-partition\"/>; liitteessä <xref "
+"linkend=\"partitioning\"/> on yleisempää tietoa osioinnista."
+
+#. Tag: para
+#: installation-howto.xml:276
+#, no-c-format
+msgid ""
+"Now &d-i; formats your partitions and starts to install the base system, "
+"which can take a while. That is followed by installing a kernel."
+msgstr ""
+"Nyt &d-i; alustaa osiot ja aloittaa peruskokoonpanon asennuksen. Tämä "
+"saattaa viedä tovin. Sen jälkeen asennetaan ydin."
+
+#. Tag: para
+#: installation-howto.xml:281
+#, no-c-format
+msgid ""
+"The base system that was installed earlier is a working, but very minimal "
+"installation. To make the system more functional the next step allows you to "
+"install additional packages by selecting tasks. Before packages can be "
+"installed <classname>apt</classname> needs to be configured as that defines "
+"from where the packages will be retrieved. The <quote>Standard system</"
+"quote> task will be selected by default and should normally be installed. "
+"Select the <quote>Desktop environment</quote> task if you would like to have "
+"a graphical desktop after the installation. See <xref linkend=\"pkgsel\"/> "
+"for additional information about this step."
+msgstr ""
+"Aiemmin asennettu peruskokoonpano on toimiva mutta hyvin suppea asennus. "
+"Seuraavassa vaiheessa asennetaan paketteja lisäämään järjestelmän "
+"toiminnallisuutta tehtäviä valitsemalla. Ennen kuin paketteja voidaan "
+"asentaa on tehtävä <classname>apt</classname>:n asetukset, koska ne "
+"määräävät mistä paketteja noudetaan. Tehtävä <quote>Tavallinen järjestelmä</"
+"quote> on valmiiksi valittuna ja se olisi yleensä asennettava. Valitse "
+"<quote>Työpöytäympäristö</quote> jos haluat asennettavaksi graafisen "
+"käyttöliittymän. Katso kohdasta <xref linkend=\"pkgsel\"/> lisätietoja tästä "
+"vaiheesta."
+
+#. Tag: para
+#: installation-howto.xml:293
+#, no-c-format
+msgid ""
+"Installation of the base system is followed by setting up user accounts. By "
+"default you will need to provide a password for the <quote>root</quote> "
+"(administrator) account and information necessary to create one regular user "
+"account."
+msgstr ""
+"Perusjärjestelmän asennuksen jälkeen luodaan käyttäjätunnukset. Oletuksena "
+"pyydetään salasana tunnukselle <quote>root</quote> (pääkäyttäjä) ja yhden "
+"tavallisen käyttäjätunnuksen luomiseen tarvittavat tiedot."
+
+#. Tag: para
+#: installation-howto.xml:300
+#, no-c-format
+msgid ""
+"The last step is to install a boot loader. If the installer detects other "
+"operating systems on your computer, it will add them to the boot menu and "
+"let you know. <phrase arch=\"any-x86\">By default GRUB will be installed to "
+"the master boot record of the first harddrive, which is generally a good "
+"choice. You'll be given the opportunity to override that choice and install "
+"it elsewhere. </phrase>"
+msgstr ""
+"Viimeinen vaihe on alkulatausohjelman asentaminen. Jos asennin havaitsee "
+"muita käyttöjärjestelmiä tietokoneella, niistä ilmoitetaan ja lisätään "
+"käynnistysvalikkoon. <phrase arch=\"any-x86\">Oletusarvona GRUB asennetaan "
+"ensimmäisen kiintolevyn pääkäynnistyslohkoon, joka yleensä on hyvä valinta. "
+"Tämä valinta voidaan ohittaa ja tehdä asennus muualle. </phrase>"
+
+#. Tag: para
+#: installation-howto.xml:310
+#, no-c-format
+msgid ""
+"&d-i; will now tell you that the installation has finished. Remove the cdrom "
+"or other boot media and hit &enterkey; to reboot your machine. It should "
+"boot up into the newly installed system and allow you to log in. This is "
+"explained in <xref linkend=\"boot-new\"/>."
+msgstr ""
+"&d-i; ilmoittaa nyt asennuksen päättyneen. Poista CD-levy tai muu "
+"käynnistyksessä käytetty taltio ja käynnistä kone näppäilemällä &enterkey;. "
+"Uuden asennetun järjestelmän pitäisi käynnistyä ja pääset kirjautumaan "
+"sisään. Tästä kerrotaan luvusta <xref linkend=\"boot-new\"/>."
+
+#. Tag: para
+#: installation-howto.xml:317
+#, no-c-format
+msgid ""
+"If you need more information on the install process, see <xref linkend=\"d-i-"
+"intro\"/>."
+msgstr "Lisätietoja asennuksesta löytyy luvusta <xref linkend=\"d-i-intro\"/>."
+
+#. Tag: title
+#: installation-howto.xml:326
+#, no-c-format
+msgid "Send us an installation report"
+msgstr "Lähetä asennusraportti"
+
+#. Tag: para
+#: installation-howto.xml:327
+#, no-c-format
+msgid ""
+"If you successfully managed an installation with &d-i;, please take time to "
+"provide us with a report. The simplest way to do so is to install the "
+"reportbug package (<command>aptitude install reportbug</command>), configure "
+"<classname>reportbug</classname> as explained in <xref linkend=\"mail-"
+"outgoing\"/>, and run <command>reportbug installation-reports</command>."
+msgstr ""
+"Jos &d-i; asensi onnistuneesti, pyytäisimme käyttämään vähän aikaasi "
+"asennusraportin lähettämiseen. Yksinkertaisin tapa on asentaa paketti "
+"reportbug (<command>aptitude install reportbug</command>), tehdä "
+"<classname>reportbug</classname>in asetukset kuten selitetään kohdassa <xref "
+"linkend=\"mail-outgoing\"/> ja suorittaa komento <command>reportbug "
+"installation-reports</command>."
+
+#. Tag: para
+#: installation-howto.xml:337
+#, no-c-format
+msgid ""
+"If you did not complete the install, you probably found a bug in debian-"
+"installer. To improve the installer it is necessary that we know about them, "
+"so please take the time to report them. You can use an installation report "
+"to report problems; if the install completely fails, see <xref linkend="
+"\"problem-report\"/>."
+msgstr ""
+"Jos asennus ei edennyt loppuun asti, on asentimessa luultavasti vika. Jotta "
+"asenninta saataisin paranneltua on meidän tiedettävä vioista. Pyytäisimme "
+"hieman aikaasi raportin lähettämiseen. Voit käyttää asennusraporttia "
+"vikailmoituksiin. Jos asennus ei onnistunut lainkaan, raportin pohja on "
+"saatavilla luvussa <xref linkend=\"problem-report\"/>."
+
+#. Tag: title
+#: installation-howto.xml:349
+#, no-c-format
+msgid "And finally&hellip;"
+msgstr "Ja lopuksi&hellip;"
+
+#. Tag: para
+#: installation-howto.xml:350
+#, no-c-format
+msgid ""
+"We hope that your &debian; installation is pleasant and that you find "
+"&debian; useful. You might want to read <xref linkend=\"post-install\"/>."
+msgstr ""
+"Toivomme &debian;in asennuksen sujuvan mukavasti ja &debian;in olevan "
+"hyödyllinen. Kannattaa lukea <xref linkend=\"post-install\"/>."

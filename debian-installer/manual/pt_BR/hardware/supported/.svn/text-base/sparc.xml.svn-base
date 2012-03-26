@@ -1,0 +1,75 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 49849 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.01.01 -->
+<!-- updated 43528:48719 by Felipe Augusto van de Wiel (faw) 2007.07.28 -->
+<!-- updated 48719:49849 by Felipe Augusto van de Wiel (faw) 2008.02.06 -->
+
+  <sect2 arch="sparc" id="sparc-cpus">
+  <title>CPU e Placas Mãe suportadas</title>
+<para>
+
+Hardware baseado em Sparc é dividido em um número de diferentes subarquiteturas,
+identificadas por um dos seguintes nomes: sun4, sun4c, sun4d, sun4m, sun4u
+ou sun4v. A seguinte lista descreve quais máquinas elas incluem e qual o
+nível de suporte que pode ser esperado para cada uma delas.
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term>sun4, sun4c, sun4d, sun4m</term>
+
+<listitem><para>
+
+Nenhumas dessas subarquiteturas sparc de 32-bit (sparc32) é suportada. Para
+uma lista completa de máquinas que pertencem a estas subarquiteturas, por
+favor, consulte a
+<ulink url="http://en.wikipedia.org/wiki/SPARCstation">páginas SPARCstation
+da Wikipedia</ulink>.
+
+</para><para>
+
+A última versão do &debian; a suportar sparc32 foi o Etch, e mesmo assim apenas
+para sistemas sun4m. Suporte para outras subarquiteturas 32-bit já havia
+sido descontinuado em lançamentos anteriores.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4u</term>
+
+<listitem><para>
+
+Esta subarquitetura inclui todas as máquinas 64-bit (sparc64) baseadas no
+processador UltraSparc e seus clones. A maioria das máquinas são bem
+suportadas, mesmo que alguns possam experimentar problemas de inicialização
+a partir do CD devido a bugs do firmware ou do carregador de inicialização
+(este problema pode ser contornado usando inicialização via rede). Use o
+kernel sparc64 ou sparc64-smp para configurações de um processador (UP) ou
+para SMP, respectivamente.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4v</term>
+
+<listitem><para>
+
+Esta é a mais nova adição à família Sparc, que inclui máquinas baseadas
+nas CPUs <quote>Niagara multi-core</quote>. No momento tais CPUs estão
+disponíveis somente em servidor T1000 e T2000 da Sun, e são bem suportados.
+Use o kernel sparc64-smp.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Note que as CPUs SPARC64 da Fujitsu usadas na família PRIMEPOWER de servidores
+não são suportados devido à falta de suporte no kernel Linux.
+
+</para>
+  </sect2>

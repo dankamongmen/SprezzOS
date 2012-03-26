@@ -1,0 +1,249 @@
+<!-- $Id$ -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="powerpc" id="boot-cd"><title>Zavedení z CD-ROM</title>
+
+&boot-installer-intro-cd.xml;
+
+<para>
+
+Momentálně jediné podarchitektury &arch-title; podporující zavádění z
+CD-ROM jsou PReP (ne všechny) a New World PowerMacy. Abyste na
+počítačích PowerMac
+zavedli systém z CD, stiskněte během zavádění klávesu
+<keycap>c</keycap> nebo kombinaci kláves
+<keycap>Command</keycap>, <keycap>Option</keycap>,
+<keycap>Shift</keycap> a <keycap>Delete</keycap>.
+
+</para><para>
+
+OldWorld PowerMacy neumí zavést CD s &debian;em, protože zavádění
+nechávají na ovladači <application>MacOS ROM</application>, který musí
+být přítomen na CD. Protože neexistuje svobodná verze tohoto ovladače,
+musíte ke spuštění instalace použít disketovou mechaniku (tu mají
+všechny OldWorld systémy) a teprve pak využít CD.
+
+</para><para>
+
+I v případě, že váš systém neumožňuje zavedení přímo z CD-ROM, můžete
+stále použít CD-ROM k instalaci. Na NewWorldech také můžete použít
+OpenFirmware a zavést z CD-ROM ručně. Pokračujte stejně jako při
+zavedení z pevného disku (<xref linkend="boot-newworld"/>), pouze v
+promptu OpenFirmwaru použijte cestu k <command>yaboot</command>u na CD.
+
+<informalexample><screen>
+0 &gt; boot cd:,\install\yaboot
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 arch="powerpc" id="install-drive">
+  <title>Zavedení z pevného disku</title>
+
+&boot-installer-intro-hd.xml;
+
+<!--
+  <sect3><title>Zavedení CHRP z OpenFirmware</title>
+<para>
+
+  <emphasis>Not yet written.</emphasis>
+
+</para>
+   </sect3>
+-->
+
+   <sect3><title>Zavedení OldWorld PowerMaců z MacOS</title>
+<para>
+
+Pokud jste nastavili program BootX (<xref linkend="files-oldworld"/>),
+můžete ho použít k zavedení instalačního systému. Dvakrát klikněte na
+ikonu <guiicon>BootX</guiicon>, kliknete na tlačítko
+<guibutton>Options</guibutton>, vyberte položku <guilabel>Use
+Specified RAM Disk</guilabel> a vyberte soubor
+<filename>ramdisk.image.gz</filename>. Podle vašeho počítače budete
+možná muset zatrhnout volbu <guilabel>No Video Driver</guilabel>.
+Kliknutím na tlačítko <guibutton>Linux</guibutton> vypnete MacOS a
+spustíte instalaci.
+
+</para>
+   </sect3>
+
+
+  <sect3 id="boot-newworld">
+  <title>Zavedení NewWorld Maců z OpenFirmware</title>
+<para>
+
+Předpokládáme, že již máte soubory <filename>vmlinux</filename>,
+<filename>initrd.gz</filename>, <filename>yaboot</filename>
+a <filename>yaboot.conf</filename> v kořenovém adresáři své HFS
+oblasti (viz <xref linkend="files-newworld"/>). Restartujte počítač
+do OpenFirmwaru (viz <xref linkend="invoking-openfirmware"/>) a
+do promptu napište:
+
+<informalexample><screen>
+0 &gt; boot hd:<replaceable>x</replaceable>,yaboot
+</screen></informalexample>
+
+kde <replaceable>x</replaceable> nahraďte číslem HFS oblasti, která
+obsahuje soubory jádra a yabootu. Na některých počítačích musíte
+místo <userinput>hd:</userinput> zadat <userinput>ide0:</userinput>.
+Po stisku klávesy &enterkey; uvidíte prompt yabootu
+
+<informalexample><screen>
+boot:
+</screen></informalexample>
+
+Do promptu napište <userinput>install</userinput> nebo
+<userinput>install video=ofonly</userinput> a stiskněte &enterkey;
+&mdash; po chvíli by se měl spustit instalační program &debian;u.
+Parametr <userinput>video=ofonly</userinput> byste měli vyzkoušet
+v případě, že standardní <userinput>install</userinput> nefunguje.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="powerpc" condition="bootable-usb" id="usb-boot">
+  <title>Zavedení z USB médií</title>
+<para>
+
+O zavádění z USB médií víme, že funguje na NewWorld PowerMacích.
+
+</para><para>
+
+K zavedení Macintoshe z USB zařízení musíte mít vše připravené podle
+<xref linkend="boot-usb-files"/>. Protože OpenFirmware implicitně
+neprohledává USB zařízení, budete muset použít prompt OpenFirmwaru
+(viz <xref linkend="invoking-openfirmware"/>).
+
+</para><para>
+
+Nejprve budete muset zjistit, kde se ve stromu zařízení nacházejí USB
+zařízení, protože v současnosti to <command>ofpath</command> neumí
+zjistit automaticky. Seznam všech známých zařízení a jejich aliasů
+získáte tak, že do promptu OpenFirmwaru zadáte <userinput>dev /
+ls</userinput> a <userinput>devalias</userinput>. Na autorově systému
+fungují s různými USB klíčenkami cesty jako
+<filename>usb0/disk</filename>, <filename>usb0/hub/disk</filename>,
+<filename>/pci@f2000000/usb@1b,1/disk@1</filename>
+a <filename>/pci@f2000000/usb@1b,1/hub@1/disk@1</filename>.
+
+</para><para>
+
+Když znáte cestu k zařízení, můžete zavést instalační program
+příkazem:
+
+<informalexample><screen>
+boot <replaceable>usb0/disk</replaceable>:<replaceable>2</replaceable>,\\:tbxi
+</screen></informalexample>
+
+<replaceable>2</replaceable> odpovídá oblasti Apple_HFS nebo
+Apple_Bootstrap, na kterou jste dříve nakopírovali zaváděcí obrazy.
+Část <userinput>,\\:tbxi</userinput> říká OpenFirmwaru, aby zavedl ze
+souboru s HFS typem souboru "tbxi" (t.j. <command>yaboot</command>)
+v adresáři dříve požehnaném příkazem <command>hattrib -b</command>.
+
+</para><para>
+
+Systém by se měl zavést a měla by se ukázat výzva
+<prompt>boot:</prompt>. Zde můžete zadat dodatečné zaváděcí parametry,
+nebo jednoduše stisknout &enterkey;.
+
+</para><warning><para>
+
+Popsaný způsob zavádění je poměrně nový a na některých počítačích
+nemusí jít zprovoznit. Pokud máte problémy, odešlete, prosím, hlášení
+o průběhu instalace, jak je popsáno v <xref linkend="submit-bug"/>.
+
+</para></warning>
+  </sect2>
+
+  <sect2 arch="powerpc" id="boot-tftp"><title>Zavedení z TFTP</title>
+
+&boot-installer-intro-net.xml;
+
+<para>
+
+V současnosti podporují zavádění ze sítě počítače PReP a New World
+PowerMacy.
+
+</para><para>
+
+Na strojích s OpenFirmwarem, např. NewWorld Power Macích, vstupte do
+<quote>boot monitoru</quote> (viz <xref linkend="invoking-openfirmware"/>)
+a zadejte příkaz
+
+<informalexample><screen>
+0 &gt; boot enet:0
+</screen></informalexample>
+
+Pokud to nebude fungovat, můžete zkusit přidat jméno souboru:
+
+<informalexample><screen>
+0 &gt; boot enet:0,yaboot
+</screen></informalexample>
+
+Stanice PReP a CHRP mohou adresovat síť odlišně. Na PReP zkuste příkaz
+
+<informalexample><screen>
+boot net:<replaceable>ip_adresa_serveru</replaceable>,<replaceable>soubor</replaceable>,<replaceable>ip_adresa_klienta</replaceable>
+</screen></informalexample>
+
+Na některých systémech PReP (např. Motorola PowerStack) vypíše příkaz
+<userinput>help boot</userinput> syntaxi a popis dostupných příkazů a
+parametrů.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="powerpc" condition="supports-floppy-boot">
+  <title>Zavedení z disket</title>
+<para>
+
+Zavádění z disket je na architektuře &arch-title; podporováno, ale
+obvykle pouze pro OldWorld systémy, protože NewWorld systémy nebývají
+vybaveny disketovými mechanikami a zavádění z externích USB mechanik
+zatím není podporováno.
+
+</para><para>
+
+Předpokládáme, že jste si již potřebné obrazy stáhli a podle
+<xref linkend="create-floppy"/> vytvořili příslušné diskety.
+
+</para><para>
+
+Abyste mohli z diskety <filename>boot-floppy-hfs.img</filename> zavést
+systém, vložte ji do mechaniky po vypnutí systému, ale před stiskem
+zapínacího tlačítka.
+
+</para><note><para>
+
+Pokud nejste obeznámeni se zvláštnostmi Macintoshů: Disketa vložená
+před zapnutím počítače má nejvyšší prioritu při zavádění systému. Pokud
+na disketě není zaveditelný systém, disketa bude vysunuta a počítač
+zkusí zavést systém z pevného disku.
+
+</para></note><para>
+
+Po zavedení je požadována disketa <filename>root.bin</filename>.
+Vložte ji do mechaniky a zmáčkněte &enterkey;. Kořenový svazek se
+nahraje do paměti a automaticky se spustí instalační program.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="powerpc"><title>Zaváděcí parametry na PowerPC</title>
+<para>
+
+Mnoho starších monitorů od Apple používá rozlišení 640x480 na
+67Hz. Pokud se vám zdá obraz na takovém monitoru zkosený, zkuste
+použít zaváděcí parametr <userinput>video=atyfb:vmode:6</userinput>,
+kterým nastavíte vhodný režim pro většinu grafických karet s čipy
+Mach64 a Rage. Pro Rage 128 použijte
+<userinput>video=aty128fb:vmode:6</userinput> .
+
+</para>
+  </sect2>

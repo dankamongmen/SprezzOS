@@ -1,0 +1,48 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64740 -->
+
+<chapter id="boot-installer"><title>Arrencada del sistema d'instal·lació</title>
+
+<!-- Include only archs that are documented to avoid build-errors -->
+<!-- The arch="..." condition can be deleted when al archs are present -->
+ <sect1 arch="arm;any-x86;ia64;mips;mipsel;s390;powerpc;sparc">
+ <title>Arrencada de l'instal·lador en l'arquitectura &arch-title;</title>
+
+<!-- This info is so architecture dependent, that I have turned the   -->
+<!-- structure inside out for this chapter. Each arch has a document. -->
+<!-- Note: arch hppa is currently missing -->
+
+<warning arch="any-x86;powerpc"><para>
+
+Si teniu altres sistemes operatius que voleu mantenir al sistema (configurats
+amb arrencada dual), hauríeu d'assegurar-vos que han estat aturats
+correctament <emphasis>abans</emphasis> d'arrencar l'instal·lador. Instal·lar
+un sistema operatiu mentre un altre està en hibernació (és a dir, ha estat
+suspès a disc) podria resultar en pèrdues o danys en l'estat del sistema
+operatiu suspès, que podria causar problemes en reiniciar.
+
+</para></warning>
+<note condition="gtk"><para>
+
+Per a informació de com arrencar l'instal·lador gràfic, vegeu
+<xref linkend="graphical"/>.
+
+</para></note>
+
+&boot-installer-arm.xml;
+<!-- &boot-installer-hppa.xml; -->
+&boot-installer-x86.xml;
+&boot-installer-ia64.xml;
+&boot-installer-mips.xml;
+&boot-installer-mipsel.xml;
+&boot-installer-s390.xml;
+&boot-installer-powerpc.xml;
+&boot-installer-sparc.xml;
+
+ </sect1>
+
+&boot-installer-accessibility.xml;
+&boot-installer-parameters.xml;
+&boot-installer-trouble.xml;
+
+</chapter>

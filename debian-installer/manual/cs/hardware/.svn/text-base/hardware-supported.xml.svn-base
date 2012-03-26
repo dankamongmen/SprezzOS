@@ -1,0 +1,411 @@
+<!-- $Id$ -->
+<!-- original version: 65172 -->
+
+ <sect1 id="hardware-supported">
+ <title>Podporovaná zařízení</title>
+<para>
+
+&debian; neklade na hardware jiná omezení než ta, která jsou dána jádrem
+Linuxu nebo kFreeBSD a programy GNU. Tedy na libovolné počítačové
+architektuře, na kterou bylo přeneseno jádro Linuxu nebo kFreeBSD,
+knihovna libc, překladač <command>gcc</command> atd., a pro kterou
+existuje port &debian;u, můžete &debian; nainstalovat. Viz stránka s porty
+(<ulink url="&url-ports;"></ulink>).
+
+</para><para>
+
+Než abychom se snažili popsat všechny podporované konfigurace
+hardwaru pro architekturu &arch-title;, zaměříme se spíše na obecné
+informace a uvedeme odkazy na doplňující dokumentaci.
+
+</para>
+
+  <sect2><title>Podporované počítačové architektury</title>
+<para>
+
+&debian; GNU/Linux &release; podporuje jedenáct hlavních počítačových
+architektur a několik jejich variant.
+
+</para><para>
+
+<informaltable>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry>Architektura</entry>
+  <entry>Označení v &debian;u</entry>
+  <entry>Podarchitektura</entry>
+  <entry>Varianta</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Intel x86</entry>
+  <entry>i386</entry>
+  <entry></entry>
+  <entry></entry>
+</row>
+
+<row>
+  <entry>AMD64 &amp; Intel EM64T</entry>
+  <entry>amd64</entry>
+  <entry></entry>
+  <entry></entry>
+</row>
+
+<row>
+  <entry morerows="4">ARM</entry>
+  <entry morerows="4">armel</entry>
+  <entry>Intel IOP32x</entry>
+  <entry>iop32</entry>
+</row><row>
+  <entry>Intel IXP4xx</entry>
+  <entry>ixp4xx</entry>
+</row><row>
+  <entry>Marvell Kirkwood</entry>
+  <entry>kirkwood</entry>
+</row><row>
+  <entry>Marvell Orion</entry>
+  <entry>orion5x</entry>
+</row><row>
+  <entry>Versatile</entry>
+  <entry>versatile</entry>
+</row>
+
+<row>
+  <entry morerows="1">HP PA-RISC</entry>
+  <entry morerows="1">hppa</entry>
+  <entry>PA-RISC 1.1</entry>
+  <entry>32</entry>
+</row><row>
+  <entry>PA-RISC 2.0</entry>
+  <entry>64</entry>
+</row>
+
+<row>
+  <entry>Intel IA-64</entry>
+  <entry>ia64</entry>
+  <entry></entry>
+  <entry></entry>
+</row>
+
+<row>
+  <entry morerows="3">MIPS (big endian)</entry>
+  <entry morerows="3">mips</entry>
+  <entry>SGI IP22 (Indy/Indigo 2)</entry>
+  <entry>r4k-ip22</entry>
+</row><row>
+  <entry>SGI IP32 (O2)</entry>
+  <entry>r5k-ip32</entry>
+</row><row>
+  <entry>MIPS Malta (32 bit)</entry>
+  <entry>4kc-malta</entry>
+</row><row>
+  <entry>MIPS Malta (64 bit)</entry>
+  <entry>5kc-malta</entry>
+</row>
+
+<row>
+  <entry morerows="2">MIPS (little endian)</entry>
+  <entry morerows="2">mipsel</entry>
+  <entry>Cobalt</entry>
+  <entry>cobalt</entry>
+</row><row>
+  <entry>MIPS Malta (32 bit)</entry>
+  <entry>4kc-malta</entry>
+</row><row>
+  <entry>MIPS Malta (64 bit)</entry>
+  <entry>5kc-malta</entry>
+</row>
+
+<row>
+  <entry morerows="1">IBM/Motorola PowerPC</entry>
+  <entry morerows="1">powerpc</entry>
+  <entry>PowerMac</entry>
+  <entry>pmac</entry>
+</row><row>
+  <entry>PReP</entry>
+  <entry>prep</entry>
+</row>
+
+<row>
+  <entry morerows="1">Sun SPARC</entry>
+  <entry morerows="1">sparc</entry>
+  <entry>sun4u</entry>
+  <entry morerows="1">sparc64</entry>
+</row><row>
+  <entry>sun4v</entry>
+</row>
+
+<row>
+  <entry morerows="1">IBM S/390</entry>
+  <entry morerows="1">s390</entry>
+  <entry>IPL z VM-reader a DASD</entry>
+  <entry>generic</entry>
+</row><row>
+  <entry>IPL z pásky</entry>
+  <entry>tape</entry>
+</row>
+
+</tbody></tgroup></informaltable>
+
+</para><para>
+
+&debian; GNU/kFreeBSD &release; podporuje dvě architektury.
+
+</para><para>
+
+<informaltable>
+<tgroup cols="2">
+<thead>
+<row>
+  <entry>Architektura</entry>
+  <entry>Označení v &debian;u</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>Intel x86</entry>
+  <entry>kfreebsd-i386</entry>
+</row>
+
+<row>
+  <entry>AMD64 &amp; Intel EM64T</entry>
+  <entry>kfreebsd-amd64</entry>
+</row>
+
+</tbody></tgroup></informaltable>
+
+</para><para>
+
+Tato verze dokumentu se zabývá instalací &debian;u s jádrem
+<emphasis>&arch-kernel;</emphasis> na architektuře
+<emphasis>&arch-title;</emphasis>. Pro ostatní podporované
+architektury jsou návody na stránkách
+<ulink url="http://www.debian.org/ports/">Debian-Ports</ulink>.
+
+</para><caution arch="ia64"><para>
+
+Architektura &arch-title; podporuje pouze procesory Intel Itanium!
+Běžnější 64 bitové procesory z rodiny EM64T (např. Pentium&nbsp;D,
+Core2&nbsp;Duo nebo Core&nbsp;i7) jsou podporovány architekturou
+<emphasis>amd64</emphasis>, případně, pokud preferujete 32 bitové
+aplikace, architekturou <emphasis>i386</emphasis>.
+
+</para></caution><para condition="new-arch">
+
+Toto je první oficiální vydání systému &debian-gnu; pro architekturu
+&arch-title;. K vydání došlo, protože jsme přesvědčeni, že stav
+distribuce pro tuto architekturu je již uspokojivý a distribuce může
+být oficiálně uvolněna k širšímu použití. Jelikož jde o první verzi
+distribuce podporující tuto architekturu, nebyla distribuce prověřena
+širokou uživatelskou základnou a proto se v ní mohou vyskytovat chyby.
+Jakékoliv problémy, prosím, nahlaste na
+<ulink url="&url-bts;">Bug Tracking System</ulink> a nezapomeňte
+napsat, že chyba se týká platformy &arch-title; s jádrem &arch-kernel;.
+Také bude užitečné sledovat diskuzní list
+<ulink url="&url-list-subscribe;">debian-&arch-listname;</ulink>
+
+</para>
+  </sect2>
+
+<!-- supported cpu docs -->
+&supported-amd64.xml;
+&supported-arm.xml;
+&supported-hppa.xml;
+&supported-i386.xml;
+&supported-ia64.xml;  <!-- FIXME: currently missing -->
+&supported-mips.xml;
+&supported-mipsel.xml;
+&supported-powerpc.xml;
+&supported-s390.xml;
+&supported-sparc.xml;
+
+  <sect2 arch="x86" id="laptops"><title>Notebooky</title>
+<para>
+
+Instalovat můžete i na notebooky. V dnešní době funguje většina
+notebooků bez problémů. Pokud notebook obsahuje nestandardní nebo
+proprietární hardwarové prvky, je možné že tyto speciální funkce
+nebudou fungovat. Na stránce
+<ulink url="&url-x86-laptop;">Linux a notebooky</ulink>
+zjistíte, zda na vašem notebooku GNU/Linux poběží.
+
+</para>
+  </sect2>
+
+  <sect2 condition="defaults-smp">
+  <title>Víceprocesorové systémy</title>
+<para>
+
+Tato architektura umožňuje využití více procesorů &mdash;
+tzv. symetrický multiprocesing (SMP). Standardní jádro v distribuci
+&debian-gnu; &release; bylo sestaveno s touto podporou, což by nemělo vadit
+ani při instalaci na jednoprocesorový počítač; pouze režie jádra může
+být trošku vyšší.
+
+</para><para arch="linux-any">
+
+Abyste optimalizovali jádro pro jeden procesor, budete muset nahradit
+jádro operačního systému, viz <xref linkend="kernel-baking"/>.
+V aktuálním jádře verze &kernelversion; zrušíte podporu SMP tak, že
+v konfiguračním systému jádra v sekci
+<guimenu>&smp-config-section;</guimenu> vypnete položku
+<guimenuitem>&smp-config-option;</guimenuitem>.
+
+</para>
+  </sect2>
+
+  <sect2 condition="smp-alternatives">
+  <title>Víceprocesorové systémy</title>
+<para>
+
+Tato architektura umožňuje využití více procesorů &mdash;
+tzv. symetrický multiprocesing (SMP). Standardní jádro v distribuci
+&debian-gnu; &release; bylo sestaveno s podporou
+<firstterm>SMP-alternatives</firstterm>, což znamená, že jádro samo
+rozpozná počet procesorů (nebo procesorových jader) a na
+jednoprocesorových počítačích podporu SMP automaticky vypne.
+
+</para><para arch="i386">
+
+Varianta debianího jádra pro &arch-title; zaměřená na procesory 486
+není sestavena s podporou symetrického multiprocesingu.
+
+</para>
+  </sect2>
+
+  <sect2 condition="supports-smp">
+  <title>Víceprocesorové systémy</title>
+<para>
+
+Tato architektura umožňuje využití více procesorů &mdash;
+tzv. symetrický multiprocesing (SMP). Standardní jádro v distribuci
+&debian-gnu; &release; podporu SMP nezahrnuje. Instalaci by to vadit nemělo,
+protože jádro bez podpory multiprocesingu funguje i na systému s více
+procesory, systém však bude využívat pouze první procesor.
+
+</para><para arch="linux-any">
+
+Pro využití více než jednoho procesoru budete muset nahradit jádro
+operačního systému, viz <xref linkend="kernel-baking"/>. Pro jádro
+verze &kernelversion; zapnete podporu SMP tak, že v konfiguračním
+systému jádra vyberete v sekci <guimenu>&smp-config-section;</guimenu>
+položku <guimenuitem>&smp-config-option;</guimenuitem>.
+
+</para>
+  </sect2>
+
+  <sect2 condition="supports-smp-sometimes">
+  <title>Víceprocesorové systémy</title>
+<para>
+
+Tato architektura umožňuje využití více procesorů &mdash;
+tzv. symetrický multiprocesing (SMP). Standardní jádro v distribuci
+&debian; &release; bylo sestaveno s touto podporou, ale v závislosti na
+použitém instalačním médiu se toto jádro nemusí nainstalovat
+automaticky. Instalaci by to vadit nemělo, protože jádro bez podpory
+multiprocesingu funguje i na systému s více procesory, systém však
+bude využívat pouze první procesor.
+
+</para><para>
+
+Pro využití více procesorů se budete muset podívat, zda se
+nainstalovalo SMP jádro. Pokud ne, doinstalujte si příslušný balík.
+<phrase arch="linux-any">
+Další možnost je sestavit si vlastní jádro operačního systému, viz
+<xref linkend="kernel-baking"/>. Pro jádro verze &kernelversion;
+zapnete podporu SMP tak, že v konfiguračním systému jádra vyberete
+v sekci <guimenu>&smp-config-section;</guimenu> položku
+<guimenuitem>&smp-config-option;</guimenuitem>.</phrase>
+
+</para>
+  </sect2>
+
+  <sect2 id="gfx" arch="not-s390">
+  <title>Podpora grafických karet</title>
+<para arch="x86">
+
+Pro výstup v textovém režimu potřebujete grafickou kartu kompatibilní
+se standardem VGA, což dnes téměř každá grafická karta splňuje.
+Historické grafické karty kompatibilní se standardy CGA, MDA nebo HGA
+jsou rovněž postačující, pokud ovšem neplánujete využití systému X11.
+(Výchozí instalace popsaná v této příručce grafický systém X11
+nepoužívá, nicméně si můžete zvolit i takovou variantu.)
+
+</para><para>
+
+Podpora grafických karet v grafickém režimu závisí na tom, zda pro
+kartu existuje ovladač v projektu X.Org. Většina grafických
+karet pro sloty PCI, AGP, PCIe a PCI-X funguje s X.Org bezproblémově.
+Podrobnosti o podporovaných grafických kartách, sběrnicích, monitorech
+a ukazovacích zařízeních naleznete na
+<ulink url="&url-xorg;"></ulink>.
+&debian-gnu; &release; je dodáván se systémem X.Org verze &x11ver;.
+
+</para><para arch="mips">
+
+X Window System od X.Org je podporován pouze na SGI Indy a O2.
+
+</para><para arch="sparc">
+
+Podporována je většina grafických karet běžně dostupných ve strojích
+Sparc. Grafické ovladače X.org jsou dostupné pro framebuffery sunbw2,
+suncg14, suncg3, suncg6, sunleo a suntcx, karty Creator3D a Elite3D
+(ovladač sunffb), video karty založené na ATI PGX24/PGX64 (ovladač
+ati) a karty založené na PermediaII (ovladač glint). Abyste mohli se
+systémem X.org používat kartu Elite3D, musíte navíc doinstalovat balík
+<classname>afbinit</classname> a přečíst si dokumentaci v něm
+obsaženou, kde zjistíte, jak kartu aktivovat.
+
+</para><para arch="sparc">
+
+Není neobvyklé, že ve výchozí konfiguraci mají systémy Sparc dvě
+grafické karty. V takovém případě se může stát, že Linux nepřesměruje
+svůj výstup na kartu původně zvolenou firmwarem, ale na tu druhou. To
+pak může vypadat, jako by se zavádění zaseklo (poslední viditelná
+hláška bývá obvykle <computeroutput>Booting
+Linux...</computeroutput>). Jedním z možných řešení je fyzické
+odstranění jedné z grafických karet. Jinou možností je zakázání jedné
+karty pomocí parametru jádra. Nepožadujete-li grafický výstup, můžete
+též použít sériovou konzolu. Na některých systémech se sériová konzole
+aktivuje automaticky po odpojení klávesnice při vypnutém počítači.
+
+</para>
+  </sect2>
+
+&network-cards.xml;
+&accessibility-hardware.xml;
+&supported-peripherals.xml;
+
+ </sect1>
+
+ <sect1 arch="not-s390" id="hardware-firmware">
+ <title>Ovladače vyžadující firmware</title>
+<para>
+
+Některý hardware vyžaduje kromě samotného ovladače zařízení také
+<firstterm>firmware</firstterm> nebo <firstterm>mikrokód</firstterm>,
+který je třeba do zařízení před použitím nahrát. Nejčastěji se s tím
+setkáte u síťových karet (obzvláště bezdrátových), ale jsou známa
+i některá USB zařízení a dokonce řadiče disků.
+
+</para><para>
+
+Ve většině případů je firmware dle definice &debian;u nesvobodný a
+tudíž jej nelze zařadit ani do distribuce, ani do instalačního
+systému. Jestliže je ovladač samotný součástí &debian;u a firmware je
+možno legálně distribuovat, je možné, že ho naleznete jako samostatný
+balík v sekci non-free.
+
+</para><para>
+
+Naštěstí to neznamená, že takový hardware nemůžete pro instalaci
+použít. Počínaje &debian;em 5.0 podporuje &d-i; nahrávání firmwaru
+z výměnných médií, jako jsou diskety nebo USB klíčenky. Tomuto tématu
+se podrobněji věnuje kapitola <xref linkend="loading-firmware"/>.
+
+</para>
+ </sect1>

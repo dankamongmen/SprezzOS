@@ -1,0 +1,2841 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 66810 -->
+
+<!--
+Be careful with the format of this file as it is parsed to generate
+the example preconfiguration file.
+In that file all text between <informalexample> tags that have the
+attribute 'role="example"' set is included, except if a 'condition'
+attribute is in force that does not match the specified release or if an
+'arch' attribute is in force that does not match the specified architecture.
+
+Currently only a single variant of the example file is generated (for i386).
+-->
+
+<appendix id="appendix-preseed">
+<!-- <title>Automating the installation using preseeding</title> -->
+<title>Installazione automatica tramite preconfigurazione</title>
+<para>
+
+<!--
+This appendix explains how to preseed answers to questions in &d-i; to
+automate your installation.
+-->
+
+Questa appendice spiega come preconfigurare le risposte alle domande poste
+dal &d-i; per automatizzare la propria installazione.
+
+</para><para>
+
+<!--
+The configuration fragments used in this appendix are also available as an
+example preconfiguration file from &urlset-example-preseed;.
+-->
+
+I vari frammenti utilizzati in questa appendice sono disponibili anche nel
+file di preconfigurazione di esempio &urlset-example-preseed;.
+
+</para>
+
+
+ <sect1 id="preseed-intro">
+ <!-- <title>Introduction</title> -->
+ <title>Introduzione</title>
+<para>
+
+<!--
+Preseeding provides a way to set answers to questions asked during the
+installation process, without having to manually enter the answers while
+the installation is running. This makes it possible to fully automate most
+types of installation and even offers some features not available during
+normal installations.
+-->
+
+La preconfigurazione offre un modo per impostare le risposte alle domande
+poste durante l'installazione senza doverle inserire manualmente. Questo
+permette di automatizzare completamente la maggior parte dei tipi
+d'installazione e offre persino alcune funzionalità che non sono disponibili
+durante l'installazione tradizionale.
+
+</para><para>
+
+<!--
+Preseeding is not required. If you use an empty preseed file, the installer
+will behave just the same way as in a normal manual installation. Each
+question you preseed will (if you got it right!) modify the installation in
+some way from that baseline.
+-->
+
+La preconfigurazione non è obbligatoria. Con un file di preconfigurazione
+vuoto, il programma d'installazione si comporta allo stesso modo di una
+normale installazione manuale. Ogni domanda preconfigurata (se la
+preconfigurazione è corretta) modifica l'installazione rispetto a quella
+di base.
+
+</para>
+
+  <sect2 id="preseed-methods">
+  <!-- <title>Preseeding methods</title> -->
+  <title>Metodi di preconfigurazione</title>
+<para>
+
+<!--
+There are three methods that can be used for preseeding:
+<firstterm>initrd</firstterm>, <firstterm>file</firstterm> and
+<firstterm>network</firstterm>. Initrd preseeding will work with any
+installation method and supports preseeding of more things, but it requires
+the most preparation. File and network preseeding each can be used with
+different installation methods.
+-->
+
+Per la preconfigurazione si possono usare tre metodi:
+<firstterm>initrd</firstterm>, <firstterm>file</firstterm> e
+<firstterm>network</firstterm>. La preconfigurazione initrd funziona con
+tutti i metodi d'installazione e consente la preconfigurazione di parecchie
+domande ma richiede la preparazione più lunga. Le preconfigurazioni file e
+network si possono usare con metodi d'installazione diversi.
+
+</para><para>
+
+<!--
+The following table shows which preseeding methods can be used with which
+installation methods.
+-->
+
+La tabella seguente mostra quali metodi di preconfigurazione possono essere
+usati con i vari metodi d'installazione.
+
+<informaltable>
+<tgroup cols="4">
+<thead>
+<row>
+  <entry><!-- Installation method -->Metodo d'installazione</entry>
+  <entry>initrd</entry><entry>file</entry><entry>network</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+  <entry>CD/DVD</entry>
+  <entry><!-- yes -->sì</entry>
+  <entry><!-- yes -->sì</entry>
+  <entry><!-- yes -->sì<footnote id='apx-ps-net'>
+
+  <para>
+
+<!--
+  but only if you have network access, and set <literal>preseed/url</literal>
+  appropriately
+-->
+
+  Solo se si dispone di un collegamento in rete e se
+  <literal>preseed/url</literal> è correttamente impostato.
+
+  </para>
+
+  </footnote></entry>
+</row><row>
+  <entry>netboot</entry>
+  <entry><!-- yes -->sì</entry>
+  <entry>no</entry>
+  <entry><!-- yes -->sì</entry>
+</row><row>
+  <entry>hd-media <phrase condition="bootable-usb"><!-- (including usb-stick) -->(comprese le chiavette USB)</phrase></entry>
+  <entry><!-- yes -->sì</entry>
+  <entry><!-- yes -->sì</entry>
+  <entry><!-- yes -->sì<footnoteref linkend='apx-ps-net'/></entry>
+</row><row condition="supports-floppy-boot">
+  <entry>floppy based (cd-drivers)</entry>
+  <entry><!-- yes -->sì</entry>
+  <entry><!-- yes -->sì</entry>
+  <entry><!-- yes -->sì<footnoteref linkend='apx-ps-net'/></entry>
+</row><row condition="supports-floppy-boot">
+  <entry>floppy based (net-drivers)</entry>
+  <entry><!-- yes -->sì</entry>
+  <entry>no</entry>
+  <entry><!-- yes -->sì</entry>
+</row><row arch="s390">
+  <entry>generic/tape</entry>
+  <entry><!-- yes -->sì</entry>
+  <entry>no</entry>
+  <entry><!-- yes -->sì</entry>
+</row>
+</tbody>
+
+</tgroup></informaltable>
+
+</para><para>
+
+<!--
+An important difference between the preseeding methods is the point at which
+the preconfiguration file is loaded and processed. For initrd preseeding
+this is right at the start of the installation, before the first question is
+even asked. For file preseeding this is after the CD or CD image has been
+loaded. For network preseeding it is only after the network has been
+configured.
+-->
+
+Una differenza importante fra i vari metodi di preconfigurazione è il momento
+in cui viene caricato e processato il file di preconfigurazione. Nel caso
+della preconfigurazione con initrd avviene all'avvio dell'installazione,
+prima che sia posta la prima domanda. Con la preconfigurazione con il
+metodo file avviene dopo che è stata caricato il CD o l'immagine del CD.
+Infine la preconfigurazione network ha effetti solo dopo la configurazione
+della rete.
+
+</para><para>
+
+<!--
+Obviously, any questions that have been processed before the
+preconfiguration file is loaded cannot be preseeded (this will include
+questions that are only displayed at medium or low priority, like the
+first hardware detection run). <xref linkend="preseed-bootparms"/>
+offers a way to avoid these questions being asked.
+-->
+
+Ovviamente qualsiasi domanda elaborata prima che venga caricato il file
+di preconfigurazione non può essere preconfigurata (tra cui quelle mostrate
+solo quando la priorità è media o bassa, per esempio il primo riconoscimento
+dell'hardware). In <xref linkend="preseed-bootparms"/> è descritto un modo
+per evitare che queste domande siano poste.
+
+</para><para>
+
+<!--
+In order to avoid the questions that would normally appear before the
+preseeding occurs, you can start the installer in <quote>auto</quote>
+mode. This delays questions that would normally be asked too early for
+preseeding (i.e. language, country and keyboard selection) until after
+the network comes up, thus allowing them to be preseeded. It also runs
+the installation at critical priority, which avoids many unimportant
+questions. See <xref linkend="preseed-auto"/> for details.
+-->
+
+Per evitare le domande normalmente poste prima che avvenga la
+preconfigurazione, è possibile avviare l'installatore in modalità
+<quote>auto</quote>. Questa modalità rimanda le domande che sarebbero
+poste troppo presto per la preconfigurazione (cioè la scelta di lingua,
+nazione e tastiera) fino a che la rete non sia funzionante, in modo
+da consentire la preconfigurazione; inoltre la priorità
+dell'installazione viene forzata ad alta, evitando parecchie domande
+trascurabili. Si veda <xref linkend="preseed-auto"/> per i dettagli.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-limitations">
+  <!-- <title>Limitations</title> -->
+  <title>Limitazioni</title>
+<para>
+
+<!--
+Although most questions used by &d-i; can be preseeded using this method,
+there are some notable exceptions. You must (re)partition an entire disk
+or use available free space on a disk; it is not possible to use existing
+partitions.
+-->
+
+Nonostante che la maggior parte delle domande poste da &d-i; possa essere
+preconfigurata, esistono delle eccezioni notevoli. Si deve partizionare
+l'intero disco oppure usare solo lo spazio libero sul disco; non è possibile
+usare delle partizioni esistenti.
+
+</para>
+  </sect2>
+
+<!-- Joeyh feels this is too technical, so leave it out for now
+  <sect2 id="preseed-debconf">
+  <title>Debconf basics</title>
+  <title>Nozioni di base su debconf</title>
+<para>
+
+Preseeding makes use of the <classname>debconf</classname> framework. This
+framework is the preferred mechanism used in &debian; to interact with the user
+when configuring packages and also forms the heart of &d-i;.
+In the <classname>debconf</classname> framework questions or dialogs are
+based on <firstterm>templates</firstterm>. There are different types of
+templates for different types of questions. The actual questions are
+<quote>generated</quote> from templates at runtime;  multiple questions can
+use the same template.
+
+La preconfigurazione usa l'infrastruttura <classname>debconf</classname>.
+Questa infrastruttura è il meccanismo privilegiato in &debian; per interagire
+con l'utente durante la configurazione dei pacchetti e costituisce il cuore
+del &d-i;. Nell'infrastruttura <classname>debconf</classname> le domande o
+dialoghi sono basate su <firstterm>template</firstterm>. Ci sono template
+diversi per diversi tipi di domande. Le domande sono generate a partire dai
+template durante l'esecuzione; più domande possono condividere lo stesso
+template.
+
+</para><para>
+
+The following types of templates are relevant for preseeding.
+
+Per la preconfigurazione sono usati i seguenti tipi di template.
+
+</para>
+
+<itemizedlist spacing="compact">
+<listitem><para>
+  string: allows the user to type any value
+  string: permette all'utente di inserire qualsiasi valore
+</para></listitem>
+<listitem><para>
+  password: similar to string but the value typed is not displayed
+  password: simile a string ma il valore inserito non è visualizzato
+</para></listitem>
+<listitem><para>
+  boolean: for yes/no or true/false type of questions
+  boolean: per le domande sì/no oppure vero/falso
+</para></listitem>
+<listitem><para>
+  select: allows the user to select one option from a list
+  select: permette all'utente si scegliere un valore da un elenco
+</para></listitem>
+<listitem><para>
+  multiselect: allows the user to select zero, one or more options from a list
+  multiselect: permette all'utente di scegliere zero, uno o più valori da un
+  elenco
+</para></listitem>
+<listitem><para>
+  note: used to display a message
+  note: usato per visualizzare un messaggio
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+In &d-i; templates are stored in a readable file
+<filename>/var/cache/debconf/templates.dat</filename>. This file contains all fixed
+text and all translations. It can also contain a default value for the
+template. The fixed text can include variables that will be replaced at
+runtime.
+
+I template del &d-i; sono memorizzati nel file (dal formato comprensibile)
+<filename>/var/cache/debconf/templates.dat</filename>. Questo file contiene
+tutte i testi fissi e tutte le traduzioni, può anche contenere un valore
+predefinito per il template. I testi fissi possono contenere delle variabili
+che poi sono sostituite durante l'esecuzione.
+
+</para><para>
+
+Another readable file <filename>/var/cache/debconf/questions.dat</filename>
+is used to store the values for variables and the answers given to questions.
+A question always refers to the template used to ask it. For obvious
+security reasons the values for questions of type <quote>password</quote>
+are stored in a separate, non-readable file in the same directory.
+
+Un altro file (dal formato comprensibile)
+<filename>/var/cache/debconf/questions.dat</filename> è usato per
+memorizzare i valori delle variabili e delle risposte date alle domande.
+Tutte le domande hanno un riferimento al template usato per presentarle
+all'utente. Per ovvi motivi di scurezza i valori delle domande di tipo
+<quote>password</quote> sono memorizzati in un altro file (non comprensibile)
+nella stessa directory.
+
+</para>
+  </sect2>
+-->
+ </sect1>
+
+
+ <sect1 id="preseed-using">
+ <!-- <title>Using preseeding</title> -->
+ <title>Uso della preconfigurazione</title>
+<para>
+
+<!--
+You will first need to create a preconfiguration file and place it in
+the location from where you want to use it. Creating the preconfiguration file
+is covered later in this appendix. Putting it in the correct location is fairly
+straightforward for network preseeding or if you want to read the file off
+a floppy or usb-stick. If you want to include the file on a CD or DVD, you
+will have to remaster the ISO image. How to get the preconfiguration file
+included in the initrd is outside the scope of this document; please consult
+the developers' documentation for &d-i;.
+-->
+
+Le prime cose da fare sono creare un file di preconfigurazione e
+metterlo nella posizione da cui lo si vuole usare. La creazione del file
+di preconfigurazione è trattata in seguito, invece lo spostamento del file
+è molto semplice per la preconfigurazione network o quando si vuole leggere
+il file da un dischetto o da una chiavetta USB. Invece se si vuole mettere il
+file su un CD o DVD è necessario masterizzare una nuova immagine ISO. Come
+preparare il file di preconfigurazione per initrd è fuori dagli scopi di
+questo documento, si consulti la documentazione del &d-i; per gli
+sviluppatori.
+
+</para><para>
+
+<!--
+An example preconfiguration file that you can use as basis for your own
+preconfiguration file is available from &urlset-example-preseed;. This file is
+based on the configuration fragments included in this appendix.
+-->
+
+Un file di preconfigurazione di esempio, che può essere usato come
+base per il proprio file di preconfigurazione è disponibile in
+&urlset-example-preseed;. Questo file è creato partendo dai frammenti
+utilizzati in questa appendice.
+
+</para>
+
+  <sect2 id="preseed-loading">
+  <!-- <title>Loading the preconfiguration file</title> -->
+  <title>Caricamento del file di preconfigurazione</title>
+<para>
+
+<!--
+If you are using initrd preseeding, you only have to make sure a file named
+<filename>preseed.cfg</filename> is included in the root directory of the
+initrd. The installer will automatically check if this file is present and
+load it.
+-->
+
+Se si utilizza la preconfigurazione initrd, bisogna assicurarsi solo che
+il file <filename>preseed.cfg</filename> si trovi nella directory principale
+del initrd. L'installatore automaticamente verifica se questo file è presente
+e lo carica.
+
+</para><para>
+
+<!--
+For the other preseeding methods you need to tell the installer what file
+to use when you boot it. This is normally done by passing the kernel a boot
+parameter, either manually at boot time or by editing the bootloader
+configuration file <phrase arch="linux-any">(e.g.
+<filename>syslinux.cfg</filename>) and adding the parameter to the end of
+the append line(s) for the kernel.</phrase><phrase arch="kfreebsd-any">(e.g.
+<filename>grub.cfg</filename>) and adding the parameter as a new
+<literal>set</literal> line for the kernel.</phrase><phrase arch="hurd-any">(e.g.
+<filename>grub.cfg</filename>) and adding the parameter to the end of the
+<filename>gnumach.gz</filename> line.</phrase>
+-->
+
+Per gli altri metodi di preconfigurazione è necessario specificare durante
+l'avvio dell'installatore quale file usare. Normalmente questo può essere
+fatto passando al kernel un determinato parametro d'avvio, manualmente durante
+l'avvio oppure tramite il file di configurazione del boot loader
+<phrase arch="linux-any">(p.e. <filename>syslinux.cfg</filename>) aggiungendo
+il parametro alla fine delle righe <quote>append</quote> per il kernel.</phrase>
+<phrase arch="kfreebsd-any">(p.e. <filename>grub.cfg</filename>) aggiungendo
+il parametro in una nuova riga <literal>set</literal> per il kernel.</phrase>
+<phrase arch="hurd-any">(p.e. <filename>grub.cfg</filename>) aggiungendo il
+parametro alla fine della riga <filename>gnumach.gz</filename>.</phrase>
+
+</para><para>
+
+<!--
+If you do specify the preconfiguration file in the bootloader configuration,
+you might change the configuration so you don't need to hit enter to boot the
+installer. <phrase arch="linux-any">For syslinux this means setting the timeout
+to <literal>1</literal> in <filename>syslinux.cfg</filename>.</phrase><phrase
+arch="kfrebsd-any;hurd-any">For grub this means setting the timeout to
+<literal>0</literal> in <filename>grub.cfg</filename>.</phrase>
+-->
+
+Se si specifica un file di preconfigurazione nella configurazione del
+boot loader, è possibile modificare la configurazione in modo che non sia
+necessario premere Invio per avviare l'installazione.
+<phrase arch="linux-any">Con syslinux si può ottenere questo risultato
+impostando il timeout a <literal>1</literal> in
+<filename>syslinux.cfg</filename>.</phrase>
+<phrase arch="kfrebsd-any;hurd-any">Con grub si può ottenere questo risultato
+impostando il timeout a <literal>0</literal> in
+<filename>grub.cfg</filename>.</phrase>
+
+</para><para>
+
+<!--
+To make sure the installer gets the right preconfiguration file, you can
+optionally specify a checksum for the file. Currently this needs to be a
+md5sum, and if specified it must match the preconfiguration file or the
+installer will refuse to use it.
+-->
+
+Per essere sicuri che l'installatore usi il file di preconfigurazione
+corretto si può, opzionalmente, specificare una checksum per il file.
+Attualmente la checksum deve essere di tipo md5sum e, se viene specificata,
+il file di preconfigurazione la deve verificare altrimenti l'installatore
+non userà quel file.
+
+</para>
+
+<informalexample><screen>
+<!--
+Boot parameters to specify:
+- if you're netbooting:
+  preseed/url=http://host/path/to/preseed.cfg
+-->Parametri di avvio da specificare:
+- con avvio da rete:
+  preseed/url=http://host/percorso/di/preseed.cfg
+  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d
+
+<!--
+- if you're booting a remastered CD:
+-->- con avvio da un CD masterizzato:
+  preseed/file=/cdrom/preseed.cfg
+  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d
+
+<!--
+- if you're installing from USB media (put the preconfiguration file in the
+  toplevel directory of the USB stick):
+-->- con installazione da un supporto USB (mettere il file di preconfigurazione
+  nella directory principale della chiavetta USB):
+  preseed/file=/hd-media/preseed.cfg
+  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d
+</screen></informalexample>
+
+<para>
+
+<!--
+Note that <filename>preseed/url</filename> can be shortened to just
+<filename>url</filename>, <filename>preseed/file</filename> to just
+<filename>file</filename> and <filename>preseed/file/checksum</filename> to just
+<filename>preseed-md5</filename> when they are passed as boot parameters.
+-->
+
+Notare che quando <filename>preseed/url</filename>,
+<filename>preseed/file</filename> e
+<filename>preseed/file/checksum</filename> sono passati come
+parametri di avvio possono essere abbreviati rispettivamente con
+<filename>url</filename>, <filename>file</filename> e
+<filename>preseed-md5</filename>.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-bootparms">
+  <!-- <title>Using boot parameters to preseed questions</title> -->
+  <title>Uso dei parametri di avvio per la preconfigurazione</title>
+<para>
+
+<!--
+If a preconfiguration file cannot be used to preseed some steps, the
+install can still be fully automated, since you can pass preseed values on
+the command line when booting the installer.
+-->
+
+Anche se un file di preconfigurazione non può essere usato per preconfigurare
+alcuni passi, l'installazione può avvenire ugualmente in modo completamente
+automatico dato che è possibile passare i valori di preconfigurazione tramite
+la riga di comando all'avvio dell'installatore.
+
+</para><para>
+
+<!--
+Boot parameters can also be used if you do not really want to use preseeding,
+but just want to provide an answer for a specific question. Some examples where
+this can be useful are documented elsewhere in this manual.
+-->
+
+I parametri di avvio possono essere usati anche per impostare le risposte ad
+alcune domande senza usare la preconfigurazione. In questo manuale ci sono
+esempi in cui questa funzionalità è particolarmente utile.
+
+</para><para>
+
+<!--
+To set a value to be used inside &d-i;, just pass
+<userinput><replaceable>path/to/variable</replaceable>=<replaceable>value</replaceable></userinput>
+for any of the preseed variables listed in the examples in this appendix.
+If a value is to be used to configure packages for the target system, you
+will need to prepend the <firstterm>owner</firstterm><footnote>
+-->
+
+Per impostare un valore da usare all'interno di &d-i; è sufficiente passare
+<userinput><replaceable>percorso/alla/variabile</replaceable>=<replaceable>valore</replaceable></userinput>
+per qualsiasi variabile di preconfigurazione mostrata negli esempi di questa
+appendice. Se un valore deve essere usato per configurare dei pacchetti sul
+sistema installato è necessario inserire come prefisso il
+<firstterm>proprietario</firstterm><footnote>
+
+<para>
+
+<!--
+The owner of a debconf variable (or template) is normally the name of the
+package that contains the corresponding debconf template. For variables
+used in the installer itself the owner is <quote>d-i</quote>.
+Templates and variables can have more than one owner which helps to
+determine whether they can be removed from the debconf database if the
+package is purged.
+-->
+
+Il proprietario di una variabile debconf (o modello) è normalmente il nome
+del pacchetto che contiene il corrispondente modello. Le variabili usate
+all'interno dell'installatore hanno come proprietario <quote>d-i</quote>.
+I modelli e le variabili possono avere più di un proprietario, questo aiuta
+a determinare in quali casi possono essere eliminati dal database di debconf
+quando il pacchetto viene rimosso.
+
+</para>
+
+<!--
+</footnote> of the variable as in
+<userinput><replaceable>owner</replaceable>:<replaceable>path/to/variable</replaceable>=<replaceable>value</replaceable></userinput>.
+If you don't specify the owner, the value for the variable will not be
+copied to the debconf database in the target system and thus remain unused
+during the configuration of the relevant package.
+-->
+
+</footnote> della variabile in questo modo
+<userinput><replaceable>proprietario</replaceable>:<replaceable>percorso/alla/variabile</replaceable>=<replaceable>valore</replaceable></userinput>.
+Se non si specifica il proprietario, il valore della variabile non viene
+copiato nel database di debconf sul sistema installato e quindi non può essere
+usato durante la successiva configurazione del relativo pacchetto.
+
+</para><para>
+
+<!--
+Normally, preseeding a question in this way will mean that the question will
+not be asked. To set a specific default value for a question, but still have
+the question asked, use <quote>?=</quote> instead of <quote>=</quote> as
+operator. See also <xref linkend="preseed-seenflag"/>.
+-->
+
+Normalmente una domanda preconfigurata non viene posta. Per impostare la
+risposta predefinita a una domanda e far in modo che la domanda sia comunque
+posta, usare l'operatore <quote>?=</quote> al posto di <quote>=</quote>. Si
+veda <xref linkend="preseed-seenflag"/>.
+
+</para><para>
+
+<!--
+Note that some variables that are frequently set at the boot prompt
+have a shorter alias. If an alias is available, it is used in the
+examples in this appendix instead of the full variable. The
+<literal>preseed/url</literal> variable for example has been aliased as
+<literal>url</literal>. Another example is the <literal>tasks</literal>
+alias, which translates to <literal>tasksel:tasksel/first</literal>.
+-->
+
+Alcune delle variabili che più frequentemente sono impostate dal prompt
+boot dispongono di un'abbreviazione. Negli esempi contenuti in questa
+appendice è usata, quando disponibile, l'abbreviazione al posto della
+variabile completa. Per esempio alla variabile <literal>preseed/url</literal>
+è stato assegnato l'alias <literal>url</literal>. Un altro esempio è l'alias
+<literal>tasks</literal> che viene tradotto in
+<literal>tasksel:tasksel/first</literal>.
+
+</para><para>
+
+<!--
+A <quote>\-\-</quote> in the boot options has special meaning. Kernel
+parameters that appear after the last <quote>\-\-</quote> may be copied
+into the bootloader configuration for the installed system (if supported by
+the installer for the bootloader). The installer will automatically filter
+out any options (like preconfiguration options) that it recognizes.
+-->
+
+L'uso di <quote>--</quote> nelle opzioni d'avvio ha un significato speciale,
+i parametri del kernel che seguono l'ultimo <quote>--</quote> potrebbero
+essere copiati nella configurazione del bootloader nel sistema installato
+(solo se il boot loader è supportato dall'installatore). L'installatore
+filtra qualsiasi opzione (come le opzioni di preconfigurazione) che riesce
+a riconoscere.
+
+</para>
+<note arch="linux-any"><para>
+
+<!--
+Current linux kernels (2.6.9 and later) accept a maximum of 32 command line
+options and 32 environment options, including any options added by default
+for the installer. If these numbers are exceeded, the kernel will panic
+(crash). (For earlier kernels, these numbers were lower.)
+-->
+
+Gli attuali kernel linux (2.6.9 e successivi) accettano al massimo 32 opzioni
+sulla riga di comando e 32 opzioni d'ambiente, comprese quelle aggiunte dal
+sistema d'installazione. Nel caso si superino questi limiti il kernel si
+blocca. Le versioni precedenti del kernel accettano un numero inferiore di
+opzioni.
+
+</para></note>
+<para>
+
+<!--
+For most installations some of the default options in your bootloader
+configuration file, like <literal>vga=normal</literal>, may be safely
+removed which may allow you to add more options for preseeding.
+-->
+
+Nella maggior parte dei casi alcune delle opzioni predefinite nel file di
+configurazione del boot loader, come <literal>vga=normal</literal> possono
+essere tranquillamente rimosse per permettere l'aggiunta di ulteriori
+opzioni di preconfigurazione.
+
+</para>
+<note><para>
+
+<!--
+It may not always be possible to specify values with spaces for boot
+parameters, even if you delimit them with quotes.
+-->
+
+Non sempre potrebbe essere possibile specificare valori con spazi come
+parametro d'avvio, persino se si delimitano con delle virgolette.
+
+</para></note>
+  </sect2>
+
+  <sect2 id="preseed-auto">
+  <!-- <title>Auto mode</title> -->
+  <title>Modalità <quote>auto</quote></title>
+<para>
+
+<!--
+There are several features of &debian; Installer that combine to allow
+fairly simple command lines at the boot prompt to result in
+arbitrarily complex customized automatic installs.  To illustrate
+this, here are some examples that can be used at the boot prompt:
+-->
+
+Ci sono alcune funzionalità di &debian; Installer che combinate insieme
+permettono di ottenere installazioni automatiche e personalizzate (anche
+molto complesse) semplicemente passando delle righe di comando al prompt
+boot. Per illustrare queste funzionalità sono riportati alcuni esempi su
+come possono essere usate dal prompt boot:
+
+<informalexample><screen>
+auto url=autoserver
+</screen></informalexample>
+
+<!--
+This relies on there being a DHCP server that will get the machine to
+the point where <literal>autoserver</literal> can be resolved by DNS,
+perhaps after adding the local domain if that was provided by DHCP.
+If this was done at a site where the domain is
+<literal>example.com</literal>, and they have a reasonably sane DHCP
+setup, it would result in the preseed file being retrieved from
+<literal>http://autoserver.example.com/d-i/&releasename;/./preseed.cfg</literal>.
+-->
+
+Questa funzionalità assume la presenza di un server DHCP che indichi
+alla macchina un server DNS per risolvere <literal>autoserver</literal>,
+eventualmente aggiungendo il dominio locale se fornito dal DHCP.
+Se questa funzione è usata su una macchina
+del dominio <literal>esempio.com</literal> e se il DHCP è configurato
+correttamente allora il file di preconfigurazione viene recuperato da
+<literal>http://autoserver.esempio.com/d-i/&releasename;/./preseed.cfg</literal>.
+
+</para><para>
+
+<!--
+The last part of that url (<literal>d-i/&releasename;/./preseed.cfg</literal>)
+is taken from <literal>auto-install/defaultroot</literal>. By default
+this includes the directory <literal>&releasename;</literal> to allow future versions
+to specify their own codename and let people migrate forwards in a
+controlled manner.  The <literal>/./</literal> bit is used to indicate
+a root, relative to which subsequent paths can be anchored (for use in
+preseed/include and preseed/run).  This allows files to be specified
+either as full URLs, paths starting with / that are thus anchored, or
+even paths relative to the location where the last preseed file was
+found.  This can be used to construct more portable scripts where an
+entire hierarchy of scripts can be moved to a new location without
+breaking it, for example copying the files onto a USB stick when they
+started out on a web server.  In this example, if the preseed file
+sets <literal>preseed/run</literal> to
+<literal>/scripts/late_command.sh</literal> then the file will be
+fetched from
+<literal>http://autoserver.example.com/d-i/&releasename;/./scripts/late_command.sh</literal>.
+-->
+
+L'ultima parte dell'URL (<literal>d-i/&releasename;/./preseed.cfg</literal>)
+è impostata in 
+<literal>auto-install/defaultroot</literal>, il cui valore predefinito
+contiene la directory <literal>&releasename;</literal> per permettere alle versioni
+successive di specificare il proprio nome in codice e quindi permettere
+migrazioni future in modo controllato. Il <literal>/./</literal> viene
+usato per indicare la directory principale relativamente a cui le restanti
+parti del percorso possono essere ancorate (da usarsi in preseed/include e
+preseed/run); questo permette di specificare file sia come URL completi,
+come percorsi inizianti con <literal>/</literal> e quindi ancorati oppure
+come percorsi relativi dalla posizione in cui è stato trovato l'ultimo file
+di preconfigurazione. Questo può essere usato per costruire script più
+portabili, dove l'intera gerarchia di script può essere spostata in una
+nuova posizione senza comprometterne il funzionamento, per esempio copiando
+i file in una chiavetta USB quando in precedenza erano ospitati da server
+web. In questo esempio, se il file di preconfigurazione imposta
+<literal>preseed/run</literal> al valore
+<literal>/scripts/late_command.sh</literal>, il file viene prelevato da
+<literal>http://autoserver.esempio.com/d-i/&releasename;/./scripts/late_command.sh</literal>.
+
+</para><para>
+
+<!--
+If there is no local DHCP or DNS infrastructure, or if you do not want to
+use the default path to <filename>preseed.cfg</filename>, you can still
+use an explicit url, and if you don't use the <literal>/./</literal>
+element it will be anchored to the start of the path (i.e. the third
+<literal>/</literal> in the URL).  Here is an example that requires minimal
+support from the local network infrastructure:
+-->
+
+Se non esiste un'infrastruttura DHCP o DNS locale oppure se non si vuole
+usare il percorso predefinito per il file <filename>preseed.cfg</filename>,
+è comunque possibile usare un URL esplicita oppure, quando non si usa
+l'elemento <literal>/./</literal>, viene ancorata al punto di partenza del
+percorso (cioè al terzo <literal>/</literal> nella URL). Segue un esempio
+che richiede un minimo supporto da parte della rete locale:
+
+<informalexample><screen>
+<!--
+auto url=<replaceable>http://192.168.1.2/path/to/mypreseed.file</replaceable>
+-->auto url=<replaceable>http://192.168.1.2/percorso/di/mypreseed.file</replaceable>
+</screen></informalexample>
+
+<!--
+The way this works is that:
+-->
+
+Il modo in cui funziona è questo:
+
+<itemizedlist spacing="compact">
+<listitem><para>
+<!--
+if the URL is missing a protocol, http is assumed,
+-->
+quando manca il protocollo nella URL, viene assunto http;
+</para></listitem>
+<listitem><para>
+<!--
+if the hostname section contains no periods, it has the domain derived
+from DHCP appended to it, and
+-->
+se la sezione per il nome host non contiene dei punti, viene aggiunto il
+dominio indicato da DHCP;
+</para></listitem>
+<listitem><para>
+<!--
+if there's no <literal>/</literal>'s after the hostname, then the default
+path is added.
+-->
+se dopo il nome host non ci sono <literal>/</literal>, viene usato il
+percorso predefinito.
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+<!--
+In addition to specifying the url, you can also specify settings that
+do not directly affect the behavior of &d-i; itself, but can be passed
+through to scripts specified using <literal>preseed/run</literal>
+in the loaded preseed file.  At present, the only example of
+this is <literal>auto-install/classes</literal>, which has an alias
+<literal>classes</literal>.  This can be used thus:
+-->
+
+Oltre l'URL è possibile specificare anche altre impostazioni che non
+influenzano direttamente il comportamento del &d-i; ma che possono essere
+passate a un qualsiasi script specificato con <literal>preseed/run</literal>
+all'interno del file di preconfigurazione. Al momento l'unico esempio di
+questa caratteristica è <literal>auto-install/classes</literal>
+(che dispone dell'alias <literal>classes</literal>) e può essere usato
+in questo modo:
+
+<informalexample><screen>
+<!--
+auto url=<replaceable>example.com</replaceable> classes=<replaceable>class_A;class_B</replaceable>
+-->auto url=<replaceable>esempio.com</replaceable> classes=<replaceable>classe_A;classe_B</replaceable>
+</screen></informalexample>
+
+<!--
+The classes could for example denote the type of system to be installed,
+or the localization to be used.
+-->
+
+Le classi possono, per esempio, indicare il tipo di sistema da installare
+oppure la localizzazione da usare.
+
+</para><para>
+
+<!--
+It is of course possible to extend this concept, and if you do, it is
+reasonable to use the auto-install namespace for this. So one might have
+something like <literal>auto-install/style</literal> which is then used
+in your scripts.  If you feel the need to do this, please mention it on
+the <email>debian-boot@lists.debian.org</email> mailing list so that we
+can avoid namespace conflicts, and perhaps add an alias for the parameter
+for you.
+-->
+
+Ovviamente è possibile estendere questo concetto e, nel caso, è
+ragionevole usare il namespace auto-install, usando nei propri script
+qualcosa di simile a <literal>auto-install/style</literal>. Se si
+necessitasse questa possibilità si consiglia di inviare una segnalazione
+alla mailing list <email>debian-boot@lists.debian.org</email> in modo da
+evitare conflitti nel namespace ed eventualmente aggiungere un alias per
+i nuovi parametri.
+
+</para><para>
+
+<!--
+The <literal>auto</literal> boot label is not yet defined everywhere.
+The same effect may be achieved by simply adding the two
+parameters <literal>auto=true priority=critical</literal> to the kernel
+command line.  The <literal>auto</literal> parameter is an alias for
+<literal>auto-install/enable</literal> and setting it to
+<literal>true</literal> delays the
+locale and keyboard questions until after there has been a chance to
+preseed them, while <literal>priority</literal> is an alias for
+<literal>debconf/priority</literal> and setting it to
+<literal>critical</literal> stops any questions with a lower priority
+from being asked.
+-->
+
+L'etichetta d'avvio <literal>auto</literal> non è ancora definita
+ovunque. Lo stesso effetto si può ottenere semplicemente aggiungendo
+i parametri <literal>auto=true priority=critical</literal> nella riga di
+comando per il kernel. Il parametro <literal>auto</literal> è un alias di
+<literal>auto-install/enable</literal> e se impostato a
+<literal>true</literal> ritarda le
+domande su localizzazione e tastiera fino a quando non è data la possibilità
+di preconfigurarle, mentre l'impostazione <literal>priority</literal>
+è un alias di <literal>debconf/priority</literal> e impostarla a
+<literal>critical</literal> blocca la richiesta di qualsiasi domanda
+con priorità inferiore.
+
+</para><para>
+
+<!--
+Additional options that may be of interest while attempting to
+automate an install while using DHCP are: <literal>interface=auto
+netcfg/dhcp_timeout=60</literal> which makes the machine choose the
+first viable NIC and be more patient about getting a reply to its
+DHCP query.
+-->
+
+Altre opzioni che possono risultare utili quando si cerca di automatizzare
+un'installazione con DHCP sono: <literal>interface=auto
+netcfg/dhcp_timeout=60</literal> che indica alla macchina di usare il
+primo dispositivo di rete attivo e di essere un po' più paziente durante
+l'attesa della risposta all'interrogazione DHCP.
+
+</para>
+<tip><para>
+
+<!--
+An extensive example of how to use this framework, including example scripts
+and classes, can be found on the <ulink url="http://hands.com/d-i/">website
+of its developer</ulink>. The examples available there also show many other
+nice effects that can be achieved by creative use of preconfiguration.
+-->
+
+Un esempio esaustivo su come utilizzare questa infrastruttura, compresi
+degli script e delle classi d'esempio, può essere trovato sul
+<ulink url="http://hands.com/d-i/">sito web dello sviluppatore</ulink>.
+Sono disponibili anche altri esempi che mostrano come, usando in modo
+creativo la preconfigurazione, si possono ottenere molti altri interessati
+effetti.
+
+</para></tip>
+  </sect2>
+
+  <sect2 id="preseed-aliases">
+  <!-- <title>Aliases useful with preseeding</title> -->
+  <title>Alias utilizzati nella preconfigurazione</title>
+<para>
+
+<!--
+The following aliases can be useful when using (auto mode) preseeding.
+Note that these are simply short aliases for question names, and you
+always need to specify a value as well: for example,
+<literal>auto=true</literal> or <literal>interface=eth0</literal>.
+-->
+
+I seguenti alias possono risultare utili quando si usa la preconfigurazione
+(in modalità auto). Notare che questi sono semplicemente degli alias
+più brevi per i nomi delle domande e che è sempre necessario specificare
+anche un valore, per esempio <literal>auto=true</literal> o
+<literal>interface=eth0</literal>.
+
+</para>
+
+<!-- Setting column width does not seem to work; use non-breaking spaces
+     to separate columns a bit -->
+<informaltable frame="none">
+<tgroup cols="2"><tbody>
+<row><entry>auto</entry><entry>auto-install/enable</entry></row>
+<row><entry>classes</entry><entry>auto-install/classes</entry></row>
+<row><entry>fb</entry><entry>debian-installer/framebuffer</entry></row>
+<row><entry>language</entry><entry>debian-installer/language</entry></row>
+<row><entry>country</entry><entry>debian-installer/country</entry></row>
+<row><entry>locale</entry><entry>debian-installer/locale</entry></row>
+<row><entry>priority</entry><entry>debconf/priority</entry></row>
+<row><entry>file</entry><entry>preseed/file</entry></row>
+<row><entry>url</entry><entry>preseed/url</entry></row>
+<row><entry>interface</entry><entry>netcfg/choose_interface</entry></row>
+<row><entry>hostname&nbsp;&nbsp;&nbsp;</entry><entry>netcfg/get_hostname</entry></row>
+<row><entry>domain</entry><entry>netcfg/get_domain</entry></row>
+<row><entry>protocol</entry><entry>mirror/protocol</entry></row>
+<row><entry>suite</entry><entry>mirror/suite</entry></row>
+</tbody></tgroup>
+</informaltable>
+  </sect2>
+
+  <sect2 id="preseed-dhcp">
+  <!-- <title>Using a DHCP server to specify preconfiguration files</title> -->
+  <title>Uso di un server DHCP per specificare un file di preconfigurazione</title>
+<para>
+
+<!--
+It's also possible to use DHCP to specify a preconfiguration file to download
+from the network. DHCP allows specifying a filename. Normally this is a file
+to netboot, but if it appears to be an URL then installation media that
+support network preseeding will download the file from the URL and use it as a
+preconfiguration file. Here is an example of how to set it up in the dhcpd.conf
+for version 3 of the ISC DHCP server (the dhcp3-server &debian; package).
+-->
+
+È possibile usare anche DHCP per indicare un file di preconfigurazione da
+scaricare dalla rete, questo è possibile perché DHCP consente il passaggio
+del nome di un file fra server e client. Normalmente il file specificato è
+quello per l'avvio dalla rete, però se al suo posto è inserito un URL allora
+il programma d'installazione scarica il file dall'URL e lo usa come un file
+di preconfigurazione. Segue un esempio di come deve essere impostato il file
+dhcpd.conf per la versione 3 del server DHCP di ISC (il pacchetto &debian;
+dhcp3-server).
+
+</para>
+
+<informalexample><screen>
+if substring (option vendor-class-identifier, 0, 3) = "d-i" {
+    filename "http://host/preseed.cfg";
+}
+</screen></informalexample>
+
+<para>
+
+<!--
+Note that the above example limits this filename to DHCP clients that identify
+themselves as "d-i", so it will not affect regular DHCP clients, but only
+the installer. You can also put the text in a stanza for only one particular
+host to avoid preseeding all installs on your network.
+-->
+
+Notare che l'esempio precedente limita la specifica del nome del file ai
+soli client DHCP che si identificano come <quote>d-i</quote>, quindi ha
+effetto solo sul programma d'installazione e non influenza i normali
+client DHCP. Si può anche mettere il testo in una sezione del
+file di configurazione in modo che sia usata da un solo host per impedire
+la preconfigurazione di tutte le macchine che si installano sulla propria
+rete.
+
+</para><para>
+
+<!--
+A good way to use the DHCP preseeding is to only preseed values specific to
+your network, such as the &debian; mirror to use. This way installs on your
+network will automatically get a good mirror selected, but the rest of the
+installation can be performed interactively. Using DHCP preseeding to fully
+automate &debian; installs should only be done with care.
+-->
+
+Un modo corretto per usare la preconfigurazione tramite DHCP è preconfigurare
+i soli valori specifici della propria rete, per esempio quale mirror &debian;
+usare. In questo modo tutte le installazioni fatte sulla propria rete hanno
+già attivo un buon mirror, ma il resto della configurazione deve essere
+fatto interattivamente. L'uso della preconfigurazione tramite DHCP per fare
+la completa configurazione delle installazioni &debian; deve essere fatto con
+molta cautela.
+
+</para>
+  </sect2>
+ </sect1>
+
+
+ <sect1 id="preseed-creating">
+ <!-- <title>Creating a preconfiguration file</title> -->
+ <title>Creazione di un file di preconfigurazione</title>
+<para>
+
+<!--
+The preconfiguration file is in the format used by the
+<command>debconf-set-selections</command> command. The general format of
+a line in a preconfiguration file is:
+-->
+
+Il file di preconfigurazione ha lo stesso formato utilizzato dal comando
+<command>debconf-set-selections</command>. Il formato generico di una riga
+del file di preconfigurazione è:
+
+<!--
+<informalexample><screen>
+&lt;owner&gt; &lt;question name&gt; &lt;question type&gt; &lt;value&gt;
+</screen></informalexample>
+-->
+
+<informalexample><screen>
+&lt;proprietario&gt; &lt;nome domanda&gt; &lt;tipo domanda&gt; &lt;valore&gt;
+</screen></informalexample>
+
+</para><para>
+
+<!--
+There are a few rules to keep in mind when writing a preconfiguration file.
+-->
+
+Ci sono alcune regole che si devono tenere in mente quando si scrive un
+file di preconfigurazione.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<!--
+  Put only a single space or tab between type and value: any additional
+  whitespace will be interpreted as belonging to the value.
+-->
+
+Inserire un singolo spazio o un solo tab fra tipo e valore: ogni ulteriore
+spazio viene interpretato come appartenente al valore.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+  A line can be split into multiple lines by appending a backslash
+  (<quote><literal>\</literal></quote>) as the line continuation character.
+  A good place to split a line is after the question name; a bad place is
+  between type and value. Split lines will be joined into a single line
+  with all leading/trailing whitespace condensed to a single space.
+-->
+
+Una riga può essere spezzata su più righe aggiungendo un backslash
+(<quote><literal>\</literal></quote>) come carattere di continuazione
+della riga. Un buon punto in cui spezzare una riga è dopo il nome della
+domanda; invece un punto pessimo è fra il tipo e il valore. Le righe
+spezzate sono ricomposte in un'unica riga nella quale tutti gli spazi
+bianchi in testa e in coda sono condensati in un solo spazio.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+  For debconf variables (templates) used in the installer itself, the
+  owner should be set to <quote>d-i</quote>; to preseed variables used
+  in the installed system, the name of the package that contains the
+  corresponding debconf template should be used. Only variables that have
+  their owner set to something other than <quote>d-i</quote> will be
+  propagated to the debconf database for the installed system.
+-->
+
+Le variabili debconf (modelli) usate nell'installatore stesso devono avere
+come proprietario <quote>d-i</quote>; per preconfigurare le variabili usate
+nel sistema installato, si deve usare il nome del pacchetto che contiene il
+corrispondente modello debconf. Solo le variabili che hanno un proprietario
+diverso da <quote>d-i</quote> saranno propagate al database debconf del
+sistema installato.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+  Most questions need to be preseeded using the values valid in English and
+  not the translated values. However, there are some questions (for example
+  in <classname>partman</classname>) where the translated values need to be
+  used.
+-->
+
+La maggior parte delle domande deve essere preconfigurata usando i valori
+validi per la lingua inglese e non usando i valori tradotti. Comunque,
+esistono delle domande (per esempio in <classname>partman</classname>) in
+cui è necessario usare i valori tradotti.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+  Some questions take a code as value instead of the English text that is
+  shown during installation.
+-->
+
+Alcune domande accettano come valore un codice anziché il testo in
+inglese mostrato durante l'installazione.
+
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+<!--
+The easiest way to create a preconfiguration file is to use the example file
+linked in <xref linkend="preseed-contents"/> as basis and work from there.
+-->
+
+Il modo più semplice per creare un file di preconfigurazione è usare il
+file di preconfigurazione d'esempio in <xref linkend="preseed-contents"/>
+come base per il proprio lavoro.
+
+</para><para>
+
+<!--
+An alternative method is to do a manual installation and then, after
+rebooting, use the <command>debconf-get-selections</command> from the
+<classname>debconf-utils</classname> package to dump both the debconf
+database and the installer's cdebconf database to a single file:
+-->
+
+Un metodo alternativo è effettuare un'installazione manuale e poi, dopo
+il riavvio, usare il comando <command>debconf-get-selections</command>,
+contenuto nel pacchetto <classname>debconf-utils</classname>, per
+riversare in un unico file il contenuto del database di debconf e del
+database di cdebconf:
+
+<informalexample><screen>
+$ debconf-get-selections --installer &gt; <replaceable>file</replaceable>
+$ debconf-get-selections &gt;&gt; <replaceable>file</replaceable>
+</screen></informalexample>
+
+</para><para>
+
+<!--
+However, a file generated in this manner will have some items that should
+not be preseeded, and the example file is a better starting place for most
+users.
+-->
+
+Comunque un file generato in questa maniera ha delle voci che potrebbero
+non essere preconfigurate; il file d'esempio è decisamente un punto di
+partenza migliore per la maggior parte degli utenti.
+
+</para>
+<note><para>
+
+<!--
+This method relies on the fact that, at the end of the installation, the
+installer's cdebconf database is saved to the installed system in
+<filename>/var/log/installer/cdebconf</filename>. However, because the
+database may contain sensitive information, by default the files are only
+readable by root.
+-->
+
+Questo metodo si basa sul fatto che, al termine dell'installazione, il
+database di cdebconf è salvato nel sistema appena installato in
+<filename>/var/log/installer/cdebconf</filename>. Poiché questo database
+può contenere delle informazioni sensibili i file sono leggibili solo da
+root.
+
+</para><para>
+
+<!--
+The directory <filename>/var/log/installer</filename> and all files in it
+will be deleted from your system if you purge the package
+<classname>installation-report</classname>.
+-->
+
+La directory <filename>/var/log/installer</filename> e tutti i file in
+essa contenuti sono cancellati dal sistema quando di elimina il pacchetto
+<classname>installation-report</classname>.
+
+</para></note>
+
+<para>
+
+<!--
+To check possible values for questions, you can use <command>nano</command>
+to examine the files in <filename>/var/lib/cdebconf</filename> while an
+installation is in progress. View <filename>templates.dat</filename> for
+the raw templates and <filename>questions.dat</filename> for the current
+values and for the values assigned to variables.
+-->
+
+Per verificare quali sono i valori validi per una domanda si può usare
+<command>nano</command> per esaminare, quando l'installazione è in corso,
+i file in <filename>/var/lib/cdebconf</filename>. In
+<filename>templates.dat</filename> ci sono i modelli e in
+<filename>questions.dat</filename> ci sono gli attuali valori e i valori
+assegnati alle variabili.
+
+</para><para>
+
+<!--
+To check if the format of your preconfiguration file is valid before performing
+an install, you can use the command <command>debconf-set-selections -c
+<replaceable>preseed.cfg</replaceable></command>.
+-->
+
+Per verificare se il formato del proprio file di preconfigurazione è valido
+prima di effettuare un'installazione si può usare il comando
+<command>debconf-set-selections -c
+<replaceable>preseed.cfg</replaceable></command>.
+
+</para>
+ </sect1>
+
+
+ <sect1 id="preseed-contents">
+ <!-- <title>Contents of the preconfiguration file (for &releasename;)</title> -->
+ <title>Contenuto del file di preconfigurazione (per &releasename;)</title>
+<para>
+
+<!--
+The configuration fragments used in this appendix are also available as an
+example preconfiguration file from &urlset-example-preseed;.
+-->
+
+I vari frammenti utilizzati in questa appendice sono disponibili anche nel
+file di preconfigurazione di esempio &urlset-example-preseed;.
+
+</para><para>
+
+<!--
+Note that this example is based on an installation for the Intel x86
+architecture. If you are installing a different architecture, some of the
+examples (like keyboard selection and bootloader installation) may not be
+relevant and will need to be replaced by debconf settings appropriate for
+your architecture.
+-->
+
+Si noti che l'esempio è valido per l'installazione sull'architettura Intel
+x86. Se si vuole fare l'installazione su un'architettura diversa alcuni
+degli esempi (come la scelta della tastiera e l'installazione del boot loader)
+potrebbero non essere corretti e devono essere sostituiti con le impostazioni
+per debconf adatte alla propria architettura.
+
+</para><para>
+
+<!--
+Details on how the different Debian Installer components actually work can be
+found in <xref linkend="module-details"/>.
+-->
+
+I dettagli su come attualmente funzionano i componenti dell'installatore 
+possono essere trovati in <xref linkend="module-details"/>.
+
+</para>
+
+  <sect2 id="preseed-l10n">
+  <!-- <title>Localization</title> -->
+  <title>Localizzazione</title>
+<para>
+
+<!--
+Setting localization values will only work if you are using initrd preseeding.
+With all other methods the preconfiguration file will only be loaded after
+these questions have been asked.
+-->
+
+L'impostazione dei valori legati alla localizzazione funziona solo se si
+usa la preconfigurazione initrd. Con tutti gli altri metodi il file di
+preconfigurazione viene caricato solo dopo che queste domande sono state
+poste.
+
+</para><para>
+
+<!--
+The locale can be used to specify both language and country and can be any
+combination of a language supported by &d-i; and a recognized country. If
+the combination does not form a valid locale, the installer will automatically
+select a locale that is valid for the selected language.
+To specify the locale as a boot parameter, use
+<userinput>locale=<replaceable>en_US</replaceable></userinput>.
+-->
+
+Con <quote>locale</quote> si possono specificare lingua e nazione, può
+essere una qualsiasi combinazione fra una delle lingue supportate da
+&d-i; e uno dei paesi riconosciuti. Se la combinazione non forma un
+locale valido, l'installatore sceglie automaticamente un altro locale
+valido per la lingua prescelta. Per specificare <quote>locale</quote>
+fra i parametri di avvio utilizzare
+<userinput>locale=<replaceable>it_IT</replaceable></userinput>.
+
+</para><para>
+
+<!--
+Although this method is very easy to use, it does not allow preseeding of
+all possible combinations of language, country and locale<footnote>
+-->
+
+Questo metodo è molto semplice da usare, però non permette di
+preconfigurare tutte le possibili combinazioni di lingua, nazione e
+locale<footnote>
+
+<para>
+
+<!--
+Preseeding <literal>locale</literal> to <userinput>en_NL</userinput> would
+for example result in <literal>en_US.UTF-8</literal> as default locale for
+the installed system. If e.g. <literal>en_GB.UTF-8</literal> is preferred
+instead, the values will need to be preseeded individually.
+-->
+
+La preconfiguraizone di <literal>locale</literal> a
+<userinput>en_NL</userinput> comporta che il locale predefinito sul
+sistema installato sarà <literal>en_US.UTF-8</literal>. Se, per esempio,
+si volesse usare <literal>en_GB.UTF-8</literal>, sarà necessario
+preconfigurare individualmente ciascun valore.
+
+</para>
+
+<!--
+</footnote>. So alternatively the values can be preseeded individually.
+Language and country can also be specified as boot parameters.
+-->
+
+</footnote>. In alternativa è possibile preconfigurare individualmente
+ciascun valore. Lingua e nazione possono anche essere specificati tra i
+parametri d'avvio.
+
+<informalexample role="example"><screen>
+<!--
+# Preseeding only locale sets language, country and locale.
+d-i debian-installer/locale string en_US
+--># Con la sola preconfigurazione di locale si impostano lingua, nazione
+# e locale.
+d-i debian-installer/locale string it_IT
+
+<!--
+# The values can also be preseeded individually for greater flexibility.
+--># Per una maggiore flessibilità è possibile preconfigurare singolarmente
+# ciascun valore.
+#d-i debian-installer/language string en
+#d-i debian-installer/country string NL
+#d-i debian-installer/locale string en_GB.UTF-8
+<!--
+# Optionally specify additional locales to be generated.
+--># Opzionalmente è possibile specificare ulteriori locale da generare.
+#d-i localechooser/supported-locales multiselect en_US.UTF-8, nl_NL.UTF-8
+</screen></informalexample>
+
+</para><para>
+
+<!--
+Keyboard configuration consists of selecting a keymap.
+-->
+
+La configurazione della tastiera consiste nella scelta di una mappa di tastiera.
+
+<informalexample role="example"><screen>
+<!--
+# Keyboard selection.
+--># Selezione della tastiera.
+<!--
+# keymap is an alias for keyboard-configuration/xkb-keymap
+d-i keymap select us
+--># keymap è un alias per keyboard-configuration/xkb-keymap
+d-i keymap select it
+# d-i keyboard-configuration/toggle select No toggling
+</screen></informalexample>
+
+</para><para>
+
+<!--
+To skip keyboard configuration, preseed
+<classname>keymap</classname> with
+<userinput>skip-config</userinput>.
+This will result in the kernel keymap remaining active.
+-->
+
+Per saltare la configurazione della tastiera si deve preconfigurare
+<classname>keymap</classname> con
+<userinput>skip-config</userinput>. Questo comporta che la mappa di
+tastiera del kernel rimane attiva.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-network">
+  <!-- <title>Network configuration</title> -->
+  <title>Configurazione della rete</title>
+<para>
+
+<!--
+Of course, preseeding the network configuration won't work if you're
+loading your preconfiguration file from the network. But it's great when
+you're booting from CD or USB stick. If you are loading preconfiguration
+files from the network, you can pass network config parameters by using
+kernel boot parameters.
+-->
+
+Naturalmente, la preconfigurazione non funziona se si sta caricando il
+file di preconfigurazione dalla rete! Invece funziona se si sta avviando
+da CD o da chiavetta USB. È anche possibile passare i parametri di
+configurazione della rete sui parametri del kernel, se si stanno caricando
+file di preconfigurazione dalla rete.
+
+</para><para>
+
+<!--
+If you need to pick a particular interface when netbooting before loading
+a preconfiguration file from the network, use a boot parameter such as
+<userinput>interface=<replaceable>eth1</replaceable></userinput>.
+-->
+
+Se necessario è possibile scegliere una particolare interfaccia prima di
+caricare il file di preconfigurazione dalla rete usando il parametro d'avvio
+<userinput>interface=<replaceable>eth1</replaceable></userinput>.
+
+</para><para>
+
+<!--
+Although preseeding the network configuration is normally not possible when
+using network preseeding (using <quote>preseed/url</quote>), you can use
+the following hack to work around that, for example if you'd like to set a
+static address for the network interface. The hack is to force the network
+configuration to run again after the preconfiguration file has been loaded
+by creating a <quote>preseed/run</quote> script containing the following
+commands:
+-->
+
+Nonostante la preconfigurazione della rete non sia normalmente disponibile
+quando la preconfigurazione avviene tramite la rete (usando
+<quote>preseed/url</quote>), può essere fatta comunque ricorrendo a
+un trucco; per esempio se si vuole forzare un indirizzo statico per
+l'interfaccia di rete. Il trucco consiste nel forzare la ripetizione
+della configurazione della rete dopo che il file di preconfigurazione
+è stato caricato creando uno script da eseguire tramite
+<quote>preseed/run</quote> contenente i seguenti comandi:
+
+<informalexample><screen>
+killall.sh; netcfg
+</screen></informalexample>
+
+</para><para>
+
+<!--
+The following debconf variables are relevant for network configuration.
+-->
+
+Le seguenti variabili debconf sono legate alla configurazione della rete.
+
+</para>
+
+<informalexample role="example"><screen>
+<!--# Disable network configuration entirely. This is useful for cdrom
+# installations on non-networked devices where the network questions,
+# warning and long timeouts are a nuisance.
+--># Disattiva completamente la configurazione della rete. Questa opzione
+# è utile durante le installazioni da cdrom su dispositivi che non sono
+# in rete; in questo caso le domande riguardo la rete, gli avvertimenti
+# e le attese dei timeout sono solo una seccatura.
+#d-i netcfg/enable boolean false
+
+<!--
+# netcfg will choose an interface that has link if possible. This makes it
+# skip displaying a list if there is more than one interface.
+--># netcfg sceglierà, se possibile, un'interfaccia che abbia un collegamento.
+# Questo evita la visualizzazione di una lista se è presente più di
+# un'interfaccia.
+d-i netcfg/choose_interface select auto
+
+<!--
+# To pick a particular interface instead:
+--># Oppure scegliere un'interfaccia ben precisa:
+#d-i netcfg/choose_interface select eth1
+
+<!--
+# If you have a slow dhcp server and the installer times out waiting for
+# it, this might be useful.
+--># Se si ha un server dhcp lento e l'installatore va in timeout in attesa
+# di esso, questo potrebbe essere utile.
+#d-i netcfg/dhcp_timeout string 60
+
+<!--
+# If you prefer to configure the network manually, uncomment this line and
+# the static network configuration below.
+--># Se si preferisce configurare manualmente la rete, togliere il commento
+# alla prossima riga e alle righe con la configurazione statica della rete.
+#d-i netcfg/disable_dhcp boolean true
+
+<!--
+# If you want the preconfiguration file to work on systems both with and
+# without a dhcp server, uncomment these lines and the static network
+# configuration below.
+--># Se si desidera che il file di preconfigurazione funzioni su qualsiasi
+# sistema, a prescindere dalla presenza di un server DHCP in rete, si può
+# togliere il commento alle righe seguenti e alle righe con la configurazione
+# statica della rete.
+#d-i netcfg/dhcp_failed note
+#d-i netcfg/dhcp_options select Configure network manually
+
+<!--
+# Static network configuration.
+--># Configurazione statica della rete.
+#d-i netcfg/get_nameservers string 192.168.1.1
+#d-i netcfg/get_ipaddress string 192.168.1.42
+#d-i netcfg/get_netmask string 255.255.255.0
+#d-i netcfg/get_gateway string 192.168.1.1
+#d-i netcfg/confirm_static boolean true
+
+<!--
+# Any hostname and domain names assigned from dhcp take precedence over
+# values set here. However, setting the values still prevents the questions
+# from being shown, even if values come from dhcp.
+--># Si noti che gli eventuali nomi di host e dominio assegnati da dhcp hanno
+# la precedenza sui valori qui impostati. Naturalmente, l'impostazione dei
+# valori previene ancora che le domande siano visualizzate anche se i
+# valori arrivano da dhcp.
+d-i netcfg/get_hostname string unassigned-hostname
+d-i netcfg/get_domain string unassigned-domain
+
+<!--
+# Disable that annoying WEP key dialog.
+--># Disabilita la noiosa finestra di dialogo della chiave WEP.
+d-i netcfg/wireless_wep string
+<!--
+# The wacky dhcp hostname that some ISPs use as a password of sorts.
+--># Lo stupido nome host dhcp che alcuni ISP usano come una sorta
+# di password.
+#d-i netcfg/dhcp_hostname string radish
+
+<!--
+# If non-free firmware is needed for the network or other hardware, you can
+# configure the installer to always try to load it, without prompting. Or
+# change to false to disable asking.
+--># Se per la scheda di rete o per altro hardware è necessario caricare un
+# firmware non-libero, è possibile configurare l'installatore in modo
+# che lo carichi senza chiedere conferma. Altrimenti cambiare in false
+# per disabilitare la richiesta.
+#d-i hw-detect/load_firmware boolean true
+</screen></informalexample>
+
+<para>
+
+<!--
+Please note that <command>netcfg</command> will automatically determine the
+netmask if <classname>netcfg/get_netmask</classname> is not preseeded.  In
+this case, the variable has to be marked as <literal>seen</literal> for
+automatic installations.  Similarly, <command>netcfg</command> will choose
+an appropriate address if <classname>netcfg/get_gateway</classname> is not
+set.  As a special case, you can set
+<classname>netcfg/get_gateway</classname> to <quote>none</quote> to specify
+that no gateway should be used.
+-->
+
+Notare che <command>netcfg</command> determina automaticamente la maschera
+di rete se <classname>netcfg/get_netmask</classname> non è preconfigurato;
+in caso di installazioni automatiche questa variabile deve essere marcata
+come <literal>seen</literal>. In modo similare, <command>netcfg</command>
+sceglie un indirizzo opportuno quando non è impostato
+<classname>netcfg/get_gateway</classname>. È possibile impostare
+<classname>netcfg/get_gateway</classname> a <quote>none</quote> per
+indicare che non deve essere usato alcun gateway.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-network-console">
+  <!-- <title>Network console</title> -->
+  <title>Network console</title>
+
+<informalexample role="example"><screen>
+<!--
+# Use the following settings if you wish to make use of the network-console
+# component for remote installation over SSH. This only makes sense if you
+# intend to perform the remainder of the installation manually.
+--># Per effettuare un'installazione da remoto tramite SSH con il componente
+# network-console, usare le seguenti impostazioni. Questo ha senso se si
+# intende effettuare il resto dell'installazione manualmente.
+#d-i anna/choose_modules string network-console
+#d-i network-console/password password r00tme
+#d-i network-console/password-again password r00tme
+</screen></informalexample>
+
+  </sect2>
+  <sect2 id="preseed-mirror">
+  <!-- <title>Mirror settings</title> -->
+  <title>Impostazioni del mirror</title>
+<para>
+
+<!--
+Depending on the installation method you use, a mirror may be used to
+download additional components of the installer, to install the base system,
+and to set up the <filename>/etc/apt/sources.list</filename> for the installed
+system.
+-->
+
+A seconda del metodo d'installazione usato è possibile che venga usato
+un mirror per scaricare i componenti aggiuntivi dell'installatore, per
+installare il sistema di base e per impostare il file
+<filename>/etc/apt/sources.list</filename> sul sistema installato.
+
+</para><para>
+
+<!--
+The parameter <classname>mirror/suite</classname> determines the suite for
+the installed system.
+-->
+
+Il parametro <classname>mirror/suite</classname> determina quale sarà la
+versione del sistema installato.
+
+</para><para>
+
+<!--
+The parameter <classname>mirror/udeb/suite</classname> determines the suite
+for additional components for the installer. It is only useful to set this
+if components are actually downloaded over the network and should match the
+suite that was used to build the initrd for the installation method used for
+the installation. Normally the installer will automatically use the correct
+value and there should be no need to set this.
+-->
+
+Il parametro <classname>mirror/udeb/suite</classname> determina la
+versione dei componenti addizionali dell'installatore. L'impostazione di
+questa variabile è utile solo se i componenti sono scaricati dalla rete
+dato che la loro versione deve essere uguale a quella usata per creare lo
+initrd per il metodo d'installazione scelto. Normalmente l'installatore
+usa automaticamente il valore corretto, quindi non dovrebbe essere
+necessario impostare questo parametro.
+
+</para>
+
+<informalexample role="example"><screen>
+<!--
+# If you select ftp, the mirror/country string does not need to be set.
+--># Quando si seleziona ftp non è necessario impostare mirror/country.
+#d-i mirror/protocol string ftp
+d-i mirror/country string manual
+d-i mirror/http/hostname string &archive-mirror;
+d-i mirror/http/directory string /debian
+d-i mirror/http/proxy string
+
+<!--
+# Suite to install.
+--># Versione da installare.
+#d-i mirror/suite string testing
+<!--
+# Suite to use for loading installer components (optional).
+--># Versione dei componenti dell'installatore da caricare (facoltativo).
+#d-i mirror/udeb/suite string testing
+</screen></informalexample>
+  </sect2>
+
+  <sect2 id="preseed-account">
+  <!-- <title>Account setup</title> -->
+  <title>Impostazione dell'account</title>
+<para>
+
+<!--
+The password for the root account and name and password for a first regular
+user's account can be preseeded. For the passwords you can use either clear
+text values or MD5 <emphasis>hashes</emphasis>.
+-->
+
+È possibile preconfigurare la password per l'account di root e il nome e la
+password per il primo utente normale. Per le password possono essere inserite
+in chiaro o con un <emphasis>hash</emphasis> MD5.
+
+</para>
+<warning><para>
+
+<!--
+Be aware that preseeding passwords is not completely secure as everyone
+with access to the preconfiguration file will have the knowledge of these
+passwords. Using MD5 hashes is considered slightly better in terms of
+security but it might also give a false sense of security as access to a
+MD5 hash allows for brute force attacks.
+-->
+
+Attenzione, la preconfigurazione delle password non è sicura dato che
+chiunque può accedere al file di preconfigurazione ha la possibilità di
+leggerle. L'uso di un hash MD5 è considerato leggermente migliore per quanto
+riguarda la sicurezza ma potrebbe anche dare una falsa sensazione di sicurezza
+poiché un hash MD5 consente attacchi di tipo brute force.
+
+</para></warning>
+
+<informalexample role="example"><screen>
+<!--
+# Skip creation of a root account (normal user account will be able to
+# use sudo).
+--># Saltare la creazione dell'account di root (l'account per l'utente
+# normale potrà usare sudo).
+#d-i passwd/root-login boolean false
+<!--
+# Alternatively, to skip creation of a normal user account.
+--># In alternativa, è possibile saltare la creazione dell'account per
+# l'utente normale.
+#d-i passwd/make-user boolean false
+
+<!--
+# Root password, either in clear text
+--># Password di root, in chiaro entrambe le volte
+#d-i passwd/root-password password r00tme
+#d-i passwd/root-password-again password r00tme
+<!--
+# or encrypted using an MD5 hash.
+--># oppure criptata in un hash MD5.
+#d-i passwd/root-password-crypted password [MD5 hash]
+
+<!--
+# To create a normal user account.
+--># Per creare l'account per l'utente normale.
+#d-i passwd/user-fullname string Debian User
+#d-i passwd/username string debian
+<!--
+# Normal user's password, either in clear text
+--># La password dell'utente, in chiaro entrambe le volte
+#d-i passwd/user-password password insecure
+#d-i passwd/user-password-again password insecure
+<!--
+# or encrypted using an MD5 hash.
+--># oppure criptata in un hash MD5.
+#d-i passwd/user-password-crypted password [MD5 hash]
+<!--
+# Create the first user with the specified UID instead of the default.
+--># Per creare il primo utente con un UID specifico al posto di quello
+# predefinito.
+#d-i passwd/user-uid string 1010
+
+<!--
+# The user account will be added to some standard initial groups. To
+# override that, use this.
+--># L'account utente viene automaticamente inserito in alcuni gruppi.
+# Per modificare questo comportamento usare la seguente preconfigurazione.
+#d-i passwd/user-default-groups string audio cdrom video
+</screen></informalexample>
+
+<para>
+
+<!--
+The <classname>passwd/root-password-crypted</classname> and
+<classname>passwd/user-password-crypted</classname> variables can also
+be preseeded with <quote>!</quote> as their value. In that case, the
+corresponding account is disabled. This may be convenient for the root
+account, provided of course that an alternative method is set up to allow
+administrative activities or root login (for instance by using SSH key
+authentication or <command>sudo</command>).
+-->
+
+Le variabili <classname>passwd/root-password-crypted</classname> e
+<classname>passwd/user-password-crypted</classname> possono anche essere
+preconfigurate con il valore <quote>!</quote>, l'effetto è quello di
+disabilitare l'account corrispondente. Questo è comodo per l'account di
+root, ovviamente a patto di aver configurato un modo alternativo per svolgere
+le attività d'amministrazione (per esempio l'uso dell'autenticazione con
+chiave SSH oppure con sudo).
+
+</para><para>
+
+<!--
+The following command can be used to generate an MD5 hash for a password:
+-->
+
+Si può usare il seguente comando per creare un hash MD5 di una password:
+
+<informalexample><screen>
+$ printf "r00tme" | mkpasswd -s -m md5
+</screen></informalexample>
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-time">
+  <!-- <title>Clock and time zone setup</title> -->
+  <title>Impostazione dell'orologio e del fuso orario</title>
+<informalexample role="example"><screen>
+<!--
+# Controls whether or not the hardware clock is set to UTC.
+--># Controlla se l'orologio hardware deve essere impostato o meno su UTC.
+d-i clock-setup/utc boolean true
+
+<!--
+# You may set this to any valid setting for $TZ; see the contents of
+# /usr/share/zoneinfo/ for valid values.
+--># Questo può essere impostato con qualsiasi valore valido per $TZ; si
+# consulti /usr/share/zoneinfo/ per i valori validi.
+d-i time/zone string US/Eastern
+
+<!--
+# Controls whether to use NTP to set the clock during the install
+--># Determina se usare NTP per impostare l'orologio durante l'installazione
+d-i clock-setup/ntp boolean true
+<!--
+# NTP server to use. The default is almost always fine here.
+--># Server NTP da usare. Quasi sempre è possibile usare quello predefito.
+#d-i clock-setup/ntp-server string ntp.example.com
+</screen></informalexample>
+  </sect2>
+
+  <sect2 id="preseed-partman">
+  <!-- <title>Partitioning</title> -->
+  <title>Partizionamento</title>
+<para>
+
+<!--
+Using preseeding to partition the harddisk much limited to what is supported
+by <classname>partman-auto</classname>. You can choose to partition
+either existing free space on a disk or a whole disk. The layout of the
+disk can be determined by using a predefined recipe, a custom recipe from
+a recipe file or a recipe included in the preconfiguration file.
+-->
+
+Il supporto della preconfigurazione per il partizionamento è limitato
+a quanto permette <classname>partman-auto</classname>. Si può scegliere di
+partizionare lo spazio libero esistente sul disco oppure l'intero disco.
+La struttura delle partizioni sul disco può essere determinata usando
+una ricetta predefinita oppure una ricetta personalizzata su file o
+inclusa nel file di preconfigurazione.
+
+</para><para>
+
+<!--
+Preseeding of advanced partition setups using RAID, LVM and encryption is
+supported, but not with the full flexibility possible when partitioning
+during a non-preseeded install.
+-->
+
+È supportata anche la preconfigurazione di configurazioni complesse quali
+RAID, LVM e cifratura, ma non con la stessa flessibilità di quando il
+partizionamento avviene durante un'installazione non-preconfigurata.
+
+</para><para>
+
+<!--
+The examples below only provide basic information on the use of recipes.
+For detailed information see the files
+<filename>partman-auto-recipe.txt</filename> and
+<filename>partman-auto-raid-recipe.txt</filename> included in the
+<classname>debian-installer</classname> package.
+Both files are also available from the
+<ulink url="&url-d-i-websvn;/trunk/installer/doc/devel/">&d-i; source
+repository</ulink>. Note that the supported functionality may change
+between releases.
+-->
+
+Gli esempi sottostanti forniscono solo delle informazioni di base
+sull'uso delle ricette. Per delle informazioni più dettagliate vedere
+i file <filename>partman-auto-recipe.txt</filename> e
+<filename>partman-auto-raid-recipe.txt</filename> inclusi nel pacchetto
+<classname>debian-installer</classname>. Entrambi i file sono disponibili
+anche nel <ulink url="&url-d-i-websvn;/trunk/installer/doc/devel/">repository
+dei sorgenti del &d-i;</ulink>. Notare che le funzioni supportate
+potrebbero cambiare da un rilascio all'altro.
+
+</para>
+<warning><para>
+
+<!--
+The identification of disks is dependent on the order in which their drivers
+are loaded. If there are multiple disks in the system, make very sure the
+correct one will be selected before using preseeding.
+-->
+
+L'identificazione dei dischi dipende dall'ordine in cui sono caricati i
+driver, se nel sistema ci sono più dischi si deve essere assolutamente
+sicuri che venga selezionato quello corretto prima di usare la
+preconfigurazione.
+
+</para></warning>
+
+   <sect3 id="preseed-partman-example">
+   <!-- <title>Partitioning example</title> -->
+   <title>Esempio di partizionamento</title>
+
+<informalexample role="example"><screen>
+<!--
+# If the system has free space you can choose to only partition that space.
+# This is only honoured if partman-auto/method (below) is not set.
+--># Se il sistema ha spazio libero è possibile scegliere di partizionare
+# soltanto quello spazio. Questa impostazione viene rispettata solo se
+# partman-auto/method (vedi sotto) non è valorizzato.
+#d-i partman-auto/init_automatically_partition select biggest_free
+
+<!--
+# Alternatively, you may specify a disk to partition. If the system has only
+# one disk the installer will default to using that, but otherwise the device
+# name must be given in traditional, non-devfs format (so e.g. /dev/hda or
+# /dev/sda, and not e.g. /dev/discs/disc0/disc).
+--># In alternativa è possibile specificare un disco da partizionare.
+# Se il sistema dispone di un solo disco, l'installatore userà quello
+# altrimenti è necessario specificare il nome del device usando il
+# formato tradizionale, non-devfs (quindi, per esempio, /dev/hda o
+# /dev/sda ma non /dev/discs/disc0/disc).
+#d-i partman-auto/disk string /dev/sda
+<!--
+# In addition, you'll need to specify the method to use.
+# The presently available methods are:
+# - regular: use the usual partition types for your architecture
+# - lvm:     use LVM to partition the disk
+# - crypto:  use LVM within an encrypted partition
+--># Inoltre è necessario specificare il metodo da usare. Quelli
+# disponibili sono:
+# - regular: usa i tipi di partizione più comuni per la propria
+#            architettura
+# - lvm:     usa LVM per partizionare il disco
+# - crypto:  usa LVM con all'interno una partizione cifrata
+d-i partman-auto/method string lvm
+
+<!--
+# If one of the disks that are going to be automatically partitioned
+# contains an old LVM configuration, the user will normally receive a
+# warning. This can be preseeded away...
+--># L'utente riceve un avviso se uno dei dischi che stanno per essere
+# partizionati automaticamente contiene già una precedente configurazione
+# LVM. Comunque anche questo può essere preconfigurato...
+d-i partman-lvm/device_remove_lvm boolean true
+<!--# The same applies to pre-existing software RAID array:
+--># La stessa cosa avviene se già esiste un array in RAID software:
+d-i partman-md/device_remove_md boolean true
+<!--
+# And the same goes for the confirmation to write the lvm partitions.
+--># E può essere preconfigurata anche la conferma alla scrittura delle
+# partizioni lvm.
+d-i partman-lvm/confirm boolean true
+
+<!--
+# You can choose from any of the predefined partitioning recipes:
+# - atomic: all files in one partition
+# - home:   separate /home partition
+# - multi:  separate /home, /usr, /var, and /tmp partitions
+--># È possibile scegliere una qualsiasi delle ricette di partizionamento
+# predefinite:
+# - atomic: tutti i file in una partizione
+# - home:   partizione separata per /home
+# - multi:  partizioni separate per /home, /usr, /var e /tmp
+d-i partman-auto/choose_recipe select atomic
+
+<!--
+# Or provide a recipe of your own...
+# If you have a way to get a recipe file into the d-i environment, you can
+# just point at it.
+--># Oppure creare una ricetta personalizzata...
+# Se si ha modo di importare un file ricetta dentro l'ambiente
+# dell'installatore, è possibile semplicemente puntare a questo.
+#d-i partman-auto/expert_recipe_file string /hd-media/recipe
+
+<!--
+# If not, you can put an entire recipe into the preconfiguration file in one
+# (logical) line. This example creates a small /boot partition, suitable
+# swap, and uses the rest of the space for the root partition:
+--># Altrimenti, è possibile mettere un'intera ricetta in una riga. Questo
+# esempio crea una piccola partizione /boot, un'area swap appropriata e
+# usa il resto dello spazio per la partizione root:
+#d-i partman-auto/expert_recipe string                         \
+#      boot-root ::                                            \
+#              40 50 100 ext3                                  \
+#                      $primary{ } $bootable{ }                \
+#                      method{ format } format{ }              \
+#                      use_filesystem{ } filesystem{ ext3 }    \
+#                      mountpoint{ /boot }                     \
+#              .                                               \
+#              500 10000 1000000000 ext3                       \
+#                      method{ format } format{ }              \
+#                      use_filesystem{ } filesystem{ ext3 }    \
+#                      mountpoint{ / }                         \
+#              .                                               \
+#              64 512 300% linux-swap                          \
+#                      method{ swap } format{ }                \
+#              .
+
+<!--
+# The full recipe format is documented in the file partman-auto-recipe.txt
+# included in the 'debian-installer' package or available from D-I source
+# repository. This also documents how to specify settings such as file
+# system labels, volume group names and which physical devices to include
+# in a volume group.
+--># Il formato della ricetta è documentato nel file partman-auto-recipe.txt
+# incluso nel pacchetto "debian-installer" o disponibile nel repository
+# dei sorgenti del D-I. Nel file è anche spiegato come impostare le
+# etichette dei file system, i nomi dei gruppi di volumi e quali
+# dispositivi fisici inserire in un gruppo di volumi.
+
+<!--
+# This makes partman automatically partition without confirmation, provided
+# that you told it what to do using one of the methods above.
+--># Questo fa eseguire a partman il partizionamento automatico in base a
+# quanto indicato con uno dei metodi precedenti, senza chidere conferma.
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+</screen></informalexample>
+   </sect3>
+
+   <sect3 id="preseed-partman-raid">
+   <!-- <title>Partitioning using RAID</title> -->
+   <title>Partizionamento con RAID</title>
+<para>
+
+<!--
+You can also use preseeding to set up partitions on software RAID arrays.
+Supported are RAID levels 0, 1, 5, 6 and 10, creating degraded arrays and
+specifying spare devices.
+-->
+
+È possibile usare la preconfigurazione anche per impostare le partizioni
+su array in RAID software. È supportato il RAID di livello 0, 1, 5, 6 e
+10 la creazione di array <emphasis>degradati</emphasis> e la scelta di
+dischi di scorta.
+
+</para><para arch="any-x86">
+
+<!--
+If you are using RAID 1, you can preseed grub to install to all devices
+used in the array; see <xref linkend="preseed-bootloader"/>.
+-->
+
+Se si usa RAID 1 è possibile preconfigurare grub in
+modo da installarlo su tutti i dispositivi usati dall'array; si veda
+<xref linkend="preseed-bootloader"/>.
+
+</para>
+<warning><para>
+
+<!--
+This type of automated partitioning is easy to get wrong. It is also
+functionality that receives relatively little testing from the developers
+of &d-i;. The responsibility to get the various recipes right (so they
+make sense and don't conflict) lies with the user.
+Check <filename>/var/log/syslog</filename> if you run into problems.
+-->
+
+È probabile che questo tipo di partizionamento automatico fallisca.
+Infatti questa funzionalità ha ricevuto relativamente pochi test da parte
+degli sviluppatori del &d-i;. La responsabilità di recuperare delle ricette
+corrette (cioè che abbiano senso e che non siano in conflitto) è lasciata
+all'utente. In caso di problemi si controlli in
+<filename>/var/log/syslog</filename>.
+
+</para></warning>
+
+<informalexample role="example"><screen>
+<!--
+# The method should be set to "raid".
+--># Il metodo deve essere impostato come "raid".
+#d-i partman-auto/method string raid
+<!--
+# Specify the disks to be partitioned. They will all get the same layout,
+# so this will only work if the disks are the same size.
+--># Specificare quali sono i dischi da partizionare. Questi dischi avranno
+# tutti la stessa configurazione quindi è necessario che abbiano la stessa
+# dimensione.
+#d-i partman-auto/disk string /dev/sda /dev/sdb
+
+<!--
+# Next you need to specify the physical partitions that will be used. 
+--># Poi si devono specificare le partizioni fisiche da usare.
+#d-i partman-auto/expert_recipe string \
+#      multiraid ::                                         \
+#              1000 5000 4000 raid                          \
+#                      $primary{ } method{ raid }           \
+#              .                                            \
+#              64 512 300% raid                             \
+#                      method{ raid }                       \
+#              .                                            \
+#              500 10000 1000000000 raid                    \
+#                      method{ raid }                       \
+#              .
+
+<!--
+# Last you need to specify how the previously defined partitions will be
+# used in the RAID setup. Remember to use the correct partition numbers
+# for logical partitions. RAID levels 0, 1, 5, 6 and 10 are supported;
+# devices are separated using "#".
+# Parameters are:
+# &lt;raidtype&gt; &lt;devcount&gt; &lt;sparecount&gt; &lt;fstype&gt; &lt;mountpoint&gt; \
+#          &lt;devices&gt; &lt;sparedevices&gt;
+--># Infine si deve specificare come devono essere utilizzate le partizioni
+# definite in precedenza all'interno del RAID. Attenzione a usare i
+# numeri di partizione corretti per le partizioni logiche. Sono
+# supportati i livelli di RAID 0, 1, 5, 6 e 10; i dispositivi devono
+# essere separati usando il carattere "#".
+# I parametri sono:
+# &lt;raidtype&gt; &lt;devcount&gt; &lt;sparecount&gt; &lt;fstype&gt; &lt;mountpoint&gt; \
+#          &lt;devices&gt; &lt;sparedevices&gt;
+
+#d-i partman-auto-raid/recipe string \
+#    1 2 0 ext3 /                    \
+#          /dev/sda1#/dev/sdb1       \
+#    .                               \
+#    1 2 0 swap -                    \
+#          /dev/sda5#/dev/sdb5       \
+#    .                               \
+#    0 2 0 ext3 /home                \
+#          /dev/sda6#/dev/sdb6       \
+#    .
+
+<!--
+# For additional information see the file partman-auto-raid-recipe.txt
+# included in the 'debian-installer' package or available from D-I source
+# repository.
+--># Per ulteriori informazioni vedere il file partman-auto-raid-recipe.txt
+# incluso nel pacchetto "debian-installer" o disponibile nel repository
+# dei sorgenti del D-I.
+
+<!--
+# This makes partman automatically partition without confirmation.
+--># Questo fa in modo che partman partizioni automaticamente senza conferma.
+d-i partman-md/confirm boolean true
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+</screen></informalexample>
+   </sect3>
+
+   <sect3 id="preseed-partman-mount-styles">
+   <!-- <title>Controlling how partitions are mounted</title> -->
+   <title>Controllo del montaggio delle partizioni</title>
+<para>
+
+<!--
+Normally, filesystems are mounted using a universally unique identifier
+(UUID) as a key; this allows them to be mounted properly even if their
+device name changes. UUIDs are long and difficult to read, so, if you
+prefer, the installer can mount filesystems based on the traditional device
+names, or based on a label you assign. If you ask the installer to mount by
+label, any filesystems without a label will be mounted using a UUID instead.
+-->
+
+Normalmente i filesystem vengono montati usando come chiave un UUID
+(identificatore unversalmente univoco); questo permette di montarli
+correttamente anche quando cambia il nome del device. Gli UUID sono
+lunghi e difficili da leggere, quindi, se si preferisce, l'installatore
+può montare i filesystem usando il nome del device o in base a
+un'etichetta assegnata dall'utente. Qualora si chieda all'installatore
+di usare le etichette per montare i filesystem, qualsiasi filesystem
+senza un'etichetta verrà montato usando l'UUID.
+
+</para><para>
+
+<!--
+Devices with stable names, such as LVM logical volumes, will continue to use
+their traditional names rather than UUIDs.
+-->
+
+I device con nomi stabili, come i volumi logici LVM, continueranno a
+usare i loro nomi tradizionali anziché gli UUID.
+
+</para>
+
+<warning><para>
+
+<!--
+Traditional device names may change based on the order in which the kernel
+discovers devices at boot, which may cause the wrong filesystem to be
+mounted. Similarly, labels are likely to clash if you plug in a new disk or
+a USB drive, and if that happens your system's behaviour when started will
+be random.
+-->
+
+I tradizionali nomi dei device possono cambiare in base all'ordine con
+cui il kernel riconosce i device durante l'avvio, questo può comportare
+che venga montato il filesystem sbagliato. In modo simile, le etichette
+possono facilmente collidere quando si inserisce un nuovo disco o un
+dispositivo USB e, quando questo accade, il comportamento del sistema
+diventa imprevedibile.
+
+</para></warning>
+
+<informalexample role="example"><screen>
+<!--
+# The default is to mount by UUID, but you can also choose "traditional" to
+# use traditional device names, or "label" to try filesystem labels before
+# falling back to UUIDs.
+--># Il comportamento predefinito è eseguire il mount usando l'UUID, è
+# anche possibile scegliere "traditional" per utilizzare i tradizionali
+# nomi dei device oppure "label" per provare con le etichette del
+# filesystem prima di usare gli UUID.
+#d-i partman/mount_style select uuid
+</screen></informalexample>
+   </sect3>
+  </sect2>
+
+  <sect2 id="preseed-base-installer">
+  <!-- <title>Base system installation</title> -->
+  <title>Installazione del sistema di base</title>
+<para>
+
+<!--
+There is actually not very much that can be preseeded for this stage of the
+installation. The only questions asked concern the installation of the kernel.
+-->
+
+Al momento non c'è molto da preconfigurare per questo passo
+dell'installazione. Le uniche domande riguardano l'installazione del
+kernel.
+
+</para>
+
+<informalexample role="example"><screen>
+<!--
+# Configure APT to not install recommended packages by default. Use of this
+# option can result in an incomplete system and should only be used by very
+# experienced users.
+--># Configura APT in modo che non installi i pacchetti raccomandati. L'uso
+# di questa opzione può implicare un sistema incompleto e dovrebbe essere
+# usata solo dagli utenti molto esperti.
+#d-i base-installer/install-recommends boolean false
+
+<!--
+# The kernel image (meta) package to be installed; "none" can be used if no
+# kernel is to be installed.
+--># Il (meta)pacchetto con l'immagine del kernel da installare; per non
+# installare un kernel inserire "none".
+#d-i base-installer/kernel/image string &kernelpackage;-2.6-486
+</screen></informalexample>
+  </sect2>
+
+  <sect2 id="preseed-apt">
+  <!-- <title>Apt setup</title> -->
+  <title>Impostazione di APT</title>
+<para>
+
+<!--
+Setup of the <filename>/etc/apt/sources.list</filename> and basic configuration
+options is fully automated based on your installation method and answers to
+earlier questions. You can optionally add other (local) repositories.
+-->
+
+L'impostazione di <filename>/etc/apt/sources.list</filename> e la
+configurazione delle opzioni di base è completamente automatizzata in base
+al metodo d'installazione e alle risposte date in precedenza. È possibile
+aggiungere altri repository (anche locali).
+
+</para>
+
+<informalexample role="example"><screen>
+<!--
+# You can choose to install non-free and contrib software.
+--># È possibile scegliere di installare software non-free e contrib.
+#d-i apt-setup/non-free boolean true
+#d-i apt-setup/contrib boolean true
+<!--
+# Uncomment this if you don't want to use a network mirror.
+--># Togliere il commento alla prossima riga se non si vuole usare
+# un mirror.
+#d-i apt-setup/use_mirror boolean false
+<!--
+# Select which update services to use; define the mirrors to be used.
+# Values shown below are the normal defaults.
+--># Scegliere i servizi di aggiornamento da utilizzare; definire quali
+# mirror devono essere usati. I valori riportati in seguito sono quelli
+# predefiniti.
+#d-i apt-setup/services-select multiselect security, volatile
+#d-i apt-setup/security_host string security.debian.org
+#d-i apt-setup/volatile_host string volatile.debian.org
+
+<!--
+# Additional repositories, local[0-9] available
+--># Altri repository, sono disponibili local[0-9]
+#d-i apt-setup/local0/repository string \
+#       http://local.server/debian stable main
+#d-i apt-setup/local0/comment string local server
+<!--
+# Enable deb-src lines
+--># Abilita le righe deb-src
+#d-i apt-setup/local0/source boolean true
+<!--
+# URL to the public key of the local repository; you must provide a key or
+# apt will complain about the unauthenticated repository and so the
+# sources.list line will be left commented out
+--># URL alla chiave pubblica del repository locale; è necessario fornire
+# una chiave altrimenti apt si lamenta perché il repository non è
+# autenticato e che quindi non dovrebbe essere usato (commentandolo in
+# sources.list)
+#d-i apt-setup/local0/key string http://local.server/key
+
+<!--
+# By default the installer requires that repositories be authenticated
+# using a known gpg key. This setting can be used to disable that
+# authentication. Warning: Insecure, not recommended.
+--># Normalmente l'installatore richiede che i repository siano autenticati
+# con una chiave gpg conosciuta. Per disabilitare questa autenticazione si
+# può usare questa impostazione. Attenzione: insicuro, non raccomandato.
+#d-i debian-installer/allow_unauthenticated boolean true
+</screen></informalexample>
+  </sect2>
+
+  <sect2 id="preseed-pkgsel">
+  <!-- <title>Package selection</title> -->
+  <title>Selezione dei pacchetti</title>
+<para>
+
+<!--
+You can choose to install any combination of tasks that are available.
+Available tasks as of this writing include:
+-->
+
+È possibile scegliere di installare qualsiasi combinazione di task che
+siano disponibili. I task attualmente disponibili includono:
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+  <userinput>standard (sistema standard)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>desktop (ambiente desktop)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>gnome-desktop (ambiente desktop gnome)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>kde-desktop (ambiente desktop kde)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>web-server (server web)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>print-server (server di stampa)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>dns-server (server DNS)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>file-server (file server)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>mail-server (server di posta)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>sql-database (database SQL)</userinput>
+</para></listitem>
+<listitem><para>
+  <userinput>laptop (computer portatile)</userinput>
+</para></listitem>
+</itemizedlist>
+
+<para>
+
+<!--
+You can also choose to install no tasks, and force the installation of a
+set of packages in some other way. We recommend always including the
+<userinput>standard</userinput> task.
+-->
+
+Si può anche scegliere di non installare alcun task e forzare l'installazione
+di un insieme di pacchetti in qualche altro modo. Raccomandiamo di includere
+sempre il task <userinput>standard</userinput>.
+
+</para><para>
+
+<!--
+If you want to install some individual packages in addition to packages
+installed by tasks, you can use the parameter
+<classname>pkgsel/include</classname>. The value of this parameter can be
+a list of packages separated by either commas or spaces, which allows it
+to be used easily on the kernel command line as well.
+-->
+
+Se oltre ai task si vuole installare anche qualche altro pacchetto allora
+è possibile usare il parametro <classname>pkgsel/include</classname>; il
+valore di questo parametro può essere un elenco di pacchetti separati con
+virgole o con spazi, in questo modo può essere comodamente usato anche
+sulla riga di comando del kernel.
+
+</para>
+
+<informalexample role="example"><screen>
+#tasksel tasksel/first multiselect standard, web-server
+<!--
+# If the desktop task is selected, install the kde and xfce desktops
+# instead of the default gnome desktop.
+--># Quando è selezionato il task desktop, si può installare kde e xfce
+# al posto del desktop predefinito gnome.
+#tasksel tasksel/desktop multiselect kde, xfce
+
+<!--
+# Individual additional packages to install
+--># Ulteriori pacchetti da installare
+#d-i pkgsel/include string openssh-server build-essential
+<!--
+# Whether to upgrade packages after debootstrap.
+# Allowed values: none, safe-upgrade, full-upgrade
+--># Se aggiornare i pacchetti dopo l'avvio. I valori ammessi
+# sono: none, safe-upgrade, full-upgrade
+#d-i pkgsel/upgrade select none
+
+<!--
+# Some versions of the installer can report back on what software you have
+# installed, and what software you use. The default is not to report back,
+# but sending reports helps the project determine what software is most
+# popular and include it on CDs.
+--># Alcune versioni dell'installatore possono inviare un resoconto di quali
+# programmi sono stati installati e quali sono usati. Questo resoconto, la
+# cui ricezione aiuta il progetto a determinare quali sono i programmi più
+# popolari per inserirli nei CD, normalmente non viene inviato.
+#popularity-contest popularity-contest/participate boolean false
+</screen></informalexample>
+  </sect2>
+
+  <sect2 id="preseed-bootloader" arch="any-x86">
+  <!-- <title>Boot loader installation</title> -->
+  <title>Installazione del boot loader</title>
+<informalexample role="example"><screen>
+<!--
+<phrase arch="linux-any"># Grub is the default boot loader (for x86). If you want lilo installed
+# instead, uncomment this:
+--><phrase arch="linux-any"># Grub è il boot loader predefinito (per x86). Invece, se si desidera
+# che sia installato lilo, scommentare questa riga:
+#d-i grub-installer/skip boolean true
+<!--
+# To also skip installing lilo, and install no bootloader, uncomment this
+# too:
+--># Per evitare anche l'installazione di lilo, e quindi non installare
+# nessun boot loader, scommentare questa riga:
+#d-i lilo-installer/skip boolean true</phrase>
+<!--
+<phrase arch="kfreebsd-any;hurd-any"># To install no bootloader, uncomment this
+--><phrase arch="kfreebsd-any;hurd-any"># Per non installare un bootloader, scommentare questa riga:
+#d-i grub-installer/skip boolean true</phrase>
+
+<!--
+# This is fairly safe to set, it makes grub install automatically to the MBR
+# if no other operating system is detected on the machine.
+--># Questa è ragionevolmente sicura da impostare, fa in modo che grub sia
+# installato automaticamente nel MBR se nessun altro sistema operativo è
+# rilevato nella macchina.
+d-i grub-installer/only_debian boolean true
+
+<!--
+# This one makes grub-installer install to the MBR if it also finds some other
+# OS, which is less safe as it might not be able to boot that other OS.
+--># Questa fa in modo che grub-installer si installi sul MBR se trova anche
+# qualche altro sistema operativo, che è un po' meno sicuro poiché potrebbe
+# non riuscire ad avviare gli altri sistemi operativi.
+d-i grub-installer/with_other_os boolean true
+
+<!--
+# Alternatively, if you want to install to a location other than the mbr,
+# uncomment and edit these lines:
+--># In alternativa, se si vuole installare in una posizione differente dal
+# MBR, scommentare ed editare queste linee:
+#d-i grub-installer/only_debian boolean false
+#d-i grub-installer/with_other_os boolean false
+#d-i grub-installer/bootdev  string (hd0,0)
+<!--
+# To install grub to multiple disks:
+--># Per installare grub su più dischi:
+#d-i grub-installer/bootdev  string (hd0,0) (hd1,0) (hd2,0)
+<!--
+# To install to a particular device:
+--># Per installare su un device particolare:
+#d-i grub-installer/bootdev  string /dev/sda
+
+<!--
+# Optional password for grub, either in clear text
+--># Passowrd opzionale per grub, può essere in chiaro
+#d-i grub-installer/password password r00tme
+#d-i grub-installer/password-again password r00tme
+<!--
+# or encrypted using an MD5 hash, see grub-md5-crypt(8).
+--># oppure criptata in un hash MD5, si veda grub-md5-crypt(8).
+#d-i grub-installer/password-crypted password [MD5 hash]
+
+<!--
+# Use the following option to add additional boot parameters for the
+# installed system (if supported by the bootloader installer).
+# Note: options passed to the installer will be added automatically.
+--># Con la prossima opzione si possono aggiungere ulteriori parametri
+# d'avvio per il sistema installato (se supportati dal bootloader
+# dell'installatore). Nota: le opzioni passate all'installatore
+# saranno aggiunte automaticamente.
+#d-i debian-installer/add-kernel-opts string nousb
+</screen></informalexample>
+
+<para>
+
+<!--
+An MD5 hash for a password for <classname>grub</classname> can be generated
+using <command>grub-md5-crypt</command>, or using the command from the
+example in <xref linkend="preseed-account"/>.
+-->
+
+L'hash MD5 per una password per <classname>grub</classname> può essere
+generato usando <command>grub-md5-crypt</command>, oppure usando il comando
+dell'esempio in <xref linkend="preseed-account"/>.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-finish">
+  <!-- <title>Finishing up the installation</title> -->
+  <title>Termine dell'installazione</title>
+<informalexample role="example"><screen>
+<!--
+# During installations from serial console, the regular virtual consoles
+# (VT1-VT6) are normally disabled in /etc/inittab. Uncomment the next
+# line to prevent this.
+--># Durante le installazioni da console seriale o di gestione, normalmente
+# le console virtuali (da VT1 a VT6) vengono disabilitate in /etc/inittab.
+# Togliere il commento dalla prossima riga per evitare che questo accada.
+#d-i finish-install/keep-consoles boolean true
+
+<!--
+# Avoid that last message about the install being complete.
+--># Evita l'ultimo messaggio riguardo il completamento dell'installazione.
+d-i finish-install/reboot_in_progress note
+
+<!--
+# This will prevent the installer from ejecting the CD during the reboot,
+# which is useful in some situations.
+--># Impedisce che il programma d'installazione espelli il CD prima del riavvio,
+# in alcuni casi può essere utile.
+#d-i cdrom-detect/eject boolean false
+
+<!--
+# This is how to make the installer shutdown when finished, but not
+# reboot into the installed system.
+--># Indica come spegnere quando l'installatore ha finito, senza riavviare
+# il sistema appena installato.
+#d-i debian-installer/exit/halt boolean true
+<!--
+# This will power off the machine instead of just halting it.
+--># Questo spegne la macchina anziché semplicemente arrestarla.
+#d-i debian-installer/exit/poweroff boolean true
+</screen></informalexample>
+  </sect2>
+
+  <sect2 id="preseed-other">
+  <!-- <title>Preseeding other packages</title> -->
+  <title>Preconfigurazione di altri pacchetti</title>
+<informalexample role="example"><screen>
+<!--
+# Depending on what software you choose to install, or if things go wrong
+# during the installation process, it's possible that other questions may
+# be asked. You can preseed those too, of course. To get a list of every
+# possible question that could be asked during an install, do an
+# installation, and then run these commands:
+--># A seconda del software che si sceglie di installare, o se le cose vanno
+# storte durante il processo di installazione, è possibile che altre domande
+# possano essere poste. Si possono preconfigurare anche quelle,
+# naturalmente. Per ottenere una lista di ogni possibile domanda che possa
+# essere posta durante un'installazione, fare un'installazione, quindi
+# eseguire questi comandi:
+#   debconf-get-selections --installer > file
+#   debconf-get-selections >> file
+</screen></informalexample>
+  </sect2>
+ </sect1>
+
+
+ <sect1 id="preseed-advanced">
+ <!-- <title>Advanced options</title> -->
+ <title>Opzioni avanzate</title>
+
+  <sect2 id="preseed-hooks">
+  <!-- <title>Running custom commands during the installation</title> -->
+  <title>Uso di comandi personalizzati durante l'installazione</title>
+<para>
+
+<!--
+A very powerful and flexible option offered by the preconfiguration tools
+is the ability to run commands or scripts at certain points in the
+installation.
+-->
+
+Una funzionalità molto potente e flessibile offerta dagli strumenti di
+preconfigurazione è la possibilità si eseguire dei comandi o degli script
+in determinati momenti dell'installazione.
+
+</para>
+
+<informalexample role="example"><screen>
+<!--
+# d-i preseeding is inherently not secure. Nothing in the installer checks
+# for attempts at buffer overflows or other exploits of the values of a
+# preconfiguration file like this one. Only use preconfiguration files from
+# trusted locations! To drive that home, and because it's generally useful,
+# here's a way to run any shell command you'd like inside the installer,
+# automatically.
+--># La preconfigurazione del d-i è intrinsecamente non sicura. Niente
+# nell'installatore verifica i tentativi di buffer overflow o di altri
+# exploit attraverso i valori presenti in un file di preconfigurazione
+# come questo. Usare solo file di preconfigurazione provenienti da fonti
+# fidate! Per comprendere il rischio, e poiché è generalmente utile,
+# ecco un modo per eseguire automaticamente qualsiasi comando della shell
+# all'interno dell'installatore.
+
+<!--
+# This first command is run as early as possible, just after
+# preseeding is read.
+--># Questo è primo comando, è eseguito il prima possibile, appena dopo la
+# lettura della preconfigurazione.
+#d-i preseed/early_command string anna-install some-udeb
+<!--
+# This command is run immediately before the partitioner starts. It may be
+# useful to apply dynamic partitioner preseeding that depends on the state
+# of the disks (which may not be visible when preseed/early_command runs).
+--># Questo comando viene eseguito immediatamente prima di avviare il
+# partizionatore. Può essere utile per applicare una preconfigurazione
+# dinamica del partizionatore in funzione dello stato dei dischi (che
+# potrebbe non essere visibile nel momento in cui viene eseguito
+# preseed/early_command).
+#d-i partman/early_command \
+#       string debconf-set partman-auto/disk "$(list-devices disk | head -n1)"
+<!--
+# This command is run just before the install finishes, but when there is
+# still a usable /target directory. You can chroot to /target and use it
+# directly, or use the apt-install and in-target commands to easily install
+# packages and run commands in the target system.
+--># Questo è l'ultimo comando, è eseguito appena prima che l'installatore
+# termini, ma quando la directory /target è ancora usabile. È possibile
+# fare un chroot su /target e usarlo direttamente oppure usare i comandi
+# apt-install e in-target per installare dei pacchetti ed eseguire comandi
+# nel file system target.
+#d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh
+</screen></informalexample>
+  </sect2>
+
+  <sect2 id="preseed-seenflag">
+  <!-- <title>Using preseeding to change default values</title> -->
+  <title>Uso della preconfigurazione per modificare i valori predefiniti</title>
+<para>
+
+<!--
+It is possible to use preseeding to change the default answer for a
+question, but still have the question asked. To do this the
+<firstterm>seen</firstterm> flag must be reset to <quote>false</quote> after
+setting the value for a question.
+-->
+
+È possibile usare la preconfigurazione per modificare la risposta predefinita
+a una domanda ma fare in modo che la domanda venga comunque posta. Per farlo
+si deve impostare il flag <firstterm>seen</firstterm> a <quote>false</quote>
+dopo aver impostato il valore della domanda.
+
+<informalexample><screen>
+<!--
+d-i foo/bar string value
+-->d-i foo/bar string valore
+d-i foo/bar seen false
+</screen></informalexample>
+
+<!--
+The same effect can be achieved for <emphasis>all</emphasis> questions by
+setting the parameter <classname>preseed/interactive=true</classname> at
+the boot prompt. This can also be useful for testing or debugging your
+preconfiguration file.
+-->
+
+Si può estendere questo effetto a <emphasis>tutte</emphasis> le domande
+inserendo il parametro <classname>preseed/interactive=true</classname>
+al prompt boot. Questo può essere utile per effettuare delle prove o il
+debug del proprio file di preconfigurazione.
+
+</para><para>
+
+<!--
+Note that the <quote>d-i</quote> owner should only be used for variables
+used in the installer itself. For variables belonging to packages installed
+on the target system, you should use the name of that package instead. See
+the footnote to <xref linkend="preseed-bootparms"/>.
+-->
+
+Notare che <quote>d-i</quote> deve essere usato come proprietario delle
+sole variabili dell'installatore. Le variabili appartenenti ai pacchetti
+da installare sul sistema finale devono avere come proprietario il nome
+del pacchetto. Si veda la nota a pié di pagina in
+<xref linkend="preseed-bootparms"/>.
+
+</para><para>
+
+<!--
+If you are preseeding using boot parameters, you can make the installer ask
+the corresponding question by using the <quote>?=</quote> operator, i.e.
+<userinput><replaceable>foo</replaceable>/<replaceable>bar</replaceable>?=<replaceable>value</replaceable></userinput>
+(or <userinput><replaceable>owner</replaceable>:<replaceable>foo/bar</replaceable>?=<replaceable>value</replaceable></userinput>).
+This will of course only have effect for parameters that correspond to
+questions that are actually displayed during an installation and not for
+<quote>internal</quote> parameters.
+-->
+
+Quando si usa la preconfigurazione tramite i parametri d'avvio si può
+richiedere all'installatore di chiedere comunque le domande preconfigurate
+usando l'operatore <quote>?=</quote> in questo modo
+<userinput><replaceable>foo</replaceable>/<replaceable>bar</replaceable>?=<replaceable>valore</replaceable></userinput>
+(oppure <userinput><replaceable>proprietario</replaceable>:<replaceable>foo/bar</replaceable>?=<replaceable>valore</replaceable></userinput>).
+Ovviamente questo ha effetto solo sui parametri che corrispondono alle
+domande che sono effettivamente visualizzate durante l'installazione e
+non sui parametri <quote>interni</quote>.
+
+</para>
+  </sect2>
+
+  <sect2 id="preseed-chainload">
+  <!-- <title>Chainloading preconfiguration files</title> -->
+  <title>Caricamento in cascata di più file di preconfigurazione</title>
+<para>
+
+<!--
+It is possible to include other preconfiguration files from a preconfiguration
+file. Any settings in those files will override pre-existing settings from
+files loaded earlier. This makes it possible to put, for example, general
+networking settings for your location in one file and more specific
+settings for certain configurations in other files.
+-->
+
+Da un file di preconfigurazione è anche possibile includere anche altri file
+di preconfigurazione. Qualsiasi impostazione fatta in questi file sovrascrive
+l'eventuale configurazione fatta dai file caricati in precedenza. Questo
+permette di inserire, per esempio, una configurazione di rete generica in
+un file e di mettere alcune configurazioni particolari in altri file.
+
+</para>
+
+<informalexample><screen>
+<!--
+# More than one file can be listed, separated by spaces; all will be
+# loaded. The included files can have preseed/include directives of their
+# own as well. Note that if the filenames are relative, they are taken from
+# the same directory as the preconfiguration file that includes them.
+--># Si possono elencare più file separandoli con degli spazi; verranno
+# caricati tutti. Anche i file inclusi possono avere al loro interno delle
+# direttive preseed/include. Si noti che se i nomi dei file sono relativi,
+# sono prelevati dalla stessa directory del file di preconfigurazione che
+# li include.
+#d-i preseed/include string x.cfg
+
+<!--
+# The installer can optionally verify checksums of preconfiguration files
+# before using them. Currently only md5sums are supported, list the md5sums
+# in the same order as the list of files to include.
+--># Facoltativamente il programma d'installazione può verificare le checksum
+# dei file prima di processarli. Attualmente sono supportati solo le checksum
+# md5sum che vanno elencate nello stesso ordine con cui sono inclusi i file.
+#d-i preseed/include/checksum string 5da499872becccfeda2c4872f9171c3d
+
+<!--
+# More flexibly, this runs a shell command and if it outputs the names of
+# preconfiguration files, includes those files. 
+--># Ancora più flessibile, questo esegue un comando di shell e se restituisce
+# i nomi dei file di preconfigurazione allora include questi file.
+#d-i preseed/include_command \
+#      string if [ "`hostname`" = bob ]; then echo bob.cfg; fi
+
+<!--
+# Most flexibly of all, this downloads a program and runs it. The program
+# can use commands such as debconf-set to manipulate the debconf database.
+# More than one script can be listed, separated by spaces.
+# Note that if the filenames are relative, they are taken from the same
+# directory as the preconfiguration file that runs them.
+--># Il massimo della flessibilità, questo scarica ed esegue un programma.
+# Il programma può usare debconf-set per manipolare il database di
+# debconf; è possibile elencare più di uno script separandoli con degli
+# spazi. Si noti che se i nomi dei file sono relativi, sono prelevati
+# dalla stessa directory del file di preconfigurazione che li esegue.
+#d-i preseed/run string foo.sh
+</screen></informalexample>
+
+<para>
+
+<!--
+It is also possible to chainload from the initrd or file preseeding phase,
+into network preseeding by setting preseed/url in the earlier files.
+This will cause network preseeding to be performed when the network comes
+up.  You need to be careful when doing this, since there will be two
+distinct runs at preseeding, meaning for example that you get another
+chance to run the preseed/early command, the second one happening after the
+network comes up.
+-->
+
+Con la preconfigurazione di tipo initrd e file è possibile anche
+caricare in cascata una preconfigurazione di tipo network, impostando
+preseed/url nei file precedenti. Ciò avvia la preconfigurazione via
+rete appena questa diviene disponibile. Nell'effettuare questa
+operazione si deve porre particolare attenzione, dato che la
+preconfigurazione viene eseguita in due occasioni distinte, aprendo
+la possibilità che il comando preseed/early venga eseguito nuovamente,
+con la seconda esecuzione che avviene dopo l'attivazione della rete.
+
+</para>
+  </sect2>
+ </sect1>
+</appendix>

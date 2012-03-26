@@ -1,0 +1,579 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+ <sect1 id="boot-troubleshooting">
+ <title>Resolució de problemes del procés d'instal·lació</title>
+<para>
+</para>
+
+  <sect2 arch="not-s390" id="unreliable-cd">
+  <title>Fiabilitat del CD-ROM</title>
+<para>
+
+De vegades, especialment amb unitats de CD-ROM velles, l'instal·lador
+podria no arrancar des de CD-ROM. L'instal·lador podria &mdash; inclús
+després d'arrencar correctament des del CD-ROM &mdash; fallar en el
+reconeixement del CD-ROM i donar errors mentre l'està llegint durant la
+instal·lació.
+
+</para><para>
+
+Hi ha causes diferents per aquests problemes. Tan sols podem llistar
+alguns dels problemes coneguts i donar suggeriments de com podeu
+tractar-los. La resta es cosa vostra.
+
+</para><para>
+
+Hi ha dos coses molt senzilles que podeu provar.
+
+<itemizedlist>
+<listitem><para>
+
+Si el CD-ROM no arranca, comproveu que s'ha inserit correctament i que no
+està brut.
+
+</para></listitem>
+<listitem><para>
+
+Si l'instal·lador no reconeix el CD-ROM, proveu d'executar l'opció
+<menuchoice> <guimenuitem>Detecta i munta el CD-ROM</guimenuitem> </menuchoice>
+altra vegada. Alguns problemes de DMA associats a algunes unitats de
+CD-ROM velles es resolen d'aquesta manera.
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Si no funciona, aleshores proveu els suggeriments que teniu a la
+subsecció de baix. Casi tots, pero no tots els suggeriments discutits
+són vàlids tant pels CD-ROM com pels DVD, però utilitzarem el terme
+CD-ROM per simplicitat.
+
+</para><para>
+
+Si no podeu aconseguir que la instal·lació funcione des de CD-ROM,
+proveu un dels altres mètodes d'instal·lació que hi ha.
+
+</para>
+
+  <sect3>
+  <title>Problemes usuals</title>
+
+<itemizedlist>
+  <listitem><para>
+
+Algunes unitats de CD-ROM velles no suporten la lectura de discs que es
+van gravar a altes velocitats utilitzant una gravadora de CD moderna.
+
+  </para></listitem>
+  <listitem><para>
+
+Si el sistema arrenca correctament des del CD-ROM, no vol dir necessàriament
+que &arch-kernel; suporte el CD-ROM (o més correctament, la controlador a la que
+teniu connectada la vostra unitat de CD-ROM).
+
+  </para></listitem>
+  <listitem><para>
+
+Algunes unitats de CD-ROM velles no funcionen correctament si està activat
+l'<quote>accés directe a memòria</quote> (DMA).
+
+  </para></listitem>
+</itemizedlist>
+
+  </sect3>
+
+  <sect3>
+  <title>Com investigar i potser resoldre alguns problemes</title>
+<para>
+
+Si el CD-ROM falla a l'arrencar, proveu els següents suggeriments.
+
+<itemizedlist>
+  <listitem><para>
+
+Comproveu que la vostra BIOS suporta l'arrencada des de CD-ROM (algunes
+no ho fan) i que la vostra unitat de CD-ROM suporta el mitjà que esteu
+utilitzant.
+
+  </para></listitem>
+  <listitem><para>
+
+Si heu descarregat una imatge iso, comproveu que l'md5sum de la imatge
+coincideix amb el que estigui al fitxer <filename>MD5SUMS</filename> de la
+imatge, que hauria d'estar al mateix lloc d'on vau descarregar la imatge.
+
+<informalexample><screen>
+$ md5sum <replaceable>debian-testing-i386-netinst.iso</replaceable>
+a20391b12f7ff22ef705cee4059c6b92  <replaceable>debian-testing-i386-netinst.iso</replaceable>
+</screen></informalexample>
+
+A continuació, comproveu que l'md5sum del CD-ROM que heu gravat coincideix
+també. L'ordre següent hauria de funcionar. Utilitza la mida de la imatge
+per llegir el nombre correcte de byts des del CD-ROM.
+
+<informalexample><screen>
+$ dd if=/dev/cdrom | \
+> head -c `stat --format=%s <replaceable>debian-testing-i386-netinst.iso</replaceable>` | \
+> md5sum
+a20391b12f7ff22ef705cee4059c6b92  -
+262668+0 registres llegits
+262668+0 registres escrits
+134486016 octets (134 MiB) copiats, 97.474 segons, 1.4 MiB/s
+</screen></informalexample>
+
+  </para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Si després d'arrencar l'instal·lador correctament, el CD-ROM no es
+detectat, tornar a provar podria resoldre el problema. Si teniu més
+d'una unitat de CD-ROM, proveu de canviar el CD-ROM a una altra unitat.
+Si no funciona o si el CD-ROM es reconeix però dona errors quan està
+llegint-lo, proveu els suggeriments que teniu a continuació. Es
+necessita algun coneixement bàsic de &arch-kernel; per fer-ho. Per executar
+qualsevol de les ordres, primer hauríeu de canviar a la segona consola
+virtual (VT2) i activar l'intèrpret d'ordres.
+
+<itemizedlist>
+  <listitem><para>
+
+Canvieu al VT4 o mireu els continguts del fitxer
+<filename>/var/log/syslog</filename> (utilitzeu el <command>nano</command>
+com a editor) per comprovar qualsevol missatge d'error específic. Després,
+comproveu la sortida del l'ordre <command>dmesg</command>.
+
+  </para></listitem>
+  <listitem><para>
+
+Mireu en la sortida de <command>dmesg</command> si s'ha reconegut la
+vostra unitat de CD-ROM. Hauríeu de vore alguna cosa de l'esteil (les
+línies no han de estar obligatòriament de forma consecutiva):
+
+<informalexample><screen>
+Probing IDE interface ide1...
+hdc: TOSHIBA DVD-ROM SD-R6112, ATAPI CD/DVD-ROM drive
+ide1 at 0x170-0x177,0x376 on irq 15
+hdc: ATAPI 24X DVD-ROM DVD-R CD-R/RW drive, 2048kB Cache, UDMA(33)
+Uniform CD-ROM driver Revision: 3.20
+</screen></informalexample>
+
+Si no veieu res de l'estil, les opcions són que no es reconega o no
+estiga suportada la controladora a la que esta connectat el vostre CD-ROM.
+Si sabeu quin controlador fa falta per la controladora, podríeu provar
+de carregar-lo manualment amb l'ordre <command>modprobe</command>.
+
+  </para></listitem>
+  <listitem><para>
+
+Comproveu que hi ha un node de dispositiu per la vostra unitat de
+CD-ROM a <filename>/dev/</filename>. En els exemples de baix,
+açò seria el <filename>/dev/hdc</filename>.
+Hauria d'estar també el <filename>/dev/cdrom</filename>.
+
+  </para></listitem>
+  <listitem><para>
+
+Utilitzeu l'ordre <command>mount</command> per comprovar si el CD-ROM
+ja està muntat; si no ho està, proveu de muntar-lo manualment:
+
+<informalexample><screen>
+$ mount /dev/<replaceable>hdc</replaceable> /cdrom
+</screen></informalexample>
+
+Mireu si s'ha produït algun error després d'executar l'ordre.
+
+  </para></listitem>
+  <listitem><para>
+
+Comproveu si el DMA està activat:
+
+<informalexample><screen>
+$ cd /proc/<replaceable>ide</replaceable>/<replaceable>hdc</replaceable>
+$ grep using_dma settings
+using_dma      1       0       1       rw
+</screen></informalexample>
+
+Un <quote>1</quote> a la primera columna després de <literal>using_dma</literal>
+vol dir que està activat. Si ho està, proveu de desactivar-lo:
+
+<informalexample><screen>
+$ echo -n "using_dma:0" >settings
+</screen></informalexample>
+
+Comproveu que esteu en el directori del dispositiu que es correspon a la
+vostra unitat de CD-ROM.
+
+  </para></listitem>
+  <listitem><para>
+
+Si hi ha algun problema a la isntal·lació, proveu de comprovar la integritat
+del CD-ROM fent ús de l'opció que hi ha casi al final del menú principal de
+l'instal·lador. Aquesta opció es pot utilitzar com una comprovació general
+de si el CD-ROM es pot llegir amb confiança.
+
+  </para></listitem>
+</itemizedlist>
+
+</para>
+  </sect3>
+  </sect2>
+
+  <sect2 condition="supports-floppy-boot" id="unreliable-floppies">
+  <title>Fiabilitat dels disquets</title>
+
+<para>
+
+El major problema de la gent que empra disquets per a instal·lar &debian;
+sembla ser la fiabilitat dels disquets.
+
+</para><para>
+
+El disquet d'arrencada és el que té els problemes pitjors, car el
+maquinari el llegeix directament, abans de l'arrencada del Linux.
+Sovint, el maquinari no llegeix tan bé com ho fa el controlador de la
+disquetera del Linux, i en cas que llegisca dades incorrectes, pot fins
+i tot aturar-se sense donar cap missatge d'error. També hi pot haver
+fallades en els disquets dels controladors, la majoria dels quals
+es manifesten donant una gran quantitat de missatges d'errors d'I/O.
+
+</para><para>
+
+Si trobeu que se us atura el procés d'instal·lació en un disquet
+determinat, la primera cosa que s'ha de fer és escriure la imatge a un
+disquet <emphasis>diferent</emphasis>. Potser no n'hi haja prou de
+tornar a formatar el disquet problemàtic, fins i tot si sembla que s'ha
+tornat a formatar i s'ha escrit sense cap error. De vegades és útil
+provar d'escriure el disquet en un sistema diferent.
+
+</para><para>
+
+Un usuari ha informat que va haver d'escriure les imatges a
+<emphasis>tres</emphasis> disquets diferents fins que l'últim li va
+funcionar com calia.
+
+</para><para>
+
+Normalment no seria necessari descarregar la imatge del disquet altra
+vegada, però si esteu patint problemes, verificar el seu md5sum sempre
+és una manera útil per verificar que s'han descarregat correctament.
+
+</para><para>
+
+D'altres han informat que només els ha calgut tornar a arrencar unes
+poques vegades amb el mateix disquet. Això és degut a errors del
+maquinari o del microprogramari dels controladors de la disquetera.
+
+</para>
+  </sect2>
+
+  <sect2><title>Configuració de l'arrencada</title>
+
+<para>
+
+Si teniu problemes i el nucli es penja durant l'arrencada,
+no reconeix els perifèrics o les unitats no es reconeixen com cal,
+cal primer de tot comprovar els paràmetres d'arrencada, tal com
+s'indica a <xref linkend="boot-parms"/>.
+
+</para><para>
+
+Sovint, els problemes desapareixen si traieu maquinari addicional i
+perifèrics, i proveu aleshores d'arrencar de nou. <phrase arch="any-x86">Els
+mòdems interns, les targetes de so, i els dispositius Plug-n-Play poden
+ser especialment problemàtics.</phrase>
+
+</para><para>
+
+Si el sistema té una gran quantitat de memòria, superior a 512 MiB,
+i l'instal·lador es penja en arrencar el nucli, potser haureu d'indicar
+un argument d'arrencada a fi de limitar la quantitat de memòria que pot
+veure el nucli, com ara <userinput>mem=512m</userinput>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" id="i386-boot-problems">
+  <title>Problemes d'instal·lació usuals en &arch-title;</title>
+<para>
+
+Hi ha alguns problemes usuals en la instal·lació que es poden solucionar
+o evitar indicant certs paràmetres d'arrencada a l'instal·lador.
+
+</para><para>
+
+Alguns sistemes tenen disquets amb les <quote> línies de canvi del disc
+(DCL) invertides</quote>. Si rebeu errors de lectura del disquet, fins i
+tot si esteu segurs que el disquet està bé, proveu el paràmetre
+<userinput>floppy=thinkpad</userinput>.
+
+</para><para>
+
+En altres sistemes, com l'IBM PS/1 o el ValuePoint (que tenen controladores
+de disc ST-506), la unitat IDE pot no ser reconeguda com cal. Novament,
+intenteu-ho primer sense paràmetres i comproveu si la unitat es reconeix
+com cal. Si no, determineu la geometria de la unitat (cilindres, capçaleres
+i sectors), i empreu el paràmetre
+<userinput>hd=<replaceable>cilindres</replaceable>,<replaceable>capçaleres</replaceable>,<replaceable>sectors</replaceable></userinput>.
+
+</para><para>
+
+Si la màquina és molt antiga i el nucli es penja després del missatge
+<computeroutput>Checking 'hlt' instruction...</computeroutput>, aleshores
+empreu l'argument d'arrencada <userinput>no-hlt</userinput>, el qual
+deshabilita la comprovació.
+
+</para><para>
+
+Alguns sistemes (especialment portàtils) que tenen una resolució nativa que no
+té una ràtio 4:3 (p.ex. que no és 800x600 o 1024x768) poden mostrar una
+pantalla en blanc després d'arrencar l'instal·lador. En aquest cas afegir el
+paràmetre <userinput>vga=788</userinput><footnote>
+
+<para>
+El paràmetre <userinput>vga=788</userinput> activarà el framebuffer VESA amb
+una resolució de 800x600. Segurament funcioni, tot i que és possible que no
+sigui la resolució òptima per al sistema. Podeu obtenir una llista de
+resolucions disponibles utilitzant <userinput>vga=ask</userinput>, però
+tingueu en compte que aquesta llista pot no ser completa.
+</para>
+
+</footnote> pot ajudar. Si això no funciona, intenteu afegir el paràmetre
+d'arrencada <userinput>fb=false</userinput>.
+
+</para><para>
+
+Si la pantalla comença a comportar-se de manera estranya mentre s'arrenca
+el nucli, per exemple es posa blanca, negra, o mostra un batibull de píxels
+colorejats, potser la targeta de vídeo és problemàtica i no fa com cal la
+commutació al framebuffer. Podeu emprar el paràmetre d'arrencada
+<userinput>fb=false</userinput> per a deshabilitar la
+consola del framebuffer. A causa de les limitacions de la funcionalitat de
+la consola, únicament hi haurà a l'abast un nombre reduït d'idiomes per a
+la instal·lació. Consulteu <xref linkend="boot-parms"/> per als detalls.
+
+</para>
+
+  <sect3>
+  <title>Bloqueig del sistema durant la configuració del PCMCIA</title>
+<para>
+
+Alguns models de portàtil de Dell peten quan la detecció de dispositius
+PCMCIA tracta d'accedir a algunes adreces de hardware. Altres portàtils
+tenen problemes semblants. Si teniu un problema com aquest i no us cal la
+funcionalitat PCMCIA durant la instal·lació, podeu deshabilitar-la amb el
+paràmetre d'arrencada <userinput>hw-detect/start_pcmcia=false</userinput>.
+Podeu configurar-la després de la instal·lació i excloure el rang de
+recursos que causa problemes.
+
+</para><para>
+
+També podeu arrencar l'instal·lador en mode expert. Haureu d'introduir les
+opcions del rang de recursos que calen per al maquinari. Per exemple, si
+teniu un portàtil Dell dels esmentats abans, heu d'introduir
+<userinput>exclude port 0x800-0x8ff</userinput>. Hi ha una llista d'opcions
+usuals del rang de recursos a <ulink
+url="http://pcmcia-cs.sourceforge.net/ftp/doc/PCMCIA-HOWTO-1.html#ss1.12">la secció
+Configuració dels recursos del sistema del COM ES FA el PCMCIA (en anglès)</ulink>.
+Tingueu en compte que s'han d'ometre les comes quan introduïu aquest valor
+a l'instal·lador.
+
+</para>
+   </sect3>
+
+   <sect3>
+   <title>Bloqueig del sistema durant la càrrega dels mòduls USB</title>
+<para>
+
+Normalment, el nucli prova d'instal·lar els mòduls USB i el controlador
+del teclat USB a fi de permetre l'ús d'alguns teclats USB no estàndard.
+Tanmateix, hi ha alguns sistemes USB trencats on el controlador es penja
+en carregar-lo. Una possible solució pot ser deshabilitar el controlador
+USB en la configuració de la BIOS de la placa base. Una altra opció és
+introduir el paràmetre <userinput>nousb</userinput> a l'indicador
+d'arrencada.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="sparc" id="sparc-boot-problems">
+  <title>Problemes comuns d'instal·lació a &arch-title;</title>
+<para>
+
+Hi ha alguns problemes d'instal·lació que val la pena esmentar.
+
+</para>
+   <sect3>
+   <title>Sortida de vídeo incorrecta</title>
+<para>
+
+És prou normal a &arch-title; tenir dos targetes de vídeo a la mateixa
+màquina, per exemple una targeta ATI i una Sun Creator 3D. En algunes
+ocasions, açò pot fer que la sortida de vídeo es dirigeixca incorrectament
+després de l'arrencada del sistema. En els casos típics, la pantalla tan
+sols mostrarà:
+
+<informalexample><screen>
+Remapping the kernel... done
+Booting Linux...
+</screen></informalexample>
+
+Per evitar-ho, podeu o bé treure una de les targetes de vídeo, o bé
+desconnectar la que no s'utilitze a la fase d'arrencada OpenProm
+utilitzant un paràmetre pel nucli. Per exemple, per desconnectar la
+targeta ATI, podríeu arrencar l'instal·lador amb
+<userinput>video=atyfb:off</userinput>.
+
+</para><para>
+
+Adoneu-vos que podeu també editar manualment la configuració de silo
+per afegir aquest paràmetre (editeu el <filename>/target/etc/silo.conf</filename>
+abans de reiniciar) i, si teniu instal·lades les X11, modifiqueu el
+controlador de vídeo a l'<filename>/etc/X11/xorg.conf</filename>.
+
+</para>
+   </sect3>
+
+   <sect3>
+   <title>Errors a l'arrencada o a la instal·lació des de CD-ROM</title>
+<para>
+
+En alguns sistemes Sparc es realment difícil arrencar des de CD-ROM i
+si ho fan, hi ha fallades inexplicables a la instal·lació. S'ha informat de
+molts problemes a sistemes SunBlade.
+
+</para><para>
+
+Recomanem que instal·leu aquests sistemes arrancant l'instal·lador per xarxa.
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 id="kernel-msgs">
+  <title>Com interpretar els missatges del nucli durant l'arrencada</title>
+
+<para>
+
+Durant la seqüència d'arrencada, podeu veure nombrosos missatges del tipus
+<computeroutput>can't find <replaceable>quelcom</replaceable></computeroutput>,
+o <computeroutput><replaceable>quelcom</replaceable>
+not present</computeroutput>, <computeroutput>can't initialize
+<replaceable>quelcom</replaceable></computeroutput>,
+o fins i tot <computeroutput>this driver release depends
+on <replaceable>quelcom</replaceable></computeroutput>.
+No us heu de preocupar per la majoria d'aquests missatges. Els veieu perquè
+el nucli dels sistema d'instal·lació s'ha fet perquè funcione a ordinadors
+amb molts dispositius perifèrics diferents. Òbviament, cap ordinador té
+tots els dispositius possibles, per tant el sistema operatiu potser es
+queixarà en cercar perifèrics que no hi ha. Potser veureu també que el
+sistema fa una pausa momentània. Això ocorre quan s'espera la resposta
+d'un dispositiu i aquest no hi és. Si trobeu que hi triga massa, podeu
+fer-vos després un nucli a mida<phrase arch="linux-any"> (vegeu <xref linkend="kernel-baking"/>)</phrase>.
+
+</para>
+  </sect2>
+
+  <sect2 id="problem-report">
+  <title>Informar d'errors d'instal·lació</title>
+<para>
+
+Si aconseguiu completar la fase inicial d'arrencada però no podeu completar
+la instal·lació, l'opció <guimenuitem>Desa els registres de depuració</guimenuitem>
+podria ser d'utilitat. Us permet emmagatzemar a un disquet els registres
+d'error del sistema i informació sobre la configuració de l'instal·lador,
+o bé descarregar-los utilitzant un navegador web.
+
+Aquesta informació pot proporcionar-vos pistes sobre què ha anat malament i
+com arreglar-ho.  Si aneu a enviar un informe d'error, podeu afegir-hi
+aquesta informació.
+
+</para><para>
+
+Podeu trobar altres missatges d'instal·lació pertinents a
+<filename>/var/log/</filename> durant la instal·lació, i a
+<filename>/var/log/installer/</filename>
+després que l'ordinador s'haja arrencat en el sistema ja instal·lat.
+
+</para>
+  </sect2>
+
+  <sect2 id="submit-bug">
+  <title>Emissió d'informes d'error</title>
+<para>
+
+Si encara teniu problemes, podeu enviar un informe d'instal·lació. Us animem
+a enviar també informes en cas que la instal·lació haja reeixit, per poder
+disposar de la major quantitat d'informació possible sobre el major nombre
+de configuracions de maquinari.
+
+</para><para>
+
+Fixeu-vos que el vostre informe d'instal·lació es publicarà al Sistema de
+seguiment d'errors de Debian (BTS) i s'enviarà a una llista de correu pública.
+Assegureu-vos d'utilitzar una adreça de correu que no us importe fer pública.
+
+</para><para>
+
+Si teniu un sistema &debian; en funcionament, la manera més fàcil d'emetre
+un informe d'instal·lació és instal·lar els paquets
+<classname>installation-report</classname> i <classname>reportbug</classname>
+(<command>apt-get install installation-report reportbug</command>)
+i configurar <classname>reportbug</classname> tal com s'explica a
+<xref linkend="mail-outgoing"/>, executant l'ordre <command>reportbug
+installation-reports</command>.
+
+</para><para>
+
+De forma alternativa, podeu utilitzar aquesta plantilla per als informes
+d'instal·lació, i enviar-lo com un informe d'error al pseudopaquet
+<classname>installation-reports</classname>, enviant-lo a
+<email>submit@bugs.debian.org</email> (en anglès).
+
+<informalexample><screen>
+Package: installation-reports
+
+Boot method: &lt;Com heu arrencat l'instal·lador Amb un CD? Amb un disquet? En xarxa?&gt;
+Image version: &lt;És millor la URL completa a la imatge que descarregat&gt;
+Date: &lt;Data i hora de la instal·lació&gt;
+
+Machine: &lt;Descripció de la màquina (p.ex., IBM Thinkpad R32)&gt;
+Processor:
+Memory:
+Partitions: &lt;empreu la informació de l'ordre df -Tl; preferentment la de la taula de particions sense cap format (raw)&gt;
+
+Informació d'«lspci -knn» (o «lspci -nn»):
+
+Base System Installation Checklist:
+[O] = OK, [E] = Error (please elaborate below), [ ] = didn't try it
+
+Initial boot:           [ ]
+Detect network card:    [ ]
+Configure network:      [ ]
+Detect CD:              [ ]
+Load installer modules: [ ]
+Detect hard drives:     [ ]
+Partition hard drives:  [ ]
+Install base system:    [ ]
+Clock/timezone setup:   [ ]
+User/password setup:    [ ]
+Install tasks:          [ ]
+Install boot loader:    [ ]
+Overall install:        [ ]
+
+Comentaris/Problemes:
+
+&lt;Descripció detallada de la instal·lació i qualsevol pensada, comentari
+      o idea que tingueu durant la instal·lació inicial.&gt;
+</screen></informalexample>
+
+En l'informe de l'error, descriviu el problema, incloent-hi els darrers
+missatges del nucli si es tracta d'una penjada d'aquest. Descriviu els
+passos que heu fet que han conduït al sistema a l'estat problemàtic.
+
+</para>
+  </sect2>
+ </sect1>

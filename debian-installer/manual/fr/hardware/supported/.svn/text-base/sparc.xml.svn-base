@@ -1,0 +1,68 @@
+<!-- original version: 64916 -->
+
+  <sect2 arch="sparc" id="sparc-cpus">
+<title>Microprocesseurs et cartes mère</title>
+
+<para>
+
+Le matériel Sparc comprend nombre de sous-architectures différentes, identifiées
+comme suit&nbsp;: sun4, sun4c, sun4d, sun4m, sun4u ou sun4v. La liste suivante
+indique les machines qui correspondent à ces architectures et dans quelle mesure
+elles sont gérées par &debian;.
+</para>
+
+<variablelist>
+<varlistentry>
+<term>sun4, sun4c, sun4d, sun4m</term>
+
+<listitem><para>
+
+Aucune de ces sous-architectures 32 bits (sparc32)n'est gérée.
+La <ulink url="http://en.wikipedia.org/wiki/SPARCstation">page SPARCstation de Wikipedia</ulink>
+donne la liste de toutes les machines concernées.
+
+</para><para>
+
+<emphasis>Etch</emphasis> est la dernière version de &debian; qui gère sparc32, et seulement les
+systèmes sun4m. Les autres sous-architectures 32 bits avaient été abandonnées
+lors de précédentes versions.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4u</term>
+
+<listitem><para>
+
+Cette architecture comprend toutes les machines 64 bits (sparc64) basées
+sur le processeur UltraSparc et ses clones. La plupart de ces machines sont
+bien gérées même si vous pouvez rencontrer des problèmes lors de l'amorçage
+à partir d'un cédérom à cause de bogues dans le firmware ou dans le programme
+d'amorçage (on peut contourner ce problème en amorçant sur le réseau).
+Utilisez les noyaux sparc64 ou sparc64-smp selon que la machine possède
+un ou plusieurs processeurs.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4v</term>
+
+<listitem><para>
+
+C'est la plus récente architecture de la famille Sparc. Elle comprend des
+machines basées sur les processeurs Niagara à plusieurs coeurs. Pour l'instant
+ces processeurs ne sont disponibles que sur les serveurs T1000 et T2000 de Sun.
+Ils sont correctement gérés. Utilisez le noyau sparc64-smp
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+
+Notez que les processeurs SPARC64 de Fujitsu utilisés dans la famille de serveurs
+PRIMEPOWER ne sont pas reconnus car ils ne sont pas gérés par le noyau Linux.
+</para>
+</sect2>

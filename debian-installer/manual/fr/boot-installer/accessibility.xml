@@ -1,0 +1,139 @@
+<!-- original version: 66987 -->
+
+ <sect1 id="boot-installer-accessibility" arch="not-s390">
+ <title>Accessibilité</title>
+<para>
+
+Certaines personnes ont besoin d'une aide spéciale,
+par exemple à cause d'une déficience visuelle.
+
+<phrase arch="ia64;powerpc;x86">Les plages Braille USB
+sont détectées automatiquement (sauf les plages série connectées 
+grâce à un convertisseur série vers USB), mais la plupart des autres</phrase>
+<phrase arch="arm;hppa;mips;mipsel;sparc">La plupart des</phrase>
+fonctionnalités doivent être activées explicitement.
+<phrase arch="x86">Sur certaines machines, le menu d'amorçage émet un bip quand
+la frappe des touches est possible.</phrase>
+Des paramètres d'amorçage peuvent <phrase arch="x86">alors</phrase> être ajoutés
+pour activer les fonctions d'accessibilité<phrase arch="x86"> (voir aussi
+<xref linkend="boot-screen"/>)</phrase>. Remarquez que, sur la plupart des
+architectures, le programme d'amorçage considère le clavier comme un clavier QWERTY.
+
+</para>
+
+  <sect2 arch="ia64;powerpc;x86">
+  <title>Les plages Braille USB</title>
+<para>
+
+Les plages Braille USB sont détectées automatiquement. Une version en mode texte
+de l'installateur est automatiquement sélectionnée et la table Braille sera automatiquement
+installée sur le système cible.
+Il suffit de presser la touche &enterkey; au menu d'amorçage.
+Une fois <classname>brltty</classname> lancé, vous pouvez choisir une table Braille
+en entrant dans le menu des préférences. Sur le site web de
+<ulink url="&url-brltty-driver-help;"><classname>brltty</classname></ulink>,
+on peut trouver une documentation sur l'affectation des touches.
+
+
+
+</para>
+  </sect2>
+
+  <sect2 arch="ia64;powerpc;x86">
+  <title>Les plages Braille série</title>
+<para>
+
+Les plages Braille série ne peuvent pas être détectées automatiquement et
+de manière sûre car la détection peut les endommager. Vous devez donc ajouter le
+paramètre d'amorçage
+<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>port</replaceable>,<replaceable>table</replaceable></userinput>
+pour indiquer à <classname>brltty</classname> le pilote à utiliser.
+<replaceable>driver</replaceable> doit être remplacé par le code à deux lettres de votre terminal.
+Consultez <ulink url="&url-brltty-manual;">le manuel de BRLTTY</ulink>.
+<replaceable>port</replaceable> doit être remplacé par le nom du port série
+auquel est connecté le périphérique. <userinput>ttyS0</userinput> est le port par défaut
+et <userinput>ttyUSB0</userinput> peut être utilisé pour un convertisseur série vers USB.
+<replaceable>table</replaceable> est le nom de la table Braille à utiliser.
+Consultez la <ulink url="&url-brltty-manual;">le manuel de BRLTTY</ulink>.
+La table anglaise est choisie par défaut. Mais vous pouvez la changer en entrant dans le menu des préférences.
+Sur le site web de <ulink url="&url-brltty-driver-help;"><classname>brltty</classname></ulink>
+on peut trouver une documentation sur l'affectation des touches.
+</para>
+  </sect2>
+
+
+  <sect2 arch="x86">
+  <title>Synthèse vocale logicielle</title>
+<para>
+
+Il est possible d'activer la synthèse vocale logicielle en la sélectionnant
+dans le menu d'amorçage par <userinput>s</userinput> &enterkey;.
+La première question (sur la langue) est dite en anglais. La suite de l'installation
+se passe dans la langue choisie, si elle est disponible dans <classname>espeak</classname>.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="x86">
+  <title>Synthèse vocale matérielle</title>
+<para>
+
+La gestion de la synthèse vocale matérielle n'est disponible
+qu'avec l'installateur graphique. Vous devez donc choisir une entrée <quote>Graphical install</quote>
+dans le menu d'amorçage.
+
+</para>
+<para>
+
+Ces périphériques ne sont pas automatiquement détectés. Vous devez donc
+ajouter le paramètre d'amorçage
+<userinput>speakup.synth=<replaceable>driver</replaceable></userinput>
+pour indiquer à <classname>speakup</classname> le pilote à utiliser.
+<replaceable>driver</replaceable> doit être remplacé par le code du pilote de votre
+périphérique. Consultez la <ulink url="&url-speakup-driver-codes;">liste des codes de pilotes</ulink>.
+La version en mode texte de l'installateur est automatiquement sélectionnée et la gestion du périphérique
+de synthèse vocale sera automatiquement installée sur le système cible.
+
+</para>
+  </sect2>
+
+  <sect2 arch="linux-any"><title>Cartes filles</title>
+<para>
+
+Certains périphériques sont en fait des cartes filles qui sont enfichées dans la machine
+et qui lisent le texte directement dans la mémoire vidéo. Pour les faire fonctionner,
+la gestion du tampon vidéo doit être désactivée avec le paramètre
+<userinput arch="x86">vga=normal</userinput> <userinput>fb=false</userinput>.
+Mais cela réduit le nombre des langues disponibles.
+
+</para>
+<para arch="x86">
+
+Il est possible d'activer une version texte du programme d'amorçage
+avant d'ajouter le paramètre d'amorçage en saisissant <userinput>h</userinput> &enterkey;.
+ 
+ </para>
+
+  </sect2>
+
+  <sect2><title>Thème à fort contraste</title>
+<para>
+
+Pour les déficients visuels, l'installateur propose un thème à fort contraste qui le rend
+plus lisible. Pour l'activer, ajoutez le paramètre <userinput>theme=dark</userinput>.
+
+</para>
+  </sect2>
+
+<sect2><title>Préconfiguration</title>
+<para>
+
+&debian; peut être aussi installée de façon automatique en utilisant la préconfiguration.
+Une documentation est disponible dans <xref linkend="appendix-preseed"/>.
+
+</para>
+  </sect2>
+
+
+ </sect1>

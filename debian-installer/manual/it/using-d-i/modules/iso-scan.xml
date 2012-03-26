@@ -1,0 +1,89 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+
+   <sect3 id="iso-scan">
+   <!-- <title>Looking for the Debian Installer ISO Image</title> -->
+   <title>Ricerca dell'immagine ISO del &debian; Installer</title>
+<para>
+
+<!--
+When installing via the <emphasis>hd-media</emphasis> method, there
+will be a moment where you need to find and mount the &debian; Installer
+iso image in order to get the rest of the installation files. The
+component <command>iso-scan</command> does exactly this.
+-->
+
+Quando si effettua un'installazione con il metodo
+<emphasis>hd-media</emphasis> c'è una fase in cui è necessario cercare e
+montare un'immagine ISO del &debian; Installer per poter recuperare i file
+necessari all'installazione mancanti. Questo è esattamente il compito
+svolto dal componente <command>iso-scan</command>.
+
+</para><para>
+
+<!--
+At first, <command>iso-scan</command> automatically mounts all block
+devices (e.g. partitions) which have some known filesystem on them and
+sequentially searches for filenames ending with
+<filename>.iso</filename> (or <filename>.ISO</filename> for that
+matter). Beware that the first attempt scans only files in the root
+directory and in the first level of subdirectories (i.e. it finds
+<filename>/<replaceable>whatever</replaceable>.iso</filename>,
+<filename>/data/<replaceable>whatever</replaceable>.iso</filename>,
+but not
+<filename>/data/tmp/<replaceable>whatever</replaceable>.iso</filename>).
+After an iso image has been found, <command>iso-scan</command> checks
+its content to determine if the image is a valid &debian; iso image or
+not. In the former case we are done, in the latter
+<command>iso-scan</command> seeks for another image.
+-->
+
+Al primo tentativo <command>iso-scan</command> monta automaticamente tutti
+i dispositivi a blocchi (per esempio le partizioni) su cui è presente un
+filesystem conosciuto e poi ricerca i file con estensione
+<filename>.iso</filename> (o <filename>.ISO</filename>). Da notare che la
+prima scansione avviene solo sui file presenti nella directory root e nel
+primo livello di sottodirectory (cioè riesce a trovare
+<filename>/<replaceable>qualcosa</replaceable>.iso</filename> e
+<filename>/data/<replaceable>qualcosa</replaceable>.iso</filename> ma non
+<filename>/data/tmp/<replaceable>qualcosa</replaceable>.iso</filename>).
+Una volta trovata un'immagine ISO, <command>iso-scan</command> ne verifica
+il contenuto per determinare se l'immagine è un'immagine &debian; valida, nel
+caso non lo sia viene cercata un'altra immagine.
+
+</para><para>
+
+<!--
+In case the previous attempt to find an installer iso image fails,
+<command>iso-scan</command> will ask you whether you would like to
+perform a more thorough search. This pass doesn't just look into the
+topmost directories, but really traverses whole filesystem.
+-->
+
+Se il precedente tentativo di ricerca di un'immagine ISO dell'installatore
+fallisce, <command>iso-scan</command> chiede se si vuole effettuare un'altra
+ricerca più approfondita. In questo passo la ricerca avviene anche nelle
+sottodirectory anziché nel solo livello più alto del filesystem.
+
+</para><para>
+
+<!--
+If <command>iso-scan</command> does not discover your installer iso
+image, reboot back to your original operating system and check if the
+image is named correctly (ending in <filename>.iso</filename>), if it is
+placed on a filesystem recognizable by &d-i;, and if it is not
+corrupted (verify the checksum). Experienced Unix users could do this
+without rebooting on the second console.
+-->
+
+Se <command>iso-scan</command> non trova un'immagine iso dell'installatore
+si deve riavviare il vecchio sistema operativo e verificare se il nome
+dell'immagine è corretto (cioè se finisce con <filename>.iso</filename>),
+se l'immagine è su un filesystem visibile da &d-i; e se l'immagine è
+compromessa (verificandone la checksum). Gli utenti più esperti possono
+fare tutti questi controlli, senza riavviare la macchina, usando la seconda
+console.
+
+</para>
+   </sect3>

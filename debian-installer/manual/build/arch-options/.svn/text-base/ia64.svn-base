@@ -1,0 +1,22 @@
+# This file contains architecture specific variables for
+# the 'ia64' architecture
+# It is sourced by the build scripts
+
+archspec="ia64;not-x86;not-s390;not-powerpc"
+arch_listname="ia64"
+arch_porturl="ia64"
+minimum_memory=32
+# These two options should be set if condition 'smp' is set below
+smp_config_section="General setup"
+smp_config_option="SMP support"
+
+# Options below are assembled into one variable 'condition'
+# in the build scripts
+fdisk="parted.txt;cfdisk.txt"
+network="supports-tftp;supports-bootp;supports-nfsroot"
+boot=""
+frontend="newt;not-gtk"
+other="supports-serial-console"
+smp="supports-smp"
+goodies="supports-lang-chooser"
+status="checked"

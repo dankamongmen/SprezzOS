@@ -1,0 +1,71 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 50618 -->
+
+   <sect3 id="user-setup-root">
+   <title>Establir la contrasenya del Root</title>
+
+<!-- TODO: Document sudo setup (no root password); medium/low prio only -->
+
+<para>
+
+El compte <emphasis>root</emphasis> que també es diu <emphasis>super
+usuari</emphasis>; és un accés que es bota totes les proteccions de
+seguretat al vostre sistema. El compte root tan sòls s'hauria
+d'utilitzar per administrar el sistema, i el mínim temps possible.
+
+</para><para>
+
+Qualsevol contrasenya que creeu ha de contenir al menys 6 caràcters,
+i hauria de contenir majúscules i minúscules, així com signes de
+puntuació. Eviteu paraules de diccionari o utilitzar informació
+personal que es pugui endevinar.
+
+</para><para>
+
+Si algú us emana alguna vegada la vostra contrasenya de root,
+sigueu extremadament cautelosos. No hauríeu de donar mai la vostra
+contrasenya de root, a no ser que estigueu administrant una màquina
+amb més d'un administrador.
+
+</para>
+   </sect3>
+
+   <sect3 id="make-normal-user">
+   <title>Crear un usuari normal</title>
+
+<para>
+
+El sistema us demanarà si voleu crear un compte d'usuari normal en
+aquest punt. Aquest compte hauria de ser el vostra accés personal
+principal. <emphasis>No</emphasis> hauríeu d'utilitzar el compte
+de root per l'ús diari o pel vostre accés personal.
+
+<!-- Note: it only _asks_ at medium/low priority -->
+
+</para><para>
+
+Per que no? Bé, una raó per evitar utilitzar els privilegis de
+root és que és molt fàcil fer desperfectes irreparables com a
+root. Un altra raó és que us podrien enganyar per executar un
+programa tipus <emphasis>Cavall de Troia</emphasis> &mdash; que
+és un programa que utilitza els poders de super usuari per
+comprometre la seguretat del vostre sistema sense que us adoneu.
+Qualsevol bon llibre d'administració de sistemes Unix tractarà
+aquest assumpte amb més detall &mdash; considereu llegir algun
+d'aquests si açò és nou per vosaltres.
+
+</para><para>
+
+Primer vos preguntarà pel nom complet de l'usuari. Aleshores us
+preguntarà pel nom del compte de l'usuari; normalment el vostre
+nom o quelcom paregut serà prou i serà el que de fet estarà per
+defecte. A l'últim pas, ús demanarà una contrasenya per aquest
+compte.
+
+</para><para>
+
+Si en qualsevol punt després de la instal·lació voleu crear un
+altre compte, utilitzeu l'ordre <command>adduser</command>.
+
+</para>
+   </sect3>

@@ -1,0 +1,119 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 50618 -->
+
+   <sect3 id="user-setup-root">
+   <!-- <title>Set the Root Password</title> -->
+   <title>Impostazione della password di root</title>
+
+<!-- TODO: Document sudo setup (no root password); medium/low prio only -->
+
+<para>
+
+<!--
+The <emphasis>root</emphasis> account is also called the
+<emphasis>super-user</emphasis>; it is a login that bypasses all
+security protection on your system. The root account should only be
+used to perform system administration, and only used for as short
+a time as possible.
+-->
+
+L'account di <emphasis>root</emphasis> viene anche chiamato
+<emphasis>superutente</emphasis>; è un utente che aggira tutte le protezioni
+di sicurezza del sistema, deve quindi essere usato solo per le operazioni
+di amministrazione del sistema, e per il minor tempo possibile.
+
+</para><para>
+
+<!--
+Any password you create should contain at least 6 characters, and
+should contain both upper- and lower-case characters, as well as
+punctuation characters.  Take extra care when setting your root
+password, since it is such a powerful account.  Avoid dictionary
+words or use of any personal information which could be guessed.
+-->
+
+Qualsiasi password creata dovrebbe contenere almeno 6 caratteri, con
+lettere maiuscole e minuscole, cifre e segni di interpunzione. Durante
+l'impostazione della password di root si deve fare ancora più attenzione,
+dato che è l'account con i maggiori poteri. Evitare le parole che si
+trovano nei dizionari e non usare informazioni personali che possano
+essere indovinate.
+
+</para><para>
+
+<!--
+If anyone ever tells you they need your root password, be extremely
+wary. You should normally never give your root password out, unless you
+are administering a machine with more than one system administrator.
+-->
+
+Se qualcuno dice che gli serve la password di root, si dev'essere
+estremamente cauti. Non la si dovrebbe mai fornire a nessuno, a meno che non
+si stia amministrando una macchina con più di un amministratore di sistema.
+
+</para>
+   </sect3>
+
+   <sect3 id="make-normal-user">
+   <!-- <title>Create an Ordinary User</title> -->
+   <title>Creazione di un utente normale</title>
+<para>
+
+<!--
+The system will ask you whether you wish to create an ordinary user
+account at this point.  This account should be your main personal
+log-in.  You should <emphasis>not</emphasis> use the root account for
+daily use or as your personal login.
+-->
+
+Il sistema a questo punto chiederà se si vuole creare un account per un
+utente normale, da usare per le attività quotidiane personali, per le quali
+<emphasis>non</emphasis> si deve assolutamente usare l'account di root.
+
+<!-- Note: it only _asks_ at medium/low priority -->
+
+</para><para>
+
+<!--
+Why not?  Well, one reason to avoid using root's privileges is that it
+is very easy to do irreparable damage as root.  Another reason is that
+you might be tricked into running a <emphasis>Trojan-horse</emphasis>
+program &mdash; that is a program that takes advantage of your
+super-user powers to compromise the security of your system behind
+your back. Any good book on Unix system administration will cover this
+topic in more detail &mdash; consider reading one if it is new to you.
+-->
+
+Perché no? Una ragione per evitare di usare i privilegi di root è che è
+molto facile fare dei danni irreparabili. Un'altra è che si può essere
+portati con l'inganno ad attivare un <emphasis>cavallo di troia</emphasis>
+(o <quote>trojan</quote>), cioè un programma che sfrutta i poteri di
+superutente per compromettere la sicurezza del sistema. Un buon libro
+sull'amministrazione dei sistemi Unix coprirà questo argomento in maggior
+dettaglio, vale la pena leggerne uno se non si conosce la questione.
+
+</para><para>
+
+<!--
+You will first be prompted for the user's full name. Then you'll be asked
+for a name for the user account; generally your first name or something
+similar will suffice and indeed will be the default. Finally, you will be
+prompted for a password for this account.
+-->
+
+Per prima cosa viene chiesto il nome completo dell'utente, poi viene chiesto
+un nome per l'account, solitamente è sufficiente il proprio nome o qualcosa
+di simile. Infine viene chiesta una password per l'account.
+
+</para><para>
+
+<!--
+If at any point after installation you would like to create another
+account, use the <command>adduser</command> command.
+-->
+
+Se in qualsiasi momento dopo l'installazione si vuole creare un altro utente,
+usare il comando <command>adduser</command>.
+
+</para>
+   </sect3>

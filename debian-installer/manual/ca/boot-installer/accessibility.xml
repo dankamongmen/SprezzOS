@@ -1,0 +1,118 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64664 -->
+
+ <sect1 id="boot-installer-accessibility" arch="not-s390">
+ <title>Accessibilitat</title>
+<para>
+
+Alguns usuaris necessiten funcions específiques degut a, per exemple, alguna
+discapacitat visual.
+<phrase arch="ia64;powerpc;x86">Les pantalles braille USB són detectades
+automàticament, però la majoria de les altres</phrase>
+<phrase arch="arm;hppa;mips;mipsel;sparc">La majoria de les</phrase>
+funcions d'accessibilitat han de ser habilitades manualment.
+<phrase arch="x86">Als sistemes que ho admeten, el menú d'arrencada emet un
+xiulet quan està llest per a rebre pulsacions del teclat.</phrase>
+Podeu <phrase arch="x86">aleshores</phrase> afegir alguns paràmetres
+d'arrencada per a habilitar les funcions d'accessibilitat
+<phrase arch="x86"> (vegeu també <xref linkend="boot-screen"/>)</phrase>.
+Adoneu-vos que a la majoria d'arquitectures el carregador d'arrencada
+interpreta el vostre teclat com a QWERTY.
+
+</para>
+
+  <sect2 arch="ia64;powerpc;x86">
+  <title>Pantalles braille USB</title>
+<para>
+
+Les pantalles braille USB haurien de ser detectades automàticament. S'emprarà
+automàticament una versió textual de l'instal·lador, i també s'instal·laran
+automàticament al sistema de destinació els components necessaris per a
+emprar la pantalla braille. Per tant, podeu simplement prémer &enterkey;
+al menú d'arrencada. Tan aviat com s'inicie el terminal
+<classname>brltty</classname>, podreu escollir una taula braille entrant
+al menú de preferències. La documentació sobre les assignacions de tecles
+per als dispositius braille es troba disponible al lloc web de
+<ulink url="&url-brltty-driver-help;"><classname>brltty</classname></ulink>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="ia64;powerpc;x86">
+  <title>Pantalles braille sèrie</title>
+<para>
+
+Les pantalles braille sèrie no poden ser detectades automàticament de forma
+segura (ja que algunes d'elles podrien resultar danyades). Per tant, haureu
+d'afegir el paràmetre d'arrencada
+<userinput>brltty=<replaceable>controlador</replaceable>,<replaceable>port</replaceable>,<replaceable>taula</replaceable></userinput>
+per a indicar al terminal <classname>brltty</classname> quin controlador
+emprar. Cal que reemplaceu <replaceable>controlador</replaceable> pel
+codi de dos lletres corresponent al controlador del vostre terminal (vegeu la
+<ulink url="&url-brltty-manual;">llista de codis de controlador</ulink>).
+Cal que reemplaceu <replaceable>port</replaceable> pel nom del port sèrie
+on es troba connectada la pantalla; <userinput>ttyS0</userinput> és el
+valor per defecte. <replaceable>taula</replaceable> és el nom de la taula
+braille a emprar (vegeu la <ulink url="&url-brltty-manual;">llista
+de codis de taula</ulink>); la taula anglesa és el valor per defecte.
+Adoneu-vos que podeu canviar la taula més endavant entrant al menú de
+preferències. La documentació sobre les assignacions de tecles per
+als dispositius braille es troba disponible al lloc web de
+<ulink url="&url-brltty-driver-help;"><classname>brltty</classname></ulink>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86">
+  <title>Síntesi de parla per maquinari</title>
+<para>
+
+Per a habilitar els dispositius per a la síntesi de parla per maquinari
+cal emprar l'instal·lador gràfic. Per tant haureu d'escollir l'entrada
+<quote>Instal·lació gràfica</quote> al menú d'arrencada.
+
+</para><para>
+
+Els dispositius per a la síntesi de parla per maquinari no poden ser detectats
+automàticament. Per tant, cal que afegiu el paràmetre d'arrencada
+<userinput>speakup.synth=<replaceable>controlador</replaceable></userinput>
+per a indicar a <classname>speakup</classname> quin controlador emprar.
+Cal que reemplaceu <replaceable>controlador</replaceable> pel codi del
+controlador corresponent al vostre dispositiu (vegeu la
+<ulink url="&url-speakup-driver-codes;">llista de codis de
+controlador</ulink>). S'emprarà automàticament una versió textual de
+l'instal·lador, i també s'instal·laran automàticament al sistema de
+destinació els components necessaris per a emprar el dispositiu de
+síntesi de parla.
+
+</para>
+  </sect2>
+
+  <sect2 arch="linux-any"><title>Dispositius en placa</title>
+<para>
+
+Alguns dispositius d'accessibilitat són de fet plaques que es connecten a
+dins de la màquina i que llegeixen el text directament de la memòria de
+vídeo. Per a fer que funcionen cal que inhabiliteu el «framebuffer» emprant
+els paràmetres d'arrencada <userinput arch="x86">vga=normal</userinput>
+<userinput>fb=false</userinput>. Tanmateix, açò reduirà el nombre de
+llengües disponibles.
+
+</para><para arch="x86">
+
+Podeu activar una versió textual del carregador d'inici abans d'afegir
+els paràmetres d'arrencada escrivint <userinput>h</userinput> &enterkey;.
+
+</para>
+  </sect2>
+
+  <sect2><title>Tema d'alt contrast</title>
+<para>
+
+Per a usuaris amb una visió limitada, l'instal·lador pot emprar un tema
+d'alt contrast que el fa més llegible. Per a habilitar-lo, afegiu el
+paràmetre d'arrecada <userinput>theme=dark</userinput>.
+
+</para>
+  </sect2>
+ </sect1>

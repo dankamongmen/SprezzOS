@@ -1,0 +1,22 @@
+rm -rf debconf
+git clone -q git://git.debian.org/git/debconf/debconf.git
+cd debconf/po
+make debconf.pot > /dev/null 2>&1
+cd ../..
+
+rm -rf newt
+apt-get $APT_OPT -t unstable source newt >/dev/null
+rm -f *.tar.gz *.dsc *.diff.gz
+if [ ! -d "newt" ] ; then mv newt* newt ; fi
+#cd newt
+#tar xfz *.tar.gz
+#mv `find . -type d -name newt\-\*` newt
+#cd newt
+#for i in ../debian/patches/*.patch ; do patch -p1  <$i ; done
+#cd ../..
+
+rm -rf win32-loader
+git clone -q git://git.debian.org/git/d-i/win32-loader
+
+cd ../
+

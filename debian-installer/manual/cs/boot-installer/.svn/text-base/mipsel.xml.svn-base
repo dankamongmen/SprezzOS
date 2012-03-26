@@ -1,0 +1,50 @@
+<!-- $Id$ -->
+<!-- original version: 59840 -->
+
+  <sect2 arch="mipsel" id="boot-tftp"><title>Zavedení z TFTP</title>
+
+   <sect3>
+   <title>TFTP zavádění na strojích Cobalt</title>
+<para>
+
+Přesněji řečeno Cobalt nepoužívá pro zavádění TFTP, ale NFS. Nejprve
+tedy musíte nainstalovat NFS server a nakopírovat soubory instalačního
+systému do adresáře <filename>/nfsroot</filename>. Při zavádění
+Cobaltu musíte současně stisknout levou a pravou kurzorovou klávesu,
+což způsobí zavedení ze sítě pomocí NFS. Následně se zobrazí několik
+možností, mezi kterými jsou tyto dva způsoby instalace:
+
+<itemizedlist>
+<listitem><para>
+
+Přes SSH (výchozí): V tomto případě instalátor nastaví síť přes DHCP
+a spustí SSH server. Poté na LCD displeji Cobaltu zobrazí náhodné heslo
+a další informace nutné pro přihlášení (např. IP adresu). Instalaci
+zahájíte připojením na instalovaný počítač pomocí SSH klienta.
+
+</para></listitem>
+<listitem><para>
+
+Přes sériovou konzoli: Můžete použít nullmodemový kabel na sériovém
+portu a připojit se k Cobaltu rychlostí 115200 bps.
+
+</para></listitem>
+</itemizedlist>
+
+</para>
+   </sect3>
+  </sect2>
+
+  <sect2 arch="mipsel"><title>Zaváděcí parametry</title>
+
+   <sect3>
+   <title>Cobalt</title>
+<para>
+
+Parametry není možno zadat přímo, ale musíte je zadat do proměnné
+<replaceable>args</replaceable> v souboru
+<filename>/nfsroot/default.colo</filename> ležícím na NFS serveru.
+
+</para>
+   </sect3>
+  </sect2>

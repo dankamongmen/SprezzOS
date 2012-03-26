@@ -1,0 +1,22 @@
+# This file contains architecture specific variables for
+# the 's390' architecture
+# It is sourced by the build scripts
+
+archspec="s390;not-powerpc;not-x86"
+arch_listname="s390"
+arch_porturl="s390"
+minimum_memory=20
+# These two options should be set if condition 'smp' is set below
+smp_config_section="Processor type and features"
+smp_config_option="Symmetric multi-processing support"
+
+# Options below are assembled into one variable 'condition'
+# in the build scripts
+fdisk="fdasd.txt;dasdfmt.txt"
+network=""
+boot=""
+frontend="not-newt;not-gtk"
+other=""
+smp="defaults-smp"
+goodies=""
+status="not-checked"

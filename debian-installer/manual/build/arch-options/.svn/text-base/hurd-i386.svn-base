@@ -1,0 +1,26 @@
+# This file contains architecture specific variables for
+# the 'i386' architecture
+# It is sourced by the build scripts
+
+archspec="hurd-i386;any-i386;any-x86;not-x86;not-s390;not-powerpc"
+arch_listname="hurd"
+arch_porturl="hurd"
+# TODO: update
+minimum_memory=44
+minimum_memory_gtk=96
+# These two options should be set if condition 'smp' is set below
+smp_config_section="N/A"
+smp_config_option="N/A"
+
+# Options below are assembled into one variable 'condition'
+# in the build scripts
+fdisk="fdisk.txt;cfdisk.txt"
+network=""
+# For Lenny i386 does not have floppy images
+#boot="supports-floppy-boot;bootable-disk"
+boot="bootable-disk"
+frontend="newt"
+other=""
+smp=""
+goodies="supports-lang-chooser"
+status="new-arch;not-checked"

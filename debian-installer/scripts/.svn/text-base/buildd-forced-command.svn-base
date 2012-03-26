@@ -1,0 +1,80 @@
+#! /bin/bash
+
+# written to allow to rsync installer daily builds to d-i.d.o with proper forced commands
+# (c) Andi Barth 2010
+# GPLv2
+
+
+set -e
+[ -n "$1" ] || exit 1
+arch=$1
+mkdir -p /org/d-i.debian.org/www/daily-images/${arch}
+cd /org/d-i.debian.org/www/daily-images/${arch}
+[ -n "$SSH_ORIGINAL_COMMAND" ] || exit 1
+
+set -- $SSH_ORIGINAL_COMMAND
+
+if echo "$*" | egrep -q '^rsync --server -logDtpre.iL(sf)? . [0-9:-]*$'; then
+    echo "EXEC: rsync --server -logDtpre.iL . /org/d-i.debian.org/www/daily-images/${arch}/.$5" >> /org/d-i.debian.org/ABA.forced
+    rsync --server -logDtpre.iL . /org/d-i.debian.org/www/daily-images/${arch}/.$5
+    exit 0
+fi
+
+if echo "$*" | egrep -q '^unhide [0-9:-]*$'; then
+    echo "EXEC: unhide $2" >> /org/d-i.debian.org/ABA.forced
+    mv /org/d-i.debian.org/www/daily-images/${arch}/.$2 /org/d-i.debian.org/www/daily-images/${arch}/$2
+    ln -snf $2 /org/d-i.debian.org/www/daily-images/${arch}/daily
+    exit 0
+fi
+
+# now we do the kbsd specialities
+#UNKNOWN: rsync --server -vlre.iLsf --delete --safe-links . /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100407-10:40_RSYNC_IN_PROGRESS/
+#UNKNOWN: mkdir -p /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100408-10:40_RSYNC_IN_PROGRESS
+#UNKNOWN: test ! -d /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/daily
+#UNKNOWN: rm -rf /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100425-17:29
+#UNKNOWN: mv /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100425-17:29_RSYNC_IN_PROGRESS /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100425-17:29
+#UNKNOWN: rm -rf /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/daily
+#UNKNOWN: ln -sf 20100425-17:29 /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/daily
+
+if echo "$*" | egrep -q '^mkdir -p /srv/d-i.debian.org/www/daily-images/[a-zA-Z_0-9:/-]*$'; then
+    echo "EXEC: $*" >> /org/d-i.debian.org/ABA.forced
+    set +e
+    mkdir -p $3
+    exit $?
+fi
+if echo "$*" | egrep -q '^rsync --server -vlre.iLsf --delete --safe-links . /srv/d-i.debian.org/www/daily-images/[a-zA-Z_0-9:/-]*$'; then
+    echo "EXEC: $*" >> /org/d-i.debian.org/ABA.forced
+    set +e
+    rsync --server -vlre.iLsf --delete --safe-links . $7
+    exit $?
+fi
+if echo "$*" | egrep -q '^test ! -d /srv/d-i.debian.org/www/daily-images/[a-zA-Z_0-9:/-]*$'; then
+    echo "EXEC: $*" >> /org/d-i.debian.org/ABA.forced
+    set +e
+    test ! -d $4
+    exit $?
+fi
+if echo "$*" | egrep -q '^cp -a /srv/d-i.debian.org/www/daily-images/[a-z]'; then
+    echo "IGNORING: $*" >> /org/d-i.debian.org/ABA.forced
+    exit 0
+fi
+if echo "$*" | egrep -q '^rm -rf /srv/d-i.debian.org/www/daily-images/[a-zA-Z_0-9:/-]*$'; then
+    echo "EXEC: $*" >> /org/d-i.debian.org/ABA.forced
+    set +e
+    rm -rf $3
+    exit $?
+fi
+if echo "$*" | egrep -q '^mv /srv/d-i.debian.org/www/daily-images/[a-zA-Z_0-9:/-]* /srv/d-i.debian.org/www/daily-images/[a-zA-Z_0-9:/-]*$'; then
+    echo "EXEC: $*" >> /org/d-i.debian.org/ABA.forced
+    set +e
+    mv $2 $3
+    exit $?
+fi
+if echo "$*" | egrep -q '^ln -sf [a-zA-Z_0-9:/-]* /srv/d-i.debian.org/www/daily-images/[a-zA-Z_0-9:/-]*$'; then
+    echo "EXEC: $*" >> /org/d-i.debian.org/ABA.forced
+    set +e
+    ln -sf $3 $4
+    exit $?
+fi
+
+echo "UNKNOWN: $*" >> /org/d-i.debian.org/ABA.forced

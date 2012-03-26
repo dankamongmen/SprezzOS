@@ -1,0 +1,117 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64916 -->
+
+  <sect2 arch="sparc" id="sparc-cpus">
+  <!-- <title>CPU and Main Boards Support</title> -->
+  <title>CPU e schede madri supportate</title>
+<para>
+
+<!--
+Sparc-based hardware is divided into a number of different subarchitectures,
+identified by one of the following names: sun4, sun4c, sun4d, sun4m, sun4u
+or sun4v. The following list describes what machines they include and what
+level of support may be expected for each of them.
+-->
+
+L'hardware Sparc si divide in un certo numero di sottoarchitetture differenti
+identificate da uno dei seguenti nomi: sun4, sun4c, sun4d, sun4m, sun4u o
+sun4v. L'elenco che segue indica quali macchine sono comprese in ciascuna
+sottoarchitettura e qual è il livello del supporto disponibile.
+
+</para>
+
+<variablelist>
+
+<varlistentry>
+<term>sun4, sun4c, sun4d, sun4m</term>
+
+<listitem><para>
+
+<!--
+None of these 32-bit sparc subarchitectures (sparc32) is supported. For a
+complete list of machines belonging to these subarchitectures, please consult
+the <ulink url="http://en.wikipedia.org/wiki/SPARCstation">Wikipedia
+SPARCstation page</ulink>.
+-->
+
+Non è supportata nessuna delle sottoarchitetture sparc a 32&nbsp;bit
+(sparc32). L'elenco completo delle macchine che appartengono a queste
+sottoarchitetture è disponibile nella pagina di
+<ulink url="http://en.wikipedia.org/wiki/SPARCstation">Wikipedia per
+SPARCstation</ulink>.
+
+</para><para>
+
+<!--
+The last &debian; release to support sparc32 was Etch, but even then only
+for sun4m systems. Support for the other 32-bits subarchitectures had
+already been discontinued after earlier releases.
+-->
+
+L'ultimo rilascio di &debian; con supporto per sparc32 è stato Etch, ma il
+supporto era limitato ai soli sistemi sun4m. Il supporto per le altre
+sottoarchitetture a 32&nbsp;bit era già stato interrotto nei rilasci
+precedenti.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4u</term>
+
+<listitem><para>
+
+<!--
+This subarchitecture includes all 64-bit machines (sparc64) based on
+the UltraSparc processor and its clones. Most of the machines are well
+supported, even though for some you may experience problems booting from
+CD due to firmware or bootloader bugs (this problem may be worked around
+by using netbooting). Use the sparc64 or sparc64-smp kernel in UP and SMP
+configurations respectively.
+-->
+
+Questa sottoarchitettura comprende tutte le macchine a 64&nbsp;bit (sparc64)
+basate sul processore UltraSparc e i suoi cloni. La maggior parte delle
+macchine sono supportate anche se si potrebbero verificare dei problemi con
+l'avvio da CD dovuti a bug nel firmware o nel bootloader (questi problemi
+possono essere aggirati usando l'avvio dalla rete). Usare il kernel sparc64
+su macchine UP e sparc64-smp su macchine SMP.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>sun4v</term>
+
+<listitem><para>
+
+<!--
+This is the newest addition to the Sparc family, which includes machines
+based on the Niagara multi-core CPUs. At the moment such CPUs are only
+available in T1000 and T2000 servers by Sun, and are well supported. Use
+the sparc64-smp kernel.
+-->
+
+Questa è l'ultima arrivata nella famiglia Sparc, include le macchine basate
+sulle CPU multi-core Niagara. Attualmente queste CPU sono montate solo nei
+server Sun T1000 e T2000 e sono ben supportate. Con queste macchine usare
+il kernel sparc64-smp.
+
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para>
+
+<!--
+Note that Fujitsu's SPARC64 CPUs used in PRIMEPOWER family of servers are not
+supported due to lack of support in the Linux kernel.
+-->
+
+Notare che le CPU SPARC64 prodotte da Fujitsu e usate nei server della
+famiglia PRIMEPOWER non sono supportate dato che manca il supporto per
+tali CPU nel kernel Linux.
+
+</para>
+  </sect2>

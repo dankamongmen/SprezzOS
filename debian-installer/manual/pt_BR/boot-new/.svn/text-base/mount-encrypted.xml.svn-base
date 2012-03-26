@@ -1,0 +1,184 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 56326 -->
+<!-- revised by Herbert Parentes Fortes Neto (hpfn) 2006.09.12 -->
+<!-- revised by Felipe Augusto van de Wiel (faw) 2006.10.19 -->
+
+ <sect1 id="mount-encrypted-volumes">
+ <title>Montando volumes criptografados</title>
+
+<para>
+
+Se você criou volumes criptografados durante a instalação e atribuiu pontos de
+montagem para eles, você será questionado por senhas para cada um desses
+volumes durante a inicialização. O procedimento atual difere levemente entre
+dm-crypt e loop-AES.
+
+</para>
+
+  <sect2 id="mount-dm-crypt">
+  <title>dm-crypt</title>
+
+<para>
+
+Para partições criptografadas usando dm-crypt serão exibidas em sua tela as
+seguintes linhas (<quote>prompt</quote>) durante a inicialização:
+
+<informalexample><screen>
+Starting early crypto disks... <replaceable>part</replaceable>_crypt(starting)
+Enter LUKS passphrase:
+</screen></informalexample>
+
+Na primeira linha exibida, o <replaceable>part</replaceable> é o nome da
+partição, por exemplo sda2 ou md0.
+Você agora provavelmente deve estar pensando
+<emphasis>para qual volume</emphasis> você está efetivamente digitando a senha.
+Para seu <filename>/home</filename>? Ou para <filename>/var</filename>? Claro
+que se você tiver apenas um volume criptografado, isso é fácil e você pode
+digitar a senha que você atribuiu a ele. Se você configurou mais de um volume
+criptografado durante a instalação, as notas que você escreveu como últimos
+passos em <xref linkend="partman-crypto"/> serão úteis. Caso você não tenha
+feito anotações sobre o mapeamento entre
+<filename><replaceable>part</replaceable>_crypt</filename> e os pontos de
+montagem, você ainda pode encontrar essas informações no arquivo
+<filename>/etc/crypttab</filename> e
+<filename>/etc/fstab</filename> do seu novo sistema.
+
+</para><para>
+
+A linha de comando pode parecer um pouco diferente quando um sistema de
+arquivos raiz criptografado estiver montado. Isso depende de qual gerador
+initramfs foi usado para gerar a initrd usada para inicializar o sistema.
+O exemplo abaixo é para uma initrd gerada usando
+<classname>initramfs-tools</classname>:
+
+<informalexample><screen>
+Begin: Mounting <emphasis>root file system</emphasis>... ...
+Begin: Running /scripts/local-top ...
+Enter LUKS passphrase:
+</screen></informalexample>
+
+</para><para>
+
+Nenhum caractere (nem mesmo asteriscos) será exibido durante a digitação da
+senha. Se você digitar a senha errada, você terá mais duas tentativas para
+corrigir isso. Após a terceira tentativa o processo de inicialização
+irá pular esse volume e continuar, montando o próximo sistema de arquivos. Por
+favor veja <xref linkend="crypto-troubleshooting"/> para mais informações.
+
+</para><para>
+
+Após digitar todas as senhas o processo de inicialização continua normalmente.
+
+</para>
+  </sect2>
+
+  <sect2 id="mount-loop-AES">
+  <title>loop-AES</title>
+
+<para>
+
+Para partições criptografadas com o uso do loop-AES você terá o seguinte prompt
+durante a inicialização:
+
+<informalexample><screen>
+Checking loop-encrypted file systems.
+Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</replaceable>)
+Password:
+</screen></informalexample>
+
+</para><para>
+
+Nenhum caractere (nem mesmo asteriscos) será exibido durante a digitação da
+senha. Se você digitar a senha errada, você terá mais duas tentativas para
+corrigir isso. Após a terceira tentativa o processo de inicialização
+irá pular esse volume e continuar, montando o próximo sistema de arquivos. Por
+favor veja <xref linkend="crypto-troubleshooting"/> para mais informações.
+
+</para><para>
+
+Após digitar todas as senhas o processo de inicialização continua normalmente.
+
+</para>
+  </sect2>
+
+  <sect2 id="crypto-troubleshooting">
+  <title>Resolução de Problemas (<quote>Troubleshooting</quote>)</title>
+
+<para>
+
+Caso alguns dos volumes criptografados não possam ser montados porque uma
+senha incorreta foi informada, você terá que montá-los manualmente após a
+inicialização. Há vários casos.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+O primeiro caso é a partição root. Quando ela não é montada corretamente, o
+processo de inicialização é interrompido e você terá que reiniciar o
+computador para tentar novamente.
+
+</para></listitem>
+<listitem><para>
+
+O caso mais fácil é o de volumes criptografados que armazenam dados como
+<filename>/home</filename> ou <filename>/srv</filename>. Você pode simplesmente
+montá-los manualmente após a inicialização. Para loop-AES isso é uma operação
+de um passo:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/ponto_de_montagem</replaceable></userinput>
+<prompt>Password:</prompt>
+</screen></informalexample>
+
+onde <replaceable>/ponto_de_montagem</replaceable> deve ser substituído pelo
+diretório apropriado (e.g. <filename>/home</filename>). A única diferença em
+relação a uma montagem comum é que você será questionado por uma senha para
+esse volume.
+
+</para><para>
+
+Para o dm-crypt isso é um pouco mais complicado. Primeiro você tem que
+registrar os volumes com um
+<application>mapeador de dispositivos (<quote>device mapper</quote>)</application>
+executando:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>
+</screen></informalexample>
+
+Isso irá iniciar uma busca em todos os volumes mencionados em
+<filename>/etc/crypttab</filename> e irá criar os dispositivos apropriados sob
+o diretório <filename>/dev</filename>, após a digitação das senhas
+apropriadas. (Volumes já registrados serão ignorados, portanto você pode
+repetir esse comando várias vezes sem preocupações). Após concluir com sucesso
+os registros, você pode montar os volumes da maneira usual.
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount <replaceable>/ponto_de_montagem</replaceable></userinput>
+</screen></informalexample>
+
+</para></listitem>
+<listitem><para>
+
+Se qualquer um dos volumes que armazenam sistemas de arquivos não-críticos não
+puderem ser montados (<filename>/usr</filename> ou <filename>/var</filename>),
+o sistema deve continuar o processo de inicialização e você deve ser capaz de
+montar os volumes manualmente, como nos casos previamente vistos. Contudo, você
+também terá que (re)iniciar qualquer serviço que esteja rodando em seu nível de
+execução padrão. Muito provavelmente eles não foram iniciados. A maneira mais
+fácil de fazer isso é ir para o primeiro nível de execução e voltar digitando:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>init 1</userinput>
+</screen></informalexample>
+
+através da linha de comando e pressionando <keycombo> <keycap>Control</keycap>
+<keycap>D</keycap> </keycombo> quando questionado pela senha do root.
+
+</para></listitem>
+</itemizedlist>
+
+  </sect2>
+ </sect1>

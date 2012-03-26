@@ -1,0 +1,203 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 64829 -->
+
+ <sect1 id="pppoe" arch="not-s390">
+ <!-- <title>Installing &debian-gnu; using PPP over Ethernet (PPPoE)</title> -->
+ <title>Installazione di &debian-gnu; utilizzando <quote>PPP over
+ Ethernet</quote> (PPPoE)</title>
+<para>
+
+<!--
+In some countries PPP over Ethernet (PPPoE) is a common protocol for
+broadband (ADSL or cable) connections to an Internet Service Provider.
+Setting up a network connection using PPPoE is not supported by default
+in the installer, but can be made to work very simply. This section
+explains how.
+-->
+
+In alcuni paesi è molto comune l'uso del protocollo <quote>PPP over
+Ethernet</quote> (PPPoE) per le connessioni a banda larga (ADSL o via cavo)
+a un Internet Service Provider. L'impostazione di una connessione PPPoE non
+è normalmente supportata dall'installatore però può essere preparata molto
+semplicemente. In questa sezione viene spiegato come.
+
+</para><para>
+
+<!--
+The PPPoE connection set up during the installation will also be available
+after the reboot into the installed system (see <xref linkend="boot-new"/>).
+-->
+
+La connessione PPPoE configurata durante l'installazione rimane disponibile
+anche dopo il riavvio del sistema installato (si veda
+<xref linkend="boot-new"/>).
+
+</para><para>
+
+<!--
+To have the option of setting up and using PPPoE during the installation,
+you will need to install using one of the CD-ROM/DVD images that are
+available. It is not supported for other installation methods (e.g.
+netboot<phrase condition="supports-floppy-boot"> or floppy</phrase>).
+-->
+
+È possibile configurare e utilizzare la connessione PPPoE durante
+l'installazione solo se si utilizza una delle immagini CD-ROM/DVD
+disponibili. La connessione PPPoE non è supportata con altri metodi
+d'installazione (per esempio l'avvio da
+rete<phrase condition="supports-floppy-boot"> o da dischetto</phrase>).
+
+</para><para>
+
+<!--
+Installing over PPPoE is mostly the same as any other installation. The
+following steps explain the differences.
+-->
+
+L'installazione con PPPoE è molto simile a qualsiasi altra installazione.
+I seguenti passi spiegano le differenze.
+
+</para>
+
+<itemizedlist>
+<listitem><para>
+
+<!--
+Boot the installer with the boot parameter
+<userinput>modules=ppp-udeb</userinput><footnote arch="x86">
+-->
+
+Avviare l'installatore con il parametro d'avvio
+<userinput>modules=ppp-udeb</userinput><footnote arch="x86">
+
+<para>
+
+<!--
+See <xref linkend="boot-screen"/> for information on
+how to add a boot parameter.
+-->
+
+Si veda <xref linkend="boot-screen"/> per informazioni su come
+aggiungere un parametro di avvio.
+
+</para>
+
+<!--
+</footnote>.
+This will ensure the component responsible for the setup of PPPoE
+(<classname>ppp-udeb</classname>) will be loaded and run automatically.
+-->
+
+</footnote>.
+Questo garantisce che il componente responsabile della configurazione
+di PPPoE (<classname>ppp-udeb</classname>) sia caricato ed eseguito
+automaticamente.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+Follow the regular initial steps of the installation (language,
+country and keyboard selection; the loading of additional installer
+components<footnote>
+-->
+
+Continuare con i normali passi iniziali dell'installazione (selezione
+di lingua, nazione e tastiera e caricamento dei componenti aggiuntivi
+dell'installatore<footnote>
+
+<para>
+
+<!--
+The <classname>ppp-udeb</classname> component is loaded as one of
+the additional components in this step. If you want to install at
+medium or low priority (expert mode), you can also manually select
+the <classname>ppp-udeb</classname> instead of entering the
+<quote>modules</quote> parameter at the boot prompt.
+-->
+
+Il componente <classname>ppp-udeb</classname> viene caricato in questa
+fase insieme agli altri componenti aggiuntivi. Se l'installazione avviene
+con priorità media oppure bassa (cioè in modalità esperto), è possibile
+attivare manualmente <classname>ppp-udeb</classname> anziché doverlo
+specificare al prompt boot tramite il parametro <quote>modules</quote>.
+
+</para>
+
+</footnote>).
+
+</para></listitem>
+<listitem><para>
+
+<!--
+The next step is the detection of network hardware, in order to identify
+any Ethernet cards present in the system.
+-->
+
+Il passo successivo consiste nel riconoscimento dell'hardware di rete per
+identificare tutte le schede Ethernet presenti sul sistema.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+After this the actual setup of PPPoE is started. The installer will probe
+all the detected Ethernet interfaces in an attempt to find a PPPoE
+concentrator (a type of server which handles PPPoE connections).
+-->
+
+Dopo aver effettuato questo passo PPPoE è attivo. L'installatore cerca su
+ogni interfaccia Ethernet la presenza di un concentratore per PPPoE (cioè
+un tipo di server che gestisce connessioni PPPoE).
+
+</para><para>
+
+<!--
+It is possible that the concentrator will not to be found at the first
+attempt. This can happen occasionally on slow or loaded networks or with
+faulty servers. In most cases a second attempt to detect the concentrator
+will be successful; to retry, select <guimenuitem>Configure and start a
+PPPoE connection</guimenuitem> from the main menu of the installer.
+-->
+
+È possibile che il concentratore non sia trovato al primo tentativo, questo
+può accadere occasionalmente in reti particolarmente lente o con molto
+traffico o con server mal funzionanti. In molti casi un secondo tentativo
+ha successo; per riprovare, selezionare <guimenuitem>Configura e attiva una
+connessione PPPoE</guimenuitem> dal menu dell'installatore.
+
+</para></listitem>
+<listitem><para>
+
+<!--
+After a concentrator is found, the user will be prompted to type the login
+information (the PPPoE username and password).
+-->
+
+Dopo aver trovato un concentratore viene chiesto all'utente di inserire le
+informazioni di login (nome utente e password per PPPoE).
+
+</para></listitem>
+<listitem><para>
+
+<!--
+At this point the installer will use the provided information to establish
+the PPPoE connection. If the correct information was provided, the PPPoE
+connection should be configured and the installer should be able to use it
+to connect to the Internet and retrieve packages over it (if needed). If
+the login information is not correct or some error appears, the installer
+will stop, but the configuration can be attempted again by selecting the
+menu entry <guimenuitem>Configure and start a PPPoE connection</guimenuitem>.
+-->
+
+Infine l'installatore usa le informazioni appena inserite per stabilire
+la connessione PPPoE. Se le informazioni sono corrette, la connessione è
+pronta e l'installatore può connettersi a Internet per recuperare i
+pacchetti (se necessario). Se le informazioni per l'accesso sono sbagliate
+oppure se si verificano degli errori, l'installatore si ferma ed è possibile
+ripetere nuovamente la configurazione selezionando <guimenuitem>Configura e
+attiva una connessione PPPoE</guimenuitem> dal menu.
+
+</para></listitem>
+</itemizedlist>
+ </sect1>

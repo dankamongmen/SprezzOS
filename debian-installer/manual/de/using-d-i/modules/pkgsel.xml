@@ -1,0 +1,161 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 58649 -->
+
+   <sect3 id="pkgsel">
+   <title>Software auswählen und installieren</title>
+
+<para>
+
+Während des Installationsprozesses wird Ihnen die Möglichkeit geboten,
+zusätzliche Software zur Installation auszuwählen. Statt aber einzelne
+Programme aus den &num-of-distrib-pkgs; derzeit verfügbaren Paketen
+herauszusuchen, zielt dieser Punkt der Installation mehr darauf ab,
+aus vorbereiteten Software-Zusammenstellungen die auszuwählen, die den
+künftigen Aufgaben des Rechners am nächsten kommen.
+
+</para><para>
+
+<!-- TODO: Should explain popcon first -->
+
+Sie können dazu zunächst Programmgruppen (<emphasis>tasks</emphasis>)
+auswählen, die Sie installieren möchten, und anschließend noch einzelne
+Pakete hinzufügen. Diese Programmgruppen repräsentieren eine lockere
+Zusammenstellung von verschiedenen Aufgaben oder Dingen, die Sie mit
+Ihrem Computer erledigen können, wie <quote>Desktop-Umgebung</quote>
+(Arbeitsplatzrechner), <quote>Web-Server</quote> (Inhalte für das
+Internet bereitstellen) oder <quote>Druck-Server</quote> (Drucken
+und Druckmanagement) <footnote>
+
+<para>
+
+Sie sollten wissen, dass der Installer lediglich das Programm
+<command>tasksel</command> aufruft, in dem dann diese Liste angezeigt
+wird. <command>tasksel</command> kann auch nach der Installation jederzeit
+aufgerufen werden, um
+weitere Pakete zu installieren (oder sie zu entfernen), oder Sie benutzen
+ein feinkörnigeres Werkzeug wie <command>aptitude</command>.
+Wenn Sie ein bestimmtes einzelnes Paket suchen, nachdem die
+Installation abgeschlossen ist, führen Sie einfach <userinput>aptitude install
+<replaceable>package</replaceable></userinput> aus, wobei
+<replaceable>package</replaceable> der Name des Pakets ist, das Sie
+suchen.
+
+</para>
+
+</footnote>. <xref linkend="tasksel-size-list"/> gibt eine Übersicht über
+den erforderlichen Speicherplatz für die verschiedenen Programmgruppen.
+
+</para><para>
+
+Einige der Programmgruppen sind unter Umständen vorgewählt, abhängig von
+der Charakteristik des Rechners, den Sie installieren. Falls Sie mit der
+Vorauswahl nicht zufrieden sind, können Sie sie ändern. Sie können sich
+sogar entscheiden, an dieser Stelle gar keine Programmgruppen zu installieren.
+
+</para>
+<tip><para>
+
+In der Standard-Benutzeroberfläche des Installers können Sie die Leertaste
+benutzen, um den Auswahlzustand der Programmgruppen zu ändern.
+
+</para></tip>
+<note><para>
+
+Falls Sie nicht eine der speziellen KDE- oder Xfce/LXDE-CDs zur Installation
+verwenden, wird mit der Programmgruppe <quote>Arbeitsplatzrechner</quote>
+die GNOME-Desktop-Umgebung installiert.
+
+</para><para>
+
+Es ist nicht möglich, während der Installation interaktiv eine andere
+Arbeitsplatz-Umgebung auszuwählen. Allerdings ist es trotzdem möglich, den
+Installer anzuweisen, KDE statt der Gnome-Umgebung zu installieren, und
+zwar mittels Voreinstellung (siehe <xref linkend="preseed-pkgsel"/>) oder
+indem Sie beim Start des Installers am Boot-Prompt
+<literal>desktop=kde"</literal> angeben. Alternativ dazu kann mit
+<literal>desktop=xfce</literal> oder <literal>desktop=lxde</literal>
+eine der ressourcen-schonenderen Arbeitsplatz-Umgebungen Xfce oder LXDE
+ausgewählt werden.
+
+</para><para arch="x86">
+
+Einige CD-Images (Businesscard, Netinst und DVD) erlauben auch die Auswahl
+der gewünschten Arbeitsplatzumgebung über das grafische Boot-Menü. Wählen
+Sie den Punkt <quote>Advanced options</quote> aus dem Hauptmenü und suchen
+Sie dort nach <quote>Alternative desktop environments</quote>.
+
+</para><para>
+
+Beachten Sie aber, dass dies nur funktionieren wird, wenn die Pakete, die
+für die gewünsche Arbeitsplatz-Umgebung benötigt werden, auch verfügbar sind.
+Wenn Sie von einer
+einzelnen Komplett-CD installieren, müssen die Pakete von einem
+Spiegel-Server heruntergeladen werden, da die meisten benötigten Pakete
+nur auf den erweiterten CD-Images enthalten sind. KDE, Xfce oder LXDE auf
+diesem Weg zu installieren sollte gut funktionieren, wenn Sie von
+einem DVD-Image oder mit einer anderen Installationsmethode
+(Businesscard- oder Netinst-CD, Netboot ...) installieren.
+
+</para></note>
+<para>
+
+Die verschiedenen Server-Programmgruppen installieren grob gesagt folgende
+Software.
+DNS-Server: <classname>bind9</classname>;
+Datei-Server: <classname>samba</classname>, <classname>nfs</classname>;
+Mail-Server: <classname>exim4</classname>, <classname>spamassassin</classname>,
+<classname>uw-imap</classname>;
+Print-Server: <classname>cups</classname>;
+SQL-Datenbank: <classname>postgresql</classname>;
+Web-Server: <classname>apache2</classname>.
+
+</para><para>
+
+Die Programmgruppe <quote>Standard-System</quote> wird jedes Paket mit der
+Priorität <quote>standard</quote> installieren. Dazu gehören viele
+grundsätzliche Werkzeuge, die normalerweise auf einem Linux- oder Unix-System
+vorhanden sind. Sie sollten diese Gruppe angewählt lassen, außer Sie wissen,
+was Sie tun und möchten ein absolut minimalistisches System.
+
+</para><para>
+
+Wenn Sie bei der Sprachauswahl eine andere Standard-Locale als <quote>C</quote>
+ausgewählt haben, wird <command>tasksel</command> überprüfen, ob
+für diese Locale irgendwelche Lokalisierungs-Programmgruppen definiert sind.
+Falls dies der Fall ist, wird automatisch versucht, die entsprechenden
+Lokalisierungspakete zu installieren. Dazu gehören zum Beispiel Pakete, die
+Wortlisten oder spezielle Schriftarten für Ihre Sprache enthalten. Falls eine
+Arbeitsplatz-Umgebung zur Installation ausgewählt wurde, werden auch die
+passenden Lokalisierungspakete dazu installiert (falls solche verfügbar sind).
+
+</para><para>
+
+Wenn Sie die gewünschten Programmgruppen ausgewählt haben, drücken Sie
+&BTN-CONT;. <command>aptitude</command> wird jetzt alle Pakete, die zu
+den gewählten Programmgruppen gehören, installieren. Wenn ein Programm zusätzliche
+Informationen vom Benutzer benötigt, werden Sie während dieses
+Installationsschrittes danach gefragt.
+
+</para><para>
+
+Sie sollten beachten, dass besonders die Programmgruppe Arbeitsplatzrechner
+sehr groß ist. Speziell wenn Sie von einer normalen CD-ROM installieren und
+zusätzlich Pakete, die dort nicht enthalten sind, von einem Spiegel-Server
+beziehen, muss der Installer unter Umständen sehr viele Pakete über das
+Netzwerk herunterladen. Falls Sie eine relativ langsame Internetverbindung
+haben, kann dies recht lange dauern. Es gibt keine Möglichkeit, die
+Installation der Pakete abzubrechen, wenn sie einmal gestartet ist.
+ 
+ </para><para>
+
+Sogar wenn Pakete auf der CD-ROM enthalten sind, könnte der Installer sie
+trotzdem über das Internet herunterladen, wenn die auf dem Spiegel-Server
+verfügbare Version neuer ist als die auf der CD-ROM. Falls Sie die
+Stable-Distribution installieren, kann dies vorkommen, wenn eine
+Zwischen-Aktualisierung von Stable stattgefunden hat (ein sogenanntes
+Point-Release; hierbei werden Pakete aktualisiert, um Sicherheitslücken
+oder gravierende Fehler zu beheben). Falls Sie Testing installieren, kann dies
+passieren, wenn Sie ein älteres CD-Image verwenden.
+
+</para>
+   </sect3>
