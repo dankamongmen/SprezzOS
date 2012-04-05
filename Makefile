@@ -26,10 +26,12 @@ $(DIIMG): $(DIBUILD)/$(SLIST)
 $(DIBUILD)/$(SLIST): $(SLIST)
 	cat $< > $@
 
-update:
+update: $(DI)/.mrconfig
+	cd $(DI) && svn up && mr update
+
+$(DI)/.mrconfig:
 	[ -d $(DI) ] || { svn co svn://svn.debian.org/svn/d-i/trunk $(DI) && \
 		cd $(DI) && scripts/git-setup && mr -p checkout ; }
-	cd $(DI) && svn up && mr update
 
 clean:
 	rm -rf tmp $(TESTDISK) images
