@@ -30,15 +30,15 @@ RAIDZ2S=()
 TESTS_RUN=${TESTS_RUN:-'*'}
 TESTS_SKIP=${TESTS_SKIP:-}
 
-prefix=/usr
+prefix=/usr/local
 exec_prefix=${prefix}
-libexecdir=${prefix}/lib/zfs
+libexecdir=${exec_prefix}/libexec
 pkglibexecdir=${libexecdir}/zfs
 bindir=${exec_prefix}/bin
 sbindir=${exec_prefix}/sbin
 udevdir=${exec_prefix}/lib/udev
 udevruledir=${udevdir}/rules.d
-sysconfdir=/etc
+sysconfdir=${prefix}/etc
 
 ETCDIR=${ETCDIR:-/etc}
 DEVDIR=${DEVDIR:-/dev/disk/zpool}

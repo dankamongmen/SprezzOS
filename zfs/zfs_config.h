@@ -98,7 +98,7 @@
 #define HAVE_BLK_RQ_SECTORS 1
 
 /* security_inode_init_security wants callback */
-#define HAVE_CALLBACK_SECURITY_INODE_INIT_SECURITY 1
+/* #undef HAVE_CALLBACK_SECURITY_INODE_INIT_SECURITY */
 
 /* check_disk_size_change() is available */
 #define HAVE_CHECK_DISK_SIZE_CHANGE 1
@@ -128,13 +128,13 @@
 #define HAVE_FMODE_T 1
 
 /* sops->free_cached_objects() exists */
-#define HAVE_FREE_CACHED_OBJECTS 1
+/* #undef HAVE_FREE_CACHED_OBJECTS */
 
 /* fops->fsync() with range */
-#define HAVE_FSYNC_RANGE 1
+/* #undef HAVE_FSYNC_RANGE */
 
 /* fops->fsync() without dentry */
-/* #undef HAVE_FSYNC_WITHOUT_DENTRY */
+#define HAVE_FSYNC_WITHOUT_DENTRY 1
 
 /* fops->fsync() with dentry */
 /* #undef HAVE_FSYNC_WITH_DENTRY */
@@ -185,7 +185,7 @@
 #define HAVE_MOUNT_NODEV 1
 
 /* sops->nr_cached_objects() exists */
-#define HAVE_NR_CACHED_OBJECTS 1
+/* #undef HAVE_NR_CACHED_OBJECTS */
 
 /* open_bdev_exclusive() is available */
 /* #undef HAVE_OPEN_BDEV_EXCLUSIVE */
@@ -200,13 +200,13 @@
 #define HAVE_RQ_IS_SYNC 1
 
 /* set_nlink() is available */
-#define HAVE_SET_NLINK 1
+/* #undef HAVE_SET_NLINK */
 
 /* sops->show_options() with dentry */
-#define HAVE_SHOW_OPTIONS_WITH_DENTRY 1
+/* #undef HAVE_SHOW_OPTIONS_WITH_DENTRY */
 
 /* struct super_block has s_shrink */
-#define HAVE_SHRINK 1
+/* #undef HAVE_SHRINK */
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
