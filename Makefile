@@ -36,8 +36,8 @@ update: $(DI)/.mrconfig
 	cd $(DI) && svn up && mr update
 
 $(CANARY):
-	[ -d $(DI) ] || { svn co svn://svn.debian.org/svn/d-i/trunk $(DI) && \
-		cd $(DI) && scripts/git-setup && mr -p checkout ; }
+	[ -d $(DI) ] || svn co svn://svn.debian.org/svn/d-i/trunk $(DI)
+	cd $(DI) && scripts/git-setup && mr -p checkout
 
 clean:
 	rm -rf tmp $(TESTDISK) images
