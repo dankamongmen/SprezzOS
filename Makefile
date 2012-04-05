@@ -18,14 +18,14 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF) $(PROFILE) zfs
+$(IMG): $(CONF) $(PROFILE) zfs_0.6.0-rc8-1_amd64.deb
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS
 
-zfs: spl
-	cd zfs && debian/rules binary
+zfs_0.6.0-rc8-1_amd64.deb: spl_0.6.0-rc8-1_amd64.deb
+	cd zfs && sudo debian/rules binary
 
-spl:
+spl_0.6.0-rc8-1_amd64.deb:
 	cd spl && sudo debian/rules binary
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common
