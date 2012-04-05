@@ -5,6 +5,7 @@ DIBUILD:=$(DI)/installer/build
 DIIMG:=some.iso
 
 CONF:=$(shell pwd)/cdd.conf
+PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
@@ -17,7 +18,7 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF)
+$(IMG): $(CONF) $(PROFILE)
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS
 
