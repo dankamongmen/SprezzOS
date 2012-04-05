@@ -2,6 +2,7 @@
 
 DI:=debian-installer
 DIBUILD:=$(DI)/installer/build
+DIIMG:=some.iso
 
 CONF:=$(shell pwd)/cdd.conf
 IMG:=images/debian-unstable-amd64-CD-1.iso
