@@ -23,10 +23,10 @@ $(IMG): $(CONF) $(PROFILE) zfs
 		--profiles SprezzOS --auto-profiles SprezzOS
 
 zfs: spl
-	cd zfs && ./configure && make
+	cd zfs && debian/rules binary
 
 spl:
-	cd spl && ./configure && make
+	cd spl && sudo debian/rules binary
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common
 	cd $(DIBUILD) && make build_cdrom_isolinux
