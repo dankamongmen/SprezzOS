@@ -9,7 +9,7 @@ IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
 
-all: $(DIIMG) $(IMG)
+all: $(IMG) $(DIIMG)
 
 test: $(TESTDISK) all
 	kvm -cdrom $(IMG) -hda $<
