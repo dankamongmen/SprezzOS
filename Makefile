@@ -1,10 +1,14 @@
-.PHONY: all test update clean
+.PHONY: all test update clean clobber
+
+DI:=debian-installer
+DIBUILD:=$(DI)/installer/build
 
 CONF:=$(shell pwd)/cdd.conf
 IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
+SLIST:=sources.list.udeb.local
 
-all: $(IMG)
+all: $(IMG) $(DIIMG)
 
 test: $(TESTDISK) all
 	kvm -cdrom $(IMG) -hda $<
@@ -16,8 +20,20 @@ $(IMG): $(CONF)
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS
 
+$(DIIMG): $(DIBUILD)/$(SLIST)
+	cd $(DIBUILD) && make build_cdrom_isolinux
+
+$(DIBUILD)/$(SLIST): $(SLIST)
+	cat $< > $@
+
 update:
-	cd debian-installer && svn up && mr -r update
+	[ -d $(DI) ] || { svn co svn://svn.debian.org/svn/d-i/trunk $(DI) && \
+		cd $(DI) && scripts/git-setup && mr -p checkout ; }
+	cd $(DI) && svn up && mr update
 
 clean:
 	rm -rf tmp $(TESTDISK) images
+	cd $(DI) && svn-clean -f
+
+clobber:
+	rm -rf $(DI)
