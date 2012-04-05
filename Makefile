@@ -23,7 +23,7 @@ $(IMG): $(CONF) $(PROFILE) zfs_0.6.0-rc8-1_amd64.deb
 		--profiles SprezzOS --auto-profiles SprezzOS
 
 zfs_0.6.0-rc8-1_amd64.deb: spl_0.6.0-rc8-1_amd64.deb
-	cd zfs && sudo debian/rules binary
+	cd zfs && make deb
 
 spl_0.6.0-rc8-1_amd64.deb:
 	cd spl && sudo debian/rules binary
