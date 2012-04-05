@@ -1,4 +1,4 @@
-.PHONY: all test update clean clobber nukefromorbit
+.PHONY: all test update clean clobber nukefromorbit spl zfs
 
 DI:=debian-installer
 DIBUILD:=$(DI)/installer/build
@@ -18,9 +18,15 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF) $(PROFILE)
+$(IMG): $(CONF) $(PROFILE) zfs
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS
+
+zfs: spl
+	cd zfs && ./configure && make
+
+spl:
+	cd spl && ./configure && make
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common
 	cd $(DIBUILD) && make build_cdrom_isolinux
