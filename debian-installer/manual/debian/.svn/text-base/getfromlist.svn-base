@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ -z "$1" ] || [ ! -f "$1" ] ; then
-	exit 1
-fi
-
-egrep -v "^[[:space:]]*(|#.*)$" $1 | cut -f 1
