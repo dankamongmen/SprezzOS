@@ -23,7 +23,7 @@ $(IMG): $(CONF)
 $(DIIMG): $(DIBUILD)/$(SLIST)
 	cd $(DIBUILD) && make build_cdrom_isolinux
 
-$(DIBUILD)/$(SLIST): $(SLIST)
+$(DIBUILD)/$(SLIST): $(SLIST) $(DI)/.mrconfig
 	cat $< > $@
 
 update: $(DI)/.mrconfig
