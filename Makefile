@@ -1,4 +1,4 @@
-.PHONY: all test update clean clobber
+.PHONY: all test update clean clobber nukefromorbit
 
 DI:=debian-installer
 DIBUILD:=$(DI)/installer/build
@@ -41,7 +41,9 @@ $(CANARY):
 
 clean:
 	rm -rf tmp $(TESTDISK) images
-	cd $(DI) && svn-clean -f
 
 clobber:
+	cd $(DI) && svn-clean -f
+
+nukefromorbit:
 	rm -rf $(DI)
