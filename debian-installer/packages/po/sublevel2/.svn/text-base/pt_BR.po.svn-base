@@ -1,13 +1,13 @@
-# translation of Debian Installer templates to Brazilian Portuguese.
+# Translation of Debian Installer templates to Brazilian Portuguese.
 # This file is distributed under the same license as debian-installer.
 #
-# Felipe Augusto van de Wiel (faw) <faw@debian.org>, 2008-2010.
+# Felipe Augusto van de Wiel (faw) <faw@debian.org>, 2008-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 22:49+0000\n"
-"PO-Revision-Date: 2010-11-19 15:49-0200\n"
+"POT-Creation-Date: 2012-03-28 22:48+0000\n"
+"PO-Revision-Date: 2012-04-04 00:56-0300\n"
 "Last-Translator: Felipe Augusto van de Wiel (faw) <faw@debian.org>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
@@ -81,10 +81,10 @@ msgid ""
 "easy to figure out. To get an idea of what Unix utilities are available to "
 "you, use the \"help\" command."
 msgstr ""
-"O sistema de arquivos raiz é um disco em RAM. Os sistemas de arquivos em "
+"O sistema de arquivos raiz é um disco em RAM. Os sistemas de arquivos do "
 "disco rígido estão montados em \"/target\". O editor disponível para você é "
-"o nano. Ele é bem pequeno e é fácil de se compreender. Para ter uma ideia de "
-"quais utilitários Unix estão disponíveis, use o comando \"help\"."
+"o nano. Ele é bem pequeno e fácil de compreender. Para ter uma ideia de "
+"quais utilitários Unix estão disponíveis para você, use o comando \"help\"."
 
 #. Type: note
 #. Description
@@ -137,7 +137,7 @@ msgid ""
 "display a shell. Unfortunately, this plugin is currently unavailable."
 msgstr ""
 "Esta compilação do instalador Debian requer a extensão \"terminal\" para "
-"exibir um shell. Infelizmente, esta extensão está indisponível no momento."
+"exibir um shell. Infelizmente, esta extensão não está disponível no momento."
 
 #. Type: error
 #. Description
@@ -249,9 +249,9 @@ msgid ""
 "kernel used by this version of the installer and the kernel version "
 "available in the archive."
 msgstr ""
-"Não foram encontrados módulos do kernel. Isto provavelmente é devido a uma "
-"má combinação entre o kernel usado por esta versão do instalador e a versão "
-"do kernel disponível no repositório."
+"Nenhum módulo de kernel foi encontrado. Provavelmente isso ocorreu devido a "
+"uma má combinação entre o kernel usado por esta versão do instalador e a "
+"versão do kernel disponível no repositório."
 
 #. Type: boolean
 #. Description
@@ -264,7 +264,7 @@ msgid ""
 msgstr ""
 "Se você está instalando a partir de um espelho de rede, você pode contornar "
 "este problema optando por instalar uma versão diferente do Debian. A "
-"instalação provavelmente falhará se você continuar sem os módulos do kernel."
+"instalação provavelmente falhará se você continuar sem módulos de kernel."
 
 #. Type: select
 #. Description
@@ -495,8 +495,7 @@ msgstr ""
 #: ../keyboard-configuration.templates:12002
 msgid "You can disable this feature by choosing \"No temporary switch\"."
 msgstr ""
-"Você pode desabilitar esta funcionalidade escolhendo \"Sem alternador "
-"temporário\"."
+"Você pode desabilitar este recurso escolhendo \"Sem alternador temporário\"."
 
 #. Type: select
 #. Choices
@@ -554,7 +553,7 @@ msgstr ""
 #. :sl2:
 #: ../keyboard-configuration.templates:14001
 msgid "No compose key"
-msgstr "Sem tecla compose"
+msgstr "Sem tecla Compose"
 
 #. Type: select
 #. Description
@@ -572,7 +571,7 @@ msgid ""
 "the next few keystrokes as a combination in order to produce a character not "
 "found on the keyboard."
 msgstr ""
-"A tecla Compose (também conhecida como Multi_tecla) faz com que o computador "
+"A tecla Compose (também conhecida como tecla Multi) faz com que o computador "
 "interprete as próximas teclas como uma combinação para produzir um caractere "
 "não encontrado no teclado."
 
@@ -604,7 +603,7 @@ msgstr "Carregar drivers de CD-ROM a partir de uma mídia removível?"
 #. :sl2:
 #: ../cdrom-detect.templates:1001 ../cdrom-detect.templates:3001
 msgid "No common CD-ROM drive was detected."
-msgstr "Nenhuma unidade de CD-ROM comum foi detectado."
+msgstr "Nenhuma unidade de CD-ROM comum foi detectada."
 
 #. Type: boolean
 #. Description
@@ -617,17 +616,16 @@ msgid ""
 "modules."
 msgstr ""
 "Pode ser que você precise carregar drivers de CD-ROM adicionais a partir de "
-"uma mídia removível, como um disquete de controladores. Se você possui uma "
-"mídia dessas disponível agora, insira-a na unidade e continue. Caso "
-"contrário, lhe será oferecida a opção de selecionar manualmente os módulos "
-"de CD-ROM."
+"uma mídia removível, como um disquete de drivers. Se você possui uma mídia "
+"dessas disponível agora, insira-a na unidade e continue. Caso contrário, "
+"será oferecida a opção de selecionar manualmente os módulos de CD-ROM."
 
 #. Type: boolean
 #. Description
 #. :sl2:
 #: ../cdrom-detect.templates:3001
 msgid "Manually select a CD-ROM module and device?"
-msgstr "Selecionar manualmente um módulo e dispositivo de CDROM?"
+msgstr "Selecionar manualmente um módulo e dispositivo de CD-ROM?"
 
 #. Type: boolean
 #. Description
@@ -639,11 +637,11 @@ msgid ""
 "use. If you don't know which module and device are needed, look for some "
 "documentation or try a network installation instead of a CD-ROM installation."
 msgstr ""
-"Seu leitor de CD-ROM pode ser um antigo leitor Mitsumi ou outro CD-ROM não-"
-"IDE, não-SCSI. Nesse caso, você deverá escolher qual módulo carregar e qual "
-"dispositivo utilizar. Se você não sabe qual módulo e dispositivo são "
-"necessários, procure por alguma documentação ou tente uma instalação via "
-"rede ao invés da instalação via CD-ROM."
+"Seu leitor de CD-ROM pode ser um antigo leitor Mitsumi ou outra unidade de "
+"CD-ROM não-IDE, não-SCSI. Nesse caso, você deverá escolher qual módulo "
+"carregar e o dispositivo a ser usado. Se você não sabe qual módulo e "
+"dispositivo são necessários, procure por alguma documentação ou tente uma "
+"instalação via rede ao invés da instalação via CD-ROM."
 
 #. Type: boolean
 #. Description
@@ -680,7 +678,7 @@ msgid ""
 "specific module if you have an unusual CD-ROM drive (that is neither IDE nor "
 "SCSI)."
 msgstr ""
-"A detecção automática não encontrou nenhuma unidade de CDROM. Você pode "
+"A detecção automática não encontrou nenhuma unidade de CD-ROM. Você pode "
 "tentar carregar um módulo específico se você possui uma unidade de CD-ROM "
 "incomum (uma que não seja nem IDE nem SCSI)."
 
@@ -713,9 +711,9 @@ msgid ""
 "available devices in /dev with \"ls /dev\". You can return to this screen by "
 "pressing ALT+F1."
 msgstr ""
-"Você pode alternar para o prompt de comandos no segundo terminal (ALT+F2) "
-"para checar os dispositivos disponíveis em /dev com o comando \"ls /dev\". "
-"Você poderá retornar a esta tela pressionando ALT+F1."
+"Você pode alternar para o shell no segundo terminal (ALT+F2) para checar os "
+"dispositivos disponíveis em /dev com o comando \"ls /dev\". Você poderá "
+"retornar a esta tela pressionando ALT+F1."
 
 #. Type: note
 #. Description
@@ -733,7 +731,7 @@ msgid ""
 "it currently contains the CD ${cdname}. The installation will now continue."
 msgstr ""
 "A autodetecção do CD-ROM funcionou. Uma unidade de CD-ROM foi encontrada e "
-"atualmente contém o CD ${cdname}. A instalação agora continuará."
+"atualmente contém o CD ${cdname}. A instalação continuará agora."
 
 #. Type: error
 #. Description
@@ -994,7 +992,7 @@ msgid ""
 msgstr ""
 "Nenhum controlador para o seu hardware está disponível. Você pode precisar "
 "carregar controladores a partir de uma mídia removível, como um pendrive USB "
-"ou um disquete de controladores. "
+"ou um disquete de controladores."
 
 #. Type: boolean
 #. Description
@@ -1025,7 +1023,7 @@ msgid ""
 msgstr ""
 "Parte do seu hardware precisa de arquivos de firmware não-livre para "
 "funcionar. O firmware pode ser carregado a partir de mídia removível, como "
-"um USB \"stick\" ou um disquete."
+"um pendrive USB ou um disquete."
 
 #. Type: boolean
 #. Description
@@ -1054,8 +1052,8 @@ msgid ""
 "use any available network, leave this field blank."
 msgstr ""
 "${iface} é uma interface de rede sem fio. Por favor, informe o nome (o "
-"ESSID) da rede sem fio que você gostaria que a ${iface} usasse. Se você "
-"deseja usar qualquer rede disponível, deixe este campo em branco."
+"ESSID) da rede sem fio que você gostaria que a interface ${iface} usasse. Se "
+"você deseja usar qualquer rede disponível, deixe este campo em branco."
 
 #. Type: string
 #. Description
@@ -1074,17 +1072,16 @@ msgid ""
 "configuration and continue, leave this field blank."
 msgstr ""
 "${iface} é uma interface de rede sem fio. Por favor, informe o nome (o "
-"ESSID) da rede sem fio que você gostaria que a ${iface} usasse. Para pular a "
-"configuração da rede sem fio e continuar, deixe este campo em branco."
+"ESSID) da rede sem fio que você gostaria que a interface ${iface} usasse. "
+"Para pular a configuração da rede sem fio e continuar, deixe este campo em "
+"branco."
 
 #. Type: select
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:8002
-#, fuzzy
-#| msgid "Wireless ESSID for ${iface}:"
 msgid "Wireless network type for ${iface}:"
-msgstr "ESSID da rede sem fio para ${iface}:"
+msgstr "Tipo da rede sem fio para ${iface}:"
 
 #. Type: select
 #. Description
@@ -1094,6 +1091,9 @@ msgid ""
 "Choose WEP/Open if the network is open or secured with WEP. Choose WPA/WPA2 "
 "if the network is protected with WPA/WPA2 PSK (Pre-Shared Key)."
 msgstr ""
+"Escolha WEP/Aberto se a rede é aberta ou protegida com WEP. Escolha WPA/WPA2 "
+"se a rede é protegida com WPA/WPA2 PSK (Pre-Shared Key -- \"Chave pré-"
+"compartilhada\")."
 
 #. Type: string
 #. Description
@@ -1122,7 +1122,7 @@ msgid ""
 "or 'nnnnnnnn', where n is a number, just enter it as it is into this field."
 msgstr ""
 "Se sua chave WEP está no formato 'nnnn-nnnn-nn', 'nn:nn:nn:nn:nn:nn:nn:nn' "
-"ou 'nnnnnnnn', onde n é um número, simplesmente informe-o neste campo."
+"ou 'nnnnnnnn', onde n é um número, simplesmente informe-a neste campo."
 
 #. Type: string
 #. Description
@@ -1132,8 +1132,8 @@ msgid ""
 "If your WEP key is in the format of a passphrase, prefix it with "
 "'s:' (without quotes)."
 msgstr ""
-"Se sua chave WEP está no formato de uma frase-senha (\"passphrase\"), "
-"prefixe a mesma com 's:' (sem as aspas)."
+"Se sua chave WEP está no formato de uma frase secreta, prefixe-a com "
+"'s:' (sem as aspas)."
 
 #. Type: string
 #. Description
@@ -1169,10 +1169,8 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:11001
-#, fuzzy
-#| msgid "Invalid username"
 msgid "Invalid passphrase"
-msgstr "Nome de usuário inválido"
+msgstr "Frase secreta inválida"
 
 #. Type: error
 #. Description
@@ -1182,15 +1180,15 @@ msgid ""
 "The WPA/WPA2 PSK passphrase was either too long (more than 64 characters) or "
 "too short (less than 8 characters)."
 msgstr ""
+"A frase secreta WPA/WPA2 PSK é muito longa (mais de 64 caracteres) ou muito "
+"curta (menos de 8 caracteres)."
 
 #. Type: string
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:12001
-#, fuzzy
-#| msgid "WEP key for wireless device ${iface}:"
 msgid "WPA/WPA2 passphrase for wireless device ${iface}:"
-msgstr "Chave WEP para o dispositivo de rede sem fio ${iface}:"
+msgstr "Frase secreta WPA/WPA2 para o dispositivo de rede sem fio ${iface}:"
 
 #. Type: string
 #. Description
@@ -1200,6 +1198,8 @@ msgid ""
 "Enter the passphrase for WPA/WPA2 PSK authentication. This should be the "
 "passphrase defined for the wireless network you are trying to use."
 msgstr ""
+"Informe a frase secreta para a autenticação WPA/WPA2 PSK. Esta deverá ser a "
+"frase secreta definida para a rede sem fio que você está tentando usar."
 
 #. Type: error
 #. Description
@@ -1217,28 +1217,28 @@ msgid ""
 "but may contain all kinds of characters."
 msgstr ""
 "O ESSID \"${essid}\" é inválido. ESSIDs podem ter no máximo 32 caracteres, "
-"mas podem conter qualquer tipo de caracteres."
+"mas podem conter todos os tipos de caracteres."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:14001
 msgid "Attempting to exchange keys with the access point..."
-msgstr ""
+msgstr "Tentando trocar chaves com o ponto de acesso..."
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:16001
 msgid "WPA/WPA2 connection succeeded"
-msgstr ""
+msgstr "Conexão WPA/WPA2 realizada"
 
 #. Type: note
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:17001
 msgid "Failure of key exchange and association"
-msgstr ""
+msgstr "Falha na troca de chaves e associação"
 
 #. Type: note
 #. Description
@@ -1248,6 +1248,8 @@ msgid ""
 "The exchange of keys and association with the access point failed. Please "
 "check the WPA/WPA2 parameters you provided."
 msgstr ""
+"A troca de chaves e associação com o ponto de acesso falhou. Por favor, "
+"verifique os parâmetros WPA/WPA2 que você informou."
 
 #. Type: error
 #. Description
@@ -1267,20 +1269,16 @@ msgstr "O nome \"${hostname}\" é inválido."
 #. Description
 #. :sl2:
 #: ../netcfg-common.templates:19001
-#, fuzzy
-#| msgid ""
-#| "A valid hostname may contain only the numbers 0-9, the lowercase letters "
-#| "a-z, and the minus sign. It must be between 2 and 63 characters long, and "
-#| "may not begin or end with a minus sign."
 msgid ""
 "A valid hostname may contain only the numbers 0-9, upper and lowercase "
 "letters (A-Z and a-z), and the minus sign. It must be at most "
 "${maxhostnamelen} characters long, and may not begin or end with a minus "
 "sign."
 msgstr ""
-"Um nome de máquina válido pode conter somente números de 0 até 9, letras "
-"minúsculas de a até z e o sinal de menos. O mesmo deve ter entre 2 e 63 "
-"caracteres e não pode iniciar ou finalizar com um sinal de menos."
+"Um nome de máquina válido pode conter somente números (0-9), letras "
+"minúsculas (a-z) e maiúsculas (A-Z) e o sinal de menos (hífen). Ele deve ter "
+"no máximo ${maxhostnamelen} caracteres e não pode começar ou terminar com um "
+"sinal de menos (hífen)."
 
 #. Type: error
 #. Description
@@ -1298,7 +1296,7 @@ msgid ""
 "You may retry it from the installation main menu."
 msgstr ""
 "Um erro ocorreu e o processo de configuração de rede foi abortado. Você pode "
-"tentar iniciá-lo novamente a partir do menu principal."
+"tentar executá-lo novamente a partir do menu principal."
 
 #. Type: error
 #. Description
@@ -1337,7 +1335,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-common.templates:22001
 msgid "Kill switch enabled on ${iface}"
-msgstr "Chaveador habilitado na interface ${iface}"
+msgstr "Chave liga/desliga desativada na interface ${iface}"
 
 #. Type: note
 #. Description
@@ -1351,8 +1349,8 @@ msgid ""
 "continuing."
 msgstr ""
 "A interface ${iface} parece ter sido desabilitada através de um chaveador "
-"físico. Se você pretende usar esta interface, por favor, altere-a antes de "
-"continuar."
+"físico (\"kill switch\"). Se você pretende usar esta interface, por favor, "
+"ligue-a antes de continuar."
 
 #. Type: select
 #. Choices
@@ -1364,7 +1362,7 @@ msgstr ""
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:23001
 msgid "Infrastructure (Managed) network"
-msgstr "Rede em modo infraestrutura (Gerenciada)"
+msgstr "Rede em modo infraestrutura (gerenciada)"
 
 #. Type: select
 #. Choices
@@ -1376,7 +1374,7 @@ msgstr "Rede em modo infraestrutura (Gerenciada)"
 #. You MUST NOT use commas inside choices
 #: ../netcfg-common.templates:23001
 msgid "Ad-hoc network (Peer to peer)"
-msgstr "Rede em modo ad-hoc (Ponto a ponto)"
+msgstr "Rede em modo ad-hoc (ponto a ponto)"
 
 #. Type: text
 #. Description
@@ -1538,11 +1536,11 @@ msgid ""
 "have the first installation CD-ROM, a 'Netinst' CD-ROM, or packages "
 "available on the local network."
 msgstr ""
-"A configuração automática de rede teve sucesso. Porém, nenhuma rota padrão "
-"foi definida: o sistema não sabe como se comunicar com máquinas na Internet. "
-"Isto faz com que seja impossível continuar a instalação a menos que você "
-"possua o primeiro CD-ROM de instalação, um CD-ROM do tipo 'Netinst' ou "
-"pacotes disponíveis em sua rede local."
+"A configuração automática de rede foi realizada com sucesso. Porém, nenhuma "
+"rota padrão foi definida: o sistema não sabe como se comunicar com máquinas "
+"na Internet. Isto faz com que seja impossível continuar a instalação a menos "
+"que você possua o primeiro CD-ROM de instalação, um CD-ROM do tipo 'Netinst' "
+"ou pacotes disponíveis em sua rede local."
 
 #. Type: boolean
 #. Description
@@ -1561,7 +1559,7 @@ msgstr ""
 #. :sl2:
 #: ../netcfg-static.templates:2001
 msgid "Malformed IP address"
-msgstr "Endereço IP malformado"
+msgstr "Endereço IP mali formado"
 
 #. Type: error
 #. Description
@@ -1571,8 +1569,9 @@ msgid ""
 "The IP address you provided is malformed. It should be in the form x.x.x.x "
 "where each 'x' is no larger than 255. Please try again."
 msgstr ""
-"O endereço IP que você informou está malformado. Ele deve estar no formato x."
-"x.x.x , onde cada 'x' não deve ser maior que 255. Por favor, tente novamente."
+"O endereço IP que você informou está mal formado. Ele deve estar no formato "
+"x.x.x.x , onde cada 'x' não deve ser maior que 255. Por favor, tente "
+"novamente."
 
 #. Type: string
 #. Description
@@ -1618,7 +1617,7 @@ msgid ""
 "You may have made an error entering your IP address, netmask and/or gateway."
 msgstr ""
 "Você pode ter cometido um erro ao informar seu endereço IP, máscara de rede "
-"e/ou seu gateway."
+"e/ou gateway."
 
 #. Type: select
 #. Description
@@ -1637,11 +1636,11 @@ msgid ""
 "that receives many of the new versions from unstable if they are not too "
 "buggy."
 msgstr ""
-"O Debian é distribuído em diversos sabores. A versão estável (stable) é bem "
-"testada e raramente muda. A versão instável (unstable) não foi testada e "
-"muda com frequência. A versão \"testing\" é um meio termo, recebendo muitas "
-"das novas versões de softwares da instável caso os mesmos não estejam com "
-"muitos bugs."
+"O Debian é distribuído em diversos sabores. A versão chamada \"stable"
+"\" (estável) é bem testada e raramente muda. A versão chamada \"unstable"
+"\" (instável) não é testada e muda com frequência. A versão chamada \"testing"
+"\" (testes) é um meio termo, recebendo muitas das novas versões de softwares "
+"da \"unstable\" caso os mesmos não estejam com muitos bugs."
 
 #. Type: select
 #. Description
@@ -1677,7 +1676,7 @@ msgstr ""
 #. :sl2:
 #: ../choose-mirror-bin.templates-in:8001
 msgid "Bad archive mirror"
-msgstr "Repositório do espelho de rede com problemas"
+msgstr "Problemas no repositório do espelho de rede"
 
 #. Type: error
 #. Description
@@ -1714,8 +1713,8 @@ msgid ""
 "Additional details may be available in /var/log/syslog or on virtual console "
 "4."
 msgstr ""
-"Destalhes adicionais podem estar disponíveis em /var/log/syslog ou no "
-"console virtual 4."
+"Detalhes adicionais podem estar disponíveis em /var/log/syslog ou no console "
+"virtual 4."
 
 #. Type: error
 #. Description
@@ -1778,7 +1777,7 @@ msgstr ""
 #. :sl2:
 #: ../choose-mirror-bin.templates.ftp.base-in:4001
 msgid "FTP proxy information (blank for none):"
-msgstr "Informação sobre proxy FTP (mantenha em branco para nenhum):"
+msgstr "Informações sobre proxy FTP (deixe em branco para nenhum):"
 
 #. Type: string
 #. Description
@@ -1788,7 +1787,7 @@ msgid ""
 "If you need to use a FTP proxy to access the outside world, enter the proxy "
 "information here. Otherwise, leave this blank."
 msgstr ""
-"Se você precisa usar um proxy FTP para acessar locais fora de sua rede "
+"Se você precisa usar um proxy FTP para acessar locais fora da sua rede "
 "local, insira a informação de proxy aqui. Caso contrário, deixe em branco."
 
 #. Type: select
@@ -2172,7 +2171,7 @@ msgstr ""
 #. :sl2:
 #: ../partman-auto.templates:10001
 msgid "Unusable free space"
-msgstr "Espaço livre não utilizável"
+msgstr "Espaço livre não usável"
 
 #. Type: error
 #. Description
@@ -2577,7 +2576,7 @@ msgid ""
 "unit of measure is the megabyte."
 msgstr ""
 "O tamanho informado não foi entendido. Por favor, informe um tamanho inteiro "
-"positivo seguindo por uma unidade de medida opcional (e.g. \"200 GB\"). A "
+"positivo seguido por uma unidade de medida opcional (e.g. \"200 GB\"). A "
 "unidade padrão de medida é o megabyte."
 
 #. Type: error
@@ -2667,7 +2666,7 @@ msgstr "Nome da partição:"
 #: ../partman-partitioning.templates:20001
 #: ../partman-partitioning.templates:21001
 msgid "Continue with partitioning?"
-msgstr "Continuar com o particionador?"
+msgstr "Continuar com o particionamento?"
 
 #. Type: boolean
 #. Description
@@ -2720,41 +2719,41 @@ msgstr ""
 #. Type: select
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:22001
+#: ../partman-partitioning.templates:23001
 msgid "Partition table type:"
 msgstr "Tipo de tabela de partições:"
 
 #. Type: select
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:22001
+#: ../partman-partitioning.templates:23001
 msgid "Select the type of partition table to use."
 msgstr "Selecione o tipo de tabela de partições a ser usado."
 
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:23001
+#: ../partman-partitioning.templates:24001
 msgid "Create new empty partition table on this device?"
 msgstr "Criar nova tabela de partições vazia neste dispositivo?"
 
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:23001
+#: ../partman-partitioning.templates:24001
 msgid ""
 "You have selected an entire device to partition. If you proceed with "
 "creating a new partition table on the device, then all current partitions "
 "will be removed."
 msgstr ""
 "Você selecionou um disco inteiro para ser particionado. Se você continuar "
-"com a criação da nova tabela de partição no dispositivo, todas as partições "
+"com a criação da nova tabela de partições no dispositivo, todas as partições "
 "atuais serão removidas."
 
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:23001
+#: ../partman-partitioning.templates:24001
 msgid "Note that you will be able to undo this operation later if you wish."
 msgstr ""
 "Note que será possível desfazer esta operação posteriormente se assim você "
@@ -2763,27 +2762,27 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:24001
+#: ../partman-partitioning.templates:25001
 msgid "Write a new empty partition table?"
 msgstr "Gravar uma nova tabela de partições vazia?"
 
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:24001
+#: ../partman-partitioning.templates:25001
 msgid ""
 "Because of limitations in the current implementation of the Sun partition "
 "tables in libparted, the newly created partition table has to be written to "
 "the disk immediately."
 msgstr ""
-"Devido as limitações da implementação atual das tabelas de partição Sun na "
-"biblioteca libparted, a nova tabela de partições criada precisa ser gravado "
+"Devido às limitações da implementação atual das tabelas de partições Sun na "
+"biblioteca libparted, a nova tabela de partições criada precisa ser gravada "
 "em disco imediatamente."
 
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:24001
+#: ../partman-partitioning.templates:25001
 msgid ""
 "You will NOT be able to undo this operation later and all existing data on "
 "the disk will be irreversibly removed."
@@ -2794,7 +2793,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:24001
+#: ../partman-partitioning.templates:25001
 msgid ""
 "Confirm whether you actually want to create a new partition table and write "
 "it to disk."
@@ -2805,14 +2804,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:25001
+#: ../partman-partitioning.templates:26001
 msgid "Are you sure you want a bootable logical partition?"
 msgstr "Você tem certeza que deseja uma partição lógica inicializável?"
 
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:25001
+#: ../partman-partitioning.templates:26001
 msgid ""
 "You are trying to set the bootable flag on a logical partition. The bootable "
 "flag is generally only useful on primary partitions, so setting it on "
@@ -2828,7 +2827,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:25001
+#: ../partman-partitioning.templates:26001
 msgid ""
 "However, if you are sure that your BIOS does not have this problem, or if "
 "you are using a custom boot manager that pays attention to bootable logical "
@@ -2842,70 +2841,70 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:26001
+#: ../partman-partitioning.templates:27001
 msgid "Set the partition flags"
 msgstr "Definir flags da partição"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:27001
+#: ../partman-partitioning.templates:28001
 msgid "Name:"
 msgstr "Nome:"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:28001
+#: ../partman-partitioning.templates:29001
 msgid "Bootable flag:"
 msgstr "Flag inicializável:"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:29001
+#: ../partman-partitioning.templates:30001
 msgid "on"
 msgstr "ligado"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:30001
+#: ../partman-partitioning.templates:31001
 msgid "off"
 msgstr "desligado"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:31001
+#: ../partman-partitioning.templates:32001
 msgid "Resize the partition (currently ${SIZE})"
 msgstr "Redimensionar a partição (atualmente ${SIZE})"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:32001
+#: ../partman-partitioning.templates:33001
 msgid "Copy data from another partition"
 msgstr "Copiar os dados de outra partição"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:33001
+#: ../partman-partitioning.templates:34001
 msgid "Delete the partition"
 msgstr "Remover a partição"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:34001
+#: ../partman-partitioning.templates:35001
 msgid "Create a new partition"
 msgstr "Criar uma nova partição"
 
 #. Type: text
 #. Description
 #. :sl2:
-#: ../partman-partitioning.templates:35001
+#: ../partman-partitioning.templates:36001
 msgid "Create a new empty partition table on this device"
 msgstr "Criar uma nova tabela de partições vazia neste dispositivo"
 
@@ -2998,7 +2997,7 @@ msgstr ""
 "(swap). Habilitar área de troca (swap) é recomendado para que o sistema "
 "possa fazer melhor uso da memória física disponível e para que o mesmo possa "
 "se comportar melhor quando a memória física é escassa. Você pode enfrentar "
-"problemas de instalação caso você não possua memória física o bastante."
+"problemas de instalação caso não possua memória física suficiente."
 
 #. Type: boolean
 #. Description
@@ -3412,21 +3411,21 @@ msgstr "nenhum"
 #. :sl2:
 #: ../partman-basicfilesystems.templates:30001
 msgid "Ext2 file system"
-msgstr "sistema de arquivos ext2"
+msgstr "Sistema de arquivos ext2"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../partman-basicfilesystems.templates:32001
 msgid "FAT16 file system"
-msgstr "sistema de arquivos FAT16"
+msgstr "Sistema de arquivos FAT16"
 
 #. Type: text
 #. Description
 #. :sl2:
 #: ../partman-basicfilesystems.templates:34001
 msgid "FAT32 file system"
-msgstr "sistema de arquivos FAT32"
+msgstr "Sistema de arquivos FAT32"
 
 #. Type: text
 #. Description
@@ -3436,7 +3435,7 @@ msgstr "sistema de arquivos FAT32"
 #: ../partman-basicfilesystems.templates:36001
 #: ../partman-basicfilesystems.templates:38001
 msgid "swap area"
-msgstr "área de troca (swap)"
+msgstr "Área de troca (swap)"
 
 #. Type: text
 #. Description
@@ -3463,7 +3462,7 @@ msgstr ""
 #. a 65 columns limit (which means 65 characters in single-byte languages)
 #: ../partman-basicfilesystems.templates:42001
 msgid "noatime - do not update inode access times at each access"
-msgstr "noatime - não atualizar datas de acesso aos inodes a cada acesso"
+msgstr "noatime - não atualizar datas de acesso dos inodes a cada acesso"
 
 #. Type: text
 #. Description
@@ -3553,7 +3552,7 @@ msgstr "user_xatrr - suporte a atributos estendidos de usuários"
 #. a 65 columns limit (which means 65 characters in single-byte languages)
 #: ../partman-basicfilesystems.templates:52001
 msgid "quiet - changing owner and permissions does not return errors"
-msgstr "quiet - a mudança de dono e de permissões não retorna erros"
+msgstr "quiet - mudança de dono e de permissões não retorna erros"
 
 #. Type: text
 #. Description
@@ -3677,7 +3676,7 @@ msgstr ""
 "Sua partição de inicialização (\"boot\") não foi marcada como uma partição "
 "inicializável, ainda que isto seja requerido para que sua máquina possa ser "
 "inicializada. Você deveria voltar e definir a \"flag\" inicializável para a "
-"partição de inicialização uma partição."
+"partição de inicialização."
 
 #. Type: boolean
 #. Description
@@ -3688,7 +3687,7 @@ msgid ""
 "that the machine cannot boot from its hard disk."
 msgstr ""
 "Se você não corrigir isto, a partição será usada como está e é provável que "
-"a máquina não consegue inicializar a partir do disco rígido."
+"a máquina não consiga inicializar a partir do disco rígido."
 
 #. Type: boolean
 #. Description
@@ -3699,6 +3698,9 @@ msgid ""
 "${OFFSET} bytes from the minimum alignment for this disk, which may lead to "
 "very poor performance."
 msgstr ""
+"A partição ${PARTITION} atribuída a ${MOUNTPOINT} inicia com um deslocamento "
+"de ${OFFSET} bytes do alinhamento mínimo para este disco, o que pode "
+"resultar em um péssimo desempenho."
 
 #. Type: boolean
 #. Description
@@ -3711,6 +3713,11 @@ msgid ""
 "recreate it in the same position with the same settings. This will cause the "
 "partition to start at a point best suited for this disk."
 msgstr ""
+"Como você está formatando esta partição, você terá que corrigir este "
+"problema agora realinhando a partição, pois será difícil fazer a mudança "
+"depois. Para isso, volte ao menu principal de particionamento, apague a "
+"partição e recrie-a na mesma posição com as mesmas configurações. Isto fará "
+"com que a partição inicie em um ponto melhor para este disco."
 
 #. Type: text
 #. Description
@@ -3718,7 +3725,7 @@ msgstr ""
 #. File system name
 #: ../partman-btrfs.templates:2001
 msgid "btrfs journaling file system"
-msgstr "Sistema de arquivos btrfs com \"journaling\""
+msgstr "Sistema de arquivos com \"journaling\" btrfs"
 
 #. Type: text
 #. Description
@@ -3749,7 +3756,7 @@ msgstr "Sistema de arquivos com \"journaling\" JFS"
 #. :sl2:
 #: ../partman-jfs.templates:4001
 msgid "Use unrecommended JFS root file system?"
-msgstr "Usar sistema de arquivos não recomendado JFS para raiz?"
+msgstr "Usar configuração não recomendada de / com sistema de arquivos JFS?"
 
 #. Type: boolean
 #. Description
@@ -3760,7 +3767,7 @@ msgid ""
 "boot loader used by default by this installer."
 msgstr ""
 "Seu sistema de arquivos raiz é um sistema de arquivos JFS. Isso pode causar "
-"problemas com o carregador de inicialização utilizado por padrão por este "
+"problemas com o carregador de inicialização usado por padrão por este "
 "instalador."
 
 #. Type: boolean
@@ -3779,7 +3786,8 @@ msgstr ""
 #. :sl2:
 #: ../partman-jfs.templates:5001
 msgid "Use unrecommended JFS /boot file system?"
-msgstr "Usar sistema de arquivos JFS não recomendado para /boot?"
+msgstr ""
+"Usar configuração não recomendada de /boot com sistema de arquivos JFS?"
 
 #. Type: boolean
 #. Description
@@ -3790,7 +3798,7 @@ msgid ""
 "problems with the boot loader used by default by this installer."
 msgstr ""
 "Você montou um sistema de arquivos JFS como /boot. Isso provavelmente "
-"causará problemas com o carregador de inicialização utilizado por padrão por "
+"causará problemas com o carregador de inicialização usado por padrão por "
 "este instalador."
 
 #. Type: boolean
@@ -4034,7 +4042,7 @@ msgstr ""
 #. :sl2:
 #: ../base-installer.templates:2001
 msgid "No file system mounted on /target"
-msgstr "Nenhum sistema de arquivos montado sob /target"
+msgstr "Nenhum sistema de arquivos montado em /target"
 
 #. Type: error
 #. Description
@@ -4045,7 +4053,7 @@ msgid ""
 "target. The partitioner and formatter should have done this for you."
 msgstr ""
 "Antes que o processo de instalação possa continuar, um sistema de arquivos "
-"raiz deve ser montado sob /target. O particionador e o formatador deveriam "
+"raiz deve ser montado em /target. O particionador e o formatador deveriam "
 "ter feito isso para você."
 
 #. Type: error
@@ -4381,7 +4389,7 @@ msgstr "Aviso: ${INFO}"
 #. :sl2:
 #: ../bootstrap-base.templates:58001
 msgid "Retrying failed download of ${SUBST0}"
-msgstr "Tentando novamente baixar ${SUBST0}, pois o download anterior falhou"
+msgstr "Nova tentativa de baixar ${SUBST0}"
 
 #. Type: select
 #. Choices
@@ -4460,7 +4468,7 @@ msgstr "Nenhum espelho de rede foi selecionado."
 #. :sl2:
 #: ../apt-mirror-setup.templates-ubuntu:1001
 msgid "Use restricted software?"
-msgstr "Utilizar software restrito?"
+msgstr "Usar softwares restritos?"
 
 #. Type: boolean
 #. Description
@@ -4474,10 +4482,10 @@ msgid ""
 "prevent you from using, modifying, or sharing it."
 msgstr ""
 "Alguns softwares não-livres estão disponíveis em formato empacotado. Apesar "
-"desse software não ser parte da distribuição principal, as ferramentas de "
-"gerenciamento de pacotes padrão podem ser utilizadas para instalá-los. Esses "
-"softwares possuem licenças diversas, as quais podem impedi-lo de utilizá-"
-"los, modificá-los ou compartilhá-los."
+"desses softwares não fazerem parte da distribuição principal, as ferramentas "
+"de gerenciamento de pacotes padrão podem ser usadas para instalá-los. Esses "
+"softwares possuem licenças diversas que podem impedi-lo de usá-los, modificá-"
+"los ou compartilhá-los."
 
 #. Type: boolean
 #. Description
@@ -4485,7 +4493,7 @@ msgstr ""
 #. :sl2:
 #: ../apt-mirror-setup.templates-ubuntu:2001
 msgid "Use software from the \"universe\" component?"
-msgstr "Utilizar software do componente \"universe\"?"
+msgstr "Usar softwares do componente \"universe\"?"
 
 #. Type: boolean
 #. Description
@@ -4500,7 +4508,7 @@ msgstr ""
 "Alguns softwares adicionais estão disponíveis em formato empacotado. Esses "
 "softwares são livres e, apesar de não fazerem parte da distribuição "
 "principal, as ferramentas de gerenciamento de pacotes padrão podem ser "
-"utilizadas para instalá-los."
+"usadas para instalá-los."
 
 #. Type: boolean
 #. Description
@@ -4508,7 +4516,7 @@ msgstr ""
 #. :sl2:
 #: ../apt-mirror-setup.templates-ubuntu:3001
 msgid "Use software from the \"multiverse\" component?"
-msgstr "Utilizar software do componente \"multiverse\"?"
+msgstr "Usar softwares do componente \"multiverse\"?"
 
 #. Type: boolean
 #. Description
@@ -4523,10 +4531,10 @@ msgid ""
 "sharing it."
 msgstr ""
 "Alguns softwares não-livres estão disponíveis em formato empacotado. Apesar "
-"desse software não ser parte da distribuição principal, as ferramentas de "
-"gerenciamento de pacotes padrão podem ser utilizadas para instalá-los. Esses "
-"softwares possuem licenças diversas, as quais podem impedi-lo de utilizá-"
-"los, modificá-los ou compartilhá-los."
+"desses softwares não fazerem parte da distribuição principal, as ferramentas "
+"de gerenciamento de pacotes padrão podem ser usadas para instalá-los. Esses "
+"softwares possuem licenças diversas que podem impedi-lo de usá-los, modificá-"
+"los ou compartilhá-los."
 
 #. Type: boolean
 #. Description
@@ -4534,7 +4542,7 @@ msgstr ""
 #. :sl2:
 #: ../apt-mirror-setup.templates-ubuntu:4001
 msgid "Use software from the \"partner\" repository?"
-msgstr "Usar software do repositório \"partner\"?"
+msgstr "Usar softwares do repositório \"partner\"?"
 
 #. Type: boolean
 #. Description
@@ -4547,8 +4555,8 @@ msgid ""
 "and the respective vendors as a service to Ubuntu users."
 msgstr ""
 "Alguns softwares adicionas estão disponíveis a partir do repositório "
-"\"partner\" da Canonical. Este software não é parte do Ubuntu, mas é "
-"oferecido pela Canonical e respectivos fornecedores como um serviço aos "
+"\"partner\" da Canonical. Estes softwares não fazem parte do Ubuntu, mas são "
+"oferecidos pela Canonical e respectivos fornecedores como um serviço aos "
 "usuários Ubuntu."
 
 #. Type: boolean
@@ -4557,7 +4565,7 @@ msgstr ""
 #. :sl2:
 #: ../apt-mirror-setup.templates-ubuntu:5001
 msgid "Use backported software?"
-msgstr "Utilizar \"backport\" de softwares?"
+msgstr "Usar softwares portados de versões mais novas?"
 
 #. Type: boolean
 #. Description
@@ -4571,7 +4579,7 @@ msgid ""
 "applications which may provide useful features."
 msgstr ""
 "Alguns softwares foram portados da árvore de desenvolvimento para funcionar "
-"com esta versão. Apesar desses softwares não ter passado por testes "
+"com esta versão. Apesar desses softwares não terem passado por testes "
 "completos como os softwares presentes na versão oficial passaram, os mesmos "
 "incluem versões de algumas aplicações que podem fornecer recursos úteis."
 
@@ -4607,8 +4615,8 @@ msgid ""
 "'imurdock' or 'rms'."
 msgstr ""
 "Note que você pode criar essa conta posteriormente (como também qualquer "
-"outra conta adicional) digitando 'adduser <nomedousuário>' como root, onde "
-"<nomedousuário> é um nome de usuário, como 'imurdock' ou 'rms'."
+"outra conta adicional) digitando 'adduser <nome-do-usuário>' como root, onde "
+"<nome-do-usuário> é um nome de usuário, como 'imurdock' ou 'rms'."
 
 #. Type: error
 #. Description
@@ -4621,19 +4629,15 @@ msgstr "Nome de usuário inválido"
 #. Description
 #. :sl2:
 #: ../user-setup-udeb.templates:11001
-#, fuzzy
-#| msgid ""
-#| "The username you entered is invalid. Note that usernames must start with "
-#| "a lower-case letter, which can be followed by any combination of numbers "
-#| "and more lower-case letters."
 msgid ""
 "The username you entered is invalid. Note that usernames must start with a "
 "lower-case letter, which can be followed by any combination of numbers and "
 "more lower-case letters, and must be no more than 32 characters long."
 msgstr ""
 "O nome de usuário informado é inválido. Note que nomes de usuários devem "
-"iniciar com uma letra em caixa-baixa, a qual pode ser seguida de qualquer "
-"combinação de números e mais letras em caixa-baixa."
+"iniciar com uma letra minúscula, a qual pode ser seguida por qualquer "
+"combinação de números e mais letras minúsculas, não podendo ter mais do que "
+"32 caracteres."
 
 #. Type: error
 #. Description
@@ -4650,7 +4654,7 @@ msgid ""
 "The username you entered (${USERNAME}) is reserved for use by the system. "
 "Please select a different one."
 msgstr ""
-"O nome de usuário que você informou (${USERNAME}) é reservado para do "
+"O nome de usuário que você informou (${USERNAME}) é reservado para uso do "
 "sistema. Por favor, informe um nome de usuário diferente."
 
 #. Type: error
@@ -4658,7 +4662,7 @@ msgstr ""
 #. :sl2:
 #: ../user-setup-udeb.templates:15001 ../grub-installer.templates:10001
 msgid "Password input error"
-msgstr "Erro na informação da senha"
+msgstr "Erro ao informar a senha"
 
 #. Type: error
 #. Description
@@ -4684,8 +4688,8 @@ msgid ""
 "You entered an empty password, which is not allowed. Please choose a non-"
 "empty password."
 msgstr ""
-"Você informou uma senha em branco, a qual não é permitida. Por favor, "
-"informe uma senha não nula."
+"Você informou uma senha em branco, o que não é permitida. Por favor, informe "
+"uma senha não vazia."
 
 #. Type: boolean
 #. Description
@@ -4755,8 +4759,8 @@ msgid ""
 "shown to you; all less important questions are skipped."
 msgstr ""
 "Pacotes que usam o debconf para sua configuração priorizam as perguntas que "
-"lhe fazem. Somente perguntas com uma certa prioridade ou superior serão "
-"exibidas; todas as outras perguntas de menor prioridade não serão exibidas."
+"serão feitas a você. Somente perguntas com uma certa prioridade ou superior "
+"serão exibidas; todas as outras de menor prioridade são ocultadas."
 
 #. Type: select
 #. Description
@@ -4771,14 +4775,13 @@ msgid ""
 " - 'low' is for trivial items that have defaults that will work in\n"
 "   the vast majority of cases."
 msgstr ""
-"Você pode selecionar a menor prioridade das perguntas que você deseja que "
-"sejam exibidas:\n"
+"Você pode selecionar a menor prioridade das perguntas que quer ver:\n"
 " - 'crítica' é para itens que provavelmente causariam problemas em\n"
-"    seu sistema sem sua intervenção.\n"
-" - 'alta' é para itens que não com respostas padrão razoáveis.\n"
-" - 'média' é para itens comuns que com respostas padrão razoáveis.\n"
-" - 'baixa' é para itens triviais que com respostas padrão que\n"
-"    funcionarão para a grande maioria dos casos."
+"   seu sistema sem sua intervenção.\n"
+" - 'alta' é para itens que não possuem padrões razoáveis.\n"
+" - 'média' é para itens normais que possuem padrões razoáveis.\n"
+" - 'baixa' é para itens triviais que possuem padrões que funcionarão\n"
+"   na grande maioria dos casos."
 
 #. Type: select
 #. Description
@@ -4847,17 +4850,6 @@ msgstr ""
 #. Description
 #. :sl2:
 #: ../grub-installer.templates:7001
-#, fuzzy
-#| msgid ""
-#| "The device can be specified using GRUB's \"(hdn,m)\" notation, or as a "
-#| "device in /dev. Below are some examples:\n"
-#| " - \"(hd0)\" or \"/dev/hda\" will install GRUB to the master boot record\n"
-#| "   of your first hard drive (IDE);\n"
-#| " - \"(hd0,2)\" or \"/dev/hda2\" will use the second partition of your\n"
-#| "   first IDE drive;\n"
-#| " - \"(hd2,5)\" or \"/dev/sdc5\" will use the first extended partition of\n"
-#| "   your third drive (SCSI here);\n"
-#| " - \"(fd0)\" or \"/dev/fd0\" will install GRUB to a floppy."
 msgid ""
 "The device should be specified as a device in /dev. Below are some "
 "examples:\n"
@@ -4868,16 +4860,14 @@ msgid ""
 "   drive;\n"
 " - \"/dev/fd0\" will install GRUB to a floppy."
 msgstr ""
-"O dispositivo pode ser especificado usando a notação \"(hdn,m)\" do GRUB ou "
-"como um dispositivo em /dev. Alguns exemplos são:\n"
-" - \"(hd0)\" ou \"/dev/hda\" instalará o GRUB no registro mestre de\n"
-"   inicialização de seu primeiro disco rígido (IDE);\n"
-" - \"(hd0,2)\" ou \"/dev/hda2\" utilizará a segunda partição de seu "
-"primeiro\n"
-"   disco IDE;\n"
-" - \"(hd2,5)\" ou \"/dev/sdc5\" utilizará a primeira partição estendida de\n"
-"   seu terceiro disco (aqui SCSI);\n"
-" - \"(fd0)\" ou \"/dev/fd0\" instalará o GRUB em um disquete."
+"O dispositivo pode ser especificado como um dispositivo em /dev. Abaixo "
+"estão alguns exemplos:\n"
+" - \"/dev/sda\" instalará o GRUB no registro mestre de inicialização de seu\n"
+"   primeiro disco rígido;\n"
+" - \"/dev/sda2\" usará a segunda partição do seu primeiro disco rígido;\n"
+" - \"/dev/sdc5\" usará a primeira partição estendida do seu terceiro disco\n"
+"   rígido;\n"
+" - \"/dev/fd0\" instalará o GRUB em um disquete."
 
 #. Type: password
 #. Description
@@ -4911,7 +4901,8 @@ msgstr ""
 #. :sl2:
 #: ../grub-installer.templates:8001
 msgid "If you do not wish to set a GRUB password, leave this field blank."
-msgstr "Se você não deseja definir uma senha para o GRUB, deixe em branco."
+msgstr ""
+"Se você não deseja definir uma senha para o GRUB, deixe este campo em branco."
 
 #. Type: password
 #. Description
@@ -5125,9 +5116,9 @@ msgid ""
 "\". If you need any other file systems (such as a separate \"/usr\"), you "
 "will have to mount those yourself."
 msgstr ""
-"Após esta mensagem, um shell com ${DEVICE} montado em \"/\" lhe será "
-"fornecido. Se você precisar de outros sistemas de arquivos (como um \"/usr\" "
-"separado) você terá que montá-los manualmente."
+"Após esta mensagem, você receberá um shell com ${DEVICE} montado em \"/\". "
+"Se você precisar de outros sistemas de arquivos (como um \"/usr\" separado) "
+"você terá que montá-los manualmente."
 
 #. Type: text
 #. Description
@@ -5147,12 +5138,12 @@ msgid ""
 "\"chroot /target\". If you need any other file systems (such as a separate "
 "\"/usr\"), you will have to mount those yourself."
 msgstr ""
-"Após esta mensagem, um prompt de comandos lhe será fornecido com ${DEVICE} "
-"montado em \"/target\". Você pode trabalhar no mesmo usando as ferramentas "
-"disponíveis no ambiente do instalador. Se você quiser torná-lo seu sistema "
-"de arquivos raiz temporariamente, execute o comando \"chroot /target\". Se "
-"você precisar de quaisquer outros sistemas de arquivos (como um \"/usr\" "
-"separado), você precisará montá-los manualmente."
+"Após esta mensagem, você receberá um shell com ${DEVICE} montado em \"/target"
+"\". Você pode trabalhar no mesmo usando as ferramentas disponíveis no "
+"ambiente do instalador. Se você quiser torná-lo seu sistema de arquivos raiz "
+"temporariamente, execute o comando \"chroot /target\". Se você precisar de "
+"quaisquer outros sistemas de arquivos (como um \"/usr\" separado), você "
+"precisará montá-los manualmente."
 
 #. Type: text
 #. Description
@@ -5177,7 +5168,7 @@ msgstr "Shell interativo no ambiente do instalador"
 #. :sl2:
 #: ../rescue-mode.templates:19001
 msgid "Passphrase for ${DEVICE}:"
-msgstr "Frase-senha (\"passphrase\") para o dispositivo ${DEVICE}:"
+msgstr "Frase secreta para ${DEVICE}:"
 
 #. Type: password
 #. Description
@@ -5185,8 +5176,7 @@ msgstr "Frase-senha (\"passphrase\") para o dispositivo ${DEVICE}:"
 #: ../rescue-mode.templates:19001
 msgid "Please enter the passphrase for the encrypted volume ${DEVICE}."
 msgstr ""
-"Por favor, informe a frase-senha (\"passphrase\") para o volume "
-"criptografado ${DEVICE}."
+"Por favor, informe a frase secreta para o volume criptografado ${DEVICE}."
 
 #. Type: password
 #. Description
@@ -5262,7 +5252,7 @@ msgstr "sistema de arquivos montado"
 #. :sl2:
 #: ../save-logs.templates:2002
 msgid "How should the debug logs be saved or transferred?"
-msgstr "Como os log de depuração devem ser gravados ou transferidos?"
+msgstr "Como os logs de depuração devem ser gravados ou transferidos?"
 
 #. Type: select
 #. Description
@@ -5273,7 +5263,7 @@ msgid ""
 "the web, or saved to a mounted file system."
 msgstr ""
 "Arquivos de log de depuração do instalador podem ser gravados em um "
-"disquete, servidos através da Web ou gravados em um sistema de arquivos "
+"disquete, servidos através da web ou gravados em um sistema de arquivos "
 "montado."
 
 #. Type: string

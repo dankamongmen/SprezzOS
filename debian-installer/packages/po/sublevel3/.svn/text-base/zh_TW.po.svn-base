@@ -7,10 +7,11 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-04 22:50+0000\n"
-"PO-Revision-Date: 2008-08-09 00:35+0800\n"
-"Last-Translator: Tetralet <tetralet@gmail.com>\n"
+"PO-Revision-Date: 2012-04-03 03:11+0800\n"
+"Last-Translator: Yao Wei (魏銘廷) <mwei@lxde.org>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +28,7 @@ msgstr "不要改變 開機/kernel 字型"
 #. :sl3:
 #: ../console-setup.templates:3001
 msgid "Let the system select a suitable font"
-msgstr ""
+msgstr "讓系統選擇適當的字體"
 
 #. Type: text
 #. Description
@@ -35,7 +36,7 @@ msgstr ""
 #. :sl3:
 #: ../console-setup.templates:4001
 msgid "framebuffer only"
-msgstr ""
+msgstr "只使用 Framebuffer"
 
 #. Type: select
 #. Choices
@@ -174,10 +175,8 @@ msgstr ". 聯合 - 拉丁語；斯拉夫語和非-斯拉夫語西裡爾字母"
 #. Choices
 #. :sl3:
 #: ../console-setup.templates:5001
-#, fuzzy
-#| msgid "Enter random characters"
 msgid "Guess optimal character set"
-msgstr "請隨意得輸入字元"
+msgstr "猜測最佳的文字編碼"
 
 #. Type: select
 #. Description
@@ -260,30 +259,23 @@ msgstr "字型大小："
 #. Description
 #. :sl3:
 #: ../console-setup.templates:7001
-#, fuzzy
-#| msgid ""
-#| "Please select the size of the font for the Linux console. For reference, "
-#| "the font used when the computer boots has size 16."
 msgid ""
 "Please select the size of the font for the console. For reference, the font "
 "used when the computer boots has size 8x16."
 msgstr ""
-"請替 Linux 主控台選擇字型大小。比如說，在電腦開機時，所使用的字型大小為 16。"
+"請替主控台選擇字體大小。比如說，在電腦開機時，所使用的字體大小為 8x16。"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../console-setup.templates:8001
-#, fuzzy
-#| msgid ""
-#| "Please select the size of the font for the Linux console. For reference, "
-#| "the font used when the computer boots has size 16."
 msgid ""
 "Please select the size of the font for the console.  For reference, the font "
 "used when the computer boots has size 8x16.  Some font sizes require the kbd "
 "console package (not console-tools) plus framebuffer."
 msgstr ""
-"請替 Linux 主控台選擇字型大小。比如說，在電腦開機時，所使用的字型大小為 16。"
+"請替主控台選擇字體大小。比如說，在電腦開機時，所使用的字體大小為 8x16。部份字"
+"體大小需要安裝 kbd 主控台套件(不是 console-tools) 並使用 framebuffer。"
 
 #. Type: select
 #. Description
@@ -526,20 +518,18 @@ msgstr ""
 #. For example MMC/SD card #1 (mmcblk0)
 #. :sl3:
 #: ../partman-base.templates:51001
-#, fuzzy, no-c-format
-#| msgid "DASD %s (%s)"
+#, no-c-format
 msgid "MMC/SD card #%s (%s)"
-msgstr "DASD %s (%s)"
+msgstr "MMC/SD 卡 #%s (%s)"
 
 #. Type: text
 #. Description
 #. For example MMC/SD card #1, partition #2 (mmcblk0p2)
 #. :sl3:
 #: ../partman-base.templates:52001
-#, fuzzy, no-c-format
-#| msgid "SCSI%s, partition #%s (%s)"
+#, no-c-format
 msgid "MMC/SD card #%s, partition #%s (%s)"
-msgstr "SCSI%s，#%s 分割區 (%s)"
+msgstr "MMC/SD 卡 #%s，#%s 分割區 (%s)"
 
 #. Type: text
 #. Description
@@ -980,7 +970,7 @@ msgstr "路徑 ${path} 所指到的並不是一個分割區或是硬碟裝置。
 #. :sl3:
 #: ../lilo-installer.templates:5001
 msgid "Installing LILO..."
-msgstr "正在安裝 LILO..."
+msgstr "正在安裝 LILO……"
 
 #. Type: text
 #. Description
@@ -1109,10 +1099,8 @@ msgstr "將 LILO 開機程式安裝至硬碟上"
 #. Description
 #. :sl3:
 #: ../network-preseed.templates:2001
-#, fuzzy
-#| msgid "Load debconf preconfiguration file"
 msgid "Location of initial preconfiguration file:"
-msgstr "載入 debconf 的預先設定檔"
+msgstr "預先設定檔的位置:"
 
 #. Type: string
 #. Description
@@ -1123,6 +1111,8 @@ msgid ""
 "preconfiguration file (which can in turn pull in other files). To do that, "
 "you need to provide a (perhaps partial) URL."
 msgstr ""
+"為了進行自動安裝，您必須提供預先設定檔 (用來取得其他檔案)。為了取得設定檔，您"
+"必須提供一個 (可能是一部份的) URL。"
 
 #. Type: string
 #. Description
@@ -1138,6 +1128,13 @@ msgid ""
 "  floppy://preseed.cfg\n"
 "  file:///hd-media/kiosk/./preseed.cfg"
 msgstr ""
+"此 URL 可以是您存放預先設定檔的機器名稱，或是完整的 URL。以下 URL 皆可使用:\n"
+"  intra\t\t[在 example.com 內，此與以下兩個相同]\n"
+"  intra.example.com\n"
+"  http://intra.example.com/d-i/./lenny/preseed.cfg\n"
+"  http://192.168.0.1/~phil/test47.txt\n"
+"  floppy://preseed.cfg\n"
+"  file:///hd-media/kiosk/./preseed.cfg"
 
 #. Type: string
 #. Description
@@ -1147,13 +1144,15 @@ msgid ""
 "For fully automated installs, preseed/url should itself be preseeded (via "
 "kernel command line, DHCP, or syslinux.cfg on customised media)"
 msgstr ""
+"為了進行無人值守安裝，預先設定檔或是 URL 本身必須先配置好 (從核心命令、DHCP "
+"或是在自製媒體中的 syslinux.cfg)"
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../network-preseed.templates:2001
 msgid "See http://wiki.debian.org/DebianInstaller/Preseed for inspiration."
-msgstr ""
+msgstr "請參考 http://wiki.debian.org/DebianInstaller/Preseed。"
 
 #. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
 #. Type: text
@@ -1288,14 +1287,14 @@ msgstr "搜索磁碟，尋找安裝程式的 ISO 影像檔"
 #. :sl3:
 #: ../iso-scan.templates:6001
 msgid "Mounting ${DRIVE}..."
-msgstr "正在掛載 ${DRIVE}..."
+msgstr "正在掛載 ${DRIVE}……"
 
 #. Type: text
 #. Description
 #. :sl3:
 #: ../iso-scan.templates:7001
 msgid "Scanning ${DRIVE} (in ${DIRECTORY})..."
-msgstr "正在掃描 ${DRIVE} (於 ${DIRECTORY} 中)..."
+msgstr "正在掃描 ${DRIVE} (於 ${DIRECTORY} 中)……"
 
 #. Type: boolean
 #. Description
@@ -1349,16 +1348,12 @@ msgstr ""
 #. :sl3:
 #: ../iso-scan.templates:9001 ../iso-scan.templates:10001
 #: ../iso-scan.templates:11001
-#, fuzzy
-#| msgid ""
-#| "You'll have to use an alternative installation method, or try again after "
-#| "you've fixed the ISO image."
 msgid ""
 "You'll have to use an alternative installation method, select another device "
 "to look for ISO image, or try again after you've fixed it."
 msgstr ""
-"您將必須使用其它的替代安裝方式，或是在您修復了該 ISO 影像檔的問題後，再試一"
-"次。"
+"您將必須使用其它的替代安裝方式，請選擇其他的裝置以找尋 ISO 檔，或當您修正此問"
+"題後再試一次。"
 
 #. Type: error
 #. Description
@@ -1410,35 +1405,29 @@ msgstr ""
 #. Choices
 #. :sl3:
 #: ../iso-scan.templates:14001
-#, fuzzy
-#| msgid "Available devices:"
 msgid "All detected devices"
-msgstr "可用的裝置："
+msgstr "偵測到的全部裝置"
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../iso-scan.templates:14001
 msgid "${DEVICES_LIST}"
-msgstr ""
+msgstr "${DEVICES_LIST}"
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../iso-scan.templates:14001
-#, fuzzy
-#| msgid "Enter manually"
 msgid "Enter device manually"
-msgstr "手動輸入"
+msgstr "手動輸入裝置"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../iso-scan.templates:14002
-#, fuzzy
-#| msgid "Device for boot loader installation:"
 msgid "Device or partition to search for installation ISO(s):"
-msgstr "用來安裝開機程式的裝置："
+msgstr "搜尋安裝 ISO 檔的裝置或是分割區:"
 
 #. Type: select
 #. Description
@@ -1448,31 +1437,29 @@ msgid ""
 "You can select a device, manually specify a non-detected device, or rescan "
 "available devices (useful for slow USB devices)."
 msgstr ""
+"您可以選擇一個裝置，手動指定一個偵測不到的裝置，或是重新掃描可用的裝置 (對慢"
+"速的 USB 裝置有用)。"
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../iso-scan.templates:15001
-#, fuzzy
-#| msgid "Device:"
 msgid "Device name:"
-msgstr "裝置："
+msgstr "裝置名稱:"
 
 #. Type: select
 #. Choices
 #. :sl3:
 #: ../iso-scan.templates:16001
 msgid "Full search"
-msgstr ""
+msgstr "完全搜尋"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../iso-scan.templates:16002
-#, fuzzy
-#| msgid "Services to use:"
 msgid "ISO file to use:"
-msgstr "要使用的服務："
+msgstr "要使用的 ISO 檔:"
 
 #. Type: select
 #. Description
@@ -1482,28 +1469,26 @@ msgid ""
 "One or multiple ISO files have been detected on the selected device(s). "
 "Please choose which one you want to use, or ask for a more thorough search."
 msgstr ""
+"有一個或多個 ISO 檔在已選擇的裝置被偵測到。請選擇您要使用的 ISO 檔，或是要求"
+"更澈底的搜尋。"
 
 #. Type: boolean
 #. Description
 #. :sl3:
 #: ../iso-scan.templates:17001
 msgid "Is ISO file ${FILENAME} the correct image for installation?"
-msgstr ""
+msgstr "請問 ISO 檔 ${FILENAME} 是否為安裝用的正確映像檔？"
 
 #. Type: boolean
 #. Description
 #. :sl3:
 #: ../iso-scan.templates:17001
-#, fuzzy
-#| msgid ""
-#| "The ISO file ${FILENAME} on ${DEVICE} (${SUITE}) will be used as the "
-#| "installation ISO image."
 msgid ""
 "The ISO file ${FILENAME} on ${DEVICE} (${SUITE}, code ${CODENAME}, self-"
 "described as '${DESCRIPTION}') will be used as the installation ISO image."
 msgstr ""
-"將使用 ${DEVICE} (${SUITE}) 上的 ISO 檔案 ${FILENAME} 作為安裝用的 ISO 影像"
-"檔。"
+"您將使用在 ${DEVICE} 的 ${FILENAME} (${SUITE}, 代號 ${CODENAME},  自述為 "
+"'${DESCRIPTION}') 的檔案，作為安裝用的 ISO 映像檔。"
 
 #. Type: boolean
 #. Description
@@ -1513,6 +1498,7 @@ msgid ""
 "If multiple ISO files exist on the same installer drive, you may select "
 "which one you want to use."
 msgstr ""
+"如果有多個 ISO 檔在相同的安裝裝置上被偵測到，您可以選擇您要使用哪一個檔案。"
 
 #. Type: note
 #. Description
@@ -1715,14 +1701,14 @@ msgstr "安裝系統"
 #. :sl3:
 #: ../live-installer.templates:2001
 msgid "Installing the system..."
-msgstr "正在安裝系統..."
+msgstr "正在安裝系統……"
 
 #. Type: text
 #. Description
 #. :sl3:
 #: ../live-installer.templates:3001
 msgid "Copying data to disk..."
-msgstr "正在將資料複製至磁碟..."
+msgstr "正在將資料複製至磁碟……"
 
 #. Type: text
 #. Description
@@ -1732,21 +1718,21 @@ msgstr "正在將資料複製至磁碟..."
 #. Live system
 #: ../live-installer.templates:4001
 msgid "Cleaning up network settings..."
-msgstr "正在清除網路設定..."
+msgstr "正在清除網路設定……"
 
 #. Type: text
 #. Description
 #. :sl3:
 #: ../live-installer.templates:5001
 msgid "Removing packages specific to the live system..."
-msgstr "正在移除 Live 系統專用的套件..."
+msgstr "正在移除 Live 系統專用的套件……"
 
 #. Type: text
 #. Description
 #. :sl3:
 #: ../live-installer.templates:6001
 msgid "Reconfiguring X.org..."
-msgstr "正在重新設定 X.org..."
+msgstr "正在重新設定 X.org……"
 
 #. Type: select
 #. Choices
@@ -1883,18 +1869,13 @@ msgstr "UFS 檔案系統"
 #. Description
 #. :sl3:
 #: ../partman-ufs.templates:6001
-#, fuzzy
-#| msgid ""
-#| "Your root partition has not been configured with the UFS file system. "
-#| "This is needed by your machine in order to boot. Please go back and use "
-#| "UFS file system."
 msgid ""
 "Your root partition has not been configured with a bootable file system. "
 "This is needed by your machine in order to boot. Please go back and use "
 "either the UFS or the ZFS file system."
 msgstr ""
-"您的啟動分割區並未設定為使用 UFS 檔案系統。但您必須如此設定，您的機器才能夠開"
-"機。請返回並使用 UFS 檔案系統。"
+"您的啟動分割區並未設定為使用可開機的檔案系統，但您必須如此設定，您的機器才能"
+"夠開機。請返回並使用 UFS 或是 ZFS 檔案系統。"
 
 #. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
 #. Type: text
@@ -2129,11 +2110,8 @@ msgstr "沒有輸入任何的 Logical Volume 名稱"
 #. Description
 #. :sl3:
 #: ../partman-zfs.templates:37001 ../partman-lvm.templates:50001
-#, fuzzy
-#| msgid ""
-#| "No name for the logical volume has been entered.  Please enter a name."
 msgid "No name for the logical volume has been entered. Please enter a name."
-msgstr "並沒有替該 Logical Volume 輸入任何的名稱。請輸入一個名稱。"
+msgstr "沒有替該 Logical Volume 輸入名稱。請輸入一個名稱。"
 
 #. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
 #. Type: error
@@ -2246,11 +2224,8 @@ msgstr "未能找到 Logical Volume"
 #. Description
 #. :sl3:
 #: ../partman-zfs.templates:41001 ../partman-lvm.templates:54001
-#, fuzzy
-#| msgid ""
-#| "No logical volume has been found.  Please create a logical volume first."
 msgid "No logical volume has been found. Please create a logical volume first."
-msgstr "未能找到任何的 Logical Volume。請先建立一個 Logical Volume。"
+msgstr "未能找到 Logical Volume。請先建立一個 Logical Volume。"
 
 #. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
 #. Type: select
@@ -2319,8 +2294,6 @@ msgstr "在刪除 Logical Volume 時發生錯誤"
 #. Description
 #. :sl3:
 #: ../partman-zfs.templates:44001 ../partman-lvm.templates:57001
-#, fuzzy
-#| msgid "The logical volume (${LV}) on ${VG} could not be deleted."
 msgid "The logical volume ${LV} on ${VG} could not be deleted."
 msgstr "無法刪除位於 ${VG} 上的 Logical Volume (${LV})。"
 
@@ -3824,18 +3797,13 @@ msgstr "是否要將這些變更寫入磁碟中並設定 LVM？"
 #. Description
 #. :sl3:
 #: ../partman-lvm.templates:18001
-#, fuzzy
-#| msgid ""
-#| "Before the Logical Volume Manager can be configured, the current "
-#| "partitioning scheme has to be written to disk.  These changes cannot be "
-#| "undone."
 msgid ""
 "Before the Logical Volume Manager can be configured, the current "
 "partitioning scheme has to be written to disk. These changes cannot be "
 "undone."
 msgstr ""
-"必須先將目前的磁碟分割結果寫入磁碟中，然後才能對 Logical Volume Manager 進行"
-"設定。這些變更將無法還原。"
+"必須先將目前的磁碟分割結果寫入磁碟中，然後才可以對 Logical Volume Manager 進"
+"行設定。這些變更將無法還原。"
 
 #. Type: boolean
 #. Description
@@ -4028,13 +3996,6 @@ msgstr "不正確的 Logical Volume 或 Volume Group 名稱"
 #. Description
 #. :sl3:
 #: ../partman-lvm.templates:61001
-#, fuzzy
-#| msgid ""
-#| "Logical volume or volume group names may only contain alphanumeric "
-#| "characters, hyphen, plus, period and underscore. They must be 128 "
-#| "characters or less and may not begin with a hyphen. The names \".\" and "
-#| "\"..\" are not allowed. In addition, logical volume names may not begin "
-#| "with \"snapshot\"."
 msgid ""
 "Logical volume or volume group names may only contain alphanumeric "
 "characters, hyphen, plus, period, and underscore. They must be 128 "
@@ -4042,10 +4003,9 @@ msgid ""
 "\" are not allowed. In addition, logical volume names cannot begin with "
 "\"snapshot\"."
 msgstr ""
-"Logical Volume 或 Volume Group 的名稱只可以使用 英文字母、數字、破折號、加"
-"號、句號 和 底線符號，最多 128 個字元，不可以使用 破折號 做為開頭，也不可以使"
-"用 . 和 .. 這兩個名稱。此外，Logical Volume 的名稱也不可以使用 snapshot 做為"
-"開頭。"
+"Logical Volume 或 Volume Group 的名稱只可以使用 英數字、破折號、加號、句號 "
+"和 底線符號，最多 128 個字元，不可以使用 破折號 做為開頭，也不可以使用 . "
+"和 .. 這兩個名稱。此外，Logical Volume 的名稱也不可以使用 snapshot 做為開頭。"
 
 #. Type: boolean
 #. Description
@@ -4564,7 +4524,7 @@ msgstr "在消除 ${DEVICE} 上的資料時發生錯誤。資料尚未被消除�
 #. :sl3:
 #: ../partman-crypto.templates:26001
 msgid "Setting up encryption..."
-msgstr "正在設定加密..."
+msgstr "正在設定加密……"
 
 #. Type: text
 #. Description

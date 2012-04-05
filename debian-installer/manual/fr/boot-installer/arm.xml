@@ -1,4 +1,4 @@
-<!-- original version: 66718 -->
+<!-- original version: 67373 -->
 
   <sect2 arch="arm" id="boot-tftp"><title>Amorcer à partir de TFTP</title>
 &boot-installer-intro-net.xml;
@@ -14,98 +14,6 @@
   <sect2 arch="arm" id="boot-firmware"><title>Amorcer depuis un microprogramme</title>
 
 &boot-installer-intro-firmware.xml;
-
-   <sect3 arch="arm" id="boot-firmware-nslu2"><title>Amorcer un NSLU2</title>
-<para>
-
-Il y a trois façons d'installer le microprogramme en flash.
-
-</para>
-
-    <sect4 arch="arm"><title>Utiliser l'interface web du NSLU2</title>
-<para>
-
-Allez dans la section <quote>administration</quote> et choisissez l'élément <literal>Upgrade</literal>.
-Vous pouvez chercher l'image que vous venez de télécharger. Pressez le bouton
-<literal>Start Upgrade</literal>, confirmez, attendez quelques minutes puis
-confirmez à nouveau. Le système s'amorcera directement sur l'installateur.
-
-</para>
-    </sect4>
-
-    <sect4 arch="arm"><title>Par le réseau avec Linux/Unix</title>
-<para>
-
-Vous pouvez utiliser <command>upslug2</command> sur une machine Linux ou Unix
-pour mettre à jour la machine par le réseau. Ce logiciel est un paquet &debian;.
-
-D'abord mettez votre NSLU2 en mode upgrade :
-
-<orderedlist>
-<listitem><para>
-
-Déconnectez les disques des ports USB.
-
-</para></listitem>
-<listitem><para>
-
-Éteignez le NSLU2
-
-</para></listitem>
-<listitem><para>
-
-Gardez enfoncé le bouton reset (accessible par un petit trou à l'arrière,
-juste au dessus du bouton power).
-
-</para></listitem>
-<listitem><para>
-
-Pressez et relâchez le bouton power pour lancer le NSLU2.
-
-</para></listitem>
-<listitem><para>
-
-Attendez dix secondes en scrutant la LED « ready/status ». Après dix secondes
-elle passera au rouge. Relâchez immédiatement le bouton reset.
-
-</para></listitem>
-<listitem><para>
-
-La LED « ready/status » passera alternativement du vert au rouge
-(il y a une seconde de délai avant le premier vert). Le NSLU2 est maintenant
-en mode mise à jour.
-
-</para></listitem>
-</orderedlist>
-
-Voyez les <ulink
-url="http://www.nslu2-linux.org/wiki/OpenSlug/UsingTheBinary">pages sur NSLU2-Linux</ulink>
-si vous avez des problèmes.
-
-Une fois en mode mise à jour, vous pouvez mettre en mémoire la nouvelle image.
-
-<informalexample><screen>
-sudo upslug2 -i di-nslu2.bin
-</screen></informalexample>
-
-Remarquez que ce logiciel montre aussi l'adresse MAC du NSLU2, ce qui peut être
-pratique pour configurer le serveur DHCP. Après que l'image a été chargée et vérifiée,
-le système redémarre automatiquement. N'oubliez pas de rebrancher votre disque USB,
-sinon l'installateur ne pourra pas le trouver.
-
-</para>
-    </sect4>
-
-    <sect4 arch="arm"><title>Par le réseau avec Windows</title>
-<para>
-
-Il existe un <ulink
-url="http://www.everbesthk.com/8-download/sercomm/firmware/all_router_utility.zip">outil
-</ulink> pour Windows qui met à jour le microprogramme par le réseau.
-
-</para>
-    </sect4>
-   </sect3>
 
   <sect3 arch="arm" id="boot-firmware-ss4000e">
    <title>Amorcer une machine SS4000-E</title>
