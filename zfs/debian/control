@@ -2,19 +2,21 @@ Source: zfs
 Section: unknown
 Priority: extra
 Maintainer: nick black <dank@skynet.qemfd.net>
-Build-Depends: debhelper (>= 8.0.0), autotools-dev
+Build-Depends: debhelper (>= 8.0.0), autotools-dev, bzip2
 Standards-Version: 3.9.2
 Homepage: <insert the upstream URL, if relevant>
 #Vcs-Git: git://git.debian.org/collab-maint/zfs.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/zfs.git;a=summary
 
-Package: zfs
+Package: zfs-utils
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: <insert up to 60 chars description> <insert long description, indented with spaces>
 
-Package: zfs-doc
+Package: zfs-source
 Architecture: all
-Description: documentation for zfs
- <insert long description, indented with spaces>
+Depends: module-assistant, debhelper (>= 7), make, bzip2
+Description: source for the zfs driver.
+ This package provides the source code for the zfs kernel modules.
+ The zfs package is also required in order to make use of these
+ modules. Kernel source or headers are required to compile these modules.
