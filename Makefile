@@ -50,8 +50,8 @@ $(CANARY):
 
 clean:
 	rm -rf tmp $(TESTDISK) images
-	-cd zfs && make maintainer-clean
-	-cd spl && make maintainer-clean
+	-cd zfs && make maintainer-clean || true
+	-cd spl && make maintainer-clean || true
 
 clobber:
 	cd $(DIBUILD) && make reallyclean
