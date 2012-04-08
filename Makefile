@@ -47,7 +47,7 @@ $(CHROOT)/build: $(BUILDIN)
 	sudo chroot $(@D) git clone git://git.debian.org/d-i/debian-installer.git /root/debian-installer
 	sudo chroot $(@D) umount /proc
 	sudo chown -R $(shell whoami) $(@D)
-	sudo chroot $(@D) mount /proc
+	sudo chroot $(@D) mount -t proc proc /proc
 	sudo cp $(BUILDIN) $@
 
 zfs: $(ZFS)
