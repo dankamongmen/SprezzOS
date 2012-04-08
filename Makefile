@@ -1,8 +1,8 @@
 .PHONY: all test update clean clobber nukefromorbit spl zfs
 
 DI:=debian-installer
-DIBUILD:=$(DI)/build
 CHROOT:=unstable
+DIBUILD:=$(CHROOT)/root/$(DI)/build
 
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/cdd.conf
@@ -36,10 +36,11 @@ $(CONF): $(CONFIN)
 	( cat $^ && echo "custom_installer=$(shell pwd)/dest" ) > $@
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build
-	sudo chroot $(@D) bash -c build
+	sudo chroot $(CHROOT) /build
 
 $(CHROOT)/build: $(BUILDIN)
 	sudo debootstrap --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
+	sudo chown -R $(shell whoami) $(@D)
 	sudo chroot $(@D) mount -t proc procfs /proc
 	sudo chroot $(@D) apt-get install locales autoconf udev
 	sudo chroot $(@D) dpkg-reconfigure locales
@@ -62,20 +63,15 @@ zfs/Makefile: zfs/configure
 spl/Makefile: spl/configure
 	cd spl && ./configure
 
-CANARY:=$(DI)/packages/finish-install/.git/config
-
-$(DIBUILD)/config/common: common $(CANARY)
+$(DIBUILD)/config/common: common
 	cat $< > $@
 
-$(DIBUILD)/$(SLIST): $(SLIST) $(CANARY)
+$(DIBUILD)/$(SLIST): $(SLIST)
 	cat $< > $@
 
 update: $(DI)/.mrconfig
 	git submodule update
 	cd $(DI) && mr update
-
-$(CANARY):
-	[ -d $(DI) ] || { git submodule init && git submodule update ; }
 
 clean:
 	rm -rf tmp $(TESTDISK) images $(PROFILE) $(CONF)
