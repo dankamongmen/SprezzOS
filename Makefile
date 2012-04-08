@@ -1,4 +1,4 @@
-.PHONY: all test update clean clobber nukefromorbit spl zfs
+.PHONY: all test update clean spl zfs
 
 DI:=debian-installer
 CHROOT:=unstable
@@ -78,9 +78,3 @@ clean:
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
 	sudo rm -rf $(CHROOT)
-
-clobber:
-	cd $(DIBUILD) && make reallyclean
-
-nukefromorbit:
-	rm -rf $(DI)
