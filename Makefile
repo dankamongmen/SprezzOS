@@ -36,6 +36,7 @@ $(CHROOT)/build:
 	sudo debootstrap --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	sudo chroot $(@D) apt-get install locales autoconf udev
 	sudo chroot $(@D) dpkg-reconfigure locales
+	sudo chroot $(@D) apt-get build-dep debian-installer
 	sudo cp -r $(DI) $(@D)/root/
 	echo "cd root/$(DI) && debian/rules binary" > $@
 	sudo chroot $(@D) dpkg-reconfigure locales
