@@ -4,7 +4,10 @@ DI:=debian-installer
 DIBUILD:=$(DI)/build
 DIIMG:=debian-installer_201204xy_amd64.deb
 
+# simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/cdd.conf
+ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
+
 PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
@@ -19,10 +22,8 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-ZFS:=zfs/zfs_0.6.0-1_amd64.deb
-
  #$(DIIMG)
-$(IMG): $(CONF) $(PROFILE)
+$(IMG): $(CONF) $(PROFILE) $(ZFS)
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS \
 		--local-packages $(ZFS)
