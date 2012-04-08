@@ -26,7 +26,7 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG) $(PROFILE)
+$(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG)
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS \
 		--local-packages $(ZFS)
