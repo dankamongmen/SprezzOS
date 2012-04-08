@@ -62,10 +62,10 @@ zfs/Makefile: zfs/configure
 spl/Makefile: spl/configure
 	cd spl && ./configure
 
-$(DIBUILD)/config/common: common
+$(DIBUILD)/config/common: common $(CHROOT)/build
 	cat $< > $@
 
-$(DIBUILD)/$(SLIST): $(SLIST)
+$(DIBUILD)/$(SLIST): $(SLIST) $(CHROOT)/build
 	cat $< > $@
 
 update: $(DI)/.mrconfig
