@@ -7,6 +7,7 @@ DIIMG:=debian-installer_201204xy_amd64.deb
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/cdd.conf
 ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
+SPL:=$(shell pwd)/spl_0.6.0-rc8-1_amd64.deb
 
 PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
@@ -28,11 +29,16 @@ $(IMG): $(CONF) $(PROFILE) $(ZFS)
 		--profiles SprezzOS --auto-profiles SprezzOS \
 		--local-packages $(ZFS)
 
-$(ZFS): spl_0.6.0-rc8-1_amd64.deb
+zfs: $(ZFS)
+
+$(ZFS): $(SPL)
 	cd zfs && ./configure && make deb
 
-spl_0.6.0-rc8-1_amd64.deb:
+$(SPL): spl/Makefile
 	cd spl && sudo debian/rules binary
+
+spl/Makefile: spl/configure
+	cd spl && ./configure
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common
 	cd $(DI) && fakeroot debian/rules binary
