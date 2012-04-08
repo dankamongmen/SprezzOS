@@ -19,12 +19,15 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
- #$(DIIMG)
-$(IMG): $(CONF) $(PROFILE) zfs/zfs_0.6.0-1_amd64.deb
-	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
-		--profiles SprezzOS --auto-profiles SprezzOS
+ZFS:=zfs/zfs_0.6.0-1_amd64.deb
 
-zfs/zfs_0.6.0-1_amd64.deb: spl_0.6.0-rc8-1_amd64.deb
+ #$(DIIMG)
+$(IMG): $(CONF) $(PROFILE)
+	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
+		--profiles SprezzOS --auto-profiles SprezzOS \
+		--local-packages $(ZFS)
+
+$(ZFS): spl_0.6.0-rc8-1_amd64.deb
 	cd zfs && ./configure && make deb
 
 spl_0.6.0-rc8-1_amd64.deb:
