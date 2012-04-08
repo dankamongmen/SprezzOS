@@ -79,4 +79,5 @@ clean:
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
+	sudo umount $(CHROOT)/proc || true
 	sudo rm -rf $(CHROOT)
