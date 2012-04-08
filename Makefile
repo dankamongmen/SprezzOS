@@ -2,7 +2,6 @@
 
 DI:=debian-installer
 DIBUILD:=$(DI)/build
-DIIMG:=debian-installer_201204xy_amd64.deb
 CHROOT:=unstable
 
 # simple-cdd builds from subdirs, and needs full paths as input
@@ -11,6 +10,7 @@ ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
 SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb
 
 PROFILE:=profiles/SprezzOS.packages
+PROFILEIN:=SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
@@ -24,13 +24,16 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG)
+$(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG) $(PROFILE)
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS \
 		--local-packages $(ZFS)
 
-$(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common
-	cd $(DI) && fakeroot debian/rules binary
+$(PROFILE): $(PROFILEIN)
+	( cat $^ && echo "custom_installer=$(shell pwd)/dest" ) > $@
+
+$(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build
+	sudo chroot $(@D) bash -c build
 
 $(CHROOT)/build:
 	sudo debootstrap --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
@@ -40,7 +43,6 @@ $(CHROOT)/build:
 	sudo chroot $(@D) apt-get build-dep debian-installer
 	sudo cp -r $(DI) $(@D)/root/
 	echo "cd root/$(DI) && debian/rules binary" > $@
-	sudo chroot $(@D) dpkg-reconfigure locales
 
 zfs: $(ZFS)
 
@@ -72,7 +74,7 @@ $(CANARY):
 	[ -d $(DI) ] || { git submodule init && git submodule update ; }
 
 clean:
-	rm -rf tmp $(TESTDISK) images
+	rm -rf tmp $(TESTDISK) images $(PROFILE)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
