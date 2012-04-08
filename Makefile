@@ -1,7 +1,7 @@
 .PHONY: all test update clean clobber nukefromorbit spl zfs
 
 DI:=debian-installer
-DIBUILD:=$(DI)/installer/build
+DIBUILD:=$(DI)/build
 DIIMG:=debian-installer_201204xy_amd64.deb
 
 CONF:=$(shell pwd)/cdd.conf
@@ -19,7 +19,8 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF) $(PROFILE) zfs/zfs_0.6.0-1_amd64.deb $(DIIMG)
+ #$(DIIMG)
+$(IMG): $(CONF) $(PROFILE) zfs/zfs_0.6.0-1_amd64.deb
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS
 
@@ -30,7 +31,7 @@ spl_0.6.0-rc8-1_amd64.deb:
 	cd spl && sudo debian/rules binary
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common
-	cd $(DI)/installer && debian/rules binary
+	cd $(DI) && fakeroot debian/rules binary
 
 CANARY:=$(DI)/packages/finish-install/.git/config
 
@@ -46,7 +47,6 @@ update: $(DI)/.mrconfig
 
 $(CANARY):
 	[ -d $(DI) ] || { git submodule init && git submodule update ; }
-	cd $(DI) && scripts/git-setup && mr -p checkout
 
 clean:
 	rm -rf tmp $(TESTDISK) images
