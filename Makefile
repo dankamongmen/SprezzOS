@@ -6,6 +6,7 @@ CHROOT:=unstable
 
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/cdd.conf
+CONFIN:=$(shell pwd)/cdd.conf.in
 ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
 SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb
 
@@ -29,7 +30,8 @@ $(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG) $(PROFILE)
 		--profiles SprezzOS --auto-profiles SprezzOS \
 		--local-packages $(ZFS)
 
-$(PROFILE): $(PROFILEIN)
+$(CONF): $(CONFIN)
+	@[ -d $(@D) ] || mkdir -p $(@D)
 	( cat $^ && echo "custom_installer=$(shell pwd)/dest" ) > $@
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build
@@ -74,7 +76,7 @@ $(CANARY):
 	[ -d $(DI) ] || { git submodule init && git submodule update ; }
 
 clean:
-	rm -rf tmp $(TESTDISK) images $(PROFILE)
+	rm -rf tmp $(TESTDISK) images $(PROFILE) $(CONF)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
