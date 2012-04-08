@@ -41,7 +41,8 @@ $(DIBUILD)/$(SLIST): $(SLIST) $(CANARY)
 	cat $< > $@
 
 update: $(DI)/.mrconfig
-	cd $(DI) && svn up && mr update
+	git submodule update
+	cd $(DI) && mr update
 
 $(CANARY):
 	[ -d $(DI) ] || { git submodule init && git submodule update ; }
