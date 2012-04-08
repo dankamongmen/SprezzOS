@@ -7,6 +7,7 @@ CHROOT:=unstable
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/cdd.conf
 CONFIN:=$(shell pwd)/cdd.conf.in
+BUILDIN:=chroot-build
 ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
 SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb
 
@@ -37,14 +38,15 @@ $(CONF): $(CONFIN)
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build
 	sudo chroot $(@D) bash -c build
 
-$(CHROOT)/build:
+$(CHROOT)/build: $(BUILDIN)
 	sudo debootstrap --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	sudo chroot $(@D) mount -t proc procfs /proc
 	sudo chroot $(@D) apt-get install locales autoconf udev
 	sudo chroot $(@D) dpkg-reconfigure locales
 	sudo chroot $(@D) apt-get build-dep debian-installer
 	sudo cp -r $(DI) $(@D)/root/
-	echo "cd root/$(DI) && debian/rules binary" > $@
+	sudo cat $(BUILDIN) > $@
+	echo "cd root && git clone git://git.debian.org/d-i/debian-installer.git && debian/rules binary" > $@
 
 zfs: $(ZFS)
 
