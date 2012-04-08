@@ -38,7 +38,7 @@ $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build
 	sudo chroot $(CHROOT) /build
 
 $(CHROOT)/build: $(BUILDIN)
-	sudo debootstrap --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian --include git,autoconf,udev,locales
+	sudo debootstrap --include=git,autoconf,udev,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	sudo chroot $(@D) mount -t proc procfs /proc
 	sudo chroot $(@D) dpkg-reconfigure locales
 	echo "deb-src http://ftp.us.debian.org/debian/ sid main non-free contrib" | sudo tee -a $(CHROOT)/etc/apt/sources.list
