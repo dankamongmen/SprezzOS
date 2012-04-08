@@ -16,8 +16,8 @@ PROFILEIN:=SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
+DIIMG:=$(CHROOT)/root/debian-installer_201204xy_amd64.deb
 
-# don't yet use $(DIIMG), our custom build of debian-installer
 all: $(IMG)
 
 test: $(TESTDISK) all
@@ -82,7 +82,7 @@ clean:
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
-	rm -rf $(CHROOT)
+	sudo rm -rf $(CHROOT)
 
 clobber:
 	cd $(DIBUILD) && make reallyclean
