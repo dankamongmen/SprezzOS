@@ -30,7 +30,7 @@ spl_0.6.0-rc8-1_amd64.deb:
 	cd spl && sudo debian/rules binary
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common
-	cd $(DIBUILD) && make build_cdrom_isolinux
+	cd $(DI)/installer && debian/rules binary
 
 CANARY:=$(DI)/packages/finish-install/.git/config
 
