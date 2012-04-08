@@ -1,4 +1,4 @@
-.PHONY: all test update clean spl zfs
+.PHONY: all test clean zfs
 
 DI:=debian-installer
 CHROOT:=unstable
@@ -71,10 +71,6 @@ $(DIBUILD)/config/common: common $(CHROOT)/build
 $(DIBUILD)/$(SLIST): $(SLIST) $(CHROOT)/build
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cat $< > $@
-
-update: $(DI)/.mrconfig
-	git submodule update
-	cd $(DI) && mr update
 
 clean:
 	rm -rf tmp $(TESTDISK) images $(CONF)
