@@ -50,6 +50,8 @@ $(CANARY):
 
 clean:
 	rm -rf tmp $(TESTDISK) images
+	rm -f $(wildcard *deb)
+	-cd zfs && rm -f $(wildcard *deb)
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
 
