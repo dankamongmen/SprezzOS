@@ -12,7 +12,6 @@ ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
 SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb
 
 PROFILE:=profiles/SprezzOS.packages
-PROFILEIN:=SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
@@ -74,7 +73,7 @@ update: $(DI)/.mrconfig
 	cd $(DI) && mr update
 
 clean:
-	rm -rf tmp $(TESTDISK) images $(PROFILE) $(CONF)
+	rm -rf tmp $(TESTDISK) images $(CONF)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
