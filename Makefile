@@ -3,6 +3,7 @@
 DI:=debian-installer
 DIBUILD:=$(DI)/build
 DIIMG:=debian-installer_201204xy_amd64.deb
+CHROOT:=unstable
 
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/cdd.conf
@@ -23,11 +24,21 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
- #$(DIIMG)
-$(IMG): $(CONF) $(PROFILE) $(ZFS)
+$(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG)
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS \
 		--local-packages $(ZFS)
+
+$(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common
+	cd $(DI) && fakeroot debian/rules binary
+
+$(CHROOT)/build:
+	sudo debootstrap --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
+	sudo chroot $(@D) apt-get install locales autoconf udev
+	sudo chroot $(@D) dpkg-reconfigure locales
+	sudo cp -r $(DI) $(@D)/root/
+	echo "cd root/$(DI) && debian/rules binary" > $@
+	sudo chroot $(@D) dpkg-reconfigure locales
 
 zfs: $(ZFS)
 
@@ -42,9 +53,6 @@ zfs/Makefile: zfs/configure
 
 spl/Makefile: spl/configure
 	cd spl && ./configure
-
-$(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common
-	cd $(DI) && fakeroot debian/rules binary
 
 CANARY:=$(DI)/packages/finish-install/.git/config
 
@@ -66,6 +74,7 @@ clean:
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
+	rm -rf $(CHROOT)
 
 clobber:
 	cd $(DIBUILD) && make reallyclean
