@@ -5,17 +5,9 @@ This repository builds and tests SprezzOS install media.
 Dependencies
 ------------
 
-Updating requires Subversion, git, and mr (consult debian-installer/README).
-
-Building requires GNU make, subversion-tools (svn-clean), and simple-cdd.
+Building requires GNU make, debootstrap, and simple-cdd.
 
 Building SPL/ZFS requires uuid-dev, libz-dev, autoconf and alien. Note that
  ZFS requires a *non*-preemptive kernel (CONFIG_PREEMPT=n).
-
-Building debian-installer requires a number of packages; perform an
-
-	apt-get build-dep debian-installer
-
-and run dpkg_checkbuilddeps until it shows nothing missing.
 
 Testing adds a dependency on KVM.
