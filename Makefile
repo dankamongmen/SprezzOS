@@ -44,7 +44,7 @@ update: $(DI)/.mrconfig
 	cd $(DI) && svn up && mr update
 
 $(CANARY):
-	[ -d $(DI) ] || svn co svn://svn.debian.org/svn/d-i/trunk $(DI)
+	[ -d $(DI) ] || { git submodule init && git submodule update ; }
 	cd $(DI) && scripts/git-setup && mr -p checkout
 
 clean:
