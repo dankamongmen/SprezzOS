@@ -1,3 +1,4 @@
+.DELETE_ON_ERROR:
 .PHONY: all test clean zfs
 
 DI:=debian-installer
@@ -39,7 +40,7 @@ $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	( cat $^ && echo "custom_installer=$(shell pwd)/dest" ) > $@
 
-$(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build
+$(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build $(PMZFS)
 	sudo chroot $(CHROOT) /build
 
 $(CHROOT)/build: $(BUILDIN) common
