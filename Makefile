@@ -43,6 +43,7 @@ $(CONF): $(CONFIN)
 TARGUDEBS:=$(CHROOT)/root/udebs/partman-zfs_1-1_all.udeb
 
 $(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb
+	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build $(TARGUDEBS)
