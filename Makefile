@@ -10,6 +10,8 @@ CONFIN:=$(shell pwd)/cdd.conf.in
 BUILDIN:=chroot-build
 ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
 SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb
+UDEBS:=$(shell pwd)/udebs
+PMZFS:=$(UDEBS)/partman-zfs_1-1_all.udeb
 
 PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
@@ -25,10 +27,13 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG)
+$(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG) $(PMZFS)
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS \
-		--local-packages $(ZFS)
+		--local-packages $(ZFS) --extra-udeb-dist $(UDEBS)
+
+$(PMZFS): $(UDEBS)/partman-zfs/debian/rules
+	cd $(<D)/.. && debian/rules binary
 
 $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -37,7 +42,7 @@ $(CONF): $(CONFIN)
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build
 	sudo chroot $(CHROOT) /build
 
-$(CHROOT)/build: $(BUILDIN)
+$(CHROOT)/build: $(BUILDIN) common
 	sudo debootstrap --include=git,autoconf,udev,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	sudo chroot $(@D) mount -t proc procfs /proc
 	sudo chroot $(@D) dpkg-reconfigure locales
@@ -73,7 +78,7 @@ $(DIBUILD)/$(SLIST): $(SLIST) $(CHROOT)/build
 	cat $< > $@
 
 clean:
-	rm -rf tmp $(TESTDISK) images $(CONF)
+	rm -rf tmp $(TESTDISK) images $(CONF) $(PMZFS)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
