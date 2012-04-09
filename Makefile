@@ -18,12 +18,12 @@ PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
-DIIMG:=$(CHROOT)/root/debian-installer_201204xy_amd64.deb
+DIIMG:=dest/netboot/mini.iso
 
 all: $(IMG)
 
 test: $(TESTDISK) all
-	kvm -cdrom $(IMG) -hda $<
+	kvm -cdrom $(IMG) -hda $< -boot d
 
 $(TESTDISK):
 	kvm-img create $@ 40G
@@ -31,7 +31,8 @@ $(TESTDISK):
 $(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG) $(PMZFS)
 	simple-cdd --conf $< --dist sid --profiles-udeb-dist sid \
 		--profiles SprezzOS --auto-profiles SprezzOS \
-		--local-packages $(ZFS) --extra-udeb-dist $(UDEBS)
+		--local-packages $(ZFS) \
+		--local-packages $(PMZFS) #--profiles-udeb-dist $(UDEBS) #--extra-udeb-dist $(UDEBS)
 
 $(PMZFS): $(UDEBS)/partman-zfs/debian/rules
 	cd $(<D)/.. && fakeroot debian/rules binary
@@ -60,6 +61,7 @@ $(CHROOT)/build: $(BUILDIN) common
 	sudo chroot $(@D) umount /proc
 	sudo chown -R $(shell whoami) $(@D)
 	sudo chroot $(@D) mount -t proc proc /proc
+	echo "APT::Get::AllowUnauthenticated 1 ;" > $(@D)/etc/apt/apt.conf.d/80auth
 	sudo cp $(BUILDIN) $@
 
 zfs: $(ZFS)
