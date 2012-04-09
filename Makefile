@@ -34,13 +34,18 @@ $(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG) $(PMZFS)
 		--local-packages $(ZFS) --extra-udeb-dist $(UDEBS)
 
 $(PMZFS): $(UDEBS)/partman-zfs/debian/rules
-	cd $(<D)/.. && debian/rules binary
+	cd $(<D)/.. && fakeroot debian/rules binary
 
 $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	( cat $^ && echo "custom_installer=$(shell pwd)/dest" ) > $@
 
-$(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build $(PMZFS)
+TARGUDEBS:=$(CHROOT)/root/udebs/partman-zfs_1-1_all.udeb
+
+$(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb
+	cp $< $@
+
+$(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build $(TARGUDEBS)
 	sudo chroot $(CHROOT) /build
 
 $(CHROOT)/build: $(BUILDIN) common
@@ -81,6 +86,7 @@ $(DIBUILD)/$(SLIST): $(SLIST) $(CHROOT)/build
 clean:
 	rm -rf tmp $(TESTDISK) images $(CONF) $(PMZFS)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
+	-cd $(UDEBS)/partman-zfs && debian/rules clean
 	-cd zfs && make maintainer-clean || true
 	-cd spl && make maintainer-clean || true
 	sudo umount $(CHROOT)/proc || true
