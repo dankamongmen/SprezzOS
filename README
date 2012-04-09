@@ -5,7 +5,8 @@ This repository builds and tests SprezzOS install media.
 Dependencies
 ------------
 
-Building requires GNU make, debootstrap, dh-di, and simple-cdd.
+Building requires GNU make, debootstrap, dh-di, and simple-cdd. Building with
+ a decent level of parallelism (-j4) is recommended.
 
 Building SPL/ZFS requires uuid-dev, libz-dev, autoconf and alien. Note that
  ZFS requires a *non*-preemptive kernel (CONFIG_PREEMPT=n).
