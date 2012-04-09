@@ -1,6 +1,6 @@
 Source: partman-zfs
-Section: unknown
-Priority: extra
+Section: debian-installer
+Priority: standard
 Maintainer: nick black <nick.black@sprezzatech.com>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.2
@@ -9,7 +9,8 @@ Vcs-Git: git://github.com/dankamongmen/SprezzOS.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/partman-zfs.git;a=summary
 
 Package: partman-zfs
+XC-Package-Type: udeb
 Architecture: all
-Depends: ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: ${misc:Depends} zfs-modules, partman-base (>= 140)
+Provides: partman-filesystem
+Description: ZFS support for partman
