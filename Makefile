@@ -13,10 +13,10 @@ UDEBS:=$(shell pwd)/udebs
 PMZFS:=$(UDEBS)/partman-zfs_1-1_all.udeb
 
 ZMOD:=$(shell pwd)/zfs/zfs-modules_0.6.0-1_amd64.deb
-ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb $(ZMOD)
+ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
 
 SMOD:=$(shell pwd)/spl/spl-modules_0.6.0-1_amd64.deb
-SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb $(SMOD)
+SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb
 
 PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
@@ -83,7 +83,7 @@ $(CHROOT)/build: $(BUILDIN) common
 	sudo chown -R $(shell whoami) $(@D)
 	sudo chroot $(@D) mount -t proc proc /proc
 	echo "APT::Get::AllowUnauthenticated 1 ;" > $(@D)/etc/apt/apt.conf.d/80auth
-	find $(DIBUILD)/pkg-lists/ -name \*.cfg -exec echo -n "zfs-modules\npartman-zfs" >> {} \;
+	find $(DIBUILD)/pkg-lists/ -name \*.cfg -exec echo -e "zfs-modules\npartman-zfs" >> {} \;
 	sudo cp $(BUILDIN) $@
 
 zfs: $(ZFS)
