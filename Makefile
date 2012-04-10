@@ -19,6 +19,7 @@ IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
 DIIMG:=dest/netboot/mini.iso
+CPDIIMG:=tmp/mirror/dists/sid/main/installer-amd64/current/images/netboot
 
 all: $(IMG)
 
@@ -28,10 +29,14 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF) $(PROFILE) $(ZFS) $(DIIMG) $(PMZFS)
+$(IMG): $(CONF) $(PROFILE) $(ZFS) $(CPDIIMG) $(PMZFS)
 	build-simple-cdd --conf $< --dist sid --profiles SprezzOS \
 		--auto-profiles SprezzOS \
-		--local-packages $(ZFS) #--local-packages $(PMZFS)
+		--local-packages $(ZFS),$(PMZFS)
+
+$(CPDIIMG): $(DIIMG)
+	@[ -d $(@D) ] || mkdir -p $(@D)
+	cp -r $(wildcard dest/*) $(@D)
 
 #--profiles-udeb-dist $(UDEBS) #--extra-udeb-dist $(UDEBS)
 
@@ -46,7 +51,6 @@ TARGUDEBS:=$(DIBUILD)/localudebs/partman-zfs_1-1_all.udeb
 TARGUDEBS+=$(DIBUILD)/localudebs/zfs-modules_0.6.0-1_amd64.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/partman-zfs_1-1_all.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/zfs-modules_0.6.0-1_amd64.udeb
-
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build $(TARGUDEBS)
 	sudo chroot $(CHROOT) /build
