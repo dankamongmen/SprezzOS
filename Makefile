@@ -67,17 +67,11 @@ $(CHROOT)/build: $(BUILDIN) common
 
 zfs: $(ZFS)
 
-$(ZFS): $(SPL) zfs/Makefile
+$(ZFS): $(SPL) zfs/configure
 	cd zfs && make deb
 
-$(SPL): spl/Makefile
+$(SPL): spl/configure
 	cd spl && make deb
-
-zfs/Makefile: zfs/configure
-	cd zfs && ./configure
-
-spl/Makefile: spl/configure
-	cd spl && ./configure
 
 $(DIBUILD)/config/common: common $(CHROOT)/build
 	@[ -d $(@D) ] || mkdir -p $(@D)
