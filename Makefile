@@ -9,10 +9,14 @@ DIBUILD:=$(CHROOT)/root/$(DI)/build
 CONF:=$(shell pwd)/cdd.conf
 CONFIN:=$(shell pwd)/cdd.conf.in
 BUILDIN:=chroot-build
-ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
-SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb
 UDEBS:=$(shell pwd)/udebs
 PMZFS:=$(UDEBS)/partman-zfs_1-1_all.udeb
+
+ZMOD:=$(shell pwd)/zfs/zfs-modules_0.6.0-1_amd64.deb
+ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb $(ZMOD)
+
+SMOD:=$(shell pwd)/spl/spl-modules_0.6.0-1_amd64.deb
+SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb $(SMOD)
 
 PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
@@ -29,10 +33,10 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF) $(PROFILE) $(ZFS) $(CPDIIMG) $(PMZFS)
+$(IMG): $(CONF) $(PROFILE) $(ZFS) $(SPL) $(CPDIIMG) $(PMZFS)
 	build-simple-cdd --conf $< --dist sid --profiles SprezzOS \
 		--auto-profiles SprezzOS \
-		--local-packages $(ZFS),$(PMZFS)
+		--local-packages $(ZFS),$(PMZFS),$(SPL),$(ZMOD),$(SMOD)
 
 $(CPDIIMG): $(DIIMG)
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -79,6 +83,7 @@ $(CHROOT)/build: $(BUILDIN) common
 	sudo chown -R $(shell whoami) $(@D)
 	sudo chroot $(@D) mount -t proc proc /proc
 	echo "APT::Get::AllowUnauthenticated 1 ;" > $(@D)/etc/apt/apt.conf.d/80auth
+	find $(DIBUILD)/pkg-lists/ -name \*.cfg -exec echo -n "zfs-modules\npartman-zfs" >> {} \;
 	sudo cp $(BUILDIN) $@
 
 zfs: $(ZFS)
