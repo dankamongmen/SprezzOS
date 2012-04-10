@@ -42,14 +42,26 @@ $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	( cat $^ && echo "custom_installer=$(shell pwd)/dest" ) > $@
 
-TARGUDEBS:=$(CHROOT)/root/udebs/partman-zfs_1-1_all.udeb
+TARGUDEBS:=$(DIBUILD)/localudebs/partman-zfs_1-1_all.udeb
+TARGUDEBS+=$(DIBUILD)/localudebs/zfs-modules_0.6.0-1_amd64.udeb
+TARGUDEBS+=$(CHROOT)/root/udebs/partman-zfs_1-1_all.udeb
+TARGUDEBS+=$(CHROOT)/root/udebs/zfs-modules_0.6.0-1_amd64.udeb
 
-$(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb
-	@[ -d $(@D) ] || mkdir -p $(@D)
-	cp $< $@
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build $(TARGUDEBS)
 	sudo chroot $(CHROOT) /build
+
+$(UDEBS)/zfs-modules_0.6.0-1_amd64.udeb: zfs/zfs-modules_0.6.0-1_amd64.deb
+	@[ -d $(@D) ] || mkdir -p $(@D)
+	cp $< $@
+
+$(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
+	@[ -d $(@D) ] || mkdir -p $(@D)
+	cp $< $@
+
+$(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
+	@[ -d $(@D) ] || mkdir -p $(@D)
+	cp $< $@
 
 $(CHROOT)/build: $(BUILDIN) common
 	sudo debootstrap --include=git,autoconf,udev,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
