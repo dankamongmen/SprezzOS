@@ -68,10 +68,10 @@ $(CHROOT)/build: $(BUILDIN) common
 zfs: $(ZFS)
 
 $(ZFS): $(SPL) zfs/configure
-	cd zfs && make deb
+	cd zfs && ./configure && make deb
 
 $(SPL): spl/configure
-	cd spl && make deb
+	cd spl && ./configure && make deb
 
 $(DIBUILD)/config/common: common $(CHROOT)/build
 	@[ -d $(@D) ] || mkdir -p $(@D)
