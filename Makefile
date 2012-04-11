@@ -24,7 +24,7 @@ TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
 DIIMG:=dest/netboot/mini.iso
 CPDIIMG:=tmp/mirror/dists/sid/main/installer-amd64/current/images/netboot
-DIDEB:=unstable/root/debian-installer_201204xy_amd64.deb
+DIDEB:=$(shell pwd)/unstable/root/debian-installer_201204xy_amd64.deb
 
 all: $(IMG)
 
