@@ -73,13 +73,13 @@ $(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
 	cp $< $@
 
 $(CHROOT)/build: $(BUILDIN) common
-	sudo debootstrap --include=git,autoconf,udev,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
+	sudo debootstrap --include=autoconf,udev,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	sudo chroot $(@D) mount -t proc procfs /proc
 	sudo chroot $(@D) dpkg-reconfigure locales
 	echo "deb-src http://ftp.us.debian.org/debian/ sid main non-free contrib" | sudo tee -a $(CHROOT)/etc/apt/sources.list
 	sudo chroot $(@D) apt-get -y update
 	sudo chroot $(@D) apt-get -y build-dep debian-installer
-	sudo chroot $(@D) git clone git://git.debian.org/d-i/debian-installer.git /root/debian-installer
+	sudo chroot $(@D) apt-get source debian-installer
 	sudo chroot $(@D) umount /proc
 	sudo chown -R $(shell whoami) $(@D)
 	sudo chroot $(@D) mount -t proc proc /proc
