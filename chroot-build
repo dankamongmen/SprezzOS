@@ -4,5 +4,5 @@ set -e
 
 cd /root
 dpkg-scanpackages -tudeb udebs | gzip > udebs/Packages.gz
-cd /root/debian-installer
+cd /debian-installer-*
 debian/rules binary
