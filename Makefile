@@ -24,6 +24,7 @@ TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
 DIIMG:=dest/netboot/mini.iso
 CPDIIMG:=tmp/mirror/dists/sid/main/installer-amd64/current/images/netboot
+DIDEB:=unstable/root/debian-installer_201204xy_amd64.deb
 
 all: $(IMG)
 
@@ -36,7 +37,7 @@ $(TESTDISK):
 $(IMG): $(CONF) $(PROFILE) $(ZFS) $(SPL) $(CPDIIMG) $(PMZFS)
 	build-simple-cdd --conf $< --dist sid --profiles SprezzOS \
 		--auto-profiles SprezzOS \
-		--local-packages $(ZFS),$(PMZFS),$(SPL),$(ZMOD),$(SMOD)
+		--local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(DIDEB)
 
 $(CPDIIMG): $(DIIMG)
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -83,12 +84,12 @@ $(CHROOT)/build: $(BUILDIN) common
 	sudo chown -R $(shell whoami) $(@D)
 	sudo chroot $(@D) mount -t proc proc /proc
 	echo "APT::Get::AllowUnauthenticated 1 ;" > $(@D)/etc/apt/apt.conf.d/80auth
-	find $(DIBUILD)/pkg-lists/ -name \*.cfg -exec echo -e "zfs-modules\npartman-zfs" >> {} \;
 	sudo cp $(BUILDIN) $@
+	#find $(DIBUILD)/pkg-lists/ -name \*.cfg -exec echo -e "zfs-modules\npartman-zfs" >> {} \;
 
 zfs: $(ZFS)
 
-$(ZFS): $(SPL) zfs/configure
+$(ZFS): zfs/configure
 	cd zfs && ./configure && make deb
 
 $(SPL): spl/configure
