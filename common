@@ -42,8 +42,8 @@ DEBIAN_RELEASE = sid
 # The version (number and codename) of the Debian release targeted by the
 # installation images. (Only the codename is used while the version number
 # has not yet been determined.)
-#DEBIAN_VERSION = 7.0 (wheezy)
-DEBIAN_VERSION ?= unstable
+DEBIAN_VERSION = 1.0 (cray)
+DEBIAN_VERSION ?= cray
 
 # Define here from what release (codename!) components (udebs) should be taken
 # to build debian-installer. By default this is set to 'unstable' for building
@@ -95,7 +95,7 @@ KEYRING=/usr/share/keyrings/debian-archive-keyring.gpg
 
 # All images that include cdebconf should include symbols needed by these
 # plugins.
-EXTRAUDEBS=cdebconf-newt-entropy cdebconf-text-entropy zfs-modules partman-zfs
+EXTRAUDEBS=cdebconf-newt-entropy cdebconf-text-entropy zfs partman-zfs
 
 # List of languages only supported with the graphical cdebconf frontend.
 GI_LANGS = '(am|bn|dz|ka|gu|hi|km|ml|mr|ne|pa|ta)'
