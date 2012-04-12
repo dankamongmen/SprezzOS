@@ -35,7 +35,6 @@ $(TESTDISK):
 	kvm-img create $@ 40G
 
 $(IMG): $(CONF) $(PROFILE) $(ZFS) $(SPL) $(CPDIIMG) $(PMZFS)
-	rm -rf tmp
 	build-simple-cdd --conf $< --dist sid --profiles SprezzOS \
 		--auto-profiles SprezzOS \
 		--local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(shell pwd)/unstable/debian-installer_20120327_amd64.deb
