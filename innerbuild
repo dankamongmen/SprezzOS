@@ -5,4 +5,4 @@ set -e
 cd /root
 dpkg-scanpackages -tudeb udebs | gzip > udebs/Packages.gz
 cd /debian-installer-*
-debian/rules binary
+dpkg-buildpackage -uc -us
