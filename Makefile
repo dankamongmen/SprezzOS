@@ -1,9 +1,9 @@
 .DELETE_ON_ERROR:
 .PHONY: all test clean zfs
 
-DI:=debian-installer
+DI:=debian-installer-20120327
 CHROOT:=unstable
-DIBUILD:=$(CHROOT)/root/$(DI)/build
+DIBUILD:=$(CHROOT)/$(DI)/build
 
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/cdd.conf
@@ -24,21 +24,19 @@ TESTDISK:=kvmdisk.img
 SLIST:=sources.list.udeb.local
 DIIMG:=dest/netboot/mini.iso
 CPDIIMG:=tmp/mirror/dists/sid/main/installer-amd64/current/images/netboot
-DIDEB:=$(shell pwd)/unstable/root/debian-installer_201204xy_amd64.deb
+DIDEB:=$(shell pwd)/unstable/debian-installer_20120327_amd64.deb
 
 all: $(IMG)
 
 test: $(TESTDISK) all
-	kvm -cdrom $(IMG) -hda $< -boot d
+	kvm -cdrom $(IMG) -hda $< -boot d -m 4096
 
 $(TESTDISK):
-	kvm-img create $@ 40G
+	qemu-img create $@ 40G
 
 $(IMG): $(CONF) $(PROFILE) $(ZFS) $(SPL) $(PMZFS) #$(CPDIIMG)
-	build-simple-cdd --conf $< --dist sid --profiles SprezzOS \
-		--auto-profiles SprezzOS \
-		--local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(shell pwd)/unstable/debian-installer_20120327_amd64.deb
-		#--local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(DIDEB)
+	build-simple-cdd --conf $< --profiles SprezzOS --auto-profiles SprezzOS \
+	--dist sid --local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(DIDEB)
 
 $(CPDIIMG): $(DIIMG)
 	@[ -d $(@D) ] || mkdir -p $(@D)
