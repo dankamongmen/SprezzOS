@@ -48,7 +48,7 @@ $(CPDIIMG): $(DIIMG)
 #--profiles-udeb-dist $(UDEBS) #--extra-udeb-dist $(UDEBS)
 
 $(PMZFS): $(UDEBS)/partman-zfs/debian/rules
-	cd $(<D)/.. && dpkg-buildpackage -sgpg -uc -us
+	cd $(<D)/.. && dpkg-buildpackage -sgpg -uc -us -b
 
 $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
