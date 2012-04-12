@@ -8,7 +8,7 @@ DIBUILD:=$(CHROOT)/root/$(DI)/build
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/cdd.conf
 CONFIN:=$(shell pwd)/cdd.conf.in
-BUILDIN:=chroot-build
+BUILDIN:=innerbuild
 UDEBS:=$(shell pwd)/udebs
 PMZFS:=$(UDEBS)/partman-zfs_1-1_all.udeb
 
@@ -35,9 +35,11 @@ $(TESTDISK):
 	kvm-img create $@ 40G
 
 $(IMG): $(CONF) $(PROFILE) $(ZFS) $(SPL) $(CPDIIMG) $(PMZFS)
+	rm -rf tmp
 	build-simple-cdd --conf $< --dist sid --profiles SprezzOS \
 		--auto-profiles SprezzOS \
-		--local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(DIDEB)
+		--local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(shell pwd)/unstable/debian-installer_20120327_amd64.deb
+		#--local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(DIDEB)
 
 $(CPDIIMG): $(DIIMG)
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -46,7 +48,7 @@ $(CPDIIMG): $(DIIMG)
 #--profiles-udeb-dist $(UDEBS) #--extra-udeb-dist $(UDEBS)
 
 $(PMZFS): $(UDEBS)/partman-zfs/debian/rules
-	cd $(<D)/.. && fakeroot debian/rules binary
+	cd $(<D)/.. && dpkg-buildpackage -sgpg -uc -us
 
 $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
