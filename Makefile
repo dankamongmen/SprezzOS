@@ -34,7 +34,7 @@ test: $(TESTDISK) all
 $(TESTDISK):
 	kvm-img create $@ 40G
 
-$(IMG): $(CONF) $(PROFILE) $(ZFS) $(SPL) $(CPDIIMG) $(PMZFS)
+$(IMG): $(CONF) $(PROFILE) $(ZFS) $(SPL) $(PMZFS) #$(CPDIIMG)
 	build-simple-cdd --conf $< --dist sid --profiles SprezzOS \
 		--auto-profiles SprezzOS \
 		--local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(shell pwd)/unstable/debian-installer_20120327_amd64.deb
@@ -47,23 +47,26 @@ $(CPDIIMG): $(DIIMG)
 #--profiles-udeb-dist $(UDEBS) #--extra-udeb-dist $(UDEBS)
 
 $(PMZFS): $(UDEBS)/partman-zfs/debian/rules
-	cd $(<D)/.. && dpkg-buildpackage -sgpg -uc -us -b
+	cd $(<D)/.. && dpkg-buildpackage -uc -us -b
 
 $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	( cat $^ && echo "custom_installer=$(shell pwd)/dest" ) > $@
 
 TARGUDEBS:=$(DIBUILD)/localudebs/partman-zfs_1-1_all.udeb
-TARGUDEBS+=$(DIBUILD)/localudebs/zfs-modules_0.6.0-1_amd64.udeb
+TARGUDEBS+=$(DIBUILD)/localudebs/zfs_1-1_all.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/partman-zfs_1-1_all.udeb
-TARGUDEBS+=$(CHROOT)/root/udebs/zfs-modules_0.6.0-1_amd64.udeb
+TARGUDEBS+=$(CHROOT)/root/udebs/zfs_1-1_all.udeb
 
 $(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build $(TARGUDEBS)
 	sudo chroot $(CHROOT) /build
 
-$(UDEBS)/zfs-modules_0.6.0-1_amd64.udeb: zfs/zfs-modules_0.6.0-1_amd64.deb
+$(UDEBS)/zfs_1-1_all.udeb: zfs_1-1_all.udeb
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
+
+zfs_1-1_all.udeb:
+	cd zfs && dpkg-buildpackage -uc -us -b
 
 $(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -74,7 +77,7 @@ $(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
 	cp $< $@
 
 $(CHROOT)/build: $(BUILDIN) common
-	sudo debootstrap --include=autoconf,udev,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
+	sudo debootstrap --include=autoconf,udev,vim-tiny,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	sudo chroot $(@D) mount -t proc procfs /proc
 	sudo chroot $(@D) dpkg-reconfigure locales
 	echo "deb-src http://ftp.us.debian.org/debian/ sid main non-free contrib" | sudo tee -a $(CHROOT)/etc/apt/sources.list
