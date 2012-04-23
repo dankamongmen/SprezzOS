@@ -21,5 +21,5 @@ PKGS="`pwd`/di/debian-installer_20120327_amd64.deb,`pwd`/di/linux-image-3.2.14-a
 mkdir -p tmp/mirror/dists/sid/main/installer-amd64/current/images/
 cp -r dest/* tmp/mirror/dists/sid/main/installer-amd64/current/images/
 simple-cdd --dist sid --conf `pwd`/cdd.conf \
-	--profiles SprezzOS --auto-profiles SprezzOS
+	--profiles SprezzOS --auto-profiles SprezzOS \
 	--local-packages "$PKGS" #--kernel-packages "$PKGS"
