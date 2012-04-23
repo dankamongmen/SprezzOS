@@ -12,3 +12,11 @@ Building SPL/ZFS requires uuid-dev, libz-dev, autoconf and alien. Note that
  ZFS requires a *non*-preemptive kernel (CONFIG_PREEMPT=n).
 
 Testing adds a dependency on KVM.
+
+Building
+--------
+
+Run './update' to generate a tarball of upstream packages.
+
+Run './build <builddir>' to generate the chroot at <builddir>. If you get an
+error about signature verification failures, try running './update'.
