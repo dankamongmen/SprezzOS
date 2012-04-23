@@ -2,6 +2,11 @@
 
 set -e
 
+mkdir /zfs
+tar -C/zfs xzvf zfs*gz
+./configure --enable-static=yes
+mkdir /spl
+tar -C/spl xzvf spl*gz
 cd /root
 dpkg-scanpackages -tudeb udebs | gzip > udebs/Packages.gz
 cd /debian-installer-*
