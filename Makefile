@@ -86,8 +86,6 @@ $(CHROOT)/build: $(BUILDIN) common
 	sudo chown -R $(shell whoami) $(@D)
 	sudo chroot $(@D) mount -t proc proc /proc
 	echo "APT::Get::AllowUnauthenticated 1 ;" > $(@D)/etc/apt/apt.conf.d/80auth
-	mv $(@D)/usr/bin/mklibs $(@D)/usr/bin/mklibs-backup
-	echo -e "#!/usr/bin/env bash\nset -e\nmklibs-backup \"\$@\" || true" > $(@D)/usr/bin/mklibs
 	cp $(BUILDIN) $@
 	#find $(DIBUILD)/pkg-lists/ -name \*.cfg -exec echo -e "zfs-modules\npartman-zfs" >> {} \;
 
