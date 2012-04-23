@@ -21,7 +21,7 @@ sudo debootstrap --include=locales,dh-di,vim-tiny,udev,autoconf,uuid-dev,zlib1g-
 sudo chroot "$DI" dpkg-reconfigure locales
 sudo chroot "$DI" mount -t proc procfs /proc
 echo "deb-src http://ftp.us.debian.org/debian/ sid main non-free contrib" | \
-	sudo tee -a $DI/etc/apt/sources.list
+	sudo tee -a "$DI/etc/apt/sources.list"
 sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer
 sudo chroot "$DI" apt-get source debian-installer
