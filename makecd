@@ -1,0 +1,25 @@
+#/bin/sh
+
+set -e
+
+usage () { echo "usage: `basename $0` [ -f ]" ; return 0; }
+usageerr () { usage >&2 ; return 1 ; }
+
+[ $# -lt 2 ] || usageerr
+
+if [ $# -eq 1 ] ; then
+	if [ "$1" != "-f" ] ; then
+		usageerr
+	fi
+	echo -n "Cleaning up old files..."
+	rm -rf images tmp
+	echo
+fi
+
+PKGS="`pwd`/di/debian-installer_20120327_amd64.deb,`pwd`/di/linux-image-3.2.14-amd64_3.2.14-1_amd64.deb,`pwd`/di/spl_0.6.0-rc8-1_amd64.udeb,`pwd`/di/debian-installer-20120327/build/localudebs,`pwd`/di/spl_0.6.0-rc8-1_amd64.deb,`pwd`/di/zfs_0.6.0-rc8-1_amd64.deb,`pwd`/di/linux-kbuild-3.2_3.2.14-amd64_amd64.deb,`pwd`/di/linux-tools_3.2+44_all.deb,`pwd`/partman-zfs_1-1_all.udeb"
+
+mkdir -p tmp/mirror/dists/sid/main/installer-amd64/current/images/
+cp -r dest/* tmp/mirror/dists/sid/main/installer-amd64/current/images/
+simple-cdd --dist sid --conf `pwd`/cdd.conf \
+	--profiles SprezzOS --auto-profiles SprezzOS
+	--local-packages "$PKGS" #--kernel-packages "$PKGS"
