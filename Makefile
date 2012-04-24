@@ -35,7 +35,7 @@ $(TESTDISK):
 	qemu-img create $@ 40G
 
 $(IMG): $(CONF) $(PROFILE) $(ZFS) $(SPL) $(PMZFS) $(CPDIIMG)
-	build-simple-cdd --conf $< --profiles SprezzOS --auto-profiles SprezzOS \
+	build-simple-cdd --profiles SprezzOS --auto-profiles SprezzOS \
 	 --dist sid --local-packages $(ZFS),$(SPL),$(ZMOD),$(SMOD),$(DIDEB)
 
 $(CPDIIMG): $(DIIMG)
