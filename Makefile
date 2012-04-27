@@ -75,18 +75,18 @@ $(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
 	cp $< $@
 
 $(CHROOT)/build: $(BUILDIN) common
-	sudo debootstrap --include=autoconf,udev,vim-tiny,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
+	sudo debootstrap --include=debian-keyring,kernel-wedge,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	sudo chroot $(@D) mount -t proc procfs /proc
 	sudo chroot $(@D) dpkg-reconfigure locales
-	echo "deb-src http://ftp.us.debian.org/debian/ sid main non-free contrib" | sudo tee -a $(CHROOT)/etc/apt/sources.list
+	echo "deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib" | sudo tee -a $(CHROOT)/etc/apt/sources.list
 	sudo chroot $(@D) apt-get -y update
 	sudo chroot $(@D) apt-get -y build-dep debian-installer
 	sudo chroot $(@D) apt-get source debian-installer
 	sudo chroot $(@D) umount /proc
 	sudo chown -R $(shell whoami) $(@D)
 	sudo chroot $(@D) mount -t proc proc /proc
-	echo "APT::Get::AllowUnauthenticated 1 ;" > $(@D)/etc/apt/apt.conf.d/80auth
 	cp $(BUILDIN) $@
+	#echo "APT::Get::AllowUnauthenticated 1 ;" > $(@D)/etc/apt/apt.conf.d/80auth
 	#find $(DIBUILD)/pkg-lists/ -name \*.cfg -exec echo -e "zfs-modules\npartman-zfs" >> {} \;
 
 zfs: $(ZFS)
