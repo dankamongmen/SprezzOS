@@ -2,7 +2,7 @@
 .\" First parameter, NAME, should be all caps
 .\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
 .\" other parameters are allowed: see man(7), man(1)
-.TH ZFS SECTION "April  8, 2012"
+.TH ZFS SECTION "April 15, 2012"
 .\" Please adjust this date whenever revising the manpage.
 .\"
 .\" Some roff macros, for reference:
@@ -55,5 +55,5 @@ available via the Info system.
 .SH AUTHOR
 zfs was written by <upstream author>.
 .PP
-This manual page was written by nick black <nick.black@sprezzatech.com>,
+This manual page was written by Nick Black <nick.black@sprezzatech.com>,
 for the Debian project (and may be used by others).

@@ -20,12 +20,12 @@ manpage.1: manpage.sgml
   <!ENTITY dhfirstname "<firstname>FIRSTNAME</firstname>">
   <!ENTITY dhsurname   "<surname>SURNAME</surname>">
   <!-- Please adjust the date whenever revising the manpage. -->
-  <!ENTITY dhdate      "<date>April  8, 2012</date>">
+  <!ENTITY dhdate      "<date>April 15, 2012</date>">
   <!-- SECTION should be 1-8, maybe w/ subsection other parameters are
        allowed: see man(7), man(1). -->
   <!ENTITY dhsection   "<manvolnum>SECTION</manvolnum>">
   <!ENTITY dhemail     "<email>nick.black@sprezzatech.com</email>">
-  <!ENTITY dhusername  "nick black">
+  <!ENTITY dhusername  "Nick Black">
   <!ENTITY dhucpackage "<refentrytitle>ZFS</refentrytitle>">
   <!ENTITY dhpackage   "zfs">
 

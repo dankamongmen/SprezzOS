@@ -48,7 +48,7 @@ man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
   <!ENTITY dhfirstname "FIRSTNAME">
   <!ENTITY dhsurname   "SURNAME">
   <!-- dhusername could also be set to "&dhfirstname; &dhsurname;". -->
-  <!ENTITY dhusername  "nick black">
+  <!ENTITY dhusername  "Nick Black">
   <!ENTITY dhemail     "nick.black@sprezzatech.com">
   <!-- SECTION should be 1-8, maybe w/ subsection other parameters are
        allowed: see man(7), man(1) and
