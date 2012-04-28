@@ -1,6 +1,6 @@
 Source: partman-zfs
 Section: debian-installer
-Priority: standard
+Priority: optional
 Maintainer: nick black <nick.black@sprezzatech.com>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.2
@@ -12,6 +12,6 @@ Package: partman-zfs
 XC-Package-Type: udeb
 XB-Installer-Menu-Item: 99999
 Architecture: all
-Depends: ${misc:Depends}, zfs, partman-basicfilesystems (>= 59), partman-base (>= 140)
+Depends: ${misc:Depends}, zfs-modules, partman-basicfilesystems (>= 59), partman-base (>= 140)
 Provides: partman-filesystem
 Description: ZFS support for partman
