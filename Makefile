@@ -1,6 +1,9 @@
 .DELETE_ON_ERROR:
 .PHONY: all test clean zfs
 
+# There's surely a better way to pass this to dpkg-buildpackage etc...FIXME
+CONCURRENCY:=-j8
+
 DI:=debian-installer-20120327
 CHROOT:=unstable
 DIBUILD:=$(CHROOT)/$(DI)/build
@@ -21,7 +24,6 @@ SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb
 PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
-SLIST:=sources.list.udeb.local
 DIIMG:=dest/netboot/mini.iso
 CPDIIMG:=tmp/mirror/dists/sid/main/installer-amd64/current/images/netboot
 DIDEB:=$(shell pwd)/unstable/debian-installer_20120327_amd64.deb
@@ -56,7 +58,7 @@ TARGUDEBS+=$(DIBUILD)/localudebs/zfs_1-1_all.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/partman-zfs_1-1_all.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/zfs_1-1_all.udeb
 
-$(DIIMG): $(DIBUILD)/$(SLIST) $(DIBUILD)/config/common $(CHROOT)/build $(TARGUDEBS)
+$(DIIMG): $(DIBUILD)/config/common $(CHROOT)/build $(TARGUDEBS)
 	sudo chroot $(CHROOT) /build
 
 $(UDEBS)/zfs_1-1_all.udeb: zfs_1-1_all.udeb
@@ -75,7 +77,7 @@ $(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
 	cp $< $@
 
 $(CHROOT)/build: $(BUILDIN) common
-	sudo debootstrap --include=debian-keyring,kernel-wedge,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
+	sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	sudo chroot $(@D) mount -t proc procfs /proc
 	sudo chroot $(@D) dpkg-reconfigure locales
 	echo "deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib" | sudo tee -a $(CHROOT)/etc/apt/sources.list
@@ -92,16 +94,12 @@ $(CHROOT)/build: $(BUILDIN) common
 zfs: $(ZFS)
 
 $(ZFS): zfs/configure
-	cd zfs && ./configure && make deb
+	cd zfs && dpkg-buildpackage $(CONCURRENCY)
 
 $(SPL): spl/configure
-	cd spl && ./configure && make deb
+	cd spl && dpkg-buildpackage $(CONCURRENCY)
 
 $(DIBUILD)/config/common: common $(CHROOT)/build
-	@[ -d $(@D) ] || mkdir -p $(@D)
-	cat $< > $@
-
-$(DIBUILD)/$(SLIST): $(SLIST) $(CHROOT)/build
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cat $< > $@
 

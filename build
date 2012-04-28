@@ -16,11 +16,11 @@ DI="$1"
 [ ! -d "$DI/sys" ] || sudo umount "$DI"/sys || true
 [ ! -d "$DI" ] || sudo rm -rf "$DI"
 
-sudo debootstrap --include=locales,dh-di,vim-tiny,udev,autoconf,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,devscripts \
+sudo debootstrap --include=locales,dh-di,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,devscripts \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI"
 sudo chroot "$DI" dpkg-reconfigure locales
 sudo chroot "$DI" mount -t proc procfs /proc
-echo "deb-src http://ftp.us.debian.org/debian/ sid main non-free contrib" | \
+echo "deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib" | \
 	sudo tee -a "$DI/etc/apt/sources.list"
 sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer
