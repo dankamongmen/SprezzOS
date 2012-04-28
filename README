@@ -59,7 +59,10 @@ We are not using kernel-package's "make-kpkg" to build .debs, but instead the
 preexisting debian/ directory and dpkg-buildpackage. The result will be a
 great many udebs and some debs.
 
-FIXME
+FIXME (considerations include: ABI updates, removing/adding entries to module
+	config files in debian/config/, copying config through
+	debian/config/config, setting defines, generating usable header
+	packages for the next stage...)
 
  ________________
 |external modules|
@@ -71,7 +74,9 @@ FIXME
 |partman|
  -------
 
-FIXME
+FIXME (considerations include: you won't show up in the partman config unless
+	your filesystem module tests pass; /var/log/partman is created once
+	partman starts running...)
 
  ________________
 |debian-installer|
