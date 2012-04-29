@@ -10,6 +10,7 @@ while read module_name x; do
 done
 
 if ! [ -f /var/lib/partman/zfs ] && \
+   modprobe spl spl_hostid=0 >/dev/null 2>/dev/null
    modprobe zfs >/dev/null 2>/dev/null; then
 	>/var/lib/partman/zfs
 fi
