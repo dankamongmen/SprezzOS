@@ -20,7 +20,7 @@ for dev in $DEVICES/*; do
 		[ -f $id/acting_filesystem ] || continue
 		filesystem=$(cat $id/acting_filesystem)
 		case "$filesystem" in
-		    ext3|ext4)
+		    zfs)
 			[ ! -f "$id/mountpoint" ] || continue
 			RET=''
 			db_metaget partman/filesystem_short/"$filesystem" description || RET=''
