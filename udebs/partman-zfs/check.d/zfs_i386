@@ -1,0 +1,30 @@
+#!/bin/sh
+# Warn the user if ZFS is to be used on i386.
+
+case "$(udpkg --print-architecture)" in
+	"kfreebsd-i386")
+	;;
+	*)
+		exit 0
+	;;
+esac
+
+if test -e /dev/zfs; then
+	if [ $(zpool list -H | wc -l) -gt 0 ]; then
+		found_zfs=true
+	fi
+fi
+
+. /lib/partman/lib/base.sh
+
+# Warn if ZFS is to be used.
+if [ "$found_zfs" = true ]; then
+	db_set partman-zfs/i386 true
+	db_input critical partman-zfs/i386 || true
+	db_go || true
+	db_get partman-zfs/i386
+	if [ "$RET" = true ]; then
+		exit 1
+	fi
+fi
+

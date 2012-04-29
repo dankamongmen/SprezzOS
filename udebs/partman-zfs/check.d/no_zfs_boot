@@ -1,0 +1,56 @@
+#!/bin/sh
+# GRUB doesn't yet support RAID-Z configurations on ZFS (see #653929)
+# Detect and warn.
+
+. /lib/partman/lib/base.sh
+. /lib/partman/lib/zfs-base.sh
+
+get_zfs_root_boot () {
+	(for i in /lib/partman/fstab.d/*; do
+		[ -x "$i" ] || continue
+		$i
+	done) |
+	while read fs mp type options dump pass; do
+		case "$mp" in /|/boot|/lib/modules)
+			if [ "$type" = "zfs" ]; then
+				local mode
+				mode="$(vg_multipv_mode $fs)"
+				case $mode in
+					raidz) st=bad ;;
+					*) st=good ;;
+				esac
+			else
+				# Only as far as this check is concerned.
+				# E.g. ntfs would be considered "good" here.
+				st=good
+			fi
+			case "$mp" in
+				/)		echo root_st=$st ;;
+				/boot)		echo boot_st=$st ;;
+				/lib/modules)	echo modules_st=$st ;;
+			esac
+		;;
+		esac
+	done
+}
+eval "$(get_zfs_root_boot)"
+
+
+if [ "$boot_st" = bad ]; then
+	db_subst partman-bad/multipv_other MNT "/boot"
+	db_input critical partman-zfs/multipv_other || true
+	db_go || exit 1
+	exit 1
+# See #600568
+elif [ "$modules_st" = bad ]; then
+	db_subst partman-bad/multipv_other MNT "/lib/modules"
+	db_input critical partman-zfs/multipv_other || true
+	db_go || exit 1
+	exit 1
+elif [ "$root_st" = bad ] && ([ "$boot_st" != good ] || [ "$modules_st" != good ]); then
+	db_input critical partman-zfs/multipv_root || true
+	db_go || exit 1
+	exit 1
+fi
+
+exit 0
