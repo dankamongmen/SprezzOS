@@ -9,8 +9,8 @@ CHROOT:=unstable
 DIBUILD:=$(CHROOT)/$(DI)/build
 
 # simple-cdd builds from subdirs, and needs full paths as input
-CONF:=$(shell pwd)/cdd.conf
-CONFIN:=$(shell pwd)/cdd.conf.in
+CONF:=$(shell pwd)/profiles/SprezzOS.conf
+CONFIN:=$(shell pwd)/SprezzOS.conf.in
 BUILDIN:=innerbuild
 UDEBS:=$(shell pwd)/udebs
 PMZFS:=$(UDEBS)/partman-zfs_1-1_all.udeb
