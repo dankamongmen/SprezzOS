@@ -125,3 +125,21 @@ a new file sources.list.udeb.local. Ensure the first line is
 	deb copy:/debian-installer-20120327/build/ localudebs/
 
 in order to use your localudebs.
+
+ __________
+|simple-cdd|
+ ----------
+
+Once you've built your custom debian-installer, simple-cdd can be used to
+generate installation media. You'll need to copy the contents of build/dest/
+from within the installer manually, and there appears no way to do way to do
+this better than:
+
+	mkdir -p tmp/mirror/dists/sid/main/installer-amd64/current/images/
+	cp -r dest/* tmp/mirror/dists/sid/main/installer-amd64/current/images/
+
+where tmp/blahblahblah is a string extracted from reading simple-cdd source
+code. This is all unfortunate.
+
+Create a profiles/ directory, and populate it. Read the source for examples;
+it's all too depressing to talk about.
