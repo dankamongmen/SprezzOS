@@ -1,0 +1,515 @@
+Only in /debian-installer-20120327/build: apt.udeb
+diff -urx.svn /debian-installer-20120327/build/boot/x86/adgtk.cfg debian-installer-20120327/build/boot/x86/adgtk.cfg
+--- /debian-installer-20120327/build/boot/x86/adgtk.cfg	2012-04-28 15:18:35.029765783 +0000
++++ debian-installer-20120327/build/boot/x86/adgtk.cfg	2011-01-22 17:41:33.000000000 +0000
+@@ -2,11 +2,11 @@
+ menu width 58
+ 
+ label expertgui
+-	menu label graphical expert install
++	menu label Graphical expert install
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% priority=low ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- ${CONSOLE}
+ include ${SYSDIR}rqgtk.cfg
+ label autogui
+-	menu label graphical automated install
++	menu label Graphical automated install
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
+diff -urx.svn /debian-installer-20120327/build/boot/x86/desktop/adgtkdt.cfg debian-installer-20120327/build/boot/x86/desktop/adgtkdt.cfg
+--- /debian-installer-20120327/build/boot/x86/desktop/adgtkdt.cfg	2012-04-28 15:18:50.012996867 +0000
++++ debian-installer-20120327/build/boot/x86/desktop/adgtkdt.cfg	2011-01-22 17:41:33.000000000 +0000
+@@ -2,10 +2,10 @@
+ menu width 58
+ 
+ label expertgui-%desktop%
+-	menu label graphical expert install
++	menu label Graphical expert install
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% priority=low ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- ${CONSOLE}
+ label autogui-%desktop%
+-	menu label graphical automated install
++	menu label Graphical automated install
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
+diff -urx.svn /debian-installer-20120327/build/boot/x86/desktop/gtkdt.cfg debian-installer-20120327/build/boot/x86/desktop/gtkdt.cfg
+--- /debian-installer-20120327/build/boot/x86/desktop/gtkdt.cfg	2012-04-28 15:19:02.102914362 +0000
++++ debian-installer-20120327/build/boot/x86/desktop/gtkdt.cfg	2011-01-22 17:41:33.000000000 +0000
+@@ -1,4 +1,4 @@
+ label installgui-%desktop%
+-	menu label ^graphical install
++	menu label ^Graphical install
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
+diff -urx.svn /debian-installer-20120327/build/boot/x86/desktop/menu.cfg debian-installer-20120327/build/boot/x86/desktop/menu.cfg
+--- /debian-installer-20120327/build/boot/x86/desktop/menu.cfg	2012-04-28 16:02:22.308579169 +0000
++++ debian-installer-20120327/build/boot/x86/desktop/menu.cfg	2011-01-22 17:41:33.000000000 +0000
+@@ -3,7 +3,7 @@
+ include ${SYSDIR}%desktop%/gtkdt.cfg
+ include ${SYSDIR}%desktop%/amdgtkdt.cfg
+ menu begin advanced-%desktop%
+-    menu label advanced options
++    menu label Advanced options
+ 	menu title %dt-name% advanced options
+ 	include ${SYSDIR}stdmenu.cfg
+ 	label dtmenu-%desktop%
+@@ -15,7 +15,7 @@
+ 	include ${SYSDIR}%desktop%/amdagdt.cfg
+ menu end
+ label help-%desktop%
+-	menu label ^help
++	menu label ^Help
+ 	text help
+    Display help screens; type 'menu' at boot prompt to return to this menu
+ 	endtext
+diff -urx.svn /debian-installer-20120327/build/boot/x86/desktop/txtdt.cfg debian-installer-20120327/build/boot/x86/desktop/txtdt.cfg
+--- /debian-installer-20120327/build/boot/x86/desktop/txtdt.cfg	2012-04-28 15:19:56.919206930 +0000
++++ debian-installer-20120327/build/boot/x86/desktop/txtdt.cfg	2011-01-22 17:41:33.000000000 +0000
+@@ -1,6 +1,6 @@
+ #default install
+ label install-%desktop%
+-	menu label ^install
++	menu label ^Install
+ 	menu default
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
+diff -urx.svn /debian-installer-20120327/build/boot/x86/f10.txt debian-installer-20120327/build/boot/x86/f10.txt
+--- /debian-installer-20120327/build/boot/x86/f10.txt	2012-04-29 16:38:01.940476651 +0000
++++ debian-installer-20120327/build/boot/x86/f10.txt	2011-01-22 17:41:33.000000000 +0000
+@@ -1,13 +1,13 @@
+ 0fCOPYRIGHTS AND WARRANTIES07                                                    09F1007
+ 
+-SprezzOS is Copyright (C) 2012 Sprezzatura Computing Corporation, Inc.,
++Debian GNU/Linux is Copyright (C) 1993-2009 Software in the Public Interest,
+ and others.
+ 
+-SprezzOS is freely redistributable. After installation, the exact distribution
+-terms for each package are described in the corresponding file
+-/usr/share/doc/0bpackagename07/copyright.
++The Debian GNU/Linux system is freely redistributable. After installation,
++the exact distribution terms for each package are described in the
++corresponding file /usr/share/doc/0bpackagename07/copyright.
+ 
+-SprezzOS comes with 0fABSOLUTELY NO WARRANTY07, to the extent
++Debian GNU/Linux comes with 0fABSOLUTELY NO WARRANTY07, to the extent
+ permitted by applicable law.
+ 
+ 
+diff -urx.svn /debian-installer-20120327/build/boot/x86/f1.txt debian-installer-20120327/build/boot/x86/f1.txt
+--- /debian-installer-20120327/build/boot/x86/f1.txt	2012-04-29 16:37:18.707421725 +0000
++++ debian-installer-20120327/build/boot/x86/f1.txt	2011-01-22 17:41:33.000000000 +0000
+@@ -1,6 +1,6 @@
+-                  0fwelcome to sprezzos07                                09F107
++                  0fWelcome to Debian GNU/Linux!07                                09F107
+ 
+-This is a SprezzOS ${DEBIAN_VERSION} installation ${MEDIA_TYPE}.
++This is a Debian ${DEBIAN_VERSION} installation ${MEDIA_TYPE}.
+ It was built on ${BUILD_DATE}.
+ 
+ 0fHELP INDEX07
+@@ -8,7 +8,7 @@
+ 0fKEY    TOPIC07
+ 
+ <09F107>   This page, the help index.
+-<09F207>   Prerequisites for installing SprezzOS.
++<09F207>   Prerequisites for installing Debian.
+ <09F307>   Boot methods for special ways of using this ${MEDIA_TYPE}
+ <09F407>   Additional boot methods; rescue mode.
+ <09F507>   Special boot parameters, overview.
+diff -urx.svn /debian-installer-20120327/build/boot/x86/f2.txt debian-installer-20120327/build/boot/x86/f2.txt
+--- /debian-installer-20120327/build/boot/x86/f2.txt	2012-04-29 16:36:33.487712816 +0000
++++ debian-installer-20120327/build/boot/x86/f2.txt	2011-01-22 17:41:33.000000000 +0000
+@@ -1,16 +1,16 @@
+-0fPREREQUISITES FOR INSTALLING SPREZZOS07                                           09F207
++0fPREREQUISITES FOR INSTALLING DEBIAN07                                           09F207
+ 
+-You must have at least 44 megabytes of RAM to use this SprezzOS installer.
++You must have at least 44 megabytes of RAM to use this Debian installer.
+ 
+ You should have space on your hard disk to create a new disk partition
+ of at least 500 megabytes to install the base system. You'll need more
+ disk space to install additional packages, depending on what you wish
+-to do with your new SprezzOS system.
++to do with your new Debian system.
+ 
+ See the Installation Guide or the FAQ for more information; both
+-documents are available at the SprezzOS web site, 0fhttp://www.sprezzos.com/07
++documents are available at the Debian web site, 0fhttp://www.debian.org/07
+ 
+-Thank you for choosing SprezzOS!
++Thank you for choosing Debian!
+ 
+ 
+ 
+diff -urx.svn /debian-installer-20120327/build/boot/x86/f9.txt debian-installer-20120327/build/boot/x86/f9.txt
+--- /debian-installer-20120327/build/boot/x86/f9.txt	2012-04-29 16:38:31.930283464 +0000
++++ debian-installer-20120327/build/boot/x86/f9.txt	2011-01-22 17:41:33.000000000 +0000
+@@ -1,6 +1,6 @@
+ 0fGETTING HELP07                                                                  09F907
+ 
+-If you can't install SprezzOS, don't despair! The SprezzOS team is ready to
++If you can't install Debian, don't despair! The Debian team is ready to
+ help you! We are especially interested in hearing about installation
+ problems, because in general they don't happen to only 0fone07 person.
+ We've either already heard about your particular problem and can dispense a
+@@ -9,7 +9,7 @@
+ experience!
+ 
+ See the Installation Guide or the FAQ for more information; both
+-documents are available at the SprezzOS web site, 0fhttp://www.sprezzos.com/07
++documents are available at the Debian web site, 0fhttp://www.debian.org/07
+ 
+ 
+ 
+diff -urx.svn /debian-installer-20120327/build/boot/x86/gtk.cfg debian-installer-20120327/build/boot/x86/gtk.cfg
+--- /debian-installer-20120327/build/boot/x86/gtk.cfg	2012-04-28 15:18:26.463157566 +0000
++++ debian-installer-20120327/build/boot/x86/gtk.cfg	2011-01-22 17:41:33.000000000 +0000
+@@ -1,4 +1,4 @@
+ label installgui
+-	menu label ^graphical install
++	menu label ^Graphical install
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
+diff -urx.svn /debian-installer-20120327/build/boot/x86/menu.cfg debian-installer-20120327/build/boot/x86/menu.cfg
+--- /debian-installer-20120327/build/boot/x86/menu.cfg	2012-04-29 17:19:34.523961723 +0000
++++ debian-installer-20120327/build/boot/x86/menu.cfg	2011-12-16 19:22:32.000000000 +0000
+@@ -1,17 +1,17 @@
+-menu hshift 25
+-menu width 55
++menu hshift 13
++menu width 60
+ 
+-menu title legacy bios-mode boot ${BEEP}
++menu title Debian GNU/Linux installer boot menu${BEEP}
+ include ${SYSDIR}stdmenu.cfg
+ include ${SYSDIR}txt.cfg
+ include ${SYSDIR}amdtxt.cfg
+ include ${SYSDIR}gtk.cfg
+ include ${SYSDIR}amdgtk.cfg
+ menu begin advanced
+-	menu title advanced options
++	menu title Advanced options
+ 	include ${SYSDIR}stdmenu.cfg
+ 	label mainmenu
+-		menu label ^back..
++		menu label ^Back..
+ 		menu exit
+ 	include ${SYSDIR}adtxt.cfg
+ 	include ${SYSDIR}amdadtxt.cfg
+@@ -20,9 +20,9 @@
+ 	include ${SYSDIR}dtmenu.cfg
+ menu end
+ label help
+-	menu label ^help
++	menu label ^Help
+ 	text help
+-   display help screens. type 'menu' at boot prompt to return here.
++   Display help screens; type 'menu' at boot prompt to return to this menu
+ 	endtext
+ 	config ${SYSDIR}prompt.cfg
+ include ${SYSDIR}spk.cfg
+Binary files /debian-installer-20120327/build/boot/x86/pics/klowner.png and debian-installer-20120327/build/boot/x86/pics/klowner.png differ
+diff -urx.svn /debian-installer-20120327/build/boot/x86/rqgtk.cfg debian-installer-20120327/build/boot/x86/rqgtk.cfg
+--- /debian-installer-20120327/build/boot/x86/rqgtk.cfg	2012-04-28 15:19:18.196137869 +0000
++++ debian-installer-20120327/build/boot/x86/rqgtk.cfg	2011-01-22 17:41:33.000000000 +0000
+@@ -1,4 +1,4 @@
+ label rescuegui
+-	menu label graphical rescue mode
++	menu label Graphical rescue mode
+ 	kernel ${KERNEL}
+ 	append ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} rescue/enable=true -- quiet  ${CONSOLE}
+diff -urx.svn /debian-installer-20120327/build/boot/x86/spk.cfg debian-installer-20120327/build/boot/x86/spk.cfg
+--- /debian-installer-20120327/build/boot/x86/spk.cfg	2012-04-28 15:20:43.972219117 +0000
++++ debian-installer-20120327/build/boot/x86/spk.cfg	2011-07-29 21:17:13.000000000 +0000
+@@ -1,4 +1,4 @@
+ label installspk
+-	menu label install with ^speech synthesis
++	menu label Install with ^speech synthesis
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} speakup.synth=soft -- quiet ${CONSOLE}
+diff -urx.svn /debian-installer-20120327/build/boot/x86/spkgtk.cfg debian-installer-20120327/build/boot/x86/spkgtk.cfg
+--- /debian-installer-20120327/build/boot/x86/spkgtk.cfg	2012-04-28 15:21:05.678737622 +0000
++++ debian-installer-20120327/build/boot/x86/spkgtk.cfg	2011-07-29 21:17:13.000000000 +0000
+@@ -1,4 +1,4 @@
+ label installspk
+-	menu label install with ^speech synthesis
++	menu label Install with ^speech synthesis
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD_GTK} speakup.synth=soft -- quiet ${CONSOLE}
+diff -urx.svn /debian-installer-20120327/build/boot/x86/stdmenu.cfg debian-installer-20120327/build/boot/x86/stdmenu.cfg
+--- /debian-installer-20120327/build/boot/x86/stdmenu.cfg	2012-04-29 17:23:39.072327899 +0000
++++ debian-installer-20120327/build/boot/x86/stdmenu.cfg	2011-12-16 19:22:32.000000000 +0000
+@@ -4,15 +4,15 @@
+ menu color sel		* #ffffffff #76a1d0ff *
+ menu color hotsel	1;7;37;40 #ffffffff #76a1d0ff *
+ menu color tabmsg	* #ffffffff #00000000 *
+-menu color help		* #88888888 #00000000 *
++menu color help		37;40 #ffdddd00 #00000000 none
+ # XXX When adjusting vshift, take care that rows is set to a small
+ # enough value so any possible menu will fit on the screen,
+ # rather than falling off the bottom.
+-menu vshift 8
++menu vshift 12
+ menu rows 10
+ menu helpmsgrow 15
+ # The command line must be at least one line from the bottom.
+ menu cmdlinerow 16
+ menu timeoutrow 16
+ menu tabmsgrow 18
+-menu tabmsg enter selects. tab configures.
++menu tabmsg Press ENTER to boot or TAB to edit a menu entry
+diff -urx.svn /debian-installer-20120327/build/boot/x86/txt.cfg debian-installer-20120327/build/boot/x86/txt.cfg
+--- /debian-installer-20120327/build/boot/x86/txt.cfg	2012-04-28 15:20:14.709085514 +0000
++++ debian-installer-20120327/build/boot/x86/txt.cfg	2011-01-22 17:41:33.000000000 +0000
+@@ -1,6 +1,6 @@
+ default install
+ label install
+-	menu label ^install
++	menu label ^Install
+ 	menu default
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
+diff -urx.svn /debian-installer-20120327/build/config/amd64.cfg debian-installer-20120327/build/config/amd64.cfg
+--- /debian-installer-20120327/build/config/amd64.cfg	2012-04-28 00:38:01.569928943 +0000
++++ debian-installer-20120327/build/config/amd64.cfg	2012-03-05 12:14:19.000000000 +0000
+@@ -2,7 +2,7 @@
+ MEDIUM_SUPPORTED_EXTRA = monolithic
+ 
+ # The version of the kernel to use.
+-KERNELVERSION = 3.3.3-1-amd64
++KERNELVERSION = 3.2.0-2-amd64
+ KERNELMAJOR = 2.6
+ KERNEL_FLAVOUR = di
+ KERNELNAME = vmlinuz
+diff -urx.svn /debian-installer-20120327/build/config/common debian-installer-20120327/build/config/common
+--- /debian-installer-20120327/build/config/common	2012-04-29 16:42:28.555424136 +0000
++++ debian-installer-20120327/build/config/common	2011-07-29 21:17:13.000000000 +0000
+@@ -37,13 +37,13 @@
+ DPKG_UNPACK_OPTIONS = --force-overwrite
+ 
+ # The codename of the Debian release that should be installed by default.
+-DEBIAN_RELEASE = unstable
++DEBIAN_RELEASE = wheezy
+ 
+ # The version (number and codename) of the Debian release targeted by the
+ # installation images. (Only the codename is used while the version number
+ # has not yet been determined.)
+-#DEBIAN_VERSION = 7.0 (unstable)
+-DEBIAN_VERSION ?= unstable
++DEBIAN_VERSION = 7.0 (wheezy)
++DEBIAN_VERSION ?= wheezy
+ 
+ # Define here from what release (codename!) components (udebs) should be taken
+ # to build debian-installer. By default this is set to 'unstable' for building
+@@ -62,7 +62,7 @@
+ # x86: configure syslinux to have tasksel install a different desktop
+ # environment than the default (gnome).
+ # Possible values: kde, xfce, lxde
+-DESKTOP = xfce4
++DESKTOP = 
+ 
+ # Filesystem type for the initrd, currently valid values are ext2, cramfs,
+ # and initramfs.
+@@ -84,8 +84,8 @@
+ TYPE = $(MEDIUM)
+ 
+ # Used to write a /etc/lsb-release file in the installer initrd.
+-LSB_DISTRIB_ID=SprezzOS
+-LSB_DISTRIB_DESCRIPTION="SprezzOS $(shell uname -o) installer"
++LSB_DISTRIB_ID=Debian
++LSB_DISTRIB_DESCRIPTION="Debian $(shell uname -o) installer"
+ # Inlude the build date of the installer in here.
+ LSB_DISTRIB_RELEASE="$(DEBIAN_VERSION) - installer build $(BUILD_DATE)"
+ 
+diff -urx.svn /debian-installer-20120327/build/config/i386.cfg debian-installer-20120327/build/config/i386.cfg
+--- /debian-installer-20120327/build/config/i386.cfg	2012-04-28 00:38:16.073162401 +0000
++++ debian-installer-20120327/build/config/i386.cfg	2012-03-05 12:14:19.000000000 +0000
+@@ -2,7 +2,7 @@
+ MEDIUM_SUPPORTED_EXTRA = monolithic
+ 
+ # The version of the kernel to use.
+-BASEVERSION = 3.3.3-1
++BASEVERSION = 3.2.0-2
+ KERNELVERSION = $(BASEVERSION)-486
+ KERNELMAJOR = 2.6
+ KERNEL_FLAVOUR = di
+diff -urx.svn /debian-installer-20120327/build/config/ia64.cfg debian-installer-20120327/build/config/ia64.cfg
+--- /debian-installer-20120327/build/config/ia64.cfg	2012-04-29 16:43:40.904956964 +0000
++++ debian-installer-20120327/build/config/ia64.cfg	2012-03-05 12:14:19.000000000 +0000
+@@ -5,7 +5,7 @@
+ 
+ # The version of the kernel to use.
+ KERNELMAJOR = 2.6
+-KERNELVERSION = 3.3.3-3-itanium
++KERNELVERSION = 3.2.0-2-itanium
+ KERNEL_FLAVOUR = di
+ KERNELNAME = vmlinuz
+ KERNELIMAGEVERSION = $(KERNELVERSION)
+@@ -17,7 +17,7 @@
+ DOS_VOLUME_ID = deb00001
+ # The DOS volume label to use for DOS floppies. This is a 11 character
+ # string.
+-DOS_VOLUME_LABEL = "SprezzOS"
++DOS_VOLUME_LABEL = "Debian Inst"
+ 
+ 
+ arch_tree:
+diff -urx.svn /debian-installer-20120327/build/config/x86.cfg debian-installer-20120327/build/config/x86.cfg
+--- /debian-installer-20120327/build/config/x86.cfg	2012-04-29 16:41:48.795680754 +0000
++++ debian-installer-20120327/build/config/x86.cfg	2012-01-07 10:58:35.000000000 +0000
+@@ -8,7 +8,7 @@
+ DOS_VOLUME_ID = deb00001
+ # The DOS volume label to use for DOS floppies. This is a 11 character
+ # string.
+-DOS_VOLUME_LABEL = "SprezzOS"
++DOS_VOLUME_LABEL = "Debian Inst"
+ 
+ # The image to use for a syslinux splash screen.
+ SPLASH_PNG=boot/x86/pics/klowner.png
+Only in /debian-installer-20120327/build: dest
+Only in /debian-installer-20120327/build/localudebs: acpi-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: acpi-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ata-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ata-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: btrfs-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: btrfs-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: cdrom-core-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: cdrom-core-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: core-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: core-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: crc-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: crc-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: crypto-dm-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: crypto-dm-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: crypto-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: crypto-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: event-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: event-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ext2-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ext2-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ext3-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ext3-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ext4-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ext4-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: fat-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: fat-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: fb-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: fb-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: firewire-core-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: firewire-core-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: floppy-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: floppy-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: i2c-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: i2c-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: input-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: input-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: irda-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: irda-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: isofs-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: isofs-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: jfs-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: jfs-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: kernel-image-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: kernel-image-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: loop-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: loop-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: md-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: md-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: mmc-core-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: mmc-core-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: mmc-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: mmc-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: mouse-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: mouse-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: multipath-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: multipath-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nbd-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nbd-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-extra-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-extra-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-pcmcia-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-pcmcia-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-shared-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-shared-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-usb-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-usb-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-wireless-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: nic-wireless-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ntfs-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ntfs-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: Packages
+Only in /debian-installer-20120327/build/localudebs: Packages.gz
+Only in /debian-installer-20120327/build/localudebs: parport-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: parport-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: partman-zfs_1-1_all.udeb
+Only in /debian-installer-20120327/build/localudebs: pata-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: pata-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: pcmcia-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: pcmcia-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: pcmcia-storage-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: pcmcia-storage-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: plip-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: plip-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ppp-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ppp-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: qnx4-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: qnx4-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: reiserfs-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: reiserfs-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: sata-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: sata-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: scsi-common-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: scsi-common-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: scsi-core-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: scsi-core-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: scsi-extra-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: scsi-extra-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: scsi-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: scsi-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: serial-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: serial-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: sound-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: sound-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: speakup-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: speakup-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: spl-modules-3.3.3-1-amd64-di_0.6.0-rc8-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: squashfs-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: squashfs-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ufs-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: ufs-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: uinput-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: uinput-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: usb-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: usb-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: usb-serial-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: usb-serial-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: usb-storage-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: usb-storage-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: virtio-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: virtio-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: xfs-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: xfs-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: zfs-modules-3.3.3-1-amd64-di_0.6.0-rc8-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: zlib-modules-3.3.3-1-amd64-di_3.3.3-1_amd64.udeb
+Only in /debian-installer-20120327/build/localudebs: zlib-modules-3.3.3-1-amd64-di_3.3.3-3_amd64.udeb
+Only in /debian-installer-20120327/build/pkg-lists: local
+Only in /debian-installer-20120327/build: sources.list.udeb
+Only in /debian-installer-20120327/build: stamps
+Only in /debian-installer-20120327/build: tmp
+Only in /debian-installer-20120327/build: udebs
+Only in /debian-installer-20120327/: build-stamp
+Only in /debian-installer-20120327/debian: debian-installer
+Only in /debian-installer-20120327/debian: debian-installer.debhelper.log
+Only in /debian-installer-20120327/debian: debian-installer.substvars
+Only in /debian-installer-20120327/debian: files
+Only in /debian-installer-20120327/debian: tmp
+Only in /debian-installer-20120327/doc/devel/internals: apa.html
+Only in /debian-installer-20120327/doc/devel/internals: apb.html
+Only in /debian-installer-20120327/doc/devel/internals: ch01.html
+Only in /debian-installer-20120327/doc/devel/internals: ch02.html
+Only in /debian-installer-20120327/doc/devel/internals: ch03.html
+Only in /debian-installer-20120327/doc/devel/internals: ch04.html
+Only in /debian-installer-20120327/doc/devel/internals: index.html
+Only in /debian-installer-20120327/doc/devel/partman: partman-doc.html
