@@ -47,7 +47,7 @@ $(CPDIIMG): $(DIIMG)
 #--profiles-udeb-dist $(UDEBS) #--extra-udeb-dist $(UDEBS)
 
 $(PMZFS): $(UDEBS)/partman-zfs/debian/rules
-	cd $(<D)/.. && dpkg-buildpackage -uc -us -b
+	cd $(<D)/.. && dpkg-buildpackage -k9978711C -b
 
 $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -66,7 +66,7 @@ $(UDEBS)/zfs_1-1_all.udeb: zfs_1-1_all.udeb
 	cp $< $@
 
 zfs_1-1_all.udeb:
-	cd zfs && dpkg-buildpackage -uc -us -b
+	cd zfs && dpkg-buildpackage -k9978711C -b
 
 $(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
 	@[ -d $(@D) ] || mkdir -p $(@D)
