@@ -3,11 +3,11 @@
 set -e
 set -x
 
-ZFSVER=0.6.0-rc8
+set ZFSVER=0.6.0-rc8
 
-cd /spl-$(ZFSVER)
+cd /spl-$ZFSVER
 dpkg-buildpackage -j8
-cd /zfs-$(ZFSVER)
+cd /zfs-$ZFSVER
 dpkg-buildpackage -j8
 cd /root
 cd /debian-installer-*

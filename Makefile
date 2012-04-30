@@ -100,3 +100,4 @@ clean:
 	-cd $(UDEBS)/partman-zfs && debian/rules clean
 	sudo umount $(CHROOT)/proc || true
 	sudo rm -rf $(CHROOT)
+	rm -f packages.tgz
