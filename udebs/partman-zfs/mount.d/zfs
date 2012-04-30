@@ -9,11 +9,9 @@ options=$4
 dump=$5
 pass=$6
 
-#FIXME
 case $type in
     zfs)
-	zfs mount ${options:+-o "$options"} $fs /target$mp || exit 1
-	echo "zfs unmount /target$mp"
+	zfs set mountpoint=/${mp#/} ${fs#/dev/zvol/} || exit 1
 	exit 0
 	;;
 esac
