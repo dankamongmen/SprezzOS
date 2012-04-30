@@ -213,10 +213,10 @@ index 3cfb88f..52501dd 100644
  	kernel ${KERNEL}
  	append desktop=%desktop% ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/menu.cfg b/build/boot/x86/menu.cfg
-index 721f74f..b1f38fb 100644
+index 721f74f..6813c26 100644
 --- a/build/boot/x86/menu.cfg
 +++ b/build/boot/x86/menu.cfg
-@@ -1,31 +1,25 @@
+@@ -1,31 +1,31 @@
 -menu hshift 13
 -menu width 60
 +menu hshift 45
@@ -263,8 +263,14 @@ index 721f74f..b1f38fb 100644
 +   display help screens. type 'menu' at boot prompt to return here.
 +	endtext
 +	config ${SYSDIR}prompt.cfg
++label memtest86
++	menu label ^memtest86
++	text help
++   run memory tester. you will need to reboot to exit.
++	endtext
++	kernel memtest.bin
 diff --git a/build/boot/x86/pics/klowner.png b/build/boot/x86/pics/klowner.png
-index 62fcb86..feb0f43 100644
+index 62fcb86..ed2a048 100644
 Binary files a/build/boot/x86/pics/klowner.png and b/build/boot/x86/pics/klowner.png differ
 diff --git a/build/boot/x86/rqgtk.cfg b/build/boot/x86/rqgtk.cfg
 index 8a88e32..dfa78ed 100644
@@ -307,7 +313,7 @@ index 8212aec..a36fc5b 100644
  	kernel ${KERNEL}
  	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD_GTK} speakup.synth=soft -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/stdmenu.cfg b/build/boot/x86/stdmenu.cfg
-index 4a212b6..8f2e3fd 100644
+index 4a212b6..4f2a67b 100644
 --- a/build/boot/x86/stdmenu.cfg
 +++ b/build/boot/x86/stdmenu.cfg
 @@ -4,15 +4,15 @@ menu color border	* #00000000 #00000000 none
@@ -325,10 +331,12 @@ index 4a212b6..8f2e3fd 100644
 +menu rows 17
  menu helpmsgrow 15
  # The command line must be at least one line from the bottom.
- menu cmdlinerow 16
- menu timeoutrow 16
+-menu cmdlinerow 16
+-menu timeoutrow 16
 -menu tabmsgrow 18
 -menu tabmsg Press ENTER to boot or TAB to edit a menu entry
++menu cmdlinerow 18
++menu timeoutrow 18
 +menu tabmsgrow 20
 +menu tabmsg enter selects. tab configures.
 diff --git a/build/boot/x86/txt.cfg b/build/boot/x86/txt.cfg
@@ -344,7 +352,7 @@ index d15af36..4a4a728 100644
  	kernel ${KERNEL}
  	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
 diff --git a/build/config/amd64.cfg b/build/config/amd64.cfg
-index 343d947..fb72b6c 100644
+index 343d947..9db69ca 100644
 --- a/build/config/amd64.cfg
 +++ b/build/config/amd64.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -352,12 +360,12 @@ index 343d947..fb72b6c 100644
  
  # The version of the kernel to use.
 -KERNELVERSION = 3.2.0-2-amd64
-+KERNELVERSION = 3.3.3-1-amd64
++KERNELVERSION = 3.3.4-4-amd64
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
 diff --git a/build/config/common b/build/config/common
-index 6ebfc9e..0397bd4 100644
+index 6ebfc9e..1bea193 100644
 --- a/build/config/common
 +++ b/build/config/common
 @@ -37,13 +37,13 @@ MKLIBS = mklibs
@@ -372,8 +380,8 @@ index 6ebfc9e..0397bd4 100644
  # has not yet been determined.)
 -DEBIAN_VERSION = 7.0 (wheezy)
 -DEBIAN_VERSION ?= wheezy
-+#DEBIAN_VERSION = 7.0 (unstable)
-+DEBIAN_VERSION ?= unstable
++DEBIAN_VERSION = 1.0 (cray)
++DEBIAN_VERSION ?= cray
  
  # Define here from what release (codename!) components (udebs) should be taken
  # to build debian-installer. By default this is set to 'unstable' for building
@@ -398,7 +406,7 @@ index 6ebfc9e..0397bd4 100644
  LSB_DISTRIB_RELEASE="$(DEBIAN_VERSION) - installer build $(BUILD_DATE)"
  
 diff --git a/build/config/i386.cfg b/build/config/i386.cfg
-index ba92623..2b6a0b5 100644
+index ba92623..682be9e 100644
 --- a/build/config/i386.cfg
 +++ b/build/config/i386.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -406,12 +414,12 @@ index ba92623..2b6a0b5 100644
  
  # The version of the kernel to use.
 -BASEVERSION = 3.2.0-2
-+BASEVERSION = 3.3.3-3
++BASEVERSION = 3.3.4-4
  KERNELVERSION = $(BASEVERSION)-486
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
 diff --git a/build/config/ia64.cfg b/build/config/ia64.cfg
-index 765be19..a869499 100644
+index 765be19..1dc6293 100644
 --- a/build/config/ia64.cfg
 +++ b/build/config/ia64.cfg
 @@ -5,7 +5,7 @@ MEDIUM_SUPPORTED = cdrom netboot
@@ -419,7 +427,7 @@ index 765be19..a869499 100644
  # The version of the kernel to use.
  KERNELMAJOR = 2.6
 -KERNELVERSION = 3.2.0-2-itanium
-+KERNELVERSION = 3.3.3-3-itanium
++KERNELVERSION = 3.3.4-4-itanium
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
  KERNELIMAGEVERSION = $(KERNELVERSION)
