@@ -1,0 +1,917 @@
+# THIS FILE IS GENERATED AUTOMATICALLY FROM THE D-I PO MASTER FILES
+# The master files can be found under packages/po/
+#
+# DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
+#
+# translation of bg.po to Bulgarian
+# Bulgarian messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# Ognyan Kulev <ogi@fmi.uni-sofia.bg>, 2004, 2005, 2006.
+# Nikola Antonov <nikola@linux-bg.org>, 2004.
+#
+#
+# Translations from iso-codes:
+#   Tobias Quathamer <toddy@debian.org>, 2007.
+#     Translations taken from ICU SVN on 2007-09-09
+#   Free Software Foundation, Inc., 2004.
+#   Georgi Georgiev <assenov_g@operamail.com>, 2001, 2004.
+#   Alastair McKinstry <mckinstry@computer.org>, 2001.
+#   Ognyan Kulev <ogi@fmi.uni-sofia.bg>, 2004.
+#   Damyan Ivanov <dmn@debian.org>, 2006, 2007, 2008, 2009, 2010.
+# Copyright (C)
+#   (translations from drakfw)
+#   - further translations from ICU-3.9
+# Translation of ISO 639 (language names) to Bulgarian
+# Copyright (C) 2010 Free Software Foundation, Inc.
+#
+# Copyright (C)
+#   Roumen Petrov <transl@roumenpetrov.info>, 2010.
+# Damyan Ivanov <dmn@debian.org>, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bg\n"
+"Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"PO-Revision-Date: 2012-02-25 18:10+0200\n"
+"Last-Translator: Damyan Ivanov <dmn@debian.org>\n"
+"Language-Team: Български <dict@fsa-bg.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
+#: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:19001
+msgid "zfs"
+msgstr "zfs"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name
+#: ../partman-zfs.templates:3001
+msgid "ZFS file system"
+msgstr "файлова система ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
+msgstr ""
+"За тази конфигурация на ZFS е задължително директориите /boot и /lib/modules "
+"да са разделени."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+"Основната файлова система е на пул на ZFS, който използва няколко физически "
+"тома."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror or "
+"Striped modes, but not RAID-Z mode."
+msgstr ""
+"Програмата за начално зареждане поддържа такава конфигурация само в режим "
+"„огледало“ (mirror) или „разпределен“ (striped), но не и RAID-Z."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
+msgstr ""
+"Уверете се, че директориите /boot и /lib/modules са на дял, който използва "
+"пул на ZFS с поддържана конфигурация, или на друга файлова система, например "
+"UFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid "Unsupported multiple volume ZFS for ${MNT}"
+msgstr "Неподдържана многотомна конфигурация на ZFS за ${MNT}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr "Дялът ${MNT} е на пул на ZFS, използващ няколко физически тома."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+"Уверете се, че ${MNT} е на дял, използващ поддържана конфигурация на пула на "
+"ZFS или на друга файлова система, например UFS."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
+msgid "Go back to the menu and correct this problem?"
+msgstr "Връщане обратно в менюто и поправяне на проблема?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. "
+"Although ZFS is supported on 32-bit i386, using it without special tuning "
+"may lead to performance or stability problems due to limitations of this "
+"architecture."
+msgstr ""
+"Един или повече дялове са настроени да използват файловата система ZFS. "
+"Въпреки, че ZFS поддържа 32-битова архитектура i386, използването ѝ без "
+"специални настройки може да доведе до проблеми със скоростта или "
+"стабилността на работа поради ограниченията на архитектурата."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You should either use the 64-bit (amd64) version of this installer (if your "
+"hardware supports this), or go back to the partitioning menu and configure "
+"the partitions to use another file system."
+msgstr ""
+"Препоръчва се използването на 64-битовия (amd64) вариант на инсталатора (ако "
+"хардуерът го поддържа) или връщане назад в менюто за настройка на дялвете и "
+"използване на друга файлова система."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"Един или повече дялове са настроени да използват файловата система ZFS. "
+"Използването на ZFS на компютри с по-малко от 512MB оперативна памет може да "
+"доведе то проблеми със стабилността и не се препоръчва."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"Най-добре е да се върнете в менюто за разделяне и да промените дяловете, "
+"така че да използват друга файлова система."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:8001
+msgid "Configure ZFS"
+msgstr "Настройване на ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:9001
+msgid "In use by ZFS pool ${VG}"
+msgstr "Използва се от пул на ZFS ${VG}"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Display configuration details"
+msgstr "Подробна конфигурация"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Create ZFS pool"
+msgstr "Създаване на пул на ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Delete ZFS pool"
+msgstr "Премахване на пул на ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:13001
+msgid "Create logical volume"
+msgstr "Създаване на логически том"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:14001
+msgid "Delete logical volume"
+msgstr "Изтриване на логически том"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
+msgid "Finish"
+msgstr "Завършване"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "Записване на промените на диска и настройване на ZFS?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"Преди ZFS да може да бъде настроена, текущата схема на разделянето трябва да "
+"бъде записана на диска. Тези промени не могат да бъдат отменени по-късно."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"След настройване на ZFS не са позволени допълнителни промени на дяловете на "
+"дисковете, съдържащи физически томове. Моля, решете дали текущата схема на "
+"разделянето е задоволителна преди да продължите."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration failure"
+msgstr "Грешка при настройване на ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "Грешка при запазването на промените върху дисковете."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration has been aborted."
+msgstr "Настройката на ZFS е прекъсната."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+msgid "physical volume for ZFS"
+msgstr "физически том на ZFS"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS configuration action:"
+msgstr "Действия по настройването на ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "Summary of current ZFS configuration:"
+msgstr "Текущата конфигурация на ZFS накратко:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" Свободни физически томове:    ${FREE_PVS}\n"
+" Използвани физически томове:  ${USED_PVS}\n"
+" Пулове на ZFS:                ${VGS}\n"
+" Логически томове на ZFS:      ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "Current ZFS configuration:"
+msgstr "Текуща конфигурация на ZFS:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Devices for the new ZFS pool:"
+msgstr "Устройства за новия пул на ZFS:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Please select devices for the new ZFS pool."
+msgstr "Изберете устройствата за новия пул на ZFS."
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "You can select one or more devices."
+msgstr "Може да изберете едно или повече устройства."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "Многодисков режим за този пул на ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+"Изберете режима за многодискови операции на този пул на ZFS:\n"
+" * Разпределен (striped): подобен на RAID 0 (по подразбиране) – \n"
+"   данните са пръснати на няколко физически тома;\n"
+" * Огледало: подобен на RADI 1 – данните се копират на всеки\n"
+"   физически том;\n"
+" * RAID-Z: подобен на RADI 5 или RADI 6 – някои от физическите\n"
+"   томове съдържат контролна информация, а самите данни са пръснати\n"
+"   по останалите томове."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr "Ниво на контрол за RAID-Z:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr ""
+"Укажете броя на физическите томове, които ще съхраняват контролна информация."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "ZFS pool name:"
+msgstr "Име на пула на ZFS:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "Въведете името, което искате да използвате за новия пул на ZFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No physical volumes selected"
+msgstr "Не са избрани физически томове"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr ""
+"Не са избрани физически томове. Прекъсване на създаването на нов пул на ZFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No ZFS pool name"
+msgstr "Липсва име на пул за ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "Не е въведено име за пула на ZFS. Моля, въведете име."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid "ZFS pool name already in use"
+msgstr "Името, избрано за пула на ZFS вече се използва"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr "Избраното име за пула на ZFS вече се използва. Изберете друго име."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "Error while creating ZFS pool"
+msgstr "Грешка при създаването на пул за ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "Пулът на ZFS ${VG} не може да бъде създаден."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:44001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr ""
+"Проверете /var/log/bootstrap.log или вижте виртуална конзола 4 за "
+"подробности."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "ZFS pool to delete:"
+msgstr "Пул на ZFS за изтриване:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "Изберете пул на ZFS, който искате да изтриете."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool"
+msgstr "Няма пул за ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool has been found."
+msgstr "Не беше намерен пул на ZFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "The ZFS pool may have already been deleted."
+msgstr "Пулът на ZFS може вече да е изтрит."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Really delete the ZFS pool?"
+msgstr "Изтриване на пул на ZFS?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr "Потвърдете премахването на пула на ZFS ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid "Error while deleting ZFS pool"
+msgstr "Грешка при изтриване на пул на ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"Избраният пул на ZFS не може да бъде изтрит. Може би някои от логическите "
+"томове все още се използва."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "No ZFS pool found"
+msgstr "Не са открити пулове на ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"Не бяха открити свободни пулове на ZFS за създаване на нов логически том. "
+"Създайте още пулове или освободете място в някой от съществуващите."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Logical volume name:"
+msgstr "Име на логически том:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "Въведете името, което искате да използвате за новия логически том."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "ZFS pool:"
+msgstr "Пул на ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "Изберете пул на ZFA, в който да бъде създаден новия логически том."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No logical volume name entered"
+msgstr "Не е въведено име за логически том"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr "Не е въведено име за логически том. Моля, въведете име."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+msgid "Error while creating a new logical volume"
+msgstr "Грешка при създаването на нов логически том"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr ""
+"Даденото име ${LV} вече се използва от друг логически том в същия пул на ZFS "
+"(${VG})."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Logical volume size:"
+msgstr "Големина на новия логически том:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"Въведете големината на новия логически том. Големината може да бъде въведена "
+"в един от следните формати: 10K (Килобайти), 10M (Мегабайти), 10G "
+"(Гигабайти), 10T (Терабайти). Подразбиращата се мерна единица е Мегабайти."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr ""
+"Невъзможност за създаване на нов логически том (${LV}) в ${VG} с големина "
+"${SIZE}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume found"
+msgstr "Не е намерен логически том"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr "Не е намерен логически том. Моля, първо създайте логически том."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Logical volume:"
+msgstr "Логически том:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please select the logical volume to delete."
+msgstr "Изберете логически том, който да бъде изтрит."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "in VG ${VG}"
+msgstr "в ГТ ${VG}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "Error while deleting the logical volume"
+msgstr "Грешка при изтриване на логически том"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "Логическият том ${LV} в групата ${VG} не може да бъде изтрит."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid "No usable physical volumes found"
+msgstr "Не бяха намерени използваеми физически томове"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"Не може да бъде намерен физически том (дисков дял) във вашата система.  "
+"Всички физически томове вече се използват. Може би трябва да заредите някои "
+"модули или да разделите твърдите дискове отново."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid "ZFS not available"
+msgstr "Няма поддръжка на ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr "Текущото ядро не поддържа ZFS. Може би трябва да се зареди модула zfs."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "Непозволено име на логически том или пул на ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\", and \"log\" are not allowed."
+msgstr ""
+"Имената на логическите томове и пуловете на ZFS могат да съдържат само букви "
+"на латиница, цифри, тире, двоеточие, точка и подчертаващо тире. Дължината на "
+"името не трябва да превишава 255 символа и трябва да започва с буква или "
+"цифра. Имената „mirror“, „raidz“, „spare“ и „log“ не са позволени."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Please choose a different name."
+msgstr "Моля, изберете друго име."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Remove existing logical volume data?"
+msgstr "Премахване на съществуващите данни за логически том?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"Избраното устройство вече съдържа следните логически томове или пулове на "
+"ZFS, които ще бъдат премахнати:"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "Логически том(ове): ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr "Пул(ове) на ZFS: ${VGTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr ""
+"Тази операция ще изтрие безвъзвратно всички данни на логическите томове."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid "ZFS"
+msgstr "ZFS"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"Често срещана ситуация при системните администратори е да открият, че някой "
+"дисков дял (обикновено най-важният) страда от недостиг на място, докато в "
+"същото време други дялове стоят неизползвани. ZFS може да помогне, ако това "
+"се случи."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"ZFS позволява комбинирането на дискови устройства или дялове („физически "
+"томове“) във виртуални дискове („пул на ZFS“), които  да бъдат разделяни на "
+"виртуални дялове („логически томове“). Томовете на ZFS и логическите томове "
+"могат да се разполагат върху няколко физически диска. Нови физически томове "
+"могат да бъдат добавяни по всяко време, а размерът на логическите томове е "
+"ограничен единствено от размера на пула."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"Командите от менюто за настройка на ZFS служат за промяна на пулове и "
+"логически томове. След като се върнете в основния екран за настройка на "
+"дяловете, логическите томове ще се виждат като обикновени дялове и следва да "
+"бъдат използвани като такива."

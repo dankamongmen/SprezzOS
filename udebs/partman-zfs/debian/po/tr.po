@@ -1,0 +1,926 @@
+# THIS FILE IS GENERATED AUTOMATICALLY FROM THE D-I PO MASTER FILES
+# The master files can be found under packages/po/
+#
+# DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
+#
+# Turkish messages for debian-installer.
+# Copyright (C) 2003, 2004 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# Recai Oktaş <roktas@omu.edu.tr>, 2004, 2005, 2008.
+# Osman Yüksel <yuxel@sonsuzdongu.com>, 2004.
+# Özgür Murat Homurlu <ozgurmurat@gmx.net>, 2004.
+# Halil Demirezen <halild@bilmuh.ege.edu.tr>, 2004.
+# Murat Demirten <murat@debian.org>, 2004.
+#
+# Mert Dirik <mertdirik@gmail.com>, 2008, 2009.
+#
+# Translations from iso-codes:
+#   Alastair McKinstry <mckinstry@computer.org>, 2001.
+#   (translations from drakfw)
+#   Fatih Demir <kabalak@gmx.net>, 2000.
+#   Free Software Foundation, Inc., 2000,2004
+#   Kemal Yilmaz <kyilmaz@uekae.tubitak.gov.tr>, 2001.
+#   Mert Dirik <mertdirik@gmail.com>, 2008.
+#   Nilgün Belma Bugüner <nilgun@fide.org>, 2001.
+#   Recai Oktaş <roktas@omu.edu.tr>, 2004.
+#   Tobias Quathamer <toddy@debian.org>, 2007.
+#     Translations taken from ICU SVN on 2007-09-09
+#   Ömer Fadıl USTA <omer_fad@hotmail.com>, 1999.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"PO-Revision-Date: 2012-02-12 01:51+0200\n"
+"Last-Translator: Mert Dirik <mertdirik@gmail.com>\n"
+"Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
+#: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:19001
+msgid "zfs"
+msgstr "zfs"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name
+#: ../partman-zfs.templates:3001
+msgid "ZFS file system"
+msgstr "ZFS dosya sistemi"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
+msgstr ""
+"Bu ZFS yapılandırmasında /boot ve /lib/modules bölümlerinin ayrı olması "
+"zorunludur."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+"Kök dosya sisteminiz birden fazla cilt kullanan bir ZFS havuzunda bulunuyor."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror or "
+"Striped modes, but not RAID-Z mode."
+msgstr ""
+"Önyükleme programı bu yapılandırmayı yalnızca aynalanmış ya da şeritli "
+"kiplerde destekler, RAID-Z kipinde desteklemez."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
+msgstr ""
+"/boot ve /lib/modules dizinlerini desteklenen bir ZFS havuzu "
+"yapılandırmasına ya da UFS gibi farklı bir dosya sistemine koyduğunuzdan "
+"emin olun."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid "Unsupported multiple volume ZFS for ${MNT}"
+msgstr "${MNT} için çok ciltli ZFS desteklenmiyor"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+"${MNT} bölümünüz birden fazla cilt kullanan bir ZFS havuzunda bulunuyor."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+"${MNT} bölümünü desteklenen bir ZFS havuzu yapılandırmasına ya da UFS gibi "
+"farklı bir dosya sistemine koyduğunuzdan emin olun."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
+msgid "Go back to the menu and correct this problem?"
+msgstr "Menüye geri dönerek hataları düzeltmek ister misiniz?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. "
+"Although ZFS is supported on 32-bit i386, using it without special tuning "
+"may lead to performance or stability problems due to limitations of this "
+"architecture."
+msgstr ""
+"Bir veya daha fazla bölümü ZFS dosya sistemini kullanacak şekilde "
+"yapılandırdınız. ZFS 32-bit'lik i386 mimârisinde desteklenir; fakat "
+"mimârideki sınırlamalardan ötürü  özel ayarlamalar yapılmadan kullanılması "
+"başarım ya da kararlılık sorunlarına yol açabilir."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You should either use the 64-bit (amd64) version of this installer (if your "
+"hardware supports this), or go back to the partitioning menu and configure "
+"the partitions to use another file system."
+msgstr ""
+"Donanımınız destekliyorsa kurulum programının 64-bit (amd64) sürümünü "
+"kullanmalı ya da bölümleme menüsüne geri dönmeli ve bölümleri başka bir "
+"dosya sistemi kullanacak şekilde yapılandırmalısınız."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"Bir veya daha fazla bölümü ZFS dosya sistemini kullanacak şekilde "
+"yapılandırdınız. 512 MB'den daha az belleğe sahip sistemlerde ZFS kullanmak "
+"kararlılık sorunlarına neden olabilir ve tavsiye edilmez."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"Bölümleme menüsüne geri dönmeli ve bölümleri farklı bir dosya sistemi "
+"kullanacak şekilde ayarlamalısınız."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:8001
+msgid "Configure ZFS"
+msgstr "ZFS Yapılandırması"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:9001
+msgid "In use by ZFS pool ${VG}"
+msgstr "${VG} bölümü ZFS havuzu tarafından kullanılıyor"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Display configuration details"
+msgstr "Yapılandırma ayrıntılarını göster"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Create ZFS pool"
+msgstr "ZFS havuzu oluştur"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Delete ZFS pool"
+msgstr "ZFS havuzunu sil"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:13001
+msgid "Create logical volume"
+msgstr "Mantıksal cilt oluştur"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:14001
+msgid "Delete logical volume"
+msgstr "Mantıksal cilt sil"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
+msgid "Finish"
+msgstr "Bitir"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "Değişiklikler disklere kaydedilsin ve ZFS yapılandırılsın mı?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"ZFS yapılandırılmadan önce mevcut bölümleme şeması diske kaydedilmelidir. Bu "
+"değişiklikler geri alınamaz."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"ZFS yapılandırıldıktan sonra  kurulum esnasında, fiziksel cilt içeren "
+"disklerdeki bölümler üzerinde ek bir değişikliğe izin verilmez. Lütfen bu "
+"disklerdeki mevcut bölümlemenin isteğinize uygun şekilde yapıldığından emin "
+"olun."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration failure"
+msgstr "ZFS yapılandırma hatası"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "Değişiklikler disklere kaydedilirken bir hata oluştu."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration has been aborted."
+msgstr "ZFS yapılandırması iptal edildi."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+msgid "physical volume for ZFS"
+msgstr "ZFS için fiziksel cilt"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS configuration action:"
+msgstr "ZFS yapılandırma eylemi:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "Summary of current ZFS configuration:"
+msgstr "Geçerli ZFS yapılandırmasının özeti:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" Serbest Fiziksel Ciltler:     ${FREE_PVS}\n"
+" Kullanılan Fiziksel Ciltler:  ${USED_PVS}\n"
+" ZFS havuzları:                ${VGS}\n"
+" ZFS Mantıksal Ciltler:            ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "Current ZFS configuration:"
+msgstr "Geçerli ZFS yapılandırması:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Devices for the new ZFS pool:"
+msgstr "Yeni ZFS havuzu için aygıtlar:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Please select devices for the new ZFS pool."
+msgstr "Lütfen oluşturulacak yeni ZFS havuzuna ilişkin aygıtları seçin."
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "You can select one or more devices."
+msgstr "Bir veya daha fazla aygıt seçebilirsiniz."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "ZFS havuzunun çokludisk kipi:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+"Lütfen bu ZFS havuzundaki çokludisk işlemlerinde kullanılacak kipi seçin:\n"
+" * Şeritli: RAID 0'a benzer (öntanımlı) - veri fiziksel ciltler boyunca\n"
+"            yayılarak yazılır;\n"
+" * Aynalanmış:  RAID 1'e benzer - veri her bir fiziksel cilde\n"
+"            kopyalanır;\n"
+" * RAID-Z:  RAID 5 ya da RAID 6'ya benzer - bazı fiziksel cilter\n"
+"            eşlik bitlerini depolarken veri diğerlerine yayılarak yazılır."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr "RAID-Z eşlik değeri:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr ""
+"Lütfen eşlik bitlerinin depolanacağı fiziksel ciltlerin sayısını seçin."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "ZFS pool name:"
+msgstr "ZFS havuzu adı:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr ""
+"Lütfen yeni oluşturulacak ZFS havuzu için kullanmak istediğiniz adı girin."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No physical volumes selected"
+msgstr "Herhangi bir fiziksel cilt seçilmedi"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr ""
+"Herhangi bir fiziksel cilt seçilmedi. Yeni ZFS havuzunun oluşturulması "
+"işlemi iptal edildi."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No ZFS pool name"
+msgstr "ZFS Havuzu adı yok"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "Herhangi bir ZFS havuzu adı girilmedi. Lütfen bir ad girin."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid "ZFS pool name already in use"
+msgstr "Bu ZFS havuzu adı zaten kullanılıyor"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr ""
+"Seçtiğiniz ZFS havuzu adı zaten kullanılıyor. Lütfen başka bir ad seçin."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "Error while creating ZFS pool"
+msgstr "Yeni ZFS havuzu oluşturulurken sorun yaşandı"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "${VG} ZFS havuzu oluşturulamadı."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:44001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr ""
+"Ayrıntılı bilgi için /var/log/syslog dosyasına veya dördüncü konsola bakın."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "ZFS pool to delete:"
+msgstr "Silinecek ZFS havuzu:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "Lütfen silmek istediğiniz ZFS havuzunu seçin."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool"
+msgstr "ZFS Havuzu yok"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool has been found."
+msgstr "Herhangi bir ZFS havuzu bulunamadı."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "The ZFS pool may have already been deleted."
+msgstr "Bu ZFS havuzu daha önceden silinmiş olabilir."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Really delete the ZFS pool?"
+msgstr "ZFS havuzu silinsin mi?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr "Lütfen  ${VG} ZFS havuzunu silmek istediğinizi onaylayın."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid "Error while deleting ZFS pool"
+msgstr "ZFS havuzu silinirken hata oluştu"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"Seçilen ZFS havuzları silinemedi. Bir veya daha fazla mantıksal cilt şu an "
+"kullanılıyor olabilir."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "No ZFS pool found"
+msgstr "Herhangi bir ZFS havuzu bulunamadı"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"Yeni bir mantıksal cilt oluşturmak için boş bir ZFS havuzu bulunamadı. "
+"Lütfen  başka bir ZFS havuzu oluşturun veya mevcut ZFS havuzlarından birini "
+"daraltın."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Logical volume name:"
+msgstr "Mantıksal cilt adı:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr ""
+"Lütfen yeni oluşturulacak mantıksal cilt için kullanmak istediğiniz adı "
+"girin."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "ZFS pool:"
+msgstr "ZFS havuzu:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "Lütfen yeni mantıksal cildin oluşturulacağı ZFS havuzunu seçin."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No logical volume name entered"
+msgstr "Herhangi bir mantıksal cilt adı girilmedi"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr "Mantıksal cilt için bir ad girilmedi. Lütfen bir ad girin."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+msgid "Error while creating a new logical volume"
+msgstr "Yeni mantıksal cilt oluşturulurken bir sorun yaşandı"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr ""
+"Girdiğiniz ad ${LV} aynı ZFS havuzunda (${VG}) bulunan başka bir mantıksal "
+"cilt tarafından zaten kullanılıyor."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Logical volume size:"
+msgstr "Mantıksal cilt boyutu:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"Lütfen yeni oluşturulacak mantıksal cildin boyutunu girin. Boyut şu "
+"biçimlerde girilebilir: 10K (Kilobyte), 10M (Megabyte), 10G (Gigabyte), 10T "
+"(Terabyte). Öntanımlı birim Megabyte'dır."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr ""
+"${VG} cilt grubu üzerinde ${SIZE} boyutunda yeni ${LV} mantıksal cildi "
+"oluşturulamadı."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume found"
+msgstr "Herhangi bir mantıksal cilt bulunamadı"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr ""
+"Herhangi bir mantıksal cilt bulunamadı. Lütfen önce bir mantıksal cilt "
+"oluşturun."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Logical volume:"
+msgstr "Mantıksal cilt:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please select the logical volume to delete."
+msgstr "Lütfen silinecek mantıksal cildi seçin."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "in VG ${VG}"
+msgstr "CG ${VG} üzerinde"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "Error while deleting the logical volume"
+msgstr "Mantıksal cilt silinirken hata oluştu"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "${VG} üzerindeki mantıksal cilt ${LV} silinemedi."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid "No usable physical volumes found"
+msgstr "Kullanılabilir özellikte bir fiziksel cilt bulunamıyor"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"Bu sistemde herhangi bir fiziksel cilt (ör. disk bölümleri) bulunamadı. "
+"Bütün fiziksel ciltler zaten kullanımda olabilir. Gerekli bazı çekirdek "
+"modüllerini yüklemek veya sabit diskleri tekrar bölümlemek zorunda da "
+"olabilirsiniz."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid "ZFS not available"
+msgstr "ZFS mevcut değil"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr ""
+"Kullanımdaki çekirdek, ZFS'i desteklemiyor.zfs modülünü yüklemeniz "
+"gerekebilir."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "Geçersiz mantıksal cilt veya ZFS havuzu adı"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\", and \"log\" are not allowed."
+msgstr ""
+"Mantıksal cilt veya ZFS havuzu adları sadece alfasayısal karakterler, tire, "
+"iki nokta üst üste, nokta ve alt tire karakterleri içerebilir. Bu adlar 255 "
+"karakter veya daha kısa uzunlukta olmalı ve alfasayısal bir karakterle "
+"başlamalıdır. \"mirror\" , \"raidz\", \"spare\" ve \"log\" adları "
+"geçersizdir."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Please choose a different name."
+msgstr "Lütfen başka bir ad seçin."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Remove existing logical volume data?"
+msgstr "Mantıksal cilt üzerindeki mevcut veriler silinsin mi?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"Seçilen aygıt aşağıda listelenen ve silinmek üzere olan ZFS mantıksal "
+"ciltlerini ve ZFS havuzlarını zaten içeriyor:"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "Mantıksal cilt(ler): ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr "ZFS Havuzu(ları): ${VGTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr ""
+"Bu işlem sonucunda mantıksal ciltlerdeki mevcut bütün verilerin kalıcı "
+"şekilde silineceğini unutmayın."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid "ZFS"
+msgstr "ZFS"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"Sistem yöneticilerinin karşılaştığı yaygın bir sorun da bir disk bölümünde "
+"(genelde en önemli olanda) boş yer kalmamışken diğer bölümlerde gereğinden "
+"fazla boş yer olmasıdır. ZFS böyle durumlarda size yardımcı olabilir."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"ZFS, diskleri ya da bölüm aygıtlarını (\"fiziksel ciltleri\") sanal bir disk "
+"(\"ZFS havuzu\") oluşturacak şekilde bir araya getirebilir. ZFS havuzları "
+"sanal bölümlere (\"mantıksal ciltler\") ayrılabilir. ZFS havuzları ve "
+"mantıksal ciltler birden fazla fiziksel disk üzerinde bulunabilir. ZFS "
+"havuzuna herhangi bir zamanda yeni fiziksel ciltler eklenebilir ve mantıksal "
+"ciltlerin boyut sınırı içinde bulunduğu ZFS havuzunun toplam boyutu kadardır."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"ZFS yapılandırma menüsündeki ögeler ZFS havuzlarını ve mantıksal ciltleri "
+"düzenlemek için kullanılabilir. Ana bölüm yönetimi ekranına döndükten sonra "
+"mantıksal ciltler normal birer bölüm gibi listelenir ve normal bir bölüm "
+"gibi işlem görebilir."

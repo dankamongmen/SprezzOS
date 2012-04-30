@@ -1,0 +1,913 @@
+# THIS FILE IS GENERATED AUTOMATICALLY FROM THE D-I PO MASTER FILES
+# The master files can be found under packages/po/
+#
+# DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
+#
+# translation of sl.po to Slovenian
+#
+#
+# Slovenian messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# Jure Čuhalev <gandalf@owca.info>, 2005.
+# Jure Cuhalev <gandalf@owca.info>, 2006.
+# Matej Kovačič <matej.kovacic@owca.info>, 2006.
+# Jožko Škrablin <jozko.skrablni@gmail.com>, 2006.
+# Vanja Cvelbar <cvelbar@gmail.com>, 2008
+# Vanja Cvelbar <cvelbar@gmail.com>, 2009, 2010.
+#
+# Translations from iso-codes:
+#   Tobias Toedter <t.toedter@gmx.net>, 2007.
+#     Translations taken from ICU SVN on 2007-09-09
+#   Primož Peterlin <primozz.peterlin@gmail.com>, 2005, 2007, 2008, 2009, 2010.
+# Copyright (C) 2000, 2002, 2003, 2005, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation, Inc.
+# Alastair McKinstry <mckinstry@computer.org>, 2002.
+# Translations from KDE:
+# Roman Maurer <roman.maurer@amis.net>, 2002.
+# Primož Peterlin <primozz.peterlin@gmail.com>, 2003, 2005, 2006, 2007, 2008, 2009, 2010, 2011.
+#
+# Andraz Tori <andraz.tori1@@guest.arnes.si> 2000.
+# Alastair McKinstry, <mckinstry@@computer.org>, 2001.
+msgid ""
+msgstr ""
+"Project-Id-Version: sl\n"
+"Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"PO-Revision-Date: 2012-04-27 15:43+0100\n"
+"Last-Translator: Vanja Cvelbar <cvelbar@gmail.com>\n"
+"Language-Team: Slovenian <gnome-si@googlegroups.com>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
+#: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:19001
+msgid "zfs"
+msgstr "zfs"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name
+#: ../partman-zfs.templates:3001
+msgid "ZFS file system"
+msgstr "Datotečni sistem ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
+msgstr "Za to nastavitev ZFS sta obvezno ločena /boot in  /lib/modules"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+"Vaš korenski datotečni sistem je na zalogi ZFS, ki uporablja več fizičnih "
+"nosilcev."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror or "
+"Striped modes, but not RAID-Z mode."
+msgstr ""
+"Zagonski nalagalnik podpira to nastavitev za zaloge v načinih Mirror in "
+"Striped a ne za način RAID_Z."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
+msgstr ""
+"Preverite, da sta /boot in /lib/modules na razdelku s podprto nastavitvijo "
+"zaloge ZFS ali na drugem datotečnem sistemu kot je UFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid "Unsupported multiple volume ZFS for ${MNT}"
+msgstr "Nepodprti več medijski  ZFS za ${MNT}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+"Razdelek ${MNT} je na zalogi ZFS, ki uporablja več kot en fizični medij."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+"Preverite, da je ${MNT} na razdelku s podprto nastavitvijo zaloge ZFS ali na "
+"drugem datotečnem sistemu kot je UFS."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
+msgid "Go back to the menu and correct this problem?"
+msgstr "Se želite vrniti v meni in popraviti to napako?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. "
+"Although ZFS is supported on 32-bit i386, using it without special tuning "
+"may lead to performance or stability problems due to limitations of this "
+"architecture."
+msgstr ""
+"Enega ali več razdelkov ste nastavili za uporabo datotečnega sistema ZFS. "
+"Čeprav je ZFS podprt na arhitekturi i386 32-bit lahko posebne nastavitve "
+"privedejo do izgube hitrosti ali stabilnosti zaradi omejitev te arhitekture."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You should either use the 64-bit (amd64) version of this installer (if your "
+"hardware supports this), or go back to the partitioning menu and configure "
+"the partitions to use another file system."
+msgstr ""
+"Uporabiti bi morali ali 64-bitno (amd64) različico tega namestilnika (če "
+"vaša strojna oprema to podpira) ali pa se vrniti na razdeljevalni meni in "
+"nastaviti razdelke, da uporabijo drug datotečni sistem."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"Nastavili ste enega ali več razdelkov za datotečni sistem ZFS. Uporaba ZFS "
+"na računalniku z manj kot 512 MB spomina lahko vodi v težave s stabilnostjo "
+"in ni priporočeno."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"Vrniti se morate na meni za razdeljevanje in spremeniti datotečni sistem "
+"razdelkov."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:8001
+msgid "Configure ZFS"
+msgstr "Nastavitve za ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:9001
+msgid "In use by ZFS pool ${VG}"
+msgstr "Uporablja zaloga ZFS ${VG}"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Display configuration details"
+msgstr "Prikaz namestitvenih podrobnosti"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Create ZFS pool"
+msgstr "Ustvari zalogo ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Delete ZFS pool"
+msgstr "Izbriši zalogo ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:13001
+msgid "Create logical volume"
+msgstr "Ustvari logični nosilec"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:14001
+msgid "Delete logical volume"
+msgstr "Izbriši logični nosilec"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
+msgid "Finish"
+msgstr "Končaj"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "Želite zapisati spremembe na diske in nastaviti ZFS?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"Preden nastavite ZFS, morate trenutno shemo razdelkov zapisati na trdi "
+"disk.  Teh sprememb se ne da razveljaviti."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"Po nastavljanju ZFS niso dovoljene nobene spremembe razdelkov trdih diskov, "
+"ki vsebujejo fizične nosilce. Pred nadaljevanjem se prepričajte, da ste "
+"zadovoljni s trenutno shemo razdelkov na diskih."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration failure"
+msgstr "Nastavitev ZFS ni uspela"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "Prišlo je do napake med pisanjem sprememb na diske."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration has been aborted."
+msgstr "Nastavljanje ZFS je prekinjeno."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+msgid "physical volume for ZFS"
+msgstr "fizična enota za ZFS"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS configuration action:"
+msgstr "Dejanje pri nastavljanju ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "Summary of current ZFS configuration:"
+msgstr "Povzetek trenutne nastavitve ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" Prosti fizični nosilci:  ${FREE_PVS}\n"
+" Uporabljeni fizični nosilci:  ${USED_PVS}\n"
+" Zaloge ZFS:          ${VGS}\n"
+" Logični nosilci ZFS:        ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "Current ZFS configuration:"
+msgstr "Trenutna nastavitev ZFS:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Devices for the new ZFS pool:"
+msgstr "Naprave za novo zalogo ZFS:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Please select devices for the new ZFS pool."
+msgstr "Izberite naprave za novo zalogo ZFS."
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "You can select one or more devices."
+msgstr "Izberete lahko eno ali več naprav."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "Več medijski način za to zalogo ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+"Izberite način za večmedijske operacije za zalogo ZFS:\n"
+" * Striped: podoben RAID 0 (default) - podatki so raztreseni čez\n"
+"            fizične nosilce;\n"
+" * Mirror:  podoben RAID 1 - podatki so podvojeni na vsak\n"
+"            fizični nosilec;\n"
+" * RAID-Z:  podoben RAID 5 ali RAID 6 - nekateri fizični nosilci\n"
+"            shranjujejo parnostne bite, podatki so razpršeni po ostalih."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr "Nivo parnosti za RAID-Z:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr "Izberite število fizičnih nosilcev za shranjevanje parnostnih bitov."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "ZFS pool name:"
+msgstr "Ime zaloge ZFS:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "Prosim vnesite ime, ki bi ga radi uporabili za novo zalogo ZFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No physical volumes selected"
+msgstr "Izbrali niste nobenega fizičnega nosilca"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr ""
+"Izbrali niste nobenega fizičnega nosilca. Ustvarjanje nove zaloge ZFS je "
+"bilo prekinjeno."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No ZFS pool name"
+msgstr "Nobenega imena zaloge ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "Niste vnesli nobenega imena zaloge ZFS. Prosim vnesite ime."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid "ZFS pool name already in use"
+msgstr "To ime zaloge ZFS je že v uporabi"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr "Izbrano ime zaloge ZFS je že v uporabi. Prosim, izberite drugo ime."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "Error while creating ZFS pool"
+msgstr "Pri ustvarjanju nove zaloge ZFS je prišlo do napake"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "Zaloge ZFS ${VG} ni bilo mogoče ustvariti."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:44001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr ""
+"Preverite /var/log/messages ali poglejte navidezno konzolo 4 za podrobnosti."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "ZFS pool to delete:"
+msgstr "Zaloga ZFS, ki naj bo izbrisana:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "Izberite zalogo ZFS, ki jo želite izbrisati."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool"
+msgstr "Nobene zaloge ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool has been found."
+msgstr "Nobene zaloge ZFS ni bilo mogoče najti."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "The ZFS pool may have already been deleted."
+msgstr "Ta zaloga ZFS je mogoče že izbrisano."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Really delete the ZFS pool?"
+msgstr "Res želite izbrisati zalogo ZFS?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr "Potrdite odstranjevanje zaloge ZFS ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid "Error while deleting ZFS pool"
+msgstr "Napaka pri brisanju zaloge ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"Izbrane zaloge ZFS ni bilo mogoče zbrisati. Eden ali več logičnih nosilcev "
+"je morda trenutno v uporabi."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "No ZFS pool found"
+msgstr "Ni bilo mogoče najti zalog ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"Ni bilo mogoče najti nobenih prostih zalog ZFS za ustvarjanje novega "
+"logičnega nosilca. Prosim ustvarite drugo zalogo ZFS, ali zmanjšajte "
+"obstoječo zalogo ZFS."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Logical volume name:"
+msgstr "Ime logičnega nosilca:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "Prosim vnesite ime, ki bi ga radi uporabili za nov logični nosilec."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "ZFS pool:"
+msgstr "Zaloga ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "Izberite zalogo ZFS v kateri naj bo ustvarjen nov logični nosilec."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No logical volume name entered"
+msgstr "Ime logičnega nosilca ni bilo vnešeno"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr "Ime logičenga nosilca ni bilo vnešeno. Prosim vnesite ime."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+msgid "Error while creating a new logical volume"
+msgstr "Pri ustvarjanju novega logičnega nosilca je prišlo do napake"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr ""
+"Dano ime ${LV} že uporablja nek drug logični nosilec v isti zalogi ZFS "
+"(${VG})."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Logical volume size:"
+msgstr "Velikost logičnega nosilca:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"Vnesite velikost novega logičnega nosilca. Velikost lahko vnesete v "
+"naslednjih oblikah: 10K (kilobajti), 10M (megabajti), 10G (gigabajti), 10T "
+"(terabajti). Privzeta enota je megabajt."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr ""
+"Na ${VG} ni mogoče ustvariti novega logičnega nosilca (${LV}) v velikosti "
+"${SIZE}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume found"
+msgstr "Ni bilo mogoče najti nobenega logičnega nosilca"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr ""
+"Nobenega logičnega nosilca ni mogoče najti. Najprej ustvarite logični "
+"nosilec."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Logical volume:"
+msgstr "Logični nosilec:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please select the logical volume to delete."
+msgstr "Izberite logični nosilec, ki ga želite izbrisati."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "in VG ${VG}"
+msgstr "v VG ${VG}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "Error while deleting the logical volume"
+msgstr "Pri brisanju logičnega nosilca je prišlo do napake"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "Ni bilo mogoče izbrisati logičnega nosilca (${LV}) na ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid "No usable physical volumes found"
+msgstr "Ni bilo mogoče najti nobenega uporabnega fizičnega nosilca"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"Na vašem sistemu ni mogoče najti nobenega fizičnega nosilca (npr. razdelka). "
+"Mogoče so vsi fizični nosilci že v uporabi. Morda morate naložiti ustrezne "
+"module jedra ali ponovno razdeliti diske."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid "ZFS not available"
+msgstr "ZFS ni na razpolago"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr "Trenutno jedro ne podpira ZFS. Mogoče morate naložiti modul zfs."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "Neveljaven logični nosilec ali neveljavno ime zaloge ZFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\", and \"log\" are not allowed."
+msgstr ""
+"Imena logičnih enot ali zalog ZFS lahko vsebujejo le alfanumerične znake ter "
+"znake pomišljaj, plus, vejica ali podčrtaj. Imena so lahko dolga največ 255 "
+"znakov in se ne smejo začeti s pomišljajem. Imena  \"mirror\", \"raidz\", "
+"\"spare\" in \"log\" niso dovoljena."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Please choose a different name."
+msgstr "Prosim, uporabite drugačno ime."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Remove existing logical volume data?"
+msgstr "Želite odstraniti obstoječe podatke na logičnem nosilcu?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"Izbrana naprava že vsebuje naslednje logične enote ZFS in zaloge ZFS, ki "
+"bodo odstranjene:"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "Logične enote: ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr "Zaloga ZFS: ${VGTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr "Vedite, da bo to trajno izbrisalo vse podatke na logičnih nosilcih."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid "ZFS"
+msgstr "ZFS"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"Sistemski skrbniki se pogosto znajdejo v situaciji, da so nekateri diskovni "
+"razdelki polni (običajno najpomembnejši), drugi pa so premalo izkoriščeni. "
+"ZFS lahko pomaga pri tem."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"ZFS omogoča združevanje diskov ali razdelkov (\"fizični nosilci - physical "
+"volumes\") v navidezne diske (\"ZFS pool - zaloga ZFS\"), katere lahko "
+"razdelimo v navidezne razdelke  (\"logične nosilce - logical volumes\"). "
+"Zaloge ZFS se lahko raztezajo čez več fizičnih diskov. Kadarkoli lahko "
+"dodamo nove enote zalogi ZFS in logične nosilce lahko razširimo čez ves "
+"prazen prostor v zalogi ZFS."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"Vnose v menije nastavitve ZFS lahko uporabimo za obdelavo zalog ZFS in "
+"logičnih nosilcev. Ko se boste vrnili na glavno okno razdeljevalnika bodo "
+"logični nosilci prikazani kot običajni razdelki in kot take jih lahko "
+"uporabite."

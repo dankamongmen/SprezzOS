@@ -1,0 +1,913 @@
+# THIS FILE IS GENERATED AUTOMATICALLY FROM THE D-I PO MASTER FILES
+# The master files can be found under packages/po/
+#
+# DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
+#
+# translation of nb.po to Norwegian Bokmål
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+# Knut Yrvin <knuty@skolelinux.no>, 2004.
+# Klaus Ade Johnstad <klaus@skolelinux.no>, 2004.
+# Axel Bojer <axelb@skolelinux.no>, 2004.
+# Bjørn Steensrud <bjornst@powertech.no>, 2004-2007.
+# Hans Fredrik Nordhaug <hans@nordhaug.priv.no>, 2005, 2007-2011.
+#
+# Translations from iso-codes:
+#   Alastair McKinstry <mckinstry@computer.org>, 2002
+#   Axel Bojer <axelb@skolelinux.no>, 2004.
+#   Bjørn Steensrud <bjornst@powertech.no>, 2006.
+#   Free Software Foundation, Inc., 2002,2004
+#   Hans Fredrik Nordhaug <hans@nordhaug.priv.no>, 2007-2011.
+#   Håvard Korsvoll <korsvoll@skulelinux.no>, 2004.
+#   Knut Yrvin <knuty@skolelinux.no>, 2004.
+#   Tobias Toedter <t.toedter@gmx.net>, 2007.
+#     Translations taken from ICU SVN on 2007-09-09
+#   Translations from KDE:
+#   Rune Nordvik <rune@linuxnorge.com>, 2001
+#   Kjartan Maraas <kmaraas@broadpark.no>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: nb\n"
+"Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"PO-Revision-Date: 2011-11-28 08:18+0100\n"
+"Last-Translator: Hans Fredrik Nordhaug <hans@nordhaug.priv.no>\n"
+"Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
+#: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:19001
+msgid "zfs"
+msgstr "zfs"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name
+#: ../partman-zfs.templates:3001
+msgid "ZFS file system"
+msgstr "ZFS-filsystem"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
+msgstr ""
+"Separat /boot og /lib/modules som er obligatoriske for dette ZFS-oppsettet"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+"Rot-filsystemet ditt er på en ZFS-pool som bruker mer enn et fysisk "
+"dataområde."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror or "
+"Striped modes, but not RAID-Z mode."
+msgstr ""
+"Oppstartslasteren støtter bare dette oppsettet for pool i speilet- eller "
+"stripet-modus, men ikke RAID-Z-modus."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
+msgstr ""
+"Kontroller at /boot og /lib/modules er på en partisjon som bruker et støttet "
+"ZFS-pool oppsett, eller et annet filsystem som for eksempel UFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid "Unsupported multiple volume ZFS for ${MNT}"
+msgstr "Ustøttet multiple volum ZFS for ${MNT}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+"Din ${MNT}-partisjon er på en ZFS-pool som bruker mer enn et fysisk "
+"dataområde."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+"Kontroller at ${MNT} er på en partisjon som bruker et støttet ZFS-pool "
+"oppsett, eller et annet filsystem som for eksempel UFS."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
+msgid "Go back to the menu and correct this problem?"
+msgstr "Vil du gå tilbake til menyen og rette opp feilen?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. "
+"Although ZFS is supported on 32-bit i386, using it without special tuning "
+"may lead to performance or stability problems due to limitations of this "
+"architecture."
+msgstr ""
+"Du har konfigurert en eller flere partisjoner med ZFS-filsystemet. Selv om "
+"ZFS er støttet på 32-bits i386, kan bruk uten tilpassing føre til ytelse- "
+"eller stabilitetsproblemer på grunn av begrensninger på denne arkitekturen."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You should either use the 64-bit (amd64) version of this installer (if your "
+"hardware supports this), or go back to the partitioning menu and configure "
+"the partitions to use another file system."
+msgstr ""
+"Du bør enten bruke 64-bit (amd64) versjonen av dette "
+"installasjonsprogrammet, hvis din maskinvaren støtter dette, eller gå "
+"tilbake til partisjoneringsmenyen og sette opp partisjonene til å bruke et "
+"annet filsystem."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"Du har satt opp en eller flere partisjoner med ZFS-filsystemet. Bruk av ZFS "
+"på en datamaskin med mindre enn 512 MB minne kan føre til "
+"stabilitetsproblemer og anbefales ikke."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"Du bør gå tilbake til partisjoneringsmenyen og sette opp partisjonene til å "
+"bruke et annet filsystem."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:8001
+msgid "Configure ZFS"
+msgstr "Sett opp ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:9001
+msgid "In use by ZFS pool ${VG}"
+msgstr "Brukes av ZFS-pool ${VG}"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Display configuration details"
+msgstr "Vise oppsettsdetaljer"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Create ZFS pool"
+msgstr "Opprett ZFS-pool"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Delete ZFS pool"
+msgstr "Slett ZFS-pool"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:13001
+msgid "Create logical volume"
+msgstr "Opprette logisk dataområde"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:14001
+msgid "Delete logical volume"
+msgstr "Slette logisk dataområde"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
+msgid "Finish"
+msgstr "Ferdig"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "Vil du skrive endringene til disk og sette opp ZFS?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"Før ZFS kan settes opp må det gjeldende partisjoneringsskjemaet skrives til "
+"disk. Du kan ikke angre disse endringene."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"Når ZFS er satt opp, kan man ikke gjøre flere endringer på "
+"partisjoneringsskjemaet for disker som inneholder fysiske dataområder under "
+"installeringen. Sjekk at du er fornøyd med gjeldende partisjoneringsskjema "
+"før du fortsetter."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration failure"
+msgstr "ZFS-oppsett mislyktes"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "Det oppsto en feil når endringene ble skrevet til harddiskene."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration has been aborted."
+msgstr "ZFS-oppsettet ble avbrutt."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+msgid "physical volume for ZFS"
+msgstr "fysisk dataområde for ZFS"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS configuration action:"
+msgstr "Handling for ZFS-oppsett:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "Summary of current ZFS configuration:"
+msgstr "Sammendrag av gjeldende ZFS-oppsett:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" Frie fysiske områder:   ${FREE_PVS}\n"
+" Brukte fysiske områder: ${USED_PVS}\n"
+" ZFS-pool:               ${VGS}\n"
+" ZFS logiske områder:    ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "Current ZFS configuration:"
+msgstr "Gjeldende ZFS-oppsett:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Devices for the new ZFS pool:"
+msgstr "Enheter på den nye ZFS-poolen:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Please select devices for the new ZFS pool."
+msgstr "Velg enheter som skal være på den nye ZFS-poolen."
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "You can select one or more devices."
+msgstr "Du kan velge en eller flere enheter."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "Multidisk-modus for denne ZFS-poolen:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+"Velg modus for multidisk-operasjoner for denne ZFS-poolen:\n"
+" * Stripet: Ligner på RAID 0 (standard) - dataene er spredt over \n"
+"            de fysiske dataområdene;\n"
+" * Speil:   Ligner RAID 1 - dataene blir replikert til hvert\n"
+"            fysisk dataområde;\n"
+" * RAID-Z:  Ligner på RAID-5- eller RAID 6 - noen fysiske dataområder \n"
+"            lagrer paritetsbiter og dataene er spredt over andre."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr "Nivået for paritet for RAID-Z:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr ""
+"Velg antall fysiske dataområder som skal brukes til å lagre paritetsbiter."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "ZFS pool name:"
+msgstr "Navn på ZFS-pool:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "Skriv inn navnet du vil bruke på den nye ZFS-poolen."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No physical volumes selected"
+msgstr "Ingen fysiske dataområder ble valgt"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr ""
+"Ingen fysiske dataområder ble valgt. Avbrøt opprettelsen av en ny ZFS-pool."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No ZFS pool name"
+msgstr "Intet navn for ZFS-pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "Det er ikke oppgitt noe navn for ZFS-poolen. Skriv inn et navn."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid "ZFS pool name already in use"
+msgstr "En annen ZFS-pool bruker dette navnet"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr "En annen ZFS-pool bruker dette navnet, du må velge et annet navn."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "Error while creating ZFS pool"
+msgstr "Feil ved opprettelsen av ZFS-pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "Klarte ikke opprette ZFS-poolen ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:44001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "Detaljer finner du i /var/log/syslog eller på virtuelt konsoll 4."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "ZFS pool to delete:"
+msgstr "ZFS-pool som skal slettes:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "Velg ZFS-poolen du ønsker å slette."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool"
+msgstr "Ingen ZFS-pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool has been found."
+msgstr "Fant ingen ZFS-pool."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "The ZFS pool may have already been deleted."
+msgstr "ZFS-poolen er kanskje slettet allerede."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Really delete the ZFS pool?"
+msgstr "Er du sikker på at du vil slette ZFS-poolen?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr "Bekreft fjerning av ZFS-poolen ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid "Error while deleting ZFS pool"
+msgstr "Feil ved sletting av ZFS-pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"Klarte ikke slette den valgte ZFS-poolen. Kanskje ett eller flere logiske "
+"dataområder fortsatt er i bruk."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "No ZFS pool found"
+msgstr "Fant ingen ZFS-pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"Ingen ledige ZFS-pool ble funnet for å opprette et nytt logisk dataområde. "
+"Opprett en ny ZFS-pool eller ledig plass i en eksisterende pool."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Logical volume name:"
+msgstr "Navn på det logiske dataområdet:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "Skriv inn navnet du vil bruke på det nye, logiske dataområdet."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "ZFS pool:"
+msgstr "ZFS-pool:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "Velg ZFS-poolen hvor det nye, logiske dataområdet skal opprettes."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No logical volume name entered"
+msgstr "Mangler navn på det logiske dataområdet"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr ""
+"Det er ikke oppgitt noe navn for det logiske dataområdet. Skriv inn et navn."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+msgid "Error while creating a new logical volume"
+msgstr "Feil ved opprettelsen av et nytt logisk dataområde"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr ""
+"Navnet ${LV} er allerede i bruk av et annet logisk dataområde i den samme "
+"ZFS-poolen (${VG})."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Logical volume size:"
+msgstr "Størrelsen på det logiske dataområdet:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"Skriv inn størrelsen på det nye logiske dataområdet. Størrelsen kan angis i "
+"følgende format: 10K (Kilobyte), 10M (Megabyte), 10G (Gigabyte), 10T "
+"(Terabyte). Standardenheten er megabyte."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr ""
+"Klarte ikke å opprette et nytt logisk dataområde (${LV}) på ${VG} med "
+"størrelsen ${SIZE}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume found"
+msgstr "Fant intet logisk dataområde"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr "Fant intet logisk dataområde. Opprett et logisk dataområde først."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Logical volume:"
+msgstr "Logisk dataområde:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please select the logical volume to delete."
+msgstr "Velg det logiske dataområdet som skal slettes."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "in VG ${VG}"
+msgstr "på VG ${VG}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "Error while deleting the logical volume"
+msgstr "Feil ved sletting av det logiske dataområdet"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "Det logiske dataområdet ${LV} på ${VG} kunne ikke slettes."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid "No usable physical volumes found"
+msgstr "Fant ingen brukbare fysiske dataområder"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"Klarte ikke å finne noen fysiske dataområder (dvs. partisjoner) på systemet. "
+"Alle fysiske dataområder er kanskje i bruk. Det kan også være du må laste "
+"noen nødvendige kjernemoduler eller ompartisjonere harddiskene."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid "ZFS not available"
+msgstr "ZFS er ikke tilgjengelig"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr "Nåværende kjerne støtter ikke ZFS. Kanskje du må laste zfs-modulen."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "Ugyldig navn på logisk dataområde eller ZFS-pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\", and \"log\" are not allowed."
+msgstr ""
+"Navn på logiske dataområder eller ZFS-pool kan bare inneholde alfanumeriske "
+"tegn, bindestrek, pluss, punktum og understrek. De må være høyst 255 tegn "
+"lange og må begynne med et alfanumeriske tegn. Navnene «mirror», «raidz», "
+"«spare» og «log» er ikke tillatt. "
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Please choose a different name."
+msgstr "Velg et annet navn."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Remove existing logical volume data?"
+msgstr "Fjerne alle eksisterende data om logiske dataområder?"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"Den valgte enheten inneholder allerede de følgende ZFS logiske dataområdene "
+"og ZFS-pool som er i ferd med å fjernes:"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "Logiske dataområder: ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr "ZFS-pool: ${VGTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr ""
+"Merk at dette også permanent sletter data som nå ligger på de logiske "
+"dataområdene."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid "ZFS"
+msgstr "ZFS"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"En vanlig situasjon for systemadministratorer er å oppdage at en partisjon, "
+"som regel den viktigste, har for lite plass samtidig som en annen partisjon "
+"er lite utnyttet. ZFS kan hjelpe på dette."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"ZFS gjør det mulig å kombinere disk eller partisjonsenheter (\"fysisk "
+"dataområder\") til å forme en virtuell disk (\"ZFS-pool\") som kan deles opp "
+"i virtuelle partisjoner (\"logiske dataområder\"). ZFS-pool og logiske "
+"dataområder kan omfatte flere fysiske disker. Nye fysiske dataområder kan "
+"legges til en ZFS-pool når som helst, og logiske dataområder har ingen "
+"størrelsesbegrensninger utenom den totale størrelsen på ZFS-poolen."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"Oppføringene i menyen for ZFS-oppsett kan brukes til å redigere ZFS-pool og "
+"logiske dataområder. Etter at du har returnert til hovedbildet for "
+"partisjonsbehandling, vil logiske dataområder vises på samme måte som "
+"vanlige partisjoner og bør behandles slik."

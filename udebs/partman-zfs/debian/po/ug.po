@@ -1,0 +1,899 @@
+# THIS FILE IS GENERATED AUTOMATICALLY FROM THE D-I PO MASTER FILES
+# The master files can be found under packages/po/
+#
+# DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
+#
+#
+#
+# Debian Installer master translation file template
+# Don't forget to properly fill-in the header of PO files
+#
+# Debian Installer translators, please read the D-I i18n documentation
+# in doc/i18n/i18n.txt
+#
+#
+# Translations from iso-codes:
+# Sahran <sahran.ug@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"PO-Revision-Date: 2012-01-04 08:16+0600\n"
+"Last-Translator: Sahran <sahran.ug@gmail.com>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
+#: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:19001
+msgid "zfs"
+msgstr "zfs"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name
+#: ../partman-zfs.templates:3001
+msgid "ZFS file system"
+msgstr "ZFS ھۆججەت سىستېمىسى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
+msgstr ""
+"بۇ ZFS سەپلىمىسى ئۈچۈن /boot ۋە /lib/modules نى مەجبۇرىي تۈرگە ئايرىيدۇ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr "غول ھۆججەت سىستېمىسى كۆپ فىزىكىلىق دىسكىدىكى ZFS كۆلچىكىنى ئىشلەتكەن."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror or "
+"Striped modes, but not RAID-Z mode."
+msgstr ""
+"بۇ قوزغىتىش يېتەكلىگۈچ پەقەت تەسۋىر (Mirror) ياكى Striped ھالىتىدىكى كۆلچەك "
+"مەزكۇر سەپلىمىنى قوللايدۇ، RAID-Z ھالىتىنى قوللىمايدۇ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
+msgstr ""
+"/boot ۋە /lib/modules بولسا ZFS كۆلچەك سەپلىمىسىنى قوللايدىغان رايوندا "
+"ئىكەنلىكى ياكى UFS كە ئوخشاش پەرقلىق ھۆججەت سىستېمىسى ئىكەنلىكىنى جەزملەڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid "Unsupported multiple volume ZFS for ${MNT}"
+msgstr "${MNT} ئۈچۈن كۆپ دىسكىنى قوللىمايدىغان ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr "${MNT} رايونىڭىز كۆپ فىزىكىلىق دىسكىدىكى ZFS كۆلچىكىنى ئىشلەتكەن."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+"${MNT} نىڭ ZFS كۆل سەپلىمىسىنى قوللايدىغان رايوندا ئىكەنلىكى ياكى UFS كە "
+"ئوخشاش پەرقلىق ھۆججەت سىستېمىسى ئىكەنلىكىنى جەزملەڭ."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
+msgid "Go back to the menu and correct this problem?"
+msgstr "تىزىملىككە قايتىپ بۇ مەسىلىنى ھەل قىلامسىز؟"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. "
+"Although ZFS is supported on 32-bit i386, using it without special tuning "
+"may lead to performance or stability problems due to limitations of this "
+"architecture."
+msgstr ""
+"سىز بىر ياكى بىر قانچە رايوننى ZFS ھۆججەت سىستېمىسىدا سەپلىدىڭىز.گەرچە "
+"ZFSھۆججەت سىستېمىسى 32 بىتلىق i386 نى قوللىسىمۇ ئالاھىدە تەڭشەلمىگەن، بۇ "
+"قۇرۇلمىنىڭ چەكلىمىسى تۈپەيلىدىن ئۈنۈمدارلىق ياكى مۇقىملىق مەسىلىسى كېلىپ "
+"چىقىشى مۇمكىن."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You should either use the 64-bit (amd64) version of this installer (if your "
+"hardware supports this), or go back to the partitioning menu and configure "
+"the partitions to use another file system."
+msgstr ""
+"سىزنىڭ 64 بىتلىق (amd64) نەشرىدىكى ئورناتقۇچ (ئەگەر قاتتىق دېتال قوللىسا) "
+"ئىشلىتىشىڭىزنى ئىلھاملاندۇرىمىز ياكى كەينىدىكى رايونغا ئايرىش تىزىملىكىگە "
+"قايتىپ، رايوننى باشقا ھۆججەت سىستېمىسى ئىشلىتىشكە سەپلەڭ."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"سىز بىر ياكى بىر قانچە رايوننى ZFS ھۆججەت سىستېمىسىدا سەپلىدىڭىز. ئەسلەك "
+"512MB دىن تۆۋەن بولغان ZFS ئىشلەتكەن كومپيۇتېردا مۇقىملىق مەسىلىسى كېلىپ "
+"چىقىشى مۇمكىن شۇڭا تەۋسىيە قىلىنمايدۇ."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"سىز كەينىدىكى رايونغا ئايرىش تىزىملىكىگە قايتىپ، رايوننى باشقا ھۆججەت "
+"سىستېمىسى ئىشلىتىشكە سەپلەڭ."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:8001
+msgid "Configure ZFS"
+msgstr "ZFS نى سەپلەش"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:9001
+msgid "In use by ZFS pool ${VG}"
+msgstr "ZFS كۆلچىكى ${VG} تەرىپىدىن ئىشلىتىلدى"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Display configuration details"
+msgstr "سەپلىمە تەپسىلاتىنى كۆرسەت"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Create ZFS pool"
+msgstr "ZFS كۆلچىكى قۇرۇش"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Delete ZFS pool"
+msgstr "ZFS كۆلچىكىمق ئۆچۈرۈش"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:13001
+msgid "Create logical volume"
+msgstr "لوگىكىلىق دىسكا قۇر"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:14001
+msgid "Delete logical volume"
+msgstr "لوگىكىلىق دىسكىنى ئۆچۈر"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
+msgid "Finish"
+msgstr "تامام"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "ئۆزگەرتىشنى دىسكىغا يېزىپ ZFS سەپلەمسىز؟"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"ZFS سەپلىنىشتىن بۇرۇن، نۆۋەتتىكى رايون لايىھىسىنى دىسكىغا يېزىش كېرەك. بۇ "
+"ئۆزگەرتىشلەردىن يېنىۋالالمايسىز."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"ZFS تەڭشىلىپ بولغاندىن كېيىن،  ئورنىتىش جەريانىدا فىزىكىلىق دىسكىنى ئۆز "
+"ئىچىگە ئالغان دىسكىدىكى رايونغا ئۆزگەرتىش ئېلىپ بېرىشقا بولمايدۇ. شۇڭا "
+"كېيىنكى مەشغۇلاتنى ئېلىپ بېرىشتىن ئىلگىرى بۇ دىسكىدىكى نۆۋەتتىكى رايونغا "
+"ئايرىش لايىھىسىگە راستىنىلا رازى ئىكەنلىكىڭىزنى جەزملەڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration failure"
+msgstr "ZFS سەپلەش مەغلۇپ بولدى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "دىسكىغا ئۆزگەرتىشنى يازغاندا خاتالىق كۆرۈلدى."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration has been aborted."
+msgstr "ZFS سەپلەش جەريانى توختىتىلدى."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+msgid "physical volume for ZFS"
+msgstr "ZFS فىزىكىلىق دىسكا"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS configuration action:"
+msgstr "ZFS سەپلەش مەشغۇلاتى:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "Summary of current ZFS configuration:"
+msgstr "نۆۋەتتىكى ZFS سەپلىمە قىسقىچە مەزمۇنى(Summary):"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" بوش فىزىكىلىق دىسكا: ${FREE_PVS}\n"
+"ئىشلەتكەن فىزىكىلىق دىسكا: ${USED_PVS}\n"
+"ZFS كۆلچىكى: ${VGS}\n"
+"ZFS لوگىكىلىق دىسكىسى: ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "Current ZFS configuration:"
+msgstr "نۆۋەتتىكى ZFS سەپلىمىسى:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Devices for the new ZFS pool:"
+msgstr "يېڭى ZFS كۆلچىكى ئۈسكۈنىلىرى:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Please select devices for the new ZFS pool."
+msgstr "يېڭى ZFS كۆلچىكى ئۈچۈن ئۈسكۈنە تاللاڭ:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "You can select one or more devices."
+msgstr "بىر ياكى بىر قانچە ئۈسكۈنە تاللىيالايسىز."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "ZFS كۆلچىكى ئۈچۈن كۆپ دىسكا ھالىتى:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+"بۇ ZFS كۆلچىكى ئۈچۈن كۆپ دىسكا مەشغۇلات ھالىتىنى تاللاڭ:\n"
+"* سىزىقلىق: RAID 0 (كۆڭۈلدىكى) غا ئوخشايدۇ - سانلىق مەلۇماتلار فىزىكىلىق "
+"دىسكىلار ئارا سىزىقلىق ئۆتۈشۈپ ساقلىنىدۇ؛\n"
+"* تەسۋىر:  RAID 1 گە ئوخشايدۇ - سانلىق مەلۇماتلار ھەر بىر فىزىكىلىق دىسكىغا "
+"كۆچۈرۈلىدۇ؛\n"
+"* RAID-Z:  بۇ RAID 5 ياكى RAID 6 گە ئوخشايدۇ - بەزى فىزىكىلىق دىسكىلار تاق-"
+"جۈپ تەكشۈرۈش خانىسىنى ساقلايدۇ، سانلىق مەلۇماتلار باشقىلار ئارىسىدا ئۆتۈشۈپ "
+"ساقلىنىدۇ."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr "تاق-جۈپ تەكشۈرىدىغان RAID-Z دەرىجىسى:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr ""
+"تاق-جۈپ تەكشۈرىدىغان خانىسىنى ساقلايدىغان فىزىكىلىق دىسكا نومۇرىنى تاللاڭ."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "ZFS pool name:"
+msgstr "ZFS كۆلچىكى ئاتى:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "يېڭى ZFS كۆلچىكى ئاتىغا ئىشلىتىدىغان ئىسىمنى كىرگۈزۈڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No physical volumes selected"
+msgstr "فىزىكىلىق دىسكا تاللانمىدى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr ""
+"فىزىكىلىق دىسكا تاللانمىدى. يېڭى ZFS كۆلچىكى قۇرۇش مەشغۇلاتى توختىتىلدى."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No ZFS pool name"
+msgstr "ZFS كۆلچىكى ئاتى يوق"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "ZFS كۆلچىكى ئاتىنى بېكىتمىدىڭىز، ئىسىمدىن بىرنى كىرگۈزۈڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid "ZFS pool name already in use"
+msgstr "ZFS كۆلچىكى ئاتى ئىشلىتىلىۋاتىدۇ"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr "تاللىغان ZFS كۆلچىكى ئاتى ئىشلىتىلىۋاتىدۇ، باشقا ئىسىمنى تاللاڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "Error while creating ZFS pool"
+msgstr "ZFS كۆلچىكى قۇرۇشتا خاتالىق كۆرۈلدى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "ZFS كۆلچىكى ${VG} نى قۇرالمىدى."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:44001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr ""
+"/var/log/syslog نى تەكشۈرۈڭ ياكى 4-مەۋھۇم كونترول سۇپىسىنى(console) كۆرۈپ "
+"تېخىمۇ كۆپ تەپسىلىي ئۇچۇرغا ئېرىشىڭ."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "ZFS pool to delete:"
+msgstr "ئۆچۈرىدىغان ZFS كۆلچىكى:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "ئۆچۈرىدىغان ZFS كۆلچىكىنى تاللاڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool"
+msgstr "ZFS كۆلچىكى يوق"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool has been found."
+msgstr "ZFS كۆلچىكى تېپىلمىدى."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "The ZFS pool may have already been deleted."
+msgstr "ZFS كۆلچىكى ئۆچۈرۈلگەن بولۇشى مۇمكىن."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Really delete the ZFS pool?"
+msgstr "راستىنىلا ZFS كۆلچىكىنى ئۆچۈرەمسىز؟"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr "چىقىرىۋېتىدىغان ZFS كۆلچەك ${VG} نى جەزملەڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid "Error while deleting ZFS pool"
+msgstr "ZFS كۆلچىكىنى ئۆچۈرۈشتە خاتالىق كۆرۈلدى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"تاللىغان ZFS كۆلچىكىنى ئۆچۈرەلمىدى. بىر ياكى بىر قانچە لوگىكىلىق دىسكا "
+"ئىشلىتىلىۋاتىدۇ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "No ZFS pool found"
+msgstr "ZFS كۆلچىكى تېپىلمىدى."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"يېڭى لوگىكىلىق دىسكا قۇرۇشقا لازىملىق بوش ZFS كۆلچىكى تېپىلمىدى. مەۋجۇت ZFS "
+"كۆلچىكىگە باشقا ZFS كۆلچىكى ياكى بىكار بوشلۇق قۇرۇڭ."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Logical volume name:"
+msgstr "لوگىكىلىق دىسكا ئاتى:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "يېڭى دىسكا گۇرۇپپا ئاتىغا ئىشلىتىدىغان ئىسىمنى كىرگۈزۈڭ."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "ZFS pool:"
+msgstr "ZFS كۆلچىكى:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr ""
+"يېڭى قۇرماقچى بولغان لوگىكىلىق دىسكا گۇرۇپپىسى تۇرۇشلۇق ZFS كۆلچىكىنى تاللاڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No logical volume name entered"
+msgstr "لوگىكىلىق دىسكا ئاتى كىرگۈزۈلمىدى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr "لوگىكىلىق دىسكا گۇرۇپپا ئاتىنى بېكىتمىدىڭىز، ئىسىمدىن بىرنى كىرگۈزۈڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+msgid "Error while creating a new logical volume"
+msgstr "يېڭى لوگىكىلىق دىسكا قۇرۇشتا خاتالىق كۆرۈلدى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr ""
+"ZFS كۆلچىكى ئاتى ${LV} نى ئوخشاش بىر ZFS كۆلچىكى (${VG})دىكى باشقا بىر "
+"لوگىكىلىق دىسكا ئىشلەتكەن."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Logical volume size:"
+msgstr "لوگىكىلىق دىسكا چوڭلۇقى:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"يېڭى لوگىكىلىق دىسكا چوڭلۇقىنى كىرگۈزۈڭ. تۆۋەندىكىدەك كىرگۈزسىڭىز بولىدۇ: "
+"10K (كىلوبايت)، 10M (مېگابايت)، 10G (گېگابايت)، 10T (تېرابايت). كۆڭۈلدىكى "
+"بىرلىك مېگابايت."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr ""
+"${VG} دا چوڭلۇقى ${SIZE} بولغان يېڭى لوگىكىلىق دىسكا (${LV}) نى قۇرالمىدى."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume found"
+msgstr "لوگىكىلىق دىسكا تېپىلمىدى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr ""
+"لوگىكىلىق دىسكا تېپىلمىدى. ئالدى بىلەن يېڭى لوگىكىلىق دىسكىدىن بىرنى قۇرۇڭ."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Logical volume:"
+msgstr "لوگىكىلىق دىسكا:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please select the logical volume to delete."
+msgstr "ئۆچۈرىدىغان لوگىكىلىق دىسكىنى تاللاڭ."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "in VG ${VG}"
+msgstr "VG ${VG} دا"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "Error while deleting the logical volume"
+msgstr "لوگىكىلىق دىسكىنى ئۆچۈرۈشتە خاتالىق كۆرۈلدى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "${VG} دىكى لوگىكىلىق دىسكا ${LV} نى ئۆچۈرەلمەيدۇ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid "No usable physical volumes found"
+msgstr "ئىشلەتكىلى بولىدىغان فىزىكىلىق دىسكا تاپالمىدى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"سىستېمىدىن فىزىكىلىق دىسكا(فىزىكىلىق رايون) تاپالمىدى. ھەممە فىزىكىلىق "
+"رايونلار ئىشلىتىلىۋاتقان بولۇشى مۇمكىن. سىز زۆرۈر بولغان بىر قىسىم يادرو "
+"بۆلەكلىرىنى يۈكلىسىڭىز بولىدىغان ئوخشايدۇ، ياكى دىسكىنى قايتىدىن رايونغا "
+"ئايرىڭ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid "ZFS not available"
+msgstr "ZFS كۆلچىكى يوق"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr ""
+"نۆۋەتتىكى يادرو ZFS كۆلچىكىنى قوللىمايدۇ. سىز zfs بۆلىكىنى يۈكلىسىڭىز "
+"بولىدىغان ئوخشايدۇ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "ئىناۋەتسىز لوگىكىلىق دىسكا ياكى ZFS كۆلچىكى ئاتى"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\", and \"log\" are not allowed."
+msgstr ""
+"لوگىكىلىق دىسكا ياكى ZFS كۆلچەك ئاتى پەقەت بىر بايتلىق ئىنگلىزچە ھەرپ، سان، "
+"سىزىق، قوش چېكىت ۋە ئاستى سىزىقنىلا ئۆز ئىچىگە ئالىدۇ. بۇ ئىسىملار 255 "
+"ھەرپتىن ئاز ياكى تەڭ بولۇشى ھەمدە ھەرپ بىلەن باشلىنىشى لازىم.  ئۇندىن باشقا "
+"ئاتى \"mirror\"، \"raidz\"، \"spare\"ۋە \"log\" بولسا بولمايدۇ."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Please choose a different name."
+msgstr "باشقا ئاتنى تاللاڭ."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Remove existing logical volume data?"
+msgstr "نۆۋەتتىكى لوگىكىلىق دىسكىدىكى سانلىق مەلۇماتلارنى ئۆچۈرەمسىز؟"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"سىز تاللىغان ئۈسكۈنىدە توۋەندىكىZFS لوگىكىلىق دىسكا،  ZFS كۆلچىكى بار بولۇپ، "
+"ئۇلارنىڭ ھەممىسى ئۆچۈرۈلىدۇ."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "لوگىكىلىق دىسكا: ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr "ZFS كۆلچىكى:${VGTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr ""
+"دىققەت بۇ شىفىرلانغان دىسكىدىكى بارلىق سانلىق مەلۇماتلار مەڭگۈلۈك ئۆچۈرۈلىدۇ."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid "ZFS"
+msgstr "ZFS"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"سىستېما باشقۇرغۇچى دائىم بايقايدىغان بىر مەسىلە شۇكى بەزى دىسكا رايونى "
+"(ئادەتتە ئەڭ مۇھىم بىرى)نىڭ دىسكا بوشلۇقى ئاز ئەمما باشقا رايونلار ئاساسەن "
+"ئىشلىتىلمىگەن بولىدۇ. ZFS نىڭ بۇنىڭغا ياردىمى بار."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"ZFS دىسكا ياكى رايون ئۈسكۈنىسى («فىزىكىلىق دىسكا»)نى مەۋھۇم دىسكا («ZFS "
+"كۆلچەك»)دىن بىرلەشتۈرۈشكە يول قويىدۇ،  ئۇلارنى مەۋھۇم رايون («لوگىكىلىق "
+"دىسكا»)غا بۆلۈشكە بولىدۇ. ZFS كۆلچىكى ۋە لوگىكىلىق دىسكا بىر قانچە فىزىكىلىق "
+"دىسكىدىن ھالقىسا بولىدۇ. يېڭى فىزىكىلىق دىسكا ھەر قانداق ۋاقىتتا ZFS "
+"كۆلچىكىگە قوشۇلالايدۇ ھەمدە لوگىكىلىق دىسكا سىغىم چەكلىمىسى يوق بولۇپ، ھەتتا "
+"ZFS كۆلچىكىدىكى تەقسىملەنمىگەن ھەممە بوشلۇققا كېڭەيتكىلى بولىدۇ."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"ZFS سەپلىمە تىزىملىكىدىكى تۈرلەر ZFS كۆلچىكى ۋە لوگىكىلىق رايون تەھرىرلەشكە "
+"ئىشلىتىلىدۇ. سىز  رايون باشقۇرغۇچنىڭ ئاساسىي ئېكرانىغا قايتقاندا، لوگىكىلىق "
+"رايون ئادەتتىكى رايون بىلەن ئوخشاش كۆرۈنىدۇ ھەمدە ئوخشاش مۇئامىلە قىلىنىدۇ."

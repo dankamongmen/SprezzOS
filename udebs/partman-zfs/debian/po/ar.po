@@ -1,0 +1,884 @@
+# THIS FILE IS GENERATED AUTOMATICALLY FROM THE D-I PO MASTER FILES
+# The master files can be found under packages/po/
+#
+# DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
+#
+# translation of ar.po to Arabic
+# Arabic messages for debian-installer. Copyright (C) 2003 Software in the Public Interest, Inc. This file is distributed under the same license as debian-installer. Ossama M. Khayat <okhayat@yahoo.com>, 2005.
+#
+# Translations from iso-codes:
+#     Translations taken from ICU SVN on 2007-09-09
+#   Translations from kde-i18n/desktop.po:
+#
+# Ossama M. Khayat <okhayat@yahoo.com>, 2006, 2007, 2008, 2009, 2010.
+#   Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>, 2004.
+#   Alastair McKinstry <mckinstry@computer.org>, 2002.
+#   Free Software Foundation, Inc., 2002, 2004.
+#   Ossama M. Khayat <okhayat@yahoo.com>, 2006, 2008, 2010.
+#   Tobias Quathamer <toddy@debian.org>, 2007.
+#   Mohammad Gamal <f2c2001@yahoo.com>, 2001.
+# Ossama Khayat <okhayat@yahoo.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: ar\n"
+"Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"PO-Revision-Date: 2012-01-26 22:15+0300\n"
+"Last-Translator: Ossama Khayat <okhayat@yahoo.com>\n"
+"Language-Team: American English <support@arabeyes.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n>=3 && n⇐10 ? "
+"3 : n>=11 && n⇐99 ? 4 : 5\n"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
+#: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:19001
+msgid "zfs"
+msgstr "zfs"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name
+#: ../partman-zfs.templates:3001
+msgid "ZFS file system"
+msgstr "نظام ملفات ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
+msgstr "فصْل /boot و /lib/modules إلزامي لتهيئة ZFS هذه"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr "يقع نظام ملفاتك الجذري في مُجمّع ZFS يستخدم أكثر من كتلة ماديّة واحدة."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror or "
+"Striped modes, but not RAID-Z mode."
+msgstr ""
+"يدعم مُحمّل الإقلاع هذه التهيئة للمُجمّعات في وضع Mirro أو Striped، ولكن ليس في "
+"وضع RAID-Z."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
+msgstr ""
+"تأكد من وجود /boot و /lib/modules على جزء يستخدم تهيئة مُجمّع ZFS مدعومة، أو "
+"نظام ملفات آخر مثل UFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid "Unsupported multiple volume ZFS for ${MNT}"
+msgstr "${MNT} لا تدعم استخدام ZFS متعدّد الكتل"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr "جزء ${MNT} موجود في مُجمّع ZFS يستخدم أكثر من كتلة ماديّة واحدة."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+"تأكد من وجود ${MNT} على جزء يستخدم تهيئة مُجمّع ZFS مدعومة، أو نظام ملفات آخر "
+"مثل UFS."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
+msgid "Go back to the menu and correct this problem?"
+msgstr "هل تريد العودة إلى القائمة و تصحيح هذه المشكلة؟"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. "
+"Although ZFS is supported on 32-bit i386, using it without special tuning "
+"may lead to performance or stability problems due to limitations of this "
+"architecture."
+msgstr ""
+"لقد هيّأت جزءً أو أكثر باستخدام نظام ملفات ZFS. ومع أن أنظمة i386 ذات 32 بت "
+"تدعم نظام الملفات هذا، فإن استخدامه دون ضبط خاص قد يتسبب بمشاكل في الأداء أو "
+"استقرار النظام بسبب قصور هذا النظام."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You should either use the 64-bit (amd64) version of this installer (if your "
+"hardware supports this), or go back to the partitioning menu and configure "
+"the partitions to use another file system."
+msgstr ""
+"يجب أن تستخدم نسخة 64-بت (amd64) من هذا البرنامج (إن كان عتادك يدعمه)، أو أن "
+"تعود إلى قائمة التجزئة وتُهيّء الأجزاء باستخدام نظام ملفات آخر."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"لقد هيّأت بعض الأجزاء لاستخدام نظام ملفات ZFS. استخدام ZFS على جهاز به ذاكرة "
+"أقل من 512 ميجابايت قد يؤدي إلى مشاكل في الثبات كما أنه غير مُستحسن."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr "يجب أن تعود إلى قائمة التجزئة وتُهيّء الأجزاء لاستخدام نظام ملفات آخر."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:8001
+msgid "Configure ZFS"
+msgstr "تهيئة ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:9001
+msgid "In use by ZFS pool ${VG}"
+msgstr "يستخدمه مُجمّع ZFS ${VG}"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Display configuration details"
+msgstr "إظهار تفاصيل التهيئة"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Create ZFS pool"
+msgstr "أنشئ مُجمّع ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Delete ZFS pool"
+msgstr "احذف مُجمّع ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:13001
+msgid "Create logical volume"
+msgstr "إنشاء كتلة افتراضية"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:14001
+msgid "Delete logical volume"
+msgstr "حذف كتلة افتراضيّة"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
+msgid "Finish"
+msgstr "إنهاء"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "أتريد كتابة التغييرات إلى القرص وتهيئة ZFS؟"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"قبل أن يُمكن تهيئة ZFS، يجب كتابة تخطيط التجزئة الحالي إلى القرص. لا يمكن "
+"التراجع عن هذه العملية."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"بعد تهيئة ZFS، لا يمكن إجراء أية تغييرات إضافية، أثناء عملية التثبيت، على "
+"مُخطط تجزئة الأقراص التي تحتوي كتل ماديّة أثناء عملية التثبيت. رجاءً تأكد من "
+"مُخطط التجزئة الحالي قبل الاستمرار."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration failure"
+msgstr "فشلت تهيئة ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "An error occurred while writing the changes to the disks."
+msgstr "حدث خطأٌ أثناء كتابة التّغييرات للأقراص."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration has been aborted."
+msgstr "أجهضت تهيئة ZFS."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+msgid "physical volume for ZFS"
+msgstr "كتلة ZFS الماديّة"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS configuration action:"
+msgstr "إجراء تهيئة ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "Summary of current ZFS configuration:"
+msgstr "ملخّث تهئية ZFS الحالية:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" الكتل الماديّة المتوفّرة:  ${FREE_PVS}\n"
+" الكتل الماديّة المستخدمة:  ${USED_PVS}\n"
+" مُجمّعات ZFS:              ${VGS}\n"
+" كتل ZFS الافتراضيّة:    ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "Current ZFS configuration:"
+msgstr "تهيئة ZFS الحالية:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Devices for the new ZFS pool:"
+msgstr "أجهزة مُجمّع ZFS الجديد:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Please select devices for the new ZFS pool."
+msgstr "رجاءً اختر الأجهزة لمُجمّع ZFS الجديد."
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "You can select one or more devices."
+msgstr "يمكنك تحديد جهازٍ واحد أو أكثر."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "وضع تعدد الأقراص لمجمّع ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+"رجاءً اختر الوَضْع الخاص بعمليات تعدد الأقراص لمُجمّع ZFS:\n"
+" * Striped: يشبه RAID 0 (الافتراضي) - تُوزّع البيانات عبر\n"
+"            الكتل الماديّة;\n"
+" * Mirror:  يشبه RAID 1 - تُكرّر البيانات في كل كتلة ماديّة\n"
+"            بشكل مطابق;\n"
+" * RAID-Z:  يشبه RAID 5 أو RAID 6 - تُخزّن بعض الكُتل الماديّة\n"
+"            بيانات التكافؤ وتُوزّع البيانات على الأجزاء."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr "مستوى التكافؤ لنظام RAID-Z:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr "رجاء اختر عدد الكُتل الماديّة التي ستستخدم لتخزين بيانات التكافؤ."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "ZFS pool name:"
+msgstr "اسم مُجمّع ZFS:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr "رجاءً اكتب الاسم الذي تود استخدامه لمُجمّع ZFS الجديد."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No physical volumes selected"
+msgstr "لم تحدّد أيّة كتلٍ مادّيّة"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr "لم تختر أية كتل ماديّة، لذا تم إيقاف عمليّة إنشاء مُجمّع ZFS جديد."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No ZFS pool name"
+msgstr "لم تُحدّد اسم مُجمّع ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "لم تكتب أي اسم لمُجمّع ZFS. رجاءً اكتب الاسم."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid "ZFS pool name already in use"
+msgstr "اسم مُجمّع ZFS الذي أدخلته مستخدم من قبل"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr "اسم مُجمّع ZFS الذي اخترته مستخدم من قبل. رجاءً اختر اسماً مختلفاً."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "Error while creating ZFS pool"
+msgstr "حدث خطأ في إنشاء مُجمّع ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "تعذر إنشاء مُجمّع ZFS ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:44001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr "تفقّد /var/log/syslog أو انظر الطرفية الافتراضية الرابعة للتفاصيل."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "ZFS pool to delete:"
+msgstr "مُجمّع ZFS المطلوب حذفه:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "رجاءً اختر مُجمّع ZFS الذي تودّ حذفه."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool"
+msgstr "لا يوجد أية مجمّعات ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool has been found."
+msgstr "لم نعثر على أية مجمّعات ZFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "The ZFS pool may have already been deleted."
+msgstr "قد يكون مُجمّع ZFS مُسح من قبل."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Really delete the ZFS pool?"
+msgstr "أتريد فعلاً حذف مُجمّع ZFS؟"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr "رجاءً أكّد إزالة مُجمّع ZFS المُسمّى ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid "Error while deleting ZFS pool"
+msgstr "حدث خطأ في إزالة مُجمّع ZFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"تعذر حذف مُجمّع ZFS المُحدّد. قد تكون أحد الكُتل الماديّة حالياً قيد الاستخدام."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "No ZFS pool found"
+msgstr "لم نعثر على أية مجمّعات ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"لا يوجد أية مُجمّعات ZFS شاغرة لإنشاء كتلة ماديّة جديدة. رجاءً أنشئ مُجمّع ZFS "
+"جديد، أو وفّر مساحةً على أي من المُجمّعات الحالية."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Logical volume name:"
+msgstr "اسم الكتلة الافتراضية:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr "الرجاء إدخال الاسم الذي تود استخدامه للكتلة الافتراضيّة الجديدة."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "ZFS pool:"
+msgstr "مُجمّع ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr "رجاءً اختر مُجمّع ZFS حيث تريد إنشاء كتلة ماديّة جديدة."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No logical volume name entered"
+msgstr "لم يدخل اسم كتلةٍ افتراضيّة"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr "لم تُدخل أي اسم للكتلة الافتراضية. رجاءً اكتب اسماً."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+msgid "Error while creating a new logical volume"
+msgstr "خطأ أثناء إنشاء كتلةٍ افتراضيّة جديدة"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr "هناك كتلة افتراضيّة مسمّاة ${LV} على مُجمّع ZFS نفسه (${VG})."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Logical volume size:"
+msgstr "حجم الكتلة الافتراضيّة:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"الرجاء إدخال حجم الكتلة الافتراضيّة الجديدة. يمكنك إدخال الحجم حسب الأنساق "
+"التّالية:  10K (كيلوبايت)، 10M (ميجابايت)، 10G (جيجابايت)، 10T (تيرابايت). "
+"الوحدة الافتراضيّة هي الميجابايت."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr ""
+"تعذّر إنشاء الكتلة الافتراضيّة الجديدة (${LV}) على ${VG} بالحجم الجديد ${SIZE}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume found"
+msgstr "لم يعثر على أيّة كتلةٍ افتراضيّة"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr "ليست هناك أية كتل افتراضية. رجاءً أنشئ كتلة افتراضية أولاً."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Logical volume:"
+msgstr "الكتلة الافتراضيّة:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please select the logical volume to delete."
+msgstr "الرجاء اختيار الكتلة الافتراضية المطلوب حذفها."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "in VG ${VG}"
+msgstr "في مجموعة الكتل ${VG}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "Error while deleting the logical volume"
+msgstr "خطأ أثناء حذف الكتلة الافتراضيّة"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "تعذر حذف الكتلة الافتراضية ${LV} على ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid "No usable physical volumes found"
+msgstr "لم يعثر على كتلٍ افتراضيّة يمكن استخدامها"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"لم نعثر على أية كتل ماديّة (أي، أجزاء) على هذا النظام. قد تكون جميعها مستخدمة "
+"مسبقاً. قد تحتاج أيضاً لتحميل بعض وحدات النواة المطلوبة أو لإعادة تجزئة "
+"الأقراص الصلبة."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid "ZFS not available"
+msgstr "نظام الملفات ZFS غير متوفّر"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr "لا تدعم النواة الحالية نظام ZFS. قد تحتاج لتحميل وحدة zfs."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "اسم كتلة افتراضية أو مُجمّع ZFS غير صالح"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\", and \"log\" are not allowed."
+msgstr ""
+"يجب أن تتألف أسماء الكتل الافتراضية أو مُجمّعات ZFS فقط من الأحرف والأرقام "
+"والشرطة العرضية (-) أو الأفقية (|) أو النقطة أو الشرطة السفلية (_). كما تكون "
+"بطول 255 حرف أو أقل ويجب أن تبدأ بحرف أو رقم. كما لا يمكن استخدام أي من "
+"الكلمات \"mirror\" أو \"raidz\" أو \"spare\" أو \"log\"."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Please choose a different name."
+msgstr "الرجاء اختيار اسم آخر."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Remove existing logical volume data?"
+msgstr "إزالة جميع بيانات الكتلة الافتراضية؟"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"يحتوي الجهاز المُحدّد على كتل ZFS الافتراضيةومُجمّعات ZFS والتي هي على وشك أن "
+"تُحذف:"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "الكُتل الافتراضيّة: ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr "مُجمّع ZFS: ${VGTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr ""
+"لاحظ أن هذا سيقوم أيضاً بإزالة أية بيانات موجودة حالياً على الكتل الافتراضية."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid "ZFS"
+msgstr "ZFS"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"بعض الحالات الشائعة عند مدراء الأنظمة أن يجدوا أن جزءً ما من القرص (وعادة أهم "
+"جزء) تنقصه المساحة، بينما الأجزاء الأخرى بالكاد مستخدمة. وهنا يبرز دور ZFS "
+"في حل هذه المشكلة."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"يمكّنك ZFS من دمج الأقراص أو الأجزاء (\"الكتل الماديّة\") بحيث تُشكّل قرصاً "
+"افتراضياً (\"مُجمّع ZFS\")، والذي يمكن تقسيمه إلى أجزاء افتراضية (\"كتل افتراضية"
+"\"). يمكن أن تمتدّ مُجمّعات ZFS وكُتلها الافتراضية على عدّة أقراص. كما يمكنك "
+"إضافة كتل ماديّة جديدة إلى مُجمّع ZFS في أي وقت، كما أن الكتل الافتراضيّة ليس "
+"محدودة الحجم سوى بالحجم الكلي لمُجمّع ZFS."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"يمكن استخدام العناصر في قائمة تهيئة ZFS لتعديل مُجمّعات ZFS وكتلها الافتراضيّة. "
+"وبعد أن تعود إلى شاشة مدير التجزئة الرئيسية، ستظهر الكتل الافتراضيّة بنفس "
+"مظهر الأجزاء العادية، وعليك معاملتها كذلك."

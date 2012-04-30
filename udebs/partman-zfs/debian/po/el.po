@@ -1,0 +1,947 @@
+# THIS FILE IS GENERATED AUTOMATICALLY FROM THE D-I PO MASTER FILES
+# The master files can be found under packages/po/
+#
+# DO NOT MODIFY THIS FILE DIRECTLY: SUCH CHANGES WILL BE LOST
+#
+# translation of el.po to
+# Greek messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
+#
+#
+# Translations from iso-codes:
+#     Translations taken from ICU SVN on 2007-09-09
+#   Panayotis Pakos <aeikineton@yahoo.com>
+# George Papamichelakis <george@step.gr>, 2004.
+# Emmanuel Galatoulas <galas@tee.gr>, 2004.
+# Konstantinos Margaritis <markos@debian.org>, 2004, 2006.
+# Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2004, 2005.
+# quad-nrg.net <galaxico@quad-nrg.net>, 2005, 2006, 2007.
+# quad-nrg.net <yodesy@quad-nrg.net>, 2006, 2008.
+# QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
+# galaxico@quad-nrg.net <galaxico@quad-nrg.net>, 2009, 2011.
+# Emmanuel Galatoulas <galaxico@quad-nrg.net>, 2009, 2010.
+#   Tobias Quathamer <toddy@debian.org>, 2007.
+#   Free Software Foundation, Inc., 2004.
+#   Alastair McKinstry <mckinstry@computer.org>, 2001.
+#   QUAD-nrg.net <yodesy@quad-nrg.net>, 2006, 2010.
+#   Simos Xenitellis <simos@hellug.gr>, 2001.
+#   Konstantinos Margaritis <markos@debian.org>, 2004.
+#   Athanasios Lefteris <alefteris@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: el\n"
+"Report-Msgid-Bugs-To: partman-zfs@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-01 22:50+0000\n"
+"PO-Revision-Date: 2012-01-23 15:57+0200\n"
+"Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
+"Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. Short file system name (untranslatable in many languages)
+#. Type: text
+#. Description
+#. :sl4:
+#. keep it short (ideally a 3-letter acronym)
+#: ../partman-zfs.templates:1001 ../partman-zfs.templates:2001
+#: ../partman-zfs.templates:19001
+msgid "zfs"
+msgstr "zfs"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. File system name
+#: ../partman-zfs.templates:3001
+msgid "ZFS file system"
+msgstr "σύστημα αρχείων ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid "Separate /boot and /lib/modules mandatory for this ZFS configuration"
+msgstr ""
+"Για αυτή τη διαμόρφωση του ZFS η χρήση ξεχωριστών κατατμήσεων /boot και /lib/"
+"modules είναι υποχρεωτική."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Your root file system is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+"Το ριζικό σύστημα αρχείων σας είναι σε ένα ZFS pool που χρησιμοποιεί "
+"περισσότερους από έναν φυσικούς τόμους."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001 ../partman-zfs.templates:5001
+msgid ""
+"The boot loader only supports this configuration for pools in Mirror or "
+"Striped modes, but not RAID-Z mode."
+msgstr ""
+"Ο φορτωτής εκκίνησης υποστηρίζει αυτήν την διαμόρφωση μόνο για pool σε "
+"κατάσταση Mirror ή Stripped αλλά όχι σε κατάσταση RAID-Z."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:4001
+msgid ""
+"Make sure /boot and /lib/modules are on a partition using a supported ZFS "
+"pool configuration, or a different file system such as UFS."
+msgstr ""
+"Βεβαιωθείτε ότι οι κατάλογοι /boot και /lib/modules βρίσκονται σε μια "
+"κατάτμηση που χρησιμοποιεί μια υποστηριζόμενη διαμόρφωση ZFS pool ή ένα "
+"διαφορετικό σύστημα αρχείων όπως το UFS."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid "Unsupported multiple volume ZFS for ${MNT}"
+msgstr ""
+"Μη υποστηριζόμενοι πολλαπλοί τόμοι ZFS για το σημείο προσάρτησης ${MNT}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Your ${MNT} partition is on a ZFS pool that uses more than one physical "
+"volume."
+msgstr ""
+"Η κατάτμηση ${MNT} βρίσκεται σε ένα ZFS pool που χρησιμοποιεί περισσότερους "
+"από έναν φυσικούς τόμους."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:5001
+msgid ""
+"Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
+"or a different file system such as UFS."
+msgstr ""
+"Βεβαιωθείτε ότι ο κατάλογος ${MNT} είναι σε μια κατάτμηση που χρησιμοποιεί "
+"μια υποστηριζόμενη διαμόρφωση ZFS ή ένα διαφορετικό σύστημα αρχείων όπως το "
+"UFS."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001 ../partman-zfs.templates:7001
+msgid "Go back to the menu and correct this problem?"
+msgstr "Θέλετε να επιστρέψετε στο μενού και να διορθώσετε τα σφάλματα;"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. "
+"Although ZFS is supported on 32-bit i386, using it without special tuning "
+"may lead to performance or stability problems due to limitations of this "
+"architecture."
+msgstr ""
+"Έχετε διαμορφώσει μία ή περισσότερες κατατμήσεις με το σύστημα αρχείων ZFS. "
+"Αν και το ZFS υποστηρίζεται στην αρχιτεκτονική i386 των 32-μπιτ, η χρήση του "
+"χωρίς κάποια ιδιαίτερη ρύθμιση μπορεί να οδηγήσει σε προβλήματα απόδοσης ή "
+"σταθερότητας λόγω περιορισμών της αρχιτεκτονικής αυτής. "
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:6001
+msgid ""
+"You should either use the 64-bit (amd64) version of this installer (if your "
+"hardware supports this), or go back to the partitioning menu and configure "
+"the partitions to use another file system."
+msgstr ""
+"Θα πρέπει είτε να χρησιμοποιήσετε την 64-μπιτη έκδοση (amd64) του "
+"εγκαταστάτη (αν την υποστηρίζει το υλικό σας) ή να επιστρέψετε στο μενού "
+"διαμέρισης και να διαμορφώσετε τις κατατμήσεις με την χρήση ενός άλλου "
+"συστήματος αρχείων."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You have configured one or more partitions with the ZFS file system. Using "
+"ZFS on a computer with less than 512 MB of memory may lead to stability "
+"problems and is not recommended."
+msgstr ""
+"Έχετε διαμορφώσει μία ή περισσότερες κατατμήσεις με το σύστημα αρχείων ZFS. "
+"Χρησιμοποιώντας το ZFS σε έναν υπολογιστή με μνήμη λιγότερη από 512 MB "
+"μπορεί να οδηγήσει σε προβλήματα σταθερότητας και δεν συνιστάται."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:7001
+msgid ""
+"You should go back to the partitioning menu and configure the partitions to "
+"use another file system."
+msgstr ""
+"Θα πρέπει να επιστρέψετε στο μενού διαμέρισης και να διαμορφώσετε τις "
+"κατατμήσεις για χρήση με ένα άλλο σύστημα αρχείων."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:8001
+msgid "Configure ZFS"
+msgstr "Ρύθμιση του ZFS"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. What is "in use" is a partition
+#: ../partman-zfs.templates:9001
+msgid "In use by ZFS pool ${VG}"
+msgstr "Σε χρήση από το ZFS pool ${VG}"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001
+msgid "Display configuration details"
+msgstr "Εμφάνιση των λεπτομερειών ρύθμισης"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:11001
+msgid "Create ZFS pool"
+msgstr "Δημιουργία ZFS pool"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:12001
+msgid "Delete ZFS pool"
+msgstr "Διαγραφή ZFS pool"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:13001
+msgid "Create logical volume"
+msgstr "Δημιουργία λογικού τόμου"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:14001
+msgid "Delete logical volume"
+msgstr "Διαγραφή λογικού τόμου"
+
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001
+msgid "Finish"
+msgstr "Ολοκλήρωση"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid "Write the changes to disk and configure ZFS?"
+msgstr "Να αποθηκευθούν οι αλλαγές στον δίσκο και να γίνει η ρύθμιση του ZFS;"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"Before ZFS can be configured, the current partitioning scheme has to be "
+"written to disk. These changes cannot be undone."
+msgstr ""
+"Προτού γίνει η ρύθμιση του ZFS, θα πρέπει να αποθηκευτεί στο δίσκο το παρόν "
+"σχήμα  διαμέρισης. Αυτές οι αλλαγές δε μπορούν να αναιρεθούν."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:16001
+msgid ""
+"After ZFS is configured, no additional changes to the partitioning scheme of "
+"disks containing physical volumes are allowed during the installation. "
+"Please decide if you are satisfied with the current partitioning scheme "
+"before continuing."
+msgstr ""
+"Μετά τη ρύθμιση του ZFS, δεν επιτρέπονται πλέον στη διάρκεια της "
+"εγκατάστασης επιπρόσθετες αλλαγές στο σχήμα διαμέρισης των δίσκων που "
+"περιέχουν φυσικούς τόμους. Παρακαλώ, βεβαιωθείτε ότι είσαστε ικανοποιημένοι "
+"με το παρόν σχήμα διαμέρισης πριν συνεχίσετε."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration failure"
+msgstr "Αποτυχία ρύθμισης του ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "An error occurred while writing the changes to the disks."
+msgstr ""
+"Κάποιο σφάλμα συνέβη κατά την αποθήκευση των αλλαγών στις μονάδες δίσκων."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:17001
+msgid "ZFS configuration has been aborted."
+msgstr "Η ρύθμιση του ZFS εγκαταλείφθηκε."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:18001
+msgid "physical volume for ZFS"
+msgstr "φυσικός τόμος για το ZFS"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "ZFS configuration action:"
+msgstr "Εργασία ρύθμισης του ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid "Summary of current ZFS configuration:"
+msgstr "Σύνοψη της τρέχουσας ρύθμισης του ZFS:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:20001
+msgid ""
+" Free physical volumes:  ${FREE_PVS}\n"
+" Used physical volumes:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" ZFS logical volumes:    ${LVS}"
+msgstr ""
+" Ελεύθεροι φυσικοί τόμοι:  ${FREE_PVS}\n"
+" Φυσικοί τόμοι σε χρήση:  ${USED_PVS}\n"
+" ZFS pools:              ${VGS}\n"
+" Λογικοί τόμοι ZFS:    ${LVS}"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:21001
+msgid "Current ZFS configuration:"
+msgstr "Τρέχουσα ρύθμιση του ZFS:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Devices for the new ZFS pool:"
+msgstr "Συσκευές για το καινούριο ZFS pool:"
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "Please select devices for the new ZFS pool."
+msgstr "Παρακαλώ, επιλέξτε τις συσκευές για το καινούριο ZFS pool."
+
+#. Type: multiselect
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:22001
+msgid "You can select one or more devices."
+msgstr "Μπορείτε να επιλέξετε μία ή περισσότερες μονάδες."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid "Multidisk mode for this ZFS pool:"
+msgstr "Διαμόρφωση πολλαπλών δίσκων για το παρόν ZFS pool:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:23001
+msgid ""
+"Please choose the mode for multidisk operations for this ZFS pool:\n"
+" * Striped: similar to RAID 0 (default) - data is spread across the\n"
+"            physical volumes;\n"
+" * Mirror:  similar to RAID 1 - data is replicated to each physical\n"
+"            volume;\n"
+" * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
+"            store parity bits and data is spread across others."
+msgstr ""
+"Παρακαλώ διαλέξτε τη διαμόρφωση λειτουργίας πολλαπλών δίσκων για το παρόν "
+"ZFS pool:\n"
+" * Striped: παρόμοιο με το RAID 0 (προεπολογή) - τα δεδομένα διαμοιράζονται "
+"σε όλους\n"
+"            τους φυσικούς τόμους;\n"
+" * Mirror:  παρόμοιο με το RAID 1 - τα δεδομέναν αναπαράγονται σε κάθε "
+"φυσικό\n"
+"            τόμο;\n"
+" * RAID-Z:  παρόμοιο με το RAID 5 ή το RAID 6 - σε κάποιους φυσικούς τόμους "
+"αποθηκεύονται\n"
+"            bit ομοτιμίας (parity bits) και τα δεδομένα διαμοιράζονται στους "
+"υπόλοιπους."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid "Parity level for RAID-Z:"
+msgstr "Επίπεδο ομοτιμίας (parity level) για το RAID-Z:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:24001
+msgid ""
+"Please choose the number of physical volumes that will be used to store "
+"parity bits."
+msgstr ""
+"Παρακαλώ επιλέξτε τον αριθμό των φυσικών τόμων που θα χρησιμοποιηθούν για "
+"την αποθήκευση των bit ομοτιμίας."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "ZFS pool name:"
+msgstr "Όνομα του ZFS pool:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:25001
+msgid "Please enter the name you would like to use for the new ZFS pool."
+msgstr ""
+"Παρακαλώ εισάγετε το όνομα που θα θέλατε να χρησιμοποιήσετε για το καινούριο "
+"ZFS pool."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid "No physical volumes selected"
+msgstr "Δεν επιλέχθηκαν φυσικές μονάδες"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:26001
+msgid ""
+"No physical volumes were selected. The creation of a new ZFS pool has been "
+"aborted."
+msgstr ""
+"Δεν επιλέχθηκαν φυσικοί τόμοι. Η διαδικασία δημιουργίας ενός καινούριου ZFS "
+"pool εγκαταλείφθηκε."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No ZFS pool name"
+msgstr "Δεν δώθηκε όνομα για το ZFS pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:27001
+msgid "No name for the ZFS pool has been entered. Please enter a name."
+msgstr "Δεν δώθηκε κάποιο όνομα για το ZFS pool. Παρακαλώ, εισάγετε ένα όνομα."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid "ZFS pool name already in use"
+msgstr "Το όνομα αυτό για το ZFS pool χρησιμοποιείται ήδη"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:28001
+msgid ""
+"The selected ZFS pool name is already in use. Please choose a different name."
+msgstr ""
+"Το επιλεγμένο όνομα για το ZFS pool χρησιμοποιείται ήδη. Παρακαλώ, διαλέξτε "
+"ένα διαφορετικό όνομα."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "Error while creating ZFS pool"
+msgstr "Σφάλμα κατά τη δημιουργία του ZFS pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001
+msgid "The ZFS pool ${VG} could not be created."
+msgstr "Δεν ήταν δυνατή η δημιουργία του ZFS pool ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:29001 ../partman-zfs.templates:40001
+#: ../partman-zfs.templates:44001
+msgid "Check /var/log/syslog or see virtual console 4 for the details."
+msgstr ""
+"Ελέγξτε το αρχείο /var/log/syslog ή δείτε την εικονική κονσόλα 4 για "
+"λεπτομέρειες."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "ZFS pool to delete:"
+msgstr "ZFS pool προς διαγραφή:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:30001
+msgid "Please select the ZFS pool you wish to delete."
+msgstr "Παρακαλώ επιλέξτε το ZFS pool που επιθυμείτε να διαγράψετε."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool"
+msgstr "Δεν υπάρχει ZFS pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "No ZFS pool has been found."
+msgstr "Δεν βρέθηκε κάποιο ZFS pool."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:31001
+msgid "The ZFS pool may have already been deleted."
+msgstr "Το ZFS pool έχει πιθανόν ήδη διαγραφεί."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Really delete the ZFS pool?"
+msgstr "Θέλετε πραγματικά να διαγράψετε το ZFS pool;"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:32001
+msgid "Please confirm the removal of the ZFS pool ${VG}."
+msgstr "Παρακαλώ επιβεβαιώστε τη διαγραφή του ZFS pool ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid "Error while deleting ZFS pool"
+msgstr "Σφάλμα κατά τη διαγραφή του ZFS pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:33001
+msgid ""
+"The selected ZFS pool could not be deleted. One or more logical volumes may "
+"currently be in use."
+msgstr ""
+"To επιλεγμένo ZFS pool δεν ήταν δυνατόν να διαγραφεί. Ένας ή περισσότεροι "
+"λογικοίτόμοι ίσως χρησιμοποιούνται αυτή τη στιγμή."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid "No ZFS pool found"
+msgstr "Δεν βρέθηκε κάποιο ZFS pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:34001
+msgid ""
+"No free ZFS pools were found for creating a new logical volume. Please "
+"create another ZFS pool, or free space in an existing ZFS pool."
+msgstr ""
+"Δεν βρέθηκαν ελεύθερα ZFS pool για τη δημιουργία ενός καινούριου λογικού "
+"τόμου. Παρακαλώ δημιουργήστε κάποιο άλλο ZFS pool ή ελευθερώστε χώρο σε ένα "
+"υπάρχον ZFS pool."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Logical volume name:"
+msgstr "Όνομα του Λογικού Τόμου:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:35001
+msgid "Please enter the name you would like to use for the new logical volume."
+msgstr ""
+"Δώστε το όνομα που θα θέλατε να χρησιμοποιήσετε για το νέο Λογικό Τόμο."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid "ZFS pool:"
+msgstr "ZFS pool:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:36001
+msgid ""
+"Please select the ZFS pool where the new logical volume should be created."
+msgstr ""
+"Παρακαλώ επιλέξτε το ZFS pool στο οποίο θα δημιουργηθεί ο καινούριος λογικός "
+"τόμος."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No logical volume name entered"
+msgstr "Δε δόθηκε όνομα του Λογικού Τόμου"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:37001
+msgid "No name for the logical volume has been entered. Please enter a name."
+msgstr ""
+"Δεν δώθηκε κάποιο όνομα για το λογικό τόμο. Παρακαλώ εισάγετε ένα όνομα."
+
+#. Type: error
+#. Description
+#. :sl4:
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001 ../partman-zfs.templates:40001
+msgid "Error while creating a new logical volume"
+msgstr "Σφάλμα κατά τη δημιουργία του νέου Λογικού Τόμου"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:38001
+msgid ""
+"The name ${LV} is already in use by another logical volume on the same ZFS "
+"pool (${VG})."
+msgstr ""
+"Το όνομα ${LV} χρησιμοποιείται ήδη από κάποιον άλλο λογικό τόμο στο ίδιο ZFS "
+"pool (${VG})."
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid "Logical volume size:"
+msgstr "Μέγεθος Λογικού Τόμου:"
+
+#. Type: string
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:39001
+msgid ""
+"Please enter the size of the new logical volume. The size may be entered in "
+"the following formats: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). The default unit is Megabytes."
+msgstr ""
+"Δώστε το μέγεθος του νέου Λογικού Τόμου. Το μέγεθος μπορεί να δοθεί σε μία "
+"από τις ακόλουθες μορφές: 10K (Kilobytes), 10M (Megabytes), 10G (Gigabytes), "
+"10T (Terabytes). Η προεπιλεγμένη μονάδα μεγέθους είναι Megabytes."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:40001
+msgid ""
+"Unable to create a new logical volume (${LV}) on ${VG} with the new size "
+"${SIZE}."
+msgstr ""
+"Δεν ήταν δυνατή η δημιουργία του νέου Λογικού Τόμου (${LV}) στην Ομάδα ${VG} "
+"με μέγεθος ${SIZE}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume found"
+msgstr "Δε βρέθηκαν Λογικοί Τόμοι"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:41001
+msgid "No logical volume has been found. Please create a logical volume first."
+msgstr ""
+"Δεν βρέθηκε κάποιος λογικός τόμος. Παρακαλώ δημιουργήστε πρώτα ένανλογικό "
+"τόμο."
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Logical volume:"
+msgstr "Λογικός Τόμος:"
+
+#. Type: select
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:42001
+msgid "Please select the logical volume to delete."
+msgstr "Παρακαλώ, επιλέξτε τον λογικό τόμο για διαγραφή."
+
+#. Type: text
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:43001
+msgid "in VG ${VG}"
+msgstr "στην ομάδα τόμων ${VG}"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "Error while deleting the logical volume"
+msgstr "Σφάλμα κατά τη διαγραφή του Λογικού Τόμου"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:44001
+msgid "The logical volume ${LV} on ${VG} could not be deleted."
+msgstr "Δεν ήταν δυνατή η διαγραφή του λογικού τόμου (${LV}) στην ομάδα ${VG}."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid "No usable physical volumes found"
+msgstr "Δε βρέθηκαν χρησιμοποιήσιμοι φυσικοί τόμοι"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:45001
+msgid ""
+"No physical volumes (i.e. partitions) were found in this system. All "
+"physical volumes may already be in use. You may also need to load some "
+"required kernel modules or re-partition the hard drives."
+msgstr ""
+"Δεn βρέθηκαν φυσικοί τόμοι (δηλ. κατατμήσεις) στο παρόν σύστημα. Πιθανόν "
+"όλοι οι φυσικοί τόμοι να είναι ήδη σε χρήση. Επίσης ίσως να πρέπεινα "
+"φορτώσετε κάποια απαραίτητα αρθρώματα του πυρήνα, ή να επαναδιαμερίσετε τους "
+"σκληρούς σας δίσκους."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid "ZFS not available"
+msgstr "Δεν είναι διαθέσιμο το ZFS"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:46001
+msgid ""
+"The current kernel doesn't support ZFS. You may need to load the zfs module."
+msgstr ""
+"Ο παρών πυρήνας δεν υποστηρίζει το σύστημα αρχείων ZFS. Πιθανόν να πρέπει να "
+"φορτώσετε το άρθρωμα (module) του πυρήνα zfs."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Invalid logical volume or ZFS pool name"
+msgstr "Μη έκυρο όνομα λογικού τόμου ή του ZFS pool"
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid ""
+"Logical volume or ZFS pool names may only contain alphanumeric characters, "
+"hyphen, colon, period, and underscore. They must be 255 characters or less "
+"and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
+"\", \"spare\", and \"log\" are not allowed."
+msgstr ""
+"Τα ονόματα των λογικών τόμων ή του ZFS pool μπορούν να περιέχουν μόνο "
+"αλφαριθμητικούς χαρακτήρες, παύλες, άνω τελείες, τελείες και υποδείκτες. "
+"Πρέπει να έχουν 255 χαρακτήρες ή λιγότερους και θα πρέπει να ξεκινούν με "
+"έναν αλφαριθμητικό χαρακτήρα. Δεν επιτρέπονται τα ονόματα \"mirror\", \"raidz"
+"\", \"spare\" και \"log\"."
+
+#. Type: error
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:47001
+msgid "Please choose a different name."
+msgstr "Παρακαλώ επιλέξτε ένα διαφορετικό όνομα."
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Remove existing logical volume data?"
+msgstr "Να απομακρυνθούν όλα τα δεδομένα του λογικού τόμου;"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"The selected device already contains the following ZFS logical volumes and "
+"ZFS pools which are about to be removed:"
+msgstr ""
+"Η συσκευή που επιλέξατε περιέχει ήδη τους ακόλουθους φυσικούς τόμους ZFS και "
+"ZFS pools, που πρόκειται να αφαιρεθούν:"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "Logical volume(s): ${LVTARGETS}"
+msgstr "Λογικός(οί) τόμος(οι): ${LVTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid "ZFS pool(s): ${VGTARGETS}"
+msgstr "ZFS pool(s): ${VGTARGETS}"
+
+#. Type: boolean
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:48001
+msgid ""
+"Note that this will also permanently erase any data currently on the logical "
+"volumes."
+msgstr ""
+"Σημειώστε ότι αυτό θα διαγράψει μόνιμα και οποιαδήποτε δεδομένα βρίσκονται "
+"αυτή την στιγμή στους λογικούς τόμους."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid "ZFS"
+msgstr "ZFS"
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"A common situation for system administrators is to find that some disk "
+"partition (usually the most important one) is short on space, while some "
+"other partition is underused. ZFS can help with this."
+msgstr ""
+"Μια συνηθισμένη κατάσταση για διαχειριστές συστημάτων είναι να ανακαλύπτουν "
+"ότι κάποια κατάτμηση ενός δίσκου (συνήθως η σημαντικότερη!) έχει λίγο "
+"ελεύθερο χώρο, ενώ κάποια άλλη χρησιμοποιείται ελάχιστα. Το σύστημα αρχείων "
+"ZFS μπορεί να βοηθήσει σε αυτό."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"ZFS allows combining disk or partition devices (\"physical volumes\") to "
+"form a virtual disk (\"ZFS pool\"), which can then be divided into virtual "
+"partitions (\"logical volumes\"). ZFS pools and logical volumes may span "
+"across several physical disks. New physical volumes may be added to a ZFS "
+"pool at any time, and logical volumes have no size limit other than the "
+"total size of the ZFS pool."
+msgstr ""
+"Το σύστημα αρχείων ZFS επιτρέπει τον συνδυασμό συσκευών δίσκων ή κατατμήσεων "
+"(\"φυσικών τόμων\") για την δημιουργία ενός εικονικού δίσκου (\"ZFS pool\"), "
+"που μπορεί στη συνέχεια να διαιρεθεί σε εικονικές κατατμήσεις (\"λογικούς "
+"τόμους\"). Οι ομάδες δίσκων ZFS και οι λογικοί τόμοι μπορούν να εκτείνονται "
+"σε πολλαπλούς φυσικούς δίσκους. Καινούριοι φυσικοί τόμοι μπορούν να "
+"προστεθούν σε ένα ZFS pool οποιαδήποτε χρονική στιγμή και το μέγεθος των "
+"λογικών τόμων δεν έχει κανέναν περιορισμό μεγέθους εκτός από το συνολικό "
+"μέγεθος του ZFS pool."
+
+#. Type: note
+#. Description
+#. :sl4:
+#: ../partman-zfs.templates:49001
+msgid ""
+"The items on the ZFS configuration menu can be used to edit ZFS pools and "
+"logical volumes. After you return to the main partition manager screen, "
+"logical volumes will be displayed in the same way as ordinary partitions, "
+"and should be treated as such."
+msgstr ""
+"Τα στοιχεία στο μενού διαμόρφωσης του ZFS μπορούν να χρησιμοποιηθούν για τη "
+"ρύθμιση ZFS pools και λογικών τόμων. Μετά την επιστροφή σας στην κύρια οθόνη "
+"του διαχειριστή διαμέρισης, οι λογικοί τόμοι θα εμφανιστούν με τον ίδιο "
+"τρόπο που εμφανίζονται οι συνηθισμένες κατατμήσεις, και θα πρέπει να "
+"αντιμετωπιστούν ως τέτοιες."
