@@ -1,0 +1,12 @@
+#/bin/sh
+
+set -e
+
+usage () { echo "usage: `basename $0` disk iso" ; return 0; }
+usageerr () { usage >&2 ; return 1 ; }
+
+[ $# -eq 2 ] || usageerr
+
+rm -f "$1"
+qemu-img create "$1" 80G
+kvm --boot d --hda "$1" --cdrom "$2" -m 8192 -usb
