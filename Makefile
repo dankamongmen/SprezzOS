@@ -70,7 +70,7 @@ $(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/$(BUILDIN)
 	cp $< $@
 
 $(CHROOT)/$(BUILDIN): $(BUILDIN) common build
-	./build
+	./build $(@D)
 	cp $(BUILDIN) $@
 	#sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	#sudo chroot $(@D) mount -t proc procfs /proc
