@@ -21,17 +21,10 @@ for dev in $DEVICES/*; do
 				rm -f $id/options/noexec
 			fi
 			options=$(get_mountoptions $dev $id)
-			if [ "$mountpoint" = / ]; then
-				if [ "$options" = defaults ]; then
-					options="errors=remount-ro"
-				else
-					options="${options},errors=remount-ro"
-				fi
-				pass=1
-			else
-				pass=2
+			if [ "$options" = defaults ]; then
+				options="rw"
 			fi
-			echo "$path" "$mountpoint" $filesystem $options 0 $pass
+			echo "${path#/dev/zvol/}" "$mountpoint" zfs $options 0 0
 			;;
 		esac
 	done
