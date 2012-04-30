@@ -1,10 +1,7 @@
 .DELETE_ON_ERROR:
 .PHONY: all test clean zfs
 
-# There's surely a better way to pass this to dpkg-buildpackage etc...FIXME
-CONCURRENCY:=-j8
-
-DI:=debian-installer-20120327
+DI:=debian-installer-201204xy
 CHROOT:=unstable
 DIBUILD:=$(CHROOT)/$(DI)/build
 
@@ -26,7 +23,7 @@ IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
 DIIMG:=dest/netboot/mini.iso
 CPDIIMG:=tmp/mirror/dists/sid/main/installer-amd64/current/images/netboot
-DIDEB:=$(shell pwd)/unstable/debian-installer_20120327_amd64.deb
+DIDEB:=$(shell pwd)/unstable/$(DI)_amd64.deb
 
 all: $(IMG)
 
@@ -65,9 +62,6 @@ $(UDEBS)/zfs_1-1_all.udeb: zfs_1-1_all.udeb
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
 
-zfs_1-1_all.udeb:
-	cd zfs && dpkg-buildpackage -k9978711C -b
-
 $(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
@@ -93,12 +87,6 @@ $(CHROOT)/build: $(BUILDIN) common
 
 zfs: $(ZFS)
 
-$(ZFS): zfs/configure
-	cd zfs && dpkg-buildpackage $(CONCURRENCY)
-
-$(SPL): spl/configure
-	cd spl && dpkg-buildpackage $(CONCURRENCY)
-
 $(DIBUILD)/config/common: common $(CHROOT)/build
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cat $< > $@
@@ -107,7 +95,5 @@ clean:
 	rm -rf tmp $(TESTDISK) images $(CONF) $(PMZFS)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd $(UDEBS)/partman-zfs && debian/rules clean
-	-cd zfs && make maintainer-clean || true
-	-cd spl && make maintainer-clean || true
 	sudo umount $(CHROOT)/proc || true
 	sudo rm -rf $(CHROOT)
