@@ -4,10 +4,10 @@ set -e
 set -o nounset
 set -o pipefail
 
-usage () { echo "usage: `basename $0`" ; return 0 ; }
+usage () { echo "usage: `basename $0` filename" ; return 0 ; }
 usageerr () { usage >&2 ; return 1 ; }
 
-[ $# -eq 0 ] || usageerr
+[ $# -eq 1 ] || usageerr
 
-sudo debootstrap --include=locales,dh-di,vim-tiny,udev,autoconf,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,xmlto,kernel-wedge,devscripts \
-	--make-tarball=`pwd`/packages.tgz --variant=buildd unstable dibuild
+sudo debootstrap --include=locales,dh-di,less,vim-nox,udev,autoconf,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,xmlto,kernel-wedge,devscripts \
+	--make-tarball="$1" --variant=buildd unstable dibuild

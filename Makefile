@@ -10,7 +10,7 @@ CONF:=$(shell pwd)/profiles/SprezzOS.conf
 CONFIN:=$(shell pwd)/SprezzOS.conf.in
 BUILDIN:=innerbuild
 UDEBS:=$(shell pwd)/udebs
-PMZFS:=$(UDEBS)/partman-zfs_1-1_all.udeb
+PMZFS:=$(UDEBS)/partman-zfs_19_all.udeb
 
 ZMOD:=$(CHROOT)/zfs-modules_0.6.0-1_amd64.deb
 ZFS:=$(CHROOT)/zfs_0.6.0-1_amd64.deb
@@ -53,12 +53,12 @@ $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	( cat $^ && echo "custom_installer=$(shell pwd)/dest" ) > $@
 
-TARGUDEBS:=$(DIBUILD)/localudebs/partman-zfs_1-1_all.udeb
+TARGUDEBS:=$(DIBUILD)/localudebs/partman-zfs_19_all.udeb
 TARGUDEBS+=$(DIBUILD)/localudebs/zfs_1-1_all.udeb
-TARGUDEBS+=$(CHROOT)/root/udebs/partman-zfs_1-1_all.udeb
+TARGUDEBS+=$(CHROOT)/root/udebs/partman-zfs_19_all.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/zfs_1-1_all.udeb
 
-$(ZFS) $(DIIMG): $(DIBUILD)/config/common $(CHROOT)/$(BUILDIN) $(TARGUDEBS)
+$(TARGUDEBS) $(ZFS) $(DIIMG): $(DIBUILD)/config/common $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) /$(BUILDIN)
 
 $(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/$(BUILDIN)
@@ -69,7 +69,10 @@ $(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/$(BUILDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
 
-$(CHROOT)/$(BUILDIN): $(BUILDIN) common build
+packages.tgz: update
+	./update $@
+
+$(CHROOT)/$(BUILDIN): $(BUILDIN) common build packages.tgz
 	./build $(@D)
 	cp $(BUILDIN) $@
 	#sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
