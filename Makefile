@@ -99,7 +99,7 @@ clean:
 	rm -rf tmp $(TESTDISK) images $(CONF) $(PMZFS)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd $(UDEBS)/partman-zfs && debian/rules clean
-	sudo umount $(CHROOT)/proc || true
+	sudo umount $(CHROOT)/proc $(CHROOT)/sys || true
 	sudo rm -rf $(CHROOT)
 
 clobber: clean
