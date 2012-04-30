@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean zfs
+.PHONY: all test clean zfs clobber
 
 DI:=debian-installer-201204xy
 CHROOT:=unstable
@@ -73,6 +73,7 @@ packages.tgz: update
 	./update $@
 
 $(CHROOT)/$(BUILDIN): $(BUILDIN) common build packages.tgz
+	! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make clean'." >&2 ; exit 1 ; }
 	./build $(@D)
 	cp $(BUILDIN) $@
 	#sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
@@ -100,4 +101,6 @@ clean:
 	-cd $(UDEBS)/partman-zfs && debian/rules clean
 	sudo umount $(CHROOT)/proc || true
 	sudo rm -rf $(CHROOT)
+
+clobber: clean
 	rm -f packages.tgz
