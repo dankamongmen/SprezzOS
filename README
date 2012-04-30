@@ -61,6 +61,12 @@ We are not using kernel-package's "make-kpkg" to build .debs, but instead the
 preexisting debian/ directory and dpkg-buildpackage. The result will be a
 great many udebs and some debs.
 
+Acquire the desired kernel via git or tarball. Acquire the debian packaging
+from svn://anonscm.debian.org/svn/kernel/dists/dist/linux-2.6. Configure the
+kernel. Run 'make deb-pkg'.
+
+Finally, run dpkg-buildpackage to generate the various udebs.
+
 FIXME (considerations include: ABI updates, removing/adding entries to module
 	config files in debian/config/, copying config through
 	debian/config/config, setting defines, generating usable header
@@ -118,6 +124,9 @@ debian-installer checkout will ensure you have the necessary packages
 installed to rebuild it. The svn repo is:
 
 	svn://svn.debian.org/svn/d-i/trunk
+	cd trunk
+	scripts/git-setup
+	mr -p checkout
 
 Edit build/config/common as necessary. If you want external apt sources, create
 a new file sources.list.udeb.local. Ensure the first line is

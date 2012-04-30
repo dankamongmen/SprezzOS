@@ -72,6 +72,9 @@ $(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/$(BUILDIN)
 packages.tgz: update
 	./update $@
 
+$(CHROOT)/linux-stable:
+	cd $(@D) && git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+
 $(CHROOT)/$(BUILDIN): $(BUILDIN) common build packages.tgz
 	! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make clean'." >&2 ; exit 1 ; }
 	./build $(@D)

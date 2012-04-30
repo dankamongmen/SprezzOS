@@ -3,15 +3,26 @@
 set -e
 set -x
 
+KVERS=3.3.4-1
 ZFSVER=0.6.0-rc8
 
+export DEBFULLNAME="Nick Black"
+export DEBEMAIL="nick.black@sprezzatech.com>
+
 cd /
-git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 cd linux-stable
 svn co svn://svn.debian.org/svn/kernel/dists/trunk/linux-2.6/ debian
-python debian/bin/genorig.py /linux-stable
-debian/rules orig
-debian/rules debian/control
+dch --newversion=$KVERS -i
+
+# FIXME these don't appear to work...?
+python debian/bin/genorig.py /linux-stable || true
+debian/rules orig || true
+debian/rules debian/control || true
+
+# FIXME need a configuration file
+make deb-pkg -j8
+dpkg -i ../linux-headers*.deb
+
 cd /spl-"$ZFSVER"
 dpkg-buildpackage -j8
 cd /zfs-"$ZFSVER"

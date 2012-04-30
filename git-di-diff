@@ -1,10 +1,11 @@
 diff --git a/build/boot/x86/adgtk.cfg b/build/boot/x86/adgtk.cfg
-index 26ad24b..15208bc 100644
+index 26ad24b..ebc86d2 100644
 --- a/build/boot/x86/adgtk.cfg
 +++ b/build/boot/x86/adgtk.cfg
-@@ -2,11 +2,11 @@ menu hshift 9
- menu width 58
- 
+@@ -1,12 +1,9 @@
+-menu hshift 9
+-menu width 58
+-
  label expertgui
 -	menu label Graphical expert install
 +	menu label graphical expert install
@@ -16,6 +17,33 @@ index 26ad24b..15208bc 100644
 +	menu label graphical automated install
  	kernel ${KERNEL}
  	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
+diff --git a/build/boot/x86/adtxt.cfg b/build/boot/x86/adtxt.cfg
+index 268d456..a8da86a 100644
+--- a/build/boot/x86/adtxt.cfg
++++ b/build/boot/x86/adtxt.cfg
+@@ -1,9 +1,9 @@
+ label expert
+-	menu label ^Expert install
++	menu label ^expert install
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% priority=low ${VIDEO_MODE} initrd=${INITRD} -- ${CONSOLE}
+ include ${SYSDIR}rqtxt.cfg
+ label auto
+-	menu label ^Automated install
++	menu label ^automated install
+ 	kernel ${KERNEL}
+ 	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
+diff --git a/build/boot/x86/amdadtxt.cfg b/build/boot/x86/amdadtxt.cfg
+index f3863a6..0a6b243 100644
+--- a/build/boot/x86/amdadtxt.cfg
++++ b/build/boot/x86/amdadtxt.cfg
+@@ -1,6 +1,3 @@
+-menu hshift 9
+-menu width 58
+-
+ label amd64-expert
+ 	menu label 64 bit expert install
+ 	kernel ${AMD_KERNEL}
 diff --git a/build/boot/x86/desktop/adgtkdt.cfg b/build/boot/x86/desktop/adgtkdt.cfg
 index 41e4ad8..aa3c90e 100644
 --- a/build/boot/x86/desktop/adgtkdt.cfg
@@ -44,10 +72,10 @@ index 282ba03..4d5a6df 100644
  	kernel ${KERNEL}
  	append desktop=%desktop% ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/desktop/menu.cfg b/build/boot/x86/desktop/menu.cfg
-index 7752600..a428529 100644
+index 7752600..5b15843 100644
 --- a/build/boot/x86/desktop/menu.cfg
 +++ b/build/boot/x86/desktop/menu.cfg
-@@ -3,7 +3,7 @@ include ${SYSDIR}%desktop%/amdtxtdt.cfg
+@@ -3,11 +3,11 @@ include ${SYSDIR}%desktop%/amdtxtdt.cfg
  include ${SYSDIR}%desktop%/gtkdt.cfg
  include ${SYSDIR}%desktop%/amdgtkdt.cfg
  menu begin advanced-%desktop%
@@ -56,6 +84,11 @@ index 7752600..a428529 100644
  	menu title %dt-name% advanced options
  	include ${SYSDIR}stdmenu.cfg
  	label dtmenu-%desktop%
+-		menu label ^Back..
++		menu label ^back..
+ 		menu exit
+ 	include ${SYSDIR}%desktop%/adtxtdt.cfg
+ 	include ${SYSDIR}%desktop%/amdatdt.cfg
 @@ -15,7 +15,7 @@ menu begin advanced-%desktop%
  	include ${SYSDIR}%desktop%/amdagdt.cfg
  menu end
@@ -180,44 +213,59 @@ index 3cfb88f..52501dd 100644
  	kernel ${KERNEL}
  	append desktop=%desktop% ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/menu.cfg b/build/boot/x86/menu.cfg
-index 721f74f..9e55b4e 100644
+index 721f74f..b1f38fb 100644
 --- a/build/boot/x86/menu.cfg
 +++ b/build/boot/x86/menu.cfg
-@@ -1,17 +1,17 @@
+@@ -1,31 +1,25 @@
 -menu hshift 13
 -menu width 60
-+menu hshift 25
-+menu width 55
++menu hshift 45
++menu width 35
++menu margin 1
  
 -menu title Debian GNU/Linux installer boot menu${BEEP}
-+menu title legacy bios-mode boot ${BEEP}
++menu title      legacy bios-mode installer ${BEEP}
  include ${SYSDIR}stdmenu.cfg
  include ${SYSDIR}txt.cfg
  include ${SYSDIR}amdtxt.cfg
  include ${SYSDIR}gtk.cfg
  include ${SYSDIR}amdgtk.cfg
- menu begin advanced
+-menu begin advanced
 -	menu title Advanced options
-+	menu title advanced options
- 	include ${SYSDIR}stdmenu.cfg
- 	label mainmenu
+-	include ${SYSDIR}stdmenu.cfg
+-	label mainmenu
 -		menu label ^Back..
-+		menu label ^back..
- 		menu exit
- 	include ${SYSDIR}adtxt.cfg
- 	include ${SYSDIR}amdadtxt.cfg
-@@ -20,9 +20,9 @@ menu begin advanced
- 	include ${SYSDIR}dtmenu.cfg
- menu end
- label help
+-		menu exit
+-	include ${SYSDIR}adtxt.cfg
+-	include ${SYSDIR}amdadtxt.cfg
+-	include ${SYSDIR}adgtk.cfg
+-	include ${SYSDIR}amdadgtk.cfg
+-	include ${SYSDIR}dtmenu.cfg
+-menu end
+-label help
 -	menu label ^Help
-+	menu label ^help
- 	text help
+-	text help
 -   Display help screens; type 'menu' at boot prompt to return to this menu
-+   display help screens. type 'menu' at boot prompt to return here.
- 	endtext
- 	config ${SYSDIR}prompt.cfg
+-	endtext
+-	config ${SYSDIR}prompt.cfg
++include ${SYSDIR}adtxt.cfg
++include ${SYSDIR}amdadtxt.cfg
++include ${SYSDIR}adgtk.cfg
++include ${SYSDIR}amdadgtk.cfg
++include ${SYSDIR}dtmenu.cfg
  include ${SYSDIR}spk.cfg
+ include ${SYSDIR}amdspk.cfg
+ include ${SYSDIR}spkgtk.cfg
+ include ${SYSDIR}amdspgtk.cfg
++label help
++	menu label ^help
++	text help
++   display help screens. type 'menu' at boot prompt to return here.
++	endtext
++	config ${SYSDIR}prompt.cfg
+diff --git a/build/boot/x86/pics/klowner.png b/build/boot/x86/pics/klowner.png
+index 62fcb86..feb0f43 100644
+Binary files a/build/boot/x86/pics/klowner.png and b/build/boot/x86/pics/klowner.png differ
 diff --git a/build/boot/x86/rqgtk.cfg b/build/boot/x86/rqgtk.cfg
 index 8a88e32..dfa78ed 100644
 --- a/build/boot/x86/rqgtk.cfg
@@ -228,6 +276,16 @@ index 8a88e32..dfa78ed 100644
 +	menu label graphical rescue mode
  	kernel ${KERNEL}
  	append ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} rescue/enable=true -- quiet  ${CONSOLE}
+diff --git a/build/boot/x86/rqtxt.cfg b/build/boot/x86/rqtxt.cfg
+index a511c35..e537b83 100644
+--- a/build/boot/x86/rqtxt.cfg
++++ b/build/boot/x86/rqtxt.cfg
+@@ -1,4 +1,4 @@
+ label rescue
+-	menu label ^Rescue mode
++	menu label ^rescue mode
+ 	kernel ${KERNEL}
+ 	append ${VIDEO_MODE} initrd=${INITRD} rescue/enable=true -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/spk.cfg b/build/boot/x86/spk.cfg
 index 270a415..da9db6e 100644
 --- a/build/boot/x86/spk.cfg
@@ -249,7 +307,7 @@ index 8212aec..a36fc5b 100644
  	kernel ${KERNEL}
  	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD_GTK} speakup.synth=soft -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/stdmenu.cfg b/build/boot/x86/stdmenu.cfg
-index 4a212b6..53c215a 100644
+index 4a212b6..8f2e3fd 100644
 --- a/build/boot/x86/stdmenu.cfg
 +++ b/build/boot/x86/stdmenu.cfg
 @@ -4,15 +4,15 @@ menu color border	* #00000000 #00000000 none
@@ -262,14 +320,16 @@ index 4a212b6..53c215a 100644
  # enough value so any possible menu will fit on the screen,
  # rather than falling off the bottom.
 -menu vshift 12
-+menu vshift 8
- menu rows 10
+-menu rows 10
++menu vshift 4
++menu rows 17
  menu helpmsgrow 15
  # The command line must be at least one line from the bottom.
  menu cmdlinerow 16
  menu timeoutrow 16
- menu tabmsgrow 18
+-menu tabmsgrow 18
 -menu tabmsg Press ENTER to boot or TAB to edit a menu entry
++menu tabmsgrow 20
 +menu tabmsg enter selects. tab configures.
 diff --git a/build/boot/x86/txt.cfg b/build/boot/x86/txt.cfg
 index d15af36..4a4a728 100644
@@ -284,7 +344,7 @@ index d15af36..4a4a728 100644
  	kernel ${KERNEL}
  	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
 diff --git a/build/config/amd64.cfg b/build/config/amd64.cfg
-index 343d947..873b8a5 100644
+index 343d947..fb72b6c 100644
 --- a/build/config/amd64.cfg
 +++ b/build/config/amd64.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -292,7 +352,7 @@ index 343d947..873b8a5 100644
  
  # The version of the kernel to use.
 -KERNELVERSION = 3.2.0-2-amd64
-+KERNELVERSION = 3.3.3-3-amd64
++KERNELVERSION = 3.3.3-1-amd64
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
@@ -322,7 +382,7 @@ index 6ebfc9e..0397bd4 100644
  # environment than the default (gnome).
  # Possible values: kde, xfce, lxde
 -DESKTOP = 
-+DESKTOP = xfce4
++DESKTOP = xfce
  
  # Filesystem type for the initrd, currently valid values are ext2, cramfs,
  # and initramfs.
