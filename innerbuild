@@ -1,12 +1,17 @@
 #/bin/sh
 
 set -e
+set -x
 
+cd /partman-zfs
+dpkg-buildpackage
 mkdir /zfs
 tar -C/zfs xzvf zfs*gz
+cd /zfs
 ./configure --enable-static=yes
 mkdir /spl
 tar -C/spl xzvf spl*gz
+cd /spl
 cd /root
 dpkg-scanpackages -tudeb udebs | gzip > udebs/Packages.gz
 cd /debian-installer-*
