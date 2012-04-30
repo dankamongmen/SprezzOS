@@ -30,8 +30,5 @@ sudo chown -R $USERNAME:$USERNAME "$DI"
 sudo chroot "$DI" mount -t proc procfs /proc
 sudo chroot "$DI" mount -t sysfs sysfs /sys
 #echo "APT::Get::AllowUnauthenticated 1 ;" | sudo tee $DI/etc/apt/apt.conf.d/80auth
-cp innerbuild "$DI"
-cp spl-0.6.0-rc8.tar.gz "$DI"
-cp zfs-0.6.0-rc8.tar.gz "$DI"
+cp -r spl* zfs* "$DI"
 echo "Now type 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
-#sudo chroot "$DI" /innerbuild

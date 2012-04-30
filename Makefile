@@ -12,11 +12,11 @@ BUILDIN:=innerbuild
 UDEBS:=$(shell pwd)/udebs
 PMZFS:=$(UDEBS)/partman-zfs_1-1_all.udeb
 
-ZMOD:=$(shell pwd)/zfs/zfs-modules_0.6.0-1_amd64.deb
-ZFS:=$(shell pwd)/zfs/zfs_0.6.0-1_amd64.deb
+ZMOD:=$(CHROOT)/zfs-modules_0.6.0-1_amd64.deb
+ZFS:=$(CHROOT)/zfs_0.6.0-1_amd64.deb
 
-SMOD:=$(shell pwd)/spl/spl-modules_0.6.0-1_amd64.deb
-SPL:=$(shell pwd)/spl/spl_0.6.0-1_amd64.deb
+SMOD:=$(CHROOT)/spl-modules_0.6.0-1_amd64.deb
+SPL:=$(CHROOT)/spl_0.6.0-1_amd64.deb
 
 PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
@@ -24,6 +24,9 @@ TESTDISK:=kvmdisk.img
 DIIMG:=dest/netboot/mini.iso
 CPDIIMG:=tmp/mirror/dists/sid/main/installer-amd64/current/images/netboot
 DIDEB:=$(shell pwd)/unstable/$(DI)_amd64.deb
+
+# fixme
+KERNEL:=
 
 all: $(IMG)
 
@@ -55,39 +58,36 @@ TARGUDEBS+=$(DIBUILD)/localudebs/zfs_1-1_all.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/partman-zfs_1-1_all.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/zfs_1-1_all.udeb
 
-$(DIIMG): $(DIBUILD)/config/common $(CHROOT)/build $(TARGUDEBS)
-	sudo chroot $(CHROOT) /build
+$(ZFS) $(DIIMG): $(DIBUILD)/config/common $(CHROOT)/$(BUILDIN) $(TARGUDEBS)
+	sudo chroot $(CHROOT) /$(BUILDIN)
 
-$(UDEBS)/zfs_1-1_all.udeb: zfs_1-1_all.udeb
+$(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/$(BUILDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
 
-$(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
+$(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/$(BUILDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
 
-$(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/build
-	@[ -d $(@D) ] || mkdir -p $(@D)
-	cp $< $@
-
-$(CHROOT)/build: $(BUILDIN) common
-	sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
-	sudo chroot $(@D) mount -t proc procfs /proc
-	sudo chroot $(@D) dpkg-reconfigure locales
-	echo "deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib" | sudo tee -a $(CHROOT)/etc/apt/sources.list
-	sudo chroot $(@D) apt-get -y update
-	sudo chroot $(@D) apt-get -y build-dep debian-installer
-	sudo chroot $(@D) apt-get source debian-installer
-	sudo chroot $(@D) umount /proc
-	sudo chown -R $(shell whoami) $(@D)
-	sudo chroot $(@D) mount -t proc proc /proc
+$(CHROOT)/$(BUILDIN): $(BUILDIN) common build
+	./build
 	cp $(BUILDIN) $@
+	#sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
+	#sudo chroot $(@D) mount -t proc procfs /proc
+	#sudo chroot $(@D) dpkg-reconfigure locales
+	#echo "deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib" | sudo tee -a $(CHROOT)/etc/apt/sources.list
+	#sudo chroot $(@D) apt-get -y update
+	#sudo chroot $(@D) apt-get -y build-dep debian-installer
+	#sudo chroot $(@D) apt-get source debian-installer
+	#sudo chroot $(@D) umount /proc
+	#sudo chown -R $(shell whoami) $(@D)
+	#sudo chroot $(@D) mount -t proc proc /proc
 	#echo "APT::Get::AllowUnauthenticated 1 ;" > $(@D)/etc/apt/apt.conf.d/80auth
 	#find $(DIBUILD)/pkg-lists/ -name \*.cfg -exec echo -e "zfs-modules\npartman-zfs" >> {} \;
 
 zfs: $(ZFS)
 
-$(DIBUILD)/config/common: common $(CHROOT)/build
+$(DIBUILD)/config/common: common $(CHROOT)/$(BUILDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cat $< > $@
 
