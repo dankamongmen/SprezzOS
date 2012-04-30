@@ -3,11 +3,19 @@
 set -e
 set -x
 
-set ZFSVER=0.6.0-rc8
+ZFSVER=0.6.0-rc8
 
-cd /spl-$ZFSVER
+cd /
+apt-get source linux-2.6
+rm linux-2.6*
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+cd linux-stable
+python debian/bin/genorig.py /linux-stable
+debian/rules orig
+debian/rules debian/control
+cd /spl-"$ZFSVER"
 dpkg-buildpackage -j8
-cd /zfs-$ZFSVER
+cd /zfs-"$ZFSVER"
 dpkg-buildpackage -j8
 cd /root
 cd /debian-installer-*

@@ -1,4 +1,4 @@
-Source: spl-0.6.0-rc8
+Source: spl
 Section: debian-installer
 Priority: optional
 Maintainer: Nick Black <nick.black@sprezzatech.com>
@@ -7,6 +7,13 @@ Standards-Version: 3.9.2
 Homepage: <insert the upstream URL, if relevant>
 #Vcs-Git: git://git.debian.org/collab-maint/spl-modules-3.3.3-1-amd64-di.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/spl-modules-3.3.3-1-amd64-di.git;a=summary
+
+Package: spl-0.6.0rc8
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: spl-modules
+Description: Solaris Portability Layer
+ Solaris Portability Layer
 
 Package: spl-modules-3.3.3-1-amd64-di
 XC-Package-Type: udeb
