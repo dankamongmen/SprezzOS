@@ -22,9 +22,6 @@ for dev in $DEVICES/*; do
 		case "$filesystem" in
 		    zfs)
 			[ ! -f "$id/mountpoint" ] || continue
-			RET=''
-			db_metaget partman/filesystem_short/"$filesystem" description || RET=''
-			[ "$RET" ] || RET="$filesystem"
 			T=partman-basicfilesystems/no_mount_point
 			db_subst $T PARTITION "$num"
 			db_subst $T FILESYSTEM "$filesystem"
