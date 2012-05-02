@@ -16,6 +16,10 @@
 #simple-cdd simple-cdd/profiles multiselect ltsp, x-basic
 
 
+# debconf
+#d-i debian-installer/theme dark
+d-i debian-installer/main-menu-title	string sprezzos installer
+
 ###### Package selection.
 
 # You can choose to install any combination of tasks that are available.
@@ -65,8 +69,8 @@ console-data    console-data/keymap/policy      select  Don't touch keymap
 # If you want to skip creation of a normal user account.
 #passwd   passwd/make-user    boolean false
 # Alternatively, you can preseed the user's name and login.
-#passwd   passwd/user-fullname    string Debian User
-#passwd   passwd/username     string debian
+passwd   passwd/user-fullname    string SprezzOS User
+passwd   passwd/username     string sprezzos
 # And their password, but use caution!
 #passwd   passwd/user-password    password insecure
 #passwd   passwd/user-password-again  password insecure
@@ -116,10 +120,10 @@ d-i netcfg/wireless_wep string
 
 # This is fairly safe to set, it makes grub install automatically to the MBR
 # if no other operating system is detected on the machine.
-d-i grub-installer/only_debian  boolean true
+#d-i grub-installer/only_debian  boolean true
 # This one makes grub-installer install to the MBR if if finds some other OS
 # too, which is less safe as it might not be able to boot that other OS.
-d-i grub-installer/with_other_os  boolean true
+#d-i grub-installer/with_other_os  boolean true
 
 
 ###### Apt setup.
