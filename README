@@ -160,3 +160,20 @@ code. This is all unfortunate.
 
 Create a profiles/ directory, and populate it. Read the source for examples;
 it's all too depressing to talk about.
+
+ _____________
+|grubification|
+ -------------
+
+simple-cdd sets up an ISO9660 image booting with ISOLINUX. For a number of
+reasons, we want to use grub2 instead:
+
+ - better graphics support
+ - more flexible
+ - unified pre- and post-install bootloader environment
+ - EFI support
+ - one braindamaged bootloader is quite enough, thanks
+
+The 'grubify()' function in makecd mounts simple-cdd's output using FUSE and
+fuseiso9660, adds some files used during bootloading, and runs 'grub-mkrescue'
+to make a new ISO using GRUB2 as its bootloader.
