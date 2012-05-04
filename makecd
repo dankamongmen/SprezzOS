@@ -28,6 +28,29 @@ PKGS="$PKGS,$KPKGS"
 [ -r "$DI" ] || { echo "D-I package $DI didn't exist." >&2 ; exit 1; }
 
 mkdir -p tmp/mirror/dists/sid/main/installer-amd64/current/images/
+
 cp -r dest/* tmp/mirror/dists/sid/main/installer-amd64/current/images/
 simple-cdd --dist sid --profiles SprezzOS -b SprezzOS --auto-profiles SprezzOS \
 	--local-packages "$PKGS" --kernel-packages "$KPKGS"
+
+grubify () {
+	fuseiso9660 images/*iso "$tmp"
+	mkdir -p "$tmp2/boot/grub"
+	cp grub.cfg "$tmp2/boot/grub"
+	cp memtest86+.bin dest/cdrom/vmlinuz dest/cdrom/initrd.gz "$tmp2"
+	cp unicode.pf2 splash.png "$tmp2/boot"
+	grub-mkrescue --modules="linux iso9660 fshelp gpt_part ls gfxterm vbe2 boot pc" -o SprezzOS-stage1.iso "$tmp" "images/*iso" "$tmp2"
+}
+
+cleancd () {
+	fusermount -u "$tmp"
+	rmdir "$tmp"
+	rm -rf "$tmp2"
+}
+
+tmp="`mktemp -d`"
+tmp2="`mktemp -d`"
+grubify || { cleancd ; exit 1 ; }
+cleancd
+
+exit 0
