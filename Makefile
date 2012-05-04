@@ -51,7 +51,7 @@ $(PMZFS): $(UDEBS)/partman-zfs/debian/rules
 
 $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
-	( cat $^ && echo "custom_installer=$(shell pwd)/dest" ) > $@
+	( cat $^ && echo \"custom_installer=$(shell pwd)/dest\" ) > $@
 
 TARGUDEBS:=$(DIBUILD)/localudebs/partman-zfs_19_all.udeb
 TARGUDEBS+=$(DIBUILD)/localudebs/zfs_1-1_all.udeb
