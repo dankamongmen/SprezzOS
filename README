@@ -5,22 +5,30 @@ This repository builds and tests SprezzOS install media.
 Dependencies
 ------------
 
-Building requires GNU make, debootstrap, dh-di, and simple-cdd. Building with
- a decent level of parallelism (-j4) is recommended.
+Building requires GNU make, debootstrap, grub2-pc, grub2-efi, dh-di,
+ fuseiso9660, simple-cdd and probably a few other things. Building with a
+ decent level of parallelism (-j4) is recommended.
 
-Building SPL/ZFS requires uuid-dev, libz-dev, autoconf and alien. Note that
- ZFS requires a *non*-preemptive kernel (CONFIG_PREEMPT=n).
+Building SPL/ZFS requires uuid-dev, libz-dev, and autoconf. Note that ZFS
+ requires a *non*-preemptive kernel (CONFIG_PREEMPT=n).
 
 Testing adds a dependency on KVM.
 
 Building
 --------
 
+The Makefile ought, depending on the day of the week, go through the entire
+(lengthy) CD build process without user interaction. During any serious
+development, you'll likely find yourself using the following:
+
 Run './update' to generate a tarball of upstream packages.
 
 Run './build <builddir>' to generate the chroot at <builddir>. If you get an
 error about signature verification failures, try running './update'.
 
+Run './makecd' to generate the CD.
+
+Run './runcd kvmdiskimg isoimage' to test the CD.
 
 Notes
 -----
