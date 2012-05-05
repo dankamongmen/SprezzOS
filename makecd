@@ -3,13 +3,15 @@
 set -e
 set -x
 
-usage () { echo "usage: `basename $0` [ -f ]" ; return 0; }
+usage () { echo "usage: `basename $0` [ -f ] iso" ; return 0; }
 usageerr () { usage >&2 ; return 1 ; }
 
-[ $# -lt 2 ] || usageerr
+[ $# -lt 3 ] || usageerr
 
-if [ $# -eq 1 ] ; then
-	if [ "$1" != "-f" ] ; then
+if [ $# -gt 1 ] ; then
+	if [ "$1" = "-f" ] ; then
+		shift
+	elif [ "$2" != "-f" ] ; then
 		usageerr
 	fi
 	echo -n "Cleaning up old files..."
@@ -17,6 +19,7 @@ if [ $# -eq 1 ] ; then
 	echo
 fi
 
+ISO=SprezzOS-0.0.0-pre.iso
 KPKGS="`pwd`/unstable/linux-image-3.3.4-4-amd64_3.3.4-4_amd64.deb"
 DI="`pwd`/unstable/d-i/debian-installer_201204xy_amd64.deb"
 PKGS="$DI,`pwd`/unstable/d-i/installer/build/localudebs,`pwd`/spl_0.6.0~rc8-1_amd64.deb,`pwd`/zfs_0.6.0~rc8-1_amd64.deb"
@@ -46,7 +49,7 @@ grubify () {
 	cp grub.cfg "$tmp2/boot/grub"
 	cp memtest86+.bin dest/cdrom/vmlinuz dest/cdrom/initrd.gz "$tmp2"
 	cp $GBOOTFILES "$tmp2/boot"
-	grub-mkrescue --modules="linux iso9660 fshelp gpt_part font ls gfxterm vbe2 boot pc" -o SprezzOS-stage1.iso "$tmp" "images/*iso" "$tmp2"
+	grub-mkrescue --modules="linux iso9660 fshelp gpt_part font ls gfxterm vbe2 boot pc" -o "$ISO" "$tmp" "images/*iso" "$tmp2"
 }
 
 cleancd () {
