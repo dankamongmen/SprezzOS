@@ -33,7 +33,7 @@ cp -r dest/* tmp/mirror/dists/sid/main/installer-amd64/current/images/
 simple-cdd --dist sid --profiles SprezzOS -b SprezzOS --auto-profiles SprezzOS \
 	--local-packages "$PKGS" --kernel-packages "$KPKGS"
 
-GBOOTFILES="inconsolata.pf2 splash.png"
+GBOOTFILES="unicode.pf2 splash.png"
 
 for i in $GBOOTFILES ; do
 	[ -r "$i" ]
@@ -46,7 +46,7 @@ grubify () {
 	cp grub.cfg "$tmp2/boot/grub"
 	cp memtest86+.bin dest/cdrom/vmlinuz dest/cdrom/initrd.gz "$tmp2"
 	cp $GBOOTFILES "$tmp2/boot"
-	grub-mkrescue --modules="linux iso9660 fshelp gpt_part ls gfxterm vbe2 boot pc" -o SprezzOS-stage1.iso "$tmp" "images/*iso" "$tmp2"
+	grub-mkrescue --modules="linux iso9660 fshelp gpt_part font ls gfxterm vbe2 boot pc" -o SprezzOS-stage1.iso "$tmp" "images/*iso" "$tmp2"
 }
 
 cleancd () {

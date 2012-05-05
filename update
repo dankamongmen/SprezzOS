@@ -11,6 +11,3 @@ usageerr () { usage >&2 ; return 1 ; }
 
 sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,vim-nox,udev,autoconf,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,xmlto,kernel-wedge,devscripts \
 	--make-tarball="$1" --variant=buildd unstable dibuild
-
-grub-mkfont /usr/share/fonts/truetype/inconsolata/Inconsolata.otf --size=14 \
-	inconsolata.pf2
