@@ -1,22 +1,27 @@
 #/bin/sh
 
 set -e
-set -x
 
 usage () { echo "usage: `basename $0` [ -f ] iso" ; return 0; }
 usageerr () { usage >&2 ; return 1 ; }
 
-[ $# -lt 3 ] || usageerr
-
-if [ $# -gt 1 ] ; then
-	if [ "$1" = "-f" ] ; then
-		shift
-	elif [ "$2" != "-f" ] ; then
+if [ $# -lt 1 ] ; then
+	usageerr
+else
+	[ $# -lt 3 ] || usageerr
+	if [ $# -eq 2 ] ; then
+		if [ "$1" = "-f" ] ; then
+			shift
+		elif [ "$2" != "-f" ] ; then
+			usageerr
+		fi
+		echo -n "Cleaning up old files..."
+		rm -rf images tmp
+		echo
+	elif [ "$1" = "-f" ] ; then
+		echo "Not allowing ISO name of -f" >&2
 		usageerr
 	fi
-	echo -n "Cleaning up old files..."
-	rm -rf images tmp
-	echo
 fi
 
 ISO="$1"
