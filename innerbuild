@@ -3,13 +3,15 @@
 set -e
 set -x
 
-KVERS=3.3.4-1
+KVERS=3.3.4-4
 ZFSVER=0.6.0-rc8
 
 export DEBFULLNAME="Nick Black"
 export DEBEMAIL="nick.black@sprezzatech.com>"
 
 cd /
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git \
+	-b linux-3.3.y --single-branch
 cd linux-stable
 svn co svn://svn.debian.org/svn/kernel/dists/trunk/linux-2.6/ debian
 dch --newversion=$KVERS -i
