@@ -22,9 +22,10 @@ sudo chroot "$DI" dpkg-reconfigure locales
 sudo chroot "$DI" mount -t proc procfs /proc
 echo "deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib" | \
 	sudo tee -a "$DI/etc/apt/sources.list"
+sudo cp 99translations "$DI"/etc/apt/apt.conf.d/
 sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer
-sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i
+sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
 sudo chroot "$DI" cd /d-i && scripts/git-setup && mr -p checkout
 sudo cp local "$DI/d-i/installer/build/pkg-lists/"
 # Apply patch to d-i
