@@ -3,7 +3,7 @@
 set -e
 set -x
 
-KVERS=3.3.4-4
+KVERS=3.3.4-4~experimental.1
 ZFSVER=0.6.0-rc8
 
 export DEBFULLNAME="Nick Black"
@@ -16,10 +16,10 @@ cd linux-stable
 svn co svn://svn.debian.org/svn/kernel/dists/trunk/linux-2.6/debian/ debian
 dch --newversion=$KVERS
 
-# FIXME these don't appear to work...?
-python debian/bin/genorig.py /linux-stable || true
-debian/rules orig || true
-debian/rules debian/control || true
+# FIXME first clean out the patchseries files
+python debian/bin/genorig.py /linux-stable
+debian/rules orig
+debian/rules debian/control
 
 # FIXME need a configuration file
 make deb-pkg -j8
