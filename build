@@ -26,12 +26,17 @@ sudo cp 99translations "$DI"/etc/apt/apt.conf.d/
 sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer
 sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
-sudo chroot "$DI" cd /d-i && scripts/git-setup && mr -p checkout
-sudo cp local "$DI/d-i/installer/build/pkg-lists/"
-# Apply patch to d-i
+
+# See FIXME below
+#sudo chroot "$DI" cd /d-i && scripts/git-setup && mr -p checkout
+#sudo cp local "$DI/d-i/installer/build/pkg-lists/"
+
 sudo chroot "$DI" umount /proc
 sudo chown -R $USERNAME:$USERNAME "$DI"
 sudo chroot "$DI" mount -t proc procfs /proc
 sudo chroot "$DI" mount -t sysfs sysfs /sys
 cp -r spl* zfs* "$DI"
 echo "Now type 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
+
+# FIXME
+echo "Still need run 'sudo chroot $DI cd /d-i && scripts/git-setup && mr -p checkout' and 'sudo cp local $DI/d-i/installer/build/pkg-lists/'" >&2
