@@ -49,12 +49,13 @@ done
 
 grubify () {
 	set -e
-	fuseiso9660 images/*iso "$tmp"
+	# without these conservative options, we sometimes get corrupted udebs
+	fuseiso9660 -s -o noauto_cache,sync_read images/*iso "$tmp"
 	mkdir -p "$tmp2/boot/grub"
 	cp grub.cfg "$tmp2/boot/grub"
 	cp memtest86+.bin dest/cdrom/vmlinuz dest/cdrom/initrd.gz "$tmp2"
 	cp $GBOOTFILES "$tmp2/boot"
-	grub-mkrescue --modules="linux iso9660 fshelp gpt_part font ls gfxterm vbe2 boot pc" -o "$ISO" "$tmp" "images/*iso" "$tmp2"
+	grub-mkrescue --modules="linux iso9660 fshelp gpt_part font loopback ls gfxterm vbe2 boot pc" -o "$ISO" "$tmp" "images/*iso" "$tmp2"
 }
 
 cleancd () {
