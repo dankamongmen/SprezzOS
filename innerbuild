@@ -14,7 +14,7 @@ git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git 
 	-b linux-3.3.y --single-branch
 cd linux-stable
 svn co svn://svn.debian.org/svn/kernel/dists/trunk/linux-2.6/ debian
-dch --newversion=$KVERS -i
+dch --newversion=$KVERS
 
 # FIXME these don't appear to work...?
 python debian/bin/genorig.py /linux-stable || true
