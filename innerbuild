@@ -16,7 +16,7 @@ cd linux-stable
 svn co svn://svn.debian.org/svn/kernel/dists/trunk/linux-2.6/debian/ debian
 dch --newversion=$KVERS
 
-# FIXME these don't appear to work...?
+# FIXME first empty out patchsets
 python debian/bin/genorig.py /linux-stable || true
 debian/rules orig || true
 debian/rules debian/control || true
