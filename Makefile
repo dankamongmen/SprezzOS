@@ -18,15 +18,14 @@ ZFS:=$(CHROOT)/zfs_0.6.0-1_amd64.deb
 SMOD:=$(CHROOT)/spl-modules_0.6.0-1_amd64.deb
 SPL:=$(CHROOT)/spl_0.6.0-1_amd64.deb
 
+LFT:=libfreetype6-udeb_2.4.9-1.1_amd64.udeb
+
 PROFILE:=profiles/SprezzOS.packages
 IMG:=images/debian-unstable-amd64-CD-1.iso
 TESTDISK:=kvmdisk.img
 DIIMG:=dest/netboot/mini.iso
 CPDIIMG:=tmp/mirror/dists/sid/main/installer-amd64/current/images/netboot
 DIDEB:=$(shell pwd)/unstable/$(DI)_amd64.deb
-
-# fixme
-KERNEL:=
 
 all: $(IMG)
 
@@ -75,9 +74,9 @@ packages.tgz: update
 $(CHROOT)/linux-stable:
 	cd $(@D) && git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 
-$(CHROOT)/$(BUILDIN): $(BUILDIN) common build packages.tgz
+$(CHROOT)/$(BUILDIN): $(BUILDIN) common build $(LFT) packages.tgz
 	! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make clean'." >&2 ; exit 1 ; }
-	./build $(@D)
+	./build $(@D) $(LFT)
 	cp $(BUILDIN) $@
 	#sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
 	#sudo chroot $(@D) mount -t proc procfs /proc

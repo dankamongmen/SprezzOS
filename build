@@ -4,12 +4,18 @@ set -e
 set -o nounset
 set -o pipefail
 
-usage () { echo "usage: `basename $0` chrootdir" ; return 0 ; }
+usage () { echo "usage: `basename $0` chrootdir [udeb,udeb...]" ; return 0 ; }
 usageerr () { usage >&2 ; return 1 ; }
 
-[ $# -eq 1 ] || usageerr
+[ $# -ge 1 ] || usageerr
 
 DI="$1"
+shift
+
+# FIXME can we not handle this via etc/apt/sources.list?
+for i in "$@" ; do
+	[ -r "$i" ] || { echo "Couldn't read $i" >&2 ; usageerr ; }
+done
 
 # clean up any old chroot
 [ ! -d "$DI/proc" ] || sudo umount "$DI"/proc || true
@@ -20,8 +26,12 @@ sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,ud
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI"
 sudo chroot "$DI" dpkg-reconfigure locales
 sudo chroot "$DI" mount -t proc procfs /proc
-echo "deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib" | \
-	sudo tee -a "$DI/etc/apt/sources.list"
+
+sudo tee -a "$DI/etc/apt/sources.list" <<APT
+deb http://www.sprezzatech.com/apt unstable main non-free contrib
+deb-src http://www.sprezzatech.com/apt unstable main non-free contrib
+deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib
+APT
 sudo cp 99translations "$DI"/etc/apt/apt.conf.d/
 sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer
@@ -30,6 +40,10 @@ sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
 # See FIXME below
 #sudo chroot "$DI" cd /d-i && scripts/git-setup && mr -p checkout
 #sudo cp local "$DI/d-i/installer/build/pkg-lists/"
+
+for i in "$@" ; do
+	cp "$i" "$DI/d-i/installer/build/localudebs"
+done
 
 sudo chroot "$DI" umount /proc
 sudo chown -R $USERNAME:$USERNAME "$DI"
