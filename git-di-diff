@@ -1,5 +1,5 @@
 diff --git a/build/boot/x86/adgtk.cfg b/build/boot/x86/adgtk.cfg
-index 26ad24b..ebc86d2 100644
+index 26ad24b..733381e 100644
 --- a/build/boot/x86/adgtk.cfg
 +++ b/build/boot/x86/adgtk.cfg
 @@ -1,12 +1,9 @@
@@ -10,15 +10,17 @@ index 26ad24b..ebc86d2 100644
 -	menu label Graphical expert install
 +	menu label graphical expert install
  	kernel ${KERNEL}
- 	append desktop=%desktop% priority=low ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- ${CONSOLE}
+-	append desktop=%desktop% priority=low ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- ${CONSOLE}
++	append desktop=%desktop% theme=dark priority=low ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- ${CONSOLE}
  include ${SYSDIR}rqgtk.cfg
  label autogui
 -	menu label Graphical automated install
 +	menu label graphical automated install
  	kernel ${KERNEL}
- 	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
+-	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
++	append desktop=%desktop% theme=dark auto=true priority=critical ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/adtxt.cfg b/build/boot/x86/adtxt.cfg
-index 268d456..a8da86a 100644
+index 268d456..acc03de 100644
 --- a/build/boot/x86/adtxt.cfg
 +++ b/build/boot/x86/adtxt.cfg
 @@ -1,9 +1,9 @@
@@ -26,13 +28,15 @@ index 268d456..a8da86a 100644
 -	menu label ^Expert install
 +	menu label ^expert install
  	kernel ${KERNEL}
- 	append desktop=%desktop% priority=low ${VIDEO_MODE} initrd=${INITRD} -- ${CONSOLE}
+-	append desktop=%desktop% priority=low ${VIDEO_MODE} initrd=${INITRD} -- ${CONSOLE}
++	append desktop=%desktop% theme=dark priority=low ${VIDEO_MODE} initrd=${INITRD} -- ${CONSOLE}
  include ${SYSDIR}rqtxt.cfg
  label auto
 -	menu label ^Automated install
 +	menu label ^automated install
  	kernel ${KERNEL}
- 	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
+-	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
++	append desktop=%desktop% theme=dark auto=true priority=critical ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/amdadtxt.cfg b/build/boot/x86/amdadtxt.cfg
 index f3863a6..0a6b243 100644
 --- a/build/boot/x86/amdadtxt.cfg
@@ -181,6 +185,19 @@ index 14cc7a2..e4d06d2 100644
  
  
  
+diff --git a/build/boot/x86/f8.txt b/build/boot/x86/f8.txt
+index bee2894..a15f415 100644
+--- a/build/boot/x86/f8.txt
++++ b/build/boot/x86/f8.txt
+@@ -12,7 +12,7 @@ Set keyboard map                        0fbootkbd=es07
+ Select the kde or xfce desktops         0fdesktop=kde07
+ 
+ Accessibility options (last 2 options not available for all images):
+-  Use high contrast theme               0ftheme=dark07
++  Use low contrast theme                0ftheme=light07
+   Use Braille tty                       0fbrltty=driver,device,texttable07
+   Use Speakup                           0fspeakup.synth=driver07
+ 
 diff --git a/build/boot/x86/f9.txt b/build/boot/x86/f9.txt
 index ef743ef..189af7c 100644
 --- a/build/boot/x86/f9.txt
@@ -203,7 +220,7 @@ index ef743ef..189af7c 100644
  
  
 diff --git a/build/boot/x86/gtk.cfg b/build/boot/x86/gtk.cfg
-index 3cfb88f..52501dd 100644
+index 3cfb88f..58ddc28 100644
 --- a/build/boot/x86/gtk.cfg
 +++ b/build/boot/x86/gtk.cfg
 @@ -1,4 +1,4 @@
@@ -211,9 +228,10 @@ index 3cfb88f..52501dd 100644
 -	menu label ^Graphical install
 +	menu label ^graphical install
  	kernel ${KERNEL}
- 	append desktop=%desktop% ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
+-	append desktop=%desktop% ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
++	append desktop=%desktop% theme=dark ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/menu.cfg b/build/boot/x86/menu.cfg
-index 721f74f..6813c26 100644
+index 721f74f..7fac20b 100644
 --- a/build/boot/x86/menu.cfg
 +++ b/build/boot/x86/menu.cfg
 @@ -1,31 +1,31 @@
@@ -265,10 +283,10 @@ index 721f74f..6813c26 100644
 +	config ${SYSDIR}prompt.cfg
 +label memtest86
 +	menu label ^memtest86
++	kernel /memtest86+.bin
 +	text help
 +   run memory tester. you will need to reboot to exit.
 +	endtext
-+	kernel memtest.bin
 diff --git a/build/boot/x86/pics/klowner.png b/build/boot/x86/pics/klowner.png
 index 62fcb86..ed2a048 100644
 Binary files a/build/boot/x86/pics/klowner.png and b/build/boot/x86/pics/klowner.png differ
@@ -313,7 +331,7 @@ index 8212aec..a36fc5b 100644
  	kernel ${KERNEL}
  	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD_GTK} speakup.synth=soft -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/stdmenu.cfg b/build/boot/x86/stdmenu.cfg
-index 4a212b6..4f2a67b 100644
+index 4a212b6..f941778 100644
 --- a/build/boot/x86/stdmenu.cfg
 +++ b/build/boot/x86/stdmenu.cfg
 @@ -4,15 +4,15 @@ menu color border	* #00000000 #00000000 none
@@ -335,12 +353,12 @@ index 4a212b6..4f2a67b 100644
 -menu timeoutrow 16
 -menu tabmsgrow 18
 -menu tabmsg Press ENTER to boot or TAB to edit a menu entry
-+menu cmdlinerow 18
-+menu timeoutrow 18
++menu cmdlinerow 20
++menu timeoutrow 20
 +menu tabmsgrow 20
 +menu tabmsg enter selects. tab configures.
 diff --git a/build/boot/x86/txt.cfg b/build/boot/x86/txt.cfg
-index d15af36..4a4a728 100644
+index d15af36..e80e3bd 100644
 --- a/build/boot/x86/txt.cfg
 +++ b/build/boot/x86/txt.cfg
 @@ -1,6 +1,6 @@
@@ -350,12 +368,15 @@ index d15af36..4a4a728 100644
 +	menu label ^install
  	menu default
  	kernel ${KERNEL}
- 	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
+-	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
++	append desktop=%desktop% theme=dark ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
 diff --git a/build/config/amd64.cfg b/build/config/amd64.cfg
-index 343d947..9db69ca 100644
+index 343d947..138b19d 100644
 --- a/build/config/amd64.cfg
 +++ b/build/config/amd64.cfg
-@@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
+@@ -1,8 +1,9 @@
+ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
++#MEDIUM_SUPPORTED = netboot
  MEDIUM_SUPPORTED_EXTRA = monolithic
  
  # The version of the kernel to use.
