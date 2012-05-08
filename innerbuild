@@ -13,13 +13,9 @@ cd /
 git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git \
 	-b linux-3.3.y --single-branch
 cd linux-stable
-svn co svn://svn.debian.org/svn/kernel/dists/trunk/linux-2.6/debian/ debian
+git clone git@github.com:dankamongmen/SprezzOS.git/kernel-packaging debian
 dch --newversion=$KVERS
 
-# FIXME remove unused files from debian/installer/modules/*
-#	crypto.modules: serpent
-# 
-# FIXME first clean out the patchseries files
 tar -cjvf /linux-$KVERS.tar.bz2 -C.. linux-$KVERS --exclude=debian
 python debian/bin/genorig.py /linux-$KVERS.tar.bz2
 debian/rules orig
