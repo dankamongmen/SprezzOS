@@ -17,7 +17,8 @@ svn co svn://svn.debian.org/svn/kernel/dists/trunk/linux-2.6/debian/ debian
 dch --newversion=$KVERS
 
 # FIXME first clean out the patchseries files
-python debian/bin/genorig.py /linux-stable
+tar -cjvf /linux-$KVERS.tar.bz2 -C.. linux-$KVERS --exclude=debian
+python debian/bin/genorig.py /linux-$KVERS.tar.bz2
 debian/rules orig
 debian/rules debian/control
 
