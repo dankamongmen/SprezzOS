@@ -16,11 +16,18 @@ cd linux-stable
 svn co svn://svn.debian.org/svn/kernel/dists/trunk/linux-2.6/debian/ debian
 dch --newversion=$KVERS
 
+# FIXME remove unused files from debian/installer/modules/*
+#	crypto.modules: serpent
+# 
 # FIXME first clean out the patchseries files
 tar -cjvf /linux-$KVERS.tar.bz2 -C.. linux-$KVERS --exclude=debian
 python debian/bin/genorig.py /linux-$KVERS.tar.bz2
 debian/rules orig
 debian/rules debian/control
+
+# rebuild the abi
+# redefine it in debian/config/defines FIXME
+fakeroot debian/rules debian/control-real
 
 # FIXME need a configuration file
 make deb-pkg -j8
