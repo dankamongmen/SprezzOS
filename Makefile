@@ -79,7 +79,7 @@ $(LFT):
 	cd freetype-2.4.9 && dpkg-buildpackage $(DBUILDOPS)
 
 $(CHROOT)/$(BUILDIN): $(BUILDIN) common build $(LFT) packages.tgz
-	! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make clean'." >&2 ; exit 1 ; }
+	@! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make clean'." >&2 ; exit 1 ; }
 	./build $(@D) $(LFT)
 	cp $(BUILDIN) $@
 	#sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
