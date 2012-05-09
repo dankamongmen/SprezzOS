@@ -371,17 +371,15 @@ index d15af36..e80e3bd 100644
 -	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
 +	append desktop=%desktop% theme=dark ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
 diff --git a/build/config/amd64.cfg b/build/config/amd64.cfg
-index 343d947..138b19d 100644
+index 343d947..ce7a216 100644
 --- a/build/config/amd64.cfg
 +++ b/build/config/amd64.cfg
-@@ -1,8 +1,9 @@
- MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
-+#MEDIUM_SUPPORTED = netboot
+@@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
  MEDIUM_SUPPORTED_EXTRA = monolithic
  
  # The version of the kernel to use.
 -KERNELVERSION = 3.2.0-2-amd64
-+KERNELVERSION = 3.3.4-4-amd64
++KERNELVERSION = 3.3.0-2-amd64
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
@@ -435,12 +433,12 @@ index ba92623..682be9e 100644
  
  # The version of the kernel to use.
 -BASEVERSION = 3.2.0-2
-+BASEVERSION = 3.3.4-4
++BASEVERSION = 3.3.0-2
  KERNELVERSION = $(BASEVERSION)-486
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
 diff --git a/build/config/ia64.cfg b/build/config/ia64.cfg
-index 765be19..1dc6293 100644
+index 765be19..93ac02a 100644
 --- a/build/config/ia64.cfg
 +++ b/build/config/ia64.cfg
 @@ -5,7 +5,7 @@ MEDIUM_SUPPORTED = cdrom netboot
@@ -448,7 +446,7 @@ index 765be19..1dc6293 100644
  # The version of the kernel to use.
  KERNELMAJOR = 2.6
 -KERNELVERSION = 3.2.0-2-itanium
-+KERNELVERSION = 3.3.4-4-itanium
++KERNELVERSION = 3.3.5-1-itanium
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
  KERNELIMAGEVERSION = $(KERNELVERSION)
