@@ -1,8 +1,9 @@
 .DELETE_ON_ERROR:
 .PHONY: all test clean zfs clobber
 
-DI:=debian-installer-201204xy
 CHROOT:=unstable
+DBUILDOPS:=-j8 -k9978711C
+DI:=debian-installer-20120507
 DIBUILD:=$(CHROOT)/$(DI)/build
 
 # simple-cdd builds from subdirs, and needs full paths as input
@@ -46,7 +47,7 @@ $(CPDIIMG): $(DIIMG)
 #--profiles-udeb-dist $(UDEBS) #--extra-udeb-dist $(UDEBS)
 
 $(PMZFS): $(UDEBS)/partman-zfs/debian/rules
-	cd $(<D)/.. && dpkg-buildpackage -k9978711C -b
+	cd $(<D)/.. && dpkg-buildpackage
 
 $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -73,6 +74,9 @@ packages.tgz: update
 
 $(CHROOT)/linux-stable:
 	cd $(@D) && git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+
+$(LFT):
+	cd freetype-2.4.9 && dpkg-buildpackage $(DBUILDOPS)
 
 $(CHROOT)/$(BUILDIN): $(BUILDIN) common build $(LFT) packages.tgz
 	! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make clean'." >&2 ; exit 1 ; }
