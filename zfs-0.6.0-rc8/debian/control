@@ -1,18 +1,26 @@
-Source: zfs-modules-3.3.3-1-amd64-di
-Section: debian-installer
-Priority: optional
+Source: zfs
+Section: unknown
+Priority: extra
 Maintainer: Nick Black <nick.black@sprezzatech.com>
 Build-Depends: debhelper (>= 8.0.0), autotools-dev
 Standards-Version: 3.9.2
 Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: git://git.debian.org/collab-maint/zfs-modules-3.3.3-1-amd64-di.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/zfs-modules-3.3.3-1-amd64-di.git;a=summary
+#Vcs-Git: git://git.debian.org/collab-maint/zfs.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/zfs.git;a=summary
 
-Package: zfs-modules-3.3.3-1-amd64-di
-Architecture: any
+#Package: zfs
+#Architecture: any
+#Depends: ${shlibs:Depends}, ${misc:Depends}, zfs
+#Description: LLNL ZoL (ZFS on Linux)
+# LLNL's port of Oracle's ZFS to Linux.
+
+Package: zfs-modules-3.3.0-2-amd64-di
+Architecture: amd64
+Section: debian-installer
+Priority: standard
 Provides: zfs-modules
-Depends: kernel-image-3.3.3-1-amd64-di, spl-modules, core-modules-3.3.3-1-amd64-di, ${shlibs:Depends}, ${misc:Depends}
-Description: ZFS on Linux (ZoL)
- ZFS modules for the Linux kernel.
+Depends: kernel-image-3.3.0-2-amd64-di,core-modules-3.3.0-2-amd64-di
+Description: LLNL ZoL (ZFS on Linux)
+ This package contains ZFS drivers for the kernel.
 XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.3-1-amd64
+XB-Kernel-Version: 3.3.0-2-amd64
