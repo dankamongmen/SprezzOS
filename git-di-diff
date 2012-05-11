@@ -1,5 +1,10 @@
+mr diff: /d-i/.
+
+mr diff: /d-i/di-autobuild
+
+mr diff: /d-i/installer
 diff --git a/build/boot/x86/adgtk.cfg b/build/boot/x86/adgtk.cfg
-index 26ad24b..733381e 100644
+index 26ad24b..e3b5714 100644
 --- a/build/boot/x86/adgtk.cfg
 +++ b/build/boot/x86/adgtk.cfg
 @@ -1,12 +1,9 @@
@@ -11,16 +16,16 @@ index 26ad24b..733381e 100644
 +	menu label graphical expert install
  	kernel ${KERNEL}
 -	append desktop=%desktop% priority=low ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- ${CONSOLE}
-+	append desktop=%desktop% theme=dark priority=low ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- ${CONSOLE}
++	append desktop=%desktop% vga=788 priority=low ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- ${CONSOLE}
  include ${SYSDIR}rqgtk.cfg
  label autogui
 -	menu label Graphical automated install
 +	menu label graphical automated install
  	kernel ${KERNEL}
 -	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
-+	append desktop=%desktop% theme=dark auto=true priority=critical ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
++	append desktop=%desktop% vga=788 auto=true priority=critical ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/adtxt.cfg b/build/boot/x86/adtxt.cfg
-index 268d456..acc03de 100644
+index 268d456..a8da86a 100644
 --- a/build/boot/x86/adtxt.cfg
 +++ b/build/boot/x86/adtxt.cfg
 @@ -1,9 +1,9 @@
@@ -28,15 +33,13 @@ index 268d456..acc03de 100644
 -	menu label ^Expert install
 +	menu label ^expert install
  	kernel ${KERNEL}
--	append desktop=%desktop% priority=low ${VIDEO_MODE} initrd=${INITRD} -- ${CONSOLE}
-+	append desktop=%desktop% theme=dark priority=low ${VIDEO_MODE} initrd=${INITRD} -- ${CONSOLE}
+ 	append desktop=%desktop% priority=low ${VIDEO_MODE} initrd=${INITRD} -- ${CONSOLE}
  include ${SYSDIR}rqtxt.cfg
  label auto
 -	menu label ^Automated install
 +	menu label ^automated install
  	kernel ${KERNEL}
--	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
-+	append desktop=%desktop% theme=dark auto=true priority=critical ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
+ 	append desktop=%desktop% auto=true priority=critical ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/amdadtxt.cfg b/build/boot/x86/amdadtxt.cfg
 index f3863a6..0a6b243 100644
 --- a/build/boot/x86/amdadtxt.cfg
@@ -220,7 +223,7 @@ index ef743ef..189af7c 100644
  
  
 diff --git a/build/boot/x86/gtk.cfg b/build/boot/x86/gtk.cfg
-index 3cfb88f..58ddc28 100644
+index 3cfb88f..77a64f8 100644
 --- a/build/boot/x86/gtk.cfg
 +++ b/build/boot/x86/gtk.cfg
 @@ -1,4 +1,4 @@
@@ -229,7 +232,7 @@ index 3cfb88f..58ddc28 100644
 +	menu label ^graphical install
  	kernel ${KERNEL}
 -	append desktop=%desktop% ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
-+	append desktop=%desktop% theme=dark ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
++	append desktop=%desktop% vga=788 ${VIDEO_MODE_GTK} initrd=${INITRD_GTK} -- quiet ${CONSOLE}
 diff --git a/build/boot/x86/menu.cfg b/build/boot/x86/menu.cfg
 index 721f74f..7fac20b 100644
 --- a/build/boot/x86/menu.cfg
@@ -287,9 +290,6 @@ index 721f74f..7fac20b 100644
 +	text help
 +   run memory tester. you will need to reboot to exit.
 +	endtext
-diff --git a/build/boot/x86/pics/klowner.png b/build/boot/x86/pics/klowner.png
-index 62fcb86..ed2a048 100644
-Binary files a/build/boot/x86/pics/klowner.png and b/build/boot/x86/pics/klowner.png differ
 diff --git a/build/boot/x86/rqgtk.cfg b/build/boot/x86/rqgtk.cfg
 index 8a88e32..dfa78ed 100644
 --- a/build/boot/x86/rqgtk.cfg
@@ -358,7 +358,7 @@ index 4a212b6..f941778 100644
 +menu tabmsgrow 20
 +menu tabmsg enter selects. tab configures.
 diff --git a/build/boot/x86/txt.cfg b/build/boot/x86/txt.cfg
-index d15af36..e80e3bd 100644
+index d15af36..4a4a728 100644
 --- a/build/boot/x86/txt.cfg
 +++ b/build/boot/x86/txt.cfg
 @@ -1,6 +1,6 @@
@@ -368,10 +368,9 @@ index d15af36..e80e3bd 100644
 +	menu label ^install
  	menu default
  	kernel ${KERNEL}
--	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
-+	append desktop=%desktop% theme=dark ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
+ 	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
 diff --git a/build/config/amd64.cfg b/build/config/amd64.cfg
-index 343d947..ce7a216 100644
+index 343d947..f854232 100644
 --- a/build/config/amd64.cfg
 +++ b/build/config/amd64.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -379,7 +378,7 @@ index 343d947..ce7a216 100644
  
  # The version of the kernel to use.
 -KERNELVERSION = 3.2.0-2-amd64
-+KERNELVERSION = 3.3.0-2-amd64
++KERNELVERSION = 3.3.5-2-amd64
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
@@ -425,7 +424,7 @@ index 6ebfc9e..1bea193 100644
  LSB_DISTRIB_RELEASE="$(DEBIAN_VERSION) - installer build $(BUILD_DATE)"
  
 diff --git a/build/config/i386.cfg b/build/config/i386.cfg
-index ba92623..682be9e 100644
+index ba92623..0c17ab6 100644
 --- a/build/config/i386.cfg
 +++ b/build/config/i386.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -433,7 +432,7 @@ index ba92623..682be9e 100644
  
  # The version of the kernel to use.
 -BASEVERSION = 3.2.0-2
-+BASEVERSION = 3.3.5-2
++BASEVERSION = 3.3.0-2
  KERNELVERSION = $(BASEVERSION)-486
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
@@ -472,3 +471,314 @@ index a0f9976..bb1cb92 100644
  
  # The image to use for a syslinux splash screen.
  SPLASH_PNG=boot/x86/pics/klowner.png
+diff --git a/build/pkg-lists/hd-media/amd64.cfg b/build/pkg-lists/hd-media/amd64.cfg
+index 415d281..5b59baa 100644
+--- a/build/pkg-lists/hd-media/amd64.cfg
++++ b/build/pkg-lists/hd-media/amd64.cfg
+@@ -24,10 +24,6 @@ cdrom-core-modules-${kernel:Version}
+ 
+ # all the filesystems (feel free to add more!)
+ fat-modules-${kernel:Version}
+-ext2-modules-${kernel:Version}
+-ext3-modules-${kernel:Version}
+-ext4-modules-${kernel:Version}
+-reiserfs-modules-${kernel:Version}
+ 
+ # the iso is loop-mounted
+ loop-modules-${kernel:Version}
+diff --git a/build/pkg-lists/hd-media/i386.cfg b/build/pkg-lists/hd-media/i386.cfg
+index 415d281..5b59baa 100644
+--- a/build/pkg-lists/hd-media/i386.cfg
++++ b/build/pkg-lists/hd-media/i386.cfg
+@@ -24,10 +24,6 @@ cdrom-core-modules-${kernel:Version}
+ 
+ # all the filesystems (feel free to add more!)
+ fat-modules-${kernel:Version}
+-ext2-modules-${kernel:Version}
+-ext3-modules-${kernel:Version}
+-ext4-modules-${kernel:Version}
+-reiserfs-modules-${kernel:Version}
+ 
+ # the iso is loop-mounted
+ loop-modules-${kernel:Version}
+diff --git a/build/pkg-lists/hd-media/powerpc.cfg b/build/pkg-lists/hd-media/powerpc.cfg
+index 97faa81..0355258 100644
+--- a/build/pkg-lists/hd-media/powerpc.cfg
++++ b/build/pkg-lists/hd-media/powerpc.cfg
+@@ -19,10 +19,6 @@ sata-modules-${kernel:Version}
+ # all the filesystems (feel free to add more!)
+ hfs-modules-${kernel:Version}
+ fat-modules-${kernel:Version}
+-ext2-modules-${kernel:Version}
+-ext3-modules-${kernel:Version}
+-ext4-modules-${kernel:Version}
+-reiserfs-modules-${kernel:Version}
+ 
+ # the iso is loop-mounted
+ loop-modules-${kernel:Version}
+
+mr diff: /d-i/packages/aboot-installer
+
+mr diff: /d-i/packages/anna
+
+mr diff: /d-i/packages/apt-setup
+
+mr diff: /d-i/packages/arcboot-installer
+
+mr diff: /d-i/packages/auto-install
+
+mr diff: /d-i/packages/base-installer
+
+mr diff: /d-i/packages/bterm-unifont
+
+mr diff: /d-i/packages/busybox
+
+mr diff: /d-i/packages/cdebconf
+
+mr diff: /d-i/packages/cdebconf-entropy
+
+mr diff: /d-i/packages/cdebconf-terminal
+
+mr diff: /d-i/packages/cdrom-checker
+
+mr diff: /d-i/packages/cdrom-detect
+
+mr diff: /d-i/packages/cdrom-retriever
+
+mr diff: /d-i/packages/choose-mirror
+
+mr diff: /d-i/packages/clock-setup
+
+mr diff: /d-i/packages/colo-installer
+
+mr diff: /d-i/packages/console-setup
+
+mr diff: /d-i/packages/debian-installer-launcher
+
+mr diff: /d-i/packages/debian-installer-netboot-images
+
+mr diff: /d-i/packages/debian-installer-utils
+
+mr diff: /d-i/packages/debootstrap
+
+mr diff: /d-i/packages/devicetype-detect
+
+mr diff: /d-i/packages/dh-di
+
+mr diff: /d-i/packages/efi-reader
+
+mr diff: /d-i/packages/elilo-installer
+
+mr diff: /d-i/packages/etch-support
+
+mr diff: /d-i/packages/finish-install
+
+mr diff: /d-i/packages/flash-kernel
+
+mr diff: /d-i/packages/grub-installer
+
+mr diff: /d-i/packages/hw-detect
+
+mr diff: /d-i/packages/installation-locale
+
+mr diff: /d-i/packages/installation-report
+
+mr diff: /d-i/packages/iso-scan
+
+mr diff: /d-i/packages/kbd-chooser
+
+mr diff: /d-i/packages/kernel-wedge
+
+mr diff: /d-i/packages/kfreebsd-kernel-di-amd64
+
+mr diff: /d-i/packages/kfreebsd-kernel-di-i386
+
+mr diff: /d-i/packages/kickseed
+
+mr diff: /d-i/packages/lenny-support
+
+mr diff: /d-i/packages/libdebian-installer
+
+mr diff: /d-i/packages/lilo-installer
+
+mr diff: /d-i/packages/live-installer
+
+mr diff: /d-i/packages/localechooser
+
+mr diff: /d-i/packages/lowmem
+
+mr diff: /d-i/packages/lvmcfg
+
+mr diff: /d-i/packages/main-menu
+diff --git a/debian/changelog b/debian/changelog
+index d1c4d12..015675e 100644
+--- a/debian/changelog
++++ b/debian/changelog
+@@ -1,3 +1,9 @@
++main-menu (1.37) unstable; urgency=low
++
++  * SprezzOS theming.
++
++ -- Nick Black <nick.black@sprezzatech.com>  Wed, 02 May 2012 01:11:24 +0000
++
+ main-menu (1.36) unstable; urgency=low
+ 
+   * Team upload
+diff --git a/debian/main-menu.templates b/debian/main-menu.templates
+index 0906dc7..89d4a3f 100644
+--- a/debian/main-menu.templates
++++ b/debian/main-menu.templates
+@@ -1,7 +1,7 @@
+ Template: debian-installer/main-menu-title
+ Type: text
+ # :sl1:
+-_Description: Debian installer main menu
++_Description: SprezzOS installer
+ 
+ Template: debian-installer/main-menu
+ Type: select
+
+mr diff: /d-i/packages/mdcfg
+
+mr diff: /d-i/packages/media-retriever
+
+mr diff: /d-i/packages/mklibs
+
+mr diff: /d-i/packages/mountmedia
+
+mr diff: /d-i/packages/net-retriever
+
+mr diff: /d-i/packages/netboot-assistant
+
+mr diff: /d-i/packages/netcfg
+
+mr diff: /d-i/packages/network-console
+
+mr diff: /d-i/packages/nobootloader
+
+mr diff: /d-i/packages/oldsys-preseed
+
+mr diff: /d-i/packages/os-prober
+
+mr diff: /d-i/packages/palo-installer
+
+mr diff: /d-i/packages/partconf
+
+mr diff: /d-i/packages/partitioner
+
+mr diff: /d-i/packages/partman-auto
+
+mr diff: /d-i/packages/partman-auto-crypto
+
+mr diff: /d-i/packages/partman-auto-lvm
+
+mr diff: /d-i/packages/partman-auto-raid
+
+mr diff: /d-i/packages/partman-base
+
+mr diff: /d-i/packages/partman-basicfilesystems
+diff --git a/debian/control b/debian/control
+index 728311f..50840c4 100644
+--- a/debian/control
++++ b/debian/control
+@@ -10,6 +10,6 @@ Vcs-Git: git://git.debian.org/d-i/partman-basicfilesystems.git
+ Package: partman-basicfilesystems
+ XC-Package-Type: udeb
+ Architecture: all
+-Depends: ${misc:Depends}, e2fsprogs-udeb, ext2-modules, fat-modules
++Depends: ${misc:Depends}, e2fsprogs-udeb, fat-modules
+ Provides: partman-filesystem
+ Description: Add to partman support for ext2, linux-swap, fat16 and fat32
+
+mr diff: /d-i/packages/partman-basicmethods
+
+mr diff: /d-i/packages/partman-btrfs
+
+mr diff: /d-i/packages/partman-crypto
+
+mr diff: /d-i/packages/partman-efi
+
+mr diff: /d-i/packages/partman-ext2r0
+
+mr diff: /d-i/packages/partman-ext3
+
+mr diff: /d-i/packages/partman-iscsi
+
+mr diff: /d-i/packages/partman-jfs
+
+mr diff: /d-i/packages/partman-lvm
+
+mr diff: /d-i/packages/partman-md
+
+mr diff: /d-i/packages/partman-multipath
+
+mr diff: /d-i/packages/partman-nbd
+
+mr diff: /d-i/packages/partman-newworld
+
+mr diff: /d-i/packages/partman-palo
+
+mr diff: /d-i/packages/partman-partitioning
+
+mr diff: /d-i/packages/partman-prep
+
+mr diff: /d-i/packages/partman-reiserfs
+
+mr diff: /d-i/packages/partman-target
+
+mr diff: /d-i/packages/partman-ufs
+
+mr diff: /d-i/packages/partman-xfs
+
+mr diff: /d-i/packages/partman-zfs
+
+mr diff: /d-i/packages/pkgsel
+
+mr diff: /d-i/packages/prep-installer
+
+mr diff: /d-i/packages/preseed
+
+mr diff: /d-i/packages/quik-installer
+
+mr diff: /d-i/packages/rescue
+
+mr diff: /d-i/packages/rootskel
+
+mr diff: /d-i/packages/rootskel-gtk
+diff --git a/src/usr/share/graphics/logo_debian.png b/src/usr/share/graphics/logo_debian.png
+index fb16ae5..25bd34a 100644
+Binary files a/src/usr/share/graphics/logo_debian.png and b/src/usr/share/graphics/logo_debian.png differ
+
+mr diff: /d-i/packages/s390-dasd
+
+mr diff: /d-i/packages/s390-netdevice
+
+mr diff: /d-i/packages/s390-sysconfig-writer
+
+mr diff: /d-i/packages/sarge-support
+
+mr diff: /d-i/packages/sibyl-installer
+
+mr diff: /d-i/packages/silo-installer
+
+mr diff: /d-i/packages/srm-reader
+
+mr diff: /d-i/packages/tzsetup
+
+mr diff: /d-i/packages/udpkg
+
+mr diff: /d-i/packages/usb-discover
+
+mr diff: /d-i/packages/user-setup
+
+mr diff: /d-i/packages/userdevfs
+
+mr diff: /d-i/packages/vmelilo-installer
+
+mr diff: /d-i/packages/win32-loader
+
+mr diff: /d-i/packages/yaboot-installer
+
+mr diff: /d-i/packages/zipl-installer
+
+mr diff: finished (114 ok)
