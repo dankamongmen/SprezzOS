@@ -3,7 +3,8 @@
 set -e
 set -x
 
-KVERS=3.3.4-4~experimental.1
+KVERS=3.3.5-2
+DEBKEY=AAE15FF2
 ZFSVER=0.6.0-rc8
 
 export DEBFULLNAME="Nick Black"
@@ -23,16 +24,19 @@ debian/rules debian/control
 
 # rebuild the abi
 # redefine it in debian/config/defines FIXME
-fakeroot debian/rules debian/control-real
+
+# this is supposed to fail. i know. check the output if you don't believe me.
+fakeroot debian/rules debian/control-real || true
 
 # FIXME need a configuration file
-make deb-pkg -j8
+#make deb-pkg -j8
+dpkg-buildpackage -j8 -k$DEBKEY
 dpkg -i ../linux-headers*.deb
 
 cd /spl-"$ZFSVER"
-dpkg-buildpackage -j8
+dpkg-buildpackage -j8 -k$DEBKEY
 cd /zfs-"$ZFSVER"
-dpkg-buildpackage -j8
+dpkg-buildpackage -j8 -k$DEBKEY
 cd /root
 cd /debian-installer-*
-dpkg-buildpackage -uc -us
+dpkg-buildpackage -k$DEBKEY
