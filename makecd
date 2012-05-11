@@ -31,13 +31,10 @@ if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 	usageerr
 fi
 
-#KPKGS="`pwd`/unstable/linux-image-3.3.0-2-amd64_3.3.5-1_amd64.deb"
-KPKGS="`pwd`/linux-image-3.3.0-2-amd64_3.3.5-1_amd64.deb"
+KPKGS="`pwd`/linux-image-3.3.5-2-amd64_3.3.5-2_amd64.deb"
 DI="`pwd`/unstable/d-i/debian-installer_20120508_amd64.deb"
 PKGS="$DI,`pwd`/unstable/d-i/installer/build/localudebs,`pwd`/spl_0.6.0~rc8-1_amd64.deb,`pwd`/zfs_0.6.0~rc8-1_amd64.deb"
 PKGS="$PKGS,$KPKGS"
-
-#,`pwd`/di/linux-kbuild-3.2_3.2.14-amd64_amd64.deb,`pwd`/di/linux-tools_3.2+44_all.deb"
 
 [ -r "$KPKGS" ] || { echo "Kernel package $KPKGS didn't exist." >&2 ; exit 1; }
 [ -r "$DI" ] || { echo "D-I package $DI didn't exist." >&2 ; exit 1; }
