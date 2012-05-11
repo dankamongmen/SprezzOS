@@ -196,7 +196,7 @@ Package: kernel-image-3.3.5-2-amd64-di
 Architecture: amd64
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, ext4-modules
+Provides: kernel-image
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -209,7 +209,7 @@ Architecture: amd64
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-amd64-di, nic-shared-modules-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di, firewire-core-modules-3.3.5-2-amd64-di
+Depends: kernel-image-3.3.5-2-amd64-di, nic-shared-modules-3.3.5-2-amd64-di, firewire-core-modules-3.3.5-2-amd64-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -220,7 +220,7 @@ Architecture: amd64
 Section: debian-installer
 Priority: standard
 Provides: nic-extra-modules
-Depends: kernel-image-3.3.5-2-amd64-di, nic-shared-modules-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di, crc-modules-3.3.5-2-amd64-di
+Depends: kernel-image-3.3.5-2-amd64-di, nic-shared-modules-3.3.5-2-amd64-di, crc-modules-3.3.5-2-amd64-di
 Description: Rare NIC drivers
  This package contains rare NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -231,7 +231,7 @@ Architecture: amd64
 Section: debian-installer
 Priority: standard
 Provides: nic-wireless-modules
-Depends: kernel-image-3.3.5-2-amd64-di, nic-shared-modules-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di, usb-modules-3.3.5-2-amd64-di, crc-modules-3.3.5-2-amd64-di
+Depends: kernel-image-3.3.5-2-amd64-di, nic-shared-modules-3.3.5-2-amd64-di, usb-modules-3.3.5-2-amd64-di, crc-modules-3.3.5-2-amd64-di
 Description: Wireless NIC drivers
  This package contains wireless NIC drivers for the kernel.  Includes
  crypto modules only needed for wireless (WEP).
@@ -332,7 +332,7 @@ Architecture: amd64
 Section: debian-installer
 Priority: standard
 Provides: scsi-modules
-Depends: kernel-image-3.3.5-2-amd64-di, scsi-core-modules-3.3.5-2-amd64-di, scsi-common-modules-3.3.5-2-amd64-di, parport-modules-3.3.5-2-amd64-di, cdrom-core-modules-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di
+Depends: kernel-image-3.3.5-2-amd64-di, scsi-core-modules-3.3.5-2-amd64-di, scsi-common-modules-3.3.5-2-amd64-di, parport-modules-3.3.5-2-amd64-di, cdrom-core-modules-3.3.5-2-amd64-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
 XC-Package-Type: udeb
@@ -391,17 +391,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-amd64-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-amd64
-
-Package: btrfs-modules-3.3.5-2-amd64-di
-Architecture: amd64
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di, crc-modules-3.3.5-2-amd64-di, zlib-modules-3.3.5-2-amd64-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-amd64
 
@@ -619,7 +608,7 @@ Architecture: amd64
 Section: debian-installer
 Priority: standard
 Provides: pcmcia-modules
-Depends: kernel-image-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di
+Depends: kernel-image-3.3.5-2-amd64-di
 Description: Common PCMCIA drivers
  This package contains common PCMCIA drivers for the kernel.
 XC-Package-Type: udeb
@@ -630,7 +619,7 @@ Architecture: amd64
 Section: debian-installer
 Priority: standard
 Provides: nic-usb-modules
-Depends: kernel-image-3.3.5-2-amd64-di, nic-shared-modules-3.3.5-2-amd64-di, nic-wireless-modules-3.3.5-2-amd64-di, usb-modules-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di
+Depends: kernel-image-3.3.5-2-amd64-di, nic-shared-modules-3.3.5-2-amd64-di, nic-wireless-modules-3.3.5-2-amd64-di, usb-modules-3.3.5-2-amd64-di
 Description: USB NIC drivers
  This package contains USB network adapter drivers for the kernel.
 XC-Package-Type: udeb
@@ -644,18 +633,6 @@ Provides: sata-modules
 Depends: kernel-image-3.3.5-2-amd64-di, scsi-core-modules-3.3.5-2-amd64-di, ata-modules-3.3.5-2-amd64-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-amd64
-
-Package: core-modules-3.3.5-2-amd64-di
-Architecture: amd64
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-amd64-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-amd64
 
@@ -742,7 +719,7 @@ Architecture: amd64
 Section: debian-installer
 Priority: extra
 Provides: mmc-core-modules
-Depends: kernel-image-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di
+Depends: kernel-image-3.3.5-2-amd64-di
 Description: MMC/SD/SDIO core modules
  This package contains core modules for MMC/SD/SDIO support.
 XC-Package-Type: udeb
@@ -753,7 +730,7 @@ Architecture: amd64
 Section: debian-installer
 Priority: extra
 Provides: mmc-modules
-Depends: kernel-image-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di, mmc-core-modules-3.3.5-2-amd64-di
+Depends: kernel-image-3.3.5-2-amd64-di, mmc-core-modules-3.3.5-2-amd64-di
 Description: MMC/SD card modules
  This package contains modules needed to support MMC (multimedia) and SD
  cards.
@@ -821,7 +798,7 @@ Architecture: amd64
 Section: debian-installer
 Priority: extra
 Provides: sound-modules
-Depends: kernel-image-3.3.5-2-amd64-di, core-modules-3.3.5-2-amd64-di, i2c-modules-3.3.5-2-amd64-di, usb-modules-3.3.5-2-amd64-di, pcmcia-modules-3.3.5-2-amd64-di, firewire-core-modules-3.3.5-2-amd64-di, crc-modules-3.3.5-2-amd64-di
+Depends: kernel-image-3.3.5-2-amd64-di, i2c-modules-3.3.5-2-amd64-di, usb-modules-3.3.5-2-amd64-di, pcmcia-modules-3.3.5-2-amd64-di, firewire-core-modules-3.3.5-2-amd64-di, crc-modules-3.3.5-2-amd64-di
 Description: sound support
  This package contains sound modules.
 XC-Package-Type: udeb
@@ -906,7 +883,7 @@ Architecture: armel
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-iop32x-di, nic-shared-modules-3.3.5-2-iop32x-di, core-modules-3.3.5-2-iop32x-di
+Depends: kernel-image-3.3.5-2-iop32x-di, nic-shared-modules-3.3.5-2-iop32x-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -987,17 +964,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-iop32x-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-iop32x
-
-Package: btrfs-modules-3.3.5-2-iop32x-di
-Architecture: armel
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-iop32x-di, core-modules-3.3.5-2-iop32x-di, crc-modules-3.3.5-2-iop32x-di, zlib-modules-3.3.5-2-iop32x-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-iop32x
 
@@ -1105,7 +1071,7 @@ Architecture: armel
 Section: debian-installer
 Priority: standard
 Provides: nic-usb-modules
-Depends: kernel-image-3.3.5-2-iop32x-di, nic-shared-modules-3.3.5-2-iop32x-di, usb-modules-3.3.5-2-iop32x-di, core-modules-3.3.5-2-iop32x-di
+Depends: kernel-image-3.3.5-2-iop32x-di, nic-shared-modules-3.3.5-2-iop32x-di, usb-modules-3.3.5-2-iop32x-di
 Description: USB NIC drivers
  This package contains USB network adapter drivers for the kernel.
 XC-Package-Type: udeb
@@ -1119,18 +1085,6 @@ Provides: sata-modules
 Depends: kernel-image-3.3.5-2-iop32x-di, scsi-core-modules-3.3.5-2-iop32x-di, ata-modules-3.3.5-2-iop32x-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-iop32x
-
-Package: core-modules-3.3.5-2-iop32x-di
-Architecture: armel
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-iop32x-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-iop32x
 
@@ -1230,7 +1184,7 @@ Architecture: armel
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-kirkwood-di, nic-shared-modules-3.3.5-2-kirkwood-di, core-modules-3.3.5-2-kirkwood-di
+Depends: kernel-image-3.3.5-2-kirkwood-di, nic-shared-modules-3.3.5-2-kirkwood-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -1300,17 +1254,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-kirkwood-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-kirkwood
-
-Package: btrfs-modules-3.3.5-2-kirkwood-di
-Architecture: armel
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-kirkwood-di, core-modules-3.3.5-2-kirkwood-di, crc-modules-3.3.5-2-kirkwood-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-kirkwood
 
@@ -1451,7 +1394,7 @@ Architecture: armel
 Section: debian-installer
 Priority: standard
 Provides: nic-usb-modules
-Depends: kernel-image-3.3.5-2-kirkwood-di, nic-shared-modules-3.3.5-2-kirkwood-di, usb-modules-3.3.5-2-kirkwood-di, core-modules-3.3.5-2-kirkwood-di
+Depends: kernel-image-3.3.5-2-kirkwood-di, nic-shared-modules-3.3.5-2-kirkwood-di, usb-modules-3.3.5-2-kirkwood-di
 Description: USB NIC drivers
  This package contains USB network adapter drivers for the kernel.
 XC-Package-Type: udeb
@@ -1465,18 +1408,6 @@ Provides: sata-modules
 Depends: kernel-image-3.3.5-2-kirkwood-di, scsi-core-modules-3.3.5-2-kirkwood-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-kirkwood
-
-Package: core-modules-3.3.5-2-kirkwood-di
-Architecture: armel
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-kirkwood-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-kirkwood
 
@@ -1518,7 +1449,7 @@ Architecture: armel
 Section: debian-installer
 Priority: extra
 Provides: mmc-modules
-Depends: kernel-image-3.3.5-2-kirkwood-di, core-modules-3.3.5-2-kirkwood-di
+Depends: kernel-image-3.3.5-2-kirkwood-di
 Description: MMC/SD card modules
  This package contains modules needed to support MMC (multimedia) and SD
  cards.
@@ -1559,22 +1490,6 @@ Description: uinput support
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-kirkwood
 
-Package: ext2-modules-3.3.5-2-kirkwood-di
-Architecture: armel
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-kirkwood-di, core-modules-3.3.5-2-kirkwood-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-kirkwood
-
-Package: ext3-modules-3.3.5-2-kirkwood-di
-Architecture: armel
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-kirkwood-di, core-modules-3.3.5-2-kirkwood-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-kirkwood
-
 Package: kernel-image-3.3.5-2-orion5x-di
 Architecture: armel
 Section: debian-installer
@@ -1592,7 +1507,7 @@ Architecture: armel
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-orion5x-di, nic-shared-modules-3.3.5-2-orion5x-di, core-modules-3.3.5-2-orion5x-di
+Depends: kernel-image-3.3.5-2-orion5x-di, nic-shared-modules-3.3.5-2-orion5x-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -1662,17 +1577,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-orion5x-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-orion5x
-
-Package: btrfs-modules-3.3.5-2-orion5x-di
-Architecture: armel
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-orion5x-di, core-modules-3.3.5-2-orion5x-di, crc-modules-3.3.5-2-orion5x-di, zlib-modules-3.3.5-2-orion5x-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-orion5x
 
@@ -1791,7 +1695,7 @@ Architecture: armel
 Section: debian-installer
 Priority: standard
 Provides: nic-usb-modules
-Depends: kernel-image-3.3.5-2-orion5x-di, nic-shared-modules-3.3.5-2-orion5x-di, usb-modules-3.3.5-2-orion5x-di, core-modules-3.3.5-2-orion5x-di
+Depends: kernel-image-3.3.5-2-orion5x-di, nic-shared-modules-3.3.5-2-orion5x-di, usb-modules-3.3.5-2-orion5x-di
 Description: USB NIC drivers
  This package contains USB network adapter drivers for the kernel.
 XC-Package-Type: udeb
@@ -1805,18 +1709,6 @@ Provides: sata-modules
 Depends: kernel-image-3.3.5-2-orion5x-di, scsi-core-modules-3.3.5-2-orion5x-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-orion5x
-
-Package: core-modules-3.3.5-2-orion5x-di
-Architecture: armel
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-orion5x-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-orion5x
 
@@ -1887,22 +1779,6 @@ Description: zlib modules
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-orion5x
 
-Package: ext2-modules-3.3.5-2-orion5x-di
-Architecture: armel
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-orion5x-di, core-modules-3.3.5-2-orion5x-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-orion5x
-
-Package: ext3-modules-3.3.5-2-orion5x-di
-Architecture: armel
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-orion5x-di, core-modules-3.3.5-2-orion5x-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-orion5x
-
 Package: kernel-image-3.3.5-2-versatile-di
 Architecture: armel
 Section: debian-installer
@@ -1920,7 +1796,7 @@ Architecture: armel
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-versatile-di, nic-shared-modules-3.3.5-2-versatile-di, core-modules-3.3.5-2-versatile-di
+Depends: kernel-image-3.3.5-2-versatile-di, nic-shared-modules-3.3.5-2-versatile-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -2004,17 +1880,6 @@ Description: Loopback filesystem support
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-versatile
 
-Package: btrfs-modules-3.3.5-2-versatile-di
-Architecture: armel
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-versatile-di, core-modules-3.3.5-2-versatile-di, crc-modules-3.3.5-2-versatile-di, zlib-modules-3.3.5-2-versatile-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-versatile
-
 Package: isofs-modules-3.3.5-2-versatile-di
 Architecture: armel
 Section: debian-installer
@@ -2086,7 +1951,7 @@ Architecture: armel
 Section: debian-installer
 Priority: standard
 Provides: nic-usb-modules
-Depends: kernel-image-3.3.5-2-versatile-di, nic-shared-modules-3.3.5-2-versatile-di, usb-modules-3.3.5-2-versatile-di, core-modules-3.3.5-2-versatile-di
+Depends: kernel-image-3.3.5-2-versatile-di, nic-shared-modules-3.3.5-2-versatile-di, usb-modules-3.3.5-2-versatile-di
 Description: USB NIC drivers
  This package contains USB network adapter drivers for the kernel.
 XC-Package-Type: udeb
@@ -2100,18 +1965,6 @@ Provides: sata-modules
 Depends: kernel-image-3.3.5-2-versatile-di, scsi-core-modules-3.3.5-2-versatile-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-versatile
-
-Package: core-modules-3.3.5-2-versatile-di
-Architecture: armel
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-versatile-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-versatile
 
@@ -2190,22 +2043,6 @@ Provides: zlib-modules
 Depends: kernel-image-3.3.5-2-versatile-di
 Description: zlib modules
  This package contains zlib modules.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-versatile
-
-Package: ext2-modules-3.3.5-2-versatile-di
-Architecture: armel
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-versatile-di, core-modules-3.3.5-2-versatile-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-versatile
-
-Package: ext3-modules-3.3.5-2-versatile-di
-Architecture: armel
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-versatile-di, core-modules-3.3.5-2-versatile-di
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-versatile
 
@@ -2378,7 +2215,7 @@ Architecture: armhf
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-mx5-di, nic-shared-modules-3.3.5-2-mx5-di, core-modules-3.3.5-2-mx5-di
+Depends: kernel-image-3.3.5-2-mx5-di, nic-shared-modules-3.3.5-2-mx5-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -2415,17 +2252,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-mx5-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-mx5
-
-Package: btrfs-modules-3.3.5-2-mx5-di
-Architecture: armhf
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-mx5-di, core-modules-3.3.5-2-mx5-di, crc-modules-3.3.5-2-mx5-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-mx5
 
@@ -2522,21 +2348,9 @@ Architecture: armhf
 Section: debian-installer
 Priority: standard
 Provides: nic-usb-modules
-Depends: kernel-image-3.3.5-2-mx5-di, nic-shared-modules-3.3.5-2-mx5-di, core-modules-3.3.5-2-mx5-di
+Depends: kernel-image-3.3.5-2-mx5-di, nic-shared-modules-3.3.5-2-mx5-di
 Description: USB NIC drivers
  This package contains USB network adapter drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-mx5
-
-Package: core-modules-3.3.5-2-mx5-di
-Architecture: armhf
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-mx5-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-mx5
 
@@ -2578,7 +2392,7 @@ Architecture: armhf
 Section: debian-installer
 Priority: extra
 Provides: mmc-modules
-Depends: kernel-image-3.3.5-2-mx5-di, core-modules-3.3.5-2-mx5-di
+Depends: kernel-image-3.3.5-2-mx5-di
 Description: MMC/SD card modules
  This package contains modules needed to support MMC (multimedia) and SD
  cards.
@@ -2616,22 +2430,6 @@ Provides: uinput-modules
 Depends: kernel-image-3.3.5-2-mx5-di
 Description: uinput support
  This package contains the uinput module.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-mx5
-
-Package: ext2-modules-3.3.5-2-mx5-di
-Architecture: armhf
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-mx5-di, core-modules-3.3.5-2-mx5-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-mx5
-
-Package: ext3-modules-3.3.5-2-mx5-di
-Architecture: armhf
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-mx5-di, core-modules-3.3.5-2-mx5-di
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-mx5
 
@@ -2694,7 +2492,7 @@ Package: kernel-image-3.3.5-2-parisc-di
 Architecture: hppa
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, ext2-modules
+Provides: kernel-image
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -2787,17 +2585,6 @@ Provides: ipv6-modules
 Depends: kernel-image-3.3.5-2-parisc-di
 Description: IPv6 driver
  This package contains the IPv6 driver for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-parisc
-
-Package: btrfs-modules-3.3.5-2-parisc-di
-Architecture: hppa
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-parisc-di, zlib-modules-3.3.5-2-parisc-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-parisc
 
@@ -2916,7 +2703,7 @@ Package: kernel-image-3.3.5-2-parisc64-di
 Architecture: hppa
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, ext2-modules
+Provides: kernel-image
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -3009,17 +2796,6 @@ Provides: ipv6-modules
 Depends: kernel-image-3.3.5-2-parisc64-di
 Description: IPv6 driver
  This package contains the IPv6 driver for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-parisc64
-
-Package: btrfs-modules-3.3.5-2-parisc64-di
-Architecture: hppa
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-parisc64-di, zlib-modules-3.3.5-2-parisc64-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-parisc64
 
@@ -3251,7 +3027,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-486-di, nic-shared-modules-3.3.5-2-486-di, core-modules-3.3.5-2-486-di, firewire-core-modules-3.3.5-2-486-di
+Depends: kernel-image-3.3.5-2-486-di, nic-shared-modules-3.3.5-2-486-di, firewire-core-modules-3.3.5-2-486-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -3262,7 +3038,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: nic-extra-modules
-Depends: kernel-image-3.3.5-2-486-di, nic-shared-modules-3.3.5-2-486-di, core-modules-3.3.5-2-486-di, crc-modules-3.3.5-2-486-di
+Depends: kernel-image-3.3.5-2-486-di, nic-shared-modules-3.3.5-2-486-di, crc-modules-3.3.5-2-486-di
 Description: Rare NIC drivers
  This package contains rare NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -3273,7 +3049,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: nic-wireless-modules
-Depends: kernel-image-3.3.5-2-486-di, nic-shared-modules-3.3.5-2-486-di, core-modules-3.3.5-2-486-di, usb-modules-3.3.5-2-486-di, crc-modules-3.3.5-2-486-di
+Depends: kernel-image-3.3.5-2-486-di, nic-shared-modules-3.3.5-2-486-di, usb-modules-3.3.5-2-486-di, crc-modules-3.3.5-2-486-di
 Description: Wireless NIC drivers
  This package contains wireless NIC drivers for the kernel.  Includes
  crypto modules only needed for wireless (WEP).
@@ -3374,7 +3150,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: scsi-modules
-Depends: kernel-image-3.3.5-2-486-di, scsi-core-modules-3.3.5-2-486-di, parport-modules-3.3.5-2-486-di, cdrom-core-modules-3.3.5-2-486-di, core-modules-3.3.5-2-486-di
+Depends: kernel-image-3.3.5-2-486-di, scsi-core-modules-3.3.5-2-486-di, parport-modules-3.3.5-2-486-di, cdrom-core-modules-3.3.5-2-486-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
 XC-Package-Type: udeb
@@ -3433,17 +3209,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-486-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-486
-
-Package: btrfs-modules-3.3.5-2-486-di
-Architecture: i386
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-486-di, core-modules-3.3.5-2-486-di, crc-modules-3.3.5-2-486-di, zlib-modules-3.3.5-2-486-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-486
 
@@ -3661,7 +3426,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: pcmcia-modules
-Depends: kernel-image-3.3.5-2-486-di, core-modules-3.3.5-2-486-di
+Depends: kernel-image-3.3.5-2-486-di
 Description: Common PCMCIA drivers
  This package contains common PCMCIA drivers for the kernel.
 XC-Package-Type: udeb
@@ -3672,7 +3437,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: nic-usb-modules
-Depends: kernel-image-3.3.5-2-486-di, nic-shared-modules-3.3.5-2-486-di, nic-wireless-modules-3.3.5-2-486-di, usb-modules-3.3.5-2-486-di, core-modules-3.3.5-2-486-di
+Depends: kernel-image-3.3.5-2-486-di, nic-shared-modules-3.3.5-2-486-di, nic-wireless-modules-3.3.5-2-486-di, usb-modules-3.3.5-2-486-di
 Description: USB NIC drivers
  This package contains USB network adapter drivers for the kernel.
 XC-Package-Type: udeb
@@ -3686,18 +3451,6 @@ Provides: sata-modules
 Depends: kernel-image-3.3.5-2-486-di, scsi-core-modules-3.3.5-2-486-di, ata-modules-3.3.5-2-486-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-486
-
-Package: core-modules-3.3.5-2-486-di
-Architecture: i386
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-486-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-486
 
@@ -3784,7 +3537,7 @@ Architecture: i386
 Section: debian-installer
 Priority: extra
 Provides: mmc-core-modules
-Depends: kernel-image-3.3.5-2-486-di, core-modules-3.3.5-2-486-di
+Depends: kernel-image-3.3.5-2-486-di
 Description: MMC/SD/SDIO core modules
  This package contains core modules for MMC/SD/SDIO support.
 XC-Package-Type: udeb
@@ -3795,7 +3548,7 @@ Architecture: i386
 Section: debian-installer
 Priority: extra
 Provides: mmc-modules
-Depends: kernel-image-3.3.5-2-486-di, core-modules-3.3.5-2-486-di, mmc-core-modules-3.3.5-2-486-di
+Depends: kernel-image-3.3.5-2-486-di, mmc-core-modules-3.3.5-2-486-di
 Description: MMC/SD card modules
  This package contains modules needed to support MMC (multimedia) and SD
  cards.
@@ -3863,7 +3616,7 @@ Architecture: i386
 Section: debian-installer
 Priority: extra
 Provides: sound-modules
-Depends: kernel-image-3.3.5-2-486-di, core-modules-3.3.5-2-486-di, i2c-modules-3.3.5-2-486-di, usb-modules-3.3.5-2-486-di, pcmcia-modules-3.3.5-2-486-di, firewire-core-modules-3.3.5-2-486-di, crc-modules-3.3.5-2-486-di
+Depends: kernel-image-3.3.5-2-486-di, i2c-modules-3.3.5-2-486-di, usb-modules-3.3.5-2-486-di, pcmcia-modules-3.3.5-2-486-di, firewire-core-modules-3.3.5-2-486-di, crc-modules-3.3.5-2-486-di
 Description: sound support
  This package contains sound modules.
 XC-Package-Type: udeb
@@ -3877,22 +3630,6 @@ Provides: zlib-modules
 Depends: kernel-image-3.3.5-2-486-di
 Description: zlib modules
  This package contains zlib modules.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-486
-
-Package: ext2-modules-3.3.5-2-486-di
-Architecture: i386
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-486-di, core-modules-3.3.5-2-486-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-486
-
-Package: ext3-modules-3.3.5-2-486-di
-Architecture: i386
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-486-di, core-modules-3.3.5-2-486-di
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-486
 
@@ -3913,7 +3650,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, nic-shared-modules-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di, firewire-core-modules-3.3.5-2-686-pae-di
+Depends: kernel-image-3.3.5-2-686-pae-di, nic-shared-modules-3.3.5-2-686-pae-di, firewire-core-modules-3.3.5-2-686-pae-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -3924,7 +3661,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: nic-extra-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, nic-shared-modules-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di, crc-modules-3.3.5-2-686-pae-di
+Depends: kernel-image-3.3.5-2-686-pae-di, nic-shared-modules-3.3.5-2-686-pae-di, crc-modules-3.3.5-2-686-pae-di
 Description: Rare NIC drivers
  This package contains rare NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -3935,7 +3672,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: nic-wireless-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, nic-shared-modules-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di, usb-modules-3.3.5-2-686-pae-di, crc-modules-3.3.5-2-686-pae-di
+Depends: kernel-image-3.3.5-2-686-pae-di, nic-shared-modules-3.3.5-2-686-pae-di, usb-modules-3.3.5-2-686-pae-di, crc-modules-3.3.5-2-686-pae-di
 Description: Wireless NIC drivers
  This package contains wireless NIC drivers for the kernel.  Includes
  crypto modules only needed for wireless (WEP).
@@ -4036,7 +3773,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: scsi-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, scsi-core-modules-3.3.5-2-686-pae-di, parport-modules-3.3.5-2-686-pae-di, cdrom-core-modules-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di
+Depends: kernel-image-3.3.5-2-686-pae-di, scsi-core-modules-3.3.5-2-686-pae-di, parport-modules-3.3.5-2-686-pae-di, cdrom-core-modules-3.3.5-2-686-pae-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
 XC-Package-Type: udeb
@@ -4095,17 +3832,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-686-pae-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-686-pae
-
-Package: btrfs-modules-3.3.5-2-686-pae-di
-Architecture: i386
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di, crc-modules-3.3.5-2-686-pae-di, zlib-modules-3.3.5-2-686-pae-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-686-pae
 
@@ -4323,7 +4049,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: pcmcia-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di
+Depends: kernel-image-3.3.5-2-686-pae-di
 Description: Common PCMCIA drivers
  This package contains common PCMCIA drivers for the kernel.
 XC-Package-Type: udeb
@@ -4334,7 +4060,7 @@ Architecture: i386
 Section: debian-installer
 Priority: standard
 Provides: nic-usb-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, nic-shared-modules-3.3.5-2-686-pae-di, nic-wireless-modules-3.3.5-2-686-pae-di, usb-modules-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di
+Depends: kernel-image-3.3.5-2-686-pae-di, nic-shared-modules-3.3.5-2-686-pae-di, nic-wireless-modules-3.3.5-2-686-pae-di, usb-modules-3.3.5-2-686-pae-di
 Description: USB NIC drivers
  This package contains USB network adapter drivers for the kernel.
 XC-Package-Type: udeb
@@ -4348,18 +4074,6 @@ Provides: sata-modules
 Depends: kernel-image-3.3.5-2-686-pae-di, scsi-core-modules-3.3.5-2-686-pae-di, ata-modules-3.3.5-2-686-pae-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-686-pae
-
-Package: core-modules-3.3.5-2-686-pae-di
-Architecture: i386
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-686-pae-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-686-pae
 
@@ -4446,7 +4160,7 @@ Architecture: i386
 Section: debian-installer
 Priority: extra
 Provides: mmc-core-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di
+Depends: kernel-image-3.3.5-2-686-pae-di
 Description: MMC/SD/SDIO core modules
  This package contains core modules for MMC/SD/SDIO support.
 XC-Package-Type: udeb
@@ -4457,7 +4171,7 @@ Architecture: i386
 Section: debian-installer
 Priority: extra
 Provides: mmc-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di, mmc-core-modules-3.3.5-2-686-pae-di
+Depends: kernel-image-3.3.5-2-686-pae-di, mmc-core-modules-3.3.5-2-686-pae-di
 Description: MMC/SD card modules
  This package contains modules needed to support MMC (multimedia) and SD
  cards.
@@ -4525,7 +4239,7 @@ Architecture: i386
 Section: debian-installer
 Priority: extra
 Provides: sound-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di, i2c-modules-3.3.5-2-686-pae-di, usb-modules-3.3.5-2-686-pae-di, pcmcia-modules-3.3.5-2-686-pae-di, firewire-core-modules-3.3.5-2-686-pae-di, crc-modules-3.3.5-2-686-pae-di
+Depends: kernel-image-3.3.5-2-686-pae-di, i2c-modules-3.3.5-2-686-pae-di, usb-modules-3.3.5-2-686-pae-di, pcmcia-modules-3.3.5-2-686-pae-di, firewire-core-modules-3.3.5-2-686-pae-di, crc-modules-3.3.5-2-686-pae-di
 Description: sound support
  This package contains sound modules.
 XC-Package-Type: udeb
@@ -4539,22 +4253,6 @@ Provides: zlib-modules
 Depends: kernel-image-3.3.5-2-686-pae-di
 Description: zlib modules
  This package contains zlib modules.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-686-pae
-
-Package: ext2-modules-3.3.5-2-686-pae-di
-Architecture: i386
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-686-pae
-
-Package: ext3-modules-3.3.5-2-686-pae-di
-Architecture: i386
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-686-pae-di, core-modules-3.3.5-2-686-pae-di
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-686-pae
 
@@ -4706,7 +4404,7 @@ Architecture: ia64
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-itanium-di, nic-shared-modules-3.3.5-2-itanium-di, core-modules-3.3.5-2-itanium-di, firewire-core-modules-3.3.5-2-itanium-di, crc-modules-3.3.5-2-itanium-di
+Depends: kernel-image-3.3.5-2-itanium-di, nic-shared-modules-3.3.5-2-itanium-di, firewire-core-modules-3.3.5-2-itanium-di, crc-modules-3.3.5-2-itanium-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -4817,7 +4515,7 @@ Architecture: ia64
 Section: debian-installer
 Priority: standard
 Provides: scsi-modules
-Depends: kernel-image-3.3.5-2-itanium-di, ata-modules-3.3.5-2-itanium-di, parport-modules-3.3.5-2-itanium-di, cdrom-core-modules-3.3.5-2-itanium-di, core-modules-3.3.5-2-itanium-di
+Depends: kernel-image-3.3.5-2-itanium-di, ata-modules-3.3.5-2-itanium-di, parport-modules-3.3.5-2-itanium-di, cdrom-core-modules-3.3.5-2-itanium-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
 XC-Package-Type: udeb
@@ -4853,17 +4551,6 @@ Provides: ipv6-modules
 Depends: kernel-image-3.3.5-2-itanium-di
 Description: IPv6 driver
  This package contains the IPv6 driver for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-itanium
-
-Package: btrfs-modules-3.3.5-2-itanium-di
-Architecture: ia64
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-itanium-di, core-modules-3.3.5-2-itanium-di, crc-modules-3.3.5-2-itanium-di, zlib-modules-3.3.5-2-itanium-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-itanium
 
@@ -5048,7 +4735,7 @@ Architecture: ia64
 Section: debian-installer
 Priority: standard
 Provides: pcmcia-modules
-Depends: core-modules-3.3.5-2-itanium-di
+Depends:kernel-image-3.3.5-2-itanium-di
 Description: Common PCMCIA drivers
  This package contains common PCMCIA drivers for the kernel.
 XC-Package-Type: udeb
@@ -5059,7 +4746,7 @@ Architecture: ia64
 Section: debian-installer
 Priority: standard
 Provides: nic-usb-modules
-Depends: core-modules-3.3.5-2-itanium-di
+Depends:kernel-image-3.3.5-2-itanium-di
 Description: USB NIC drivers
  This package contains USB network adapter drivers for the kernel.
 XC-Package-Type: udeb
@@ -5073,18 +4760,6 @@ Provides: sata-modules
 Depends: ata-modules-3.3.5-2-itanium-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-itanium
-
-Package: core-modules-3.3.5-2-itanium-di
-Architecture: ia64
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-itanium-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-itanium
 
@@ -5200,22 +4875,6 @@ Description: SN modules
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-itanium
 
-Package: ext2-modules-3.3.5-2-itanium-di
-Architecture: ia64
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-itanium-di, core-modules-3.3.5-2-itanium-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-itanium
-
-Package: ext3-modules-3.3.5-2-itanium-di
-Architecture: ia64
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-itanium-di, core-modules-3.3.5-2-itanium-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-itanium
-
 Package: linux-image-3.3.5-2-itanium
 Architecture: ia64
 Provides: linux-image, linux-modules-3.3.5-2-itanium
@@ -5274,7 +4933,7 @@ Package: kernel-image-3.3.5-2-amiga-di
 Architecture: m68k
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, loop-modules, ext2-modules, ext3-modules
+Provides: kernel-image, loop-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -5324,17 +4983,6 @@ Provides: scsi-modules
 Depends: kernel-image-3.3.5-2-amiga-di, cdrom-core-modules-3.3.5-2-amiga-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-amiga
-
-Package: btrfs-modules-3.3.5-2-amiga-di
-Architecture: m68k
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-amiga-di, zlib-modules-3.3.5-2-amiga-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-amiga
 
@@ -5431,7 +5079,7 @@ Package: kernel-image-3.3.5-2-atari-di
 Architecture: m68k
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, loop-modules, ext2-modules, ext3-modules
+Provides: kernel-image, loop-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -5481,17 +5129,6 @@ Provides: scsi-modules
 Depends: kernel-image-3.3.5-2-atari-di, cdrom-core-modules-3.3.5-2-atari-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-atari
-
-Package: btrfs-modules-3.3.5-2-atari-di
-Architecture: m68k
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-atari-di, zlib-modules-3.3.5-2-atari-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-atari
 
@@ -5588,7 +5225,7 @@ Package: kernel-image-3.3.5-2-mac-di
 Architecture: m68k
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, loop-modules, ext2-modules, ext3-modules
+Provides: kernel-image, loop-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -5638,17 +5275,6 @@ Provides: scsi-modules
 Depends: kernel-image-3.3.5-2-mac-di, cdrom-core-modules-3.3.5-2-mac-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-mac
-
-Package: btrfs-modules-3.3.5-2-mac-di
-Architecture: m68k
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-mac-di, zlib-modules-3.3.5-2-mac-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-mac
 
@@ -5891,7 +5517,7 @@ Package: kernel-image-3.3.5-2-sb1-bcm91250a-di
 Architecture: mips mipsel
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, ata-modules, ext2-modules, ext3-modules, ext4-modules, rtc-modules
+Provides: kernel-image, ata-modules, rtc-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -5985,17 +5611,6 @@ Provides: ipv6-modules
 Depends: kernel-image-3.3.5-2-sb1-bcm91250a-di
 Description: IPv6 driver
  This package contains the IPv6 driver for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sb1-bcm91250a
-
-Package: btrfs-modules-3.3.5-2-sb1-bcm91250a-di
-Architecture: mips mipsel
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-sb1-bcm91250a-di, zlib-modules-3.3.5-2-sb1-bcm91250a-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-sb1-bcm91250a
 
@@ -6191,7 +5806,7 @@ Package: kernel-image-3.3.5-2-r4k-ip22-di
 Architecture: mips
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, ext2-modules, ext3-modules, ext4-modules, rtc-modules
+Provides: kernel-image, rtc-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -6230,17 +5845,6 @@ Provides: ipv6-modules
 Depends: kernel-image-3.3.5-2-r4k-ip22-di
 Description: IPv6 driver
  This package contains the IPv6 driver for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-r4k-ip22
-
-Package: btrfs-modules-3.3.5-2-r4k-ip22-di
-Architecture: mips
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-r4k-ip22-di, zlib-modules-3.3.5-2-r4k-ip22-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-r4k-ip22
 
@@ -6359,7 +5963,7 @@ Package: kernel-image-3.3.5-2-r5k-ip32-di
 Architecture: mips
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, ext2-modules, ext3-modules, ext4-modules, rtc-modules
+Provides: kernel-image, rtc-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -6398,17 +6002,6 @@ Provides: ipv6-modules
 Depends: kernel-image-3.3.5-2-r5k-ip32-di
 Description: IPv6 driver
  This package contains the IPv6 driver for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-r5k-ip32
-
-Package: btrfs-modules-3.3.5-2-r5k-ip32-di
-Architecture: mips
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-r5k-ip32-di, zlib-modules-3.3.5-2-r5k-ip32-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-r5k-ip32
 
@@ -6527,7 +6120,7 @@ Package: kernel-image-3.3.5-2-4kc-malta-di
 Architecture: mips mipsel
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, ata-modules, ext2-modules, ext3-modules, ext4-modules, rtc-modules
+Provides: kernel-image, ata-modules, rtc-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -6576,17 +6169,6 @@ Provides: ipv6-modules
 Depends: kernel-image-3.3.5-2-4kc-malta-di
 Description: IPv6 driver
  This package contains the IPv6 driver for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-4kc-malta
-
-Package: btrfs-modules-3.3.5-2-4kc-malta-di
-Architecture: mips mipsel
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-4kc-malta-di, zlib-modules-3.3.5-2-4kc-malta-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-4kc-malta
 
@@ -6943,7 +6525,7 @@ Package: kernel-image-3.3.5-2-r5k-cobalt-di
 Architecture: mipsel
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, ata-modules, ext2-modules, ext3-modules, ext4-modules, rtc-modules
+Provides: kernel-image, ata-modules, rtc-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -6993,17 +6575,6 @@ Provides: ipv6-modules
 Depends: kernel-image-3.3.5-2-r5k-cobalt-di
 Description: IPv6 driver
  This package contains the IPv6 driver for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-r5k-cobalt
-
-Package: btrfs-modules-3.3.5-2-r5k-cobalt-di
-Architecture: mipsel
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-r5k-cobalt-di, zlib-modules-3.3.5-2-r5k-cobalt-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-r5k-cobalt
 
@@ -7133,7 +6704,7 @@ Package: kernel-image-3.3.5-2-loongson-2f-di
 Architecture: mipsel
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, ata-modules, ext2-modules, ext3-modules, ext4-modules, rtc-modules
+Provides: kernel-image, ata-modules, rtc-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -7205,17 +6776,6 @@ Provides: ipv6-modules
 Depends: kernel-image-3.3.5-2-loongson-2f-di
 Description: IPv6 driver
  This package contains the IPv6 driver for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-loongson-2f
-
-Package: btrfs-modules-3.3.5-2-loongson-2f-di
-Architecture: mipsel
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-loongson-2f-di, zlib-modules-3.3.5-2-loongson-2f-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-loongson-2f
 
@@ -7479,7 +7039,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-powerpc-di, nic-shared-modules-3.3.5-2-powerpc-di, core-modules-3.3.5-2-powerpc-di
+Depends: kernel-image-3.3.5-2-powerpc-di, nic-shared-modules-3.3.5-2-powerpc-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -7490,7 +7050,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: nic-extra-modules
-Depends: kernel-image-3.3.5-2-powerpc-di, nic-shared-modules-3.3.5-2-powerpc-di, core-modules-3.3.5-2-powerpc-di, crc-modules-3.3.5-2-powerpc-di
+Depends: kernel-image-3.3.5-2-powerpc-di, nic-shared-modules-3.3.5-2-powerpc-di, crc-modules-3.3.5-2-powerpc-di
 Description: Rare NIC drivers
  This package contains rare NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -7546,7 +7106,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: pata-modules
-Depends: kernel-image-3.3.5-2-powerpc-di, ata-modules-3.3.5-2-powerpc-di, core-modules-3.3.5-2-powerpc-di
+Depends: kernel-image-3.3.5-2-powerpc-di, ata-modules-3.3.5-2-powerpc-di
 Description: PATA drivers
  This package contains PATA drivers for the kernel.
 XC-Package-Type: udeb
@@ -7590,7 +7150,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: scsi-modules
-Depends: kernel-image-3.3.5-2-powerpc-di, scsi-core-modules-3.3.5-2-powerpc-di, cdrom-core-modules-3.3.5-2-powerpc-di, core-modules-3.3.5-2-powerpc-di
+Depends: kernel-image-3.3.5-2-powerpc-di, scsi-core-modules-3.3.5-2-powerpc-di, cdrom-core-modules-3.3.5-2-powerpc-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
 XC-Package-Type: udeb
@@ -7638,28 +7198,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-powerpc-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc
-
-Package: btrfs-modules-3.3.5-2-powerpc-di
-Architecture: powerpc
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-powerpc-di, core-modules-3.3.5-2-powerpc-di, crc-modules-3.3.5-2-powerpc-di, zlib-modules-3.3.5-2-powerpc-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc
-
-Package: ext4-modules-3.3.5-2-powerpc-di
-Architecture: powerpc
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.3.5-2-powerpc-di, core-modules-3.3.5-2-powerpc-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-powerpc
 
@@ -7844,7 +7382,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: nic-pcmcia-modules
-Depends: nic-modules-3.3.5-2-powerpc-di, core-modules-3.3.5-2-powerpc-di
+Depends: nic-modules-3.3.5-2-powerpc-di
 Description: Common PCMCIA NIC drivers
  This package contains common PCMCIA NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -7855,7 +7393,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: pcmcia-modules
-Depends: core-modules-3.3.5-2-powerpc-di
+Depends:kernel-image-3.3.5-2-powerpc-di
 Description: Common PCMCIA drivers
  This package contains common PCMCIA drivers for the kernel.
 XC-Package-Type: udeb
@@ -7869,18 +7407,6 @@ Provides: sata-modules
 Depends: kernel-image-3.3.5-2-powerpc-di, scsi-core-modules-3.3.5-2-powerpc-di, ata-modules-3.3.5-2-powerpc-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc
-
-Package: core-modules-3.3.5-2-powerpc-di
-Architecture: powerpc
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-powerpc-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-powerpc
 
@@ -7985,22 +7511,6 @@ Description: zlib modules
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-powerpc
 
-Package: ext2-modules-3.3.5-2-powerpc-di
-Architecture: powerpc
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-powerpc-di, core-modules-3.3.5-2-powerpc-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc
-
-Package: ext3-modules-3.3.5-2-powerpc-di
-Architecture: powerpc
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-powerpc-di, core-modules-3.3.5-2-powerpc-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc
-
 Package: kernel-image-3.3.5-2-powerpc64-di
 Architecture: powerpc
 Section: debian-installer
@@ -8018,7 +7528,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-powerpc64-di, nic-shared-modules-3.3.5-2-powerpc64-di, core-modules-3.3.5-2-powerpc64-di
+Depends: kernel-image-3.3.5-2-powerpc64-di, nic-shared-modules-3.3.5-2-powerpc64-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -8029,7 +7539,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: nic-extra-modules
-Depends: kernel-image-3.3.5-2-powerpc64-di, nic-shared-modules-3.3.5-2-powerpc64-di, core-modules-3.3.5-2-powerpc64-di, crc-modules-3.3.5-2-powerpc64-di
+Depends: kernel-image-3.3.5-2-powerpc64-di, nic-shared-modules-3.3.5-2-powerpc64-di, crc-modules-3.3.5-2-powerpc64-di
 Description: Rare NIC drivers
  This package contains rare NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -8085,7 +7595,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: pata-modules
-Depends: kernel-image-3.3.5-2-powerpc64-di, ata-modules-3.3.5-2-powerpc64-di, core-modules-3.3.5-2-powerpc64-di
+Depends: kernel-image-3.3.5-2-powerpc64-di, ata-modules-3.3.5-2-powerpc64-di
 Description: PATA drivers
  This package contains PATA drivers for the kernel.
 XC-Package-Type: udeb
@@ -8129,7 +7639,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: scsi-modules
-Depends: kernel-image-3.3.5-2-powerpc64-di, scsi-core-modules-3.3.5-2-powerpc64-di, cdrom-core-modules-3.3.5-2-powerpc64-di, core-modules-3.3.5-2-powerpc64-di
+Depends: kernel-image-3.3.5-2-powerpc64-di, scsi-core-modules-3.3.5-2-powerpc64-di, cdrom-core-modules-3.3.5-2-powerpc64-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
 XC-Package-Type: udeb
@@ -8177,28 +7687,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-powerpc64-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc64
-
-Package: btrfs-modules-3.3.5-2-powerpc64-di
-Architecture: powerpc
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-powerpc64-di, core-modules-3.3.5-2-powerpc64-di, crc-modules-3.3.5-2-powerpc64-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc64
-
-Package: ext4-modules-3.3.5-2-powerpc64-di
-Architecture: powerpc
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.3.5-2-powerpc64-di, core-modules-3.3.5-2-powerpc64-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-powerpc64
 
@@ -8383,7 +7871,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: nic-pcmcia-modules
-Depends: nic-modules-3.3.5-2-powerpc64-di, core-modules-3.3.5-2-powerpc64-di
+Depends: nic-modules-3.3.5-2-powerpc64-di
 Description: Common PCMCIA NIC drivers
  This package contains common PCMCIA NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -8394,7 +7882,7 @@ Architecture: powerpc
 Section: debian-installer
 Priority: standard
 Provides: pcmcia-modules
-Depends: core-modules-3.3.5-2-powerpc64-di
+Depends:kernel-image-3.3.5-2-powerpc64-di
 Description: Common PCMCIA drivers
  This package contains common PCMCIA drivers for the kernel.
 XC-Package-Type: udeb
@@ -8408,18 +7896,6 @@ Provides: sata-modules
 Depends: kernel-image-3.3.5-2-powerpc64-di, scsi-core-modules-3.3.5-2-powerpc64-di, ata-modules-3.3.5-2-powerpc64-di
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc64
-
-Package: core-modules-3.3.5-2-powerpc64-di
-Architecture: powerpc
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-powerpc64-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-powerpc64
 
@@ -8510,22 +7986,6 @@ Provides: uinput-modules
 Depends: kernel-image-3.3.5-2-powerpc64-di
 Description: uinput support
  This package contains the uinput module.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc64
-
-Package: ext2-modules-3.3.5-2-powerpc64-di
-Architecture: powerpc
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-powerpc64-di, core-modules-3.3.5-2-powerpc64-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-powerpc64
-
-Package: ext3-modules-3.3.5-2-powerpc64-di
-Architecture: powerpc
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-powerpc64-di, core-modules-3.3.5-2-powerpc64-di
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-powerpc64
 
@@ -8656,7 +8116,7 @@ Architecture: s390 s390x
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-s390x-di, core-modules-3.3.5-2-s390x-di
+Depends: kernel-image-3.3.5-2-s390x-di
 Description: Common NIC drivers
  This package contains common NIC drivers for the kernel.
 XC-Package-Type: udeb
@@ -8678,20 +8138,9 @@ Architecture: s390 s390x
 Section: debian-installer
 Priority: standard
 Provides: scsi-modules
-Depends: kernel-image-3.3.5-2-s390x-di, scsi-core-modules-3.3.5-2-s390x-di, core-modules-3.3.5-2-s390x-di
+Depends: kernel-image-3.3.5-2-s390x-di, scsi-core-modules-3.3.5-2-s390x-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-s390x
-
-Package: ext4-modules-3.3.5-2-s390x-di
-Architecture: s390 s390x
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.3.5-2-s390x-di, core-modules-3.3.5-2-s390x-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-s390x
 
@@ -8736,18 +8185,6 @@ Provides: multipath-modules
 Depends: kernel-image-3.3.5-2-s390x-di, md-modules-3.3.5-2-s390x-di, scsi-core-modules-3.3.5-2-s390x-di
 Description: Multipath support
  This package contains DM-Multipath modules for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-s390x
-
-Package: core-modules-3.3.5-2-s390x-di
-Architecture: s390 s390x
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-s390x-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-s390x
 
@@ -8820,22 +8257,6 @@ Description: optional dasd DIAG support
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-s390x
 
-Package: ext2-modules-3.3.5-2-s390x-di
-Architecture: s390 s390x
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-s390x-di, core-modules-3.3.5-2-s390x-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-s390x
-
-Package: ext3-modules-3.3.5-2-s390x-di
-Architecture: s390 s390x
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-s390x-di, core-modules-3.3.5-2-s390x-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-s390x
-
 Package: kernel-image-3.3.5-2-s390x-tape-di
 Architecture: s390 s390x
 Section: debian-installer
@@ -8904,7 +8325,7 @@ Package: kernel-image-3.3.5-2-sh7751r-di
 Architecture: sh4
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, event-modules, ext3-modules, fb-modules, input-modules, mouse-modules, nic-shared-modules, rtc-modules, uinput-modules, usb-modules
+Provides: kernel-image, event-modules, fb-modules, input-modules, mouse-modules, nic-shared-modules, rtc-modules, uinput-modules, usb-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -8997,28 +8418,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-sh7751r-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sh7751r
-
-Package: btrfs-modules-3.3.5-2-sh7751r-di
-Architecture: sh4
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-sh7751r-di, crc-modules-3.3.5-2-sh7751r-di, zlib-modules-3.3.5-2-sh7751r-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sh7751r
-
-Package: ext4-modules-3.3.5-2-sh7751r-di
-Architecture: sh4
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.3.5-2-sh7751r-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-sh7751r
 
@@ -9265,19 +8664,11 @@ Description: zlib modules
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-sh7751r
 
-Package: ext2-modules-3.3.5-2-sh7751r-di
-Architecture: sh4
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-sh7751r-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sh7751r
-
 Package: kernel-image-3.3.5-2-sh7785lcr-di
 Architecture: sh4
 Section: debian-installer
 Priority: extra
-Provides: kernel-image, event-modules, ext3-modules, fb-modules, input-modules, mouse-modules, nic-shared-modules, rtc-modules, uinput-modules, usb-modules
+Provides: kernel-image, event-modules, fb-modules, input-modules, mouse-modules, nic-shared-modules, rtc-modules, uinput-modules, usb-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -9370,28 +8761,6 @@ Provides: loop-modules
 Depends: kernel-image-3.3.5-2-sh7785lcr-di
 Description: Loopback filesystem support
  This package contains loopback filesystem support for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sh7785lcr
-
-Package: btrfs-modules-3.3.5-2-sh7785lcr-di
-Architecture: sh4
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-sh7785lcr-di, crc-modules-3.3.5-2-sh7785lcr-di, zlib-modules-3.3.5-2-sh7785lcr-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sh7785lcr
-
-Package: ext4-modules-3.3.5-2-sh7785lcr-di
-Architecture: sh4
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.3.5-2-sh7785lcr-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-sh7785lcr
 
@@ -9605,14 +8974,6 @@ Description: zlib modules
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-sh7785lcr
 
-Package: ext2-modules-3.3.5-2-sh7785lcr-di
-Architecture: sh4
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-sh7785lcr-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sh7785lcr
-
 Package: linux-image-3.3.5-2-sh7751r
 Architecture: sh4
 Provides: linux-image, linux-modules-3.3.5-2-sh7751r
@@ -9686,7 +9047,7 @@ Architecture: sparc sparc64
 Section: debian-installer
 Priority: standard
 Provides: nic-modules
-Depends: kernel-image-3.3.5-2-sparc64-di, core-modules-3.3.5-2-sparc64-di
+Depends: kernel-image-3.3.5-2-sparc64-di
 Description: Network card modules for Sparc kernels
  This package contains the drivers for the Happy Meal/Big Mac 10/100BaseT,
  Sun QuadEthernet and MyriCOM Gigabit Ethernet SBus devices for SPARC
@@ -9746,7 +9107,7 @@ Architecture: sparc sparc64
 Section: debian-installer
 Priority: standard
 Provides: scsi-modules
-Depends: kernel-image-3.3.5-2-sparc64-di, scsi-core-modules-3.3.5-2-sparc64-di, cdrom-core-modules-3.3.5-2-sparc64-di, core-modules-3.3.5-2-sparc64-di, ata-modules-3.3.5-2-sparc64-di
+Depends: kernel-image-3.3.5-2-sparc64-di, scsi-core-modules-3.3.5-2-sparc64-di, cdrom-core-modules-3.3.5-2-sparc64-di, ata-modules-3.3.5-2-sparc64-di
 Description: SCSI drivers
  This package contains SCSI drivers for the kernel.
 XC-Package-Type: udeb
@@ -9771,28 +9132,6 @@ Provides: plip-modules
 Depends: kernel-image-3.3.5-2-sparc64-di
 Description: PLIP drivers
  This package contains PLIP drivers for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sparc64
-
-Package: btrfs-modules-3.3.5-2-sparc64-di
-Architecture: sparc sparc64
-Section: debian-installer
-Priority: extra
-Provides: btrfs-modules
-Depends: kernel-image-3.3.5-2-sparc64-di, core-modules-3.3.5-2-sparc64-di, zlib-modules-3.3.5-2-sparc64-di
-Description: BTRFS filesystem support
- This package contains the BTRFS filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sparc64
-
-Package: ext4-modules-3.3.5-2-sparc64-di
-Architecture: sparc sparc64
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.3.5-2-sparc64-di, core-modules-3.3.5-2-sparc64-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-sparc64
 
@@ -9906,18 +9245,6 @@ Description: SATA drivers
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-sparc64
 
-Package: core-modules-3.3.5-2-sparc64-di
-Architecture: sparc sparc64
-Section: debian-installer
-Priority: standard
-Provides: core-modules
-Depends: kernel-image-3.3.5-2-sparc64-di
-Description: Core modules
- This package contains core modules for the kernel, that will almost
- always be needed.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sparc64
-
 Package: crypto-modules-3.3.5-2-sparc64-di
 Architecture: sparc sparc64
 Section: debian-installer
@@ -9983,22 +9310,6 @@ Provides: zlib-modules
 Depends: kernel-image-3.3.5-2-sparc64-di
 Description: zlib modules
  This package contains zlib modules.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sparc64
-
-Package: ext2-modules-3.3.5-2-sparc64-di
-Architecture: sparc sparc64
-Section: debian-installer
-Provides: ext2-modules
-Depends: kernel-image-3.3.5-2-sparc64-di, core-modules-3.3.5-2-sparc64-di
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.3.5-2-sparc64
-
-Package: ext3-modules-3.3.5-2-sparc64-di
-Architecture: sparc sparc64
-Section: debian-installer
-Provides: ext3-modules
-Depends: kernel-image-3.3.5-2-sparc64-di, core-modules-3.3.5-2-sparc64-di
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.3.5-2-sparc64
 
