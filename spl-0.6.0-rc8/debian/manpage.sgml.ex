@@ -20,14 +20,14 @@ manpage.1: manpage.sgml
   <!ENTITY dhfirstname "<firstname>FIRSTNAME</firstname>">
   <!ENTITY dhsurname   "<surname>SURNAME</surname>">
   <!-- Please adjust the date whenever revising the manpage. -->
-  <!ENTITY dhdate      "<date>April 28, 2012</date>">
+  <!ENTITY dhdate      "<date>May  1, 2012</date>">
   <!-- SECTION should be 1-8, maybe w/ subsection other parameters are
        allowed: see man(7), man(1). -->
   <!ENTITY dhsection   "<manvolnum>SECTION</manvolnum>">
   <!ENTITY dhemail     "<email>nick.black@sprezzatech.com</email>">
   <!ENTITY dhusername  "Nick Black">
-  <!ENTITY dhucpackage "<refentrytitle>SPL-MODULES-3.3.3-1-AMD64-DI</refentrytitle>">
-  <!ENTITY dhpackage   "spl-modules-3.3.3-1-amd64-di">
+  <!ENTITY dhucpackage "<refentrytitle>SPL</refentrytitle>">
+  <!ENTITY dhpackage   "spl">
 
   <!ENTITY debian      "<productname>Debian</productname>">
   <!ENTITY gnu         "<acronym>GNU</acronym>">

@@ -56,9 +56,9 @@ man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
   <!ENTITY dhsection   "SECTION">
   <!-- TITLE should be something like "User commands" or similar (see
        http://www.tldp.org/HOWTO/Man-Page/q2.html). -->
-  <!ENTITY dhtitle     "spl-modules-3.3.3-1-amd64-di User Manual">
-  <!ENTITY dhucpackage "SPL-MODULES-3.3.3-1-AMD64-DI">
-  <!ENTITY dhpackage   "spl-modules-3.3.3-1-amd64-di">
+  <!ENTITY dhtitle     "spl User Manual">
+  <!ENTITY dhucpackage "SPL">
+  <!ENTITY dhpackage   "spl">
 ]>
 
 <refentry>

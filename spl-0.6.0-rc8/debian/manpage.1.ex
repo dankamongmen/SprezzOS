@@ -2,7 +2,7 @@
 .\" First parameter, NAME, should be all caps
 .\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
 .\" other parameters are allowed: see man(7), man(1)
-.TH SPL-MODULES-3.3.3-1-AMD64-DI SECTION "April 28, 2012"
+.TH SPL SECTION "May  1, 2012"
 .\" Please adjust this date whenever revising the manpage.
 .\"
 .\" Some roff macros, for reference:
@@ -16,16 +16,16 @@
 .\" .sp <n>    insert n+1 empty lines
 .\" for manpage-specific macros, see man(7)
 .SH NAME
-spl-modules-3.3.3-1-amd64-di \- program to do something
+spl \- program to do something
 .SH SYNOPSIS
-.B spl-modules-3.3.3-1-amd64-di
+.B spl
 .RI [ options ] " files" ...
 .br
 .B bar
 .RI [ options ] " files" ...
 .SH DESCRIPTION
 This manual page documents briefly the
-.B spl-modules-3.3.3-1-amd64-di
+.B spl
 and
 .B bar
 commands.
@@ -33,7 +33,7 @@ commands.
 .\" TeX users may be more comfortable with the \fB<whatever>\fP and
 .\" \fI<whatever>\fP escape sequences to invode bold face and italics,
 .\" respectively.
-\fBspl-modules-3.3.3-1-amd64-di\fP is a program that...
+\fBspl\fP is a program that...
 .SH OPTIONS
 These programs follow the usual GNU command line syntax, with long
 options starting with two dashes (`-').
@@ -53,7 +53,7 @@ The programs are documented fully by
 .IR "The Rise and Fall of a Fooish Bar" ,
 available via the Info system.
 .SH AUTHOR
-spl-modules-3.3.3-1-amd64-di was written by <upstream author>.
+spl was written by <upstream author>.
 .PP
 This manual page was written by Nick Black <nick.black@sprezzatech.com>,
 for the Debian project (and may be used by others).
