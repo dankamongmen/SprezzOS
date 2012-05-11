@@ -196,7 +196,7 @@ Package: kernel-image-3.2.0-2-amd64-di
 Architecture: amd64
 Section: debian-installer
 Priority: extra
-Provides: kernel-image
+Provides: kernel-image, ext4-modules
 Description: Linux kernel binary image for the Debian installer
  This package contains the kernel image for the Debian installer boot
  images.  It does _not_ provide a usable kernel for your full Debian
@@ -424,17 +424,6 @@ Provides: ext3-modules
 Depends: kernel-image-3.2.0-2-amd64-di, core-modules-3.2.0-2-amd64-di
 Description: EXT3 filesystem support
  This package contains the EXT3 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-amd64
-
-Package: ext4-modules-3.2.0-2-amd64-di
-Architecture: amd64
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-amd64-di, core-modules-3.2.0-2-amd64-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-amd64
 
@@ -1113,17 +1102,6 @@ Description: EXT3 filesystem support
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-iop32x
 
-Package: ext4-modules-3.2.0-2-iop32x-di
-Architecture: armel
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-iop32x-di, core-modules-3.2.0-2-iop32x-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-iop32x
-
 Package: isofs-modules-3.2.0-2-iop32x-di
 Architecture: armel
 Section: debian-installer
@@ -1467,17 +1445,6 @@ Provides: ext3-modules
 Depends: kernel-image-3.2.0-2-kirkwood-di, core-modules-3.2.0-2-kirkwood-di
 Description: EXT3 filesystem support
  This package contains the EXT3 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-kirkwood
-
-Package: ext4-modules-3.2.0-2-kirkwood-di
-Architecture: armel
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-kirkwood-di, core-modules-3.2.0-2-kirkwood-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-kirkwood
 
@@ -1860,17 +1827,6 @@ Description: EXT3 filesystem support
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-orion5x
 
-Package: ext4-modules-3.2.0-2-orion5x-di
-Architecture: armel
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-orion5x-di, core-modules-3.2.0-2-orion5x-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-orion5x
-
 Package: isofs-modules-3.2.0-2-orion5x-di
 Architecture: armel
 Section: debian-installer
@@ -2224,17 +2180,6 @@ Provides: ext3-modules
 Depends: kernel-image-3.2.0-2-versatile-di, core-modules-3.2.0-2-versatile-di
 Description: EXT3 filesystem support
  This package contains the EXT3 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-versatile
-
-Package: ext4-modules-3.2.0-2-versatile-di
-Architecture: armel
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-versatile-di, core-modules-3.2.0-2-versatile-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-versatile
 
@@ -2669,17 +2614,6 @@ Description: EXT3 filesystem support
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-mx5
 
-Package: ext4-modules-3.2.0-2-mx5-di
-Architecture: armhf
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-mx5-di, core-modules-3.2.0-2-mx5-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-mx5
-
 Package: isofs-modules-3.2.0-2-mx5-di
 Architecture: armhf
 Section: debian-installer
@@ -3058,17 +2992,6 @@ Description: EXT3 filesystem support
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-parisc
 
-Package: ext4-modules-3.2.0-2-parisc-di
-Architecture: hppa
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-parisc-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-parisc
-
 Package: fat-modules-3.2.0-2-parisc-di
 Architecture: hppa
 Section: debian-installer
@@ -3299,17 +3222,6 @@ Provides: ext3-modules
 Depends: kernel-image-3.2.0-2-parisc64-di
 Description: EXT3 filesystem support
  This package contains the EXT3 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-parisc64
-
-Package: ext4-modules-3.2.0-2-parisc64-di
-Architecture: hppa
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-parisc64-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-parisc64
 
@@ -3756,17 +3668,6 @@ Provides: ext3-modules
 Depends: kernel-image-3.2.0-2-486-di, core-modules-3.2.0-2-486-di
 Description: EXT3 filesystem support
  This package contains the EXT3 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-486
-
-Package: ext4-modules-3.2.0-2-486-di
-Architecture: i386
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-486-di, core-modules-3.2.0-2-486-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-486
 
@@ -4446,17 +4347,6 @@ Provides: ext3-modules
 Depends: kernel-image-3.2.0-2-686-pae-di, core-modules-3.2.0-2-686-pae-di
 Description: EXT3 filesystem support
  This package contains the EXT3 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-686-pae
-
-Package: ext4-modules-3.2.0-2-686-pae-di
-Architecture: i386
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-686-pae-di, core-modules-3.2.0-2-686-pae-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-686-pae
 
@@ -5224,17 +5114,6 @@ Provides: ext3-modules
 Depends: kernel-image-3.2.0-2-itanium-di, core-modules-3.2.0-2-itanium-di
 Description: EXT3 filesystem support
  This package contains the EXT3 filesystem module for the kernel.
-XC-Package-Type: udeb
-XB-Kernel-Version: 3.2.0-2-itanium
-
-Package: ext4-modules-3.2.0-2-itanium-di
-Architecture: ia64
-Section: debian-installer
-Priority: standard
-Provides: ext4-modules
-Depends: kernel-image-3.2.0-2-itanium-di, core-modules-3.2.0-2-itanium-di
-Description: EXT4 filesystem support
- This package contains the EXT4 filesystem module for the kernel.
 XC-Package-Type: udeb
 XB-Kernel-Version: 3.2.0-2-itanium
 
