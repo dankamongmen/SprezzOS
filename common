@@ -20,7 +20,7 @@ EXTRAS ?=
 
 # This variable can be used to add a preseed file to the initrd itself.
 # It will be loaded by the initrd-preseed udeb.
-PRESEED = 
+PRESEED = SprezzOS.preseed
 
 # The library reducer to use. Set to mklibs (to build with library reduction)
 # or mklibs-copy (to build without library reduction).
@@ -73,7 +73,7 @@ INITRD_FS = initramfs
 FLOPPYDEV = /dev/fd0
 
 # What qemu to use, with any options.
-QEMU = qemu
+QEMU = kvm
 
 # media where images may be written to (via dd).
 WRITE_MEDIA = floppy

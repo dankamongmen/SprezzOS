@@ -41,6 +41,7 @@ sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
 # See FIXME below
 #sudo chroot "$DI" cd /d-i && scripts/git-setup && mr -p checkout
 #sudo cp local "$DI/d-i/installer/build/pkg-lists/"
+#sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
 
 for i in "$@" ; do
 	cp "$i" "$DI/d-i/installer/build/localudebs"
