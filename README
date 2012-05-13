@@ -78,7 +78,19 @@ version-tracked debian/ directory and dpkg-buildpackage. The result will be a
 great many udebs and some debs.
 
 Acquire the desired kernel via git or tarball. Acquire the debian packaging
-from kernel-packaging in this tree. Configure the kernel.
+from kernel-packaging in this tree. I've made changes including:
+
+ - removal of most patches
+ - removal of some module udebs (ext2, ext3, ext4, core):
+    - remove files from installer/ tree
+ - removal of some modules, but not entire udeb
+    - edit files in installer/ tree
+ - kernel configuration changes (FIXME i don't think i'm doing this correctly)
+    - involves files named 'config' in the config/ tree
+ - build configuration changes
+    - files named 'defines' in the config/ tree
+
+Configure the kernel.
 
 The control file is built by debian/bin/gencontrol.py, which calls kernel-wedge
 after exporting KW_CONFIG_DIR appropriately for the architecture. gencontrol.py
@@ -89,11 +101,6 @@ will kill it. I'm doing something incorrectly here FIXME.
 
 We would run dpkg-buildpackage, but that invokes gencontrol.py. Instead, run
 ""debian/rules binary". FIXME
-
-FIXME (considerations include: removing/adding entries to module
-	config files in debian/config/, copying config through
-	debian/config/config, setting defines, generating usable header
-	packages for the next stage...)
 
  ________________
 |external modules|
