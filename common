@@ -24,7 +24,7 @@ PRESEED = SprezzOS.preseed
 
 # The library reducer to use. Set to mklibs (to build with library reduction)
 # or mklibs-copy (to build without library reduction).
-MKLIBS = mklibs
+MKLIBS = mklibs-copy
 
 # Normally the sources.list for building d-i will be derived from your
 # "normal" sources.list. However, you can specify a mirror here to override
@@ -84,7 +84,7 @@ WRITE_MEDIA = floppy
 TYPE = $(MEDIUM)
 
 # Used to write a /etc/lsb-release file in the installer initrd.
-LSB_DISTRIB_ID=Debian
+LSB_DISTRIB_ID=SprezzOS
 LSB_DISTRIB_DESCRIPTION="Debian $(shell uname -o) installer"
 # Inlude the build date of the installer in here.
 LSB_DISTRIB_RELEASE="$(DEBIAN_VERSION) - installer build $(BUILD_DATE)"

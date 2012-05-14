@@ -56,10 +56,9 @@ Tools you need to know beyond standard dev:
  -----------
 
 This is pretty simple. We use the buildd variant with a bunch of extra
-packages. In a pretty dick move, we create a symlink from /usr/bin/mklibs-copy
-to /usr/local/bin/mklibs, shadowing the main mklibs (this is a workaround for
-ZFS/SPL-related barfing during library size reduction, and should go -- we
-ought only include .ko's in the kernel udebs FIXME).
+packages. We're specifying mklibs-copy in config/common in a workaround for
+ZFS/SPL-related barfing during library size reduction. This and should go -- we
+ought only include .ko's in the kernel udebs FIXME.
 
  ______
 |kernel|
