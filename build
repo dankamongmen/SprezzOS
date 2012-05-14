@@ -36,23 +36,21 @@ sudo cp 99translations "$DI"/etc/apt/apt.conf.d/
 wget http://www.sprezzatech.com/sprezzakey.txt -O- | sudo chroot "$DI" apt-key add -
 sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer
+
 sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
-
-# See FIXME below
-#sudo chroot "$DI" cd /d-i && scripts/git-setup && mr -p checkout
-#sudo cp local "$DI/d-i/installer/build/pkg-lists/"
-#sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
-
+sudo chroot "$DI" /bin/sh -c "cd /d-i && scripts/git-setup"
+sudo chroot "$DI" /bin/sh -c "cd /d-i && mr -p checkout"
+sudo cp local "$DI/d-i/installer/build/pkg-lists/"
 for i in "$@" ; do
 	cp "$i" "$DI/d-i/installer/build/localudebs"
 done
+
+# FIXME i don't believe we use this anymore?
+#sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
 
 sudo chroot "$DI" umount /proc
 sudo chown -R $USERNAME:$USERNAME "$DI"
 sudo chroot "$DI" mount -t proc procfs /proc
 sudo chroot "$DI" mount -t sysfs sysfs /sys
 cp -r spl* zfs* "$DI"
-echo "Now type 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
-
-# FIXME
-echo "Still need run 'sudo chroot $DI cd /d-i && scripts/git-setup && mr -p checkout' and 'sudo cp local $DI/d-i/installer/build/pkg-lists/'" >&2
+echo "Now run 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
