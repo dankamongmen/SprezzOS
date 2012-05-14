@@ -10,11 +10,10 @@ DIBUILD:=$(CHROOT)/$(DI)/build
 CONF:=$(shell pwd)/profiles/SprezzOS.conf
 CONFIN:=$(shell pwd)/SprezzOS.conf.in
 BUILDIN:=innerbuild
-UDEBS:=$(shell pwd)/udebs
-PMZFS:=$(UDEBS)/partman-zfs_19_all.udeb
 
-WORLD:=world
+WORLD:=$(shell pwd)/world
 
+PMZFS:=$(WORLD)/partman-zfs_19_all.udeb
 ZMOD:=$(CHROOT)/zfs-modules_0.6.0-1_amd64.deb
 ZFS:=$(CHROOT)/zfs_0.6.0-1_amd64.deb
 
@@ -49,9 +48,9 @@ $(CPDIIMG): $(DIIMG)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp -r $(wildcard dest/*) $(@D)
 
-#--profiles-udeb-dist $(UDEBS) #--extra-udeb-dist $(UDEBS)
+#--profiles-udeb-dist $(WORLD) #--extra-udeb-dist $(WORLD)
 
-$(PMZFS): $(UDEBS)/partman-zfs/debian/rules
+$(PMZFS): $(WORLD)/partman-zfs/debian/rules
 	cd $(<D)/.. && dpkg-buildpackage $(DBUILDOPS)
 
 $(CONF): $(CONFIN)
@@ -66,11 +65,11 @@ TARGUDEBS+=$(CHROOT)/root/udebs/zfs_1-1_all.udeb
 $(DEBS) $(TARGUDEBS) $(DIIMG): $(DIBUILD)/config/common $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) /$(BUILDIN)
 
-$(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/$(BUILDIN)
+$(CHROOT)/root/udebs/%.udeb: $(WORLD)/%.udeb $(CHROOT)/$(BUILDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
 
-$(DIBUILD)/localudebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/$(BUILDIN)
+$(DIBUILD)/localudebs/%.udeb: $(WORLD)/%.udeb $(CHROOT)/$(BUILDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
 
@@ -113,8 +112,8 @@ cleanchroot:
 clean: cleanchroot
 	rm -rf tmp $(TESTDISK) images $(CONF) $(PMZFS)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
-	-cd $(UDEBS)/partman-zfs && debian/rules clean
-	-cd $(FREETYPE) && debian/rules clean
+	-cd $(WORLD)/partman-zfs && debian/rules clean
+	-cd $(WORLD)/$(FREETYPE) && debian/rules clean
 
 clobber: clean
 	rm -f packages.tgz
