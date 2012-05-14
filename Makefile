@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean zfs clobber
+.PHONY: all test clean cleanchroot zfs clobber
 
 CHROOT:=unstable
 DBUILDOPS:=-j8 -k9978711C
@@ -82,7 +82,7 @@ $(LFT):
 	cd $(FREETYPE) && dpkg-buildpackage $(DBUILDOPS)
 
 $(CHROOT)/$(BUILDIN): $(BUILDIN) common build $(LFT) packages.tgz
-	@! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make clean'." >&2 ; exit 1 ; }
+	@! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	./build $(@D) $(LFT)
 	cp $(BUILDIN) $@
 	#sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
@@ -104,13 +104,15 @@ $(DIBUILD)/config/common: common $(CHROOT)/$(BUILDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cat $< > $@
 
-clean:
+cleanchroot:
+	sudo umount $(CHROOT)/proc $(CHROOT)/sys || true
+	sudo rm -rf $(CHROOT)
+
+clean: cleanchroot
 	rm -rf tmp $(TESTDISK) images $(CONF) $(PMZFS)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd $(UDEBS)/partman-zfs && debian/rules clean
 	-cd $(FREETYPE) && debian/rules clean
-	sudo umount $(CHROOT)/proc $(CHROOT)/sys || true
-	sudo rm -rf $(CHROOT)
 
 clobber: clean
 	rm -f packages.tgz
