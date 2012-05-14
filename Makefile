@@ -3,8 +3,8 @@
 
 CHROOT:=unstable
 DBUILDOPS:=-j8 -k9978711C
-DI:=debian-installer-20120507
-DIBUILD:=$(CHROOT)/$(DI)/build
+DI:=debian-installer-20120509
+DIBUILD:=$(CHROOT)/d-i/installer/build
 
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/profiles/SprezzOS.conf
