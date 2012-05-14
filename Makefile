@@ -29,6 +29,8 @@ DIIMG:=dest/netboot/mini.iso
 CPDIIMG:=tmp/mirror/dists/sid/main/installer-amd64/current/images/netboot
 DIDEB:=$(shell pwd)/unstable/$(DI)_amd64.deb
 
+DEBS:=$(DIDEB) $(SPL) $(ZFS)
+
 all: $(IMG)
 
 test: $(TESTDISK) all
@@ -59,7 +61,7 @@ TARGUDEBS+=$(DIBUILD)/localudebs/zfs_1-1_all.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/partman-zfs_19_all.udeb
 TARGUDEBS+=$(CHROOT)/root/udebs/zfs_1-1_all.udeb
 
-$(TARGUDEBS) $(ZFS) $(DIIMG): $(DIBUILD)/config/common $(CHROOT)/$(BUILDIN)
+$(DEBS) $(TARGUDEBS) $(DIIMG): $(DIBUILD)/config/common $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) /$(BUILDIN)
 
 $(CHROOT)/root/udebs/%.udeb: $(UDEBS)/%.udeb $(CHROOT)/$(BUILDIN)
