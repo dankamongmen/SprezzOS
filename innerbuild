@@ -3,7 +3,7 @@
 set -e
 set -x
 
-KVERS=3.3.5-2
+KVERS=3.3.6-1
 DEBKEY=AAE15FF2
 ZFSVER=0.6.0-rc8
 
@@ -14,7 +14,7 @@ cd /
 git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git \
 	-b linux-3.3.y --single-branch
 cd linux-stable
-git clone git@github.com:dankamongmen/SprezzOS.git/kernel-packaging debian
+git clone git://github.com/dankamongmen/SprezzOS.git/kernel-packaging debian
 dch --newversion=$KVERS
 
 tar -cjvf /linux-$KVERS.tar.bz2 -C.. linux-$KVERS --exclude=debian
