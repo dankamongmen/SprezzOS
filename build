@@ -34,7 +34,7 @@ deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib
 APT
 sudo cp 99translations "$DI"/etc/apt/apt.conf.d/
 sudo chroot "$DI" apt-get -y update
-wget http://www.sprezzatech.com/sprezzakey.txt | sudo chroot "$DI" apt-key add -
+wget http://www.sprezzatech.com/sprezzakey.txt -O- | sudo chroot "$DI" apt-key add -
 sudo chroot "$DI" apt-get -y build-dep debian-installer
 sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
 
