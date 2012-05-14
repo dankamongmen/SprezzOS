@@ -19,6 +19,7 @@ ZFS:=$(CHROOT)/zfs_0.6.0-1_amd64.deb
 SMOD:=$(CHROOT)/spl-modules_0.6.0-1_amd64.deb
 SPL:=$(CHROOT)/spl_0.6.0-1_amd64.deb
 
+FREETYPE:=freetype-2.4.9
 LFT:=libfreetype6-udeb_2.4.9-1.1_amd64.udeb
 
 PROFILE:=profiles/SprezzOS.packages
@@ -76,7 +77,7 @@ $(CHROOT)/linux-stable:
 	cd $(@D) && git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 
 $(LFT):
-	cd freetype-2.4.9 && dpkg-buildpackage $(DBUILDOPS)
+	cd $(FREETYPE) && dpkg-buildpackage $(DBUILDOPS)
 
 $(CHROOT)/$(BUILDIN): $(BUILDIN) common build $(LFT) packages.tgz
 	@! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make clean'." >&2 ; exit 1 ; }
@@ -105,6 +106,7 @@ clean:
 	rm -rf tmp $(TESTDISK) images $(CONF) $(PMZFS)
 	rm -f $(wildcard *deb) $(wildcard zfs/*deb) $(wildcard zfs/*rpm)
 	-cd $(UDEBS)/partman-zfs && debian/rules clean
+	-cd $(FREETYPE) && debian/rules clean
 	sudo umount $(CHROOT)/proc $(CHROOT)/sys || true
 	sudo rm -rf $(CHROOT)
 
