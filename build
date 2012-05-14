@@ -22,7 +22,7 @@ done
 [ ! -d "$DI/sys" ] || sudo umount "$DI"/sys || true
 [ ! -d "$DI" ] || sudo rm -rf "$DI"
 
-sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,devscripts \
+sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,openssh-client,devscripts \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI"
 sudo chroot "$DI" dpkg-reconfigure locales
 sudo chroot "$DI" mount -t proc procfs /proc
@@ -39,10 +39,10 @@ sudo chroot "$DI" apt-get -y build-dep debian-installer
 
 sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
 sudo chroot "$DI" /bin/sh -c "cd /d-i && scripts/git-setup"
-sudo chroot "$DI" /bin/sh -c "cd /d-i && mr -p checkout"
+sudo chroot "$DI" /bin/sh -c "cd /d-i && mr -p checkout" || true # FIXME
 sudo cp local "$DI/d-i/installer/build/pkg-lists/"
 for i in "$@" ; do
-	cp "$i" "$DI/d-i/installer/build/localudebs"
+	sudo cp "$i" "$DI/d-i/installer/build/localudebs"
 done
 
 # FIXME i don't believe we use this anymore?
@@ -52,5 +52,5 @@ sudo chroot "$DI" umount /proc
 sudo chown -R $USERNAME:$USERNAME "$DI"
 sudo chroot "$DI" mount -t proc procfs /proc
 sudo chroot "$DI" mount -t sysfs sysfs /sys
-cp -r spl* zfs* "$DI"
+cp -r spl-* zfs-* "$DI"
 echo "Now run 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
