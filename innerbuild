@@ -17,7 +17,7 @@ cd linux-stable
 git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
 dch --newversion=$KVERS
 
-tar -cjvf /linux-$KVERS.tar.bz2 -C.. linux-$KVERS --exclude=debian
+tar -cjvf /linux-$KVERS.tar.bz2 -C.. linux-stable --exclude=debian --exclude=.git
 python debian/bin/genorig.py /linux-$KVERS.tar.bz2
 debian/rules orig
 debian/rules debian/control
