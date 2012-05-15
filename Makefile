@@ -57,7 +57,7 @@ $(CONF): $(CONFIN)
 
 TARGUDEBS:=$(DIBUILD)/localudebs/partman-zfs_19_all.udeb
 
-$(DEBS) $(TARGUDEBS) $(DIIMG): $(DIBUILD)/config/common $(CHROOT)/$(BUILDIN)
+$(DEBS) $(TARGUDEBS) $(DIIMG): $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) /$(BUILDIN)
 
 $(DIBUILD)/localudebs/%.udeb: $(WORLD)/%.udeb $(CHROOT)/$(BUILDIN)
@@ -73,14 +73,10 @@ $(CHROOT)/linux-stable:
 $(LFT):
 	cd $(WORLD)/$(FREETYPE) && dpkg-buildpackage $(DBUILDOPS)
 
-$(CHROOT)/$(BUILDIN): $(BUILDIN) common build $(LFT) packages.tgz
+$(CHROOT)/$(BUILDIN): $(BUILDIN) build $(LFT) packages.tgz
 	@! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	./build $(@D) $(LFT)
 	cp $(BUILDIN) $@
-
-$(DIBUILD)/config/common: common $(CHROOT)/$(BUILDIN)
-	@[ -d $(@D) ] || mkdir -p $(@D)
-	cat $< > $@
 
 cleanchroot:
 	sudo umount $(CHROOT)/proc $(CHROOT)/sys || true
