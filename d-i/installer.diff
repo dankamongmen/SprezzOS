@@ -1,8 +1,3 @@
-mr diff: /d-i/.
-
-mr diff: /d-i/di-autobuild
-
-mr diff: /d-i/installer
 diff --git a/build/boot/x86/adgtk.cfg b/build/boot/x86/adgtk.cfg
 index 26ad24b..e3b5714 100644
 --- a/build/boot/x86/adgtk.cfg
@@ -370,7 +365,7 @@ index d15af36..4a4a728 100644
  	kernel ${KERNEL}
  	append desktop=%desktop% ${VIDEO_MODE} initrd=${INITRD} -- quiet ${CONSOLE}
 diff --git a/build/config/amd64.cfg b/build/config/amd64.cfg
-index 343d947..f854232 100644
+index 343d947..0bb5976 100644
 --- a/build/config/amd64.cfg
 +++ b/build/config/amd64.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -383,9 +378,23 @@ index 343d947..f854232 100644
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
 diff --git a/build/config/common b/build/config/common
-index 6ebfc9e..1bea193 100644
+index 6ebfc9e..27fb3ff 100644
 --- a/build/config/common
 +++ b/build/config/common
+@@ -20,11 +20,11 @@ EXTRAS ?=
+ 
+ # This variable can be used to add a preseed file to the initrd itself.
+ # It will be loaded by the initrd-preseed udeb.
+-PRESEED = 
++PRESEED = SprezzOS.preseed
+ 
+ # The library reducer to use. Set to mklibs (to build with library reduction)
+ # or mklibs-copy (to build without library reduction).
+-MKLIBS = mklibs
++MKLIBS = mklibs-copy
+ 
+ # Normally the sources.list for building d-i will be derived from your
+ # "normal" sources.list. However, you can specify a mirror here to override
 @@ -37,13 +37,13 @@ MKLIBS = mklibs
  DPKG_UNPACK_OPTIONS = --force-overwrite
  
@@ -403,7 +412,13 @@ index 6ebfc9e..1bea193 100644
  
  # Define here from what release (codename!) components (udebs) should be taken
  # to build debian-installer. By default this is set to 'unstable' for building
-@@ -62,7 +62,7 @@ BOOTMENU_BEEP ?= n
+@@ -57,12 +57,12 @@ UDEB_COMPONENTS ?= main/debian-installer
+ BUILD_DATE ?= $(shell date -u '+%Y%m%d-%H:%M')
+ 
+ # Produce a beep at boot menu
+-BOOTMENU_BEEP ?= n
++BOOTMENU_BEEP ?= y
+ 
  # x86: configure syslinux to have tasksel install a different desktop
  # environment than the default (gnome).
  # Possible values: kde, xfce, lxde
@@ -412,17 +427,24 @@ index 6ebfc9e..1bea193 100644
  
  # Filesystem type for the initrd, currently valid values are ext2, cramfs,
  # and initramfs.
-@@ -84,8 +84,8 @@ WRITE_MEDIA = floppy
+@@ -73,7 +73,7 @@ INITRD_FS = initramfs
+ FLOPPYDEV = /dev/fd0
+ 
+ # What qemu to use, with any options.
+-QEMU = qemu
++QEMU = kvm
+ 
+ # media where images may be written to (via dd).
+ WRITE_MEDIA = floppy
+@@ -84,7 +84,7 @@ WRITE_MEDIA = floppy
  TYPE = $(MEDIUM)
  
  # Used to write a /etc/lsb-release file in the installer initrd.
 -LSB_DISTRIB_ID=Debian
--LSB_DISTRIB_DESCRIPTION="Debian $(shell uname -o) installer"
 +LSB_DISTRIB_ID=SprezzOS
-+LSB_DISTRIB_DESCRIPTION="SprezzOS $(shell uname -o) installer"
+ LSB_DISTRIB_DESCRIPTION="Debian $(shell uname -o) installer"
  # Inlude the build date of the installer in here.
  LSB_DISTRIB_RELEASE="$(DEBIAN_VERSION) - installer build $(BUILD_DATE)"
- 
 diff --git a/build/config/i386.cfg b/build/config/i386.cfg
 index ba92623..0c17ab6 100644
 --- a/build/config/i386.cfg
@@ -437,7 +459,7 @@ index ba92623..0c17ab6 100644
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
 diff --git a/build/config/ia64.cfg b/build/config/ia64.cfg
-index 765be19..93ac02a 100644
+index 765be19..657e4d4 100644
 --- a/build/config/ia64.cfg
 +++ b/build/config/ia64.cfg
 @@ -5,7 +5,7 @@ MEDIUM_SUPPORTED = cdrom netboot
@@ -516,269 +538,3 @@ index 97faa81..0355258 100644
  
  # the iso is loop-mounted
  loop-modules-${kernel:Version}
-
-mr diff: /d-i/packages/aboot-installer
-
-mr diff: /d-i/packages/anna
-
-mr diff: /d-i/packages/apt-setup
-
-mr diff: /d-i/packages/arcboot-installer
-
-mr diff: /d-i/packages/auto-install
-
-mr diff: /d-i/packages/base-installer
-
-mr diff: /d-i/packages/bterm-unifont
-
-mr diff: /d-i/packages/busybox
-
-mr diff: /d-i/packages/cdebconf
-
-mr diff: /d-i/packages/cdebconf-entropy
-
-mr diff: /d-i/packages/cdebconf-terminal
-
-mr diff: /d-i/packages/cdrom-checker
-
-mr diff: /d-i/packages/cdrom-detect
-
-mr diff: /d-i/packages/cdrom-retriever
-
-mr diff: /d-i/packages/choose-mirror
-
-mr diff: /d-i/packages/clock-setup
-
-mr diff: /d-i/packages/colo-installer
-
-mr diff: /d-i/packages/console-setup
-
-mr diff: /d-i/packages/debian-installer-launcher
-
-mr diff: /d-i/packages/debian-installer-netboot-images
-
-mr diff: /d-i/packages/debian-installer-utils
-
-mr diff: /d-i/packages/debootstrap
-
-mr diff: /d-i/packages/devicetype-detect
-
-mr diff: /d-i/packages/dh-di
-
-mr diff: /d-i/packages/efi-reader
-
-mr diff: /d-i/packages/elilo-installer
-
-mr diff: /d-i/packages/etch-support
-
-mr diff: /d-i/packages/finish-install
-
-mr diff: /d-i/packages/flash-kernel
-
-mr diff: /d-i/packages/grub-installer
-
-mr diff: /d-i/packages/hw-detect
-
-mr diff: /d-i/packages/installation-locale
-
-mr diff: /d-i/packages/installation-report
-
-mr diff: /d-i/packages/iso-scan
-
-mr diff: /d-i/packages/kbd-chooser
-
-mr diff: /d-i/packages/kernel-wedge
-
-mr diff: /d-i/packages/kfreebsd-kernel-di-amd64
-
-mr diff: /d-i/packages/kfreebsd-kernel-di-i386
-
-mr diff: /d-i/packages/kickseed
-
-mr diff: /d-i/packages/lenny-support
-
-mr diff: /d-i/packages/libdebian-installer
-
-mr diff: /d-i/packages/lilo-installer
-
-mr diff: /d-i/packages/live-installer
-
-mr diff: /d-i/packages/localechooser
-
-mr diff: /d-i/packages/lowmem
-
-mr diff: /d-i/packages/lvmcfg
-
-mr diff: /d-i/packages/main-menu
-diff --git a/debian/changelog b/debian/changelog
-index d1c4d12..015675e 100644
---- a/debian/changelog
-+++ b/debian/changelog
-@@ -1,3 +1,9 @@
-+main-menu (1.37) unstable; urgency=low
-+
-+  * SprezzOS theming.
-+
-+ -- Nick Black <nick.black@sprezzatech.com>  Wed, 02 May 2012 01:11:24 +0000
-+
- main-menu (1.36) unstable; urgency=low
- 
-   * Team upload
-diff --git a/debian/main-menu.templates b/debian/main-menu.templates
-index 0906dc7..89d4a3f 100644
---- a/debian/main-menu.templates
-+++ b/debian/main-menu.templates
-@@ -1,7 +1,7 @@
- Template: debian-installer/main-menu-title
- Type: text
- # :sl1:
--_Description: Debian installer main menu
-+_Description: SprezzOS installer
- 
- Template: debian-installer/main-menu
- Type: select
-
-mr diff: /d-i/packages/mdcfg
-
-mr diff: /d-i/packages/media-retriever
-
-mr diff: /d-i/packages/mklibs
-
-mr diff: /d-i/packages/mountmedia
-
-mr diff: /d-i/packages/net-retriever
-
-mr diff: /d-i/packages/netboot-assistant
-
-mr diff: /d-i/packages/netcfg
-
-mr diff: /d-i/packages/network-console
-
-mr diff: /d-i/packages/nobootloader
-
-mr diff: /d-i/packages/oldsys-preseed
-
-mr diff: /d-i/packages/os-prober
-
-mr diff: /d-i/packages/palo-installer
-
-mr diff: /d-i/packages/partconf
-
-mr diff: /d-i/packages/partitioner
-
-mr diff: /d-i/packages/partman-auto
-
-mr diff: /d-i/packages/partman-auto-crypto
-
-mr diff: /d-i/packages/partman-auto-lvm
-
-mr diff: /d-i/packages/partman-auto-raid
-
-mr diff: /d-i/packages/partman-base
-
-mr diff: /d-i/packages/partman-basicfilesystems
-diff --git a/debian/control b/debian/control
-index 728311f..50840c4 100644
---- a/debian/control
-+++ b/debian/control
-@@ -10,6 +10,6 @@ Vcs-Git: git://git.debian.org/d-i/partman-basicfilesystems.git
- Package: partman-basicfilesystems
- XC-Package-Type: udeb
- Architecture: all
--Depends: ${misc:Depends}, e2fsprogs-udeb, ext2-modules, fat-modules
-+Depends: ${misc:Depends}, e2fsprogs-udeb, fat-modules
- Provides: partman-filesystem
- Description: Add to partman support for ext2, linux-swap, fat16 and fat32
-
-mr diff: /d-i/packages/partman-basicmethods
-
-mr diff: /d-i/packages/partman-btrfs
-
-mr diff: /d-i/packages/partman-crypto
-
-mr diff: /d-i/packages/partman-efi
-
-mr diff: /d-i/packages/partman-ext2r0
-
-mr diff: /d-i/packages/partman-ext3
-
-mr diff: /d-i/packages/partman-iscsi
-
-mr diff: /d-i/packages/partman-jfs
-
-mr diff: /d-i/packages/partman-lvm
-
-mr diff: /d-i/packages/partman-md
-
-mr diff: /d-i/packages/partman-multipath
-
-mr diff: /d-i/packages/partman-nbd
-
-mr diff: /d-i/packages/partman-newworld
-
-mr diff: /d-i/packages/partman-palo
-
-mr diff: /d-i/packages/partman-partitioning
-
-mr diff: /d-i/packages/partman-prep
-
-mr diff: /d-i/packages/partman-reiserfs
-
-mr diff: /d-i/packages/partman-target
-
-mr diff: /d-i/packages/partman-ufs
-
-mr diff: /d-i/packages/partman-xfs
-
-mr diff: /d-i/packages/partman-zfs
-
-mr diff: /d-i/packages/pkgsel
-
-mr diff: /d-i/packages/prep-installer
-
-mr diff: /d-i/packages/preseed
-
-mr diff: /d-i/packages/quik-installer
-
-mr diff: /d-i/packages/rescue
-
-mr diff: /d-i/packages/rootskel
-
-mr diff: /d-i/packages/rootskel-gtk
-diff --git a/src/usr/share/graphics/logo_debian.png b/src/usr/share/graphics/logo_debian.png
-index fb16ae5..25bd34a 100644
-Binary files a/src/usr/share/graphics/logo_debian.png and b/src/usr/share/graphics/logo_debian.png differ
-
-mr diff: /d-i/packages/s390-dasd
-
-mr diff: /d-i/packages/s390-netdevice
-
-mr diff: /d-i/packages/s390-sysconfig-writer
-
-mr diff: /d-i/packages/sarge-support
-
-mr diff: /d-i/packages/sibyl-installer
-
-mr diff: /d-i/packages/silo-installer
-
-mr diff: /d-i/packages/srm-reader
-
-mr diff: /d-i/packages/tzsetup
-
-mr diff: /d-i/packages/udpkg
-
-mr diff: /d-i/packages/usb-discover
-
-mr diff: /d-i/packages/user-setup
-
-mr diff: /d-i/packages/userdevfs
-
-mr diff: /d-i/packages/vmelilo-installer
-
-mr diff: /d-i/packages/win32-loader
-
-mr diff: /d-i/packages/yaboot-installer
-
-mr diff: /d-i/packages/zipl-installer
-
-mr diff: finished (114 ok)
