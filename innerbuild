@@ -19,10 +19,12 @@ dch --newversion=$KVERS
 python debian/bin/genorig.py .
 debian/rules orig
 
-# this is supposed to fail. i know. check the output if you don't believe me.
-fakeroot debian/rules debian/control-real || true
-debian/rules debian/control || true
+cd debian/installer/amd64
+kernel-wedge gen-control $KVERS > ../../
+cd -
 
+# this is supposed to fail. i know. check the output if you don't believe me.
+#debian/rules debian/control || true
 # rebuild the abi FIXME
 
 dpkg-buildpackage -j8 -k$DEBKEY
