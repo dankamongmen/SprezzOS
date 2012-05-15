@@ -23,10 +23,7 @@ debian/rules orig
 fakeroot debian/rules debian/control-real || true
 debian/rules debian/control || true
 
-# rebuild the abi
-# redefine it in debian/config/defines FIXME
-
-apt-get build-dep
+# rebuild the abi FIXME
 
 dpkg-buildpackage -j8 -k$DEBKEY
 mv ../*.udeb /d-i/installer/build/localudebs/
