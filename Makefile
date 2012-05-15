@@ -46,7 +46,7 @@ $(PACKAGES): $(UPDATE)
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES)
 	@! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
-	./< $(@D)
+	./$< $(@D)
 	cp $(BUILDIN) $@
 
 cleanchroot:
