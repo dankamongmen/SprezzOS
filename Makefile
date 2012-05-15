@@ -11,6 +11,7 @@ BUILD:=build
 BUILDIN:=innerbuild
 MAKECD:=makecd
 RUNCD:=runcd
+UPDATE:=update
 
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/profiles/SprezzOS.conf
@@ -40,11 +41,7 @@ $(CONF): $(CONFIN)
 $(DIDEB): $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) /$(BUILDIN)
 
-$(DIBUILD)/localudebs/%.udeb: $(WORLD)/%.udeb $(CHROOT)/$(BUILDIN)
-	@[ -d $(@D) ] || mkdir -p $(@D)
-	cp $< $@
-
-$(PACKAGES): update
+$(PACKAGES): $(UPDATE)
 	./$< $@
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES)
