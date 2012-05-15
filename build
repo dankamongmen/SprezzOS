@@ -36,6 +36,7 @@ sudo cp 99translations "$DI"/etc/apt/apt.conf.d/
 wget http://www.sprezzatech.com/sprezzakey.txt -O- | sudo chroot "$DI" apt-key add -
 sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer
+sudo chroot "$DI" apt-get -y build-dep linux-2.6
 
 sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
 sudo chroot "$DI" /bin/sh -c "cd /d-i && scripts/git-setup"
