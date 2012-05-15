@@ -26,7 +26,6 @@ debian/rules debian/control || true
 # rebuild the abi FIXME
 
 dpkg-buildpackage -j8 -k$DEBKEY
-mv ../*.udeb /d-i/installer/build/localudebs/
 cp debian/config/kernelarch-x86/config-arch-64 .config
 make oldconfig
 make -j8 bzImage
@@ -40,6 +39,9 @@ dpkg-buildpackage -j8 -k$DEBKEY
 cd /zfs-"$ZFSVER"
 tar -cjvf ../zfs_0.6.0~rc8.orig.tar.bz2 -C.. --exclude=debian zfs-0.6.0-rc8
 dpkg-buildpackage -j8 -k$DEBKEY
-cd /root
-cd /debian-installer-*
+
+mv /*.udeb /d-i/installer/build/localudebs/
+# patch d-i FIXME
+# build d-i udeb packages FIXME
+cd /d-i/installer
 dpkg-buildpackage -k$DEBKEY

@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean cleanchroot zfs clobber
+.PHONY: all test clean cleanchroot clobber
 
 CHROOT:=unstable
 DBUILDOPS:=-j8 -k9978711C
@@ -48,8 +48,6 @@ $(CPDIIMG): $(DIIMG)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp -r $(wildcard dest/*) $(@D)
 
-#--profiles-udeb-dist $(WORLD) #--extra-udeb-dist $(WORLD)
-
 $(PMZFS): $(WORLD)/partman-zfs/debian/rules
 	cd $(<D)/.. && dpkg-buildpackage $(DBUILDOPS)
 
@@ -58,23 +56,16 @@ $(CONF): $(CONFIN)
 	( cat $^ && echo custom_installer=\"$(shell pwd)/dest\" ) > $@
 
 TARGUDEBS:=$(DIBUILD)/localudebs/partman-zfs_19_all.udeb
-TARGUDEBS+=$(DIBUILD)/localudebs/zfs_1-1_all.udeb
-TARGUDEBS+=$(CHROOT)/root/udebs/partman-zfs_19_all.udeb
-TARGUDEBS+=$(CHROOT)/root/udebs/zfs_1-1_all.udeb
 
 $(DEBS) $(TARGUDEBS) $(DIIMG): $(DIBUILD)/config/common $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) /$(BUILDIN)
-
-$(CHROOT)/root/udebs/%.udeb: $(WORLD)/%.udeb $(CHROOT)/$(BUILDIN)
-	@[ -d $(@D) ] || mkdir -p $(@D)
-	cp $< $@
 
 $(DIBUILD)/localudebs/%.udeb: $(WORLD)/%.udeb $(CHROOT)/$(BUILDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
 	cp $< $@
 
 packages.tgz: update
-	./update $@
+	./$< $@
 
 $(CHROOT)/linux-stable:
 	cd $(@D) && git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
@@ -86,20 +77,6 @@ $(CHROOT)/$(BUILDIN): $(BUILDIN) common build $(LFT) packages.tgz
 	@! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	./build $(@D) $(LFT)
 	cp $(BUILDIN) $@
-	#sudo debootstrap --include=debian-keyring,kernel-wedge,automake,autoconf,udev,vim-nox,locales --variant=buildd unstable $(@D) http://ftp.us.debian.org/debian
-	#sudo chroot $(@D) mount -t proc procfs /proc
-	#sudo chroot $(@D) dpkg-reconfigure locales
-	#echo "deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib" | sudo tee -a $(CHROOT)/etc/apt/sources.list
-	#sudo chroot $(@D) apt-get -y update
-	#sudo chroot $(@D) apt-get -y build-dep debian-installer
-	#sudo chroot $(@D) apt-get source debian-installer
-	#sudo chroot $(@D) umount /proc
-	#sudo chown -R $(shell whoami) $(@D)
-	#sudo chroot $(@D) mount -t proc proc /proc
-	#echo "APT::Get::AllowUnauthenticated 1 ;" > $(@D)/etc/apt/apt.conf.d/80auth
-	#find $(DIBUILD)/pkg-lists/ -name \*.cfg -exec echo -e "zfs-modules\npartman-zfs" >> {} \;
-
-zfs: $(ZFS)
 
 $(DIBUILD)/config/common: common $(CHROOT)/$(BUILDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
