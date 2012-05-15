@@ -18,13 +18,13 @@ git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
 dch --newversion=$KVERS
 python debian/bin/genorig.py .
 debian/rules orig
-debian/rules debian/control
-
-# rebuild the abi
-# redefine it in debian/config/defines FIXME
 
 # this is supposed to fail. i know. check the output if you don't believe me.
 fakeroot debian/rules debian/control-real || true
+debian/rules debian/control || true
+
+# rebuild the abi
+# redefine it in debian/config/defines FIXME
 
 # FIXME need a configuration file
 #make deb-pkg -j8

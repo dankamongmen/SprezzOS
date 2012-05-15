@@ -14,5 +14,5 @@ git pull
 cd -
 git submodule update
 
-sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,xmlto,kernel-wedge,openssh-client,devscripts,ca-certificates \
+sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,xmlto,kernel-wedge,openssh-client,devscripts,ca-certificates,fakeroot \
 	--make-tarball="$1" --variant=buildd unstable dibuild
