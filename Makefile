@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean cleanchroot clobber
+.PHONY: all test clean cleanchroot clobber subupdate
 
 CHROOT:=unstable
 DBUILDOPS:=-j8 -k9978711C
@@ -52,6 +52,11 @@ $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES)
 cleanchroot:
 	sudo umount $(CHROOT)/proc $(CHROOT)/sys || true
 	sudo rm -rf $(CHROOT)
+
+subupdate:
+	cd fwts && git pull && cd -
+	cd kernel-packaging && git pull && cd -
+	git submodule update
 
 clean: cleanchroot
 	rm -rf tmp $(TESTDISK) images $(CONF)
