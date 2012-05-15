@@ -22,7 +22,7 @@ done
 [ ! -d "$DI/sys" ] || sudo umount "$DI"/sys || true
 [ ! -d "$DI" ] || sudo rm -rf "$DI"
 
-sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,openssh-client,devscripts,ca-certificates,fakeroot,libdebconfclient-dev,libdebian-installer-dev \
+sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,openssh-client,devscripts,ca-certificates,fakeroot,libdebconfclient0-dev,libdebian-installer4-dev \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI"
 sudo chroot "$DI" dpkg-reconfigure locales
 sudo chroot "$DI" mount -t proc procfs /proc
