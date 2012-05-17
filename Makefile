@@ -19,7 +19,7 @@ CONFIN:=$(shell pwd)/SprezzOS.conf.in
 
 IMG:=SprezzOS.iso
 TESTDISK:=kvmdisk.img
-PACKAGES:=package.tgz
+PACKAGES:=packages.tgz
 WORLD:=$(shell pwd)/world
 PROFILE:=profiles/SprezzOS.packages
 DIDEB:=$(shell pwd)/unstable/$(DI)_amd64.deb
