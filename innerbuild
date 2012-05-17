@@ -11,11 +11,15 @@ export DEBFULLNAME="Nick Black"
 export DEBEMAIL="nick.black@sprezzatech.com>"
 
 cd /
-git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git \
-	-b linux-3.3.y --single-branch
+# Don't use --single-branch, or we don't get .git and can't run genorig.py.
+#git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git \
+#	-b linux-3.3.y
+# FIXME wget a tarball
 cd linux-stable
 git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
+make -f debian/rules source-all
 dch --newversion=$KVERS
+make -f debian/rules clean
 python debian/bin/genorig.py .
 debian/rules orig
 
