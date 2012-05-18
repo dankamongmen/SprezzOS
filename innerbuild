@@ -59,7 +59,7 @@ patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff
 cd ../rootskel-gtk
 cp /d-i-patches/packages/rootskel-gtk/src/usr/share/graphics/logo_debian.png src/usr/share/graphics/
 cd ..
-for i in * ; do cd "$i" && dpkg-buildpackage -j8 ; cd - ; done
+for i in * ; do cd "$i" && dpkg-buildpackage -j8 || true ; cd - ; done
 cd /d-i/installer
 patch -p1 < /d-i-patches/installer.diff
 cp -v /d-i/packages/*udeb build/localudebs
