@@ -53,13 +53,14 @@ dpkg-buildpackage -j8 -k$DEBKEY
 mv /*.udeb /d-i/installer/build/localudebs/
 cd /d-i/packages
 cd main-menu
-patch -p1 < /d-i-patches/packages/main-menu.diff 
+patch -p1 < /d-i-patches/packages/main-menu.diff
 cd ../partman-basicfilesystems/
-patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff 
+patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff
 cd ../rootskel-gtk
 cp /d-i-patches/packages/rootskel-gtk/src/usr/share/graphics/logo_debian.png src/usr/share/graphics/
 cd ..
 for i in * ; do cd "$i" && dpkg-buildpackage -j8 ; cd - ; done
 cd /d-i/installer
+patch -p1 < /d-i-patches/installer.diff
 cp -v /d-i/packages/*udeb build/localudebs
 dpkg-buildpackage -j8 -k$DEBKEY
