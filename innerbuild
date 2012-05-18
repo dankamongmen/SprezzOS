@@ -23,7 +23,7 @@ make -f debian/rules source-all
 dch --newversion=$KVERS
 # FIXME bring debian/bin/patch.apply up to date ("upstream")
 
-make -f debian/rules clean
+make -f debian/rules clean || true
 python debian/bin/genorig.py /linux-3.3.6.tar.bz2
 debian/rules orig
 

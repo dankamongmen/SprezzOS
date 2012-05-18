@@ -9,10 +9,10 @@ usageerr () { usage >&2 ; return 1 ; }
 
 [ $# -eq 1 ] || usageerr
 
-cd fwts
-git pull
-cd -
-git submodule update
+#cd fwts
+#git pull
+#cd -
+#git submodule update
 
 sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,xmlto,kernel-wedge,openssh-client,devscripts,ca-certificates,fakeroot,libdebconfclient0-dev,libdebian-installer4-dev \
 	--make-tarball="$1" --variant=buildd unstable dibuild
