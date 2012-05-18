@@ -24,7 +24,10 @@ done
 
 sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,openssh-client,devscripts,ca-certificates,fakeroot,libdebconfclient0-dev,libdebian-installer4-dev \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI"
-sudo chroot "$DI" dpkg-reconfigure locales
+sudo chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UTF-8 | debconf-communicate"
+sudo chroot "$DI" /bin/sh -c "echo set locales/default_environment_locale en_US.UTF-8 | debconf-communicate"
+echo "en_US.UTF-8 UTF-8" | sudo tee -a "$DI/etc/locale.gen"
+sudo chroot "$DI" locale-gen
 sudo chroot "$DI" mount -t proc procfs /proc
 
 sudo tee -a "$DI/etc/apt/sources.list" <<APT
