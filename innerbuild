@@ -13,13 +13,16 @@ export DEBEMAIL="nick.black@sprezzatech.com>"
 cd /
 # FIXME kill hardcodings
 wget ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-3.3.6.tar.bz2
-tar xzvf linux-3.3.6.tar.bz2
-cd linux-stable
+tar xjvf linux-3.3.6.tar.bz2
+cd linux-3.3.6
 git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
+# This must be run twice. The first time, it intentionally fails. Don't
+# believe me? Run it yourself and see.
+make -f debian/rules source-all || true
 make -f debian/rules source-all
 dch --newversion=$KVERS
 make -f debian/rules clean
-python debian/bin/genorig.py .
+python debian/bin/genorig.py /linux-3.3.6.tar.bz2
 debian/rules orig
 
 cd debian/installer/amd64
@@ -50,7 +53,7 @@ make oldconfig
 make -j8 bzImage
 make -j8 modules
 
-ln -s /linux-stable /buildkernel
+ln -s /linux-3.3.6 /buildkernel
 
 cd /spl-"$ZFSVER"
 tar -cjvf ../spl_0.6.0~rc8.orig.tar.bz2 -C.. --exclude=debian spl-0.6.0-rc8
