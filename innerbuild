@@ -31,14 +31,14 @@ debian/rules orig
 cd debian/installer/amd64
 kernel-wedge gen-control $KVERS >> ../../control
 cd -
-# FIXME ugh
-sed -i -e's/3.3.0-2/$KVERS/g' debian/bin/patch.apply
-sed -i -e's/3.3.0-2/$KVERS/g' debian/rules.gen
-sed -i -e's/3.3.0-2/$KVERS/g' debian/control
 
 # this is supposed to fail. i know. check the output if you don't believe me.
 #debian/rules debian/control || true
 # rebuild the abi FIXME
+# FIXME ugh
+sed -i -e's/3.3.0-1/$KVERS/g' debian/bin/patch.apply
+sed -i -e's/3.3.0-1/$KVERS/g' debian/rules.gen
+sed -i -e's/3.3.0-1/$KVERS/g' debian/control
 
 dpkg-buildpackage -j8 -k$DEBKEY
 cp debian/config/kernelarch-x86/config-arch-64 .config
