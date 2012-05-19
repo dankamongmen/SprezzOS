@@ -22,7 +22,10 @@ git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
 make -f debian/rules source-all || true
 # FIXME ABINAME is being passed around already here
 make -f debian/rules source-all
-dch --newversion=$KVERS
+
+# this is done manually
+#dch --newversion=$KVERS
+
 # FIXME bring debian/bin/patch.apply up to date ("upstream")
 
 make -f debian/rules clean || true
