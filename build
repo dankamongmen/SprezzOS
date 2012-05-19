@@ -49,9 +49,7 @@ for i in "$@" ; do
 	sudo cp "$i" "$DI/d-i/installer/build/localudebs"
 done
 sudo cp -r d-i "$DI/d-i-patches"
-
-# FIXME i don't believe we use this anymore?
-#sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
+sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
 
 sudo chroot "$DI" umount /proc
 sudo chown -R $USERNAME:$USERNAME "$DI"

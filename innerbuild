@@ -20,6 +20,7 @@ git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
 # This must be run twice. The first time, it intentionally fails. Don't
 # believe me? Run it yourself and see.
 make -f debian/rules source-all || true
+# FIXME ABINAME is being passed around already here
 make -f debian/rules source-all
 dch --newversion=$KVERS
 # FIXME bring debian/bin/patch.apply up to date ("upstream")
@@ -28,9 +29,9 @@ make -f debian/rules clean || true
 python debian/bin/genorig.py "/linux-$UPSTREAM.tar.bz2"
 debian/rules orig
 
-cd debian/installer/amd64
-kernel-wedge gen-control $KVERS >> ../../control
-cd -
+#cd debian/installer/amd64
+#kernel-wedge gen-control $KVERS >> ../../control
+#cd -
 
 # this is supposed to fail. i know. check the output if you don't believe me.
 #debian/rules debian/control || true

@@ -61,6 +61,7 @@ console-data    console-data/keymap/policy      select  Don't touch keymap
 
 ###### Account setup.
 
+d-i passwd/root-login boolean false
 # To preseed the root password, you have to put it in the clear in this
 # file. That is not a very good idea, use caution!
 #passwd   passwd/root-password    password r00tme
@@ -120,7 +121,7 @@ d-i netcfg/wireless_wep string
 
 # This is fairly safe to set, it makes grub install automatically to the MBR
 # if no other operating system is detected on the machine.
-#d-i grub-installer/only_debian  boolean true
+d-i grub-installer/only_debian  boolean true
 # This one makes grub-installer install to the MBR if if finds some other OS
 # too, which is less safe as it might not be able to boot that other OS.
 #d-i grub-installer/with_other_os  boolean true
@@ -142,8 +143,8 @@ d-i netcfg/wireless_wep string
 #base-config apt-setup/security-updates  boolean true
 
 # You can choose to install non-free and contrib software.
-#d-i apt-setup/non-free  boolean true
-#d-i apt-setup/contrib boolean true
+d-i apt-setup/non-free  boolean true
+d-i apt-setup/contrib boolean true
 
 
 ###### Mailer configuration.
@@ -176,4 +177,4 @@ base-config base-config/login note
 
 # loads the simple-cdd-profiles udeb to which asks for which profiles to use,
 # load the debconf preseeding and queue packages for installation.
-d-i preseed/early_command string anna-install simple-cdd-profiles
+#d-i preseed/early_command string anna-install simple-cdd-profiles
