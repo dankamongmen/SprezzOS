@@ -30,6 +30,10 @@ debian/rules orig
 cd debian/installer/amd64
 kernel-wedge gen-control $KVERS >> ../../control
 cd -
+# FIXME ugh
+sed -i -e's/3.3.0-2/3.3.6-1/g' debian/bin/patch.apply
+sed -i -e's/3.3.0-2/3.3.6-1/g' debian/rules.gen
+sed -i -e's/3.3.0-2/3.3.6-1/g' debian/control
 
 # this is supposed to fail. i know. check the output if you don't believe me.
 #debian/rules debian/control || true
