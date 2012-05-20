@@ -3,7 +3,7 @@
 
 CHROOT:=unstable
 DBUILDOPS:=-j8 -k9978711C
-DI:=debian-installer-20120509
+DI:=debian-installer_20120509
 DIBUILD:=$(CHROOT)/d-i/installer/build
 
 # Helper scripts
@@ -22,7 +22,7 @@ TESTDISK:=kvmdisk.img
 PACKAGES:=packages.tgz
 WORLD:=$(shell pwd)/world
 PROFILE:=profiles/SprezzOS.packages
-DIDEB:=$(shell pwd)/unstable/$(DI)_amd64.deb
+DIDEB:=$(shell pwd)/unstable/d-i/$(DI)_amd64.deb
 
 DEBS:=$(DIDEB) $(SPL) $(ZFS)
 
