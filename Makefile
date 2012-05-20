@@ -59,7 +59,7 @@ subupdate:
 	git submodule update
 
 clean: cleanchroot
-	rm -rf tmp $(TESTDISK) images $(CONF)
+	rm -rf tmp $(TESTDISK) images $(CONF) $(IMG)
 
 clobber: clean
 	rm -f $(PACKAGES)
