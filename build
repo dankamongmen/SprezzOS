@@ -52,7 +52,7 @@ sudo cp -r d-i "$DI/d-i-patches"
 sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
 
 sudo chroot "$DI" umount /proc
-sudo chown -R $USERNAME:$USERNAME "$DI"
+sudo chown -R $USER:$USER "$DI"
 sudo chroot "$DI" mount -t proc procfs /proc
 sudo chroot "$DI" mount -t sysfs sysfs /sys
 cp -r world/spl-* world/zfs-* "$DI"
