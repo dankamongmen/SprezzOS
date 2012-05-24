@@ -23,11 +23,6 @@ make -f debian/rules source-all || true
 # FIXME ABINAME is being passed around already here
 make -f debian/rules source-all
 
-# this is done manually
-#dch --newversion=$KVERS
-
-# FIXME bring debian/bin/patch.apply up to date ("upstream")
-
 make -f debian/rules clean || true
 python debian/bin/genorig.py "/linux-$UPSTREAM.tar.bz2"
 debian/rules orig
