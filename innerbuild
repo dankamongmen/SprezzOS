@@ -18,10 +18,12 @@ ZFSVER=0.6.0-rc8
 export DEBFULLNAME="Nick Black"
 export DEBEMAIL="nick.black@sprezzatech.com>"
 
-cd /
-tar xjvf "linux-$UPSTREAM.tar.bz2"
-cd "linux-$UPSTREAM"
-git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
+#cd /
+#tar xjvf "linux-$UPSTREAM.tar.bz2"
+#cd "linux-$UPSTREAM"
+#git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
+
+cd "/linux-$UPSTREAM"
 # This must be run twice. The first time, it intentionally fails. Don't
 # believe me? Run it yourself and see.
 make -f debian/rules source-all || true
