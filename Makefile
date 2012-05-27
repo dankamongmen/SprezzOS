@@ -63,8 +63,7 @@ $(PACKAGES): $(UPDATE)
 	./$< $@
 
 subupdate:
-	cd fwts && git pull && cd -
-	cd kernel-packaging && git pull && cd -
+	cd fwts && git pull origin HEAD && cd -
 	git submodule update
 
 clean: cleanchroot
