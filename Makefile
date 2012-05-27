@@ -44,7 +44,7 @@ $(CHROOT)/$(DIDEB): $(CHROOT)/linux-$(UPSTREAM)/debian
 	sudo chroot $(CHROOT) /$(BUILDIN) $(UPSTREAM)
 
 $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL)
-	sudo chroot $(CHROOT) tar xjf $<
+	sudo chroot $(CHROOT) tar xjf $(<F)
 	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git $@
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
