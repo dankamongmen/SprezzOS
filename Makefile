@@ -45,7 +45,7 @@ $(CHROOT)/$(DIDEB): $(CHROOT)/linux-$(UPSTREAM)/debian
 
 $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL)
 	sudo chroot $(CHROOT) tar xjf $(<F)
-	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git $@
+	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git linux-$(UPSTREAM)/debian
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	wget -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
