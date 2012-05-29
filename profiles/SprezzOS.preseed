@@ -116,6 +116,7 @@ d-i netcfg/wireless_wep string
 # You can choose from any of the predefined partitioning recipes:
 
 # without confirmation.
+d-i partman/confirm boolean true
 
 #### Boot loader installation.
 
@@ -130,7 +131,7 @@ d-i grub-installer/only_debian  boolean true
 ###### Apt setup.
 
 # automatically set the CD as the installation media.
-#base-config apt-setup/uri_type  select http
+base-config apt-setup/uri_type  select http
 #base-config apt-setup/uri_type  select cdrom
 # only scan the first CD by default
 #base-config apt-setup/cd/another  boolean false
@@ -167,7 +168,7 @@ base-config base-config/intro note
 # Avoid the final message.
 base-config base-config/login note 
 
-#d-i     popularity-contest/participate  boolean false
+d-i     popularity-contest/participate  boolean true
 
 
 ### simple-cdd commands
