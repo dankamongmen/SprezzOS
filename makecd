@@ -4,6 +4,8 @@ set -e
 
 # FIXME get kernel version as parameter
 
+CODENAME=sid
+
 usage () { echo "usage: `basename $0` [ -f ] iso" ; return 0; }
 usageerr () { usage >&2 ; return 1 ; }
 
@@ -47,10 +49,10 @@ for i in `echo $PKGS | tr , \  ` ; do
 done
 [ -r "$DI" ] || { echo "D-I package $DI didn't exist." >&2 ; exit 1; }
 
-mkdir -p tmp/mirror/dists/sid/main/installer-amd64/current/images/
+mkdir -p tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
 
-cp -r dest/* tmp/mirror/dists/sid/main/installer-amd64/current/images/
-simple-cdd --dist sid --profiles SprezzOS -b SprezzOS --auto-profiles SprezzOS \
+cp -r dest/* tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
+simple-cdd --dist "$CODENAME" --profiles SprezzOS -b SprezzOS --auto-profiles SprezzOS \
 	--local-packages "$PKGS" --kernel-packages "$KPKGS"
 
 GBOOTFILES="unicode.pf2 splash.png"
