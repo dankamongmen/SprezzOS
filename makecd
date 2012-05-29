@@ -35,11 +35,16 @@ fi
 
 DI="`pwd`/unstable/d-i/debian-installer_20120509_amd64.deb"
 KPKGS="`pwd`/unstable/linux-image-3.4.0-1-amd64_3.4-1_amd64.deb"
-KPKGS="$KPKGS,/unstable/linux-image-3.4.0-1-amd64-dbg_3.4-1_amd64.deb"
+KPKGS="$KPKGS,`pwd`/unstable/linux-image-3.4.0-1-amd64-dbg_3.4-1_amd64.deb"
 PKGS="$DI,`pwd`/unstable/d-i/installer/build/localudebs,`pwd`/unstable/spl_0.6.0~rc8-2_amd64.deb,`pwd`/unstable/zfs_0.6.0~rc8-1_amd64.deb"
 PKGS="$PKGS,$KPKGS"
 
-[ -r "$KPKGS" ] || { echo "Kernel package $KPKGS didn't exist." >&2 ; exit 1; }
+for i in `echo $KPKGS | tr , \  ` ; do
+	[ -r "$i" ] || { echo "Kernel package $i didn't exist." >&2 ; exit 1; }
+done
+for i in `echo $PKGS | tr , \  ` ; do
+	[ -r "$i" ] || { echo "Package $i didn't exist." >&2 ; exit 1; }
+done
 [ -r "$DI" ] || { echo "D-I package $DI didn't exist." >&2 ; exit 1; }
 
 mkdir -p tmp/mirror/dists/sid/main/installer-amd64/current/images/
