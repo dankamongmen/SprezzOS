@@ -5,7 +5,6 @@
 UPSTREAM:=3.4
 
 CHROOT:=unstable
-DBUILDOPS:=-j8 -k9978711C
 DI:=debian-installer_20120509
 DIBUILD:=$(CHROOT)/d-i/installer/build
 
@@ -18,12 +17,11 @@ UPDATE:=update
 
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=$(shell pwd)/profiles/SprezzOS.conf
-CONFIN:=$(shell pwd)/SprezzOS.conf.in
 
 IMG:=SprezzOS.iso
 TESTDISK:=kvmdisk.img
 PACKAGES:=packages.tgz
-WORLD:=$(shell pwd)/world
+CONFIN:=SprezzOS.conf.in
 DIDEB:=/d-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(UPSTREAM).tar.bz2
 PROFILE:=profiles/SprezzOS.packages
