@@ -36,8 +36,8 @@ if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 fi
 
 DI="`pwd`/unstable/d-i/debian-installer_20120509_amd64.deb"
-KPKGS="`pwd`/unstable/linux-image-3.4.1-1-amd64_3.4-1_amd64.deb"
-KPKGS="$KPKGS,`pwd`/unstable/linux-image-3.4.1-1-amd64-dbg_3.4-1_amd64.deb"
+KPKGS="`pwd`/unstable/linux-image-3.4.1-1-amd64_3.4.1-1_amd64.deb"
+KPKGS="$KPKGS,`pwd`/unstable/linux-image-3.4.1-1-amd64-dbg_3.4.1-1_amd64.deb"
 PKGS="$DI,`pwd`/unstable/d-i/installer/build/localudebs,`pwd`/unstable/spl_0.6.0~rc8-2_amd64.deb,`pwd`/unstable/zfs_0.6.0~rc8-1_amd64.deb"
 for i in unstable/apt_0.9.5.1+nmu1_amd64.deb unstable/apt-doc_0.9.5.1+nmu1_all.deb unstable/apt-transport-https_0.9.5.1+nmu1_amd64.deb unstable/apt-utils_0.9.5.1+nmu1_amd64.deb unstable/libapt-inst1.5_0.9.5.1+nmu1_amd64.deb unstable/libapt-pkg4.12_0.9.5.1+nmu1_amd64.deb unstable/libapt-pkg-dev_0.9.5.1+nmu1_amd64.deb unstable/libapt-pkg-doc_0.9.5.1+nmu1_all.deb ; do
 	PKGS="$PKGS,`pwd`/$i"
