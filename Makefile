@@ -2,7 +2,7 @@
 .PHONY: all test clean cleanchroot clobber subupdate
 
 # Kernel version
-UPSTREAM:=3.4.1
+UPSTREAM:=3.4.2
 
 CHROOT:=unstable
 DI:=debian-installer_20120509

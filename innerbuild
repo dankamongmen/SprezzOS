@@ -24,6 +24,11 @@ export DEBEMAIL="nick.black@sprezzatech.com>"
 #git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
 
 cd "/linux-$UPSTREAM"
+
+cd debian/installer/amd64
+kernel-wedge gen-control $KVERS >> ../../control
+cd -
+
 # This must be run twice. The first time, it intentionally fails. Don't
 # believe me? Run it yourself and see.
 make -f debian/rules source-all || true
@@ -33,10 +38,6 @@ make -f debian/rules source-all
 make -f debian/rules clean || true
 python debian/bin/genorig.py "/linux-$UPSTREAM.tar.bz2"
 debian/rules orig
-
-#cd debian/installer/amd64
-#kernel-wedge gen-control $KVERS >> ../../control
-#cd -
 
 # this is supposed to fail. i know. check the output if you don't believe me.
 #debian/rules debian/control || true
