@@ -31,7 +31,7 @@ cd -
 
 # This must be run twice. The first time, it intentionally fails. Don't
 # believe me? Run it yourself and see.
-make -f debian/rules control-real || true # Creates Source: entry in /control
+make -f debian/rules debian/control-real || true # Creates Source: entry in /control
 make -f debian/rules source-all || true
 # FIXME ABINAME is being passed around already here
 make -f debian/rules source-all
@@ -40,13 +40,11 @@ make -f debian/rules clean || true
 python debian/bin/genorig.py "/linux-$UPSTREAM.tar.bz2"
 debian/rules orig
 
-# this is supposed to fail. i know. check the output if you don't believe me.
-#debian/rules debian/control || true
 # rebuild the abi FIXME
 # FIXME ugh
-sed -i -e"s/3.3.0-1/$KVERS/g" debian/bin/patch.apply
-sed -i -e"s/3.3.0-1/$KVERS/g" debian/rules.gen
-sed -i -e"s/3.3.0-1/$KVERS/g" debian/control
+#sed -i -e"s/3.3.0-1/$KVERS/g" debian/bin/patch.apply
+#sed -i -e"s/3.3.0-1/$KVERS/g" debian/rules.gen
+#sed -i -e"s/3.3.0-1/$KVERS/g" debian/control
 
 dpkg-buildpackage -j8 -k$DEBKEY
 cp debian/config/kernelarch-x86/config-arch-64 .config
