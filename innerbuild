@@ -31,6 +31,7 @@ cd -
 
 # This must be run twice. The first time, it intentionally fails. Don't
 # believe me? Run it yourself and see.
+make -f debian/rules control-real || true # Creates Source: entry in /control
 make -f debian/rules source-all || true
 # FIXME ABINAME is being passed around already here
 make -f debian/rules source-all
