@@ -38,6 +38,10 @@ python debian/bin/genorig.py "/linux-$UPSTREAM.tar.bz2"
 debian/rules orig
 
 # rebuild the abi FIXME
+# FIXME ugh
+#sed -i -e"s/3.3.0-1/$KVERS/g" debian/bin/patch.apply
+#sed -i -e"s/3.3.0-1/$KVERS/g" debian/rules.gen
+#sed -i -e"s/3.3.0-1/$KVERS/g" debian/control
 
 dpkg-buildpackage -j8 -k$DEBKEY
 cp debian/config/kernelarch-x86/config-arch-64 .config
