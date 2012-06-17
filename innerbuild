@@ -13,10 +13,10 @@ UPSTREAM="$1"
 ABI=1
 KVERS="$UPSTREAM-$ABI"
 DEBKEY=AAE15FF2
-ZFSVER=0.6.0-rc8
+ZFSVER=0.6.0~rc9
 
 export DEBFULLNAME="Nick Black"
-export DEBEMAIL="nick.black@sprezzatech.com>"
+export DEBEMAIL="<nick.black@sprezzatech.com>"
 
 #cd /
 #tar xjvf "linux-$UPSTREAM.tar.bz2"
@@ -48,10 +48,10 @@ make -j8 modules
 ln -s "/linux-$UPSTREAM" /buildkernel
 
 cd /spl-"$ZFSVER"
-tar -cjvf ../spl_0.6.0~rc8.orig.tar.bz2 -C.. --exclude=debian spl-0.6.0-rc8
+tar -cjvf ../spl_0.6.0~rc9.orig.tar.bz2 -C.. --exclude=debian spl-0.6.0-rc9
 dpkg-buildpackage -j8 -k$DEBKEY
 cd /zfs-"$ZFSVER"
-tar -cjvf ../zfs_0.6.0~rc8.orig.tar.bz2 -C.. --exclude=debian zfs-0.6.0-rc8
+tar -cjvf ../zfs_0.6.0~rc9.orig.tar.bz2 -C.. --exclude=debian zfs-0.6.0-rc9
 dpkg-buildpackage -j8 -k$DEBKEY
 
 mv /*.udeb /d-i/installer/build/localudebs/
