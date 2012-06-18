@@ -3,6 +3,7 @@
 
 # Kernel version
 UPSTREAM:=3.4.2
+KVER:=$(UPSTREAM)-1
 
 CHROOT:=unstable
 DI:=debian-installer_20120509
@@ -32,7 +33,7 @@ test: $(RUNCD) $(TESTDISK) all
 	./$< $(TESTDISK) $(ISO)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB)
-	./$< $@
+	./$< $@ $(KVER)
 
 $(CONF): $(CONFIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)

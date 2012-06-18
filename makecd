@@ -2,19 +2,18 @@
 
 set -e
 
-# FIXME get kernel version as parameter
-
 CODENAME=sid
 ZFSVER=0.6.0~rc9
 
-usage () { echo "usage: `basename $0` [ -f ] iso" ; return 0; }
+usage () { echo "usage: `basename $0` [ -f ] iso kernelver" ; return 0; }
 usageerr () { usage >&2 ; return 1 ; }
 
 if [ $# -lt 1 ] ; then
 	usageerr
 else
-	[ $# -lt 3 ] || usageerr
-	if [ $# -eq 2 ] ; then
+	[ $# -lt 4 ] || usageerr
+	# FIXME accept -f as last param!
+	if [ $# -eq 3 ] ; then
 		if [ "$1" = "-f" ] ; then
 			shift
 		elif [ "$2" != "-f" ] ; then
@@ -30,6 +29,7 @@ else
 fi
 
 ISO="$1"
+KVER="$2"
 
 if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 	echo "Warning; won't place output in images/." >&2
@@ -37,8 +37,8 @@ if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 fi
 
 DI="`pwd`/unstable/d-i/debian-installer_20120509_amd64.deb"
-KPKGS="`pwd`/unstable/linux-image-3.4.2-1-amd64_3.4.2-1_amd64.deb"
-KPKGS="$KPKGS,`pwd`/unstable/linux-image-3.4.2-1-amd64-dbg_3.4.2-1_amd64.deb"
+KPKGS="`pwd`/unstable/linux-image-$KVER-amd64_$KVER_amd64.deb"
+KPKGS="$KPKGS,`pwd`/unstable/linux-image-$KVER-amd64-dbg_$KVER_amd64.deb"
 PKGS="$DI,`pwd`/unstable/d-i/installer/build/localudebs,`pwd`/unstable/spl_$ZFSVER-1_amd64.deb,`pwd`/unstable/zfs_$ZFSVER-1_amd64.deb"
 for i in unstable/apt_0.9.5.1+nmu1_amd64.deb unstable/apt-doc_0.9.5.1+nmu1_all.deb unstable/apt-transport-https_0.9.5.1+nmu1_amd64.deb unstable/apt-utils_0.9.5.1+nmu1_amd64.deb unstable/libapt-inst1.5_0.9.5.1+nmu1_amd64.deb unstable/libapt-pkg4.12_0.9.5.1+nmu1_amd64.deb unstable/libapt-pkg-dev_0.9.5.1+nmu1_amd64.deb unstable/libapt-pkg-doc_0.9.5.1+nmu1_all.deb ; do
 	PKGS="$PKGS,`pwd`/$i"
