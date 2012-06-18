@@ -3,17 +3,17 @@
 set -e
 set -x
 
-usage () { echo "usage: `basename $0` kernel-ver" ; return 0 ; }
+usage () { echo "usage: `basename $0` kernver zfsver" ; return 0 ; }
 usageerr () { usage >&2 ; return 1 ; }
 
-[ $# -eq 1 ] || usageerr
+[ $# -eq 2 ] || usageerr
 
 UPSTREAM="$1"
+ZFSVER="$2"
 
 ABI=1
 KVERS="$UPSTREAM-$ABI"
 DEBKEY=AAE15FF2
-ZFSVER=0.6.0~rc9
 
 export DEBFULLNAME="Nick Black"
 export DEBEMAIL="<nick.black@sprezzatech.com>"
