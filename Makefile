@@ -2,7 +2,7 @@
 .PHONY: all test clean cleanchroot clobber subupdate
 
 # Kernel version
-UPSTREAM:=3.4.2
+UPSTREAM:=3.4.3
 KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
 
