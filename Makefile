@@ -88,4 +88,4 @@ clean: cleanchroot
 	rm -rf tmp $(TESTDISK) images $(CONF) $(IMG)
 
 clobber: clean
-	rm -f $(PACKAGES)
+	rm -f $(PACKAGES) $(UDK)
