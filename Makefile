@@ -69,7 +69,9 @@ cleanchroot:
 $(PACKAGES): $(UPDATE)
 	./$< $@
 
-refit: $(CHROOT)/$(UDKDIR)/UDK2010.SR1.Complete.MyWorkSpace.zip
+refit: $(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip
+	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR) && unzip $(<F)"
+	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR)/MyWorkSpace && tar xvf ../BaseTools\(Unix\)_UDK2010.SR1.tar"
 
 $(CHROOT)/$(UDKDIR)/UDK2010.SR1.Complete.MyWorkSpace.zip: $(CHROOT)/$(BUILDIN) $(UDK)
 	cp -fv $(UDK) $(CHROOT)
