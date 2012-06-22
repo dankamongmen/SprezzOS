@@ -58,7 +58,7 @@ $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	wget -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES)
-	@! [ -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
+	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	./$< $(@D)
 	cp $(BUILDIN) $@
 
@@ -73,12 +73,12 @@ refit: $(CHROOT)/$(UDKDIR)/UDK2010.SR1.Complete.MyWorkSpace.zip
 
 $(CHROOT)/$(UDKDIR)/UDK2010.SR1.Complete.MyWorkSpace.zip: $(CHROOT)/$(BUILDIN) $(UDK)
 	cp -fv $(UDK) $(CHROOT)
-	@! [ -e $(@D) ] || sudo rm -rf $(@D)
+	@[ ! -e $(@D) ] || sudo rm -rf $(@D)
 	@[ -e $(@D) ] || sudo chroot $(CHROOT) mkdir $(UDKDIR)
 	sudo chroot $(CHROOT) unzip $(UDK) -d $(UDKDIR)
 
 $(UDK):
-	wget https://sourceforge.net/apps/mediawiki/tianocore/index.php?title=UDK2010
+	wget -O $@ http://sourceforge.net/projects/edk2/files/UDK2010%20Releases/UDK2010.SR1/UDK2010.SR1.Complete.MyWorkSpace.zip/download
 
 subupdate:
 	cd fwts && git pull origin HEAD && cd -
