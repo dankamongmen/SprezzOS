@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean cleanchroot clobber subupdate
+.PHONY: all test clean cleanchroot clobber subupdate refit
 
 # Kernel version
 UPSTREAM:=3.4.3
@@ -28,8 +28,10 @@ PACKIN:=SprezzOS.packages.in
 DIDEB:=/d-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(UPSTREAM).tar.bz2
 PROFILE:=profiles/SprezzOS.packages
+UDK:=UDK2010.SR1.Complete.MyWorkSpace.zip
+UDKDIR:=/usr/local/UDK2010
 
-all: $(IMG)
+all: $(IMG) refit
 
 test: $(RUNCD) $(TESTDISK) all
 	./$< $(TESTDISK) $(ISO)
@@ -66,6 +68,17 @@ cleanchroot:
 
 $(PACKAGES): $(UPDATE)
 	./$< $@
+
+refit: $(CHROOT)/$(UDKDIR)/UDK2010.SR1.Complete.MyWorkSpace.zip
+
+$(CHROOT)/$(UDKDIR)/UDK2010.SR1.Complete.MyWorkSpace.zip: $(CHROOT)/$(BUILDIN) $(UDK)
+	cp -fv $(UDK) $(CHROOT)
+	@! [ -e $(@D) ] || sudo rm -rf $(@D)
+	@[ -e $(@D) ] || sudo chroot $(CHROOT) mkdir $(UDKDIR)
+	sudo chroot $(CHROOT) unzip $(UDK) -d $(UDKDIR)
+
+$(UDK):
+	wget https://sourceforge.net/apps/mediawiki/tianocore/index.php?title=UDK2010
 
 subupdate:
 	cd fwts && git pull origin HEAD && cd -
