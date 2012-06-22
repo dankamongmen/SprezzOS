@@ -69,7 +69,13 @@ cleanchroot:
 $(PACKAGES): $(UPDATE)
 	./$< $@
 
-refit: $(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip
+refit: $(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt
+	sed -i -e"s/^ACTIVE_PLATFORM .*$$/ACTIVE_PLATFORM=MdeModulePkg\/MdeModulePkg.dsc/" $<
+	sed -i -e"s/^TARGET .*$$/TARGET=RELEASE/" $<
+	sed -i -e"s/^TARGET_ARCH .*$$/TARGET_ARCH=X64/" $<
+	sed -i -e"s/^TOOL_CHAIN_TAG .*$$/TOOL_CHAIN_TAG=GCC46/" $<
+
+$(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip: $(CHROOT)/$(UDKDIR)/UDK2010.SR1.Complete.MyWorkSpace.zip
 	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR) && unzip $(<F)"
 	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR)/MyWorkSpace && tar xvf ../BaseTools\(Unix\)_UDK2010.SR1.tar"
 
