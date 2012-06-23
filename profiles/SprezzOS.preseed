@@ -104,6 +104,9 @@ d-i netcfg/wireless_wep string
 
 # without confirmation.
 d-i partman/confirm boolean true
+d-i partman/confirm_copy boolean true
+d-i partman-partitioning/confirm_copy boolean true
+d-i partman/confirm_nooverwrite boolean true
 
 #d-i debian-installer/allow_unauthenticated string true
 
@@ -154,6 +157,7 @@ base-config base-config/login note
 
 d-i     popularity-contest/participate  boolean true
 
+man-db	man-db/install-setuid	boolean	true
 
 ### simple-cdd commands
 
