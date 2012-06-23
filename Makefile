@@ -9,6 +9,7 @@ ZFSVER:=0.6.0~rc9
 CHROOT:=unstable
 DI:=debian-installer_20120509
 DIBUILD:=$(CHROOT)/d-i/installer/build
+WGET:=wget --no-use-server-timestamps
 
 # Helper scripts
 BUILD:=build
@@ -59,7 +60,7 @@ $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL)
 	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git linux-$(UPSTREAM)/debian
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
-	wget -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
+	$(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
@@ -84,7 +85,7 @@ $(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip: $(CHROOT)/$(BUILDIN) $(UDK)
 	sudo chroot $(CHROOT) unzip $(UDK) -d $(UDKDIR)
 
 $(UDK):
-	wget -O $@ http://sourceforge.net/projects/edk2/files/UDK2010%20Releases/UDK2010.SR1/UDK2010.SR1.Complete.MyWorkSpace.zip/download
+	$(WGET) -O- http://sourceforge.net/projects/edk2/files/UDK2010%20Releases/UDK2010.SR1/UDK2010.SR1.Complete.MyWorkSpace.zip/download > $@
 
 subupdate:
 	cd fwts && git pull origin HEAD && cd -
