@@ -54,6 +54,7 @@ $(CHROOT)/$(DIDEB): $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(UDKDIR)/MyWor
 	sudo chroot $(CHROOT) bash /$(BUILDIN) $(UPSTREAM) $(ZFSVER)
 
 $(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN)
+	@[ ! -e $(CHROOT)/fbterm-1.7 ] || sudo rm -rf $(CHROOT)/fbterm-1.7
 	sudo chroot $(CHROOT) apt-get source fbterm
 	echo "XC-Package-Type: udeb" | sudo tee -a $(CHROOT)/fbterm-1.7/debian/control
 	sudo chroot $(CHROOT) /bin/sh -c "cd fbterm-1.7 && $(DBUILD) -j8"
