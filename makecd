@@ -66,11 +66,12 @@ grubify () {
 	set -e
 	# without these conservative options, we sometimes get corrupted udebs
 	fuseiso images/*iso "$tmp"
-	mkdir -p "$tmp2/boot/grub"
+	mkdir -p "$tmp2/boot/grub" "$tmp2/usr/share/fonts"
+	cp fonts/* "$tmp2/usr/share/fonts/"
 	cp grub.cfg "$tmp2/boot/grub"
 	cp memtest86+.bin dest/cdrom/vmlinuz dest/cdrom/initrd.gz "$tmp2"
 	cp $GBOOTFILES "$tmp2/boot"
-	grub-mkrescue --modules="linux iso9660 fshelp gpt_part font loopback ls gfxterm vbe2 boot pc" -o "$ISO" -U "$tmp" "$tmp2"
+	grub-mkrescue --modules="linux iso9660 fshelp gpt_part font loopback ls gfxterm vbe2 boot pc" -o "$ISO" -U "$tmp" images/*iso "$tmp2"
 }
 
 cleancd () {
