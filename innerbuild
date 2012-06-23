@@ -1,4 +1,4 @@
-#/bin/sh
+#/usr/bin/env bash
 
 set -e
 set -x
@@ -18,11 +18,19 @@ DEBKEY=AAE15FF2
 export DEBFULLNAME="Nick Black"
 export DEBEMAIL="<nick.black@sprezzatech.com>"
 
-#cd /
-#tar xjvf "linux-$UPSTREAM.tar.bz2"
-#cd "linux-$UPSTREAM"
-#git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git debian
+# UEFI Development Kit 2010, unpackaed already by Make
+cd /usr/local/UDK2010/MyWorkSpace
+ls
+eval `cat ./edksetup.sh`
+cd Conf
+sed -i -e"s/^ACTIVE_PLATFORM .*\$/ACTIVE_PLATFORM=MdeModulePkg\/MdeModulePkg.dsc/" target.txt
+sed -i -e"s/^TARGET .*\$/TARGET=RELEASE/" target.txt
+sed -i -e"s/^TARGET_ARCH .*\$/TARGET_ARCH=X64/" target.txt
+sed -i -e"s/^TOOL_CHAIN_TAG .*\$/TOOL_CHAIN_TAG=GCC46/" target.txt
+make -C /usr/local/UDK2010/MyWorkSpace/BaseTools/Source/C
+build
 
+# Linux kernel
 cd "/linux-$UPSTREAM"
 
 cd debian/installer/amd64
@@ -80,13 +88,3 @@ cd /d-i/installer
 patch -p1 < /d-i-patches/installer.diff
 cp -v /d-i/packages/*udeb build/localudebs
 dpkg-buildpackage -j8 -k$DEBKEY
-
-# UEFI Development Kit 2010, unpackaed already by Make
-cd /usr/local/UDK2010/MyWorkSpace
-. edksetup.sh
-sed -i -e"s/^ACTIVE_PLATFORM .*$$/ACTIVE_PLATFORM=MdeModulePkg\/MdeModulePkg.dsc/" target.txt
-sed -i -e"s/^TARGET .*$$/TARGET=RELEASE/" target.txt
-sed -i -e"s/^TARGET_ARCH .*$$/TARGET_ARCH=X64/" target.txt
-sed -i -e"s/^TOOL_CHAIN_TAG .*$$/TOOL_CHAIN_TAG=GCC46/" target.txt
-make -C /usr/local/UDK2010/MyWorkSpace/BaseTools/Source/C
-build
