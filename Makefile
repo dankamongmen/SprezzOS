@@ -53,6 +53,14 @@ $(CONF): $(CONFIN)
 $(CHROOT)/$(DIDEB): $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt $(CHROOT)/refind/install.sh $(CHROOT)/$(FBT)
 	sudo chroot $(CHROOT) bash /$(BUILDIN) $(UPSTREAM) $(ZFSVER)
 
+GCCCONTROL:=gcc-control
+GCCDIR:=gcc-4.7-4.7.1
+$(CHROOT)/$(LIBSTDC): $(CHROOT)/$(BUILDIN) $(GCCCONTROL)
+	@[ ! -e $(CHROOT)/$(GCCDIR) ] || sudo rm -rf $(CHROOT)/$(GCCDIR)
+	sudo chroot $(CHROOT) apt-get source libstdc++6
+	sudo cp $(GCCCONTROL) $(CHROOT)/$(GCCDIR)/debian/control
+	sudo chroot $(CHROOT) /bin/sh -c "cd $(GCCCONTROL) && $(DBUILD) -j8"
+
 $(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN)
 	@[ ! -e $(CHROOT)/fbterm-1.7 ] || sudo rm -rf $(CHROOT)/fbterm-1.7
 	sudo chroot $(CHROOT) apt-get source fbterm

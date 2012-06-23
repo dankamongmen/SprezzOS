@@ -29,6 +29,7 @@ sudo chroot "$DI" /bin/sh -c "echo set locales/default_environment_locale en_US.
 echo "en_US.UTF-8 UTF-8" | sudo tee -a "$DI/etc/locale.gen"
 sudo chroot "$DI" locale-gen
 sudo chroot "$DI" mount -t proc procfs /proc
+sudo chroot "$DI" mount -t devpts /dev/pts devpts
 
 sudo tee -a "$DI/etc/apt/sources.list" <<APT
 deb http://www.sprezzatech.com/apt unstable main non-free contrib
@@ -51,8 +52,10 @@ sudo cp -r d-i "$DI/d-i-patches"
 sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
 
 sudo chroot "$DI" umount /proc
+sudo chroot "$DI" umount devpts 
 sudo chown -R $USER:$USER "$DI"
 sudo chroot "$DI" mount -t proc procfs /proc
 sudo chroot "$DI" mount -t sysfs sysfs /sys
+sudo chroot "$DI" mount -t devpts /dev/pts devpts
 cp -r world/spl-* world/zfs-* "$DI"
 echo "Now run 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
