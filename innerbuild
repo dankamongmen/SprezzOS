@@ -20,13 +20,12 @@ export DEBEMAIL="<nick.black@sprezzatech.com>"
 
 # UEFI Development Kit 2010, unpackaed already by Make
 cd /usr/local/UDK2010/MyWorkSpace
-ls
-eval `cat ./edksetup.sh`
-cd Conf
-sed -i -e"s/^ACTIVE_PLATFORM .*\$/ACTIVE_PLATFORM=MdeModulePkg\/MdeModulePkg.dsc/" target.txt
-sed -i -e"s/^TARGET .*\$/TARGET=RELEASE/" target.txt
-sed -i -e"s/^TARGET_ARCH .*\$/TARGET_ARCH=X64/" target.txt
-sed -i -e"s/^TOOL_CHAIN_TAG .*\$/TOOL_CHAIN_TAG=GCC46/" target.txt
+. edksetup.sh
+sed -i -e"s/^ACTIVE_PLATFORM .*\$/ACTIVE_PLATFORM=MdeModulePkg\/MdeModulePkg.dsc/" Conf/target.txt
+sed -i -e"s/^TARGET .*\$/TARGET=RELEASE/" Conf/target.txt
+sed -i -e"s/^TARGET_ARCH .*\$/TARGET_ARCH=X64/" Conf/target.txt
+sed -i -e"s/^TOOL_CHAIN_TAG .*\$/TOOL_CHAIN_TAG=GCC46/" Conf/target.txt
+sed -i -e"s/-melf_x86_64//g" Conf/tools_def.txt
 make -C /usr/local/UDK2010/MyWorkSpace/BaseTools/Source/C
 build
 
