@@ -29,7 +29,7 @@ sudo chroot "$DI" /bin/sh -c "echo set locales/default_environment_locale en_US.
 echo "en_US.UTF-8 UTF-8" | sudo tee -a "$DI/etc/locale.gen"
 sudo chroot "$DI" locale-gen
 sudo chroot "$DI" mount -t proc procfs /proc
-sudo chroot "$DI" mount -t devpts /dev/pts devpts
+sudo chroot "$DI" mount -t devpts devpts /dev/pts
 
 sudo tee -a "$DI/etc/apt/sources.list" <<APT
 deb http://www.sprezzatech.com/apt unstable main non-free contrib
