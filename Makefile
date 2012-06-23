@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean cleanchroot clobber subupdate refit
+.PHONY: all test clean cleanchroot clobber subupdate
 
 # Kernel version
 UPSTREAM:=3.4.3
@@ -31,7 +31,7 @@ PROFILE:=profiles/SprezzOS.packages
 UDK:=UDK2010.SR1.Complete.MyWorkSpace.zip
 UDKDIR:=/usr/local/UDK2010
 
-all: $(IMG) refit
+all: $(IMG)
 
 test: $(RUNCD) $(TESTDISK) all
 	./$< $(TESTDISK) $(ISO)
@@ -54,7 +54,7 @@ $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL)
 	sudo chroot $(CHROOT) tar xjf $(<F)
 	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git linux-$(UPSTREAM)/debian
 
-$(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
+$(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN) $(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt
 	wget -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES)
@@ -69,13 +69,7 @@ cleanchroot:
 $(PACKAGES): $(UPDATE)
 	./$< $@
 
-refit: $(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt
-	sed -i -e"s/^ACTIVE_PLATFORM .*$$/ACTIVE_PLATFORM=MdeModulePkg\/MdeModulePkg.dsc/" $<
-	sed -i -e"s/^TARGET .*$$/TARGET=RELEASE/" $<
-	sed -i -e"s/^TARGET_ARCH .*$$/TARGET_ARCH=X64/" $<
-	sed -i -e"s/^TOOL_CHAIN_TAG .*$$/TOOL_CHAIN_TAG=GCC46/" $<
-
-$(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip: $(CHROOT)/$(UDKDIR)/UDK2010.SR1.Complete.MyWorkSpace.zip
+$(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt: $(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip
 	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR) && unzip $(<F)"
 	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR)/MyWorkSpace && tar xvf ../BaseTools\(Unix\)_UDK2010.SR1.tar"
 
