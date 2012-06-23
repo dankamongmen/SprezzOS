@@ -84,7 +84,7 @@ $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES)
 	cp $(BUILDIN) $@
 
 cleanchroot:
-	sudo umount $(CHROOT)/proc $(CHROOT)/sys || true
+	sudo umount $(CHROOT)/proc $(CHROOT)/sys $(CHROOT)/dev/pts || true
 	sudo rm -rf $(CHROOT)
 
 $(PACKAGES): $(UPDATE)
