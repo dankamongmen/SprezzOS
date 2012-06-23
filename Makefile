@@ -73,7 +73,7 @@ $(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt: $(CHROOT)/$(UDKDIR)/UDK2010.SR1
 	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR) && unzip $(<F)"
 	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR)/MyWorkSpace && tar xvf ../BaseTools\(Unix\)_UDK2010.SR1.tar"
 
-$(CHROOT)/$(UDKDIR)/UDK2010.SR1.Complete.MyWorkSpace.zip: $(CHROOT)/$(BUILDIN) $(UDK)
+$(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip: $(CHROOT)/$(BUILDIN) $(UDK)
 	cp -fv $(UDK) $(CHROOT)
 	@[ ! -e $(@D) ] || sudo rm -rf $(@D)
 	@[ -e $(@D) ] || sudo chroot $(CHROOT) mkdir $(UDKDIR)
