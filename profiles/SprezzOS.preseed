@@ -16,10 +16,6 @@
 #simple-cdd simple-cdd/profiles multiselect ltsp, x-basic
 
 
-# debconf
-#d-i debian-installer/theme dark
-d-i debian-installer/main-menu-title	string sprezzos installer
-
 ###### Package selection.
 
 # You can choose to install any combination of tasks that are available.
@@ -62,19 +58,10 @@ console-data    console-data/keymap/policy      select  Don't touch keymap
 ###### Account setup.
 
 d-i passwd/root-login boolean false
-# To preseed the root password, you have to put it in the clear in this
-# file. That is not a very good idea, use caution!
-#passwd   passwd/root-password    password r00tme
-#passwd   passwd/root-password-again  password r00tme
-
-# If you want to skip creation of a normal user account.
-#passwd   passwd/make-user    boolean false
+user-setup-udeb passwd/shadow boolean true
 # Alternatively, you can preseed the user's name and login.
-#passwd   passwd/user-fullname    string SprezzOS User
-#passwd   passwd/username     string sprezzos
-# And their password, but use caution!
-#passwd   passwd/user-password    password insecure
-#passwd   passwd/user-password-again  password insecure
+passwd   passwd/user-fullname    string SprezzOS User
+passwd   passwd/username     string sprezza
 
 
 #### Network configuration.
@@ -84,7 +71,7 @@ d-i passwd/root-login boolean false
 d-i netcfg/choose_interface select auto
 
 # Note that any hostname and domain names assigned from dhcp take
-# precidence over values set here. However, setting the values still
+# precedence over values set here. However, setting the values still
 # prevents the questions from being shown even if values come from dhcp.
 d-i netcfg/get_hostname string unassigned
 d-i netcfg/get_domain string unassigned
@@ -133,7 +120,7 @@ d-i grub-installer/only_debian  boolean true
 ###### Apt setup.
 
 # automatically set the CD as the installation media.
-base-config apt-setup/uri_type  select http
+#base-config apt-setup/uri_type  select http
 #base-config apt-setup/uri_type  select cdrom
 # only scan the first CD by default
 #base-config apt-setup/cd/another  boolean false
@@ -142,10 +129,7 @@ base-config apt-setup/uri_type  select http
 # Use a network mirror?
 # apt-mirror-setup        apt-setup/use_mirror    boolean false
 
-# Do enable security updates.
-#base-config apt-setup/security-updates  boolean true
-
-# You can choose to install non-free and contrib software.
+base-config apt-setup/security-updates  boolean true
 d-i apt-setup/non-free  boolean true
 d-i apt-setup/contrib boolean true
 
@@ -163,11 +147,9 @@ exim4-config  exim4/dc_postmaster   string
 
 ### skip some annoying installation status notes
 
-# Avoid that last message about the install being complete.
+# Avoid annoying messages
 d-i finish-install/reboot_in_progress note
-# Avoid the introductory message.
 base-config base-config/intro note 
-# Avoid the final message.
 base-config base-config/login note 
 
 d-i     popularity-contest/participate  boolean true
