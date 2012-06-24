@@ -10,4 +10,4 @@ usageerr () { usage >&2 ; return 1 ; }
 
 rm -f "$1"
 qemu-img create "$1" 80G
-kvm -vga std --boot d --hda "$1" --cdrom "$2" -m 8192 -usb
+kvm -vga cirrus --boot d --hda "$1" --cdrom "$2" -m 8192 -usb

@@ -69,6 +69,8 @@ mv /*.udeb /d-i/installer/build/localudebs/
 cd /d-i/packages
 cd main-menu
 patch -p1 < /d-i-patches/packages/main-menu.diff
+cd ../rootskel
+patch -p1 < /d-i-patches/packages/rootskel.diff
 cd ../partman-basicfilesystems/
 patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff
 cd ../rootskel-gtk
@@ -77,7 +79,7 @@ cd ..
 
 # Build our own packages of certain udebs. Don't try rebuilding all; that leads
 # to divergence from upstream, and some of them fail.
-for i in main-menu partman-basicfilesystems rootskel-gtk ; do
+for i in main-menu partman-basicfilesystems rootskel rootskel-gtk ; do
 	cd "$i"
 	dpkg-buildpackage -j8
 	cd -
