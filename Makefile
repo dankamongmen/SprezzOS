@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean cleanchroot clobber subupdate update
+.PHONY: all test clean cleanchroot clobber subupdate
 
 # Kernel version
 UPSTREAM:=3.4.3
@@ -102,9 +102,6 @@ $(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip: $(CHROOT)/$(BUILDIN) $(UDK)
 
 $(UDK):
 	$(WGET) -O- http://sourceforge.net/projects/edk2/files/UDK2010%20Releases/UDK2010.SR1/UDK2010.SR1.Complete.MyWorkSpace.zip/download > $@
-
-update:
-	./$@ $(PACKAGES)
 
 subupdate:
 	cd fwts && git pull origin HEAD && cd -
