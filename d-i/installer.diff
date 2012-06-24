@@ -1,5 +1,5 @@
 diff --git a/build/config/amd64.cfg b/build/config/amd64.cfg
-index 343d947..0bb5976 100644
+index 343d947..96f04a5 100644
 --- a/build/config/amd64.cfg
 +++ b/build/config/amd64.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -80,7 +80,7 @@ index 6ebfc9e..27fb3ff 100644
  # Inlude the build date of the installer in here.
  LSB_DISTRIB_RELEASE="$(DEBIAN_VERSION) - installer build $(BUILD_DATE)"
 diff --git a/build/config/i386.cfg b/build/config/i386.cfg
-index ba92623..0c17ab6 100644
+index ba92623..63f9631 100644
 --- a/build/config/i386.cfg
 +++ b/build/config/i386.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -93,7 +93,7 @@ index ba92623..0c17ab6 100644
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
 diff --git a/build/config/ia64.cfg b/build/config/ia64.cfg
-index 765be19..657e4d4 100644
+index 765be19..5a53598 100644
 --- a/build/config/ia64.cfg
 +++ b/build/config/ia64.cfg
 @@ -5,7 +5,7 @@ MEDIUM_SUPPORTED = cdrom netboot
@@ -127,11 +127,42 @@ index a0f9976..bb1cb92 100644
  
  # The image to use for a syslinux splash screen.
  SPLASH_PNG=boot/x86/pics/klowner.png
+diff --git a/build/pkg-lists/cdrom/amd64.cfg b/build/pkg-lists/cdrom/amd64.cfg
+index 91420aa..a4d2395 100644
+--- a/build/pkg-lists/cdrom/amd64.cfg
++++ b/build/pkg-lists/cdrom/amd64.cfg
+@@ -3,7 +3,6 @@ floppy-modules-${kernel:Version}
+ fat-modules-${kernel:Version}
+ cdrom-core-modules-${kernel:Version}
+ input-modules-${kernel:Version}
+-fb-modules-${kernel:Version}
+ console-setup-udeb
+ kbd-udeb
+ usb-modules-${kernel:Version}
+diff --git a/build/pkg-lists/cdrom/i386.cfg b/build/pkg-lists/cdrom/i386.cfg
+index 5a77de6..8359e68 100644
+--- a/build/pkg-lists/cdrom/i386.cfg
++++ b/build/pkg-lists/cdrom/i386.cfg
+@@ -3,7 +3,6 @@ floppy-modules-${kernel:Version}
+ fat-modules-${kernel:Version}
+ cdrom-core-modules-${kernel:Version}
+ input-modules-${kernel:Version}
+-fb-modules-${kernel:Version}
+ console-setup-udeb
+ kbd-udeb
+ usb-modules-${kernel:Version}
 diff --git a/build/pkg-lists/hd-media/amd64.cfg b/build/pkg-lists/hd-media/amd64.cfg
-index 415d281..5b59baa 100644
+index 415d281..8e4212f 100644
 --- a/build/pkg-lists/hd-media/amd64.cfg
 +++ b/build/pkg-lists/hd-media/amd64.cfg
-@@ -24,10 +24,6 @@ cdrom-core-modules-${kernel:Version}
+@@ -1,6 +1,5 @@
+ console-setup-pc-ekmap
+ input-modules-${kernel:Version}
+-fb-modules-${kernel:Version}
+ console-setup-udeb
+ kbd-udeb
+ 
+@@ -24,10 +23,6 @@ cdrom-core-modules-${kernel:Version}
  
  # all the filesystems (feel free to add more!)
  fat-modules-${kernel:Version}
@@ -143,10 +174,17 @@ index 415d281..5b59baa 100644
  # the iso is loop-mounted
  loop-modules-${kernel:Version}
 diff --git a/build/pkg-lists/hd-media/i386.cfg b/build/pkg-lists/hd-media/i386.cfg
-index 415d281..5b59baa 100644
+index 415d281..8e4212f 100644
 --- a/build/pkg-lists/hd-media/i386.cfg
 +++ b/build/pkg-lists/hd-media/i386.cfg
-@@ -24,10 +24,6 @@ cdrom-core-modules-${kernel:Version}
+@@ -1,6 +1,5 @@
+ console-setup-pc-ekmap
+ input-modules-${kernel:Version}
+-fb-modules-${kernel:Version}
+ console-setup-udeb
+ kbd-udeb
+ 
+@@ -24,10 +23,6 @@ cdrom-core-modules-${kernel:Version}
  
  # all the filesystems (feel free to add more!)
  fat-modules-${kernel:Version}
@@ -172,3 +210,31 @@ index 97faa81..0355258 100644
  
  # the iso is loop-mounted
  loop-modules-${kernel:Version}
+diff --git a/build/pkg-lists/netboot/amd64.cfg b/build/pkg-lists/netboot/amd64.cfg
+index ec6beef..ef72adc 100644
+--- a/build/pkg-lists/netboot/amd64.cfg
++++ b/build/pkg-lists/netboot/amd64.cfg
+@@ -12,9 +12,6 @@ input-modules-${kernel:Version}
+ console-setup-udeb
+ kbd-udeb
+ 
+-# This is needed for proper display of utf-8.
+-fb-modules-${kernel:Version}
+-
+ # In case they need to load a driver image.
+ mountmedia
+ media-retriever
+diff --git a/build/pkg-lists/netboot/i386.cfg b/build/pkg-lists/netboot/i386.cfg
+index 3340b1d..0f11356 100644
+--- a/build/pkg-lists/netboot/i386.cfg
++++ b/build/pkg-lists/netboot/i386.cfg
+@@ -12,9 +12,6 @@ input-modules-${kernel:Version}
+ console-setup-udeb
+ kbd-udeb
+ 
+-# This is needed for proper display of utf-8.
+-fb-modules-${kernel:Version}
+-
+ # In case they need to load a driver image.
+ mountmedia
+ media-retriever
