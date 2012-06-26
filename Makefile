@@ -33,6 +33,7 @@ PROFILE:=profiles/SprezzOS.packages
 UDK:=UDK2010.SR1.Complete.MyWorkSpace.zip
 UDKDIR:=/usr/local/UDK2010
 FBT:=fbterm_1.7-2_amd64.udeb
+WORLD:=$(CHROOT)/world/README
 
 all: $(IMG)
 
@@ -61,7 +62,7 @@ $(CHROOT)/$(DIDEB): $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(UDKDIR)/MyWor
 #	sudo cp $(GCCCONTROL) $(CHROOT)/$(GCCDIR)/debian/control
 #	sudo chroot $(CHROOT) /bin/sh -c "cd $(GCCCONTROL) && $(DBUILD) -j8"
 
-$(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN) $(CHROOT)/world
+$(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN) $(WORLD)
 	@[ ! -e $(CHROOT)/fbterm-1.7 ] || sudo rm -rf $(CHROOT)/fbterm-1.7
 	cp -r fbterm-1.7 $(CHROOT)
 	sudo chroot $(CHROOT) cp -r world/fbterm fbterm-1.7/debian
@@ -71,11 +72,11 @@ $(CHROOT)/refind/install.sh: $(CHROOT)/$(BUILDIN)
 	@[ ! -e $(@D) ] || sudo rm -rf $(@D)
 	sudo chroot $(CHROOT) git clone git://git.code.sf.net/p/refind/code refind
 
-$(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(CHROOT)/world
+$(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(WORLD)
 	sudo chroot $(CHROOT) tar xjf $(<F)
 	sudo chroot $(CHROOT) cp -r world/linux linux-$(UPSTREAM)/debian
 
-$(CHROOT)/world: $(CHROOT)/$(BUILDIN)
+$(WORLD): $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
