@@ -2,7 +2,7 @@
 .PHONY: all test clean cleanchroot clobber subupdate
 
 # Kernel version
-UPSTREAM:=3.4.3
+UPSTREAM:=3.4.4
 KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
 
@@ -61,20 +61,22 @@ $(CHROOT)/$(DIDEB): $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(UDKDIR)/MyWor
 #	sudo cp $(GCCCONTROL) $(CHROOT)/$(GCCDIR)/debian/control
 #	sudo chroot $(CHROOT) /bin/sh -c "cd $(GCCCONTROL) && $(DBUILD) -j8"
 
-$(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN)
+$(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN) $(CHROOT)/world
 	@[ ! -e $(CHROOT)/fbterm-1.7 ] || sudo rm -rf $(CHROOT)/fbterm-1.7
 	cp -r fbterm-1.7 $(CHROOT)
-	cp -r /media/build/sprezzos-world/fbterm $(CHROOT)/fbterm-1.7/debian
+	sudo chroot $(CHROOT) cp -r world/fbterm fbterm-1.7/debian
 	sudo chroot $(CHROOT) /bin/sh -c "cd fbterm-1.7 && $(DBUILD) -j8"
 
 $(CHROOT)/refind/install.sh: $(CHROOT)/$(BUILDIN)
 	@[ ! -e $(@D) ] || sudo rm -rf $(@D)
 	sudo chroot $(CHROOT) git clone git://git.code.sf.net/p/refind/code refind
 
-$(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL)
+$(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(CHROOT)/world
 	sudo chroot $(CHROOT) tar xjf $(<F)
-	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
 	sudo chroot $(CHROOT) cp -r sprezzos-world/linux linux-$(UPSTREAM)/debian
+
+$(CHROOT)/world:
+	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	$(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
