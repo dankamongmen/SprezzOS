@@ -73,7 +73,7 @@ for i in main-menu partman-basicfilesystems rootskel rootskel-gtk ; do
 	cd -
 done
 
-cp -v /*.udeb /d-i/packages/*udeb build/localudebs
+cp -v /*.udeb /d-i/packages/*udeb /d-i/installer/build/localudebs
 
 cd /d-i/installer
 dpkg-buildpackage -j8 -k$DEBKEY
