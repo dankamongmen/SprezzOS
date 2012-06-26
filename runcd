@@ -3,11 +3,20 @@
 set -e
 set -x
 
-usage () { echo "usage: `basename $0` disk iso" ; return 0; }
+usage () { echo "usage: `basename $0` [ --uefi ] disk iso" ; return 0; }
 usageerr () { usage >&2 ; return 1 ; }
 
-[ $# -eq 2 ] || usageerr
+[ $# -lt 4 ] || usageerr
+if [ $# -eq 3 ] ; then
+	if [ $2 != "--uefi" ] ; then
+		usageerr
+	fi
+	shift
+	KVMOPTS=-L ovmf -bios OVMF.fd
+elif [ $# -eq 1 ] ; then
+	usageerr
+fi
 
 rm -f "$1"
 qemu-img create "$1" 80G
-kvm -vga cirrus --boot d --hda "$1" --cdrom "$2" -m 8192 -usb
+kvm -vga std $KVMOPTS --boot d --hda "$1" --cdrom "$2" -m 8192 -usb
