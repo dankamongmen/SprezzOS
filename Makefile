@@ -75,7 +75,7 @@ $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(CHROOT)/world
 	sudo chroot $(CHROOT) tar xjf $(<F)
 	sudo chroot $(CHROOT) cp -r sprezzos-world/linux linux-$(UPSTREAM)/debian
 
-$(CHROOT)/world:
+$(CHROOT)/world: $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
