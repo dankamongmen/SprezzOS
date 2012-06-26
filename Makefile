@@ -73,7 +73,8 @@ $(CHROOT)/refind/install.sh: $(CHROOT)/$(BUILDIN)
 
 $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL)
 	sudo chroot $(CHROOT) tar xjf $(<F)
-	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-kernel-packaging.git linux-$(UPSTREAM)/debian
+	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
+	sudo chroot $(CHROOT) cp -r sprezzos-world/linux linux-$(UPSTREAM)/debian
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	$(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
