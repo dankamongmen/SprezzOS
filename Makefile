@@ -97,7 +97,7 @@ $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
-	./$< $(@D) libstdc++6_4.7.1-1_amd64.udeb libx86-1_1.1+ds1-10_amd64.udeb fbterm_1.7-2_amd64.udeb
+	./$< $(@D) libstdc++6_4.7.1-1_amd64.udeb libx86-1_1.1+ds1-10_amd64.udeb
 	cp $(BUILDIN) $@
 
 cleanchroot:
