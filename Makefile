@@ -47,7 +47,7 @@ fbterm: $(CHROOT)/$(FBT)
 $(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN) $(WORLD)
 	@[ ! -e $(CHROOT)/fbterm-1.7 ] || sudo rm -rf $(CHROOT)/fbterm-1.7
 	cp -r fbterm-1.7 $(CHROOT)
-	sudo chroot $(CHROOT) cp -r world/fbterm fbterm-1.7/debian
+	cp -r $(CHROOT)/world/fbterm $(CHROOT)/fbterm-1.7/debian
 	sudo chroot $(CHROOT) /bin/sh -c "cd fbterm-1.7 && $(DBUILD) -j8"
 
 refind: $(CHROOT)/refind/install.sh 
