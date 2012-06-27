@@ -7,7 +7,7 @@ KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
 
 CHROOT:=unstable
-DI:=debian-installer_20120509
+DI:=debian-installer_20120626
 DIBUILD:=$(CHROOT)/d-i/installer/build
 WGET:=wget --no-use-server-timestamps
 DBUILD:=dpkg-buildpackage -k9978711C
@@ -72,7 +72,7 @@ $(UDK):
 # ISO creation
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB)
-	./$< $@ $(KVER) $(ZFSVER)
+	./$< $@ $(KVER) $(ZFSVER) $(CHROOT)/$(DIDEB)
 
 $(PROFILE): $(PACKIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
