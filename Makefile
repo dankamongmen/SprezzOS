@@ -34,6 +34,7 @@ UDK:=UDK2010.SR1.Complete.MyWorkSpace.zip
 UDKDIR:=/usr/local/UDK2010
 FBT:=fbterm_1.7-2_amd64.udeb
 WORLD:=$(CHROOT)/world/README
+FONT:=unicode.pf2
 
 all: $(IMG)
 
@@ -71,7 +72,7 @@ $(UDK):
 
 # ISO creation
 
-$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB)
+$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT)
 	./$< $@ $(KVER) $(ZFSVER) $(CHROOT)/$(DIDEB)
 
 $(PROFILE): $(PACKIN)
@@ -107,6 +108,10 @@ cleanchroot:
 $(PACKAGES): $(UPDATE)
 	./$< $@
 
+# get it from the xfonts-unifont package
+$(FONT): /usr/share/fonts/X11/misc/unifont.pcf.gz
+	grub-mkfont -v -o $@ --no-bitmap -a -b $<
+
 subupdate:
 	cd fwts && git pull origin HEAD && cd -
 	git submodule update
@@ -115,4 +120,4 @@ clean: cleanchroot
 	rm -rf tmp $(TESTDISK) images $(CONF) $(IMG)
 
 clobber: clean
-	rm -f $(PACKAGES) $(UDK)
+	rm -f $(PACKAGES) $(UDK) $(FONT)
