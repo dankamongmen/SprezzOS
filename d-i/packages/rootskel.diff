@@ -1,17 +1,27 @@
 diff --git a/src/etc/inittab-linux b/src/etc/inittab-linux
-index a7b8a23..2a00e52 100644
+index a7b8a23..9f22c7e 100644
 --- a/src/etc/inittab-linux
 +++ b/src/etc/inittab-linux
-@@ -2,10 +2,10 @@
+@@ -2,17 +2,17 @@
  # busybox init configuration for debian-installer
- 
+
  # main rc script
 -::sysinit:/sbin/reopen-console /sbin/debian-installer-startup
 +::sysinit:/sbin/reopen-console /usr/bin/fbterm /sbin/debian-installer-startup
- 
+
  # main setup program
 -::respawn:/sbin/reopen-console /sbin/debian-installer
 +::respawn:/sbin/reopen-console /usr/bin/fbterm /sbin/debian-installer
- 
+
  # convenience shells
- tty2::askfirst:-/bin/sh
+-tty2::askfirst:-/bin/sh
+-tty3::askfirst:-/bin/sh
++tty2::respawn:/usr/bin/fbterm /bin/sh
++tty3::respawn:/usr/bin/fbterm /bin/sh
+
+ # logging
+-tty4::respawn:/usr/bin/tail -f /var/log/syslog
++tty4::respawn:/usr/bin/fbterm /usr/bin/tail -f /var/log/syslog
+
+ # Stuff to do before rebooting
+ ::ctrlaltdel:/sbin/shutdown > /dev/null 2>&1
