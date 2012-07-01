@@ -115,9 +115,8 @@ cleanchroot:
 $(PACKAGES): $(UPDATE)
 	./$< $@
 
-# get it from the xfonts-unifont package
-$(FONT): /usr/share/fonts/X11/misc/unifont.pcf.gz
-	grub-mkfont -v -o $@ --no-bitmap -a -b $<
+$(FONT): /usr/share/fonts/X11/misc/ter-u22b_unicode.pcf.gz
+	grub-mkfont -v -a --no-bitmap $< -o $@
 
 subupdate:
 	cd fwts && git pull origin HEAD && cd -
