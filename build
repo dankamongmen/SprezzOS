@@ -51,7 +51,6 @@ done
 sudo cp -r d-i "$DI/d-i-patches"
 sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
 sudo chroot "$DI" /bin/sh -c "cd /d-i/installer && patch -p1 < /d-i-patches/installer.diff"
-sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/apt-setup && patch -p1 < /d-i-patches/packages/apt-setup.diff"
 sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/main-menu && patch -p1 < /d-i-patches/packages/main-menu.diff"
 sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/rootskel && patch -p1 < /d-i-patches/packages/rootskel.diff"
 sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/partman-basicfilesystems && patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff"
