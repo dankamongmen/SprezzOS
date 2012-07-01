@@ -115,7 +115,7 @@ cleanchroot:
 $(PACKAGES): $(UPDATE)
 	./$< $@
 
-$(FONT): /usr/share/fonts/X11/misc/ter-u22b_unicode.pcf.gz
+$(FONT): /usr/share/fonts/X11/misc/ter-u18b_unicode.pcf.gz
 	grub-mkfont -v -a --no-bitmap $< -o $@
 
 subupdate:
