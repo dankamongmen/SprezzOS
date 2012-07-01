@@ -36,10 +36,12 @@ if [ $SPREZZ_UEFI -ne 0 ] ; then
 	KVMOPTS="-L ovmf -bios OVMF.fd"
 fi
 
+KVMOPTS="$KVMOPTS -vga cirrus"
+
 rm -f "$1"
 qemu-img create "$1" 80G
 if [ $SPREZZ_USB -ne 0 ] ; then
-	kvm -vga cirrus $KVMOPTS --hda "$1" -drive file="$2",if=none,id=b,boot=on -m 8192 -usb -device usb-storage,drive=b
+	kvm $KVMOPTS --hda "$1" -drive file="$2",if=none,id=b,boot=on -m 8192 -usb -device usb-storage,drive=b
 else
-	kvm -vga cirrus $KVMOPTS --boot d --hda "$1" --cdrom "$2" -m 8192 -usb
+	kvm $KVMOPTS --boot d --hda "$1" --cdrom "$2" -m 8192 -usb
 fi
