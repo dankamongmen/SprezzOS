@@ -7,15 +7,6 @@
 # for more explanation of the options, see:
 # http://d-i.alioth.debian.org/manual/en.mips/apbs04.html
 
-## simple-cdd options
-
-# automatically select simple-cdd profiles
-# NOTE: profile "default" is now automatically included, and should not be
-# specified here.
-#simple-cdd simple-cdd/profiles multiselect ltsp
-#simple-cdd simple-cdd/profiles multiselect ltsp, x-basic
-
-
 ###### Package selection.
 
 # You can choose to install any combination of tasks that are available.
@@ -85,31 +76,11 @@ d-i netcfg/wireless_wep string
 
 ### Partitioning.
 
-# you can specify a disk to partition. The device name can be given in either
-# devfs or traditional non-devfs format.  For example, to use the first disk
-# devfs knows of:
-## NOTE: disabled for lenny, as it seemed to cause issues
-
-# In addition, you'll need to specify the method to use.
-# The presently available methods are: "regular", "lvm" and "crypto"
-
-# If one of the disks that are going to be automatically partitioned
-# contains an old LVM configuration, the user will normally receive a
-# warning. This can be preseeded away...
-# And the same goes for the confirmation to write the lvm partitions.
-
-# Alternately, If the system has free space you can choose to only partition
-# that space.
-
-# You can choose from any of the predefined partitioning recipes:
-
 # without confirmation.
 d-i partman/confirm boolean true
 d-i partman/confirm_copy boolean true
 d-i partman-partitioning/confirm_copy boolean true
 d-i partman/confirm_nooverwrite boolean true
-
-#d-i debian-installer/allow_unauthenticated string true
 
 #### Boot loader installation.
 
@@ -122,24 +93,12 @@ d-i grub-installer/only_debian  boolean true
 
 
 ###### Apt setup.
-
-# automatically set the CD as the installation media.
-#base-config apt-setup/uri_type  select http
-#base-config apt-setup/uri_type  select cdrom
-# only scan the first CD by default
-#base-config apt-setup/cd/another  boolean false
-# don't ask to use additional mirrors
-#base-config apt-setup/another boolean false
-# Use a network mirror?
-# apt-mirror-setup        apt-setup/use_mirror    boolean false
-
 base-config apt-setup/security-updates  boolean true
 d-i apt-setup/non-free  boolean true
 d-i apt-setup/contrib boolean true
 
 
 ###### Mailer configuration.
-
 # During a normal install, exim asks only two questions. Here's how to
 # avoid even those. More complicated preseeding is possible.
 exim4-config  exim4/dc_eximconfig_configtype  select no configuration at this time
@@ -160,11 +119,6 @@ d-i     popularity-contest/participate  boolean true
 
 man-db	man-db/install-setuid	boolean	true
 
-### simple-cdd commands
-
-# you may add to the following commands by including a ";" followed by your
-# shell commands.
-
-# loads the simple-cdd-profiles udeb to which asks for which profiles to use,
-# load the debconf preseeding and queue packages for installation.
-#d-i preseed/early_command string anna-install simple-cdd-profiles
+# Kernel configuration -- select all drivers
+bootstrap-base base-installer/initramfs-tools/driver-policy select generic
+bootstrap-base	base-installer/kernel/linux/initramfs-tools/driver-policy string	most
