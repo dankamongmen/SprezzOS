@@ -70,7 +70,7 @@ grubify () {
 	cp -v grub.cfg "$tmp2/boot/grub"
 	cp -v memtest86+.bin dest/hd-media/vmlinuz dest/hd-media/initrd.gz "$tmp2"
 	cp -v $GBOOTFILES "$tmp2/boot"
-	grub-mkrescue --modules="linux iso9660 fshelp gpt_part font loopback ls gfxterm vbe2 boot pc" -o "$ISO" "$tmp" "$tmp2"
+	grub-mkrescue --modules="linux iso9660 fshelp gpt_part font loopback ls gfxterm vbe2 boot pc" -o "$ISO" "$tmp" "$tmp2" images/*iso
 }
 
 cleancd () {

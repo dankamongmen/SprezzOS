@@ -1,17 +1,17 @@
 diff --git a/generators/50mirror b/generators/50mirror
-index e5338e6..d6c2f25 100755
+index e5338e6..313b8db 100755
 --- a/generators/50mirror
 +++ b/generators/50mirror
 @@ -233,6 +233,7 @@ while [ ! "$done" ]; do
  	fi
-
+ 
  	echo "deb $protocol://$hostname$directory $codename $dists" > $file
-+	echo "deb $protocol://www.sprezzatech.com/apt $codename $dists" >> $file
-
++	echo "deb http://www.sprezzatech.com/apt unstable $dists" > $file
+ 	
  	if apt-setup-verify --from $PROGRESS_FROM --to $PROGRESS_TO $file; then
  		done=1
 @@ -251,3 +252,4 @@ while [ ! "$done" ]; do
  done
-
+ 
  echo "deb-src $protocol://$hostname$directory $codename $dists" >> $file
 +echo "deb-src $protocol://www.sprezzatech.com/apt $codename $dists" >> $file
