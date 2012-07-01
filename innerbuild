@@ -67,7 +67,7 @@ dpkg-buildpackage -j8 -k$DEBKEY
 # Build our own packages of certain udebs. Don't try rebuilding all; that leads
 # to divergence from upstream, and some of them fail.
 cd /d-i/packages
-for i in apt-setup main-menu partman-basicfilesystems rootskel rootskel-gtk ; do
+for i in apt-setup debootstrap main-menu partman-basicfilesystems rootskel rootskel-gtk ; do
 	cd "$i"
 	dpkg-buildpackage -j8
 	cd -
