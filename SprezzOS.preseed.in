@@ -123,8 +123,7 @@ d-i     popularity-contest/participate  boolean true
 man-db	man-db/install-setuid	boolean	true
 
 # Kernel configuration -- select all drivers
-bootstrap-base base-installer/initramfs-tools/driver-policy select generic
-bootstrap-base	base-installer/kernel/linux/initramfs-tools/driver-policy string	most
+bootstrap-base base-installer/initramfs-tools/driver-policy select most
 
 # extra packages to install
 d-i pkgsel/include string zfs mingetty
