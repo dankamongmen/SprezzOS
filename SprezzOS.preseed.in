@@ -18,20 +18,19 @@
 
 # don't install any tasks
 tasksel   tasksel/first multiselect 
+tasksel tasksel/desktop multiselect xfce
 #tasksel   tasksel/first multiselect Desktop environment
 #tasksel  tasksel/first multiselect Web server, Mail server, DNS server
 
-
-###### Time zone setup.
-
-# Controls whether or not the hardware clock is set to UTC.
+# Assume the clock is UTC. Always use NTP.
 d-i clock-setup/utc boolean true
+d-i clock-setup/ntp boolean true
 
 # Many countries have only one time zone. If you told the installer you're
 # in one of those countries, you can choose its standard time zone via this
 # question.
 base-config tzconfig/choose_country_zone_single boolean true
-#d-i     time/zone       select  US/Pacific
+#d-i     time/zone       select  US/Eastern
 
 
 ### keyboard configuration
@@ -60,7 +59,7 @@ user-setup-udeb passwd/shadow boolean true
 
 # netcfg will choose an interface that has link if possible. This makes it
 # skip displaying a list if there is more than one interface.
-d-i netcfg/choose_interface select auto
+#d-i netcfg/choose_interface select auto
 
 # Note that any hostname and domain names assigned from dhcp take
 # precedence over values set here. However, setting the values still
@@ -98,8 +97,7 @@ d-i apt-setup/non-free  boolean true
 d-i apt-setup/contrib boolean true
 d-i apt-setup/local0/repository string deb http://www.sprezzatech.com/apt/ unstable main contrib non-free
 d-i apt-setup/local0/key string http://www.sprezzatech.com/apt/sprezzakey.txt
-d-i apt-setup/local1/repository string deb http://www.sprezzatech.com/apt/ unstable main contrib non-free
-d-i apt-setup/local1/key string file:///sprezzakey.txt
+d-i apt-setup/local0/source boolean true
 
 ###### Mailer configuration.
 # During a normal install, exim asks only two questions. Here's how to
