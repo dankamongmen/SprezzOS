@@ -96,7 +96,8 @@ d-i grub-installer/only_debian  boolean true
 base-config apt-setup/security-updates  boolean true
 d-i apt-setup/non-free  boolean true
 d-i apt-setup/contrib boolean true
-
+d-i apt-setup/local0/repository string deb http://www.sprezzatech.com/apt/ unstable main contrib non-free
+d-i apt-setup/local0/key string file:///sprezza.key
 
 ###### Mailer configuration.
 # During a normal install, exim asks only two questions. Here's how to
