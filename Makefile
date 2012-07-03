@@ -54,7 +54,7 @@ $(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN) $(WORLD)
 	cp -r $(CHROOT)/world/fbterm $(CHROOT)/fbterm-1.7/debian
 	sudo chroot $(CHROOT) /bin/sh -c "cd fbterm-1.7 && $(DBUILD) -j8"
 
-refind: $(CHROOT)/refind/install.sh 
+refind: $(CHROOT)/refind/install.sh $(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt 
 
 $(CHROOT)/refind/install.sh: $(CHROOT)/$(BUILDIN)
 	@[ ! -e $(@D) ] || sudo rm -rf $(@D)
@@ -90,8 +90,11 @@ $(CONF): $(CONFIN)
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK)
 	sudo chroot $(CHROOT) bash /$(BUILDK) /$(BUILDIN) $(UPSTREAM) $(ZFSVER)
 
-$(CHROOT)/$(DIDEB): $(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt fbterm refind $(CHROOT)/$(BUILDIN)
+$(CHROOT)/$(DIDEB): fbterm $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
 	sudo chroot $(CHROOT) bash /$(BUILDIN) $(UPSTREAM) $(ZFSVER)
+
+$(CHROOT)/d-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
+	cp -fv $< $@
 
 $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(WORLD)
 	sudo chroot $(CHROOT) tar xjf $(<F)
