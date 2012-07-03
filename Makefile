@@ -7,7 +7,7 @@ KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
 
 CHROOT:=unstable
-DI:=debian-installer_20120626
+DI:=debian-installer_20120627
 DIBUILD:=$(CHROOT)/d-i/installer/build
 WGET:=wget --no-use-server-timestamps
 DBUILD:=dpkg-buildpackage -k9978711C
