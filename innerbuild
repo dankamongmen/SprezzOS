@@ -29,41 +29,6 @@ sed -i -e"s/-melf_x86_64//g" Conf/tools_def.txt
 make -C /usr/local/UDK2010/MyWorkSpace/BaseTools/Source/C
 build
 
-# Linux kernel
-cd "/linux-$UPSTREAM"
-
-cd debian/installer/amd64
-kernel-wedge gen-control $KVERS >> ../../control
-cd -
-
-# This must be run twice. The first time, it intentionally fails. Don't
-# believe me? Run it yourself and see.
-make -f debian/rules debian/control-real || true # Creates Source: entry in /control
-
-make -f debian/rules clean
-python debian/bin/genorig.py "/linux-$UPSTREAM.tar.bz2"
-debian/rules orig
-
-# rebuild the abi FIXME
-# FIXME ugh
-sed -i -e"s/3.4.0-1/$KVERS/g" debian/bin/patch.apply
-sed -i -e"s/3.4.0-1/$KVERS/g" debian/rules.gen
-sed -i -e"s/3.4.0-1/$KVERS/g" debian/control
-
-dpkg-buildpackage -j8 -k$DEBKEY
-cp debian/config/kernelarch-x86/config-arch-64 .config
-make oldconfig
-make -j8 bzImage modules
-
-ln -s "/linux-$UPSTREAM" /buildkernel
-
-cd /spl-"$ZFSVER"
-tar -cjvf ../spl_$ZFSVER.orig.tar.bz2 -C.. --exclude=debian spl-$ZFSVER
-dpkg-buildpackage -j8 -k$DEBKEY
-cd /zfs-"$ZFSVER"
-tar -cjvf ../zfs_$ZFSVER.orig.tar.bz2 -C.. --exclude=debian zfs-$ZFSVER
-dpkg-buildpackage -j8 -k$DEBKEY
-
 # Build our own packages of certain udebs. Don't try rebuilding all; that leads
 # to divergence from upstream, and some of them fail.
 cd /d-i/packages
