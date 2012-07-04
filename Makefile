@@ -76,9 +76,10 @@ $(UDK):
 # ISO creation
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(KERNDEB)
-	./$< $@ $(KVER) $(ZFSVER) $(CHROOT)/$(DIDEB)
+	./$< -f $@ $(KVER) $(ZFSVER) $(CHROOT)/$(DIDEB)
 
-$(KERNDEB):
+$(KERNDEB): $(CHROOT)/$(BUILDIN)
+	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.5_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.5_all.deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/z/zfs/zfs_$(ZFSFVER).deb > $(CHROOT)/zfs_$(ZFSFVER).deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(ZFSFVER).deb > $(CHROOT)/spl_$(ZFSFVER).deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB)) > $@
