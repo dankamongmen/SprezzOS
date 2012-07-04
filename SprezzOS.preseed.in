@@ -64,8 +64,8 @@ user-setup-udeb passwd/shadow boolean true
 # Note that any hostname and domain names assigned from dhcp take
 # precedence over values set here. However, setting the values still
 # prevents the questions from being shown even if values come from dhcp.
-d-i netcfg/get_hostname string unassigned
-d-i netcfg/get_domain string unassigned
+#d-i netcfg/get_hostname string unassigned
+#d-i netcfg/get_domain string unassigned
 # to set the domain to empty:
 #d-i netcfg/get_domain string 
 
@@ -126,4 +126,4 @@ bootstrap-base base-installer/kernel/initramfs-tools/driver-policy string most
 
 # extra packages to install
 # intel-microcode amd64-microcode
-d-i pkgsel/include string zfs sudo fbterm mingetty sprezzos-grub2theme fonts-inconsolata
+d-i pkgsel/include string zfs sudo fbterm mingetty grub-pc sprezzos-grub2theme fonts-inconsolata

@@ -79,7 +79,8 @@ $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(KERNDEB)
 	./$< -f $@ $(KVER) $(ZFSVER) $(CHROOT)/$(DIDEB)
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.5_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.5_all.deb
+	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/b/base-files/base-files_6.11_amd64.deb > $(CHROOT)/base-files_6.11_amd64.deb
+	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.6_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.6_all.deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/z/zfs/zfs_$(ZFSFVER).deb > $(CHROOT)/zfs_$(ZFSFVER).deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(ZFSFVER).deb > $(CHROOT)/spl_$(ZFSFVER).deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB)) > $@
@@ -128,7 +129,7 @@ cleanchroot:
 $(PACKAGES): $(UPDATE)
 	./$< $@
 
-$(FONT): /usr/share/fonts/X11/misc/ter-u24b_unicode.pcf.gz
+$(FONT): /usr/share/fonts/X11/misc/ter-u28b_unicode.pcf.gz
 	grub-mkfont -v -a --no-bitmap $< -o $@
 
 subupdate:
