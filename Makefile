@@ -35,9 +35,10 @@ KERNBALL:=linux-$(UPSTREAM).tar.bz2
 PROFILE:=profiles/SprezzOS.packages
 UDK:=UDK2010.SR1.Complete.MyWorkSpace.zip
 UDKDIR:=/usr/local/UDK2010
-FBT:=fbterm_1.7-2_amd64.udeb
+FBT:=fbterm_1.7-2.1_amd64.udeb
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
+KERNDEB:=$(CHROOT)/linux-image-3.4.4-1-amd64_3.4.4-1_amd64.deb
 
 all: $(IMG)
 
@@ -72,12 +73,14 @@ $(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip: $(CHROOT)/$(BUILDIN) $(UDK)
 
 $(UDK):
 	$(WGET) -O- http://sourceforge.net/projects/edk2/files/UDK2010%%20Releases/UDK2010.SR1/UDK2010.SR1.Complete.MyWorkSpace.zip/download > $@
-	touch $@
 
 # ISO creation
 
-$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT)
+$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(KERNDEB)
 	./$< $@ $(KVER) $(ZFSVER) $(CHROOT)/$(DIDEB)
+
+$(KERNDEB):
+	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(basename $(KERNDEB)) > $@
 
 $(PROFILE): $(PACKIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -122,7 +125,7 @@ cleanchroot:
 $(PACKAGES): $(UPDATE)
 	./$< $@
 
-$(FONT): /usr/share/fonts/X11/misc/ter-u20b_unicode.pcf.gz
+$(FONT): /usr/share/fonts/X11/misc/ter-u24b_unicode.pcf.gz
 	grub-mkfont -v -a --no-bitmap $< -o $@
 
 subupdate:
