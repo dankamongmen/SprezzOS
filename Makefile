@@ -80,7 +80,7 @@ $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(KERNDEB)
 	./$< $@ $(KVER) $(ZFSVER) $(CHROOT)/$(DIDEB)
 
 $(KERNDEB):
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(basename $(KERNDEB)) > $@
+	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB)) > $@
 
 $(PROFILE): $(PACKIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
