@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean kernel refind cleanchroot clobber subupdate
+.PHONY: all test clean kernel cleanchroot clobber subupdate
 
 # Kernel version
 UPSTREAM:=3.4.4
@@ -34,8 +34,6 @@ PACKIN:=SprezzOS.packages.in
 DIDEB:=/d-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(UPSTREAM).tar.bz2
 PROFILE:=profiles/SprezzOS.packages
-UDK:=UDK2010.SR1.Complete.MyWorkSpace.zip
-UDKDIR:=/usr/local/UDK2010
 FBT:=fbterm_1.7-2.1_amd64.udeb
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
@@ -54,25 +52,6 @@ $(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN) $(WORLD)
 	cp -r fbterm-1.7 $(CHROOT)
 	cp -r $(CHROOT)/world/fbterm $(CHROOT)/fbterm-1.7/debian
 	sudo chroot $(CHROOT) /bin/sh -c "cd fbterm-1.7 && $(DBUILD) -j8"
-
-refind: $(CHROOT)/refind/install.sh $(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt 
-
-$(CHROOT)/refind/install.sh: $(CHROOT)/$(BUILDIN)
-	@[ ! -e $(@D) ] || sudo rm -rf $(@D)
-	sudo chroot $(CHROOT) git clone git://git.code.sf.net/p/refind/code refind
-
-$(CHROOT)/$(UDKDIR)/MyWorkSpace/Conf/target.txt: $(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip
-	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR) && unzip $(<F)"
-	sudo chroot $(CHROOT) /bin/sh -c "cd $(UDKDIR)/MyWorkSpace && tar xvf ../BaseTools\(Unix\)_UDK2010.SR1.tar"
-
-$(CHROOT)/$(UDKDIR)/UDK2010.SR1.MyWorkSpace.zip: $(CHROOT)/$(BUILDIN) $(UDK)
-	cp -fv $(UDK) $(CHROOT)
-	@[ ! -e $(@D) ] || sudo rm -rf $(@D)
-	@[ -e $(@D) ] || sudo chroot $(CHROOT) mkdir $(UDKDIR)
-	sudo chroot $(CHROOT) unzip $(UDK) -d $(UDKDIR)
-
-$(UDK):
-	$(WGET) -O- http://sourceforge.net/projects/edk2/files/UDK2010%%20Releases/UDK2010.SR1/UDK2010.SR1.Complete.MyWorkSpace.zip/download > $@
 
 # ISO creation
 
@@ -141,4 +120,4 @@ clean: cleanchroot
 	rm -rf tmp $(TESTDISK) images $(CONF) $(IMG)
 
 clobber: clean
-	rm -f $(PACKAGES) $(UDK) $(FONT)
+	rm -f $(PACKAGES) $(FONT)
