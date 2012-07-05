@@ -40,6 +40,7 @@ FBT:=fbterm_1.7-2.1_amd64.udeb
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=$(CHROOT)/linux-image-3.4.4-1-amd64_3.4.4-1_amd64.deb
+GRUBCONF:=grub.cfg
 
 all: $(IMG)
 
@@ -75,7 +76,7 @@ $(UDK):
 
 # ISO creation
 
-$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(KERNDEB)
+$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(KERNDEB) $(GRUBCONF)
 	./$< -f $@ $(KVER) $(ZFSVER) $(CHROOT)/$(DIDEB)
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
