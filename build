@@ -12,11 +12,6 @@ usageerr () { usage >&2 ; return 1 ; }
 DI="$1"
 shift
 
-# FIXME can we not handle this via etc/apt/sources.list?
-for i in "$@" ; do
-	[ -r "$i" ] || { echo "Couldn't read $i" >&2 ; usageerr ; }
-done
-
 # clean up any old chroot
 [ ! -d "$DI/proc" ] || sudo umount "$DI"/proc || true
 [ ! -d "$DI/sys" ] || sudo umount "$DI"/sys || true
