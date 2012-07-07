@@ -29,3 +29,17 @@ index a7b8a23..b555b80 100644
  
  # Stuff to do before rebooting
  ::ctrlaltdel:/sbin/shutdown > /dev/null 2>&1
+diff --git a/src/sbin/Makefile b/src/sbin/Makefile
+index dec554e..b96c231 100644
+--- a/src/sbin/Makefile
++++ b/src/sbin/Makefile
+@@ -9,7 +9,8 @@ files_exec = \
+ 	shutdown \
+ 	init:init-$(DEB_HOST_ARCH_OS) \
+ 	reopen-console:reopen-console-$(DEB_HOST_ARCH_OS) \
+-	steal-ctty
++	steal-ctty \
++	fbvfbterm
+ 
+ ifeq ($(DEB_HOST_ARCH_OS),linux)
+   files_exec += \
