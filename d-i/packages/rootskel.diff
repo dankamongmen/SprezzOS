@@ -1,5 +1,5 @@
 diff --git a/src/etc/inittab-linux b/src/etc/inittab-linux
-index a7b8a23..b555b80 100644
+index a7b8a23..c3e6d88 100644
 --- a/src/etc/inittab-linux
 +++ b/src/etc/inittab-linux
 @@ -2,17 +2,21 @@
@@ -7,21 +7,21 @@ index a7b8a23..b555b80 100644
  
  # main rc script
 -::sysinit:/sbin/reopen-console /sbin/debian-installer-startup
-+::sysinit:/sbin/reopen-console /sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.jpg /sbin/debian-installer-startup
++::sysinit:/sbin/reopen-console /sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.png /sbin/debian-installer-startup
  
  # main setup program
 -::respawn:/sbin/reopen-console /sbin/debian-installer
-+::respawn:/sbin/reopen-console /sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.jpg /sbin/debian-installer
++::respawn:/sbin/reopen-console /sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.png /sbin/debian-installer
  
  # convenience shells
 -tty2::askfirst:-/bin/sh
 -tty3::askfirst:-/bin/sh
-+tty2::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.jpg /bin/sh
-+tty3::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.jpg /bin/sh
++tty2::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.png /bin/sh
++tty3::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.png /bin/sh
  
  # logging
 -tty4::respawn:/usr/bin/tail -f /var/log/syslog
-+tty4::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.jpg /usr/bin/tail -f /var/log/syslog
++tty4::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.png /usr/bin/tail -f /var/log/syslog
 +
 +tty5::askfirst:-/bin/sh
 +tty6::askfirst:-/bin/sh
