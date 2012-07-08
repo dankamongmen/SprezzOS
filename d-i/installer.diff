@@ -1,5 +1,5 @@
 diff --git a/build/config/amd64.cfg b/build/config/amd64.cfg
-index 343d947..96f04a5 100644
+index 397db3f..2ab43a6 100644
 --- a/build/config/amd64.cfg
 +++ b/build/config/amd64.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -12,10 +12,10 @@ index 343d947..96f04a5 100644
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
 diff --git a/build/config/common b/build/config/common
-index 6ebfc9e..27fb3ff 100644
+index 6ebfc9e..14775bc 100644
 --- a/build/config/common
 +++ b/build/config/common
-@@ -20,11 +20,11 @@ EXTRAS ?=
+@@ -20,7 +20,7 @@ EXTRAS ?=
  
  # This variable can be used to add a preseed file to the initrd itself.
  # It will be loaded by the initrd-preseed udeb.
@@ -24,11 +24,6 @@ index 6ebfc9e..27fb3ff 100644
  
  # The library reducer to use. Set to mklibs (to build with library reduction)
  # or mklibs-copy (to build without library reduction).
--MKLIBS = mklibs
-+MKLIBS = mklibs-copy
- 
- # Normally the sources.list for building d-i will be derived from your
- # "normal" sources.list. However, you can specify a mirror here to override
 @@ -37,13 +37,13 @@ MKLIBS = mklibs
  DPKG_UNPACK_OPTIONS = --force-overwrite
  
@@ -61,15 +56,23 @@ index 6ebfc9e..27fb3ff 100644
  
  # Filesystem type for the initrd, currently valid values are ext2, cramfs,
  # and initramfs.
-@@ -73,7 +73,7 @@ INITRD_FS = initramfs
- FLOPPYDEV = /dev/fd0
+@@ -70,13 +70,13 @@ DESKTOP =
+ INITRD_FS = initramfs
+ 
+ # What device to write floppies on
+-FLOPPYDEV = /dev/fd0
++#FLOPPYDEV = /dev/fd0
  
  # What qemu to use, with any options.
 -QEMU = qemu
 +QEMU = kvm
  
  # media where images may be written to (via dd).
- WRITE_MEDIA = floppy
+-WRITE_MEDIA = floppy
++#WRITE_MEDIA = floppy
+ 
+ # HACK Alert:
+ # pkg-lists is still sorted by type, so we have to provide
 @@ -84,7 +84,7 @@ WRITE_MEDIA = floppy
  TYPE = $(MEDIUM)
  
@@ -80,7 +83,7 @@ index 6ebfc9e..27fb3ff 100644
  # Inlude the build date of the installer in here.
  LSB_DISTRIB_RELEASE="$(DEBIAN_VERSION) - installer build $(BUILD_DATE)"
 diff --git a/build/config/i386.cfg b/build/config/i386.cfg
-index ba92623..63f9631 100644
+index ba2d2db..054f3ca 100644
 --- a/build/config/i386.cfg
 +++ b/build/config/i386.cfg
 @@ -2,7 +2,7 @@ MEDIUM_SUPPORTED = cdrom cdrom-xen netboot netboot-gtk netboot-xen hd-media
@@ -93,7 +96,7 @@ index ba92623..63f9631 100644
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
 diff --git a/build/config/ia64.cfg b/build/config/ia64.cfg
-index 765be19..5a53598 100644
+index 5f7bb25..b085d5c 100644
 --- a/build/config/ia64.cfg
 +++ b/build/config/ia64.cfg
 @@ -5,7 +5,7 @@ MEDIUM_SUPPORTED = cdrom netboot
@@ -115,7 +118,7 @@ index 765be19..5a53598 100644
  
  arch_tree:
 diff --git a/build/config/x86.cfg b/build/config/x86.cfg
-index a0f9976..bb1cb92 100644
+index ece837f..eb75a83 100644
 --- a/build/config/x86.cfg
 +++ b/build/config/x86.cfg
 @@ -8,7 +8,7 @@
@@ -126,7 +129,16 @@ index a0f9976..bb1cb92 100644
 +DOS_VOLUME_LABEL = "SprezzOS"
  
  # The image to use for a syslinux splash screen.
- SPLASH_PNG=boot/x86/pics/klowner.png
+ SPLASH_PNG=boot/x86/pics/joy.png
+@@ -24,7 +24,7 @@ XENCFG = $(SOME_DEST)/$(EXTRANAME)debian.cfg
+ x86_syslinux:
+ 	-rm -rf $(TEMP_SYSLINUX)/*
+ 	mkdir -p $(TEMP_SYSLINUX)
+-	TYPE=$(SYSLINUX_CFG) INCLUDE_GTK=$(INITRD_GTK) DESKTOP=$(DESKTOP) \
++	TYPE=$(SYSLINUX_CFG) DESKTOP=$(DESKTOP) \
+ 		syslinux-cfgs boot/x86 $(TEMP_SYSLINUX)
+ 
+ # Compress binaries to save more space.
 diff --git a/build/pkg-lists/cdrom/amd64.cfg b/build/pkg-lists/cdrom/amd64.cfg
 index 91420aa..a4d2395 100644
 --- a/build/pkg-lists/cdrom/amd64.cfg
