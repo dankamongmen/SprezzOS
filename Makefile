@@ -34,7 +34,6 @@ PACKIN:=SprezzOS.packages.in
 DIDEB:=/d-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(UPSTREAM).tar.bz2
 PROFILE:=profiles/SprezzOS.packages
-FBT:=fbterm_1.7-2.1_amd64.udeb
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=$(CHROOT)/linux-image-3.4.4-1-amd64_3.4.4-1_amd64.deb
@@ -44,14 +43,6 @@ all: $(IMG)
 
 test: $(RUNCD) $(TESTDISK) all
 	./$< $(TESTDISK) $(ISO)
-
-# Tools for installer
-
-$(CHROOT)/$(FBT): $(CHROOT)/$(BUILDIN) $(WORLD)
-	@[ ! -e $(CHROOT)/fbterm-1.7 ] || sudo rm -rf $(CHROOT)/fbterm-1.7
-	cp -r fbterm-1.7 $(CHROOT)
-	cp -r $(CHROOT)/world/fbterm $(CHROOT)/fbterm-1.7/debian
-	sudo chroot $(CHROOT) /bin/sh -c "cd fbterm-1.7 && $(DBUILD) -j8"
 
 # ISO creation
 
@@ -77,7 +68,7 @@ kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK)
 	sudo chroot $(CHROOT) bash /$(BUILDK) $(UPSTREAM) $(ZFSVER)
 
 # $(CHROOT)/d-i/installer/build/sources.list.udeb.local
-$(CHROOT)/$(DIDEB): $(CHROOT)/$(FBT) $(CHROOT)/$(BUILDIN)
+$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) bash /$(BUILDIN) $(UPSTREAM) $(ZFSVER)
 
 $(CHROOT)/d-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
