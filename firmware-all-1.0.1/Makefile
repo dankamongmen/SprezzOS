@@ -1,2 +1,3 @@
 install:
-	cp -rv etc lib usr $(DESTDIR)
+	install -d $(DESTDIR)/usr
+	cp -rv etc lib usr/lib $(DESTDIR)
