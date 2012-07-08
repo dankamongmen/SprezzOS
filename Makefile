@@ -22,8 +22,8 @@ RUNCD:=runcd
 UPDATE:=update
 
 # simple-cdd builds from subdirs, and needs full paths as input
-CONF:=$(shell pwd)/profiles/SprezzOS.conf
-SEED:=$(shell pwd)/profiles/SprezzOS.preseed
+CONF:=profiles/SprezzOS.conf
+SEED:=profiles/SprezzOS.preseed
 
 IMG:=SprezzOS.iso
 TESTDISK:=kvmdisk.img
