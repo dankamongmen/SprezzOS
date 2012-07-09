@@ -88,6 +88,9 @@ $(WORLD): $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	$(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
 
+$(CHROOT)/$(BUILDK): $(BUILDK)
+	cp $< $@
+
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	./$< $(@D)
