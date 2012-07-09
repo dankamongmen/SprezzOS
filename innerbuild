@@ -29,7 +29,7 @@ done
 
 cd /d-i/installer/build/localudebs
 wget -nc -nd -l1 -r -A udeb http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/
-cp -v /*.udeb /d-i/packages/*udeb .
+cp -v /d-i/packages/*udeb .
 
 cd /d-i/installer
 dpkg-buildpackage -j8 -k$DEBKEY
