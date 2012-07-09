@@ -113,8 +113,7 @@ subupdate:
 	git submodule update
 
 clean: cleanchroot
-	rm -rf tmp $(TESTDISK) images $(CONF) $(IMG) $(SEED) $(PROFILE)
-	rmdir profiles
+	rm -rf tmp $(TESTDISK) images $(IMG) profiles
 
 clobber: clean
 	rm -f $(PACKAGES) $(FONT)
