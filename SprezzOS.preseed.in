@@ -22,15 +22,15 @@ tasksel   tasksel/first multiselect
 #tasksel   tasksel/first multiselect Desktop environment
 #tasksel  tasksel/first multiselect Web server, Mail server, DNS server
 
-# Assume the clock is UTC. Always use NTP.
-d-i clock-setup/utc boolean true
-d-i clock-setup/ntp boolean true
-
 # Many countries have only one time zone. If you told the installer you're
 # in one of those countries, you can choose its standard time zone via this
 # question.
 base-config tzconfig/choose_country_zone_single boolean true
 #d-i     time/zone       select  US/Eastern
+
+# Assume the clock is UTC. Always use NTP.
+d-i clock-setup/utc boolean true
+d-i clock-setup/ntp boolean true
 
 
 ### keyboard configuration
@@ -85,7 +85,7 @@ d-i partman/confirm_nooverwrite boolean true
 
 # This is fairly safe to set, it makes grub install automatically to the MBR
 # if no other operating system is detected on the machine.
-d-i grub-installer/only_debian  boolean true
+#d-i grub-installer/only_debian  boolean true
 # This one makes grub-installer install to the MBR if if finds some other OS
 # too, which is less safe as it might not be able to boot that other OS.
 #d-i grub-installer/with_other_os  boolean true
