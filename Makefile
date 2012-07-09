@@ -24,6 +24,7 @@ UPDATE:=update
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=profiles/SprezzOS.conf
 SEED:=profiles/SprezzOS.preseed
+PROFILE:=profiles/SprezzOS.packages
 
 IMG:=SprezzOS.iso
 TESTDISK:=kvmdisk.img
@@ -33,7 +34,6 @@ SEEDIN:=SprezzOS.preseed.in
 PACKIN:=SprezzOS.packages.in
 DIDEB:=/d-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(UPSTREAM).tar.bz2
-PROFILE:=profiles/SprezzOS.packages
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=$(CHROOT)/linux-image-3.4.4-1-amd64_3.4.4-1_amd64.deb
@@ -113,7 +113,8 @@ subupdate:
 	git submodule update
 
 clean: cleanchroot
-	rm -rf tmp $(TESTDISK) images $(CONF) $(IMG)
+	rm -rf tmp $(TESTDISK) images $(CONF) $(IMG) $(SEED) $(PROFILE)
+	rmdir profiles
 
 clobber: clean
 	rm -f $(PACKAGES) $(FONT)
