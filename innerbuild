@@ -21,7 +21,7 @@ export DEBEMAIL="<nick.black@sprezzatech.com>"
 # Build our own packages of certain udebs. Don't try rebuilding all; that leads
 # to divergence from upstream, and some of them fail.
 cd /d-i/packages
-for i in apt-setup debootstrap main-menu partman-basicfilesystems rootskel rootskel-gtk ; do
+for i in apt-setup debootstrap main-menu partman-basicfilesystems rootskel ; do
 	cd "$i"
 	dpkg-buildpackage -j8
 	cd -
