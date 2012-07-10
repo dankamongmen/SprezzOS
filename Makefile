@@ -5,7 +5,7 @@
 UPSTREAM:=3.4.4
 KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
-ZFSFVER:=$(ZFSVER)-1_amd64
+ZFSFVER:=$(ZFSVER)-2_amd64
 
 CHROOT:=unstable
 DI:=debian-installer_20120627
