@@ -60,23 +60,6 @@ cp -r dest/* tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
 simple-cdd --dist "$CODENAME" --profiles SprezzOS -b SprezzOS --auto-profiles SprezzOS \
 	--local-packages "$PKGS" --kernel-packages "$KPKGS"
 
-GBOOTFILES="unicode.pf2 splash.png"
-
-for i in $GBOOTFILES ; do
-	[ -r "$i" ]
-done
-
-grubify () {
-	set -e
-	set -x
-	fuseiso images/*iso "$tmp"
-	mkdir -p "$tmp2/boot/grub"
-	cp -v grub.cfg "$tmp2/boot/grub"
-	cp -v memtest86+.bin dest/hd-media/vmlinuz dest/hd-media/initrd.gz "$tmp2"
-	cp -v $GBOOTFILES "$tmp2/boot"
-	grub-mkrescue --modules="linux iso9660 fshelp font loopback ls gfxterm boot" -o "$ISO" "$tmp" "$tmp2" images/*iso
-}
-
 cleancd () {
 	fusermount -u "$tmp"
 	rmdir "$tmp"
@@ -86,7 +69,7 @@ cleancd () {
 
 tmp="`mktemp -d`"
 tmp2="`mktemp -d`"
-grubify || { cleancd ; exit 1 ; }
+./grubify "$ISO" "$tmp" "$tmp2" || { cleancd ; exit 1 ; }
 cleancd
 
 exit 0

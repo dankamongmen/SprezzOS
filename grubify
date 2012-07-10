@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -e
+set -o nounset
+
+usage () { echo "Usage: `basename $0` outputiso [ tmp1 tmp2 ]" ; return 0 ; }
+usageerr () { usage >&2 ; return 1 ; }
+
+if [ $# -eq 1 ] ; then
+	tmp="`mktemp -d`"
+	tmp2="`mktemp -d`"
+elif [ $# -eq 3 ] ; then
+	[ -d "$2" ] && [ -d "$3" ] || usageerr
+	tmp="$2"
+	tmp2="$3"
+else
+	usageerr
+fi
+ISO="$1"
+
+GBOOTFILES="unicode.pf2 splash.png"
+for i in $GBOOTFILES ; do
+	[ -r "$i" ]
+done
+
+fuseiso images/*iso "$tmp"
+mkdir -p "$tmp2/boot/grub"
+cp -v grub.cfg "$tmp2/boot/grub"
+cp -v memtest86+.bin dest/hd-media/vmlinuz dest/hd-media/initrd.gz "$tmp2"
+cp -v $GBOOTFILES "$tmp2/boot"
+grub-mkrescue --modules="linux iso9660 fshelp font loopback ls gfxterm boot" -o "$ISO" "$tmp" "$tmp2" images/*iso
