@@ -48,7 +48,7 @@ test: $(RUNCD) $(TESTDISK) all
 # ISO creation
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(KERNDEB) $(GRUBCONF) $(EXCLUDES)
-	./$< -f $@ $(KVER) $(ZFSVER) $(CHROOT)/$(DIDEB)
+	./$< -f $@ $(KVER) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/b/base-files/base-files_6.11_amd64.deb > $(CHROOT)/base-files_6.11_amd64.deb
