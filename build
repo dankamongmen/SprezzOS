@@ -57,5 +57,4 @@ sudo chown -R $USER:$USER "$DI"
 sudo chroot "$DI" mount -t proc procfs /proc
 sudo chroot "$DI" mount -t sysfs sysfs /sys
 sudo chroot "$DI" mount -t devpts devpts /dev/pts
-cp -r world/spl-* world/zfs-* "$DI"
 echo "Now run 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
