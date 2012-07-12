@@ -5,7 +5,8 @@
 UPSTREAM:=3.4.4
 KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
-ZFSFVER:=$(ZFSVER)-2_amd64
+ZFSFVER:=$(ZFSVER)-3_amd64
+SPLFVER:=$(ZFSVER)-2_amd64
 
 CHROOT:=unstable
 DI:=debian-installer_20120627
@@ -54,7 +55,7 @@ $(KERNDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/b/base-files/base-files_6.11_amd64.deb > $(CHROOT)/base-files_6.11_amd64.deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.6_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.6_all.deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/z/zfs/zfs_$(ZFSFVER).deb > $(CHROOT)/zfs_$(ZFSFVER).deb
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(ZFSFVER).deb > $(CHROOT)/spl_$(ZFSFVER).deb
+	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(SPLFVER).deb > $(CHROOT)/spl_$(ZFSFVER).deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB)) > $@
 
 $(PROFILE): $(PACKIN)
