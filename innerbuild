@@ -23,7 +23,7 @@ export DEBEMAIL="<nick.black@sprezzatech.com>"
 cd /d-i/packages
 for i in apt-setup debootstrap main-menu partman-basicfilesystems rootskel ; do
 	cd "$i"
-	dpkg-buildpackage -j8
+	dpkg-buildpackage -j8 -k$DEBKEY
 	cd -
 done
 
