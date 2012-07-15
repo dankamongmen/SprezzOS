@@ -72,8 +72,7 @@ $(CONF): $(CONFIN)
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK)
 	sudo chroot $(CHROOT) bash /$(BUILDK) $(UPSTREAM) $(ZFSVER)
 
-# $(CHROOT)/d-i/installer/build/sources.list.udeb.local
-$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN)
+$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
 	sudo chroot $(CHROOT) bash /$(BUILDIN) $(UPSTREAM) $(ZFSVER)
 
 $(CHROOT)/d-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
