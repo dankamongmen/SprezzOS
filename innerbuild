@@ -28,7 +28,11 @@ for i in apt-setup debootstrap main-menu partman-basicfilesystems rootskel ; do
 done
 
 cd /d-i/installer/build/localudebs
-wget --base -F -nc -nd -l1 -r -A udeb http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/
+
+wget http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/ -O- | \
+ wget --base=http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/ \
+  -F -nc -nd -l1 -r -A udeb -i-
+
 cp -v /d-i/packages/*udeb .
 
 cd /d-i/installer
