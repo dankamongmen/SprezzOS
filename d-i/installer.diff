@@ -221,6 +221,19 @@ index ece837f..eb75a83 100644
  		syslinux-cfgs boot/x86 $(TEMP_SYSLINUX)
  
  # Compress binaries to save more space.
+diff --git a/build/pkg-lists/cdrom-apus/common b/build/pkg-lists/cdrom-apus/common
+index 69e5767..ac59d8d 100644
+--- a/build/pkg-lists/cdrom-apus/common
++++ b/build/pkg-lists/cdrom-apus/common
+@@ -14,8 +14,6 @@ di-utils-terminfo
+ cdebconf-newt-udeb
+ cdebconf-newt-terminal ?
+ 
+-nano-udeb
+-
+ # This is so additional modules (eg, scsi) can be loaded from driver
+ # floppies. cdrom-detect will use it.
+ media-retriever
 diff --git a/build/pkg-lists/cdrom/amd64.cfg b/build/pkg-lists/cdrom/amd64.cfg
 index 91420aa..a4d2395 100644
 --- a/build/pkg-lists/cdrom/amd64.cfg
@@ -233,6 +246,19 @@ index 91420aa..a4d2395 100644
  console-setup-udeb
  kbd-udeb
  usb-modules-${kernel:Version}
+diff --git a/build/pkg-lists/cdrom/common b/build/pkg-lists/cdrom/common
+index ca63580..3268cd7 100644
+--- a/build/pkg-lists/cdrom/common
++++ b/build/pkg-lists/cdrom/common
+@@ -19,8 +19,6 @@ preseed-common
+ initrd-preseed
+ file-preseed
+ 
+-nano-udeb
+-
+ # This is so additional modules (eg, scsi) can be loaded from driver
+ # floppies. cdrom-detect will use it.
+ media-retriever
 diff --git a/build/pkg-lists/cdrom/i386.cfg b/build/pkg-lists/cdrom/i386.cfg
 index 5a77de6..8359e68 100644
 --- a/build/pkg-lists/cdrom/i386.cfg
@@ -245,6 +271,60 @@ index 5a77de6..8359e68 100644
  console-setup-udeb
  kbd-udeb
  usb-modules-${kernel:Version}
+diff --git a/build/pkg-lists/floppy/common b/build/pkg-lists/floppy/common
+index cfc0197..77ae3b6 100644
+--- a/build/pkg-lists/floppy/common
++++ b/build/pkg-lists/floppy/common
+@@ -19,8 +19,6 @@ kbd-udeb
+ cdebconf-newt-udeb
+ installation-locale
+ 
+-nano-udeb
+-
+ # floppy loading support
+ load-media
+ media-retriever
+diff --git a/build/pkg-lists/generic/common b/build/pkg-lists/generic/common
+index fceddde..668dd52 100644
+--- a/build/pkg-lists/generic/common
++++ b/build/pkg-lists/generic/common
+@@ -11,8 +11,6 @@ cdebconf-newt-terminal ?
+ installation-locale
+ di-utils-terminfo
+ 
+-nano-udeb
+-
+ preseed-common
+ initrd-preseed
+ network-preseed
+diff --git a/build/pkg-lists/gtk-common b/build/pkg-lists/gtk-common
+index 6f22ca6..48bb61e 100644
+--- a/build/pkg-lists/gtk-common
++++ b/build/pkg-lists/gtk-common
+@@ -4,23 +4,7 @@ rootskel-gtk
+ cdebconf-gtk-udeb
+ cdebconf-gtk-terminal
+ 
+-xserver-xorg-core-udeb
+ gtk2-engines-udeb
+ 
+ # Fonts: see http://wiki.debian.org/DebianInstaller/GUIFonts
+ ttf-freefont-udeb
+-fonts-farsiweb-udeb
+-ttf-cjk-compact-udeb
+-fonts-tibetan-machine-udeb
+-ttf-dejavu-udeb
+-fonts-khmeros-udeb
+-fonts-thai-tlwg-udeb
+-fonts-taml-udeb
+-fonts-mlym-udeb
+-ttf-kannada-fonts-udeb
+-fonts-telu-udeb
+-fonts-sil-abyssinica-udeb
+-fonts-lklug-sinhala-udeb
+-fonts-lao-udeb
+-fonts-ukij-uyghur-udeb
+-fonts-sil-padauk-udeb
 diff --git a/build/pkg-lists/hd-media/amd64.cfg b/build/pkg-lists/hd-media/amd64.cfg
 index 415d281..8e4212f 100644
 --- a/build/pkg-lists/hd-media/amd64.cfg
@@ -267,6 +347,45 @@ index 415d281..8e4212f 100644
  
  # the iso is loop-mounted
  loop-modules-${kernel:Version}
+diff --git a/build/pkg-lists/hd-media/common b/build/pkg-lists/hd-media/common
+index 395511e..00ff31c 100644
+--- a/build/pkg-lists/hd-media/common
++++ b/build/pkg-lists/hd-media/common
+@@ -14,8 +14,6 @@ preseed-common
+ initrd-preseed
+ file-preseed
+ 
+-nano-udeb
+-
+ # Starting from 2.6.25, the isofs module is in a separate udeb
+ isofs-modules-${kernel:Version} ?
+ 
+diff --git a/build/pkg-lists/hd-media/gtk/amd64.cfg b/build/pkg-lists/hd-media/gtk/amd64.cfg
+index 82f7c84..016671c 100644
+--- a/build/pkg-lists/hd-media/gtk/amd64.cfg
++++ b/build/pkg-lists/hd-media/gtk/amd64.cfg
+@@ -1,8 +1,6 @@
+ #include "gtk-linux"
+ 
+ mouse-modules-${kernel:Version}
+-xserver-xorg-input-evdev-udeb
+-xserver-xorg-video-fbdev-udeb
+ 
+ speakup-modules-${kernel:Version}
+ sound-modules-${kernel:Version}
+diff --git a/build/pkg-lists/hd-media/gtk/i386.cfg b/build/pkg-lists/hd-media/gtk/i386.cfg
+index 82f7c84..016671c 100644
+--- a/build/pkg-lists/hd-media/gtk/i386.cfg
++++ b/build/pkg-lists/hd-media/gtk/i386.cfg
+@@ -1,8 +1,6 @@
+ #include "gtk-linux"
+ 
+ mouse-modules-${kernel:Version}
+-xserver-xorg-input-evdev-udeb
+-xserver-xorg-video-fbdev-udeb
+ 
+ speakup-modules-${kernel:Version}
+ sound-modules-${kernel:Version}
 diff --git a/build/pkg-lists/hd-media/i386.cfg b/build/pkg-lists/hd-media/i386.cfg
 index 415d281..8e4212f 100644
 --- a/build/pkg-lists/hd-media/i386.cfg
@@ -304,6 +423,30 @@ index 97faa81..0355258 100644
  
  # the iso is loop-mounted
  loop-modules-${kernel:Version}
+diff --git a/build/pkg-lists/nativehd/common b/build/pkg-lists/nativehd/common
+index 0a76ebd..23d781b 100644
+--- a/build/pkg-lists/nativehd/common
++++ b/build/pkg-lists/nativehd/common
+@@ -18,8 +18,6 @@ hw-detect
+ ethdetect
+ netcfg
+ 
+-nano-udeb
+-
+ libfribidi0-udeb
+ 
+ preseed-common
+diff --git a/build/pkg-lists/netboot-apus/common b/build/pkg-lists/netboot-apus/common
+index 16c0db0..80863b1 100644
+--- a/build/pkg-lists/netboot-apus/common
++++ b/build/pkg-lists/netboot-apus/common
+@@ -11,6 +11,4 @@ cdebconf-newt-terminal ?
+ installation-locale
+ di-utils-terminfo
+ 
+-nano-udeb
+-
+ libfribidi0-udeb
 diff --git a/build/pkg-lists/netboot/amd64.cfg b/build/pkg-lists/netboot/amd64.cfg
 index ec6beef..ef72adc 100644
 --- a/build/pkg-lists/netboot/amd64.cfg
@@ -318,6 +461,19 @@ index ec6beef..ef72adc 100644
  # In case they need to load a driver image.
  mountmedia
  media-retriever
+diff --git a/build/pkg-lists/netboot/common b/build/pkg-lists/netboot/common
+index 823cdc5..07ca0cf 100644
+--- a/build/pkg-lists/netboot/common
++++ b/build/pkg-lists/netboot/common
+@@ -16,8 +16,6 @@ initrd-preseed
+ network-preseed
+ file-preseed
+ 
+-nano-udeb
+-
+ save-logs
+ 
+ libfribidi0-udeb
 diff --git a/build/pkg-lists/netboot/i386.cfg b/build/pkg-lists/netboot/i386.cfg
 index 3340b1d..0f11356 100644
 --- a/build/pkg-lists/netboot/i386.cfg
@@ -332,3 +488,20 @@ index 3340b1d..0f11356 100644
  # In case they need to load a driver image.
  mountmedia
  media-retriever
+diff --git a/doc/devel/internals/menu-item-numbers.xml b/doc/devel/internals/menu-item-numbers.xml
+index bc86a41..f92c4bc 100644
+--- a/doc/devel/internals/menu-item-numbers.xml
++++ b/doc/devel/internals/menu-item-numbers.xml
+@@ -103,9 +103,9 @@ were before to give more flexibility.
+      silo-installer (sparc)
+      vmelilo-installer (m68k/vme*)
+      flash-kernel-installer (armel)
+-7400 grub-installer (x86, powerpc/chrp_pegasos)
+-7500 lilo-installer (x86)
+-7600 elilo-installer (ia64, x86)
++7400 grub-installer (powerpc/chrp_pegasos)
++7500 growlight (x86)
++7600 elilo-installer (ia64)
+ 7700 nobootloader (all)
+ 7800 finish-install
+ </screen></informalexample>

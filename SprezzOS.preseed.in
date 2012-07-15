@@ -81,16 +81,6 @@ d-i partman/confirm_copy boolean true
 d-i partman-partitioning/confirm_copy boolean true
 d-i partman/confirm_nooverwrite boolean true
 
-#### Boot loader installation.
-
-# This is fairly safe to set, it makes grub install automatically to the MBR
-# if no other operating system is detected on the machine.
-#d-i grub-installer/only_debian  boolean true
-# This one makes grub-installer install to the MBR if if finds some other OS
-# too, which is less safe as it might not be able to boot that other OS.
-#d-i grub-installer/with_other_os  boolean true
-
-
 ###### Apt setup.
 base-config apt-setup/security-updates  boolean true
 d-i apt-setup/non-free  boolean true
