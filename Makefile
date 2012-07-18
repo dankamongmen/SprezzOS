@@ -2,7 +2,7 @@
 .PHONY: all test clean kernel cleanchroot clobber subupdate
 
 # Kernel version
-UPSTREAM:=3.4.4
+UPSTREAM:=3.4.5
 KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
 ZFSFVER:=$(ZFSVER)-3_amd64
@@ -37,7 +37,7 @@ DIDEB:=/d-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(UPSTREAM).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
-KERNDEB:=$(CHROOT)/linux-image-3.4.4-1-amd64_3.4.4-1_amd64.deb
+KERNDEB:=$(CHROOT)/linux-image-3.4.5-1-amd64_3.4.5-1_amd64.deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
 
