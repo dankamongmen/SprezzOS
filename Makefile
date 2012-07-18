@@ -87,7 +87,7 @@ $(WORLD): $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	$(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
 
-$(CHROOT)/$(BUILDK): $(BUILDK)
+$(CHROOT)/$(BUILDK): $(BUILDK) $(CHROOT)/$(BUILDIN)
 	cp $< $@
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED)
