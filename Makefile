@@ -69,7 +69,7 @@ $(CONF): $(CONFIN)
 		echo custom_installer=\"$(shell pwd)/dest\" ) > $@
 
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER)/debian $(CHROOT)/spl-$(ZFSVER)/debian
-	sudo chroot $(CHROOT) gpg-agent /$(BUILDK) $(UPSTREAM) $(ZFSVER)
+	sudo chroot $(CHROOT) gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)
 
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
 	sudo chroot $(CHROOT) gpg-agent --daemon /$(BUILDIN) $(UPSTREAM) $(ZFSVER)
