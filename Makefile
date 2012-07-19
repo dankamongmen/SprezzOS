@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean kernel cleanchroot clobber
+.PHONY: all test clean kernel udebs cleanchroot clobber
 
 # Kernel version
 UPSTREAM:=3.4.5
@@ -72,7 +72,10 @@ kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(Z
 	sudo chroot $(CHROOT) gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)
 
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
-	sudo chroot $(CHROOT) gpg-agent --daemon /$(BUILDIN) $(UPSTREAM) $(ZFSVER)
+	sudo chroot $(CHROOT) gpg-agent --daemon /$(BUILDIN)
+
+udebs: $(CHROOT)/$(BUILDU)
+	sudo chroot $(CHROOT) gpg-agent --daemon /$(BUILDU)
 
 $(CHROOT)/d-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
 	cp -fv $< $@
@@ -96,6 +99,9 @@ $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	$(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
 
 $(CHROOT)/$(BUILDK): $(BUILDK) $(CHROOT)/$(BUILDIN)
+	cp $< $@
+
+$(CHROOT)/$(BUILDU): $(BUILDU) $(CHROOT)/$(BUILDIN)
 	cp $< $@
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED)
