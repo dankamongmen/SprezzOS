@@ -13,10 +13,6 @@ DEBKEY=AAE15FF2
 export DEBFULLNAME="Nick Black"
 export DEBEMAIL="<nick.black@sprezzatech.com>"
 
-cd /d-i
-scripts/git-setup
-mr -p checkout
-
 cd /d-i/packages/main-menu && patch -p1 < /d-i-patches/packages/main-menu.diff
 cd /d-i/packages/rootskel && patch -p1 < /d-i-patches/packages/rootskel.diff
 cd /d-i/packages/rootskel && cp -v /d-i-patches/packages/rootskel/src/sbin/fbvfbterm src/sbin/fbvfbterm

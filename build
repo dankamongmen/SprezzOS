@@ -37,7 +37,9 @@ sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer linux fbterm
 
 sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
-sudo cp local "$DI/d-i/installer/build/pkg-lists/"
+sudo chroot "$DI" /bin/sh -c "cd /d-i && ./scripts/git-setup"
+sudo chroot "$DI" /bin/sh -c "cd /d-i && mr -p checkout"
+sudo cp -v local "$DI/d-i/installer/build/pkg-lists/"
 for i in "$@" ; do
 	sudo cp -v "$i" "$DI/d-i/installer/build/localudebs"
 done
