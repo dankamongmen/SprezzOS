@@ -68,7 +68,7 @@ $(CONF): $(CONFIN)
 		cat $^ && \
 		echo custom_installer=\"$(shell pwd)/dest\" ) > $@
 
-kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER) $(CHROOT)/spl-$(ZFSVER)
+kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER)/debian $(CHROOT)/spl-$(ZFSVER)/debian
 	sudo chroot $(CHROOT) gpg-agent /$(BUILDK) $(UPSTREAM) $(ZFSVER)
 
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
@@ -84,11 +84,13 @@ $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(WORLD)
 $(WORLD): $(CHROOT)/$(BUILDIN)
 	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
 
-$(CHROOT)/zfs-$(ZFSVER): $(CHROOT)/$(BUILDIN)
-	sudo chroot $(CHROOT) git clone https://github.com/zfsonlinux/zfs.git zfs-$ZFSVER
+$(CHROOT)/zfs-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
+	sudo chroot $(CHROOT) git clone https://github.com/zfsonlinux/zfs.git zfs-$(ZFSVER)
+	sudo chroot $(CHROOT) cp -r world/zfs zfs-$(ZFSVER)/debian
 
-$(CHROOT)/spl-$(ZFSVER): $(CHROOT)/$(BUILDIN)
-	sudo chroot $(CHROOT) git clone https://github.com/zfsonlinux/spl.git spl-$ZFSVER
+$(CHROOT)/spl-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
+	sudo chroot $(CHROOT) git clone https://github.com/zfsonlinux/spl.git spl-$(ZFSVER)
+	sudo chroot $(CHROOT) cp -r world/spl spl-$(ZFSVER)/debian
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	$(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
