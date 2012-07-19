@@ -1,0 +1,33 @@
+#/usr/bin/env bash
+
+set -e
+set -x
+
+usage () { echo "usage: `basename $0`" ; return 0 ; }
+usageerr () { usage >&2 ; return 1 ; }
+
+[ $# -eq 2 ] || usageerr
+
+DEBKEY=AAE15FF2
+
+export DEBFULLNAME="Nick Black"
+export DEBEMAIL="<nick.black@sprezzatech.com>"
+
+cd /d-i
+scripts/git-setup
+mr -p checkout
+
+cd /d-i/packages/main-menu && patch -p1 < /d-i-patches/packages/main-menu.diff
+cd /d-i/packages/rootskel && patch -p1 < /d-i-patches/packages/rootskel.diff
+cd /d-i/packages/rootskel && cp -v /d-i-patches/packages/rootskel/src/sbin/fbvfbterm src/sbin/fbvfbterm
+cd /d-i/packages/partman-basicfilesystems && patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff
+
+# Build our own packages of certain udebs. Don't try rebuilding all; that leads
+# to divergence from upstream, and some of them fail.
+for i in main-menu partman-basicfilesystems rootskel ; do
+	cd "$i"
+	dpkg-buildpackage -j8 -k$DEBKEY
+	cd -
+done
+
+# Send them to the repo...

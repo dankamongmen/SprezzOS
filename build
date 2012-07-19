@@ -37,21 +37,15 @@ sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer linux fbterm
 
 sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
-sudo chroot "$DI" /bin/sh -c "cd /d-i && scripts/git-setup"
-sudo chroot "$DI" /bin/sh -c "cd /d-i && mr -p checkout"
 sudo cp local "$DI/d-i/installer/build/pkg-lists/"
 for i in "$@" ; do
-	sudo cp "$i" "$DI/d-i/installer/build/localudebs"
+	sudo cp -v "$i" "$DI/d-i/installer/build/localudebs"
 done
-sudo cp -r d-i "$DI/d-i-patches"
+sudo cp -vr d-i "$DI/d-i-patches"
 sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
 sudo chroot "$DI" /bin/sh -c "cd /d-i/installer && patch -p1 < /d-i-patches/installer.diff"
-sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/main-menu && patch -p1 < /d-i-patches/packages/main-menu.diff"
-sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/rootskel && patch -p1 < /d-i-patches/packages/rootskel.diff"
-sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/rootskel && cp /d-i-patches/packages/rootskel/src/sbin/fbvfbterm src/sbin/fbvfbterm"
-sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/partman-basicfilesystems && patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff"
 
-sudo cp -r ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
+sudo cp -vr ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
 
 sudo chroot "$DI" umount /proc
 sudo chroot "$DI" umount devpts 
