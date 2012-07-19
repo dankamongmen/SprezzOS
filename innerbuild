@@ -3,33 +3,17 @@
 set -e
 set -x
 
-usage () { echo "usage: `basename $0` kernver zfsver" ; return 0 ; }
+usage () { echo "usage: `basename $0`" ; return 0 ; }
 usageerr () { usage >&2 ; return 1 ; }
 
-[ $# -eq 2 ] || usageerr
+[ $# -eq 0 ] || usageerr
 
-UPSTREAM="$1"
-ZFSVER="$2"
-
-ABI=1
-KVERS="$UPSTREAM-$ABI"
 DEBKEY=AAE15FF2
 
 export DEBFULLNAME="Nick Black"
 export DEBEMAIL="<nick.black@sprezzatech.com>"
 
-# Build our own packages of certain udebs. Don't try rebuilding all; that leads
-# to divergence from upstream, and some of them fail.
-#cd /d-i/packages
-#for i in apt-setup debootstrap main-menu partman-basicfilesystems rootskel ; do
-#	cd "$i"
-#	dpkg-buildpackage -j8 -k$DEBKEY
-#	cd -
-#done
-
 cd /d-i/installer/build/localudebs
-
-#cp -v /d-i/packages/*udeb .
 
 wget http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/ -O- | \
  wget --base=http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/ \
