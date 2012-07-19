@@ -17,7 +17,7 @@ shift
 [ ! -d "$DI/sys" ] || sudo umount "$DI"/sys || true
 [ ! -d "$DI" ] || sudo rm -rf "$DI"
 
-sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,openssh-client,devscripts,ca-certificates,fakeroot,libdebconfclient0-dev,libdebian-installer4-dev,libtool,unzip,iasl,libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,autopoint,links2,gnupg-agent \
+sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,openssh-client,devscripts,ca-certificates,fakeroot,libdebconfclient0-dev,libdebian-installer4-dev,libtool,unzip,iasl,libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,autopoint,links2,gnupg-agent,pinentry-curses \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI"
 sudo chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UTF-8 | debconf-communicate"
 sudo chroot "$DI" /bin/sh -c "echo set locales/default_environment_locale en_US.UTF-8 | debconf-communicate"
