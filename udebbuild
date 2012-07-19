@@ -22,6 +22,8 @@ cd /d-i/packages/rootskel && patch -p1 < /d-i-patches/packages/rootskel.diff
 cd /d-i/packages/rootskel && cp -v /d-i-patches/packages/rootskel/src/sbin/fbvfbterm src/sbin/fbvfbterm
 cd /d-i/packages/partman-basicfilesystems && patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff
 
+cd /d-i/packages
+
 # Build our own packages of certain udebs. Don't try rebuilding all; that leads
 # to divergence from upstream, and some of them fail.
 for i in main-menu partman-basicfilesystems rootskel ; do
