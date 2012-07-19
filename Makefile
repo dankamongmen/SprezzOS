@@ -17,6 +17,7 @@ DBUILD:=dpkg-buildpackage -k9978711C
 # Helper scripts
 BUILD:=build
 BUILDIN:=innerbuild
+BUILDU:=udebbuild
 BUILDK:=kernelbuild
 MAKECD:=makecd
 RUNCD:=runcd
@@ -43,8 +44,8 @@ EXCLUDES:=excludes
 
 all: $(IMG)
 
-test: $(RUNCD) $(TESTDISK) all
-	./$< $(TESTDISK) $(ISO)
+test: $(RUNCD) $(IMG)
+	./$< $(TESTDISK) $(IMG)
 
 # ISO creation
 
@@ -69,13 +70,13 @@ $(CONF): $(CONFIN)
 		echo custom_installer=\"$(shell pwd)/dest\" ) > $@
 
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER)/debian $(CHROOT)/spl-$(ZFSVER)/debian
-	sudo chroot $(CHROOT) gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)
+	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=`tty` && gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)"
 
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
-	sudo chroot $(CHROOT) gpg-agent --daemon /$(BUILDIN)
+	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=`tty` && gpg-agent --daemon /$(BUILDIN)"
 
 udebs: $(CHROOT)/$(BUILDU)
-	sudo chroot $(CHROOT) gpg-agent --daemon /$(BUILDU)
+	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=`tty` && gpg-agent --daemon /$(BUILDU)"
 
 $(CHROOT)/d-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
 	cp -fv $< $@
