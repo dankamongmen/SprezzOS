@@ -51,6 +51,8 @@ sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/rootskel && patch -p1 < /d-i-patc
 sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/rootskel && cp /d-i-patches/packages/rootskel/src/sbin/fbvfbterm src/sbin/fbvfbterm"
 sudo chroot "$DI" /bin/sh -c "cd /d-i/packages/partman-basicfilesystems && patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff"
 
+sudo cp -r ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
+
 sudo chroot "$DI" umount /proc
 sudo chroot "$DI" umount devpts 
 sudo chown -R $USER:$USER "$DI"

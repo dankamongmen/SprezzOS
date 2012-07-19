@@ -93,7 +93,6 @@ $(CHROOT)/$(BUILDK): $(BUILDK) $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	./$< $(@D)
-	cp -r ~/.gnupg/ $(CHROOT)/root/ # FIXME ughghghghghghghghg
 	cp $(BUILDIN) $@
 
 $(SEED): $(SEEDIN)
