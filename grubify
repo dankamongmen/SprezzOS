@@ -20,7 +20,7 @@ ISO="$1"
 
 GBOOTFILES="unicode.pf2 splash.png"
 for i in $GBOOTFILES ; do
-	[ -r "$i" ]
+	[ -r "$i" ] || { echo "Couldn't find $i, aborting" >&2 ; exit 1 ; }
 done
 
 fuseiso images/*iso "$tmp"
