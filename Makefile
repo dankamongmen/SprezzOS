@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean kernel cleanchroot clobber subupdate
+.PHONY: all test clean kernel cleanchroot clobber
 
 # Kernel version
 UPSTREAM:=3.4.5
@@ -117,10 +117,6 @@ $(PACKAGES): $(UPDATE)
 #$(FONT): /usr/share/fonts/X11/misc/ter-u28b_unicode.pcf.gz
 $(FONT): /usr/share/fonts/X11/misc/ter-u20b_unicode.pcf.gz
 	grub-mkfont -v -a --no-bitmap $< -o $@
-
-subupdate:
-	cd fwts && git pull origin HEAD && cd -
-	git submodule update
 
 clean: cleanchroot
 	rm -rf tmp $(TESTDISK) images $(IMG) profiles
