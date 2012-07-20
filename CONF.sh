@@ -56,10 +56,10 @@ unset MAX_PKG_SIZE       || true
 export BASEDIR=`pwd`
 
 # Name of the distribution for the image filename (Defaults to 'debian')
-# export CDNAME=debian
+# export CDNAME=sprezzos
 
 # Building wheezy cd set ...
-export CODENAME=wheezy
+export CODENAME=turing
 
 # By default use Debian installer packages from $CODENAME
 if [ -z "$DI_CODENAME" ]; then
@@ -73,7 +73,7 @@ fi
 #export DI_WWW_HOME=default
 
 # Version number, "2.2 r0", "2.2 r1" etc.
-export DEBVERSION="7.0"
+export DEBVERSION="0.0"
 
 # Official or non-official set.
 # NOTE: THE "OFFICIAL" DESIGNATION IS ONLY ALLOWED FOR IMAGES AVAILABLE
@@ -119,7 +119,7 @@ export OUT=/srv/mirror/debian-cd-test
 export APTTMP=/srv/mirror/tmp/apt
 
 # Do I want to have NONFREE merged in the CD set
-# export NONFREE=1
+export NONFREE=1
 
 # Do I want to have CONTRIB merged in the CD set
 export CONTRIB=1
@@ -131,7 +131,7 @@ export CONTRIB=1
 # Do I want to force (potentially non-free) firmware packages to be
 # placed on disc 1? Will make installation much easier if systems
 # contain hardware that depends on this firmware
-# export FORCE_FIRMWARE=1
+export FORCE_FIRMWARE=1
 
 # If you have a $MIRROR/dists/$CODENAME/local/binary-$ARCH dir with 
 # local packages that you want to put on the CD set then
@@ -366,7 +366,7 @@ export SNAPURL=Debian=http://snapshot.debian.org/archive/debian/SNAPDATETIME/
 
 # If set, limits the number of images to produce. The maximum
 # value of MAXISOS and MAXJIGDOS are limited to this setting.
-#export MAXCDS=1
+export MAXCDS=1
 
 # If set, overrides the boot picture used.
 #export SPLASHPNG="$BASEDIR/data/$CODENAME/splash-img.png"
