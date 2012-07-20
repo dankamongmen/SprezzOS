@@ -57,6 +57,12 @@ done
 mkdir -p tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
 
 cp -r dest/* tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
+
+# from /etc/debian-cd/conf.sh
+export CF=CONF.sh
+. $CF
+export DEBIAN_CD_CONF_SOURCED=true
+
 simple-cdd --dist "$CODENAME" --profiles SprezzOS -b SprezzOS --auto-profiles SprezzOS \
 	--local-packages "$PKGS" --kernel-packages "$KPKGS"
 

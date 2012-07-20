@@ -26,6 +26,7 @@ echo "en_US.UTF-8 UTF-8" | sudo tee -a "$DI/etc/locale.gen"
 sudo chroot "$DI" locale-gen
 sudo chroot "$DI" mount -t proc procfs /proc
 sudo chroot "$DI" mount -t devpts devpts /dev/pts
+sudo chroot "$DI" aptitude remove pinentry-gtk2
 
 sudo tee -a "$DI/etc/apt/sources.list" <<APT
 deb http://www.sprezzatech.com/apt unstable main non-free contrib
