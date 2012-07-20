@@ -6,7 +6,7 @@ UPSTREAM:=3.4.5
 KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
 ZFSFVER:=$(ZFSVER)-3_amd64
-SPLFVER:=$(ZFSVER)-2_amd64
+SPLFVER:=$(ZFSVER)-3_amd64
 
 CHROOT:=unstable
 DI:=debian-installer_20120712
@@ -39,6 +39,7 @@ KERNBALL:=linux-$(UPSTREAM).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=$(CHROOT)/linux-image-3.4.5-1-amd64_3.4.5-1_amd64.deb
+BASEFILESDEB:=base-files-7.0.deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
 
@@ -49,11 +50,15 @@ test: $(RUNCD) $(IMG)
 
 # ISO creation
 
-$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(KERNDEB) $(GRUBCONF) $(EXCLUDES)
+DEBS:=$(KERNDEB) $(BASEFILESDEB)
+
+$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KVER) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
+$(BASEFILESDEB): $(CHROOT)/$(BUILDIN)
+	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/b/base-files/base-files_7.0_amd64.deb > $@
+
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/b/base-files/base-files_6.11_amd64.deb > $(CHROOT)/base-files_6.11_amd64.deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.6_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.6_all.deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/z/zfs/zfs_$(ZFSFVER).deb > $(CHROOT)/zfs_$(ZFSFVER).deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(SPLFVER).deb > $(CHROOT)/spl_$(ZFSFVER).deb
@@ -70,13 +75,13 @@ $(CONF): $(CONFIN)
 		echo custom_installer=\"$(shell pwd)/dest\" ) > $@
 
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER)/debian $(CHROOT)/spl-$(ZFSVER)/debian
-	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=`tty` && gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)"
+	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)"
 
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
-	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=`tty` && gpg-agent --daemon /$(BUILDIN)"
+	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDIN)"
 
 udebs: $(CHROOT)/$(BUILDU)
-	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=`tty` && gpg-agent --daemon /$(BUILDU)"
+	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDU)"
 
 $(CHROOT)/d-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
 	cp -fv $< $@
