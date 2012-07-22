@@ -77,7 +77,7 @@ $(CONF): $(CONFIN)
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER)/debian $(CHROOT)/spl-$(ZFSVER)/debian
 	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)"
 
-$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
+$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local local
 	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDIN)"
 
 udebs: $(CHROOT)/$(BUILDU)
