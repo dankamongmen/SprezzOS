@@ -6,8 +6,12 @@
 
 TARGET=/target
 
+# Otherwise we get a diagnostic when libzfs is first entered (despite the fact
+# that it immediately loads the module successfully).
+modprobe zfs
+
 while true ; do
-	mkdir "$TARGET"
+	mkdir -p "$TARGET"
 	/sbin/growlight-tty --target="$TARGET"
 	if [ $? -eq 0 ] ; then
 		kill -s SIGUSR1 `pidof growlight-wait`
