@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# invoked by inittab in installer. on success, kill the growlight-wait process
+# with SIGUSR1. otherwise, kill it with some other signal. if this succeeds (ie
+# there is really a process waiting on us), chvt back to tty1.
+
+/sbin/growlight --target /target
+if [ $? -eq 0 ] ; then
+	kill -s SIGUSR1 `pidof growlight-wait`
+	if [ $? -eq 0 ] ; then
+		chvt 1
+	fi
+else
+	kill -s SIGTERM `pidof growlight-wait`
+	if [ $? -eq 0 ] ; then
+		chvt 1
+	fi
+fi
