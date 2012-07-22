@@ -7,7 +7,7 @@ index 397db3f..2ab43a6 100644
  
  # The version of the kernel to use.
 -KERNELVERSION = 3.2.0-3-amd64
-+KERNELVERSION = 3.4.6-1-amd64
++KERNELVERSION = 3.5.0-1-amd64
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
@@ -141,7 +141,7 @@ index ba2d2db..054f3ca 100644
  
  # The version of the kernel to use.
 -BASEVERSION = 3.2.0-3
-+BASEVERSION = 3.4.6-1
++BASEVERSION = 3.5.0-1
  KERNELVERSION = $(BASEVERSION)-486
  KERNELMAJOR = 2.6
  KERNEL_FLAVOUR = di
@@ -186,7 +186,7 @@ index 5f7bb25..b085d5c 100644
  # The version of the kernel to use.
  KERNELMAJOR = 2.6
 -KERNELVERSION = 3.2.0-3-itanium
-+KERNELVERSION = 3.4.6-1-itanium
++KERNELVERSION = 3.5.0-1-itanium
  KERNEL_FLAVOUR = di
  KERNELNAME = vmlinuz
  KERNELIMAGEVERSION = $(KERNELVERSION)
@@ -488,20 +488,3 @@ index 3340b1d..0f11356 100644
  # In case they need to load a driver image.
  mountmedia
  media-retriever
-diff --git a/doc/devel/internals/menu-item-numbers.xml b/doc/devel/internals/menu-item-numbers.xml
-index bc86a41..f92c4bc 100644
---- a/doc/devel/internals/menu-item-numbers.xml
-+++ b/doc/devel/internals/menu-item-numbers.xml
-@@ -103,9 +103,9 @@ were before to give more flexibility.
-      silo-installer (sparc)
-      vmelilo-installer (m68k/vme*)
-      flash-kernel-installer (armel)
--7400 grub-installer (x86, powerpc/chrp_pegasos)
--7500 lilo-installer (x86)
--7600 elilo-installer (ia64, x86)
-+7400 grub-installer (powerpc/chrp_pegasos)
-+7500 growlight (x86)
-+7600 elilo-installer (ia64)
- 7700 nobootloader (all)
- 7800 finish-install
- </screen></informalexample>
