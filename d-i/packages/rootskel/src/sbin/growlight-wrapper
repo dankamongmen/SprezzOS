@@ -4,15 +4,20 @@
 # with SIGUSR1. otherwise, kill it with some other signal. if this succeeds (ie
 # there is really a process waiting on us), chvt back to tty1.
 
-/sbin/growlight-tty --target /target
-if [ $? -eq 0 ] ; then
-	kill -s SIGUSR1 `pidof growlight-wait`
+TARGET=/target
+
+while true ; do
+	mkdir "$TARGET"
+	/sbin/growlight-tty --target="$TARGET"
 	if [ $? -eq 0 ] ; then
-		chvt 1
+		kill -s SIGUSR1 `pidof growlight-wait`
+		if [ $? -eq 0 ] ; then
+			chvt 1
+		fi
+	else
+		kill -s SIGTERM `pidof growlight-wait`
+		if [ $? -eq 0 ] ; then
+			chvt 1
+		fi
 	fi
-else
-	kill -s SIGTERM `pidof growlight-wait`
-	if [ $? -eq 0 ] ; then
-		chvt 1
-	fi
-fi
+done
