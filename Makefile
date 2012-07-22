@@ -77,7 +77,7 @@ $(CONF): $(CONFIN)
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER)/debian $(CHROOT)/spl-$(ZFSVER)/debian
 	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)"
 
-$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local local
+$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
 	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDIN)"
 
 udebs: $(CHROOT)/$(BUILDU)
@@ -110,7 +110,7 @@ $(CHROOT)/$(BUILDK): $(BUILDK) $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(BUILDU): $(BUILDU) $(CHROOT)/$(BUILDIN)
 	cp $< $@
 
-$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED)
+$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	./$< $(@D)
 	cp $(BUILDIN) $@
