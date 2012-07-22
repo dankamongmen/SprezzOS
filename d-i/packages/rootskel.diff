@@ -26,7 +26,7 @@ index a7b8a23..c3e6d88 100644
 +tty5::askfirst:-/bin/sh
 +tty6::askfirst:-/bin/sh
 +tty7::respawn:/usr/bin/tail -f /var/log/syslog
-+tty8::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.png /usr/bin/env LANG=C.UTF-8 /sbin/growlight-tty
++tty8::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.png /usr/bin/env LANG=C.UTF-8 /sbin/growlight-tty --target=/target
  
  # Stuff to do before rebooting
  ::ctrlaltdel:/sbin/shutdown > /dev/null 2>&1
