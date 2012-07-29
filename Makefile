@@ -1,5 +1,5 @@
 .DELETE_ON_ERROR:
-.PHONY: all test clean kernel udebs cleanchroot clobber
+.PHONY: all world test clean kernel udebs cleanchroot clobber
 
 # Kernel version
 UPSTREAM:=3.4.6
@@ -47,6 +47,10 @@ all: $(IMG)
 
 test: $(RUNCD) $(IMG)
 	./$< $(TESTDISK) $(IMG)
+
+# External package creation, incomplete FIXME
+
+world: $(WORLD)
 
 # ISO creation
 
