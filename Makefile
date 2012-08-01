@@ -43,6 +43,7 @@ KERNDEB:=$(CHROOT)/linux-image-$(KVER)-amd64_$(KVER)_amd64.deb
 BASEFILESDEB:=base-files-7.0.deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
+THEME:=splash.png sprezzos.theme
 
 all: $(IMG)
 
@@ -56,7 +57,7 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 # ISO creation
 DEBS:=$(KERNDEB) $(BASEFILESDEB)
 
-$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(DEBS) $(GRUBCONF) $(EXCLUDES)
+$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KVER) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
 $(BASEFILESDEB): $(CHROOT)/$(BUILDIN)
