@@ -114,6 +114,9 @@ $(CHROOT)/$(BUILDK): $(BUILDK) $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(BUILDU): $(BUILDU) $(CHROOT)/$(BUILDIN)
 	cp $< $@
 
+$(CHROOT)/$(BUILDW): $(BUILDW) $(CHROOT)/$(BUILDIN)
+	cp $< $@
+
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	./$< $(@D)
