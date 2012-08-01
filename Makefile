@@ -2,7 +2,7 @@
 .PHONY: all world test clean kernel udebs cleanchroot clobber
 
 # Kernel version
-UPSTREAM:=3.4.6
+UPSTREAM:=3.5.0
 KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
 ZFSFVER:=$(ZFSVER)-4_amd64
@@ -39,7 +39,7 @@ DIDEB:=/d-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(UPSTREAM).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
-KERNDEB:=$(CHROOT)/linux-image-3.4.6-1-amd64_3.4.6-1_amd64.deb
+KERNDEB:=$(CHROOT)/linux-image-$(KVER)-amd64_$(KVER)_amd64.deb
 BASEFILESDEB:=base-files-7.0.deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
