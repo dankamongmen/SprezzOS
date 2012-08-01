@@ -14,12 +14,12 @@ while true ; do
 	mkdir -p "$TARGET"
 	/sbin/growlight-tty --target="$TARGET"
 	if [ $? -eq 0 ] ; then
-		kill -s SIGUSR1 `pidof growlight-wait`
+		kill -s SIGHUP `pidof growlight-wait`
 		if [ $? -eq 0 ] ; then
 			chvt 1
 		fi
 	else
-		kill -s SIGTERM `pidof growlight-wait`
+		kill -s SIGKILL `pidof growlight-wait`
 		if [ $? -eq 0 ] ; then
 			chvt 1
 		fi
