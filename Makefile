@@ -2,8 +2,8 @@
 .PHONY: all world test clean kernel udebs cleanchroot clobber
 
 # Kernel version
-UPSTREAM:=3.5
-KVER:=$(UPSTREAM).0-1
+UPSTREAM:=3.4.6
+KVER:=$(UPSTREAM)-1
 ZFSVER:=0.6.0~rc9
 ZFSFVER:=$(ZFSVER)-4_amd64
 SPLFVER:=$(ZFSVER)-4_amd64
