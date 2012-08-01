@@ -2,8 +2,8 @@
 .PHONY: all world test clean kernel udebs cleanchroot clobber
 
 # Kernel version
-UPSTREAM:=3.5.0
-KVER:=$(UPSTREAM)-1
+UPSTREAM:=3.5
+KVER:=$(UPSTREAM).0-1
 ZFSVER:=0.6.0~rc9
 ZFSFVER:=$(ZFSVER)-4_amd64
 SPLFVER:=$(ZFSVER)-4_amd64
@@ -79,6 +79,7 @@ $(CONF): $(CONFIN)
 		echo custom_installer=\"$(shell pwd)/dest\" ) > $@
 
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER)/debian $(CHROOT)/spl-$(ZFSVER)/debian
+	@[ ! -d $(CHROOT)/orig ] || sudo rm -rf $(CHROOT)/orig
 	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)"
 
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
