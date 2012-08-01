@@ -18,6 +18,7 @@ DBUILD:=dpkg-buildpackage -k9978711C
 BUILD:=build
 BUILDIN:=innerbuild
 BUILDU:=udebbuild
+BUILDW:=worldbuild
 BUILDK:=kernelbuild
 MAKECD:=makecd
 RUNCD:=runcd
@@ -48,12 +49,11 @@ all: $(IMG)
 test: $(RUNCD) $(IMG)
 	./$< $(TESTDISK) $(IMG)
 
-# External package creation, incomplete FIXME
-
-world: $(WORLD)
+# External package creation
+world: $(WORLD) $(CHROOT)/$(BUILDW)
+	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDW)"
 
 # ISO creation
-
 DEBS:=$(KERNDEB) $(BASEFILESDEB)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(DEBS) $(GRUBCONF) $(EXCLUDES)

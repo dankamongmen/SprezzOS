@@ -1,0 +1,18 @@
+#/usr/bin/env bash
+
+set -e
+set -x
+
+usage () { echo "usage: `basename $0`" ; return 0 ; }
+usageerr () { usage >&2 ; return 1 ; }
+
+[ $# -eq 0 ] || usageerr
+
+export DEBKEY=AAE15FF2
+export DEBFULLNAME="Nick Black"
+export DEBEMAIL="<nick.black@sprezzatech.com>"
+
+cd /sprezzos-world
+
+make -j8
+# Send them to the repo...
