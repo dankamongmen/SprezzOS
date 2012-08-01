@@ -1,0 +1,36 @@
+diff --git a/debian/changelog b/debian/changelog
+index c1396fb..5837a7d 100644
+--- a/debian/changelog
++++ b/debian/changelog
+@@ -1,3 +1,9 @@
++netcfg (1.85-SprezzOS) unstable; urgency=low
++
++  * Theme for SprezzOS
++
++ -- Nick Black <<nick.black@sprezzatech.com>>  Wed, 01 Aug 2012 10:50:06 +0000
++
+ netcfg (1.84) unstable; urgency=low
+ 
+   * Team upload
+diff --git a/netcfg-common.c b/netcfg-common.c
+index 133de77..5d4adf7 100644
+--- a/netcfg-common.c
++++ b/netcfg-common.c
+@@ -925,7 +925,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
+                       "maxhostnamelen", buf);
+             debconf_input(client, "high", "netcfg/invalid_hostname");
+             debconf_go(client);
+-            debconf_set(client, template, "debian");
++            debconf_set(client, template, "sprezzos");
+             free(*hostname);
+             *hostname = NULL;
+         }
+@@ -953,7 +953,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
+                       "maxhostnamelen", buf);
+             debconf_input(client, "high", "netcfg/invalid_hostname");
+             debconf_go(client);
+-            debconf_set(client, template, "debian");
++            debconf_set(client, template, "sprezzos");
+             free(*hostname);
+             *hostname = NULL;
+         } else {
