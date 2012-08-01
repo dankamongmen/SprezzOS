@@ -72,15 +72,6 @@ user-setup-udeb passwd/shadow boolean true
 # Disable that annoying WEP key dialog.
 d-i netcfg/wireless_wep string 
 
-
-### Partitioning.
-
-# without confirmation.
-d-i partman/confirm boolean true
-d-i partman/confirm_copy boolean true
-d-i partman-partitioning/confirm_copy boolean true
-d-i partman/confirm_nooverwrite boolean true
-
 ###### Apt setup.
 base-config apt-setup/security-updates  boolean true
 d-i apt-setup/non-free  boolean true
@@ -115,5 +106,4 @@ bootstrap-base base-installer/initramfs-tools/driver-policy select most
 bootstrap-base base-installer/kernel/initramfs-tools/driver-policy string most
 
 # extra packages to install
-# intel-microcode amd64-microcode
-d-i pkgsel/include string zfs sudo fbterm mingetty grub-pc sprezzos-grub2theme fonts-inconsolata
+d-i pkgsel/include string zfs sudo fbterm mingetty grub-pc sprezzos-grub2theme fonts-inconsolata iucode-tool
