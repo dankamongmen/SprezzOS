@@ -16,13 +16,12 @@ cd /d-i/packages/main-menu && patch -p1 < /d-i-patches/packages/main-menu.diff
 cd /d-i/packages/netcfg && patch -p1 < /d-i-patches/packages/netcfg.diff
 cd /d-i/packages/rootskel && patch -p1 < /d-i-patches/packages/rootskel.diff
 cd /d-i/packages/rootskel && cp -v /d-i-patches/packages/rootskel/src/sbin/* src/sbin/
-cd /d-i/packages/partman-basicfilesystems && patch -p1 < /d-i-patches/packages/partman-basicfilesystems.diff
 
 cd /d-i/packages
 
 # Build our own packages of certain udebs. Don't try rebuilding all; that leads
 # to divergence from upstream, and some of them fail.
-for i in main-menu netcfg partman-basicfilesystems rootskel ; do
+for i in main-menu netcfg rootskel ; do
 	cd "$i"
 	apt-get -y build-dep "$i"
 	dpkg-buildpackage -j8 -k$DEBKEY
