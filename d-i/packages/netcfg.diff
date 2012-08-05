@@ -1,19 +1,32 @@
 diff --git a/debian/changelog b/debian/changelog
-index c1396fb..5837a7d 100644
+index 2a5385d..99679c9 100644
 --- a/debian/changelog
 +++ b/debian/changelog
 @@ -1,3 +1,9 @@
-+netcfg (1.85-SprezzOS) unstable; urgency=low
++netcfg (1.86-SprezzOS) unstable; urgency=low
 +
-+  * Theme for SprezzOS
++  * SprezzOS build
 +
-+ -- Nick Black <<nick.black@sprezzatech.com>>  Wed, 01 Aug 2012 10:50:06 +0000
++ -- Nick Black <nick.black@sprezzatech.com>  Sun, 05 Aug 2012 21:25:38 +0000
 +
- netcfg (1.84) unstable; urgency=low
+ netcfg (1.85) unstable; urgency=low
  
-   * Team upload
+   [ Updated translations ]
+diff --git a/debian/netcfg-common.templates b/debian/netcfg-common.templates
+index e964a5a..f1fa681 100644
+--- a/debian/netcfg-common.templates
++++ b/debian/netcfg-common.templates
+@@ -141,7 +141,7 @@ _Description: Failure of key exchange and association
+ 
+ Template: netcfg/get_hostname
+ Type: string
+-Default: debian
++Default: sprezzbox
+ # :sl1:
+ _Description: Hostname:
+  Please enter the hostname for this system.
 diff --git a/netcfg-common.c b/netcfg-common.c
-index 133de77..5d4adf7 100644
+index 133de77..a8f6e79 100644
 --- a/netcfg-common.c
 +++ b/netcfg-common.c
 @@ -925,7 +925,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
@@ -21,7 +34,7 @@ index 133de77..5d4adf7 100644
              debconf_input(client, "high", "netcfg/invalid_hostname");
              debconf_go(client);
 -            debconf_set(client, template, "debian");
-+            debconf_set(client, template, "sprezzos");
++            debconf_set(client, template, "sprezzbox");
              free(*hostname);
              *hostname = NULL;
          }
@@ -30,7 +43,7 @@ index 133de77..5d4adf7 100644
              debconf_input(client, "high", "netcfg/invalid_hostname");
              debconf_go(client);
 -            debconf_set(client, template, "debian");
-+            debconf_set(client, template, "sprezzos");
++            debconf_set(client, template, "sprezzbox");
              free(*hostname);
              *hostname = NULL;
          } else {
