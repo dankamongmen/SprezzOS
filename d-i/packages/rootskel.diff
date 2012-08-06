@@ -5,7 +5,7 @@ index 0f7400e..acc55a4 100644
 @@ -1,3 +1,9 @@
 +rootskel (1.100+SprezzOS) unstable; urgency=high
 +
-+  * Add growlight-wrapper and growlight-wait (see #186)
++  * Add fbvfbterm
 +
 + -- Nick Black <<nick.black@sprezzatech.com>>  Sun, 22 Jul 2012 12:06:56 +0000
 +
@@ -40,7 +40,6 @@ index a7b8a23..f1b09f5 100644
 +tty5::askfirst:-/bin/sh
 +tty6::askfirst:-/bin/sh
 +tty7::respawn:/usr/bin/tail -f /var/log/syslog
-+tty8::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.png /usr/bin/env LANG=C.UTF-8 /sbin/growlight-wrapper
  
  # Stuff to do before rebooting
  ::ctrlaltdel:/sbin/shutdown > /dev/null 2>&1
@@ -48,14 +47,12 @@ diff --git a/src/sbin/Makefile b/src/sbin/Makefile
 index dec554e..a7d6227 100644
 --- a/src/sbin/Makefile
 +++ b/src/sbin/Makefile
-@@ -9,7 +9,10 @@ files_exec = \
+@@ -9,7 +9,8 @@ files_exec = \
  	shutdown \
  	init:init-$(DEB_HOST_ARCH_OS) \
  	reopen-console:reopen-console-$(DEB_HOST_ARCH_OS) \
 -	steal-ctty
 +	steal-ctty \
-+	growlight-wait \
-+	growlight-wrapper \
 +	fbvfbterm
  
  ifeq ($(DEB_HOST_ARCH_OS),linux)
