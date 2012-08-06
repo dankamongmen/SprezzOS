@@ -18,10 +18,11 @@
 # alias cp='cp -i'
 # alias mv='mv -i'
 if [ -z "$GPG_TTY" ] ; then
-	export DEBKEY="9978711C"
-	export DEBFULLNAME="Nick Black"
-	export DEBEMAIL="nick.black@sprezzatech.com"
 	export GPG_TTY=`tty`
-	exec gpg-agent --daemon bash
+	exec gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info" bash
 fi
-
+export GPG_AGENT_INFO
+export SSH_AUTH_SOCK
+export DEBKEY="9978711C"
+export DEBFULLNAME="Nick Black"
+export DEBEMAIL="nick.black@sprezzatech.com"

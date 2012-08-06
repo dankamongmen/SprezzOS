@@ -3,6 +3,8 @@
 set -e
 set -x
 
+. ~/.bashrc
+
 usage () { echo "usage: `basename $0` kernver zfsver" ; return 0 ; }
 usageerr () { usage >&2 ; return 1 ; }
 
