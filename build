@@ -33,6 +33,7 @@ deb http://www.sprezzatech.com/apt unstable main non-free contrib
 deb-src http://www.sprezzatech.com/apt unstable main non-free contrib
 deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib
 APT
+sudo cp bashrc "$DI"/root/.bashrc
 sudo cp 99translations "$DI"/etc/apt/apt.conf.d/
 wget http://www.sprezzatech.com/sprezzakey.txt -O- | sudo chroot "$DI" apt-key add -
 sudo chroot "$DI" apt-get -y update

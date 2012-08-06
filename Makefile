@@ -29,6 +29,7 @@ CONF:=profiles/SprezzOS.conf
 SEED:=profiles/SprezzOS.preseed
 PROFILE:=profiles/SprezzOS.packages
 
+BASHRC:=bashrc
 IMG:=SprezzOS.iso
 TESTDISK:=kvmdisk.img
 PACKAGES:=packages.tgz
@@ -119,7 +120,7 @@ $(CHROOT)/$(BUILDU): $(BUILDU) $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(BUILDW): $(BUILDW) $(CHROOT)/$(BUILDIN)
 	cp $< $@
 
-$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local
+$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	./$< $(@D)
 	cp $(BUILDIN) $@
