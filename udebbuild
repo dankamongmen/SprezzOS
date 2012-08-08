@@ -13,6 +13,7 @@ usageerr () { usage >&2 ; return 1 ; }
 cd /d-i/packages/main-menu && patch -p1 < /d-i-patches/packages/main-menu.diff
 cd /d-i/packages/netcfg && patch -p1 < /d-i-patches/packages/netcfg.diff
 cd /d-i/packages/rootskel && patch -p1 < /d-i-patches/packages/rootskel.diff
+cd /d-i/packages/rootskel && cp -v /d-i-patches/packages/rootskel/src/usr src/
 cd /d-i/packages/rootskel && cp -v /d-i-patches/packages/rootskel/src/sbin/* src/sbin/
 
 cd /d-i/packages
