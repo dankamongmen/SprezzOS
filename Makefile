@@ -41,7 +41,8 @@ KERNBALL:=linux-$(UPSTREAM).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=$(CHROOT)/linux-image-$(KVER)-amd64_$(KVER)_amd64.deb
-BASEFILESDEB:=base-files-7.0.deb
+ZFSDEB:=zfs_$(ZFSFVER).deb
+SPLDEB:=zfs_$(SPLFVER).deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
 THEME:=splash.png sprezzos.theme
@@ -56,18 +57,19 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDW)"
 
 # ISO creation
-DEBS:=$(KERNDEB) $(BASEFILESDEB)
+DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KVER) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
-$(BASEFILESDEB): $(CHROOT)/$(BUILDIN)
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/b/base-files/base-files_7.0_amd64.deb > $@
+$(SPLDEB): $(CHROOT)/$(BUILDIN)
+	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(SPLFVER).deb
+
+$(ZFSDEB): $(CHROOT)/$(BUILDIN)
+	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/zfs_$(ZFSFVER).deb
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.6_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.6_all.deb
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/z/zfs/zfs_$(ZFSFVER).deb > $(CHROOT)/zfs_$(ZFSFVER).deb
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(SPLFVER).deb > $(CHROOT)/spl_$(ZFSFVER).deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB)) > $@
 
 $(PROFILE): $(PACKIN)
