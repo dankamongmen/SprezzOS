@@ -42,7 +42,7 @@ WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=$(CHROOT)/linux-image-$(KVER)-amd64_$(KVER)_amd64.deb
 ZFSDEB:=zfs_$(ZFSFVER).deb
-SPLDEB:=zfs_$(SPLFVER).deb
+SPLDEB:=spl_$(SPLFVER).deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
 THEME:=splash.png sprezzos.theme
@@ -62,11 +62,11 @@ DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB)
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KVER) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
-#$(SPLDEB): $(CHROOT)/$(BUILDIN)
-#	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(SPLFVER).deb
+$(SPLDEB): $(CHROOT)/$(BUILDIN)
+	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(SPLFVER).deb
 
-#$(ZFSDEB): $(CHROOT)/$(BUILDIN)
-#	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/zfs_$(ZFSFVER).deb
+$(ZFSDEB): $(CHROOT)/$(BUILDIN)
+	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/zfs_$(ZFSFVER).deb
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.6_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.6_all.deb
