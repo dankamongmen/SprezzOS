@@ -12,9 +12,9 @@ usageerr () { usage >&2 ; return 1 ; }
 
 cd /d-i/installer/build/localudebs
 
-#wget http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/ -O- | \
-# wget --base=http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/ \
-#  -F -nc -nd -l1 -r -A udeb -i-
+wget http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/ -O- | \
+ wget --base=http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/ \
+  -F -nc -nd -l1 -r -A udeb -i-
 
 cd /d-i/installer
 dpkg-buildpackage -j8 -k$DEBKEY

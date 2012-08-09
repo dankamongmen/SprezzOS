@@ -63,10 +63,10 @@ $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS)
 	./$< -f $@ $(KVER) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
 $(SPLDEB): $(CHROOT)/$(BUILDIN)
-	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/spl_$(SPLFVER).deb
+	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/$(SPLDEB)
 
 $(ZFSDEB): $(CHROOT)/$(BUILDIN)
-	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/zfs_$(ZFSFVER).deb
+	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/$(ZFSDEB)
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.6_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.6_all.deb
