@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export FONT="Terminus (TTF)"
+export FHEIGT="12"
+
 # Initialize palette
 echo -en "\e]P0222222" #black
 echo -en "\e]P8222222" #darkgrey
@@ -24,4 +27,5 @@ q
 EOF
 shift
 export FBTERM_BACKGROUND_IMAGE=1
-exec fbterm "$@"
+# FIXME what about the "fbterm" TERM value? it gets 256 colors...see fbterm(1)
+exec fbterm -n "$FONT" --font-height="$FHEIGT" "$@"
