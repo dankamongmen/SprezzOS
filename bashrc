@@ -19,7 +19,7 @@
 # alias mv='mv -i'
 if [ -z "$GPG_TTY" ] ; then
 	export GPG_TTY=`tty`
-	exec gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info" bash
+	exec gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info" "$0" "$@"
 fi
 export GPG_AGENT_INFO
 export SSH_AUTH_SOCK

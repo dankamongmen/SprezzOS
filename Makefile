@@ -57,15 +57,15 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 	sudo chroot $(CHROOT) /$(BUILDW)
 
 # ISO creation
-DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB)
+DEBS:=$(KERNDEB) $(CHROOT)/$(SPLDEB) $(CHROOT)/$(ZFSDEB)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KVER) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
-$(SPLDEB): $(CHROOT)/$(BUILDIN)
+$(CHROOT)/$(SPLDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/$(SPLDEB)
 
-$(ZFSDEB): $(CHROOT)/$(BUILDIN)
+$(CHROOT)/$(ZFSDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/$(ZFSDEB)
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
