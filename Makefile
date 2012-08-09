@@ -54,7 +54,7 @@ test: $(RUNCD) $(IMG)
 
 # External package creation
 world: $(WORLD) $(CHROOT)/$(BUILDW)
-	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDW)"
+	sudo chroot $(CHROOT) /$(BUILDW)
 
 # ISO creation
 DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB)
@@ -84,13 +84,13 @@ $(CONF): $(CONFIN)
 
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER)/debian $(CHROOT)/spl-$(ZFSVER)/debian
 	@[ ! -d $(CHROOT)/orig ] || sudo rm -rf $(CHROOT)/orig
-	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDK) $(UPSTREAM) $(ZFSVER)"
+	sudo chroot $(CHROOT) /$(BUILDK) $(UPSTREAM) $(ZFSVER)
 
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
-	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDIN)"
+	sudo chroot $(CHROOT) /$(BUILDIN)
 
 udebs: $(CHROOT)/$(BUILDU)
-	sudo chroot $(CHROOT) /bin/sh -c "export GPG_TTY=\`tty\` && gpg-agent --daemon /$(BUILDU)"
+	sudo chroot $(CHROOT) /$(BUILDU)
 
 $(CHROOT)/d-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
 	cp -fv $< $@
