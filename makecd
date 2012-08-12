@@ -30,7 +30,7 @@ else
 fi
 
 ISO="$1"
-KVER="$2"
+KPKGS="$2"
 ZFSVER="$3"
 DI="$4"
 
@@ -39,7 +39,6 @@ if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 	usageerr
 fi
 
-KPKGS="`pwd`/unstable/linux-image-$KVER-amd64_$KVER""_amd64.deb"
 #KPKGS="$KPKGS,`pwd`/unstable/linux-image-$KVER-amd64-dbg_$KVER""_amd64.deb"
 PKGS="$DI,`pwd`/unstable/d-i/installer/build/localudebs,`pwd`/unstable/spl_$ZFSVER.deb,`pwd`/unstable/zfs_$ZFSVER.deb"
 PKGS="$PKGS,`ls \`pwd\`/unstable/*.deb | tr [[:space:]] ,`"

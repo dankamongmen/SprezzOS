@@ -61,7 +61,7 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 DEBS:=$(KERNDEB) $(CHROOT)/$(SPLDEB) $(CHROOT)/$(ZFSDEB)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
-	./$< -f $@ $(KVER) $(ZFSFVER) $(CHROOT)/$(DIDEB)
+	./$< -f $@ $(KERNDEB) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
 $(CHROOT)/$(SPLDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/$(SPLDEB)
