@@ -40,7 +40,7 @@ if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 fi
 
 #KPKGS="$KPKGS,`pwd`/unstable/linux-image-$KVER-amd64-dbg_$KVER""_amd64.deb"
-PKGS="$DI,`pwd`/unstable/d-i/installer/build/localudebs,`pwd`/unstable/spl_$ZFSVER.deb,`pwd`/unstable/zfs_$ZFSVER.deb"
+PKGS="$DI,`pwd`/unstable/s-i/installer/build/localudebs,`pwd`/unstable/spl_$ZFSVER.deb,`pwd`/unstable/zfs_$ZFSVER.deb"
 PKGS="$PKGS,`ls \`pwd\`/unstable/*.deb | tr [[:space:]] ,`"
 PKGS="$PKGS,`pwd`/unstable/var/cache/apt/archives/libfreetype6_2.4.10-1_amd64.deb"
 PKGS="$PKGS,$KPKGS"
@@ -51,7 +51,7 @@ done
 for i in `echo $PKGS | tr , \  ` ; do
 	[ -r "$i" ] || { echo "Package $i didn't exist." >&2 ; exit 1; }
 done
-[ -r "$DI" ] || { echo "D-I package $DI didn't exist." >&2 ; exit 1; }
+[ -r "$DI" ] || { echo "S-I package $DI didn't exist." >&2 ; exit 1; }
 
 mkdir -p tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
 
