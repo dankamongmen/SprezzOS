@@ -10,13 +10,13 @@ usageerr () { usage >&2 ; return 1 ; }
 
 [ $# -eq 0 ] || usageerr
 
-cd /d-i/packages/main-menu && patch -p1 < /d-i-patches/packages/main-menu.diff
-cd /d-i/packages/netcfg && patch -p1 < /d-i-patches/packages/netcfg.diff
-cd /d-i/packages/rootskel && patch -p1 < /d-i-patches/packages/rootskel.diff
-cd /d-i/packages/rootskel && cp -vr /d-i-patches/packages/rootskel/src/usr src/
-cd /d-i/packages/rootskel && cp -vr /d-i-patches/packages/rootskel/src/sbin/* src/sbin/
+cd /s-i/packages/main-menu && patch -p1 < /s-i-patches/packages/main-menu.diff
+cd /s-i/packages/netcfg && patch -p1 < /s-i-patches/packages/netcfg.diff
+cd /s-i/packages/rootskel && patch -p1 < /s-i-patches/packages/rootskel.diff
+cd /s-i/packages/rootskel && cp -vr /s-i-patches/packages/rootskel/src/usr src/
+cd /s-i/packages/rootskel && cp -vr /s-i-patches/packages/rootskel/src/sbin/* src/sbin/
 
-cd /d-i/packages
+cd /s-i/packages
 
 # Build our own packages of certain udebs. Don't try rebuilding all; that leads
 # to divergence from upstream, and some of them fail.

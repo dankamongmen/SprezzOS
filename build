@@ -39,16 +39,16 @@ wget http://www.sprezzatech.com/sprezzakey.txt -O- | sudo chroot "$DI" apt-key a
 sudo chroot "$DI" apt-get -y update
 sudo chroot "$DI" apt-get -y build-dep debian-installer linux fbterm
 
-sudo chroot "$DI" svn co svn://svn.debian.org/svn/d-i/trunk d-i
-sudo chroot "$DI" /bin/sh -c "cd /d-i && ./scripts/git-setup"
-sudo chroot "$DI" /bin/sh -c "cd /d-i && mr -p checkout"
-sudo cp -v local "$DI/d-i/installer/build/pkg-lists/"
+sudo chroot "$DI" git clone https://github.com/dankamongmen/s-i.git
+sudo chroot "$DI" /bin/sh -c "cd /s-i && ./scripts/git-setup"
+sudo chroot "$DI" /bin/sh -c "cd /s-i && mr -p checkout"
+sudo cp -v local "$DI/s-i/installer/build/pkg-lists/"
 for i in "$@" ; do
-	sudo cp -v "$i" "$DI/d-i/installer/build/localudebs"
+	sudo cp -v "$i" "$DI/s-i/installer/build/localudebs"
 done
-sudo cp -vr d-i "$DI/d-i-patches"
-sudo cp profiles/SprezzOS.preseed "$DI/d-i/installer/build"
-sudo chroot "$DI" /bin/sh -c "cd /d-i/installer && patch -p1 < /d-i-patches/installer.diff"
+sudo cp -vr s-i "$DI/s-i-patches"
+sudo cp profiles/SprezzOS.preseed "$DI/s-i/installer/build"
+sudo chroot "$DI" /bin/sh -c "cd /s-i/installer && patch -p1 < /s-i-patches/installer.diff"
 
 sudo cp -vr ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
 

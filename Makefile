@@ -11,7 +11,7 @@ SPLFVER:=$(ZFSVER)-5_amd64
 
 CHROOT:=unstable
 DI:=debian-installer_20120804
-DIBUILD:=$(CHROOT)/d-i/installer/build
+DIBUILD:=$(CHROOT)/s-i/installer/build
 WGET:=wget --no-use-server-timestamps
 DBUILD:=dpkg-buildpackage -k9978711C
 
@@ -37,7 +37,7 @@ PACKAGES:=packages.tgz
 CONFIN:=SprezzOS.conf.in
 SEEDIN:=SprezzOS.preseed.in
 PACKIN:=SprezzOS.packages.in
-DIDEB:=/d-i/$(DI)_amd64.deb
+DIDEB:=/s-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(UPSTREAM).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
@@ -87,13 +87,13 @@ kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(Z
 	@[ ! -d $(CHROOT)/orig ] || sudo rm -rf $(CHROOT)/orig
 	sudo chroot $(CHROOT) /$(BUILDK) $(UPSTREAM) $(ZFSVER)
 
-$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/d-i/installer/build/sources.list.udeb.local
+$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local
 	sudo chroot $(CHROOT) /$(BUILDIN)
 
 udebs: $(CHROOT)/$(BUILDU)
 	sudo chroot $(CHROOT) /$(BUILDU)
 
-$(CHROOT)/d-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
+$(CHROOT)/s-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
 	cp -fv $< $@
 
 $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(WORLD)
