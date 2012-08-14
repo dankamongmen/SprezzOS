@@ -1,25 +1,17 @@
 diff --git a/debian/changelog b/debian/changelog
-index 2a5385d..99679c9 100644
+index 6d9378d..6b0fea0 100644
 --- a/debian/changelog
 +++ b/debian/changelog
-@@ -1,3 +1,10 @@
-+netcfg (1.86-SprezzOS2) unstable; urgency=low
+@@ -1,3 +1,9 @@
++netcfg (1.88-SprezzOS1) unstable; urgency=low
 +
-+  * SprezzOS build
-+  * Update against debian 1.86
++  * New upstream version 1.88
 +
-+ -- Nick Black <nick.black@sprezzatech.com>  Wed, 08 Aug 2012 09:47:39 -0400
++ -- Nick Black <nick.black@sprezzatech.com>  Tue, 14 Aug 2012 00:51:43 +0000
 +
- netcfg (1.86) UNRELEASED; urgency=low
-
-  [ Gaudenz Steinlin ]
-  * Add logging to iface activation and deactivation.
-
- -- Christian Perrier <bubulle@debian.org>  Tue, 07 Aug 2012 08:31:59 +0200
-
- netcfg (1.85) unstable; urgency=low
+ netcfg (1.88) unstable; urgency=low
  
-   [ Updated translations ]
+   * Team upload
 diff --git a/debian/netcfg-common.templates b/debian/netcfg-common.templates
 index e964a5a..f1fa681 100644
 --- a/debian/netcfg-common.templates
@@ -34,10 +26,10 @@ index e964a5a..f1fa681 100644
  _Description: Hostname:
   Please enter the hostname for this system.
 diff --git a/netcfg-common.c b/netcfg-common.c
-index 133de77..a8f6e79 100644
+index 555d4d9..20aa3dc 100644
 --- a/netcfg-common.c
 +++ b/netcfg-common.c
-@@ -925,7 +925,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
+@@ -995,7 +995,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
                        "maxhostnamelen", buf);
              debconf_input(client, "high", "netcfg/invalid_hostname");
              debconf_go(client);
@@ -46,7 +38,7 @@ index 133de77..a8f6e79 100644
              free(*hostname);
              *hostname = NULL;
          }
-@@ -953,7 +953,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
+@@ -1023,7 +1023,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
                        "maxhostnamelen", buf);
              debconf_input(client, "high", "netcfg/invalid_hostname");
              debconf_go(client);
