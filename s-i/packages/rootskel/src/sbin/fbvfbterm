@@ -4,23 +4,24 @@ export FSIZE="18"
 export FHEIGHT="18"
 export FONT="Terminus (TTF)"
 
-# Initialize palette
-echo -en "\e]P0222222" #black
-echo -en "\e]P8222222" #darkgrey
-echo -en "\e]P1803232" #darkred
-echo -en "\e]P9982b2b" #red
-echo -en "\e]P25b762f" #darkgreen
-echo -en "\e]PA89b83f" #green
-echo -en "\e]P3aa9943" #brown
-echo -en "\e]PBefef60" #yellow
-echo -en "\e]P4324c80" #darkblue
-echo -en "\e]PC2b4f98" #blue
-echo -en "\e]P5706c9a" #darkmagenta
-echo -en "\e]PD826ab1" #magenta
-echo -en "\e]P692b19e" #darkcyan
-echo -en "\e]PEa1cdcd" #cyan
-echo -en "\e]P7ffffff" #lightgrey
-echo -en "\e]PFdedede" #white
+# Initialize palette to Tango-Dark
+# See http://cpansearch.perl.org/src/HINRIK/App-ConPalette-0.1.5/bin/conpalette
+echo -en "\e]P0000000" #black
+echo -en "\e]P1cc0000" #darkred
+echo -en "\e]P24e9a06" #darkgreen
+echo -en "\e]P3c4a000" #brown
+echo -en "\e]P43465a4" #darkblue
+echo -en "\e]P575507b" #darkmagenta
+echo -en "\e]P606989a" #darkcyan
+echo -en "\e]P7aaaaaa" #lightgrey
+echo -en "\e]P8555753" #darkgrey
+echo -en "\e]P9ef2929" #red
+echo -en "\e]PA8ae234" #green
+echo -en "\e]PBfce94f" #yellow
+echo -en "\e]PC729fcf" #blue
+echo -en "\e]PDad8fa8" #magenta
+echo -en "\e]PE34e2e2" #cyan
+echo -en "\e]PFd3d7cf" #white
 
 echo -ne "\e[?25l" # hide cursor
 fbv -ciuker "$1" << EOF
@@ -28,5 +29,4 @@ q
 EOF
 shift
 export FBTERM_BACKGROUND_IMAGE=1
-# FIXME what about the "fbterm" TERM value? it gets 256 colors...see fbterm(1)
-exec fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" "$@"
+exec fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" env TERM=fbterm "$@"
