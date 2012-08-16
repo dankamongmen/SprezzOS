@@ -151,6 +151,7 @@ $(FONT): /usr/share/fonts/X11/misc/ter-u20b_unicode.pcf.gz
 
 clean: cleanchroot
 	rm -rf tmp $(TESTDISK) images $(IMG) profiles
+	sudo rm -rf dibuild
 
 clobber: clean
 	rm -f $(PACKAGES) $(FONT)
