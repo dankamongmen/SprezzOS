@@ -48,6 +48,9 @@ GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
 THEME:=splash.png sprezzos.theme
 
+# FIXME we've stuffed the gconv files necessary for growlight in here
+LIBCUDEB:=libc6-udeb_2.13-SprezzOS36_amd64.udeb
+
 all: $(IMG)
 
 test: $(RUNCD) $(IMG)
@@ -87,8 +90,11 @@ kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(Z
 	@[ ! -d $(CHROOT)/orig ] || sudo rm -rf $(CHROOT)/orig
 	sudo chroot $(CHROOT) /$(BUILDK) $(UPSTREAM) $(ZFSVER)
 
-$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local
+$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB)
 	sudo chroot $(CHROOT) /$(BUILDIN)
+
+$(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB): $(LIBCUDEB)
+	cp -fv $< $@
 
 udebs: $(CHROOT)/$(BUILDU)
 	sudo chroot $(CHROOT) /$(BUILDU)
