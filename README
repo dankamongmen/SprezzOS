@@ -2,15 +2,70 @@ http://www.sprezzatech.com/sprezzos.html
 
 This repository builds and tests SprezzOS install media.
 
+Components
+----------
+
+I. The scripts and miscellany contained in this repo.
+II. The 's-i' installer program, forked from Debian's 'd-i'. It is checked out
+    as part of the 'build' script.
+III. The udebs and debs that are part of SprezzOS, and not Debian. They are
+    build with the "world" and "udebs" targets in the toplevel, and copied by
+    hand to the SprezzOS APT repository.
+IV. The udebs used by s-i to build the installer's initfs. These are
+    downloaded by the s-i build process, and copied from the localudebs/
+    directory in its build tree.
+V. The udebs and debs used by simple-cdd to build the installer media's local
+    package repository. These are downloaded by simple-cdd, and explicitly
+    provided to it by the Makefile.
+
+Process
+-------
+
+By default, running "make" in this toplevel will build a SprezzOS installation
+ISO. Running "make test" will build it, and then boot a KVM with it. Besides
+the default target, "world", "kernel", and "udebs" exist to support building
+userspace packages, kernel packages, and installer packages, respectively. This
+proceeds as follows:
+
+1. A chroot is created at "unstable" by invoking the script "build". "build"
+   uses debootstrap to set up the chroot, checks out "s-i" and its derivatives,
+   and checks out "sprezzos-world". Some files are copied into the chroot, both
+   by "build" and the Makefile. Among them is "innerbuild".
+
+Step 1 is a dep of all build processes. For the default process, we proceed to
+Step 2, as the Makefile chroots into "unstable/" and invokes "/innerbuild".
+
+2. The "s-i" package is built in the chroot's context, generating a
+   debian-installer deb and a directory of initramfs images. The toplevel
+   symlink "dest" references these images, and is used by simple-cdd. Note
+   that the packages used in this step are those downloaded from an APT
+   repository, not packages built in the chroot.
+
+3. The "makecd" script is invoked, building a Debian installer ISO in the
+   directory "images/".
+
+4. The "grubify" script is invoked, building a SprezzOS installer ISO in the
+   toplevel.
+
+This process requires that all component packages have already been built in a
+satisfactory form, and are available on the referenced APT repositories. To
+build these packages, run one of the helper scripts:
+
+  "world": Build normal, userspace packages. This involves running the Makefile
+           of the "sprezzos-world" repository within the chroot context.
+  "kernel": Build the Linux packages, and external module packages appropriate
+            for those Linux packages. This involves downloading the Linux
+            kernel and those modules' sources, and building them all.
+  "udebs": Build non-kernel packages for the installer. This involves patching
+           the checked-out Debian repositories within "s-i/packages", and
+           building the new udebs within the chroot context.
+
 Dependencies
 ------------
 
 Building requires GNU make, debootstrap, grub2-pc, grub2-efi, dh-di,
  fuseiso9660, simple-cdd and probably a few other things. Building with a
  decent level of parallelism (-j4) is recommended.
-
-Building SPL/ZFS requires uuid-dev, libz-dev, and autoconf. Note that ZFS
- requires a *non*-preemptive kernel (CONFIG_PREEMPT=n).
 
 Testing adds a dependency on KVM.
 
