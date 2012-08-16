@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ -n $LANG ] ; then
+	export LANG=C.UTF-8
+fi
+
 export FSIZE="18"
 export FHEIGHT="18"
 export FONT="Terminus (TTF)"
@@ -31,5 +35,5 @@ shift
 export FBTERM_BACKGROUND_IMAGE=1
 
 # leave in backup and don't exec until fbterm is worked out :/
-fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" -- env TERM=fbterm "$@"
-exec fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" -- "$@"
+fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" -- env LANG=$LANG TERM=fbterm "$@"
+exec fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" -- env LANG=$LANG "$@"
