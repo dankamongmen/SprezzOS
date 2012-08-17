@@ -10,6 +10,9 @@ export FONT="Terminus (TTF)"
 
 # Initialize palette to Tango-Dark
 # See http://cpansearch.perl.org/src/HINRIK/App-ConPalette-0.1.5/bin/conpalette
+
+# FIXME this needs be done *after* we invoke fbterm
+# FIXME replace it with "conpalette tango-dark"
 echo -en "\e]P0000000" #black
 echo -en "\e]P1cc0000" #darkred
 echo -en "\e]P24e9a06" #darkgreen
