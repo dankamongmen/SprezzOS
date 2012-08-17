@@ -107,7 +107,7 @@ $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(WORLD)
 	sudo chroot $(CHROOT) cp -r world/linux linux-$(UPSTREAM)/debian
 
 $(WORLD): $(CHROOT)/$(BUILDIN)
-	sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
+	@[ -r $@ ] || sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
 
 $(CHROOT)/zfs-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
 	sudo chroot $(CHROOT) git clone https://github.com/zfsonlinux/zfs.git zfs-$(ZFSVER)
