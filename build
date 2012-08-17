@@ -48,7 +48,6 @@ for i in "$@" ; do
 done
 sudo cp -vr s-i "$DI/s-i-patches"
 sudo cp profiles/SprezzOS.preseed "$DI/s-i/installer/build"
-sudo chroot "$DI" /bin/sh -c "cd /s-i/installer && patch -p1 < /s-i-patches/installer.diff"
 
 sudo cp -vr ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
 
