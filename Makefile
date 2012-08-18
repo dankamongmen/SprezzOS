@@ -73,7 +73,7 @@ $(CHROOT)/$(ZFSDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/$(ZFSDEB)
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.6_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.6_all.deb
+	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.7_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.7_all.deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB)) > $@
 
 $(PROFILE): $(PACKIN)
@@ -92,9 +92,6 @@ kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(Z
 
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB)
 	sudo chroot $(CHROOT) /$(BUILDIN)
-
-$(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB): $(LIBCUDEB)
-	cp -fv $< $@
 
 udebs: $(CHROOT)/$(BUILDU)
 	sudo chroot $(CHROOT) /$(BUILDU)
@@ -129,9 +126,11 @@ $(CHROOT)/$(BUILDU): $(BUILDU) $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(BUILDW): $(BUILDW) $(CHROOT)/$(BUILDIN)
 	cp $< $@
 
-$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC)
+$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC) $(LIBCUDEB)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
-	./$< $(@D)
+	./$< $(@D) $(LIBCUDEB)
+	cp -fv $< $@
+
 	cp $(BUILDIN) $@
 
 $(SEED): $(SEEDIN)
