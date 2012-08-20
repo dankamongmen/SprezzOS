@@ -2,16 +2,17 @@ diff --git a/debian/changelog b/debian/changelog
 index 0f7400e..45fa583 100644
 --- a/debian/changelog
 +++ b/debian/changelog
-@@ -1,3 +1,13 @@
-+rootskel (1.100+SprezzOS8) unstable; urgency=high
+@@ -1,3 +1,14 @@
++rootskel (1.100+SprezzOS9) unstable; urgency=high
 +
 +  * Add -s and --font-height arguments to fbterm invocation
 +  * Add fbvfbterm, sprezzos logo (sprezzos.png)
 +  * Recursively build usr
 +  * -n 'Terminus (TTF) -s 18 --font-height 18 solidifies borders
 +  * Set TERM=fbterm. Use Tango-Dark palette on console.
++  * Open up tty7
 +
-+ -- Nick Black <nick.black@sprezzatech.com>  Thu, 16 Aug 2012 19:27:53 -0400
++ -- Nick Black <nick.black@sprezzatech.com>  Mon, 20 Aug 2012 17:24:55 -0400
 +
  rootskel (1.100) unstable; urgency=high
  
@@ -32,7 +33,7 @@ diff --git a/src/etc/inittab-linux b/src/etc/inittab-linux
 index a7b8a23..c3e6d88 100644
 --- a/src/etc/inittab-linux
 +++ b/src/etc/inittab-linux
-@@ -2,17 +2,21 @@
+@@ -2,17 +2,20 @@
  # busybox init configuration for debian-installer
  
  # main rc script
@@ -54,8 +55,7 @@ index a7b8a23..c3e6d88 100644
 +tty4::respawn:/sbin/fbvfbterm /usr/share/sprezzatech/sprezzos.png /usr/bin/tail -f /var/log/syslog
 +
 +tty5::askfirst:-/bin/sh
-+tty6::askfirst:-/bin/sh
-+tty7::respawn:/usr/bin/tail -f /var/log/syslog
++tty6::respawn:/usr/bin/tail -f /var/log/syslog
  
  # Stuff to do before rebooting
  ::ctrlaltdel:/sbin/shutdown > /dev/null 2>&1
