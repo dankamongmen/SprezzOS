@@ -21,7 +21,7 @@ index e964a5a..f1fa681 100644
  Template: netcfg/get_hostname
  Type: string
 -Default: debian
-+Default: sprezzbox
++Default: sprezzabox
  # :sl1:
  _Description: Hostname:
   Please enter the hostname for this system.
@@ -34,7 +34,7 @@ index 555d4d9..20aa3dc 100644
              debconf_input(client, "high", "netcfg/invalid_hostname");
              debconf_go(client);
 -            debconf_set(client, template, "debian");
-+            debconf_set(client, template, "sprezzbox");
++            debconf_set(client, template, "sprezzabox");
              free(*hostname);
              *hostname = NULL;
          }
@@ -43,7 +43,7 @@ index 555d4d9..20aa3dc 100644
              debconf_input(client, "high", "netcfg/invalid_hostname");
              debconf_go(client);
 -            debconf_set(client, template, "debian");
-+            debconf_set(client, template, "sprezzbox");
++            debconf_set(client, template, "sprezzabox");
              free(*hostname);
              *hostname = NULL;
          } else {
