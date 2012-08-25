@@ -6,6 +6,8 @@ set -x
 usage () { echo "usage: `basename $0` [ --uefi ] [ --usb ] disk iso" ; return 0; }
 usageerr () { usage >&2 ; return 1 ; }
 
+MEM=4096
+
 [ $# -lt 5 ] || usageerr
 [ $# -gt 1 ] || usageerr
 
@@ -41,7 +43,7 @@ KVMOPTS="$KVMOPTS -vga cirrus"
 rm -f "$1"
 qemu-img create "$1" 80G
 if [ $SPREZZ_USB -ne 0 ] ; then
-	kvm $KVMOPTS --hda "$1" -drive file="$2",if=none,id=b,boot=on -m 8192 -usb -device usb-storage,drive=b
+	kvm $KVMOPTS --hda "$1" -drive file="$2",if=none,id=b,boot=on -m $MEM -usb -device usb-storage,drive=b
 else
-	kvm $KVMOPTS --boot d --hda "$1" --cdrom "$2" -m 8192 -usb
+	kvm $KVMOPTS --boot d --hda "$1" --cdrom "$2" -m $MEM -usb
 fi
