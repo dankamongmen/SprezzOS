@@ -125,12 +125,13 @@ $(CHROOT)/$(BUILDU): $(BUILDU) $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(BUILDW): $(BUILDW) $(CHROOT)/$(BUILDIN)
 	cp $< $@
 
-$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC) $(LIBCUDEB)
+$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
-	./$< $(@D) $(LIBCUDEB)
 	cp -fv $< $@
-
 	cp $(BUILDIN) $@
+
+$(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB): $(LIBCUDEB) $(CHROOT)/$(BUILDIN)
+	cp $< $(@D)
 
 $(SEED): $(SEEDIN)
 	@[ -d $(@D) ] || mkdir -p $(@D)
