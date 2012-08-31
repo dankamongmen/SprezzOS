@@ -18,8 +18,21 @@ V. The udebs and debs used by simple-cdd to build the installer media's local
     package repository. These are downloaded by simple-cdd, and explicitly
     provided to it by the Makefile.
 
+Dependencies
+------------
+
+Building requires GNU make, debootstrap, grub2-pc, grub2-efi, dh-di, simple-cdd
+ (which in turn requires debian-cd), wget, fuseiso9660 and probably a few other
+ things. Building with a decent level of parallelism (-j4) is recommended.
+
+Testing adds a dependency on KVM.
+
 Process
 -------
+
+The file "exclude-udebs-amd64" ought be merged into
+/usr/share/debian-cd/data/unstable. It would be great if we could control this
+from the build, but that doesn't appear easy to do :/.
 
 By default, running "make" in this toplevel will build a SprezzOS installation
 ISO. Running "make test" will build it, and then boot a KVM with it. Besides
@@ -59,15 +72,6 @@ build these packages, run one of the helper scripts:
   "udebs": Build non-kernel packages for the installer. This involves patching
            the checked-out Debian repositories within "s-i/packages", and
            building the new udebs within the chroot context.
-
-Dependencies
-------------
-
-Building requires GNU make, debootstrap, grub2-pc, grub2-efi, dh-di,
- fuseiso9660, simple-cdd and probably a few other things. Building with a
- decent level of parallelism (-j4) is recommended.
-
-Testing adds a dependency on KVM.
 
 Building
 --------
