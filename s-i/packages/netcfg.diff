@@ -1,5 +1,5 @@
 diff --git a/debian/changelog b/debian/changelog
-index b4c231a..8ab1d72 100644
+index b4c231a..62d178d 100644
 --- a/debian/changelog
 +++ b/debian/changelog
 @@ -1,10 +1,14 @@
@@ -13,13 +13,14 @@ index b4c231a..8ab1d72 100644
  
 - -- Philipp Kern <pkern@debian.org>  Tue, 28 Aug 2012 23:57:14 +0200
 +  [ Nick Black ]
-+  * Rebase against new upstream version
++  * Rebase against new upstream
 +
-+ -- Nick Black <nick.black@sprezzatech.com>  Sun, 02 Sep 2012 22:04:46 +0000
++ -- Nick Black <nick.black@sprezzatech.com>  Sun, 02 Sep 2012 22:09:44 +0000
  
  netcfg (1.89) unstable; urgency=low
+ 
 diff --git a/debian/netcfg-common.templates b/debian/netcfg-common.templates
-index e964a5a..f1fa681 100644
+index e964a5a..7863eb5 100644
 --- a/debian/netcfg-common.templates
 +++ b/debian/netcfg-common.templates
 @@ -141,7 +141,7 @@ _Description: Failure of key exchange and association
@@ -32,10 +33,10 @@ index e964a5a..f1fa681 100644
  _Description: Hostname:
   Please enter the hostname for this system.
 diff --git a/netcfg-common.c b/netcfg-common.c
-index 555d4d9..20aa3dc 100644
+index 7a4717c..9be07d0 100644
 --- a/netcfg-common.c
 +++ b/netcfg-common.c
-@@ -995,7 +995,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
+@@ -996,7 +996,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
                        "maxhostnamelen", buf);
              debconf_input(client, "high", "netcfg/invalid_hostname");
              debconf_go(client);
@@ -44,7 +45,7 @@ index 555d4d9..20aa3dc 100644
              free(*hostname);
              *hostname = NULL;
          }
-@@ -1023,7 +1023,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
+@@ -1024,7 +1024,7 @@ int netcfg_get_hostname(struct debconfclient *client, char *template, char **hos
                        "maxhostnamelen", buf);
              debconf_input(client, "high", "netcfg/invalid_hostname");
              debconf_go(client);
