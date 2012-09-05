@@ -16,4 +16,4 @@ shift
 export FBTERM_BACKGROUND_IMAGE=1
 
 exec fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" \
-	-- env LANG=$LANG TERM=fbterm /sbin/tangoize "$@"
+	-- env LANG=$LANG TERM=fbterm -- /sbin/tangoize "$@"
