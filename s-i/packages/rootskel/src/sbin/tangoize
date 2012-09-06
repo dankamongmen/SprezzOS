@@ -3,7 +3,7 @@
 # Initialize palette to Tango-Dark
 # See http://cpansearch.perl.org/src/HINRIK/App-ConPalette-0.1.5/bin/conpalette
 # FIXME replace it with "conpalette tango-dark"
-if [ "$TERM" -eq "linux" ] ; then
+if [ "$TERM" = "linux" ] ; then
 	echo -en "\e]P0000000" #black
 	echo -en "\e]P1cc0000" #darkred
 	echo -en "\e]P24e9a06" #darkgreen
@@ -20,7 +20,7 @@ if [ "$TERM" -eq "linux" ] ; then
 	echo -en "\e]PDad8fa8" #magenta
 	echo -en "\e]PE34e2e2" #cyan
 	echo -en "\e]PFd3d7cf" #white
-elif [ "$TERM" -eq "linux" ] ; then
+elif [ "$TERM" = "fbterm" ] ; then
 	echo -en "\e]3;0;0;0;0" #BLACK
 	echo -en "\e]3;1;204;0;0" #DARKRED
 	echo -en "\e]3;2;78;154;6" #DARKGREEN
@@ -39,4 +39,4 @@ elif [ "$TERM" -eq "linux" ] ; then
 	echo -en "\e]3;15;211;215;207" #WHITE
 fi
 
-exec -- "$@"
+exec "$@"
