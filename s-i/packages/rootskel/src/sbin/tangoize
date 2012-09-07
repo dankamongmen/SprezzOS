@@ -43,4 +43,8 @@ else
 	read erp
 fi
 
+# force a flip between VTs so that the sequences take effect. it's a pretty
+# hideous hack. you are not # expected to know how this works. hardcode the 5!
+chvt 5 && chvt `tty | cut -d/ -f4`
+
 exec "$@"
