@@ -18,7 +18,7 @@ export FBTERM_BACKGROUND_IMAGE=1
 # FIXME i'd like to call /sbin/tangoize with "$@" when things calm down
 # put exec back in!
 #exec
-fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" \
+tangoize fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" \
 	-- env LANG=$LANG TERM=fbterm "$@"
 
 # FIXME we failed. require a read before continuing
