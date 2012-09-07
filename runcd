@@ -42,8 +42,11 @@ KVMOPTS="$KVMOPTS -vga cirrus"
 
 rm -f "$1"
 qemu-img create "$1" 80G
+qemu-img create "$1-1" 120G
+qemu-img create "$1-2" 120G
+KVMOPTS="$KVMOPTS -drive file=$1-1 -drive file=$1-2 -drive file=$1-3,if=sd"
 if [ $SPREZZ_USB -ne 0 ] ; then
-	kvm $KVMOPTS --hda "$1" -drive file="$2",if=none,id=b,boot=on -m $MEM -usb -device usb-storage,drive=b
+	kvm --hda "$1" -drive file="$2",if=none,id=b,boot=on -m $MEM -usb -device usb-storage,drive=b $KVMOPTS
 else
-	kvm $KVMOPTS --boot d --hda "$1" --cdrom "$2" -m $MEM -usb
+	kvm --boot d --hda "$1" --cdrom "$2" -m $MEM -usb $KVMOPTS
 fi
