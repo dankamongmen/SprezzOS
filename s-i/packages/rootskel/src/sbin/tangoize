@@ -21,22 +21,26 @@ if [ "$TERM" = "linux" ] ; then
 	echo -en "\e]PE34e2e2" #cyan
 	echo -en "\e]PFd3d7cf" #white
 elif [ "$TERM" = "fbterm" ] ; then
-	echo -en "\e]3;0;0;0;0" #BLACK
-	echo -en "\e]3;1;204;0;0" #DARKRED
-	echo -en "\e]3;2;78;154;6" #DARKGREEN
-	echo -en "\e]3;3;196;160;0" #BROWN
-	echo -en "\e]3;4;52;101;164" #DARKBLUE
-	echo -en "\e]3;5;117;80;123" #DARKMAGENTA
-	echo -en "\e]3;6;6;152;154" #DARKCYAN
-	echo -en "\e]3;7;170;170;170" #LIGHTGREY
-	echo -en "\e]3;8;85;87;83" #DARKGREY
-	echo -en "\e]3;9;239;41;41" #RED
-	echo -en "\e]3;10;138;226;52" #GREEN
-	echo -en "\e]3;11;252;233;79" #YELLOW
-	echo -en "\e]3;12;114;159;207" #BLUE
-	echo -en "\e]3;13;173;143;168" #MAGENTA
-	echo -en "\e]3;14;52;226;226" #CYAN
-	echo -en "\e]3;15;211;215;207" #WHITE
+	echo -en "\e[3;0;0;0;0" #black
+	echo -en "\e[3;1;204;0;0" #darkred
+	echo -en "\e[3;2;78;154;6" #darkgreen
+	echo -en "\e[3;3;196;160;0" #brown
+	echo -en "\e[3;4;52;101;164" #darkblue
+	echo -en "\e[3;5;117;80;123" #darkmagenta
+	echo -en "\e[3;6;6;152;154" #darkcyan
+	echo -en "\e[3;7;170;170;170" #lightgrey
+	echo -en "\e[3;8;85;87;83" #darkgrey
+	echo -en "\e[3;9;239;41;41" #red
+	echo -en "\e[3;10;138;226;52" #green
+	echo -en "\e[3;11;252;233;79" #yellow
+	echo -en "\e[3;12;114;159;207" #blue
+	echo -en "\e[3;13;173;143;168" #magenta
+	echo -en "\e[3;14;52;226;226" #cyan
+	echo -en "\e[3;15;211;215;207" #white
+else
+	echo "Sorry, I don't know terminal type $TERM"
+	echo "Press enter to continue..."
+	read erp
 fi
 
 exec "$@"

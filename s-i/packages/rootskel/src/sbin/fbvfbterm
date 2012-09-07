@@ -22,5 +22,8 @@ fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" \
 	-- env LANG=$LANG TERM=fbterm "$@"
 
 # FIXME we failed. require a read before continuing
-echo "press enter for debugging justice"
-read erp
+if [ $? -ne 0 ] ; then
+	echo "press enter for debugging justice"
+	read erp
+	/bin/sh
+fi
