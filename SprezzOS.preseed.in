@@ -16,8 +16,8 @@
 # aptitude. You can also choose to install no tasks, and force the
 # installation of a set of packages in some other way.
 
-# don't install any tasks
-tasksel   tasksel/first multiselect 
+# don't install any tasks, but run aptitude
+tasksel   tasksel/first multiselect manual package selection
 #tasksel tasksel/desktop multiselect xfce
 #tasksel   tasksel/first multiselect Desktop environment
 #tasksel  tasksel/first multiselect Web server, Mail server, DNS server
@@ -106,4 +106,4 @@ bootstrap-base base-installer/initramfs-tools/driver-policy select most
 bootstrap-base base-installer/kernel/initramfs-tools/driver-policy string most
 
 # extra packages to install
-d-i pkgsel/include string zfs sudo fbterm mingetty sprezzos-grub2theme fonts-inconsolata iucode-tool
+d-i pkgsel/include string zfs sudo fbterm mingetty sprezzos-grub2theme fonts-inconsolata iucode-tool vim-nox
