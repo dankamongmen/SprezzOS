@@ -3,7 +3,7 @@
 
 # Kernel version
 UPSTREAM:=3.5.3
-KVER:=$(UPSTREAM)-SprezzOS2
+KVER:=$(UPSTREAM)-2
 ZFSVER:=0.6.0~rc10
 ZFSFVER:=$(ZFSVER)-2_amd64
 SPLFVER:=$(ZFSVER)-2_amd64
