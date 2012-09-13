@@ -107,11 +107,11 @@ $(WORLD): $(CHROOT)/$(BUILDIN)
 	@[ -r $@ ] || sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
 
 $(CHROOT)/zfs-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
-	sudo chroot $(CHROOT) git clone https://github.com/zfsonlinux/zfs.git zfs-$(ZFSVER)
+	sudo chroot $(CHROOT) git clone https://github.com/Sprezzatech/zfs.git zfs-$(ZFSVER)
 	sudo chroot $(CHROOT) cp -r world/zfs zfs-$(ZFSVER)/debian
 
 $(CHROOT)/spl-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
-	sudo chroot $(CHROOT) git clone https://github.com/zfsonlinux/spl.git spl-$(ZFSVER)
+	sudo chroot $(CHROOT) git clone https://github.com/Sprezzatech/spl.git spl-$(ZFSVER)
 	sudo chroot $(CHROOT) cp -r world/spl spl-$(ZFSVER)/debian
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
