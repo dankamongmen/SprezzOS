@@ -25,6 +25,7 @@ done
 
 fuseiso images/*iso "$tmp"
 mkdir -p "$tmp2/boot/grub"
+mkdir -p "$tmp2/boot/grub/themes/icons"
 cp -v grub.cfg "$tmp2/boot/grub"
 cp -v memtest86+.bin dest/hd-media/vmlinuz dest/hd-media/initrd.gz "$tmp2"
 cp -v $GBOOTFILES "$tmp2/boot"
