@@ -29,7 +29,6 @@ mkdir -p "$tmp2/boot/grub/themes/icons"
 cp -v grub.cfg "$tmp2/boot/grub"
 cp -v memtest86+.bin dest/hd-media/vmlinuz dest/hd-media/initrd.gz "$tmp2"
 cp -v $GBOOTFILES "$tmp2/boot"
-cp -vr fwts/casper "$tmp2"
 grub-mkrescue --modules="linux iso9660 fshelp font loopback ls gfxterm boot" -o "$ISO" "$tmp" "$tmp2" images/*iso
 if [ $# -eq 1 ] ; then
 	fusermount -u "$tmp"
