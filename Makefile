@@ -10,7 +10,7 @@ ZFSFVER:=$(ZFSVER)-2_amd64
 SPLFVER:=$(ZFSVER)-2_amd64
 
 CHROOT:=unstable
-DI:=debian-installer_20120828
+DI:=debian-installer_20120829
 DIBUILD:=$(CHROOT)/s-i/installer/build
 WGET:=wget --no-use-server-timestamps
 DBUILD:=dpkg-buildpackage -k9978711C
