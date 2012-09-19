@@ -13,50 +13,51 @@ DI="$1"
 shift
 
 # clean up any old chroot
-[ ! -d "$DI/proc" ] || sudo umount "$DI"/proc || true
-[ ! -d "$DI/sys" ] || sudo umount "$DI"/sys || true
-[ ! -d "$DI" ] || sudo rm -rf "$DI"
+[ ! -d "$DI/proc" ] || umount "$DI"/proc || true
+[ ! -d "$DI/sys" ] || umount "$DI"/sys || true
+[ ! -d "$DI" ] || rm -rf "$DI"
 
-sudo debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,openssh-client,devscripts,ca-certificates,fakeroot,libdebconfclient0-dev,libdebian-installer4-dev,libtool,unzip,iasl,libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,autopoint,links2,gnupg-agent,pinentry-curses \
+debootstrap --include=locales,dh-di,less,git,subversion,mr,rsync,vim-nox,udev,autoconf,automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,kernel-wedge,xmlto,openssh-client,devscripts,ca-certificates,fakeroot,libdebconfclient0-dev,libdebian-installer4-dev,libtool,unzip,iasl,libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,autopoint,links2,gnupg-agent,pinentry-curses \
 	--exclude=pinentry-x11,pinentry-gtk2 \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI"
-sudo chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UTF-8 | debconf-communicate"
-sudo chroot "$DI" /bin/sh -c "echo set locales/default_environment_locale en_US.UTF-8 | debconf-communicate"
-echo "en_US.UTF-8 UTF-8" | sudo tee -a "$DI/etc/locale.gen"
-sudo chroot "$DI" locale-gen
-sudo chroot "$DI" mount -t proc procfs /proc
-sudo chroot "$DI" mount -t devpts devpts /dev/pts
-sudo chroot "$DI" aptitude remove pinentry-gtk2
+chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UTF-8 | debconf-communicate"
+chroot "$DI" /bin/sh -c "echo set locales/default_environment_locale en_US.UTF-8 | debconf-communicate"
+echo "en_US.UTF-8 UTF-8" | tee -a "$DI/etc/locale.gen"
+chroot "$DI" locale-gen
+chroot "$DI" mount -t proc procfs /proc
+chroot "$DI" mount -t devpts devpts /dev/pts
+chroot "$DI" aptitude remove pinentry-gtk2
 
-sudo tee -a "$DI/etc/apt/sources.list" <<APT
+tee -a "$DI/etc/apt/sources.list" <<APT
 deb http://www.sprezzatech.com/apt unstable main non-free contrib
 deb-src http://www.sprezzatech.com/apt unstable main non-free contrib
 deb-src http://ftp.us.debian.org/debian/ unstable main non-free contrib
 APT
-sudo cp bashrc "$DI"/root/.bashrc
-sudo cp 99translations "$DI"/etc/apt/apt.conf.d/
-wget http://www.sprezzatech.com/sprezzakey.txt -O- | sudo chroot "$DI" apt-key add -
-sudo chroot "$DI" apt-get -y update
-sudo chroot "$DI" apt-get -y build-dep debian-installer linux fbterm
+cp bashrc "$DI"/root/.bashrc
+cp 99translations "$DI"/etc/apt/apt.conf.d/
+wget http://www.sprezzatech.com/sprezzakey.txt -O- | chroot "$DI" apt-key add -
+chroot "$DI" apt-get -y update
+chroot "$DI" apt-get -y build-dep debian-installer linux fbterm
 
-sudo mkdir "$DI"/root/.ssh
-sudo cp -vr ~/.ssh/known_hosts "$DI"/root/.ssh # FIXME ughghghghghghghghg
-sudo cp -vr ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
+mkdir "$DI"/root/.ssh
+cp -vr ~/.ssh/known_hosts "$DI"/root/.ssh # FIXME ughghghghghghghghg
+cp -vr ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
 
-sudo chroot "$DI" git clone --depth 1 https://github.com/dankamongmen/s-i.git
-sudo chroot "$DI" /bin/sh -c "cd /s-i && ./scripts/git-setup"
-sudo chroot "$DI" /bin/sh -c "cd /s-i && mr -p checkout"
-sudo cp -v local "$DI/s-i/installer/build/pkg-lists/"
+chroot "$DI" git clone --depth 1 https://github.com/dankamongmen/s-i.git
+chroot "$DI" /bin/sh -c "cd /s-i && ./scripts/git-setup"
+chroot "$DI" /bin/sh -c "cd /s-i && mr -p checkout"
+cp -v local "$DI/s-i/installer/build/pkg-lists/"
 for i in "$@" ; do
-	sudo cp -v "$i" "$DI/s-i/installer/build/localudebs"
+	cp -v "$i" "$DI/s-i/installer/build/localudebs"
 done
-sudo cp -vr s-i "$DI/s-i-patches"
-sudo cp profiles/SprezzOS.preseed "$DI/s-i/installer/build"
+cp -vr s-i "$DI/s-i-patches"
+cp profiles/SprezzOS.preseed "$DI/s-i/installer/build"
+cp /etc/machine-id "$DI/etc/machine-id"
 
-sudo chroot "$DI" umount /proc
-sudo chroot "$DI" umount devpts 
-sudo chown -R $USER:$USER "$DI"
-sudo chroot "$DI" mount -t proc procfs /proc
-sudo chroot "$DI" mount -t sysfs sysfs /sys
-sudo chroot "$DI" mount -t devpts devpts /dev/pts
+chroot "$DI" umount /proc
+chroot "$DI" umount devpts
+chown -R $USER:$USER "$DI"
+chroot "$DI" mount -t proc procfs /proc
+chroot "$DI" mount -t sysfs sysfs /sys
+chroot "$DI" mount -t devpts devpts /dev/pts
 echo "Now run 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."

@@ -128,7 +128,7 @@ $(CHROOT)/$(BUILDW): $(BUILDW) $(CHROOT)/$(BUILDIN)
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
-	./$< $(@D)
+	sudo ./$< $(@D)
 	cp -fv $< $@
 	cp -fv $(BUILDIN) $@
 
