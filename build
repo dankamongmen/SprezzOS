@@ -41,7 +41,7 @@ chroot "$DI" apt-get -y build-dep debian-installer linux fbterm
 
 mkdir "$DI"/root/.ssh
 for i in github.com ; do
-	ssh-keyscan "$i" >> "$DI"/root/.ssh
+	ssh-keyscan "$i" >> "$DI"/root/.ssh/known_hosts
 done
 cp -vr ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
 
