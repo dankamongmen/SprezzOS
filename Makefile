@@ -5,9 +5,9 @@
 UPSTREAM:=3.5.4
 KVER:=$(UPSTREAM)-2
 ABINAME:=3.5.0-1
-ZFSVER:=0.6.0~rc10
-ZFSFVER:=$(ZFSVER)-2_amd64
-SPLFVER:=$(ZFSVER)-2_amd64
+ZFSVER:=0.6.0~rc11
+ZFSFVER:=$(ZFSVER)-1_amd64
+SPLFVER:=$(ZFSVER)-1_amd64
 
 CHROOT:=unstable
 DI:=debian-installer_20120829
@@ -118,7 +118,7 @@ $(CHROOT)/spl-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
 	sudo chroot $(CHROOT) cp -r world/spl spl-$(ZFSVER)/debian
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
-	$(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
+	sudo $(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
 
 $(CHROOT)/$(BUILDK): $(BUILDK) $(CHROOT)/$(BUILDIN)
 	sudo cp -fv $< $@
