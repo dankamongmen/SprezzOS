@@ -121,18 +121,18 @@ $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	$(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
 
 $(CHROOT)/$(BUILDK): $(BUILDK) $(CHROOT)/$(BUILDIN)
-	cp $< $@
+	sudo cp -fv $< $@
 
 $(CHROOT)/$(BUILDU): $(BUILDU) $(CHROOT)/$(BUILDIN)
-	cp $< $@
+	sudo cp -fv $< $@
 
 $(CHROOT)/$(BUILDW): $(BUILDW) $(CHROOT)/$(BUILDIN)
-	cp $< $@
+	sudo cp -fv $< $@
 
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	sudo ./$< $(@D)
-	sudo cp -fv $< $(BUILDIN) $@
+	sudo cp -fv $< $(BUILDIN) $(@D)
 
 $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB): $(LIBCUDEB) $(CHROOT)/$(BUILDIN)
 	sudo cp -fv $< $(@D)
