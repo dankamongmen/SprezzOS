@@ -153,8 +153,8 @@ $(FONT): /usr/share/fonts/X11/misc/ter-u20b_unicode.pcf.gz
 	grub-mkfont -v -a --no-bitmap $< -o $@
 
 clean: cleanchroot
-	rm -rf tmp $(TESTDISK) images $(IMG) profiles $(DEBS)
-	sudo rm -rf dibuild
+	rm -rf -- tmp $(TESTDISK) images $(IMG)-* profiles $(DEBS)
+	sudo rm -rf -- dibuild
 
 clobber: clean
-	rm -f $(PACKAGES) $(FONT)
+	rm -f -- $(PACKAGES) $(FONT)
