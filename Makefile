@@ -129,8 +129,7 @@ $(CHROOT)/$(BUILDW): $(BUILDW) $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	sudo ./$< $(@D)
-	cp -fv $< $@
-	cp -fv $(BUILDIN) $@
+	sudo cp -fv $< $(BUILDIN) $@
 
 $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB): $(LIBCUDEB) $(CHROOT)/$(BUILDIN)
 	cp -fv $< $(@D)
