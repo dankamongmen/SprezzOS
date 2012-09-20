@@ -42,6 +42,7 @@ KERNBALL:=linux-$(UPSTREAM).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=linux-image-$(ABINAME)-amd64_$(KVER)_amd64.deb
+GRUBTHEMEDEB:=sprezzos-grub2theme_1.0.7_all.deb
 ZFSDEB:=zfs_$(ZFSFVER).deb
 SPLDEB:=spl_$(SPLFVER).deb
 GRUBCONF:=grub.cfg
@@ -61,7 +62,7 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 	sudo chroot $(CHROOT) /$(BUILDW)
 
 # ISO creation
-DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB)
+DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB) $(GRUBTHEMEDEB)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KERNDEB) $(ZFSFVER) $(CHROOT)/$(DIDEB)
@@ -73,8 +74,10 @@ $(ZFSDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/$(ZFSDEB)
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.7_all.deb > sprezzos-grub2theme_1.0.7_all.deb
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB)) > $@
+	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB))
+
+$(GRUBTHEMEDEB): $(CHROOT)/$(BUILDIN)
+	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/$(notdir $(GRUBTHEMEDEB))
 
 $(PROFILE): $(PACKIN) $(MAKEFILE)
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -150,7 +153,7 @@ $(FONT): /usr/share/fonts/X11/misc/ter-u20b_unicode.pcf.gz
 	grub-mkfont -v -a --no-bitmap $< -o $@
 
 clean: cleanchroot
-	rm -rf tmp $(TESTDISK) images $(IMG) profiles
+	rm -rf tmp $(TESTDISK) images $(IMG) profiles $(DEBS)
 	sudo rm -rf dibuild
 
 clobber: clean
