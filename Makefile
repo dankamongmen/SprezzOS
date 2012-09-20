@@ -5,9 +5,9 @@
 UPSTREAM:=3.5.4
 KVER:=$(UPSTREAM)-2
 ABINAME:=3.5.0-1
-ZFSVER:=0.6.0~rc11
-ZFSFVER:=$(ZFSVER)-1_amd64
-SPLFVER:=$(ZFSVER)-1_amd64
+ZFSVER:=0.6.0~rc10
+ZFSFVER:=$(ZFSVER)-2_amd64
+SPLFVER:=$(ZFSVER)-2_amd64
 
 CHROOT:=unstable
 DI:=debian-installer_20120829
@@ -41,7 +41,7 @@ DIDEB:=/s-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(UPSTREAM).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
-KERNDEB:=$(CHROOT)/linux-image-$(ABINAME)-amd64_$(KVER)_amd64.deb
+KERNDEB:=linux-image-$(ABINAME)-amd64_$(KVER)_amd64.deb
 ZFSDEB:=zfs_$(ZFSFVER).deb
 SPLDEB:=spl_$(SPLFVER).deb
 GRUBCONF:=grub.cfg
@@ -61,19 +61,19 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 	sudo chroot $(CHROOT) /$(BUILDW)
 
 # ISO creation
-DEBS:=$(KERNDEB) $(CHROOT)/$(SPLDEB) $(CHROOT)/$(ZFSDEB)
+DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KERNDEB) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
-$(CHROOT)/$(SPLDEB): $(CHROOT)/$(BUILDIN)
+$(SPLDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/$(SPLDEB)
 
-$(CHROOT)/$(ZFSDEB): $(CHROOT)/$(BUILDIN)
+$(ZFSDEB): $(CHROOT)/$(BUILDIN)
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/$(ZFSDEB)
 
 $(KERNDEB): $(CHROOT)/$(BUILDIN)
-	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.7_all.deb > $(CHROOT)/sprezzos-grub2theme_1.0.7_all.deb
+	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/sprezzos-grub2theme_1.0.7_all.deb > sprezzos-grub2theme_1.0.7_all.deb
 	$(WGET) -O- http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB)) > $@
 
 $(PROFILE): $(PACKIN) $(MAKEFILE)
@@ -97,7 +97,7 @@ udebs: $(CHROOT)/$(BUILDU)
 	sudo chroot $(CHROOT) /$(BUILDU)
 
 $(CHROOT)/s-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $(CHROOT)/$(BUILDIN)
-	cp -fv $< $@
+	sudo cp -fv $< $@
 
 $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(WORLD)
 	sudo chroot $(CHROOT) tar xjf $(<F)
@@ -132,7 +132,7 @@ $(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC)
 	sudo cp -fv $< $(BUILDIN) $@
 
 $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB): $(LIBCUDEB) $(CHROOT)/$(BUILDIN)
-	cp -fv $< $(@D)
+	sudo cp -fv $< $(@D)
 
 $(SEED): $(SEEDIN) $(MAKEFILE)
 	@[ -d $(@D) ] || mkdir -p $(@D)
