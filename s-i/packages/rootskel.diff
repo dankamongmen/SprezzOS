@@ -1,25 +1,3 @@
-diff --git a/debian/changelog b/debian/changelog
-index 0f7400e..45fa583 100644
---- a/debian/changelog
-+++ b/debian/changelog
-@@ -1,3 +1,17 @@
-+rootskel (1.100+SprezzOS12) unstable; urgency=high
-+
-+  * Get tangoize / VT interactions working via vicious hack
-+  * Invoke "tangoize" from fbvfbterm; protect arguments
-+  * Add "tangoize" script and install it to /usr/sbin
-+  * Add -s and --font-height arguments to fbterm invocation
-+  * Add fbvfbterm, sprezzos logo (sprezzos.png)
-+  * Recursively build usr
-+  * -n 'Terminus (TTF) -s 18 --font-height 18 solidifies borders
-+  * Set TERM=fbterm. Use Tango-Dark palette on console.
-+  * Open up tty7
-+
-+ -- Nick Black <nick.black@sprezzatech.com>  Mon, 20 Aug 2012 17:24:55 -0400
-+
- rootskel (1.100) unstable; urgency=high
- 
-   [ Joey Hess ]
 diff --git a/src/Makefile b/src/Makefile
 index 10ef04f..a73d15c 100644
 --- a/src/Makefile
@@ -77,3 +55,23 @@ index dec554e..b96c231 100644
  
  ifeq ($(DEB_HOST_ARCH_OS),linux)
    files_exec += \
+diff --git a/debian/changelog b/debian/changelog
+index 6db5d9d..39a078b 100644
+--- a/debian/changelog
++++ b/debian/changelog
+@@ -1,9 +1,13 @@
+-rootskel (1.101) UNRELEASED; urgency=low
++rootskel (1.102-SprezzOS1) unstable; urgency=low
+ 
++  [ Samuel Thibault ]
+   * When enabling speakup, tell debconf to show choices horizontally.
+   * Update lowmem limit for graphical installer.
+ 
+- -- Samuel Thibault <sthibault@debian.org>  Sat, 15 Sep 2012 01:35:19 +0200
++  [ Nick Black ]
++  * SprezzOS build
++
++ -- Nick Black <nick.black@sprezzatech.com>  Sun, 23 Sep 2012 21:24:00 +0000
+ 
+ rootskel (1.100) unstable; urgency=high
+ 
