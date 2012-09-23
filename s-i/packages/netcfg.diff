@@ -1,24 +1,3 @@
-diff --git a/debian/changelog b/debian/changelog
-index b4c231a..62d178d 100644
---- a/debian/changelog
-+++ b/debian/changelog
-@@ -1,10 +1,14 @@
--netcfg (1.90) UNRELEASED; urgency=low
-+netcfg (1.91-SprezzOS1) unstable; urgency=low
- 
-+  [ Philipp Kern ]
-   * netcfg.h: drop ip6-localnet (obsolete)
-   * netcfg.h: drop ip6-mcastprefix (no need for it to be in /etc/hosts)
-   * netcfg-common.c (is_layer3_qeth): fix off-by-one, introduce a constant
- 
-- -- Philipp Kern <pkern@debian.org>  Tue, 28 Aug 2012 23:57:14 +0200
-+  [ Nick Black ]
-+  * Rebase against new upstream
-+
-+ -- Nick Black <nick.black@sprezzatech.com>  Sun, 02 Sep 2012 22:09:44 +0000
- 
- netcfg (1.89) unstable; urgency=low
- 
 diff --git a/debian/netcfg-common.templates b/debian/netcfg-common.templates
 index e964a5a..7863eb5 100644
 --- a/debian/netcfg-common.templates
@@ -54,3 +33,17 @@ index 7a4717c..9be07d0 100644
              free(*hostname);
              *hostname = NULL;
          } else {
+diff --git a/debian/changelog b/debian/changelog
+index d439743..8bc9c27 100644
+--- a/debian/changelog
++++ b/debian/changelog
+@@ -1,3 +1,9 @@
++netcfg (1.92-SprezzOS1) unstable; urgency=low
++
++  * SprezzOS build
++
++ -- Nick Black <nick.black@sprezzatech.com>  Sun, 23 Sep 2012 21:16:34 +0000
++
+ netcfg (1.92) unstable; urgency=low
+ 
+   [ Philipp Kern ]
