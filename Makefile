@@ -111,11 +111,11 @@ $(WORLD): $(CHROOT)/$(BUILDIN)
 
 $(CHROOT)/zfs-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
 	sudo chroot $(CHROOT) git clone https://github.com/Sprezzatech/zfs.git zfs-$(ZFSVER)
-	sudo chroot $(CHROOT) cp -r world/zfs zfs-$(ZFSVER)/debian
+	sudo chroot $(CHROOT) cp -Lr world/zfs zfs-$(ZFSVER)/debian
 
 $(CHROOT)/spl-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
 	sudo chroot $(CHROOT) git clone https://github.com/Sprezzatech/spl.git spl-$(ZFSVER)
-	sudo chroot $(CHROOT) cp -r world/spl spl-$(ZFSVER)/debian
+	sudo chroot $(CHROOT) cp -Lr world/spl spl-$(ZFSVER)/debian
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	sudo $(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
