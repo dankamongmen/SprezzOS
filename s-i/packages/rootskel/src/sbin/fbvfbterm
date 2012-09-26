@@ -6,6 +6,7 @@ fi
 
 export FSIZE="18"
 export FHEIGHT="18"
+export FWIDTH="10"
 export FONT="Terminus (TTF)"
 
 echo -ne "\e[?25l" # hide cursor
@@ -16,4 +17,5 @@ shift
 export FBTERM_BACKGROUND_IMAGE=1
 
 exec fbterm -n "$FONT" -s "$FSIZE" --font-height="$FHEIGHT" \
-	-- /sbin/tangoize env LANG=$LANG TERM=fbterm "$@"
+	--font-width="$FWIDTH" -- \
+	/sbin/tangoize env LANG=$LANG TERM=fbterm "$@"
