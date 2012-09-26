@@ -6,7 +6,7 @@ set -x
 usage () { echo "usage: `basename $0` [ --uefi ] [ --usb ] disk iso" ; return 0; }
 usageerr () { usage >&2 ; return 1 ; }
 
-MEM=4096
+MEM=2048
 
 [ $# -lt 5 ] || usageerr
 [ $# -gt 1 ] || usageerr
