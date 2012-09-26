@@ -17,4 +17,5 @@ wget http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/ -O- | \
   -F -nc -nd -np -l1 -r -A udeb -i-
 
 cd /s-i/installer
+apt-get build-dep debian-installer
 dpkg-buildpackage -j8 -us -uc
