@@ -3,7 +3,7 @@
 
 # Kernel version
 UPSTREAM:=3.5.4
-KVER:=$(UPSTREAM)-2
+KVER:=$(UPSTREAM)-3
 ABINAME:=3.5.0-1
 ZFSVER:=0.6.0~rc11
 ZFSFVER:=$(ZFSVER)-1_amd64
