@@ -24,6 +24,8 @@ chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UT
 chroot "$DI" /bin/sh -c "echo set locales/default_environment_locale en_US.UTF-8 | debconf-communicate"
 echo "en_US.UTF-8 UTF-8" | tee -a "$DI/etc/locale.gen"
 chroot "$DI" locale-gen
+mount --bind /dev "$DI/dev"
+chroot "$DI" mount -t sysfs sysfs /sys
 chroot "$DI" mount -t proc procfs /proc
 chroot "$DI" mount -t devpts devpts /dev/pts
 chroot "$DI" aptitude remove pinentry-gtk2
@@ -37,6 +39,7 @@ cp bashrc "$DI"/root/.bashrc
 cp 99translations "$DI"/etc/apt/apt.conf.d/
 wget http://www.sprezzatech.com/sprezzakey.txt -O- | chroot "$DI" apt-key add -
 chroot "$DI" apt-get -y update
+chroot "$DI" aptitude -y safe-upgrade
 chroot "$DI" apt-get -y build-dep debian-installer linux fbterm
 
 mkdir "$DI"/root/.ssh
@@ -57,8 +60,8 @@ cp profiles/SprezzOS.preseed "$DI/s-i/installer/build"
 cp /etc/machine-id "$DI/etc/machine-id"
 
 chroot "$DI" umount /proc
+chroot "$DI" umount /sys
 chroot "$DI" umount devpts
-chown -R $USER:$USER "$DI"
 chroot "$DI" mount -t proc procfs /proc
 chroot "$DI" mount -t sysfs sysfs /sys
 chroot "$DI" mount -t devpts devpts /dev/pts
