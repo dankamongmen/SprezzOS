@@ -27,7 +27,6 @@ chroot "$DI" locale-gen
 mount --bind /dev "$DI/dev"
 chroot "$DI" mount -t sysfs sysfs /sys
 chroot "$DI" mount -t proc procfs /proc
-chroot "$DI" mount -t devpts devpts /dev/pts
 chroot "$DI" aptitude remove pinentry-gtk2
 
 tee -a "$DI/etc/apt/sources.list" <<APT
@@ -59,10 +58,4 @@ cp -vr s-i "$DI/s-i-patches"
 cp profiles/SprezzOS.preseed "$DI/s-i/installer/build"
 cp /etc/machine-id "$DI/etc/machine-id"
 
-chroot "$DI" umount /proc
-chroot "$DI" umount /sys
-chroot "$DI" umount devpts
-chroot "$DI" mount -t proc procfs /proc
-chroot "$DI" mount -t sysfs sysfs /sys
-chroot "$DI" mount -t devpts devpts /dev/pts
 echo "Now run 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
