@@ -1,8 +1,27 @@
+diff --git a/debian/changelog b/debian/changelog
+index edfc2de..71b0c4e 100644
+--- a/debian/changelog
++++ b/debian/changelog
+@@ -1,8 +1,12 @@
+-netcfg (1.96) UNRELEASED; urgency=low
++netcfg (1.97-SprezzOS1) unstable; urgency=low
+ 
++  [ Philipp Kern ]
+   * Makefile: set DEB_HOST_ARCH{,_OS} conditionally
+ 
+- -- Philipp Kern <pkern@debian.org>  Sat, 29 Sep 2012 17:03:57 +0200
++  [ Nick Black ]
++  * SprezzOS build
++
++ -- Nick Black <nick.black@sprezzatech.com>  Sun, 30 Sep 2012 11:23:09 +0000
+ 
+ netcfg (1.95) unstable; urgency=low
+ 
 diff --git a/debian/netcfg-common.templates b/debian/netcfg-common.templates
-index e964a5a..7863eb5 100644
+index c579a16..5e042db 100644
 --- a/debian/netcfg-common.templates
 +++ b/debian/netcfg-common.templates
-@@ -141,7 +141,7 @@ _Description: Failure of key exchange and association
+@@ -142,7 +142,7 @@ _Description: Failure of key exchange and association
  
  Template: netcfg/get_hostname
  Type: string
@@ -11,20 +30,6 @@ index e964a5a..7863eb5 100644
  # :sl1:
  _Description: Hostname:
   Please enter the hostname for this system.
-diff --git a/debian/changelog b/debian/changelog
-index d439743..8bc9c27 100644
---- a/debian/changelog
-+++ b/debian/changelog
-@@ -1,3 +1,9 @@
-+netcfg (1.93-SprezzOS1) unstable; urgency=low
-+
-+  * SprezzOS build
-+
-+ -- Nick Black <nick.black@sprezzatech.com>  Sun, 23 Sep 2012 21:16:34 +0000
-+
- netcfg (1.93) unstable; urgency=low
- 
-   [ Philipp Kern ]
 diff --git a/netcfg-common.c b/netcfg-common.c
 index ac23be0..088c567 100644
 --- a/netcfg-common.c
