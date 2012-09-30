@@ -24,9 +24,10 @@ chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UT
 chroot "$DI" /bin/sh -c "echo set locales/default_environment_locale en_US.UTF-8 | debconf-communicate"
 echo "en_US.UTF-8 UTF-8" | tee -a "$DI/etc/locale.gen"
 chroot "$DI" locale-gen
-mount --bind /dev "$DI/dev"
+#mount --bind /dev "$DI/dev"
 chroot "$DI" mount -t sysfs sysfs /sys
 chroot "$DI" mount -t proc procfs /proc
+chroot "$DI" mount -t devpts devpts /dev/pts
 chroot "$DI" aptitude remove pinentry-gtk2
 
 tee -a "$DI/etc/apt/sources.list" <<APT
