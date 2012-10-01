@@ -2,9 +2,10 @@
 .PHONY: all world test clean kernel udebs cleanchroot clobber
 
 # Kernel version
-UPSTREAM:=3.5.4
-KVER:=$(UPSTREAM)-4
-ABINAME:=3.5.0-1
+LINUXORIG:=3.6
+UPSTREAM:=$(LINUXORIG).0
+KVER:=$(UPSTREAM)-1
+ABINAME:=3.6.0-1
 ZFSVER:=0.6.0~rc11
 ZFSFVER:=$(ZFSVER)-1_amd64
 SPLFVER:=$(ZFSVER)-1_amd64
@@ -38,7 +39,7 @@ CONFIN:=SprezzOS.conf.in
 SEEDIN:=SprezzOS.preseed.in
 PACKIN:=SprezzOS.packages.in
 DIDEB:=/s-i/$(DI)_amd64.deb
-KERNBALL:=linux-$(UPSTREAM).tar.bz2
+KERNBALL:=linux-$(LINUXORIG).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=linux-image-$(ABINAME)-amd64_$(KVER)_amd64.deb
@@ -104,21 +105,21 @@ $(CHROOT)/s-i/installer/build/sources.list.udeb.local: sources.list.udeb.local $
 
 $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(WORLD)
 	sudo chroot $(CHROOT) tar xjf $(<F)
-	sudo chroot $(CHROOT) cp -r world/linux linux-$(UPSTREAM)/debian
+	sudo chroot $(CHROOT) cp -r world/packaging/linux/debian linux-$(LINUXORIG)/debian
 
 $(WORLD): $(CHROOT)/$(BUILDIN)
 	@[ -r $@ ] || sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
 
 $(CHROOT)/zfs-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
 	sudo chroot $(CHROOT) git clone https://github.com/Sprezzatech/zfs.git zfs-$(ZFSVER)
-	sudo chroot $(CHROOT) cp -Lr world/zfs zfs-$(ZFSVER)/debian
+	sudo chroot $(CHROOT) cp -Lr world/packaging/zfs/debian zfs-$(ZFSVER)/debian
 
 $(CHROOT)/spl-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
 	sudo chroot $(CHROOT) git clone https://github.com/Sprezzatech/spl.git spl-$(ZFSVER)
-	sudo chroot $(CHROOT) cp -Lr world/spl spl-$(ZFSVER)/debian
+	sudo chroot $(CHROOT) cp -Lr world/packaging/spl/debian spl-$(ZFSVER)/debian
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
-	sudo $(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(UPSTREAM).tar.bz2
+	sudo $(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(LINUXORIG).tar.bz2
 
 $(CHROOT)/$(BUILDK): $(BUILDK) $(CHROOT)/$(BUILDIN)
 	sudo cp -fv $< $@

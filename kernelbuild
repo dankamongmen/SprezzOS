@@ -16,6 +16,10 @@ ZFSVER="$2"
 ABI=1
 KVERS="$UPSTREAM-$ABI"
 
+if [ "`echo $UPSTREAM | cut -d. -f3`" = "0" ] ; then
+	UPSTREAM="`echo $UPSTREAM | cut -d. -f-2`"
+fi
+
 # Linux kernel
 cd "/linux-$UPSTREAM"
 
