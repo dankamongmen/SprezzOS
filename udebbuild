@@ -19,7 +19,7 @@ cd /s-i/packages
 
 # Build our own packages of certain udebs. Don't try rebuilding all; that leads
 # to divergence from upstream, and some of them fail.
-for i in main-menu rootskel netcfg tzsetup ; do
+for i in main-menu rootskel tzsetup netcfg ; do
 	cd "$i"
 	apt-get -y build-dep "$i"
 	dpkg-buildpackage -j8 -k$DEBKEY
