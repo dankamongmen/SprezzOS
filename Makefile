@@ -48,6 +48,7 @@ WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=linux-image-$(ABINAME)-amd64_$(KVER)_amd64.deb
 GRUBTHEMEDEB:=sprezzos-grub2theme_1.0.7_all.deb
+ADOBEDEB:=fonts-adobe-sourcesanspro_1.036-SprezzOS1_all.deb
 ZFSDEB:=zfs_$(ZFSFVER).deb
 SPLDEB:=spl_$(SPLFVER).deb
 GRUBCONF:=grub.cfg
@@ -67,22 +68,25 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 	sudo chroot $(CHROOT) /$(BUILDW)
 
 # ISO creation
-DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB) $(GRUBTHEMEDEB)
+DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB) $(GRUBTHEMEDEB) $(ADOBEDEB)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KERNDEB) $(ZFSFVER) $(CHROOT)/$(DIDEB)
 
-$(SPLDEB): $(CHROOT)/$(BUILDIN)
+$(SPLDEB):
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/$(SPLDEB)
 
-$(ZFSDEB): $(CHROOT)/$(BUILDIN)
+$(ZFSDEB):
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/$(ZFSDEB)
 
-$(KERNDEB): $(CHROOT)/$(BUILDIN)
+$(KERNDEB):
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB))
 
-$(GRUBTHEMEDEB): $(CHROOT)/$(BUILDIN)
+$(GRUBTHEMEDEB):
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/$(notdir $(GRUBTHEMEDEB))
+
+$(ADOBEDEB):
+	aptitude download font-adobe-sourcesanspro
 
 $(PROFILE): $(PACKIN) $(MAKEFILE)
 	@[ -d $(@D) ] || mkdir -p $(@D)
