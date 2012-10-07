@@ -40,7 +40,7 @@ if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 fi
 
 #KPKGS="$KPKGS,`pwd`/unstable/linux-image-$KVER-amd64-dbg_$KVER""_amd64.deb"
-PKGS="$DI,`pwd`/unstable/s-i/installer/build/localudebs,`pwd`/spl_$ZFSVER.deb,`pwd`/zfs_$ZFSVER.deb"
+PKGS="$DI,`pwd`/unstable/s-i/installer/build/apt.udeb/cache/archives,`pwd`/spl_$ZFSVER.deb,`pwd`/zfs_$ZFSVER.deb"
 PKGS="$PKGS,`ls \`pwd\`/*.deb | tr [[:space:]] ,`"
 PKGS="$PKGS,$KPKGS"
 
