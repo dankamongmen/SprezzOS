@@ -2,14 +2,13 @@
 .PHONY: all world test clean kernel udebs cleanchroot clobber
 
 # Kernel version
-LINUXORIG:=3.5.5
-
 # The x.y.0 releases are just "x.y" upstream, annoyingly. Come x.y.0, LINUXORIG
 # goes to a major.minor, and .0 is appended to UPSTREAM. Sucks, I know.
-UPSTREAM:=$(LINUXORIG)
+LINUXORIG:=3.6
+UPSTREAM:=$(LINUXORIG).0
 
 KVER:=$(UPSTREAM)-1
-ABINAME:=3.5.0-1
+ABINAME:=3.6.0-1
 ZFSVER:=0.6.0~rc11
 ZFSFVER:=$(ZFSVER)-SprezzOS1_amd64
 SPLFVER:=$(ZFSVER)-SprezzOS1_amd64
