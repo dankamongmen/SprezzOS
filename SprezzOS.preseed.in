@@ -115,6 +115,6 @@ postfix			postfix/main_mailer_type	select Local only
 cpufrequtils		cpufrequtils/enable		boolean	true
 
 # extra packages to install
-d-i pkgsel/include string zfs sudo fbterm postfix mingetty sprezzos-grub2theme dnsmasq fonts-adobe-sourcesanspro xfonts-terminus fonts-inconsolata iucode-tool intel-microcode amd64-microcode vim-nox kbd openresolv dnsutils openntpd fonts-liberation iptables cpufrequtils console-setup ncurses-term
+d-i pkgsel/include string zfs sudo fbterm postfix mingetty sprezzos-grub2theme dnsmasq fonts-adobe-sourcesanspro xfonts-terminus fonts-inconsolata iucode-tool intel-microcode amd64-microcode vim-nox kbd openresolv dnsutils openntpd fonts-liberation iptables cpufrequtils console-setup ncurses-term zsh less
 
 d-i preseed/late_command string in-target update-alternatives --set editor /usr/bin/vim.nox ; sed -i 's/^FONTFACE=.*/FONTFACE=""/' /etc/default/console-setup ; sed -i 's/^FONT=.*/FONT=""/' /etc/default/console-setup
