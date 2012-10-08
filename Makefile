@@ -86,7 +86,7 @@ $(GRUBTHEMEDEB):
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/$(notdir $(GRUBTHEMEDEB))
 
 $(ADOBEDEB):
-	aptitude download font-adobe-sourcesanspro
+	aptitude download fonts-adobe-sourcesanspro
 
 $(PROFILE): $(PACKIN) $(MAKEFILE)
 	@[ -d $(@D) ] || mkdir -p $(@D)
