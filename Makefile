@@ -99,7 +99,7 @@ $(CONF): $(CONFIN)
 		cat $^ && \
 		echo custom_installer=\"$(shell pwd)/dest\" ) > $@
 
-kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK) $(CHROOT)/zfs-$(ZFSVER)/debian $(CHROOT)/spl-$(ZFSVER)/debian
+kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK)
 	@[ ! -d $(CHROOT)/orig ] || sudo rm -rf $(CHROOT)/orig
 	sudo chroot $(CHROOT) /$(BUILDK) $(UPSTREAM) $(ZFSVER)
 
@@ -118,14 +118,6 @@ $(CHROOT)/linux-$(UPSTREAM)/debian: $(CHROOT)/$(KERNBALL) $(WORLD)
 
 $(WORLD): $(CHROOT)/$(BUILDIN)
 	@[ -r $@ ] || sudo chroot $(CHROOT) git clone git://github.com/dankamongmen/sprezzos-world.git world
-
-$(CHROOT)/zfs-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
-	sudo chroot $(CHROOT) git clone https://github.com/Sprezzatech/zfs.git zfs-$(ZFSVER)
-	sudo chroot $(CHROOT) cp -Lr world/packaging/zfs/debian zfs-$(ZFSVER)/debian
-
-$(CHROOT)/spl-$(ZFSVER)/debian: $(CHROOT)/$(BUILDIN) $(WORLD)
-	sudo chroot $(CHROOT) git clone https://github.com/Sprezzatech/spl.git spl-$(ZFSVER)
-	sudo chroot $(CHROOT) cp -Lr world/packaging/spl/debian spl-$(ZFSVER)/debian
 
 $(CHROOT)/$(KERNBALL): $(CHROOT)/$(BUILDIN)
 	sudo $(WGET) -P $(CHROOT) ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$(LINUXORIG).tar.bz2
