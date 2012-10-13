@@ -48,7 +48,8 @@ for i in github.com ; do
 done
 cp -vr ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
 
-chroot "$DI" git clone --depth 1 https://github.com/dankamongmen/s-i.git
+chroot "$DI" git clone --depth 1 http://github.com/dankamongmen/s-i.git
+#chroot "$DI" git clone --depth 1 https://github.com/dankamongmen/s-i.git
 chroot "$DI" /bin/sh -c "cd /s-i && ./scripts/git-setup"
 chroot "$DI" /bin/sh -c "cd /s-i && mr -p checkout"
 cp -v local "$DI/s-i/installer/build/pkg-lists/"
