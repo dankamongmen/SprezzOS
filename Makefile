@@ -12,8 +12,6 @@ UPSTREAM:=$(LINUXORIG)
 KVER:=$(UPSTREAM)-1
 ABINAME:=3.6.2-1
 ZFSVER:=0.6.0~rc11
-ZFSFVER:=$(ZFSVER)-SprezzOS1_amd64
-SPLFVER:=$(ZFSVER)-SprezzOS1_amd64
 
 CHROOT:=unstable
 DI:=debian-installer_20120931
@@ -50,8 +48,6 @@ FONT:=unicode.pf2
 KERNDEB:=linux-image-$(ABINAME)-amd64_$(KVER)_amd64.deb
 GRUBTHEMEDEB:=sprezzos-grub2theme_1.0.7_all.deb
 ADOBEDEB:=fonts-adobe-sourcesanspro_1.036-SprezzOS1_all.deb
-ZFSDEB:=zfs_$(ZFSFVER).deb
-SPLDEB:=spl_$(SPLFVER).deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
 THEME:=splash.png sprezzos.theme
@@ -69,16 +65,10 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 	sudo chroot $(CHROOT) /$(BUILDW)
 
 # ISO creation
-DEBS:=$(KERNDEB) $(SPLDEB) $(ZFSDEB) $(GRUBTHEMEDEB) $(ADOBEDEB)
+DEBS:=$(KERNDEB) $(GRUBTHEMEDEB) $(ADOBEDEB)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KERNDEB) $(ZFSFVER) $(CHROOT)/$(DIDEB)
-
-$(SPLDEB):
-	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/spl/$(SPLDEB)
-
-$(ZFSDEB):
-	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/z/zfs/$(ZFSDEB)
 
 $(KERNDEB):
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/l/linux-2.6/$(notdir $(KERNDEB))
@@ -101,7 +91,7 @@ $(CONF): $(CONFIN)
 
 kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK)
 	@[ ! -d $(CHROOT)/orig ] || sudo rm -rf $(CHROOT)/orig
-	sudo chroot $(CHROOT) /$(BUILDK) $(UPSTREAM) $(ZFSVER)
+	sudo chroot $(CHROOT) /$(BUILDK) $(UPSTREAM)
 
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB)
 	sudo chroot $(CHROOT) /$(BUILDIN)
