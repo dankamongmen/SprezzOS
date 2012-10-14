@@ -5,13 +5,12 @@ set -x
 
 . ~/.bashrc
 
-usage () { echo "usage: `basename $0` kernver zfsver" ; return 0 ; }
+usage () { echo "usage: `basename $0` kernver" ; return 0 ; }
 usageerr () { usage >&2 ; return 1 ; }
 
-[ $# -eq 2 ] || usageerr
+[ $# -eq 1 ] || usageerr
 
 UPSTREAM="$1"
-ZFSVER="$2"
 
 ABI=1
 KVERS="$UPSTREAM-$ABI"
