@@ -11,7 +11,6 @@ UPSTREAM:=$(LINUXORIG)
 
 KVER:=$(UPSTREAM)-1
 ABINAME:=3.6.0-1
-ZFSVER:=0.6.0~rc11
 
 CHROOT:=unstable
 DI:=debian-installer_20120931
