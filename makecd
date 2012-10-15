@@ -6,15 +6,15 @@ set -e
 # packages in the last step of ISO creation.
 CODENAME=sid
 
-usage () { echo "usage: `basename $0` [ -f ] iso kernver zfsver dideb" ; return 0; }
+usage () { echo "usage: `basename $0` [ -f ] iso kernver dideb" ; return 0; }
 usageerr () { usage >&2 ; return 1 ; }
 
-if [ $# -lt 3 ] ; then
+if [ $# -lt 2 ] ; then
 	usageerr
 else
-	[ $# -lt 6 ] || usageerr
+	[ $# -lt 5 ] || usageerr
 	# FIXME accept -f among last params!
-	if [ $# -eq 5 ] ; then
+	if [ $# -eq 4 ] ; then
 		if [ "$1" = "-f" ] ; then
 			shift
 		else
@@ -31,8 +31,7 @@ fi
 
 ISO="$1"
 KPKGS="$2"
-ZFSVER="$3"
-DI="$4"
+DI="$3"
 
 if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 	echo "Warning; won't place output in images/." >&2
@@ -40,7 +39,7 @@ if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 fi
 
 #KPKGS="$KPKGS,`pwd`/unstable/linux-image-$KVER-amd64-dbg_$KVER""_amd64.deb"
-PKGS="$DI,`pwd`/unstable/s-i/installer/build/apt.udeb/cache/archives,`pwd`/spl_$ZFSVER.deb,`pwd`/zfs_$ZFSVER.deb"
+PKGS="$DI,`pwd`/unstable/s-i/installer/build/apt.udeb/cache/archives"
 PKGS="$PKGS,`ls \`pwd\`/*.deb | tr [[:space:]] ,`"
 PKGS="$PKGS,$KPKGS"
 
