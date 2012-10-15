@@ -48,15 +48,13 @@ for i in github.com ; do
 done
 cp -vr ~/.gnupg/ "$DI"/root/ # FIXME ughghghghghghghghg
 
-chroot "$DI" git clone --depth 1 http://github.com/dankamongmen/s-i.git
-#chroot "$DI" git clone --depth 1 https://github.com/dankamongmen/s-i.git
+chroot "$DI" git clone --depth 1 git://github.com/dankamongmen/s-i.git
 chroot "$DI" /bin/sh -c "cd /s-i && ./scripts/git-setup"
 chroot "$DI" /bin/sh -c "cd /s-i && mr -p checkout"
 cp -v local "$DI/s-i/installer/build/pkg-lists/"
 for i in "$@" ; do
 	cp -v "$i" "$DI/s-i/installer/build/localudebs"
 done
-cp -vr s-i "$DI/s-i-patches"
 cp profiles/SprezzOS.preseed "$DI/s-i/installer/build"
 cp /etc/machine-id "$DI/etc/machine-id"
 
