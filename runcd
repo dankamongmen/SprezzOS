@@ -35,7 +35,7 @@ elif [ $# -gt 2 ] ; then
 fi
 
 if [ $SPREZZ_UEFI -ne 0 ] ; then
-	KVMOPTS="-L ovmf -bios OVMF.fd"
+	KVMOPTS="-L uefi/ovmf -bios OVMF.fd"
 fi
 
 KVMOPTS="$KVMOPTS -vga cirrus"
