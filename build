@@ -18,12 +18,12 @@ shift
 [ ! -d "$DI" ] || rm -rf "$DI"
 
 debootstrap --include=locales,dh-di,less,git,mr,vim-nox,udev,autoconf,\
-	automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,\
-	kernel-wedge,xmlto,devscripts,ca-certificates,fakeroot,\
-	libdebconfclient0-dev,libdebian-installer4-dev,libtool,\
-	libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,\
-	gnupg-agent,pinentry-curses,librsvg2-bin,gawk,grub-efi-amd64-bin,\
-	xorriso,libwww-perl,libcrypt-ssleay-perl \
+automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,\
+kernel-wedge,xmlto,devscripts,ca-certificates,fakeroot,\
+libdebconfclient0-dev,libdebian-installer4-dev,libtool,\
+libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,\
+gnupg-agent,pinentry-curses,librsvg2-bin,gawk,grub-efi-amd64-bin,\
+xorriso,libwww-perl,libcrypt-ssleay-perl \
 	--exclude=pinentry-x11,pinentry-gtk2 \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI"
 chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UTF-8 | debconf-communicate"
@@ -46,7 +46,7 @@ cp 99translations "$DI"/etc/apt/apt.conf.d/
 wget http://www.sprezzatech.com/sprezzakey.txt -O- | chroot "$DI" apt-key add -
 chroot "$DI" apt-get -y update
 chroot "$DI" aptitude -y safe-upgrade
-chroot "$DI" apt-get -y build-dep debian-installer linux fbterm
+chroot "$DI" apt-get -y build-dep debian-installer
 
 mkdir "$DI"/root/.ssh
 for i in github.com ; do
