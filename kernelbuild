@@ -23,7 +23,7 @@ fi
 cd "/linux-$UPSTREAM"
 
 apt-get -y build-dep linux
-aptitude install xmlto kernel-wedge
+aptitude install xmlto kernel-wedge rsync
 
 cd debian/installer/amd64
 kernel-wedge gen-control $KVERS >> ../../control
