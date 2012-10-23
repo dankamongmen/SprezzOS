@@ -46,7 +46,6 @@ WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=linux-image-$(ABINAME)-amd64_$(KVER)_amd64.deb
 GRUBTHEMEDEB:=sprezzos-grub2theme_1.0.7_all.deb
-ADOBEDEB:=fonts-adobe-sourcesanspro_1.036-SprezzOS1_all.deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
 THEME:=splash.png sprezzos.theme
@@ -64,7 +63,7 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 	sudo chroot $(CHROOT) /$(BUILDW)
 
 # ISO creation
-DEBS:=$(KERNDEB) $(GRUBTHEMEDEB) $(ADOBEDEB)
+DEBS:=$(KERNDEB) $(GRUBTHEMEDEB)
 
 $(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
 	./$< -f $@ $(KERNDEB) $(ZFSFVER) $(CHROOT)/$(DIDEB)
@@ -74,9 +73,6 @@ $(KERNDEB):
 
 $(GRUBTHEMEDEB):
 	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/$(notdir $(GRUBTHEMEDEB))
-
-$(ADOBEDEB):
-	aptitude download fonts-adobe-sourcesanspro
 
 $(PROFILE): $(PACKIN) $(MAKEFILE)
 	@[ -d $(@D) ] || mkdir -p $(@D)
