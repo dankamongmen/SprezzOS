@@ -10,7 +10,6 @@ usageerr () { usage >&2 ; return 1 ; }
 
 [ $# -eq 0 ] || usageerr
 
-cd /s-i/packages/main-menu && patch -p1 < /s-i-patches/packages/main-menu.diff
 cd /s-i/packages
 
 # Build our own packages of certain udebs. Don't try rebuilding all; that leads
