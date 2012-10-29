@@ -19,7 +19,7 @@ shift
 
 debootstrap --include=locales,dh-di,less,git,mr,vim-nox,udev,autoconf,\
 automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,\
-devscripts,ca-certificates,fakeroot,pkg-config,\
+devscripts,ca-certificates,fakeroot,pkg-config,wget,\
 libdebconfclient0-dev,libdebian-installer4-dev,libtool,\
 libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,\
 gnupg-agent,pinentry-curses,librsvg2-bin,gawk,grub-efi-amd64-bin,\
@@ -46,7 +46,7 @@ cp 99translations "$DI"/etc/apt/apt.conf.d/
 wget http://www.sprezzatech.com/sprezzakey.txt -O- | chroot "$DI" apt-key add -
 chroot "$DI" apt-get -y update
 chroot "$DI" aptitude -y safe-upgrade
-chroot "$DI" apt-get -y build-dep debian-installer
+chroot "$DI" apt-get -y build-dep debian-installer || true
 
 mkdir "$DI"/root/.ssh
 for i in github.com ; do
