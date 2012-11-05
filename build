@@ -63,5 +63,6 @@ for i in "$@" ; do
 done
 cp profiles/SprezzOS.preseed "$DI/s-i/installer/build"
 cp /etc/machine-id "$DI/etc/machine-id"
+echo "mtools_skip_check=1" >> "$DI/etc/mtools.conf"
 
 echo "Now run 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
