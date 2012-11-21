@@ -17,7 +17,7 @@ shift
 [ ! -d "$DI/sys" ] || umount "$DI"/sys || true
 [ ! -d "$DI" ] || rm -rf "$DI"
 
-debootstrap --include=locales,dh-di,less,git,mr,vim-nox,udev,autoconf,\
+debootstrap --include=locales,dh-di,less,git,mr,vim-nox,autoconf,\
 automake,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,procps,\
 devscripts,ca-certificates,fakeroot,pkg-config,wget,dctrl-tools,\
 libdebconfclient0-dev,libdebian-installer4-dev,libtool,\
