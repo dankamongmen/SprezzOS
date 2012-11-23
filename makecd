@@ -59,7 +59,7 @@ simple-cdd --dist "$CODENAME" --profiles SprezzOS -b SprezzOS --auto-profiles Sp
 	--local-packages "$PKGS" --kernel-packages "$KPKGS"
 
 cleancd () {
-	fusermount -u "$tmp"
+	sudo fusermount -u "$tmp"
 	rmdir "$tmp"
 	chmod -R +w "$tmp2"
 	rm -rf "$tmp2"
