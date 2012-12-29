@@ -24,8 +24,10 @@ libdebconfclient0-dev,libdebian-installer4-dev,libtool,\
 libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,\
 gnupg-agent,pinentry-curses,librsvg2-bin,gawk,grub-efi-amd64-bin,\
 xorriso,libwww-perl,libcrypt-ssleay-perl \
+	--keyring=~/.gnupg/trustedkeys.gpg \
 	--exclude=pinentry-x11,pinentry-gtk2 \
-	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI"
+	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI" \
+	http://www.sprezzatech.com/apt
 chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UTF-8 | debconf-communicate"
 chroot "$DI" /bin/sh -c "echo set locales/default_environment_locale en_US.UTF-8 | debconf-communicate"
 echo "en_US.UTF-8 UTF-8" | tee -a "$DI/etc/locale.gen"
