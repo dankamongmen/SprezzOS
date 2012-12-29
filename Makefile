@@ -4,10 +4,10 @@
 # Kernel version
 # The x.y.0 releases are just "x.y" upstream, annoyingly. Come x.y.0, LINUXORIG
 # goes to a major.minor, and .0 is appended to UPSTREAM. Sucks, I know.
-#LINUXORIG:=3.7.0
-#UPSTREAM:=$(LINUXORIG)
-LINUXORIG:=3.7
-UPSTREAM:=$(LINUXORIG).0
+LINUXORIG:=3.7.1
+UPSTREAM:=$(LINUXORIG)
+#LINUXORIG:=3.7
+#UPSTREAM:=$(LINUXORIG).0
 
 KVER:=$(UPSTREAM)-1
 ABINAME:=3.7.0-1
