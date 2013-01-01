@@ -38,7 +38,7 @@ if [ $SPREZZ_UEFI -ne 0 ] ; then
 	KVMOPTS="-L uefi/ovmf -bios OVMF.fd -nographic"
 fi
 
-#KVMOPTS="$KVMOPTS -vga cirrus"
+KVMOPTS="$KVMOPTS -vga cirrus"
 
 rm -f "$1"
 qemu-img create "$1" 80G
