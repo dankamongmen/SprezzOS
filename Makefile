@@ -13,7 +13,7 @@ KVER:=$(UPSTREAM)-1
 ABINAME:=3.7.0-1
 
 CHROOT:=unstable
-DI:=debian-installer_20121114
+DI:=debian-installer_20121115
 DIBUILD:=$(CHROOT)/s-i/installer/build
 WGET:=wget --no-use-server-timestamps
 DBUILD:=dpkg-buildpackage -k9978711C
@@ -45,7 +45,7 @@ KERNBALL:=linux-$(LINUXORIG).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
 KERNDEB:=linux-image-$(ABINAME)-amd64_$(ABINAME)_amd64.deb
-GRUBTHEMEDEB:=sprezzos-grub2theme_1.0.7_all.deb
+GRUBTHEMEDEB:=sprezzos-grub2theme_1.0.8-SprezzOS1_all.deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
 THEME:=splash.png sprezzos.theme
