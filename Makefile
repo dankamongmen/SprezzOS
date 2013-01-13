@@ -4,7 +4,7 @@
 # Kernel version
 # The x.y.0 releases are just "x.y" upstream, annoyingly. Come x.y.0, LINUXORIG
 # goes to a major.minor, and .0 is appended to UPSTREAM. Sucks, I know.
-LINUXORIG:=3.7.1
+LINUXORIG:=3.7.2
 UPSTREAM:=$(LINUXORIG)
 #LINUXORIG:=3.7
 #UPSTREAM:=$(LINUXORIG).0
@@ -44,7 +44,7 @@ DIDEB:=/s-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(LINUXORIG).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
-KERNDEB:=linux-image-$(ABINAME)-amd64_$(ABINAME)_amd64.deb
+KERNDEB:=linux-image-$(ABINAME)-amd64_$(KVER)_amd64.deb
 GRUBTHEMEDEB:=sprezzos-grub2theme_1.0.8-SprezzOS1_all.deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes

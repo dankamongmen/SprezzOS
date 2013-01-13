@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+
+usage () { echo "usage: `basename $0` initrd" ; return 0 ; }
+usageerr () { usage >&2 ; return 1 ; }
+
+[ $# -eq 1 ] || usageerr
+
+ORIG="`readlink -f $1`"
+TDIR="`mktemp -d`"
+cd "$TDIR"
+gzip -dc "$ORIG" | cpio -i
+for i in `seq 0 7` ; do
+	[ -e dev/fb$i ] || mknod -m 666 dev/fb$i c 29 $i
+	[ -e dev/sr$i ] || mknod -m 660 dev/sr$i b 11 $i
+	[ -e dev/vcs$i ] || mknod -m 660 dev/vcs$i c 7 $i
+	[ -e dev/tty$i ] || mknod -m 666 dev/tty$i c 4 $i
+done
+[ -e dev/vcs ] || mknod -m 660 dev/vcs c 7 0
+[ -e dev/tty0 ] || mknod -m 666 dev/tty0 c 4 0
+[ -e dev/tty ] || mknod -m 666 dev/tty c 5 0
+[ -e dev/console ] || mknod -m 600 dev/console c 5 1
+[ -e dev/ptmx ] || mknod -m 666 dev/ptmx c 5 2
+mkdir -p dev/pts
+rm -fv usr/bin/bterm
+cp /media/build/rootskel/src/init init
+cp /media/build/rootskel/src/sbin/init-linux sbin/init
+cp /media/build/rootskel/src/sbin/fb* sbin/
+cp /media/build/rootskel/src/etc/inittab-linux etc/inittab
+find . | cpio --create --format='newc' | gzip -9 > "$ORIG"
+cd -
+rm -rf "$TDIR"
