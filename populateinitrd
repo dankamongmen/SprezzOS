@@ -7,6 +7,8 @@ usageerr () { usage >&2 ; return 1 ; }
 
 [ $# -eq 1 ] || usageerr
 
+OWD="`pwd`"
+
 ORIG="`readlink -f $1`"
 TDIR="`mktemp -d`"
 cd "$TDIR"
@@ -28,6 +30,8 @@ cp /media/build/rootskel/src/init init
 cp /media/build/rootskel/src/sbin/init-linux sbin/init
 cp /media/build/rootskel/src/sbin/fb* sbin/
 cp /media/build/rootskel/src/etc/inittab-linux etc/inittab
+rm -rf usr/share/fonts/*
+cp "$OWD"/*ttf usr/share/fonts/
 find . | cpio --create --format='newc' | gzip -9 > "$ORIG"
 cd -
 rm -rf "$TDIR"
