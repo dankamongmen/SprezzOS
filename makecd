@@ -6,15 +6,15 @@ set -e
 # packages in the last step of ISO creation.
 CODENAME=sid
 
-usage () { echo "usage: `basename $0` [ -f ] iso kernver dideb" ; return 0; }
+usage () { echo "usage: `basename $0` [ -f ] iso dideb" ; return 0; }
 usageerr () { usage >&2 ; return 1 ; }
 
 if [ $# -lt 2 ] ; then
 	usageerr
 else
-	[ $# -lt 5 ] || usageerr
+	[ $# -lt 4 ] || usageerr
 	# FIXME accept -f among last params!
-	if [ $# -eq 4 ] ; then
+	if [ $# -eq 3 ] ; then
 		if [ "$1" = "-f" ] ; then
 			shift
 		else
@@ -30,22 +30,18 @@ else
 fi
 
 ISO="$1"
-KPKGS="$2"
-DI="$3"
+DI="$2"
 
 if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 	echo "Warning; won't place output in images/." >&2
 	usageerr
 fi
 
-#KPKGS="$KPKGS,`pwd`/unstable/linux-image-$KVER-amd64-dbg_$KVER""_amd64.deb"
 PKGS="$DI,`pwd`/unstable/s-i/installer/build/apt.udeb/cache/archives"
 PKGS="$PKGS,`ls \`pwd\`/*.deb | tr [[:space:]] ,`"
-PKGS="$PKGS,$KPKGS"
+PKGS="$PKGS,`ls \`pwd\`/tmp/mirror/pool/main/l/linux-2.6/*.udeb | tr [[:space:]] ,`"
+#PKGS="$PKGS,`find tmp/mirror/pool/ -name \*deb | tr \[:space:\] ,`"
 
-for i in `echo $KPKGS | tr , \  ` ; do
-	[ -r "$i" ] || { echo "Kernel package $i didn't exist." >&2 ; exit 1; }
-done
 for i in `echo $PKGS | tr , \  ` ; do
 	[ -r "$i" ] || { echo "Package $i didn't exist." >&2 ; exit 1; }
 done
@@ -56,7 +52,7 @@ mkdir -p tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
 cp -r dest/* tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
 
 simple-cdd --dist "$CODENAME" --profiles SprezzOS -b SprezzOS --auto-profiles SprezzOS \
-	--local-packages "$PKGS" --kernel-packages "$KPKGS"
+	--local-packages "$PKGS"
 
 cleancd () {
 	sudo fusermount -u "$tmp"
