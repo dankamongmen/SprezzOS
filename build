@@ -29,7 +29,7 @@ libpam-modules,libslang2,libapt-pkg4.12,libbz2-1.0,sensible-utils,util-linux,\
 xorriso,libwww-perl,libcrypt-ssleay-perl,gcc-4.7-base,multiarch-support,\
 libpam-modules-bin\
 	--keyring=~/.gnupg/trustedkeys.gpg \
-	--exclude=pinentry-x11,pinentry-gtk2 \
+	--exclude=pinentry-x11,pinentry-gtk2,sysvinit,sysv-rc \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI" #\
 	#http://www.sprezzatech.com/apt
 chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UTF-8 | debconf-communicate"
