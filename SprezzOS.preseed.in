@@ -17,7 +17,7 @@
 # installation of a set of packages in some other way.
 
 # don't install any tasks, but run aptitude
-tasksel   tasksel/first multiselect manual package selection
+tasksel   tasksel/first multiselect standard
 #tasksel tasksel/desktop multiselect xfce
 #tasksel   tasksel/first multiselect Desktop environment
 #tasksel  tasksel/first multiselect Web server, Mail server, DNS server
@@ -100,8 +100,8 @@ d-i     popularity-contest/participate  boolean true
 man-db	man-db/install-setuid	boolean	true
 
 # Kernel configuration -- select all drivers
-bootstrap-base base-installer/initramfs-tools/driver-policy select most
-bootstrap-base base-installer/kernel/initramfs-tools/driver-policy string most
+#bootstrap-base base-installer/initramfs-tools/driver-policy select most
+#bootstrap-base base-installer/kernel/initramfs-tools/driver-policy string most
 
 # extra settings
 console-setup		console-setup/charmap47		select	UTF-8
@@ -115,6 +115,6 @@ postfix			postfix/main_mailer_type	select Local only
 cpufrequtils		cpufrequtils/enable		boolean	true
 
 # extra packages to install
-d-i pkgsel/include string systemd libudev1 sudo fbterm postfix mingetty sprezzos-grub2theme dnsmasq xfonts-terminus fonts-linuxlibertine iucode-tool intel-microcode amd64-microcode vim-nox kbd openresolv dnsutils openntpd fonts-liberation iptables cpufrequtils console-setup ncurses-term less fbv-udeb
+d-i pkgsel/include string multiarch-support systemd libudev1 sudo fbterm postfix mingetty sprezzos-grub2theme dnsmasq xfonts-terminus fonts-linuxlibertine iucode-tool intel-microcode amd64-microcode vim-nox kbd openresolv dnsutils openntpd fonts-liberation iptables cpupower console-setup ncurses-term less zsh
 
 d-i preseed/late_command string in-target update-alternatives --set editor /usr/bin/vim.nox ; in-target sed -i 's/^FONTFACE=.*/FONTFACE=""/' /etc/default/console-setup
