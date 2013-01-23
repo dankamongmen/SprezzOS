@@ -52,7 +52,9 @@ mkdir -p tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
 cp -r dest/* tmp/mirror/dists/"$CODENAME"/main/installer-amd64/current/images/
 
 simple-cdd --dist "$CODENAME" --profiles SprezzOS -b SprezzOS --auto-profiles SprezzOS \
-	--local-packages "$PKGS"
+	--local-packages "$PKGS" --kernel-packages `pwd`/linux-image-3.7-trunk-amd64_3.7.4-1_amd64.deb,`pwd`/linux-image-3.7-trunk-amd64-dbg_3.7.4-1_amd64.deb
+
+
 
 cleancd () {
 	sudo fusermount -u "$tmp"
