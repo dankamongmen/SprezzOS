@@ -81,11 +81,12 @@ d-i apt-setup/local0/source boolean true
 ###### Mailer configuration.
 # During a normal install, exim asks only two questions. Here's how to
 # avoid even those. More complicated preseeding is possible.
-exim4-config  exim4/dc_eximconfig_configtype  select no configuration at this time
+# nlb: i don't want exim at all
+#exim4-config  exim4/dc_eximconfig_configtype  select no configuration at this time
 # It's a good idea to set this to whatever user account you choose to
 # create. Leaving the value blank results in postmaster mail going to
 # /var/mail/mail.
-exim4-config  exim4/dc_postmaster   string 
+#exim4-config  exim4/dc_postmaster   string 
 
 
 ### skip some annoying installation status notes
