@@ -101,8 +101,8 @@ d-i     popularity-contest/participate  boolean true
 man-db	man-db/install-setuid	boolean	true
 
 # Kernel configuration -- select all drivers
-#bootstrap-base base-installer/initramfs-tools/driver-policy select most
-#bootstrap-base base-installer/kernel/initramfs-tools/driver-policy string most
+bootstrap-base base-installer/initramfs-tools/driver-policy select most
+bootstrap-base base-installer/kernel/initramfs-tools/driver-policy string most
 
 # extra settings
 console-setup		console-setup/charmap47		select	UTF-8
@@ -118,4 +118,5 @@ cpufrequtils		cpufrequtils/enable		boolean	true
 # extra packages to install
 d-i pkgsel/include string multiarch-support systemd libudev1 sudo fbterm postfix mingetty sprezzos-grub2theme dnsmasq xfonts-terminus fonts-linuxlibertine iucode-tool intel-microcode amd64-microcode vim-nox kbd openresolv dnsutils openntpd fonts-liberation iptables cpupower console-setup ncurses-term less zsh linux-image-amd64
 
+d-i preseed/late_command string in-target update-alternatives --set editor /usr/bin/vim.nox ; in-target sed -i 's/^FONTFACE=.*/FONTFACE=""/' /etc/default/console-setup
 d-i preseed/late_command string in-target update-alternatives --set editor /usr/bin/vim.nox ; in-target sed -i 's/^FONTFACE=.*/FONTFACE=""/' /etc/default/console-setup
