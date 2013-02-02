@@ -67,7 +67,6 @@ cp -v local "$DI/s-i/installer/build/pkg-lists/"
 for i in "$@" ; do
 	cp -v "$i" "$DI/s-i/installer/build/localudebs"
 done
-cp profiles/SprezzOS.preseed "$DI/s-i/installer/build"
 cp /etc/machine-id "$DI/etc/machine-id"
 echo "mtools_skip_check=1" >> "$DI/etc/mtools.conf"
 

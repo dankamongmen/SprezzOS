@@ -28,6 +28,7 @@ BUILDK:=kernelbuild
 MAKECD:=makecd
 RUNCD:=runcd
 UPDATE:=update
+BUILDSEED:=$(CHROOT)/s-i/installer/build/SprezzOS.preseed
 
 # simple-cdd builds from subdirs, and needs full paths as input
 CONF:=profiles/SprezzOS.conf
@@ -81,8 +82,11 @@ kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK)
 	@[ ! -d $(CHROOT)/orig ] || sudo rm -rf $(CHROOT)/orig
 	sudo chroot $(CHROOT) /$(BUILDK) $(UPSTREAM)
 
-$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB) $(SEED)
+$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB) $(BUILDSEED)
 	sudo chroot $(CHROOT) /$(BUILDIN)
+
+$(BUILDSEED): $(SEED)
+	sudo cp -v $< $@
 
 udebs: $(CHROOT)/$(BUILDU)
 	sudo chroot $(CHROOT) /$(BUILDU)
