@@ -45,7 +45,6 @@ DIDEB:=/s-i/$(DI)_amd64.deb
 KERNBALL:=linux-$(LINUXORIG).tar.bz2
 WORLD:=$(CHROOT)/world/README
 FONT:=unicode.pf2
-GRUBTHEMEDEB:=sprezzos-grub2theme_1.0.8-SprezzOS2_all.deb
 GRUBCONF:=grub.cfg
 EXCLUDES:=excludes
 THEME:=splash.png sprezzos.theme
@@ -63,14 +62,9 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 	sudo chroot $(CHROOT) /$(BUILDW)
 
 # ISO creation
-DEBS:=$(GRUBTHEMEDEB)
-
 #./$< -f $@ $(CHROOT)/$(DIDEB)
-$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) $(DEBS) $(GRUBCONF) $(EXCLUDES)
+$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME)
 	./$< $@ $(CHROOT)/$(DIDEB)
-
-$(GRUBTHEMEDEB):
-	$(WGET) -O$@ http://www.sprezzatech.com/apt/pool/main/s/sprezzos-grub2theme/$(notdir $(GRUBTHEMEDEB))
 
 $(PROFILE): $(PACKIN) $(MAKEFILE)
 	@[ -d $(@D) ] || mkdir -p $(@D)
@@ -87,7 +81,7 @@ kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK)
 	@[ ! -d $(CHROOT)/orig ] || sudo rm -rf $(CHROOT)/orig
 	sudo chroot $(CHROOT) /$(BUILDK) $(UPSTREAM)
 
-$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB)
+$(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB) $(SEED)
 	sudo chroot $(CHROOT) /$(BUILDIN)
 
 udebs: $(CHROOT)/$(BUILDU)
@@ -115,7 +109,7 @@ $(CHROOT)/$(BUILDU): $(BUILDU) $(CHROOT)/$(BUILDIN)
 $(CHROOT)/$(BUILDW): $(BUILDW) $(CHROOT)/$(BUILDIN)
 	sudo cp -fv $< $@
 
-$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) $(SEED) local $(BASHRC)
+$(CHROOT)/$(BUILDIN): $(BUILD) $(BUILDIN) $(PACKAGES) local $(BASHRC)
 	@[ ! -e $(@D) ] || { echo "$(@D) exists. Remove it with 'make cleanchroot'." >&2 ; exit 1 ; }
 	sudo ./$< $(@D)
 	sudo cp -fv $< $(BUILDIN) $(@D)
@@ -142,7 +136,7 @@ $(FONT): /usr/share/fonts/X11/misc/ter-u20b_unicode.pcf.gz
 	grub-mkfont -v -a --no-bitmap $< -o $@
 
 clean: cleanchroot
-	rm -rf -- tmp $(wildcard $(TESTDISK)*) images $(IMG) profiles $(DEBS)
+	rm -rf -- tmp $(wildcard $(TESTDISK)*) images $(IMG) profiles
 	sudo rm -rf -- dibuild
 
 clobber: clean

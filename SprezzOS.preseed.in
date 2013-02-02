@@ -16,7 +16,7 @@
 # aptitude. You can also choose to install no tasks, and force the
 # installation of a set of packages in some other way.
 
-# don't install any tasks, but run aptitude
+# don't install any extra tasksets
 tasksel   tasksel/first multiselect standard
 #tasksel tasksel/desktop multiselect xfce
 #tasksel   tasksel/first multiselect Desktop environment
@@ -72,6 +72,7 @@ d-i netcfg/wireless_wep string
 
 ###### Apt setup.
 base-config apt-setup/security-updates  boolean true
+base-config apt-setup/services-select multiselect security
 d-i apt-setup/non-free  boolean true
 d-i apt-setup/contrib boolean true
 d-i apt-setup/local0/repository string deb http://www.sprezzatech.com/apt/ unstable main contrib non-free
@@ -101,7 +102,7 @@ d-i     popularity-contest/participate  boolean true
 man-db	man-db/install-setuid	boolean	true
 
 # Kernel configuration -- select all drivers
-bootstrap-base base-installer/initramfs-tools/driver-policy select most
+bootstrap-base base-installer/initramfs-tools/driver-policy select generic
 bootstrap-base base-installer/kernel/initramfs-tools/driver-policy string most
 
 # extra settings
@@ -116,7 +117,8 @@ postfix			postfix/main_mailer_type	select Local only
 cpufrequtils		cpufrequtils/enable		boolean	true
 
 # extra packages to install
-d-i pkgsel/include string multiarch-support systemd libudev1 sudo fbterm postfix mingetty sprezzos-grub2theme dnsmasq xfonts-terminus fonts-linuxlibertine iucode-tool intel-microcode amd64-microcode vim-nox kbd openresolv dnsutils openntpd fonts-liberation iptables cpupower console-setup ncurses-term less zsh linux-image-amd64
+d-i pkgsel/include string multiarch-support systemd libudev1 sudo fbterm postfix mingetty dnsmasq xfonts-terminus fonts-linuxlibertine iucode-tool intel-microcode amd64-microcode vim-nox kbd openresolv dnsutils openntpd fonts-liberation iptables cpupower console-setup ncurses-term less zsh \
+	linux-image-amd64 #\
+	#sprezzos-grub2theme
 
-d-i preseed/late_command string in-target update-alternatives --set editor /usr/bin/vim.nox ; in-target sed -i 's/^FONTFACE=.*/FONTFACE=""/' /etc/default/console-setup
-d-i preseed/late_command string in-target update-alternatives --set editor /usr/bin/vim.nox ; in-target sed -i 's/^FONTFACE=.*/FONTFACE=""/' /etc/default/console-setup
+d-i preseed/late_command string in-target aptitude ; in-target update-alternatives --set editor /usr/bin/vim.nox ; in-target sed -i 's/^FONTFACE=.*/FONTFACE=""/' /etc/default/console-setup
