@@ -85,7 +85,7 @@ kernel: $(CHROOT)/linux-$(UPSTREAM)/debian $(CHROOT)/$(BUILDK)
 $(CHROOT)/$(DIDEB): $(CHROOT)/$(BUILDIN) $(CHROOT)/s-i/installer/build/sources.list.udeb.local $(CHROOT)/s-i/installer/build/localudebs/$(LIBCUDEB) $(BUILDSEED)
 	sudo chroot $(CHROOT) /$(BUILDIN)
 
-$(BUILDSEED): $(SEED)
+$(BUILDSEED): $(SEED) $(CHROOT)/$(BUILDIN)
 	sudo cp -v $< $@
 
 udebs: $(CHROOT)/$(BUILDU)
