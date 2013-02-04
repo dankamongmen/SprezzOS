@@ -142,6 +142,8 @@ d-i pkgsel/include string multiarch-support \
 	zsh \
 	mcelog \
 	linux-image-amd64 \
-	sprezzos-grub2theme
+	sprezzos-grub2theme \
+	build-essential \
+	openssh-server
 
-d-i preseed/late_command string in-target aptitude ; in-target update-alternatives --set editor /usr/bin/vim.nox ; in-target sed -i 's/^FONTFACE=.*/FONTFACE=""/' /etc/default/console-setup
+d-i preseed/late_command string in-target aptitude ; in-target update-alternatives --set editor /usr/bin/vim.tiny ; in-target sed -i 's/^FONTFACE=.*/FONTFACE=""/' /etc/default/console-setup
