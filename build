@@ -18,16 +18,12 @@ shift
 [ ! -d "$DI" ] || rm -rf "$DI"
 
 debootstrap --include=locales,dh-di,less,git,mr,vim-nox,autoconf,libselinux1,\
-automake,bash,coreutils,uuid-dev,zlib1g-dev,debian-keyring,aptitude,dialog,\
+automake,bash,coreutils,uuid-dev,zlib1g-dev,aptitude,dialog,\
 procps,hostname,libacl1,libattr1,dash,tar,findutils,liblzma5,mawk,grep,\
 devscripts,ca-certificates,fakeroot,pkg-config,wget,dctrl-tools,perl-base,\
 libdebconfclient0-dev,libdebian-installer4-dev,libtool,libgcc1,debconf,\
 libsigsegv2,libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,\
-gnupg-agent,pinentry-curses,librsvg2-bin,gawk,grub-efi-amd64-bin,libncursesw5,\
-debianutils,libtinfo5,libcurses-ui-perl,base-passwd,insserv,libpam0g,\
-libpam-modules,libslang2,libapt-pkg4.12,libbz2-1.0,sensible-utils,util-linux,\
-xorriso,libwww-perl,libcrypt-ssleay-perl,gcc-4.7-base,multiarch-support,\
-libpam-modules-bin\
+gnupg-agent,pinentry-curses,librsvg2-bin,gawk \
 	--keyring=~/.gnupg/trustedkeys.gpg \
 	--exclude=pinentry-x11,pinentry-gtk2,sysvinit,sysv-rc \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI" #\
@@ -67,7 +63,6 @@ cp -v local "$DI/s-i/installer/build/pkg-lists/"
 for i in "$@" ; do
 	cp -v "$i" "$DI/s-i/installer/build/localudebs"
 done
-cp /etc/machine-id "$DI/etc/machine-id"
 echo "mtools_skip_check=1" >> "$DI/etc/mtools.conf"
 
 echo "Now run 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."
