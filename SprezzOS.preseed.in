@@ -144,6 +144,7 @@ d-i pkgsel/include string multiarch-support \
 	linux-image-amd64 \
 	sprezzos-grub2theme \
 	build-essential \
+	git \
 	openssh-server
 
 d-i preseed/late_command string in-target aptitude ; in-target update-alternatives --set editor /usr/bin/vim.tiny
