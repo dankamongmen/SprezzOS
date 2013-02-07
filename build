@@ -63,6 +63,5 @@ cp -v local "$DI/s-i/installer/build/pkg-lists/"
 for i in "$@" ; do
 	cp -v "$i" "$DI/s-i/installer/build/localudebs"
 done
-echo "mtools_skip_check=1" >> "$DI/etc/mtools.conf"
 
 echo "Now run 'sudo chroot \"$DI\" /innerbuild' to perform inner building..."

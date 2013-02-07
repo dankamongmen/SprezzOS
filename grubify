@@ -32,7 +32,8 @@ cp -v memtest86+.bin "$tmp2"
 cp -v $GBOOTFILES "$tmp2/boot"
 mkdir "$tmp2/simple-cdd"
 cp -v profiles/SprezzOS.preseed "$tmp2/simple-cdd/"
-cp -r initrd.gz "$tmp2/install.amd"
+cp -vr initrd.gz "$tmp2/install.amd"
+#cp -rv vmlinuz "$tmp2/install.amd"
 
 grub-mkrescue --modules="linux iso9660 fshelp font loopback ls gfxterm boot" \
 	-o "$ISO" "$tmp" "$tmp2"
