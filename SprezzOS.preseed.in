@@ -71,10 +71,12 @@ user-setup-udeb passwd/shadow boolean true
 d-i netcfg/wireless_wep string 
 
 ###### Apt setup.
-base-config apt-setup/security-updates  boolean true
-base-config apt-setup/services-select multiselect security
+base-config apt-setup/security-updates  boolean false
+#base-config apt-setup/services-select multiselect security
 d-i apt-setup/non-free  boolean true
 d-i apt-setup/contrib boolean true
+d-i mirror/suite string unstable
+d-i mirror/udeb/suite string unstable
 d-i apt-setup/local0/repository string deb http://www.sprezzatech.com/apt/ unstable main contrib non-free
 d-i apt-setup/local0/key string file:///usr/share/sprezzatech/sprezzos.key
 d-i apt-setup/local0/source boolean true
@@ -136,7 +138,6 @@ d-i pkgsel/include string multiarch-support \
 	fonts-liberation \
 	iptables \
 	cpupower \
-	console-setup \
 	ncurses-term \
 	less \
 	zsh \
@@ -145,6 +146,7 @@ d-i pkgsel/include string multiarch-support \
 	sprezzos-grub2theme \
 	build-essential \
 	git \
+	console-setup \
 	openssh-server
 
 d-i preseed/late_command string in-target aptitude ; in-target update-alternatives --set editor /usr/bin/vim.tiny

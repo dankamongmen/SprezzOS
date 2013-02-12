@@ -12,39 +12,25 @@ MEM=2048
 [ $# -gt 1 ] || usageerr
 
 SPREZZ_USB=0
-SPREZZ_UEFI=0
 
 if [ $1 == "--uefi" ] ; then
-	SPREZZ_UEFI=1
+	KVMOPTS="-L uefi/ovmf -bios OVMF.fd " #-nographic"
 	shift
-elif [ $1 == "--usb" ] ; then
+fi
+if [ $1 == "--usb" ] ; then
 	SPREZZ_USB=1
 	shift
 elif [ $# -gt 2 ] ; then
 	usageerr
 fi
 
-if [ $1 == "--uefi" ] ; then
-	SPREZZ_UEFI=1
-	shift
-elif [ $1 == "--usb" ] ; then
-	SPREZZ_USB=1
-	shift
-elif [ $# -gt 2 ] ; then
-	usageerr
-fi
-
-if [ $SPREZZ_UEFI -ne 0 ] ; then
-	KVMOPTS="-L uefi/ovmf -bios OVMF.fd -nographic -serial stdio"
-fi
-
-KVMOPTS="$KVMOPTS -vga cirrus"
+KVMOPTS="$KVMOPTS -vga cirrus -enable-kvm"
 
 rm -f "$1"
 qemu-img create "$1" 80G
 qemu-img create "$1-1" 120G
 qemu-img create "$1-2" 120G
-KVMOPTS="$KVMOPTS -drive file=$1-1 -drive file=$1-2 " #-serial stdio"
+KVMOPTS="$KVMOPTS -drive file=$1-1 -drive file=$1-2 -serial stdio"
 if [ $SPREZZ_USB -ne 0 ] ; then
 	kvm --hda "$1" -drive file="$2",if=none,id=b,boot=on -m $MEM -usb -device usb-storage,drive=b $KVMOPTS
 else

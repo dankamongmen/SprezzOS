@@ -64,7 +64,7 @@ world: $(WORLD) $(CHROOT)/$(BUILDW)
 
 # ISO creation
 #./$< -f $@ $(CHROOT)/$(DIDEB)
-$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME)
+$(IMG): $(MAKECD) $(CONF) $(PROFILE) $(CHROOT)/$(DIDEB) $(FONT) $(THEME) initrd.gz
 	./$< $@ $(CHROOT)/$(DIDEB)
 
 $(PROFILE): $(PACKIN) $(MAKEFILE)
