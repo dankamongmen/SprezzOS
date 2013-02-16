@@ -78,7 +78,7 @@ d-i mirror/suite string unstable
 d-i mirror/codename string unstable
 d-i mirror/udeb/suite string unstable
 d-i mirror/udeb/codename string unstable
-d-i base-installer/debootstrap_script string unstable
+d-i base-installer/debootstrap_script string /usr/share/debootstrap/scripts/sid
 d-i apt-setup/local0/repository string deb http://www.sprezzatech.com/apt/ unstable main contrib non-free
 d-i apt-setup/local0/key string file:///usr/share/sprezzatech/sprezzos.key
 d-i apt-setup/local0/source boolean true
@@ -154,4 +154,4 @@ d-i pkgsel/include string multiarch-support \
 	console-setup \
 	openssh-server
 
-d-i preseed/late_command string in-target aptitude ; in-target update-alternatives --set editor /usr/bin/vim.tiny
+d-i preseed/late_command string in-target update-alternatives --set editor /usr/bin/vim.tiny
