@@ -38,7 +38,7 @@ if [ "`readlink -e \`dirname $ISO\``" = "`readlink -e images`" ] ; then
 fi
 
 PKGS="$DI,`pwd`/unstable/s-i/installer/build/apt.udeb/cache/archives"
-PKGS="$PKGS,`find tmp/mirror/pool -iname \*.deb -print | tr [:space:] ,`"
+PKGS="$PKGS,`ls \`pwd\`/*.udeb | tr [[:space:]] ,`"
 
 for i in `echo $PKGS | tr , \  ` ; do
 	[ -r "$i" ] || { echo "Package $i didn't exist." >&2 ; exit 1; }
