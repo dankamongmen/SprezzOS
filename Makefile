@@ -14,7 +14,7 @@ KVER:=$(UPSTREAM)-1
 ABINAME:=3.7-trunk
 
 CHROOT:=unstable
-DI:=debian-installer_20130211
+DI:=debian-installer_20130212
 DIBUILD:=$(CHROOT)/s-i/installer/build
 WGET:=wget --no-use-server-timestamps
 DBUILD:=dpkg-buildpackage -k9978711C
