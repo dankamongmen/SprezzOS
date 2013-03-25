@@ -24,9 +24,8 @@ devscripts,ca-certificates,fakeroot,pkg-config,wget,dctrl-tools,perl-base,\
 libdebconfclient0-dev,libdebian-installer4-dev,libtool,libgcc1,debconf,\
 libsigsegv2,libncursesw5-dev,libklibc-dev,autoconf-archive,makedev,\
 gnupg-agent,pinentry-curses,librsvg2-bin,gawk,gzip \
-	--keyring=~/.gnupg/trustedkeys.gpg \
+	--keyring=$HOME/.gnupg/trustedkeys.gpg \
 	--exclude=pinentry-x11,pinentry-gtk2,sysvinit,sysv-rc \
-	--no-check-gpg \
 	--unpack-tarball=`pwd`/packages.tgz --variant=buildd unstable "$DI" \
 	http://www.sprezzatech.com/apt
 chroot "$DI" /bin/sh -c "echo set locales/locales_to_be_generated en_US.UTF-8 UTF-8 | debconf-communicate"
