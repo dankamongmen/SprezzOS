@@ -4,14 +4,14 @@
 # Kernel version
 # The x.y.0 releases are just "x.y" upstream, annoyingly. Come x.y.0, LINUXORIG
 # goes to a major.minor, and .0 is appended to UPSTREAM. Sucks, I know.
-LINUXORIG:=3.7.4
+LINUXORIG:=3.8.8
 UPSTREAM:=$(LINUXORIG)
 #LINUXORIG:=3.7
 #UPSTREAM:=$(LINUXORIG).0
 
 KVER:=$(UPSTREAM)-1
 #ABINAME:=3.7.1-1
-ABINAME:=3.7-trunk
+ABINAME:=3.8-trunk
 
 CHROOT:=unstable
 DI:=debian-installer_20130212
